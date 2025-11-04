@@ -208,7 +208,7 @@ Dimmi cosa cercavi →
 ## Meta Descriptions & SEO
 
 ### Homepage
-Mattia Compagnucci — Product Manager con background in design e sviluppo. Aiuto team e aziende a costruire prodotti che funzionano davvero, unendo strategia, design e tech.
+Mattia De Luca — Product Manager con background in design e sviluppo. Aiuto team e aziende a costruire prodotti che funzionano davvero, unendo strategia, design e tech.
 
 ### About/Journey Page
 Dal design al codice al product management. Il percorso (non convenzionale) di chi ha imparato facendo tutti gli errori possibili prima di capire come si costruiscono prodotti.

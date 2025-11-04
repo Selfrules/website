@@ -10,22 +10,59 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Neobrutalist color palette
+        // Extended Neobrutalist color palette with gradations
         primary: {
+          50: '#FFFBEB',
+          100: '#FFF5CC',
+          200: '#FFEB99',
+          300: '#FFE066',
           DEFAULT: '#FFD93D',
-          light: '#FFEB99',
-          dark: '#E6C300',
+          400: '#FFC700',
+          500: '#E6B000',
+          600: '#CC9900',
+          700: '#B38600',
+          800: '#997300',
+          900: '#806000',
         },
         secondary: {
+          50: '#F3F1FF',
+          100: '#E5E1FF',
+          200: '#C9C2FF',
+          300: '#A29BF8',
           DEFAULT: '#6C5CE7',
-          light: '#A29BF8',
-          dark: '#5344C5',
+          400: '#5B4BD9',
+          500: '#5344C5',
+          600: '#4236A3',
+          700: '#362D85',
+          800: '#2B2467',
+          900: '#1F1B4A',
         },
         accent: {
+          50: '#FFF1F1',
+          100: '#FFE4E4',
+          200: '#FFBEBE',
+          300: '#FF9999',
           DEFAULT: '#FF6B6B',
-          light: '#FF9999',
-          dark: '#FF3838',
+          400: '#FF4747',
+          500: '#FF3838',
+          600: '#E61E1E',
+          700: '#CC0000',
+          800: '#B30000',
+          900: '#990000',
         },
+        // Neon accent colors from examples
+        neon: {
+          cyan: '#00D9FF',
+          pink: '#FF0099',
+          lime: '#84CC16',
+          orange: '#F97316',
+          blue: '#3B82F6',
+          purple: '#8B5CF6',
+          yellow: '#EAB308',
+          green: '#10B981',
+          red: '#EF4444',
+        },
+        // Original brutalist system colors
         brutalist: {
           border: '#000000',
           shadow: '#000000',
@@ -93,9 +130,29 @@ const config: Config = {
       transitionTimingFunction: {
         'brutal': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
       },
+      backgroundImage: {
+        'dot-pattern': 'radial-gradient(circle, currentColor 1px, transparent 1px)',
+        'grid-pattern': 'linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)',
+        'diagonal-lines': 'repeating-linear-gradient(45deg, currentColor, currentColor 1px, transparent 1px, transparent 15px)',
+        'diagonal-lines-reverse': 'repeating-linear-gradient(-45deg, currentColor, currentColor 1px, transparent 1px, transparent 15px)',
+      },
+      backgroundSize: {
+        'dot-size': '20px 20px',
+        'grid-size': '40px 40px',
+        'grid-size-sm': '20px 20px',
+        'grid-size-lg': '60px 60px',
+      },
       animation: {
         'brutal-bounce': 'brutal-bounce 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)',
         'brutal-slide': 'brutal-slide 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'float': 'float 3s ease-in-out infinite',
+        'float-delayed': 'float 3s ease-in-out 1s infinite',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'marquee': 'marquee var(--marquee-duration, 20s) linear infinite',
+        'marquee-reverse': 'marquee-reverse var(--marquee-duration, 20s) linear infinite',
+        'morph': 'morph 8s ease-in-out infinite',
+        'rotate-slow': 'rotate 20s linear infinite',
+        'rotate-reverse': 'rotate-reverse 20s linear infinite',
       },
       keyframes: {
         'brutal-bounce': {
@@ -105,6 +162,30 @@ const config: Config = {
         'brutal-slide': {
           '0%': { transform: 'translateX(-100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(10deg)' },
+        },
+        'marquee': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(calc(-100% - var(--marquee-gap, 2rem)))' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(calc(-100% - var(--marquee-gap, 2rem)))' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'morph': {
+          '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+          '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+        },
+        'rotate': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'rotate-reverse': {
+          '0%': { transform: 'rotate(360deg)' },
+          '100%': { transform: 'rotate(0deg)' },
         },
       },
     },

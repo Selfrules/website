@@ -1,0 +1,83 @@
+import { Newspaper } from 'lucide-react';
+import { getAllPosts } from '@/lib/blog/mdx';
+import BlogCard from '@/components/blog/BlogCard';
+import CTAButton from '@/components/ui/CTAButton';
+
+interface BlogProps {
+  locale: string;
+}
+
+export default async function Blog({ locale }: BlogProps) {
+  const posts = await getAllPosts();
+  const latestPosts = posts.slice(0, 6); // Show latest 6 posts
+
+  const translations = {
+    it: {
+      subtitle: 'Blog',
+      title: 'Ultimi pensieri',
+      description: 'Storie di fallimenti, successi e tutto quello che sta in mezzo. Senza filtri.',
+      viewAll: 'Leggi tutti gli articoli',
+      noPosts: 'Nuovi articoli in arrivo...',
+    },
+    en: {
+      subtitle: 'Blog',
+      title: 'Latest thoughts',
+      description: 'Stories of failures, successes, and everything in between. No filters.',
+      viewAll: 'Read all articles',
+      noPosts: 'New articles coming soon...',
+    },
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.it;
+
+  return (
+    <section className="py-20 px-6 md:px-12 bg-gray-50 dark:bg-gray-900/50">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <Newspaper className="w-5 h-5 text-primary" />
+            <span className="text-primary font-bold uppercase tracking-wider text-sm">
+              {t.subtitle}
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-brutalist-text-light dark:text-brutalist-text-dark">
+            {t.title}
+          </h2>
+          <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
+            {t.description}
+          </p>
+        </div>
+
+        {/* Blog Grid */}
+        {latestPosts.length > 0 ? (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {latestPosts.map((post, index) => (
+                <BlogCard
+                  key={post.slug}
+                  post={post}
+                  locale={locale}
+                  featured={index === 0}
+                />
+              ))}
+            </div>
+
+            {/* View All Button */}
+            <div className="text-center">
+              <CTAButton href={`/${locale}/blog`} variant="secondary">
+                {t.viewAll}
+              </CTAButton>
+            </div>
+          </>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-lg text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+              {t.noPosts}
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}

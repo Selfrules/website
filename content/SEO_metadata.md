@@ -6,7 +6,7 @@
 
 **Title Tag** (60 chars max)
 ```
-Mattia Compagnucci — Product Manager, Designer, Developer
+Mattia De Luca — Product Manager, Designer, Developer
 ```
 
 **Meta Description** (155-160 chars max)
@@ -16,7 +16,7 @@ Product Manager con 12 anni tra design e sviluppo. Aiuto team a costruire prodot
 
 **OG Title** (Facebook/LinkedIn)
 ```
-Mattia Compagnucci — Il PM che parla design, tech e business
+Mattia De Luca — Il PM che parla design, tech e business
 ```
 
 **OG Description**
@@ -26,7 +26,7 @@ Dal design al codice al product management. Il percorso non convenzionale di chi
 
 **OG Image Alt**
 ```
-Mattia Compagnucci — Product Manager specializzato in design-tech-business integration
+Mattia De Luca — Product Manager specializzato in design-tech-business integration
 ```
 
 **Twitter Card**
@@ -41,7 +41,7 @@ product management, product manager, design thinking, web development, full-stac
 
 **Canonical URL**
 ```
-https://mattiacompagnucci.com/
+https://mattiaDe Luca.com/
 ```
 
 ---
@@ -50,7 +50,7 @@ https://mattiacompagnucci.com/
 
 **Title Tag**
 ```
-Mattia Compagnucci — Product Manager, Designer, Developer
+Mattia De Luca — Product Manager, Designer, Developer
 ```
 
 **Meta Description**
@@ -60,7 +60,7 @@ Product Manager with 12 years across design and development. I help teams build 
 
 **OG Title**
 ```
-Mattia Compagnucci — The PM who speaks design, tech, and business
+Mattia De Luca — The PM who speaks design, tech, and business
 ```
 
 **OG Description**
@@ -70,7 +70,7 @@ From design to code to product management. The unconventional path of someone wh
 
 **OG Image Alt**
 ```
-Mattia Compagnucci — Product Manager specialized in design-tech-business integration
+Mattia De Luca — Product Manager specialized in design-tech-business integration
 ```
 
 **Twitter Card**
@@ -85,7 +85,7 @@ product management, product manager, design thinking, web development, full-stac
 
 **Canonical URL**
 ```
-https://mattiacompagnucci.com/en/
+https://mattiaDe Luca.com/en/
 ```
 
 ---
@@ -96,7 +96,7 @@ https://mattiacompagnucci.com/en/
 
 **Title Tag**
 ```
-Blog — Riflessioni su design, dev e product | Mattia Compagnucci
+Blog — Riflessioni su design, dev e product | Mattia De Luca
 ```
 
 **Meta Description**
@@ -115,7 +115,7 @@ Quello che sto imparando (e condividendo)
 
 **Title Tag**
 ```
-Blog — Thoughts on design, dev, and product | Mattia Compagnucci
+Blog — Thoughts on design, dev, and product | Mattia De Luca
 ```
 
 **Meta Description**
@@ -136,7 +136,7 @@ What I'm learning (and sharing)
 
 **Title Tag Pattern**
 ```
-[Post Title] | Mattia Compagnucci
+[Post Title] | Mattia De Luca
 ```
 
 **Meta Description Pattern** (from first 155 chars of intro or custom excerpt)
@@ -148,7 +148,7 @@ What I'm learning (and sharing)
 
 Title Tag:
 ```
-Il design senza strategia è solo decorazione | Mattia Compagnucci
+Il design senza strategia è solo decorazione | Mattia De Luca
 ```
 
 Meta Description:
@@ -175,8 +175,8 @@ Progetti bellissimi che fallivano l'usability test. Come sono passato da "è bel
   "description": "[Meta description]",
   "author": {
     "@type": "Person",
-    "name": "Mattia Compagnucci",
-    "url": "https://mattiacompagnucci.com",
+    "name": "Mattia De Luca",
+    "url": "https://mattiaDe Luca.com",
     "jobTitle": "Product Manager",
     "alumniOf": "FLOWING",
     "worksFor": {
@@ -188,7 +188,7 @@ Progetti bellissimi che fallivano l'usability test. Come sono passato da "è bel
   "dateModified": "[ISO 8601 date]",
   "publisher": {
     "@type": "Person",
-    "name": "Mattia Compagnucci"
+    "name": "Mattia De Luca"
   },
   "image": "[Featured image URL]",
   "articleSection": "[Category: Design/Dev/Product/Personal/AMA]",
@@ -210,7 +210,7 @@ Progetti bellissimi che fallivano l'usability test. Come sono passato da "è bel
 
 Title Tag:
 ```
-Design without strategy is just decoration | Mattia Compagnucci
+Design without strategy is just decoration | Mattia De Luca
 ```
 
 Meta Description:
@@ -236,7 +236,7 @@ Beautiful projects that failed usability tests. How I moved from "it's beautiful
 
 **Title Tag**
 ```
-Il mio percorso — Da designer a developer a PM | Mattia Compagnucci
+Il mio percorso — Da designer a developer a PM | Mattia De Luca
 ```
 
 **Meta Description**
@@ -255,7 +255,7 @@ Il percorso al contrario
 
 **Title Tag**
 ```
-My journey — From designer to developer to PM | Mattia Compagnucci
+My journey — From designer to developer to PM | Mattia De Luca
 ```
 
 **Meta Description**
@@ -276,7 +276,7 @@ The backwards path
 
 **Title Tag**
 ```
-Collaboriamo — Consulenze, brainstorming, mentorship | Mattia Compagnucci
+Collaboriamo — Consulenze, brainstorming, mentorship | Mattia De Luca
 ```
 
 **Meta Description**
@@ -295,7 +295,7 @@ Come possiamo lavorare insieme
 
 **Title Tag**
 ```
-Work together — Consultations, brainstorming, mentorship | Mattia Compagnucci
+Work together — Consultations, brainstorming, mentorship | Mattia De Luca
 ```
 
 **Meta Description**
@@ -316,7 +316,7 @@ How we can work together
 
 **Title Tag**
 ```
-Chiedimi qualsiasi cosa — Q&A su design, dev, product | Mattia Compagnucci
+Chiedimi qualsiasi cosa — Q&A su design, dev, product | Mattia De Luca
 ```
 
 **Meta Description**
@@ -335,7 +335,7 @@ Chiedimi qualsiasi cosa
 
 **Title Tag**
 ```
-Ask me anything — Q&A on design, dev, product | Mattia Compagnucci
+Ask me anything — Q&A on design, dev, product | Mattia De Luca
 ```
 
 **Meta Description**
@@ -356,8 +356,8 @@ Ask me anything
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Mattia Compagnucci",
-  "url": "https://mattiacompagnucci.com",
+  "name": "Mattia De Luca",
+  "url": "https://mattiaDe Luca.com",
   "image": "[Profile photo URL]",
   "jobTitle": "Product Manager",
   "description": "Product Manager with background in design and web development. 12 years experience across design, full-stack development, and product strategy.",
@@ -377,8 +377,8 @@ Ask me anything
     "url": "https://www.qubicaamf.com"
   },
   "sameAs": [
-    "https://www.linkedin.com/in/mattiacompagnucci",
-    "https://github.com/mattiacompagnucci",
+    "https://www.linkedin.com/in/mattiaDe Luca",
+    "https://github.com/mattiaDe Luca",
     "https://twitter.com/mattiacomp"
   ],
   "knowsAbout": [
@@ -434,17 +434,17 @@ Ask me anything
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Mattia Compagnucci",
-  "url": "https://mattiacompagnucci.com",
+  "name": "Mattia De Luca",
+  "url": "https://mattiaDe Luca.com",
   "description": "Product Manager portfolio and blog about design, development, and product management",
   "author": {
     "@type": "Person",
-    "name": "Mattia Compagnucci"
+    "name": "Mattia De Luca"
   },
   "inLanguage": ["it-IT", "en-US"],
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://mattiacompagnucci.com/blog?q={search_term_string}",
+    "target": "https://mattiaDe Luca.com/blog?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -500,13 +500,13 @@ Ask me anything
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://mattiacompagnucci.com"
+      "item": "https://mattiaDe Luca.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "https://mattiacompagnucci.com/blog"
+      "item": "https://mattiaDe Luca.com/blog"
     },
     {
       "@type": "ListItem",
@@ -530,7 +530,7 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
 
-Sitemap: https://mattiacompagnucci.com/sitemap.xml
+Sitemap: https://mattiaDe Luca.com/sitemap.xml
 ```
 
 ---
@@ -553,16 +553,16 @@ Blog posts (old): priority 0.5, changefreq yearly
 
 **Homepage**
 ```html
-<link rel="alternate" hreflang="it" href="https://mattiacompagnucci.com/" />
-<link rel="alternate" hreflang="en" href="https://mattiacompagnucci.com/en/" />
-<link rel="alternate" hreflang="x-default" href="https://mattiacompagnucci.com/" />
+<link rel="alternate" hreflang="it" href="https://mattiaDe Luca.com/" />
+<link rel="alternate" hreflang="en" href="https://mattiaDe Luca.com/en/" />
+<link rel="alternate" hreflang="x-default" href="https://mattiaDe Luca.com/" />
 ```
 
 **Blog Post Example**
 ```html
-<link rel="alternate" hreflang="it" href="https://mattiacompagnucci.com/blog/design-senza-strategia" />
-<link rel="alternate" hreflang="en" href="https://mattiacompagnucci.com/en/blog/design-without-strategy" />
-<link rel="alternate" hreflang="x-default" href="https://mattiacompagnucci.com/blog/design-senza-strategia" />
+<link rel="alternate" hreflang="it" href="https://mattiaDe Luca.com/blog/design-senza-strategia" />
+<link rel="alternate" hreflang="en" href="https://mattiaDe Luca.com/en/blog/design-without-strategy" />
+<link rel="alternate" hreflang="x-default" href="https://mattiaDe Luca.com/blog/design-senza-strategia" />
 ```
 
 ---
@@ -597,7 +597,7 @@ Blog posts (old): priority 0.5, changefreq yearly
 <!-- Additional SEO -->
 <meta name="robots" content="index, follow">
 <meta name="language" content="Italian"> <!-- or English -->
-<meta name="author" content="Mattia Compagnucci">
+<meta name="author" content="Mattia De Luca">
 ```
 
 ---
@@ -605,7 +605,7 @@ Blog posts (old): priority 0.5, changefreq yearly
 ## Target Keywords by Page
 
 ### Homepage
-**Primary**: Product Manager, Mattia Compagnucci
+**Primary**: Product Manager, Mattia De Luca
 **Secondary**: design to development, full-stack product manager, product strategy
 **Long-tail**: product manager with design background, technical product manager Italy
 
@@ -682,9 +682,9 @@ Ask: /ask or /chiedimi
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Mattia Compagnucci - Product Management Consulting",
+  "name": "Mattia De Luca - Product Management Consulting",
   "description": "Product management consulting, mentorship, and strategic sessions",
-  "url": "https://mattiacompagnucci.com",
+  "url": "https://mattiaDe Luca.com",
   "telephone": "[Optional phone]",
   "priceRange": "€€",
   "address": {
