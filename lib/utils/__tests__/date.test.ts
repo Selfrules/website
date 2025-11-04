@@ -66,10 +66,10 @@ describe('date utils', () => {
       jest.useRealTimers()
     })
 
-    it('should return "today" for current date', () => {
+    it('should return "now" for current date', () => {
       const now = new Date('2024-03-15T12:00:00Z')
       const result = getRelativeTime(now, 'en')
-      expect(result).toContain('today')
+      expect(result).toContain('now')
     })
 
     it('should return relative time for recent past', () => {

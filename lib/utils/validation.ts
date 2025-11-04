@@ -190,13 +190,14 @@ export function validateBookingSlot(
   }
 
   // Check if it's within business hours (9 AM - 6 PM)
-  const hours = dateObj.getHours()
+  // Convert to UTC for consistent checking
+  const hours = dateObj.getUTCHours()
   if (hours < 9 || hours >= 18) {
     return { valid: false, message: 'Booking must be during business hours (9 AM - 6 PM)' }
   }
 
-  // Check if it's a weekday
-  const day = dateObj.getDay()
+  // Check if it's a weekday (use UTC)
+  const day = dateObj.getUTCDay()
   if (day === 0 || day === 6) {
     return { valid: false, message: 'Booking must be on a weekday (Monday-Friday)' }
   }
