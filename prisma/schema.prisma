@@ -1,12 +1,12 @@
 // Prisma schema for Mattia Portfolio Backend
-// Database: PostgreSQL
+// Database: SQLite (temporary for Phase 1 - will migrate to PostgreSQL)
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -15,7 +15,7 @@ model User {
   id        String   @id @default(cuid())
   email     String   @unique
   name      String?
-  preferences Json?  // Store user preferences like theme, language, etc.
+  preferences String?  // JSON string: Store user preferences like theme, language, etc.
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   
@@ -33,15 +33,15 @@ model BlogPost {
   id          String   @id @default(cuid())
   title       String
   slug        String   @unique
-  content     String   @db.Text // Full markdown content
-  excerpt     String?  @db.Text // Short summary
+  content     String   // Full markdown content
+  excerpt     String?  // Short summary
   category    String   // Design, Dev, Product, Personal, AMA
   locale      String   @default("en") // Language: 'en' or 'it'
   coverImage  String?  // URL to cover image
   readingTime Int?     // Estimated reading time in minutes
   published   Boolean  @default(false)
   publishedAt DateTime?
-  metadata    Json?    // SEO metadata, tags, etc.
+  metadata    String?  // JSON string: SEO metadata, tags, etc.
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   
@@ -56,10 +56,10 @@ model ChatConversation {
   id         String   @id @default(cuid())
   userId     String?  // Optional for anonymous users
   sessionId  String   // Browser session identifier
-  messages   Json     // Array of {role, content, timestamp}
+  messages   String   // JSON string: Array of {role, content, timestamp}
   category   String?  // lead, networking, curious (auto-categorized)
   sentiment  String?  // positive, neutral, negative
-  metadata   Json?    // Additional context like referrer, device, etc.
+  metadata   String?  // JSON string: Additional context like referrer, device, etc.
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   
@@ -83,11 +83,11 @@ model CalendarBooking {
   duration    Int      @default(60) // Duration in minutes
   status      String   @default("pending") // pending, confirmed, cancelled, completed
   type        String   // consultation, brainstorming, mentorship
-  notes       String?  @db.Text // User notes/context
-  adminNotes  String?  @db.Text // Admin-only notes
+  notes       String?  // User notes/context
+  adminNotes  String?  // Admin-only notes
   googleEventId String? // Google Calendar event ID
   reminderSent Boolean  @default(false)
-  metadata    Json?    // Additional context
+  metadata    String?  // JSON string: Additional context
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   
@@ -108,7 +108,7 @@ model AnalyticsEvent {
   eventType  String   // page_view, button_click, form_submit, etc.
   eventName  String   // Descriptive name like "hero_cta_clicked"
   page       String?  // Page where event occurred
-  metadata   Json?    // Event-specific data (coordinates, duration, etc.)
+  metadata   String?  // JSON string: Event-specific data (coordinates, duration, etc.)
   userAgent  String?
   ipAddress  String?
   referrer   String?
@@ -131,7 +131,7 @@ model NewsletterSubscription {
   name        String?
   status      String   @default("active") // active, unsubscribed
   source      String?  // Where they subscribed from
-  preferences Json?    // Email preferences
+  preferences String?  // JSON string: Email preferences
   subscribedAt DateTime @default(now())
   unsubscribedAt DateTime?
   

@@ -11,7 +11,20 @@
       "Bash(npm run test:ci:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(npm run test:unit:*)"
+      "Bash(npm run test:unit:*)",
+      "Bash(tree:*)",
+      "Bash(test:*)",
+      "Bash(npm run test:coverage:*)",
+      "Bash(find:*)",
+      "Bash(npm audit:*)",
+      "Bash(node:*)",
+      "Bash(redis-cli ping:*)",
+      "Bash(docker run:*)",
+      "Bash(npm run db:generate:*)",
+      "Bash(psql:*)",
+      "Bash(npm run db:push:*)",
+      "Bash(npm run db:seed:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []
