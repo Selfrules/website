@@ -1,0 +1,72 @@
+name: Database Backup
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      retention_days:
+        description: 'Backup retention days'
+        required: false
+        default: '30'
+
+jobs:
+  backup:
+    name: Backup Database
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Create backup directory
+        run: mkdir -p backups
+
+      - name: Run database backup
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          RETENTION_DAYS: ${{ github.event.inputs.retention_days || '30' }}
+          BACKUP_DIR: ./backups
+        run: |
+          chmod +x ./scripts/db/backup.sh
+          ./scripts/db/backup.sh
+
+      - name: Upload backup to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: database-backup-${{ github.run_number }}
+          path: backups/*.sql.gz
+          retention-days: ${{ github.event.inputs.retention_days || 30 }}
+
+      - name: Upload to S3
+        if: env.AWS_ACCESS_KEY_ID != ''
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          BACKUP_S3_BUCKET: ${{ secrets.BACKUP_S3_BUCKET }}
+        run: |
+          aws s3 sync backups/ s3://$BACKUP_S3_BUCKET/backups/ \
+            --exclude "*" \
+            --include "*.sql.gz"
+
+      - name: Notify backup status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ job.status }}';
+            const emoji = status === 'success' ? '✅' : '❌';
+            const message = `${emoji} Database backup ${status}`;
+            console.log(message);
+
+      - name: Cleanup old backups
+        run: |
+          find backups/ -name "*.sql.gz" -mtime +${{ github.event.inputs.retention_days || 30 }} -delete

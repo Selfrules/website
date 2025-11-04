@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "home": "home",
+    "blog": "blog",
+    "work": "work together",
+    "about": "about"
+  },
+  "hero": {
+    "headline": "I failed as a designer. Then as a developer. Now I'm a Product Manager who actually knows what to build.",
+    "subtitle": "Why? Because I learned that the perfect product doesn't exist. Only the one that solves real problems.",
+    "cta": "let's talk"
+  },
+  "common": {
+    "readMore": "read more",
+    "bookCall": "book a call",
+    "loading": "loading...",
+    "error": "something went wrong"
+  }
+}

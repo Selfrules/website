@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Neobrutalist CSS Reset */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* Enhanced focus states for accessibility */
+  *:focus-visible {
+    outline: 4px solid theme('colors.primary.DEFAULT');
+    outline-offset: 2px;
+  }
+
+  /* Prevent CLS by reserving space for images */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Button reset */
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Link reset */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Heading defaults */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-space-grotesk);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: theme('colors.primary.DEFAULT');
+    color: theme('colors.brutalist.text.light');
+  }
+
+  ::-moz-selection {
+    background-color: theme('colors.primary.DEFAULT');
+    color: theme('colors.brutalist.text.light');
+  }
+}
+
+@layer components {
+  /* Neobrutalist container pattern */
+  .brutal-container {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .brutal-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .brutal-container {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  /* Neobrutalist card pattern */
+  .brutal-card {
+    @apply border-brutal border-brutalist-border rounded-brutal shadow-brutal
+           bg-brutalist-surface-light dark:bg-brutalist-surface-dark
+           transition-all duration-200 ease-brutal;
+  }
+
+  .brutal-card:hover {
+    @apply shadow-brutal-hover translate-x-[-4px] translate-y-[-4px];
+  }
+
+  .brutal-card:active {
+    @apply shadow-brutal-active translate-x-[4px] translate-y-[4px];
+  }
+
+  /* Text with brutal outline effect */
+  .brutal-text-outline {
+    text-shadow:
+      -2px -2px 0 theme('colors.brutalist.border'),
+      2px -2px 0 theme('colors.brutalist.border'),
+      -2px 2px 0 theme('colors.brutalist.border'),
+      2px 2px 0 theme('colors.brutalist.border');
+  }
+
+  /* Generous whitespace grid */
+  .brutal-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .brutal-grid {
+      gap: 3rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .brutal-grid {
+      gap: 4rem;
+    }
+  }
+
+  /* Section spacing */
+  .brutal-section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Skip to main content link for accessibility */
+  .skip-to-main {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4
+           focus:z-50 focus:px-6 focus:py-4 focus:bg-primary focus:text-brutalist-text-light
+           focus:border-brutal focus:border-brutalist-border focus:rounded-brutal focus:shadow-brutal;
+  }
+}
+
+@layer utilities {
+  /* Text utilities with sentence case enforcement */
+  .text-sentence-case {
+    text-transform: none;
+  }
+
+  .text-sentence-case::first-letter {
+    text-transform: uppercase;
+  }
+
+  /* Responsive font sizes */
+  .text-responsive-display {
+    @apply text-4xl md:text-5xl lg:text-display-1;
+  }
+
+  .text-responsive-h1 {
+    @apply text-3xl md:text-4xl lg:text-h1;
+  }
+
+  .text-responsive-h2 {
+    @apply text-2xl md:text-3xl lg:text-h2;
+  }
+
+  .text-responsive-h3 {
+    @apply text-xl md:text-2xl lg:text-h3;
+  }
+
+  /* Brutal hover effect utility */
+  .hover-brutal {
+    @apply transition-all duration-200 ease-brutal;
+  }
+
+  .hover-brutal:hover {
+    @apply translate-x-[-2px] translate-y-[-2px];
+  }
+
+  .hover-brutal:active {
+    @apply translate-x-[2px] translate-y-[2px];
+  }
+
+  /* Dark mode utilities */
+  .dark-toggle {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+}
+
+/* Loading animation for fonts */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.font-loading body {
+  animation: fade-in 0.3s ease-in-out;
+}
+
+/* Print styles */
+@media print {
+  .brutal-card {
+    @apply shadow-none border-2;
+  }
+
+  .skip-to-main,
+  nav,
+  footer {
+    display: none;
+  }
+}

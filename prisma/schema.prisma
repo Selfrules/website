@@ -1,0 +1,141 @@
+// Prisma schema for Mattia Portfolio Backend
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model for authentication and preferences
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  preferences Json?  // Store user preferences like theme, language, etc.
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  chatConversations ChatConversation[]
+  calendarBookings  CalendarBooking[]
+  analyticsEvents   AnalyticsEvent[]
+  
+  @@index([email])
+  @@map("users")
+}
+
+// Blog post model with markdown content
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String   @db.Text // Full markdown content
+  excerpt     String?  @db.Text // Short summary
+  category    String   // Design, Dev, Product, Personal, AMA
+  locale      String   @default("en") // Language: 'en' or 'it'
+  coverImage  String?  // URL to cover image
+  readingTime Int?     // Estimated reading time in minutes
+  published   Boolean  @default(false)
+  publishedAt DateTime?
+  metadata    Json?    // SEO metadata, tags, etc.
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([slug])
+  @@index([category])
+  @@index([published, publishedAt])
+  @@map("blog_posts")
+}
+
+// Chat conversation with AI chatbot
+model ChatConversation {
+  id         String   @id @default(cuid())
+  userId     String?  // Optional for anonymous users
+  sessionId  String   // Browser session identifier
+  messages   Json     // Array of {role, content, timestamp}
+  category   String?  // lead, networking, curious (auto-categorized)
+  sentiment  String?  // positive, neutral, negative
+  metadata   Json?    // Additional context like referrer, device, etc.
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  // Relations
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  @@index([sessionId])
+  @@index([category])
+  @@index([createdAt])
+  @@map("chat_conversations")
+}
+
+// Calendar booking for consultation calls
+model CalendarBooking {
+  id          String   @id @default(cuid())
+  userId      String?  // Optional user reference
+  name        String
+  email       String
+  phone       String?
+  dateTime    DateTime // Scheduled date and time
+  duration    Int      @default(60) // Duration in minutes
+  status      String   @default("pending") // pending, confirmed, cancelled, completed
+  type        String   // consultation, brainstorming, mentorship
+  notes       String?  @db.Text // User notes/context
+  adminNotes  String?  @db.Text // Admin-only notes
+  googleEventId String? // Google Calendar event ID
+  reminderSent Boolean  @default(false)
+  metadata    Json?    // Additional context
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  @@index([dateTime])
+  @@index([status])
+  @@index([email])
+  @@map("calendar_bookings")
+}
+
+// Analytics event tracking
+model AnalyticsEvent {
+  id         String   @id @default(cuid())
+  userId     String?  // Optional user reference
+  sessionId  String   // Browser session identifier
+  eventType  String   // page_view, button_click, form_submit, etc.
+  eventName  String   // Descriptive name like "hero_cta_clicked"
+  page       String?  // Page where event occurred
+  metadata   Json?    // Event-specific data (coordinates, duration, etc.)
+  userAgent  String?
+  ipAddress  String?
+  referrer   String?
+  timestamp  DateTime @default(now())
+  
+  // Relations
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  @@index([sessionId])
+  @@index([eventType])
+  @@index([eventName])
+  @@index([timestamp])
+  @@map("analytics_events")
+}
+
+// Newsletter subscriptions
+model NewsletterSubscription {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String?
+  status      String   @default("active") // active, unsubscribed
+  source      String?  // Where they subscribed from
+  preferences Json?    // Email preferences
+  subscribedAt DateTime @default(now())
+  unsubscribedAt DateTime?
+  
+  @@index([email])
+  @@index([status])
+  @@map("newsletter_subscriptions")
+}

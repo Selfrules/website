@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "home": "home",
+    "blog": "blog",
+    "work": "lavora con me",
+    "about": "chi sono"
+  },
+  "hero": {
+    "headline": "Ho fallito come designer. Poi come developer. Ora sono un Product Manager che sa davvero cosa costruire.",
+    "subtitle": "Perché? Perché ho imparato che il prodotto perfetto non esiste. Esiste solo quello che risolve problemi reali.",
+    "cta": "parliamone"
+  },
+  "common": {
+    "readMore": "leggi di più",
+    "bookCall": "prenota una call",
+    "loading": "caricamento...",
+    "error": "qualcosa è andato storto"
+  }
+}
