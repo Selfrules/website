@@ -66,21 +66,13 @@ export default function Hero() {
           <div className="space-y-8">
             {/* Animated Badge */}
             <ScrollAnimation animation="fadeInDown" delay={0}>
-              <motion.div
+              <div
                 className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 dark:bg-primary/20
-                         border-2 border-primary rounded-brutal text-primary font-medium"
-                animate={{
-                  borderRadius: ['8px', '12px', '8px'],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
+                         border-4 border-primary rounded-brutal text-primary font-medium"
               >
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <div className="w-2 h-2 bg-primary rounded-full" />
                 <span className="text-sm">Product Manager & Developer</span>
-              </motion.div>
+              </div>
             </ScrollAnimation>
 
             {/* Main Headline */}
@@ -123,7 +115,15 @@ export default function Hero() {
             <ScrollAnimation animation="fadeInUp" delay={0.2}>
               <p className="text-lg md:text-xl lg:text-2xl text-brutalist-text-light/80
                          dark:text-brutalist-text-dark/80 leading-relaxed max-w-xl">
-                {t('subtitle')}
+                Perché questo conta? Perché ho imparato che il prodotto perfetto non esiste. Esiste solo quello che risolve problemi reali, costruito da chi capisce design, tech e business.
+              </p>
+            </ScrollAnimation>
+
+            {/* Supporting Text */}
+            <ScrollAnimation animation="fadeInUp" delay={0.25}>
+              <p className="text-base md:text-lg text-brutalist-text-light/70
+                         dark:text-brutalist-text-dark/70 leading-relaxed max-w-xl">
+                Hai un'idea che vuoi trasformare in prodotto? Un prodotto che nessuno usa? Un team che non si capisce? Sono passato da tutte e tre le parti del tavolo. Possiamo parlarne.
               </p>
             </ScrollAnimation>
 
@@ -135,23 +135,10 @@ export default function Hero() {
                   iconPosition="left"
                   variant="primary"
                   size="lg"
-                  iconAnimation={true}
+                  iconAnimation={false}
                   className="group"
                 >
-                  {t('cta')}
-                  <motion.span
-                    className="ml-2 inline-block"
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }}
-                  >
-                    →
-                  </motion.span>
+                  Parliamone →
                 </CTAButton>
 
                 <MagneticButton
@@ -167,37 +154,25 @@ export default function Hero() {
             <ScrollAnimation animation="fadeInUp" delay={0.4}>
               <div className="flex gap-8 pt-8">
                 <div className="space-y-1">
-                  <motion.div
-                    className="text-3xl font-bold text-primary"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
+                  <div className="text-3xl font-bold text-primary">
                     78%
-                  </motion.div>
+                  </div>
                   <div className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
                     Faster load times
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <motion.div
-                    className="text-3xl font-bold text-secondary"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
-                  >
+                  <div className="text-3xl font-bold text-secondary">
                     5M+
-                  </motion.div>
+                  </div>
                   <div className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
                     Users impacted
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <motion.div
-                    className="text-3xl font-bold text-accent"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, delay: 1, repeat: Infinity }}
-                  >
+                  <div className="text-3xl font-bold text-accent">
                     12
-                  </motion.div>
+                  </div>
                   <div className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
                     Products shipped
                   </div>
@@ -209,17 +184,7 @@ export default function Hero() {
           {/* Visual Side */}
           <div className="relative lg:h-[600px]">
             <MagneticHover strength={0.2}>
-              <motion.div
-                className="relative w-full h-full"
-                animate={{
-                  y: [0, -20, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              >
+              <div className="relative w-full h-full">
                 {/* Main Visual Card */}
                 <div className="absolute inset-0 lg:inset-auto lg:w-[400px] lg:h-[500px]
                              bg-gradient-to-br from-primary via-secondary to-accent
@@ -239,61 +204,29 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Floating Cards */}
-                <motion.div
-                  className="absolute top-10 -right-10 w-32 h-32 bg-neon-cyan/20
-                           border-3 border-neon-cyan rounded-brutal shadow-brutal hidden lg:block"
-                  animate={{
-                    rotate: [0, 10, 0],
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                >
+                {/* Static Accent Cards */}
+                <div className="absolute top-10 -right-10 w-32 h-32 bg-neon-cyan/20
+                           border-4 border-neon-cyan rounded-brutal shadow-brutal hidden lg:block">
                   <div className="flex items-center justify-center h-full text-4xl">
                     ⚡
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  className="absolute bottom-10 -left-10 w-28 h-28 bg-neon-pink/20
-                           border-3 border-neon-pink rounded-brutal shadow-brutal hidden lg:block"
-                  animate={{
-                    rotate: [0, -10, 0],
-                    x: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 3.5,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                >
+                <div className="absolute bottom-10 -left-10 w-28 h-28 bg-neon-pink/20
+                           border-4 border-neon-pink rounded-brutal shadow-brutal hidden lg:block">
                   <div className="flex items-center justify-center h-full text-3xl">
                     💡
                   </div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             </MagneticHover>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <MousePointer2 className="w-6 h-6 text-primary" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

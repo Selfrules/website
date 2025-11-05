@@ -4,6 +4,8 @@ A modern portfolio website built with Next.js 14 featuring a complete neobrutali
 
 ## Design System Overview
 
+📚 **[View Complete Design System Documentation](./DESIGN_SYSTEM.md)**
+
 ### Core Principles
 - **Bold borders**: 4-6px solid black on all interactive elements
 - **Hard shadows**: 8px offset, no blur (#000000)

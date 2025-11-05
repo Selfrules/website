@@ -31,20 +31,19 @@ export default async function Blog({ locale }: BlogProps) {
   const t = translations[locale as keyof typeof translations] || translations.it;
 
   return (
-    <section className="py-20 px-6 md:px-12 bg-gray-50 dark:bg-gray-900/50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 lg:py-32 bg-brutalist-bg-light dark:bg-brutalist-bg-dark">
+      <div className="brutal-container">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Newspaper className="w-5 h-5 text-primary" />
-            <span className="text-primary font-bold uppercase tracking-wider text-sm">
-              {t.subtitle}
-            </span>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 dark:bg-primary/20
+                       border-4 border-primary rounded-brutal text-primary font-medium mb-4">
+            <Newspaper className="w-4 h-4" />
+            <span className="text-sm">{t.subtitle}</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-brutalist-text-light dark:text-brutalist-text-dark">
+          <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4 text-brutalist-text-light dark:text-brutalist-text-dark">
             {t.title}
           </h2>
-          <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
+          <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
             {t.description}
           </p>
         </div>

@@ -20,10 +20,10 @@ interface CTAButtonProps extends MotionProps {
 }
 
 const variantStyles = {
-  primary: 'bg-primary text-brutalist-text-light hover:bg-primary-500 border-brutal-thick border-brutalist-border',
-  secondary: 'bg-secondary text-white hover:bg-secondary-500 border-brutal-thick border-brutalist-border',
-  accent: 'bg-accent text-white hover:bg-accent-500 border-brutal-thick border-brutalist-border',
-  neon: 'bg-white text-brutalist-text-light hover:bg-primary border-brutal-thick border-brutalist-border',
+  primary: 'bg-primary text-brutalist-text-light hover:bg-primary-500 border-brutal border-brutalist-border',
+  secondary: 'bg-secondary text-white hover:bg-secondary-500 border-brutal border-brutalist-border',
+  accent: 'bg-accent text-white hover:bg-accent-500 border-brutal border-brutalist-border',
+  neon: 'bg-white text-brutalist-text-light hover:bg-primary border-brutal border-brutalist-border',
 };
 
 const sizeStyles = {
@@ -100,18 +100,18 @@ const CTAButton = forwardRef<HTMLButtonElement, CTAButtonProps>(
         whileHover={
           !disabled && !loading
             ? {
-                y: -3,
-                x: -3,
-                boxShadow: '11px 11px 0px #000000',
+                y: -4,
+                x: -4,
+                boxShadow: '12px 12px 0px #000000',
               }
             : {}
         }
         whileTap={
           !disabled && !loading
             ? {
-                y: 2,
-                x: 2,
-                boxShadow: '2px 2px 0px #000000',
+                y: 4,
+                x: 4,
+                boxShadow: '4px 4px 0px #000000',
               }
             : {}
         }
