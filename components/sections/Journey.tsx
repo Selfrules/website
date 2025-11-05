@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { Timeline, TimelineItem } from '@/components/ui/Timeline';
 import { Badge } from '@/components/ui/Badge';
 import { ScrollAnimation } from '@/components/animations/ScrollAnimations';
@@ -22,75 +23,96 @@ interface JourneyData {
   };
 }
 
-const journeyData: JourneyData[] = [
-  {
-    id: '4',
-    date: '2023-oggi',
-    company: 'QubicaAMF',
-    role: 'Product Manager',
-    description: 'Unifico tutto quello che ho imparato per costruire cose che contano.',
-    achievements: [
-      '-12% tempi di pagamento (non magia, solo meno click inutili)',
-      '+9% adoption integrazioni (meno PDF, più video di 3 minuti)',
-      '-25% incidenti post-release (mettere Product, Support ed Engineering nella stessa stanza ogni venerdì)',
-    ],
-    technologies: ['Product Strategy', 'API Design', 'User Research', 'Business Case'],
-    highlight: true,
-    icon: <Rocket className="w-5 h-5" />,
-    metrics: {
-      impact: 'Tempi pagamento',
-      value: '-12%',
-    },
-  },
-  {
-    id: '3',
-    date: '2021-2023',
-    company: 'ActiveProspect',
-    role: 'Product Owner',
-    description: 'Facevo da ponte tra business e tech. Traducevo esigenze in funzionalità.',
-    achievements: [
-      'Il vero lavoro del Product non è dire "sì" a tutto, ma dire "no" alle cose giuste',
-      'Una roadmap bella non serve a niente se non è allineata al business',
-      'Il feedback degli utenti conta più di qualsiasi opinion di un stakeholder interno',
-    ],
-    technologies: ['Roadmapping', 'Stakeholder Management', 'User Feedback', 'Prioritization'],
-    icon: <Target className="w-5 h-5" />,
-    metrics: {
-      impact: 'Skill acquisita',
-      value: '3 lingue',
-    },
-  },
-  {
-    id: '2',
-    date: '2016-2020',
-    company: 'FLOWING',
-    role: 'Full-stack Developer',
-    description: 'Scrivevo codice. Costruivo API. Pensavo che la tecnica risolvesse tutto.',
-    achievements: [
-      'Ho ottimizzato un algoritmo per 10ms più veloce, mentre nessuno capiva come usare la feature',
-      'Ho scritto il codice più elegante della mia carriera per un prodotto morto dopo 4 mesi',
-      'Il momento di svolta: "Ma questo a cosa serve davvero?" - Non seppi rispondere',
-    ],
-    technologies: ['JavaScript', 'API Development', 'Backend', 'Frontend'],
-    icon: <Code className="w-5 h-5" />,
-  },
-  {
-    id: '1',
-    date: '2012-2018',
-    company: 'Selfrules',
-    role: 'Designer & Business Owner',
-    description: 'Disegnavo siti web. Gestivo clienti. Pensavo di sapere tutto.',
-    achievements: [
-      'Design bellissimo che nessuno capisce come usare è solo arte, non prodotto',
-      'Mockup perfetto che non si può sviluppare è tempo sprecato',
-      'Il fallimento: 3 settimane su un design tecnicamente impossibile nel budget',
-    ],
-    technologies: ['Design', 'Business', 'Client Management', 'Web Design'],
-    icon: <Lightbulb className="w-5 h-5" />,
-  },
-];
-
 export default function Journey() {
+  const t = useTranslations('journey');
+
+  const journeyData: JourneyData[] = [
+    {
+      id: '4',
+      date: t('experiences.pm.date'),
+      company: t('experiences.pm.company'),
+      role: t('experiences.pm.role'),
+      description: t('experiences.pm.description'),
+      achievements: [
+        t('experiences.pm.achievements.1'),
+        t('experiences.pm.achievements.2'),
+        t('experiences.pm.achievements.3'),
+      ],
+      technologies: [
+        t('experiences.pm.technologies.1'),
+        t('experiences.pm.technologies.2'),
+        t('experiences.pm.technologies.3'),
+        t('experiences.pm.technologies.4'),
+      ],
+      highlight: true,
+      icon: <Rocket className="w-5 h-5" />,
+      metrics: {
+        impact: t('experiences.pm.metrics.impact'),
+        value: t('experiences.pm.metrics.value'),
+      },
+    },
+    {
+      id: '3',
+      date: t('experiences.po.date'),
+      company: t('experiences.po.company'),
+      role: t('experiences.po.role'),
+      description: t('experiences.po.description'),
+      achievements: [
+        t('experiences.po.achievements.1'),
+        t('experiences.po.achievements.2'),
+        t('experiences.po.achievements.3'),
+      ],
+      technologies: [
+        t('experiences.po.technologies.1'),
+        t('experiences.po.technologies.2'),
+        t('experiences.po.technologies.3'),
+        t('experiences.po.technologies.4'),
+      ],
+      icon: <Target className="w-5 h-5" />,
+      metrics: {
+        impact: t('experiences.po.metrics.impact'),
+        value: t('experiences.po.metrics.value'),
+      },
+    },
+    {
+      id: '2',
+      date: t('experiences.dev.date'),
+      company: t('experiences.dev.company'),
+      role: t('experiences.dev.role'),
+      description: t('experiences.dev.description'),
+      achievements: [
+        t('experiences.dev.achievements.1'),
+        t('experiences.dev.achievements.2'),
+        t('experiences.dev.achievements.3'),
+      ],
+      technologies: [
+        t('experiences.dev.technologies.1'),
+        t('experiences.dev.technologies.2'),
+        t('experiences.dev.technologies.3'),
+        t('experiences.dev.technologies.4'),
+      ],
+      icon: <Code className="w-5 h-5" />,
+    },
+    {
+      id: '1',
+      date: t('experiences.designer.date'),
+      company: t('experiences.designer.company'),
+      role: t('experiences.designer.role'),
+      description: t('experiences.designer.description'),
+      achievements: [
+        t('experiences.designer.achievements.1'),
+        t('experiences.designer.achievements.2'),
+        t('experiences.designer.achievements.3'),
+      ],
+      technologies: [
+        t('experiences.designer.technologies.1'),
+        t('experiences.designer.technologies.2'),
+        t('experiences.designer.technologies.3'),
+        t('experiences.designer.technologies.4'),
+      ],
+      icon: <Lightbulb className="w-5 h-5" />,
+    },
+  ];
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white to-primary/5 dark:from-brutalist-bg-dark dark:to-primary/10">
       {/* Background Pattern */}
@@ -109,16 +131,16 @@ export default function Journey() {
                          border-4 border-secondary rounded-brutal text-secondary
                          font-medium mb-4">
               <TrendingUp className="w-4 h-4" />
-              <span className="text-sm">Il mio percorso</span>
+              <span className="text-sm">{t('badge')}</span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4">
-              Il percorso
+              {t('title')}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary ml-3">
-                al contrario
+                {t('titleHighlight')}
               </span>
             </h2>
             <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
-              La maggior parte dei PM studiano product management. Io ho fatto il percorso lungo: design, codice, e solo alla fine product. È stato scomodo, faticoso, pieno di errori. Ed è esattamente per questo che oggi so davvero cosa sto facendo.
+              {t('subtitle')}
             </p>
           </div>
         </ScrollAnimation>
@@ -192,16 +214,16 @@ export default function Journey() {
             <div className="inline-flex flex-col items-center gap-4 p-8 bg-white dark:bg-brutalist-surface-dark
                          border-brutal border-black rounded-brutal shadow-brutal">
               <h3 className="text-2xl font-bold">
-                Pronto per il prossimo capitolo?
+                {t('cta.title')}
               </h3>
               <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                Costruiamo qualcosa di straordinario insieme.
+                {t('cta.subtitle')}
               </p>
               <button className="px-8 py-3 bg-primary text-brutalist-text-light font-bold
                                border-brutal border-black rounded-brutal shadow-brutal
                                hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1
                                transition-all">
-                Parliamone →
+                {t('cta.button')}
               </button>
             </div>
           </div>
