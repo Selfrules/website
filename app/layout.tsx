@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { ChatWidget } from '@/components/integrations/ChatWidget';
+import { ReactQueryProvider } from '@/components/providers/ReactQueryProvider';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import '@/app/globals.css';
 
 const inter = Inter({
@@ -57,7 +60,12 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-body bg-brutalist-bg-light dark:bg-brutalist-bg-dark text-brutalist-text-light dark:text-brutalist-text-dark antialiased`}
         suppressHydrationWarning
       >
-        {children}
+        <ReactQueryProvider>
+          <ThemeProvider>
+            {children}
+            <ChatWidget />
+          </ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

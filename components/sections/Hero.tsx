@@ -71,7 +71,7 @@ export default function Hero() {
                          border-4 border-primary rounded-brutal text-primary font-medium"
               >
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="text-sm">Product Manager & Developer</span>
+                <span className="text-sm">{t('badge')}</span>
               </div>
             </ScrollAnimation>
 
@@ -83,17 +83,17 @@ export default function Hero() {
                          text-brutalist-text-light dark:text-brutalist-text-dark leading-[1.1]"
               >
                 <span className="block">
-                  Ho fallito come designer.
+                  {t('headline1')}
                 </span>
                 <span className="block mt-2 text-transparent bg-clip-text
                                bg-gradient-to-r from-primary via-secondary to-accent">
-                  Poi come developer.
+                  {t('headline2')}
                 </span>
                 <span className="block mt-2">
-                  Ora sono un Product Manager
+                  {t('headline3')}
                   <br className="hidden lg:block" />
                   <span className="relative">
-                    che sa davvero
+                    {t('headline4')}
                     <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10">
                       <motion.path
                         d="M0,5 Q50,0 100,5 T200,5"
@@ -106,7 +106,7 @@ export default function Hero() {
                       />
                     </svg>
                   </span>{' '}
-                  cosa costruire.
+                  {t('headline5')}
                 </span>
               </motion.h1>
             </ScrollAnimation>
@@ -115,7 +115,7 @@ export default function Hero() {
             <ScrollAnimation animation="fadeInUp" delay={0.2}>
               <p className="text-lg md:text-xl lg:text-2xl text-brutalist-text-light/80
                          dark:text-brutalist-text-dark/80 leading-relaxed max-w-xl">
-                Perché questo conta? Perché ho imparato che il prodotto perfetto non esiste. Esiste solo quello che risolve problemi reali, costruito da chi capisce design, tech e business.
+                {t('subtitle')}
               </p>
             </ScrollAnimation>
 
@@ -123,7 +123,7 @@ export default function Hero() {
             <ScrollAnimation animation="fadeInUp" delay={0.25}>
               <p className="text-base md:text-lg text-brutalist-text-light/70
                          dark:text-brutalist-text-dark/70 leading-relaxed max-w-xl">
-                Hai un'idea che vuoi trasformare in prodotto? Un prodotto che nessuno usa? Un team che non si capisce? Sono passato da tutte e tre le parti del tavolo. Possiamo parlarne.
+                {t('supportText')}
               </p>
             </ScrollAnimation>
 
@@ -138,14 +138,14 @@ export default function Hero() {
                   iconAnimation={false}
                   className="group"
                 >
-                  Parliamone →
+                  {t('cta')}
                 </CTAButton>
 
                 <MagneticButton
                   variant="secondary"
                   strength={0.3}
                 >
-                  Esplora il portfolio
+                  {t('explore')}
                 </MagneticButton>
               </div>
             </ScrollAnimation>
@@ -158,7 +158,7 @@ export default function Hero() {
                     78%
                   </div>
                   <div className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-                    Faster load times
+                    {t('stats.loadTimes')}
                   </div>
                 </div>
                 <div className="space-y-1">
@@ -166,7 +166,7 @@ export default function Hero() {
                     5M+
                   </div>
                   <div className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-                    Users impacted
+                    {t('stats.usersImpacted')}
                   </div>
                 </div>
                 <div className="space-y-1">
@@ -174,7 +174,7 @@ export default function Hero() {
                     12
                   </div>
                   <div className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-                    Products shipped
+                    {t('stats.productsShipped')}
                   </div>
                 </div>
               </div>
@@ -195,10 +195,10 @@ export default function Hero() {
                     <div className="text-center p-8">
                       <div className="text-6xl mb-4">🚀</div>
                       <h3 className="text-2xl font-bold mb-2">
-                        Ship Fast
+                        {t('card.shipFast')}
                       </h3>
                       <p className="text-sm opacity-80">
-                        From idea to production in weeks, not months
+                        {t('card.shipDesc')}
                       </p>
                     </div>
                   </div>

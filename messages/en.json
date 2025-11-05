@@ -6,9 +6,146 @@
     "about": "about"
   },
   "hero": {
-    "headline": "I failed as a designer. Then as a developer. Now I'm a Product Manager who actually knows what to build.",
-    "subtitle": "Why? Because I learned that the perfect product doesn't exist. Only the one that solves real problems.",
-    "cta": "let's talk"
+    "badge": "Product Manager & Developer",
+    "headline1": "I failed as a designer.",
+    "headline2": "Then as a developer.",
+    "headline3": "Now I'm a Product Manager",
+    "headline4": "who actually knows",
+    "headline5": "what to build.",
+    "subtitle": "Why does this matter? Because I learned that the perfect product doesn't exist. Only the one that solves real problems, built by someone who understands design, tech, and business.",
+    "supportText": "Got an idea you want to turn into a product? A product nobody uses? A team that doesn't get each other? I've been on all three sides of the table. Let's talk.",
+    "cta": "Let's talk →",
+    "explore": "Explore portfolio",
+    "stats": {
+      "loadTimes": "Faster load times",
+      "usersImpacted": "Users impacted",
+      "productsShipped": "Products shipped"
+    },
+    "card": {
+      "shipFast": "Ship Fast",
+      "shipDesc": "From idea to production in weeks, not months"
+    }
+  },
+  "journey": {
+    "badge": "My Journey",
+    "title": "The backwards",
+    "titleHighlight": "path",
+    "subtitle": "Most PMs study product management. I took the long route: design, code, and only then product. It was uncomfortable, exhausting, full of mistakes. And that's exactly why I actually know what I'm doing today.",
+    "experiences": {
+      "pm": {
+        "date": "2023-present",
+        "company": "QubicaAMF",
+        "role": "Product Manager",
+        "description": "Unifying everything I've learned to build things that matter.",
+        "achievements": {
+          "1": "-12% payment times (not magic, just fewer useless clicks)",
+          "2": "+9% integration adoption (less PDFs, more 3-minute videos)",
+          "3": "-25% post-release incidents (putting Product, Support, and Engineering in the same room every Friday)"
+        },
+        "technologies": {
+          "1": "Product Strategy",
+          "2": "API Design",
+          "3": "User Research",
+          "4": "Business Case"
+        },
+        "metrics": {
+          "impact": "Payment times",
+          "value": "-12%"
+        }
+      },
+      "po": {
+        "date": "2021-2023",
+        "company": "ActiveProspect",
+        "role": "Product Owner",
+        "description": "Bridging business and tech. Translating needs into features.",
+        "achievements": {
+          "1": "The real work of Product isn't saying \"yes\" to everything, but saying \"no\" to the right things",
+          "2": "A beautiful roadmap is useless if it's not aligned with business",
+          "3": "User feedback matters more than any internal stakeholder's opinion"
+        },
+        "technologies": {
+          "1": "Roadmapping",
+          "2": "Stakeholder Management",
+          "3": "User Feedback",
+          "4": "Prioritization"
+        },
+        "metrics": {
+          "impact": "Skill acquired",
+          "value": "3 languages"
+        }
+      },
+      "dev": {
+        "date": "2016-2020",
+        "company": "FLOWING",
+        "role": "Full-stack Developer",
+        "description": "Writing code. Building APIs. Thinking tech solved everything.",
+        "achievements": {
+          "1": "I optimized an algorithm to be 10ms faster while nobody understood how to use the feature",
+          "2": "I wrote the most elegant code of my career for a product that died after 4 months",
+          "3": "The turning point: \"But what's this really for?\" - I couldn't answer"
+        },
+        "technologies": {
+          "1": "JavaScript",
+          "2": "API Development",
+          "3": "Backend",
+          "4": "Frontend"
+        }
+      },
+      "designer": {
+        "date": "2012-2018",
+        "company": "Selfrules",
+        "role": "Designer & Business Owner",
+        "description": "Designing websites. Managing clients. Thinking I knew everything.",
+        "achievements": {
+          "1": "Beautiful design that nobody understands how to use is just art, not product",
+          "2": "Perfect mockup that can't be developed is wasted time",
+          "3": "The failure: 3 weeks on a design technically impossible within budget"
+        },
+        "technologies": {
+          "1": "Design",
+          "2": "Business",
+          "3": "Client Management",
+          "4": "Web Design"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready for the next chapter?",
+      "subtitle": "Let's build something extraordinary together.",
+      "button": "Let's talk →"
+    }
+  },
+  "workTogether": {
+    "title": "How we can",
+    "titleHighlight": "work together",
+    "subtitle": "I don't sell consulting. I don't sell hours. I sell results. If you have a concrete problem and want someone who understands design, tech, and business without needing translators, let's talk.",
+    "modes": {
+      "consulting": {
+        "badge": "Strategic consulting",
+        "title": "Unlock your product in 90 minutes",
+        "description": "Got a product that won't take off? A team going in circles? A roadmap that looks strategic but delivers no results? Let's take 90 minutes.",
+        "expectations": {
+          "dont": "Don't expect: Beautiful slides with buzzwords.",
+          "do": "Expect: Direct questions, pragmatic analysis, clear action plan."
+        },
+        "idealFor": "Ideal for: Founders, Product Managers, Tech Leads who know they're stuck but don't understand where."
+      },
+      "brainstorming": {
+        "badge": "Brainstorming sessions",
+        "title": "Two brains, one problem, infinite solutions",
+        "description": "Sometimes the problem isn't that you don't have solutions. It's that you have too many and don't know which to choose. Or worse, you have the wrong solution to the right problem.",
+        "whatWeDo": "What we do: Practical work session. Sketches, diagrams, cost-benefit analysis. We leave with solution prototypes, not just vague ideas.",
+        "idealFor": "Ideal for: Teams in discovery phase, complex architectural decisions, when you need an outsider to challenge your assumptions."
+      },
+      "mentorship": {
+        "badge": "Mentorship",
+        "title": "The path I wish someone had shown me",
+        "description": "Are you a designer wanting to understand development? A developer wanting to move into product? A junior PM wanting to grow?",
+        "format": "Format: 1 hour every 2 weeks. Analysis of your current work. Practical advice. Access to templates and frameworks I use.",
+        "notForYou": "It's not for you if you're looking for someone to tell you what to do. It's for you if you want to learn to think, not just execute."
+      }
+    },
+    "cta": "Let's talk about your project →"
   },
   "common": {
     "readMore": "read more",
