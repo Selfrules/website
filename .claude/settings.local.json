@@ -24,7 +24,19 @@
       "Bash(psql:*)",
       "Bash(npm run db:push:*)",
       "Bash(npm run db:seed:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(gh:*)",
+      "Bash(git push:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_resize",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
