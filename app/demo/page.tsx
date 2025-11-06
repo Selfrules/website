@@ -220,7 +220,7 @@ export default function DemoPage() {
                 Body text small - For captions and secondary information
               </p>
               <code className="font-mono text-body bg-brutalist-surface-dark dark:bg-brutalist-surface-light px-2 py-1 rounded-brutal-sm">
-                const code = 'JetBrains Mono';
+                const code = &apos;JetBrains Mono&apos;;
               </code>
             </div>
           </motion.div>

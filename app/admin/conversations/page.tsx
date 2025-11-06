@@ -53,17 +53,17 @@ export default function ConversationsPage() {
           messages: [
             {
               role: 'user',
-              content: 'Hi, I'm interested in product management consulting',
+              content: 'Hi, I am interested in product management consulting',
               timestamp: '2024-01-20T10:00:00Z',
             },
             {
               role: 'assistant',
-              content: 'Great! I'd love to help. What specific challenges are you facing?',
+              content: 'Great! I would love to help. What specific challenges are you facing?',
               timestamp: '2024-01-20T10:00:05Z',
             },
             {
               role: 'user',
-              content: 'We're struggling with prioritization and stakeholder alignment',
+              content: 'We are struggling with prioritization and stakeholder alignment',
               timestamp: '2024-01-20T10:01:00Z',
             },
           ],

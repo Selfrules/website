@@ -251,7 +251,7 @@ export class ServerConsentManager {
     const record = await this.getUserConsent(userId);
     if (!record) return false;
 
-    return record[category] === true;
+    return record[category as keyof ConsentRecord] === true;
   }
 
   /**

@@ -1,0 +1,95 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e6]
+          - heading "Blog" [level=1] [ref=e8]
+        - paragraph [ref=e9]: Product management insights, startup lessons, and tech reflections from a PM who learned through failure.
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - generic [ref=e13]:
+            - img [ref=e15]
+            - textbox "Search blog posts" [ref=e18]:
+              - /placeholder: Search articles...
+          - generic [ref=e19]:
+            - generic [ref=e20]:
+              - heading "Categories" [level=3] [ref=e21]
+              - generic [ref=e22]:
+                - button "All" [ref=e23] [cursor=pointer]
+                - button "Product Management" [ref=e24] [cursor=pointer]
+                - button "Product Strategy" [ref=e25] [cursor=pointer]
+            - generic [ref=e26]:
+              - heading "Tags" [level=3] [ref=e27]
+              - generic [ref=e28]:
+                - button "#product" [ref=e29] [cursor=pointer]
+                - button "#startup" [ref=e30] [cursor=pointer]
+                - button "#mindset" [ref=e31] [cursor=pointer]
+                - button "#failure" [ref=e32] [cursor=pointer]
+                - button "#product-market-fit" [ref=e33] [cursor=pointer]
+                - button "#strategy" [ref=e34] [cursor=pointer]
+                - button "#growth" [ref=e35] [cursor=pointer]
+        - generic [ref=e36]:
+          - article [ref=e38]:
+            - link "FEATURED Product Management Il fallimento come feature, non come bug Perché ogni mio fallimento è diventato il miglior investimento nel mio futuro da PM. Una storia di pivot continui e lezioni dolorose. November 1, 2024 4 min read product startup mindset Read more" [active] [ref=e39] [cursor=pointer]:
+              - /url: /en/blog/il-fallimento-come-feature
+              - generic [ref=e40]:
+                - generic [ref=e41]: FEATURED
+                - generic [ref=e43]:
+                  - generic [ref=e44]: Product Management
+                  - heading "Il fallimento come feature, non come bug" [level=3] [ref=e45]
+                  - paragraph [ref=e46]: Perché ogni mio fallimento è diventato il miglior investimento nel mio futuro da PM. Una storia di pivot continui e lezioni dolorose.
+                  - generic [ref=e47]:
+                    - generic [ref=e48]:
+                      - img [ref=e49]
+                      - text: November 1, 2024
+                    - generic [ref=e51]:
+                      - img [ref=e52]
+                      - text: 4 min read
+                  - generic [ref=e55]:
+                    - generic [ref=e56]:
+                      - img [ref=e57]
+                      - text: product
+                    - generic [ref=e60]:
+                      - img [ref=e61]
+                      - text: startup
+                    - generic [ref=e64]:
+                      - img [ref=e65]
+                      - text: mindset
+                  - generic [ref=e68]:
+                    - generic [ref=e69]: Read more
+                    - img [ref=e70]
+          - generic [ref=e72]:
+            - article [ref=e74]:
+              - link "Product Management Il fallimento come feature, non come bug Perché ogni mio fallimento è diventato il miglior investimento nel mio futuro da PM. Una storia di pivot continui e lezioni dolorose. November 1, 2024 4 min read" [ref=e75] [cursor=pointer]:
+                - /url: /en/blog/il-fallimento-come-feature
+                - generic [ref=e76]:
+                  - generic [ref=e77]: Product Management
+                  - heading "Il fallimento come feature, non come bug" [level=3] [ref=e78]
+                  - paragraph [ref=e79]: Perché ogni mio fallimento è diventato il miglior investimento nel mio futuro da PM. Una storia di pivot continui e lezioni dolorose.
+                  - generic [ref=e80]:
+                    - generic [ref=e81]:
+                      - img [ref=e82]
+                      - text: November 1, 2024
+                    - generic [ref=e84]:
+                      - img [ref=e85]
+                      - text: 4 min read
+            - article [ref=e89]:
+              - 'link "Product Strategy Product-Market Fit: Il mito da sfatare Tutti cercano il product-market fit come il Santo Graal. Io l''ho trovato 3 volte. E l''ho perso 3 volte. Ecco cosa ho imparato. October 28, 2024 4 min read" [ref=e90] [cursor=pointer]':
+                - /url: /en/blog/product-market-fit-mito
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Product Strategy
+                  - 'heading "Product-Market Fit: Il mito da sfatare" [level=3] [ref=e93]'
+                  - paragraph [ref=e94]: Tutti cercano il product-market fit come il Santo Graal. Io l'ho trovato 3 volte. E l'ho perso 3 volte. Ecco cosa ho imparato.
+                  - generic [ref=e95]:
+                    - generic [ref=e96]:
+                      - img [ref=e97]
+                      - text: October 28, 2024
+                    - generic [ref=e99]:
+                      - img [ref=e100]
+                      - text: 4 min read
+  - alert [ref=e103]
+```

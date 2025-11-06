@@ -109,6 +109,57 @@
         }
       }
     },
+    "skills": {
+      "title": "Matrice delle Competenze",
+      "badge": "Mindset full-stack",
+      "description": "Un mix unico di design, sviluppo e gestione prodotto",
+      "productManagement": "Product Management",
+      "frontendDev": "Frontend Dev",
+      "backendDev": "Backend Dev",
+      "uiuxDesign": "UI/UX Design",
+      "businessStrategy": "Strategia Business",
+      "technicalWriting": "Technical Writing"
+    },
+    "certifications": {
+      "title": "Certificazioni & Credenziali",
+      "subtitle": "L'apprendimento continuo fa parte del viaggio",
+      "1": {
+        "title": "AI for Product",
+        "tagline": "Perché il futuro è augmented, not replaced",
+        "issuer": "Reforge",
+        "date": "2024"
+      },
+      "2": {
+        "title": "Product Leader",
+        "tagline": "Leadership non è dare ordini, è allineare visioni",
+        "issuer": "Product School",
+        "date": "2023"
+      },
+      "3": {
+        "title": "Product Marketing",
+        "tagline": "Il miglior prodotto che nessuno conosce è un fallimento",
+        "issuer": "Product Marketing Alliance",
+        "date": "2023"
+      },
+      "4": {
+        "title": "Google Project Management",
+        "tagline": "Perché anche il caos ha bisogno di un metodo",
+        "issuer": "Google",
+        "date": "2022"
+      },
+      "5": {
+        "title": "Certified ScrumMaster",
+        "tagline": "Agile fatto bene > Agile fatto",
+        "issuer": "Scrum Alliance",
+        "date": "2021"
+      },
+      "6": {
+        "title": "Certified Product Owner",
+        "tagline": "Il PO che sa solo dire no, non è un PO",
+        "issuer": "Scrum Alliance",
+        "date": "2021"
+      }
+    },
     "cta": {
       "title": "Pronto per il prossimo capitolo?",
       "subtitle": "Costruiamo qualcosa di straordinario insieme.",
@@ -143,6 +194,34 @@
         "description": "Sei un designer che vuole capire lo sviluppo? Uno sviluppatore che vuole passare al product? Un PM junior che vuole crescere?",
         "format": "Formato: 1 ora ogni 2 settimane. Analisi del tuo lavoro attuale. Consigli pratici. Accesso a template e framework che uso io.",
         "notForYou": "Non è per te se cerchi qualcuno che ti dica cosa fare. È per te se vuoi imparare a pensare, non solo eseguire."
+      }
+    },
+    "testimonials": {
+      "title": "Cosa dicono di me",
+      "subtitle": "Feedback reale da progetti reali",
+      "1": {
+        "quote": "Abbiamo passato 6 mesi a costruire funzionalità che nessuno usava. Una sessione di 90 minuti con Mattia e abbiamo finalmente capito cosa serviva davvero agli utenti. Tre settimane dopo, abbiamo rilasciato la cosa giusta.",
+        "author": "Sarah Chen",
+        "role": "Founder & CEO",
+        "company": "TechFlow AI"
+      },
+      "2": {
+        "quote": "Il mio team parlava tre lingue diverse: design voleva bellezza, engineering voleva codice pulito, business voleva fatturato. Mattia ha tradotto tutte e tre. Finalmente stiamo costruendo lo stesso prodotto.",
+        "author": "Marco Bianchi",
+        "role": "Product Manager",
+        "company": "FinanceHub"
+      },
+      "3": {
+        "quote": "Avevo tre soluzioni architetturali e nessuna idea di quale scegliere. Mattia non mi ha detto cosa fare - ha fatto le domande che hanno reso ovvia la risposta giusta. Questa è la differenza.",
+        "author": "Alex Kumar",
+        "role": "Tech Lead",
+        "company": "DataStream"
+      },
+      "4": {
+        "quote": "Da designer, ho sempre avuto la sensazione di tirare a indovinare cosa fosse tecnicamente possibile. La mentorship mi ha dato la prospettiva dev che mi serviva. Ora disegno cose che vengono davvero costruite.",
+        "author": "Elena Rossi",
+        "role": "Senior Designer",
+        "company": "Creative Labs"
       }
     },
     "cta": "Parliamo del tuo progetto →"

@@ -1,11 +1,15 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 import { Timeline, TimelineItem } from '@/components/ui/Timeline';
 import { Badge } from '@/components/ui/Badge';
 import { ScrollAnimation } from '@/components/animations/ScrollAnimations';
 import GridPattern from '@/components/patterns/GridPattern';
-import { Briefcase, Rocket, Code, Lightbulb, Target, TrendingUp } from 'lucide-react';
+import SkillsRadarChart from '@/components/charts/SkillsRadarChart';
+import CertificationBadge, { CertificationData } from '@/components/ui/CertificationBadge';
+import CertificationModal from '@/components/ui/CertificationModal';
+import { Briefcase, Rocket, Code, Lightbulb, Target, TrendingUp, Brain, Users, Megaphone, Calendar, Zap, Target as TargetIcon } from 'lucide-react';
 
 interface JourneyData {
   id: string;
@@ -25,6 +29,65 @@ interface JourneyData {
 
 export default function Journey() {
   const t = useTranslations('journey');
+  const [selectedCertification, setSelectedCertification] = useState<CertificationData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCertificationClick = (cert: CertificationData) => {
+    setSelectedCertification(cert);
+    setIsModalOpen(true);
+  };
+
+  // Certifications data
+  const certifications: CertificationData[] = [
+    {
+      id: '1',
+      title: t('certifications.1.title'),
+      tagline: t('certifications.1.tagline'),
+      issuer: t('certifications.1.issuer'),
+      date: t('certifications.1.date'),
+      icon: <Brain className="w-6 h-6 text-primary" />,
+    },
+    {
+      id: '2',
+      title: t('certifications.2.title'),
+      tagline: t('certifications.2.tagline'),
+      issuer: t('certifications.2.issuer'),
+      date: t('certifications.2.date'),
+      icon: <Users className="w-6 h-6 text-primary" />,
+    },
+    {
+      id: '3',
+      title: t('certifications.3.title'),
+      tagline: t('certifications.3.tagline'),
+      issuer: t('certifications.3.issuer'),
+      date: t('certifications.3.date'),
+      icon: <Megaphone className="w-6 h-6 text-primary" />,
+    },
+    {
+      id: '4',
+      title: t('certifications.4.title'),
+      tagline: t('certifications.4.tagline'),
+      issuer: t('certifications.4.issuer'),
+      date: t('certifications.4.date'),
+      icon: <Calendar className="w-6 h-6 text-primary" />,
+    },
+    {
+      id: '5',
+      title: t('certifications.5.title'),
+      tagline: t('certifications.5.tagline'),
+      issuer: t('certifications.5.issuer'),
+      date: t('certifications.5.date'),
+      icon: <Zap className="w-6 h-6 text-primary" />,
+    },
+    {
+      id: '6',
+      title: t('certifications.6.title'),
+      tagline: t('certifications.6.tagline'),
+      issuer: t('certifications.6.issuer'),
+      date: t('certifications.6.date'),
+      icon: <TargetIcon className="w-6 h-6 text-primary" />,
+    },
+  ];
 
   const journeyData: JourneyData[] = [
     {
@@ -208,8 +271,46 @@ export default function Journey() {
           ))}
         </Timeline>
 
+        {/* Skills Radar Chart */}
+        <div className="mt-20">
+          <SkillsRadarChart animated delay={0.6} />
+        </div>
+
+        {/* Certifications Section */}
+        <div className="mt-20">
+          <ScrollAnimation animation="fadeInUp" delay={0.7}>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-heading font-black mb-2">
+                {t('certifications.title')}
+              </h3>
+              <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+                {t('certifications.subtitle')}
+              </p>
+            </div>
+          </ScrollAnimation>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certifications.map((cert, index) => (
+              <CertificationBadge
+                key={cert.id}
+                certification={cert}
+                onClick={() => handleCertificationClick(cert)}
+                animated
+                delay={0.7 + index * 0.1}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Certification Modal */}
+        <CertificationModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          certification={selectedCertification}
+        />
+
         {/* Call to Action */}
-        <ScrollAnimation animation="fadeInUp" delay={0.5}>
+        <ScrollAnimation animation="fadeInUp" delay={1.0}>
           <div className="mt-20 text-center">
             <div className="inline-flex flex-col items-center gap-4 p-8 bg-white dark:bg-brutalist-surface-dark
                          border-brutal border-black rounded-brutal shadow-brutal">
