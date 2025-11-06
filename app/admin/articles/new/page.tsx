@@ -388,7 +388,7 @@ export default function NewArticlePage() {
               <li>• Start with the problem, not the solution</li>
               <li>• Use everyday metaphors for complex concepts</li>
               <li>• Keep paragraphs to 3-4 lines max</li>
-              <li>• Use "we" instead of "you should"</li>
+              <li>• Use &quot;we&quot; instead of &quot;you should&quot;</li>
               <li>• MDX allows you to embed React components</li>
             </ul>
           </div>

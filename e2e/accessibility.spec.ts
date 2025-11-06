@@ -165,7 +165,7 @@ test.describe('Accessibility', () => {
       const ariaLabelledBy = await input.getAttribute('aria-labelledby')
 
       // Input should have associated label, aria-label, or aria-labelledby
-      let hasLabel = ariaLabel || ariaLabelledBy
+      let hasLabel = !!(ariaLabel || ariaLabelledBy)
 
       if (id && !hasLabel) {
         const label = page.locator(`label[for="${id}"]`)

@@ -27,10 +27,6 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
 
-  // Temporarily disable ESLint during builds
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 
   // Image optimization
   images: {

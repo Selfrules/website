@@ -16,6 +16,7 @@ import {
 import { createChatMessageSchema } from '@/lib/validations/schemas';
 import { chatRateLimiter } from '@/lib/middleware/rate-limit';
 import { RateLimitError } from '@/lib/utils/errors';
+import { Timestamp } from 'firebase-admin/firestore';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -77,9 +78,9 @@ export async function POST(req: NextRequest) {
 
     // Add user message
     const userMessage = {
-      role: 'user',
+      role: 'user' as const,
       content: validatedData.message,
-      timestamp: new Date().toISOString(),
+      timestamp: Timestamp.now(),
     };
     messages.push(userMessage);
 
@@ -115,9 +116,9 @@ export async function POST(req: NextRequest) {
           aiStream.on('end', async () => {
             // Add assistant message to conversation
             const assistantMessage = {
-              role: 'assistant',
+              role: 'assistant' as const,
               content: fullResponse,
-              timestamp: new Date().toISOString(),
+              timestamp: Timestamp.now(),
             };
             messages.push(assistantMessage);
 
