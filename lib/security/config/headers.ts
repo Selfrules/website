@@ -191,7 +191,7 @@ export function validateSecurityHeaders(): void {
     'X-Frame-Options',
   ];
 
-  const missing = criticalHeaders.filter((header) => !headers[header]);
+  const missing = criticalHeaders.filter((header) => !headers[header as keyof SecurityHeaders]);
 
   if (missing.length > 0) {
     console.error('❌ Missing critical security headers:', missing);

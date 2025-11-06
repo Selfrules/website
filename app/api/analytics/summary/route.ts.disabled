@@ -1,0 +1,264 @@
+/**
+ * Analytics Summary API
+ * Provides aggregated analytics data for dashboard
+ */
+
+import { NextRequest, NextResponse } from 'next/server';
+import prisma from '@/lib/db/prisma';
+import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
+import { apiRateLimiter } from '@/lib/middleware/rate-limit';
+import { addCorsHeaders } from '@/lib/middleware/cors';
+
+/**
+ * GET /api/analytics/summary
+ * Get comprehensive analytics summary for dashboard
+ */
+export async function GET(req: NextRequest) {
+  try {
+    await apiRateLimiter.checkLimit(req);
+
+    const { searchParams } = new URL(req.url);
+    const days = parseInt(searchParams.get('days') || '30');
+
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - days);
+
+    const where = {
+      timestamp: {
+        gte: startDate,
+      },
+    };
+
+    // Run all queries in parallel for performance
+    const [
+      totalEvents,
+      uniqueSessions,
+      pageViews,
+      ctaClicks,
+      formSubmissions,
+      chatInteractions,
+      calendarActions,
+      blogViews,
+      topPages,
+      eventsByType,
+      eventsByDay,
+      recentEvents,
+      conversionFunnel,
+    ] = await Promise.all([
+      // Total events count
+      prisma.analyticsEvent.count({ where }),
+
+      // Unique sessions
+      prisma.analyticsEvent.findMany({
+        where,
+        select: { sessionId: true },
+        distinct: ['sessionId'],
+      }),
+
+      // Page views count
+      prisma.analyticsEvent.count({
+        where: { ...where, eventType: 'page_view' },
+      }),
+
+      // CTA clicks count
+      prisma.analyticsEvent.count({
+        where: { ...where, eventName: { contains: 'cta' } },
+      }),
+
+      // Form submissions count
+      prisma.analyticsEvent.count({
+        where: { ...where, eventType: 'form_submission' },
+      }),
+
+      // Chat interactions count
+      prisma.analyticsEvent.count({
+        where: { ...where, eventType: 'chat' },
+      }),
+
+      // Calendar actions count
+      prisma.analyticsEvent.count({
+        where: { ...where, eventType: 'calendar' },
+      }),
+
+      // Blog views count
+      prisma.analyticsEvent.count({
+        where: { ...where, eventName: 'blog_view' },
+      }),
+
+      // Top pages by views
+      prisma.analyticsEvent.groupBy({
+        by: ['page'],
+        where: { ...where, page: { not: null }, eventType: 'page_view' },
+        _count: { page: true },
+        orderBy: { _count: { page: 'desc' } },
+        take: 10,
+      }),
+
+      // Events by type distribution
+      prisma.analyticsEvent.groupBy({
+        by: ['eventType'],
+        where,
+        _count: { eventType: true },
+        orderBy: { _count: { eventType: 'desc' } },
+      }),
+
+      // Events by day (time series)
+      prisma.$queryRaw`
+        SELECT
+          DATE(timestamp) as date,
+          COUNT(*) as count
+        FROM analytics_events
+        WHERE timestamp >= ${startDate.toISOString()}
+        GROUP BY DATE(timestamp)
+        ORDER BY date ASC
+      `,
+
+      // Recent events (last 50)
+      prisma.analyticsEvent.findMany({
+        where,
+        orderBy: { timestamp: 'desc' },
+        take: 50,
+        select: {
+          id: true,
+          eventType: true,
+          eventName: true,
+          page: true,
+          timestamp: true,
+        },
+      }),
+
+      // Conversion funnel analysis
+      calculateConversionFunnel(where),
+    ]);
+
+    // Calculate engagement metrics
+    const avgEventsPerSession = uniqueSessions.length > 0
+      ? (totalEvents / uniqueSessions.length).toFixed(2)
+      : 0;
+
+    const summary = {
+      overview: {
+        totalEvents,
+        uniqueSessions: uniqueSessions.length,
+        pageViews,
+        avgEventsPerSession: parseFloat(avgEventsPerSession.toString()),
+        timeRange: {
+          startDate: startDate.toISOString(),
+          endDate: new Date().toISOString(),
+          days,
+        },
+      },
+      interactions: {
+        ctaClicks,
+        formSubmissions,
+        chatInteractions,
+        calendarActions,
+        blogViews,
+      },
+      topPages: topPages.map(p => ({
+        page: p.page,
+        views: p._count.page,
+      })),
+      eventsByType: eventsByType.map(e => ({
+        type: e.eventType,
+        count: e._count.eventType,
+        percentage: ((e._count.eventType / totalEvents) * 100).toFixed(1),
+      })),
+      eventsByDay,
+      recentEvents,
+      conversionFunnel,
+    };
+
+    const response = NextResponse.json(
+      formatSuccessResponse(summary),
+      { status: 200 }
+    );
+
+    return addCorsHeaders(response, req);
+  } catch (error) {
+    return handleApiError(error);
+  }
+}
+
+/**
+ * Calculate conversion funnel metrics
+ */
+async function calculateConversionFunnel(where: any) {
+  const [
+    visited,
+    viewedBlog,
+    clickedCTA,
+    startedChat,
+    bookedCall,
+  ] = await Promise.all([
+    prisma.analyticsEvent.findMany({
+      where: { ...where, eventType: 'page_view' },
+      select: { sessionId: true },
+      distinct: ['sessionId'],
+    }),
+    prisma.analyticsEvent.findMany({
+      where: { ...where, eventName: 'blog_view' },
+      select: { sessionId: true },
+      distinct: ['sessionId'],
+    }),
+    prisma.analyticsEvent.findMany({
+      where: { ...where, eventName: { contains: 'cta' } },
+      select: { sessionId: true },
+      distinct: ['sessionId'],
+    }),
+    prisma.analyticsEvent.findMany({
+      where: { ...where, eventType: 'chat' },
+      select: { sessionId: true },
+      distinct: ['sessionId'],
+    }),
+    prisma.analyticsEvent.findMany({
+      where: { ...where, eventName: 'booking_completed' },
+      select: { sessionId: true },
+      distinct: ['sessionId'],
+    }),
+  ]);
+
+  const visitedCount = visited.length;
+  const viewedBlogCount = viewedBlog.length;
+  const clickedCTACount = clickedCTA.length;
+  const startedChatCount = startedChat.length;
+  const bookedCallCount = bookedCall.length;
+
+  return {
+    steps: [
+      {
+        name: 'Visited Site',
+        count: visitedCount,
+        percentage: 100,
+      },
+      {
+        name: 'Viewed Blog',
+        count: viewedBlogCount,
+        percentage: visitedCount > 0 ? ((viewedBlogCount / visitedCount) * 100).toFixed(1) : 0,
+      },
+      {
+        name: 'Clicked CTA',
+        count: clickedCTACount,
+        percentage: visitedCount > 0 ? ((clickedCTACount / visitedCount) * 100).toFixed(1) : 0,
+      },
+      {
+        name: 'Started Chat',
+        count: startedChatCount,
+        percentage: visitedCount > 0 ? ((startedChatCount / visitedCount) * 100).toFixed(1) : 0,
+      },
+      {
+        name: 'Booked Call',
+        count: bookedCallCount,
+        percentage: visitedCount > 0 ? ((bookedCallCount / visitedCount) * 100).toFixed(1) : 0,
+      },
+    ],
+    conversionRate: visitedCount > 0
+      ? ((bookedCallCount / visitedCount) * 100).toFixed(2)
+      : 0,
+  };
+}
+
+export async function OPTIONS(req: NextRequest) {
+  const response = new NextResponse(null, { status: 204 });
+  return addCorsHeaders(response, req);
+}

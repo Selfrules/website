@@ -1,4 +1,5 @@
 import { Newspaper } from 'lucide-react';
+import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
 import CTAButton from '@/components/ui/CTAButton';
@@ -64,9 +65,11 @@ export default async function Blog({ locale }: BlogProps) {
 
             {/* View All Button */}
             <div className="text-center">
-              <CTAButton href={`/${locale}/blog`} variant="secondary">
-                {t.viewAll}
-              </CTAButton>
+              <Link href={`/${locale}/blog`}>
+                <CTAButton variant="secondary">
+                  {t.viewAll}
+                </CTAButton>
+              </Link>
             </div>
           </>
         ) : (

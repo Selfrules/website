@@ -1,0 +1,276 @@
+/**
+ * Storybook stories for Integration Widgets
+ *
+ * NOTE: This file is currently disabled because @storybook/react is not installed.
+ * To enable: npm install -D @storybook/react @storybook/react-webpack5 @storybook/addon-essentials
+ *
+ * Uncomment the code below after installing dependencies.
+ */
+
+/* eslint-disable */
+// @ts-nocheck
+
+/*
+import type { Meta, StoryObj } from '@storybook/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ChatWidget } from './ChatWidget';
+import { SpotifyWidget, SpotifyWidgetCompact } from './SpotifyWidget';
+import { CalendarWidget } from './CalendarWidget';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
+
+// Wrapper with React Query provider
+const withQueryClient = (Story: React.ComponentType) => (
+  <QueryClientProvider client={queryClient}>
+    <Story />
+  </QueryClientProvider>
+);
+
+// Chat Widget Stories
+const chatMeta: Meta<typeof ChatWidget> = {
+  title: 'Integrations/ChatWidget',
+  component: ChatWidget,
+  decorators: [withQueryClient],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Floating chat widget with Claude AI integration. Features streaming responses, session persistence, and neobrutalist design.',
+      },
+    },
+  },
+};
+
+export default chatMeta;
+
+type ChatStory = StoryObj<typeof ChatWidget>;
+
+export const Default: ChatStory = {
+  render: () => (
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4">Chat Widget Demo</h1>
+        <p className="text-gray-600 mb-8">
+          Click the floating button in the bottom-right corner to open the chat.
+        </p>
+        <div className="p-8 border-4 border-black rounded-lg bg-white">
+          <p>Page content here...</p>
+        </div>
+      </div>
+      <ChatWidget />
+    </div>
+  ),
+};
+
+export const AlreadyOpen: ChatStory = {
+  render: () => {
+    // Note: In real implementation, you'd set the store state
+    return (
+      <div className="min-h-screen bg-gray-50 p-8">
+        <ChatWidget />
+      </div>
+    );
+  },
+};
+
+// Spotify Widget Stories
+const spotifyMeta: Meta<typeof SpotifyWidget> = {
+  title: 'Integrations/SpotifyWidget',
+  component: SpotifyWidget,
+  decorators: [withQueryClient],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Displays currently playing track from Spotify with auto-refresh every 30 seconds.',
+      },
+    },
+  },
+};
+
+export const SpotifyDefault: StoryObj<typeof SpotifyWidget> = {
+  render: () => (
+    <div className="p-8 bg-gray-50">
+      <h2 className="text-2xl font-bold mb-4">Spotify Now Playing</h2>
+      <SpotifyWidget />
+    </div>
+  ),
+};
+
+export const SpotifyCompact: StoryObj<typeof SpotifyWidgetCompact> = {
+  render: () => (
+    <div className="p-8 bg-gray-50">
+      <h2 className="text-2xl font-bold mb-4">Compact Variant (Sidebar)</h2>
+      <div className="w-64">
+        <SpotifyWidgetCompact />
+      </div>
+    </div>
+  ),
+};
+
+export const SpotifyLoading: StoryObj<typeof SpotifyWidget> = {
+  render: () => (
+    <div className="p-8 bg-gray-50">
+      <h2 className="text-2xl font-bold mb-4">Loading State</h2>
+      <div className="w-full max-w-[300px] h-[100px] rounded-lg border-3 border-black bg-white p-3 flex items-center gap-3 animate-pulse">
+        <div className="w-16 h-16 bg-gray-200 rounded border-2 border-black" />
+        <div className="flex-1 space-y-2">
+          <div className="h-4 bg-gray-200 rounded w-3/4" />
+          <div className="h-3 bg-gray-200 rounded w-1/2" />
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+export const SpotifyError: StoryObj<typeof SpotifyWidget> = {
+  render: () => (
+    <div className="p-8 bg-gray-50">
+      <h2 className="text-2xl font-bold mb-4">Error State</h2>
+      <p className="text-sm text-gray-600 mb-4">
+        This shows when the API fails to load
+      </p>
+      {/* Error component would be shown here */}
+    </div>
+  ),
+};
+
+// Calendar Widget Stories
+const calendarMeta: Meta<typeof CalendarWidget> = {
+  title: 'Integrations/CalendarWidget',
+  component: CalendarWidget,
+  decorators: [withQueryClient],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Multi-step appointment booking widget with date selection, time slots, form validation, and confirmation.',
+      },
+    },
+  },
+};
+
+export const CalendarDefault: StoryObj<typeof CalendarWidget> = {
+  render: () => (
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-2">Book a Meeting</h1>
+        <p className="text-gray-600 mb-8">
+          Choose a date and time that works for you
+        </p>
+        <CalendarWidget />
+      </div>
+    </div>
+  ),
+};
+
+export const CalendarMobile: StoryObj<typeof CalendarWidget> = {
+  render: () => (
+    <div className="max-w-sm mx-auto p-4 bg-gray-50">
+      <h2 className="text-xl font-bold mb-4">Mobile View</h2>
+      <CalendarWidget />
+    </div>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+};
+
+// Combined Demo
+export const AllWidgetsTogether: StoryObj = {
+  render: () => (
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-6xl mx-auto space-y-12">
+        <section>
+          <h1 className="text-4xl font-bold mb-2">Integration Widgets</h1>
+          <p className="text-gray-600 mb-8">
+            All widgets in action with neobrutalist design
+          </p>
+        </section>
+
+        {/* Spotify Widget */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Now Playing</h2>
+          <SpotifyWidget />
+        </section>
+
+        {/* Calendar Widget */}
+        <section>
+          <h2 className="text-2xl font-bold mb-4">Book a Meeting</h2>
+          <CalendarWidget />
+        </section>
+
+        {/* Chat Widget (floating) */}
+        <ChatWidget />
+      </div>
+    </div>
+  ),
+};
+
+// Dark Mode Variants (if supported)
+export const DarkModeChat: ChatStory = {
+  render: () => (
+    <div className="min-h-screen bg-gray-900 p-8">
+      <div className="max-w-4xl mx-auto text-white">
+        <h1 className="text-3xl font-bold mb-4">Dark Mode Support</h1>
+        <p className="text-gray-400 mb-8">
+          Widgets adapt to dark mode themes
+        </p>
+      </div>
+      <ChatWidget />
+    </div>
+  ),
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
+  },
+};
+
+// Accessibility Testing Story
+export const AccessibilityDemo: StoryObj = {
+  render: () => (
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4">Accessibility Features</h1>
+        <div className="space-y-4 mb-8">
+          <div className="p-4 border-2 border-blue-500 rounded bg-blue-50">
+            <h3 className="font-bold mb-2">✅ Keyboard Navigation</h3>
+            <p className="text-sm">
+              Tab through elements, Enter to activate, Escape to close
+            </p>
+          </div>
+          <div className="p-4 border-2 border-green-500 rounded bg-green-50">
+            <h3 className="font-bold mb-2">✅ Screen Reader Support</h3>
+            <p className="text-sm">ARIA labels and semantic HTML throughout</p>
+          </div>
+          <div className="p-4 border-2 border-purple-500 rounded bg-purple-50">
+            <h3 className="font-bold mb-2">✅ Touch Targets</h3>
+            <p className="text-sm">Minimum 44x44px for mobile interactions</p>
+          </div>
+          <div className="p-4 border-2 border-yellow-500 rounded bg-yellow-50">
+            <h3 className="font-bold mb-2">✅ High Contrast</h3>
+            <p className="text-sm">
+              Neobrutalist design ensures excellent contrast ratios
+            </p>
+          </div>
+        </div>
+        <CalendarWidget />
+      </div>
+    </div>
+  ),
+};
+*/
+
+// Export empty object to prevent module errors
+export default {};

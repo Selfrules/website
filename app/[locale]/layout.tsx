@@ -1,9 +1,9 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-
-export const locales = ['en', 'it'] as const;
-export type Locale = (typeof locales)[number];
+import { locales, type Locale } from '@/lib/i18n';
+import { Header } from '@/components/ui/Header';
+import { AnalyticsProvider } from '@/components/providers/AnalyticsProvider';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -25,7 +25,10 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      {children}
+      <AnalyticsProvider>
+        <Header locale={locale} />
+        {children}
+      </AnalyticsProvider>
     </NextIntlClientProvider>
   );
 }

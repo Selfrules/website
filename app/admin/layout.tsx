@@ -27,6 +27,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Don't protect the login page
+  const isLoginPage = pathname === '/admin/login';
+
   const handleLogout = async () => {
     try {
       await fetch('/api/admin/logout', { method: 'POST' });
@@ -36,6 +39,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       console.error('Logout failed:', error);
     }
   };
+
+  // If it's the login page, render without ProtectedRoute
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
 
   return (
     <ProtectedRoute>

@@ -170,7 +170,7 @@ export function logSecurityEvent(event: SecurityEvent): void {
     critical: 'error',
   }[event.severity];
 
-  console[logLevel](
+  (console as any)[logLevel](
     `[SECURITY:${event.type.toUpperCase()}] ${event.message}`,
     {
       ip: event.ip,

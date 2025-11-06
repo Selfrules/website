@@ -10,10 +10,12 @@ import GridPattern from '@/components/patterns/GridPattern';
 import DecorativeAccents from '@/components/illustrations/DecorativeAccents';
 import { ScrollAnimation } from '@/components/animations/ScrollAnimations';
 import { MagneticHover } from '@/components/animations/HoverEffects';
+import { useAnalytics } from '@/lib/hooks/useAnalytics';
 
 export default function Hero() {
   const t = useTranslations('hero');
   const { scrollY } = useScroll();
+  const analytics = useAnalytics();
 
   // Parallax transforms
   const textureY = useTransform(scrollY, [0, 500], [0, -50]);
@@ -137,6 +139,7 @@ export default function Hero() {
                   size="lg"
                   iconAnimation={false}
                   className="group"
+                  onClick={() => analytics.trackCTAClick('book_call', 'hero_section')}
                 >
                   {t('cta')}
                 </CTAButton>
@@ -144,6 +147,7 @@ export default function Hero() {
                 <MagneticButton
                   variant="secondary"
                   strength={0.3}
+                  onClick={() => analytics.trackCTAClick('explore_portfolio', 'hero_section')}
                 >
                   {t('explore')}
                 </MagneticButton>

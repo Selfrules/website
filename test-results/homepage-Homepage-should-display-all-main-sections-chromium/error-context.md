@@ -1,0 +1,245 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic:
+        - generic: +
+        - generic: ✦
+        - generic: +
+        - generic: ×
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - generic [ref=e9]:
+            - generic [ref=e13]: Product Manager & Developer
+            - heading "Ho fallito come designer. Poi come developer. Ora sono un Product Manager che sa davvero cosa costruire." [level=1] [ref=e15]:
+              - generic [ref=e16]: Ho fallito come designer.
+              - generic [ref=e17]: Poi come developer.
+              - generic [ref=e18]:
+                - text: Ora sono un Product Manager
+                - generic [ref=e19]:
+                  - text: che sa davvero
+                  - img [ref=e20]
+                - text: cosa costruire.
+            - paragraph [ref=e23]: Perché questo conta? Perché ho imparato che il prodotto perfetto non esiste. Esiste solo quello che risolve problemi reali, costruito da chi capisce design, tech e business.
+            - paragraph [ref=e25]: Hai un'idea che vuoi trasformare in prodotto? Un prodotto che nessuno usa? Un team che non si capisce? Sono passato da tutte e tre le parti del tavolo. Possiamo parlarne.
+            - generic [ref=e27]:
+              - button "Parliamone →" [ref=e28] [cursor=pointer]:
+                - img [ref=e30]
+                - text: Parliamone →
+              - button "Esplora il portfolio" [ref=e32] [cursor=pointer]
+            - generic [ref=e34]:
+              - generic [ref=e35]:
+                - generic [ref=e36]: 78%
+                - generic [ref=e37]: Faster load times
+              - generic [ref=e38]:
+                - generic [ref=e39]: 5M+
+                - generic [ref=e40]: Users impacted
+              - generic [ref=e41]:
+                - generic [ref=e42]: "12"
+                - generic [ref=e43]: Products shipped
+          - generic [ref=e44]:
+            - generic:
+              - generic:
+                - generic [ref=e47]:
+                  - generic [ref=e48]: 🚀
+                  - heading "Ship Fast" [level=3] [ref=e49]
+                  - paragraph [ref=e50]: From idea to production in weeks, not months
+                - generic [ref=e52]: ⚡
+                - generic [ref=e54]: 💡
+        - img [ref=e56]
+    - generic [ref=e61]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - img [ref=e65]
+          - generic [ref=e68]: Il mio percorso
+        - heading "Il percorsoal contrario" [level=2] [ref=e69]
+        - paragraph [ref=e70]: "La maggior parte dei PM studiano product management. Io ho fatto il percorso lungo: design, codice, e solo alla fine product. È stato scomodo, faticoso, pieno di errori. Ed è esattamente per questo che oggi so davvero cosa sto facendo."
+      - generic [ref=e73]:
+        - generic [ref=e75]:
+          - img [ref=e78]
+          - generic [ref=e83]:
+            - generic [ref=e85]: 2023-oggi
+            - generic [ref=e87]:
+              - heading "Product Manager" [level=3] [ref=e88]
+              - generic [ref=e89]:
+                - generic [ref=e90]: QubicaAMF
+                - paragraph [ref=e91]: Unifico tutto quello che ho imparato per costruire cose che contano.
+                - generic [ref=e92]:
+                  - generic [ref=e93]: "-12%"
+                  - generic [ref=e94]: Tempi pagamento
+                - list [ref=e95]:
+                  - listitem [ref=e96]:
+                    - generic [ref=e97]: •
+                    - generic [ref=e98]: "-12% tempi di pagamento (non magia, solo meno click inutili)"
+                  - listitem [ref=e99]:
+                    - generic [ref=e100]: •
+                    - generic [ref=e101]: +9% adoption integrazioni (meno PDF, più video di 3 minuti)
+                  - listitem [ref=e102]:
+                    - generic [ref=e103]: •
+                    - generic [ref=e104]: "-25% incidenti post-release (mettere Product, Support ed Engineering nella stessa stanza ogni venerdì)"
+                - generic [ref=e105]:
+                  - generic [ref=e106]: Product Strategy
+                  - generic [ref=e107]: API Design
+                  - generic [ref=e108]: User Research
+                  - generic [ref=e109]: Business Case
+        - generic [ref=e111]:
+          - img [ref=e114]
+          - generic [ref=e118]:
+            - generic [ref=e120]: 2021-2023
+            - generic [ref=e122]:
+              - heading "Product Owner" [level=3] [ref=e123]
+              - generic [ref=e124]:
+                - generic [ref=e125]: ActiveProspect
+                - paragraph [ref=e126]: Facevo da ponte tra business e tech. Traducevo esigenze in funzionalità.
+                - generic [ref=e127]:
+                  - generic [ref=e128]: 3 lingue
+                  - generic [ref=e129]: Skill acquisita
+                - list [ref=e130]:
+                  - listitem [ref=e131]:
+                    - generic [ref=e132]: •
+                    - generic [ref=e133]: Il vero lavoro del Product non è dire "sì" a tutto, ma dire "no" alle cose giuste
+                  - listitem [ref=e134]:
+                    - generic [ref=e135]: •
+                    - generic [ref=e136]: Una roadmap bella non serve a niente se non è allineata al business
+                  - listitem [ref=e137]:
+                    - generic [ref=e138]: •
+                    - generic [ref=e139]: Il feedback degli utenti conta più di qualsiasi opinion di un stakeholder interno
+                - generic [ref=e140]:
+                  - generic [ref=e141]: Roadmapping
+                  - generic [ref=e142]: Stakeholder Management
+                  - generic [ref=e143]: User Feedback
+                  - generic [ref=e144]: Prioritization
+        - generic [ref=e146]:
+          - img [ref=e149]
+          - generic [ref=e152]:
+            - generic [ref=e154]: 2016-2020
+            - generic [ref=e156]:
+              - heading "Full-stack Developer" [level=3] [ref=e157]
+              - generic [ref=e158]:
+                - generic [ref=e159]: FLOWING
+                - paragraph [ref=e160]: Scrivevo codice. Costruivo API. Pensavo che la tecnica risolvesse tutto.
+                - list [ref=e161]:
+                  - listitem [ref=e162]:
+                    - generic [ref=e163]: •
+                    - generic [ref=e164]: Ho ottimizzato un algoritmo per 10ms più veloce, mentre nessuno capiva come usare la feature
+                  - listitem [ref=e165]:
+                    - generic [ref=e166]: •
+                    - generic [ref=e167]: Ho scritto il codice più elegante della mia carriera per un prodotto morto dopo 4 mesi
+                  - listitem [ref=e168]:
+                    - generic [ref=e169]: •
+                    - generic [ref=e170]: "Il momento di svolta: \"Ma questo a cosa serve davvero?\" - Non seppi rispondere"
+                - generic [ref=e171]:
+                  - generic [ref=e172]: JavaScript
+                  - generic [ref=e173]: API Development
+                  - generic [ref=e174]: Backend
+                  - generic [ref=e175]: Frontend
+        - generic [ref=e177]:
+          - img [ref=e180]
+          - generic [ref=e182]:
+            - generic [ref=e184]: 2012-2018
+            - generic [ref=e186]:
+              - heading "Designer & Business Owner" [level=3] [ref=e187]
+              - generic [ref=e188]:
+                - generic [ref=e189]: Selfrules
+                - paragraph [ref=e190]: Disegnavo siti web. Gestivo clienti. Pensavo di sapere tutto.
+                - list [ref=e191]:
+                  - listitem [ref=e192]:
+                    - generic [ref=e193]: •
+                    - generic [ref=e194]: Design bellissimo che nessuno capisce come usare è solo arte, non prodotto
+                  - listitem [ref=e195]:
+                    - generic [ref=e196]: •
+                    - generic [ref=e197]: Mockup perfetto che non si può sviluppare è tempo sprecato
+                  - listitem [ref=e198]:
+                    - generic [ref=e199]: •
+                    - generic [ref=e200]: "Il fallimento: 3 settimane su un design tecnicamente impossibile nel budget"
+                - generic [ref=e201]:
+                  - generic [ref=e202]: Design
+                  - generic [ref=e203]: Business
+                  - generic [ref=e204]: Client Management
+                  - generic [ref=e205]: Web Design
+      - generic [ref=e208]:
+        - heading "Pronto per il prossimo capitolo?" [level=3] [ref=e209]
+        - paragraph [ref=e210]: Costruiamo qualcosa di straordinario insieme.
+        - button "Parliamone →" [ref=e211] [cursor=pointer]
+    - generic [ref=e213]:
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - img [ref=e216]
+          - generic [ref=e219]: Blog
+        - heading "Latest thoughts" [level=2] [ref=e220]
+        - paragraph [ref=e221]: Stories of failures, successes, and everything in between. No filters.
+      - generic [ref=e222]:
+        - article [ref=e223]:
+          - link "FEATURED Product Management Il fallimento come feature, non come bug Perché ogni mio fallimento è diventato il miglior investimento nel mio futuro da PM. Una storia di pivot continui e lezioni dolorose. November 1, 2024 4 min read product startup mindset Read more" [ref=e224] [cursor=pointer]:
+            - /url: /en/blog/il-fallimento-come-feature
+            - generic [ref=e225]:
+              - generic [ref=e226]: FEATURED
+              - generic [ref=e228]:
+                - generic [ref=e229]: Product Management
+                - heading "Il fallimento come feature, non come bug" [level=3] [ref=e230]
+                - paragraph [ref=e231]: Perché ogni mio fallimento è diventato il miglior investimento nel mio futuro da PM. Una storia di pivot continui e lezioni dolorose.
+                - generic [ref=e232]:
+                  - generic [ref=e233]:
+                    - img [ref=e234]
+                    - text: November 1, 2024
+                  - generic [ref=e236]:
+                    - img [ref=e237]
+                    - text: 4 min read
+                - generic [ref=e240]:
+                  - generic [ref=e241]:
+                    - img [ref=e242]
+                    - text: product
+                  - generic [ref=e245]:
+                    - img [ref=e246]
+                    - text: startup
+                  - generic [ref=e249]:
+                    - img [ref=e250]
+                    - text: mindset
+                - generic [ref=e253]:
+                  - generic [ref=e254]: Read more
+                  - img [ref=e255]
+        - article [ref=e257]:
+          - 'link "Product Strategy Product-Market Fit: Il mito da sfatare Tutti cercano il product-market fit come il Santo Graal. Io l''ho trovato 3 volte. E l''ho perso 3 volte. Ecco cosa ho imparato. October 28, 2024 4 min read" [ref=e258] [cursor=pointer]':
+            - /url: /en/blog/product-market-fit-mito
+            - generic [ref=e259]:
+              - generic [ref=e260]: Product Strategy
+              - 'heading "Product-Market Fit: Il mito da sfatare" [level=3] [ref=e261]'
+              - paragraph [ref=e262]: Tutti cercano il product-market fit come il Santo Graal. Io l'ho trovato 3 volte. E l'ho perso 3 volte. Ecco cosa ho imparato.
+              - generic [ref=e263]:
+                - generic [ref=e264]:
+                  - img [ref=e265]
+                  - text: October 28, 2024
+                - generic [ref=e267]:
+                  - img [ref=e268]
+                  - text: 4 min read
+      - button "Read all articles" [ref=e272] [cursor=pointer]
+    - generic [ref=e274]:
+      - generic [ref=e275]:
+        - heading "Come possiamolavorare insieme" [level=2] [ref=e276]
+        - paragraph [ref=e277]: Non vendo consulenze. Non vendo ore. Vendo risultati. Se hai un problema concreto e vuoi qualcuno che capisca design, tech e business senza bisogno di traduttori, possiamo parlare.
+      - generic [ref=e278]:
+        - generic [ref=e279]:
+          - generic [ref=e280]: Consulenze strategiche
+          - heading "Sblocchiamo il tuo prodotto in 90 minuti" [level=3] [ref=e281]
+          - paragraph [ref=e282]: Hai un prodotto che non decolla? Un team che gira in tondo? Una roadmap che sembra strategica ma non porta risultati? Prendiamoci 90 minuti.
+          - generic [ref=e283]:
+            - paragraph [ref=e284]: "Non aspettarti: Slide bellissime con buzzword."
+            - paragraph [ref=e285]: "Aspettati: Domande dirette, analisi pragmatica, piano d'azione chiaro."
+          - paragraph [ref=e286]: "Ideale per: Founder, Product Manager, Tech Lead che sanno di essere bloccati ma non capiscono dove."
+        - generic [ref=e287]:
+          - generic [ref=e288]: Brainstorming sessions
+          - heading "Due cervelli, un problema, infinite soluzioni" [level=3] [ref=e289]
+          - paragraph [ref=e290]: A volte il problema non è che non hai soluzioni. È che ne hai troppe e non sai quale scegliere. O peggio, hai la soluzione sbagliata al problema giusto.
+          - paragraph [ref=e291]: "Cosa facciamo: Session di lavoro pratico. Sketch, diagrammi, analisi costi-benefici. Usciamo con prototipi di soluzioni, non solo idee vaghe."
+          - paragraph [ref=e292]: "Ideale per: Team in fase di discovery, decisioni architetturali complesse, quando hai bisogno di un esterno che sfidi le tue assunzioni."
+        - generic [ref=e293]:
+          - generic [ref=e294]: Mentorship
+          - heading "Il percorso che avrei voluto qualcuno mi mostrasse" [level=3] [ref=e295]
+          - paragraph [ref=e296]: Sei un designer che vuole capire lo sviluppo? Uno sviluppatore che vuole passare al product? Un PM junior che vuole crescere?
+          - paragraph [ref=e297]: "Formato: 1 ora ogni 2 settimane. Analisi del tuo lavoro attuale. Consigli pratici. Accesso a template e framework che uso io."
+          - paragraph [ref=e298]: Non è per te se cerchi qualcuno che ti dica cosa fare. È per te se vuoi imparare a pensare, non solo eseguire.
+      - button "Parliamo del tuo progetto →" [ref=e300] [cursor=pointer]
+  - alert [ref=e301]
+```

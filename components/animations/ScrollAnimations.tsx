@@ -3,139 +3,162 @@
 import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-// Animation Variants
-export const scrollAnimationVariants: Record<string, Variants> = {
-  fadeInUp: {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  },
-  fadeInDown: {
-    hidden: { opacity: 0, y: -30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  },
-  fadeInLeft: {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  },
-  fadeInRight: {
-    hidden: { opacity: 0, x: 30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  },
-  scaleIn: {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  },
-  rotateIn: {
-    hidden: { opacity: 0, rotate: -10, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      rotate: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  },
-  blurIn: {
-    hidden: {
-      opacity: 0,
-      filter: 'blur(10px)',
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      filter: 'blur(0px)',
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  },
-  brutalSlide: {
-    hidden: {
-      x: -100,
-      opacity: 0,
-      rotate: -5,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      rotate: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 20,
-      },
+// Animation Variants - Explicitly typed for proper Framer Motion compatibility
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
     },
   },
 };
 
-// Stagger Container Variants
+const fadeInDown: Variants = {
+  hidden: { opacity: 0, y: -30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const fadeInLeft: Variants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const fadeInRight: Variants = {
+  hidden: { opacity: 0, x: 30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
+const rotateIn: Variants = {
+  hidden: { opacity: 0, rotate: -10, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    rotate: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const blurIn: Variants = {
+  hidden: {
+    opacity: 0,
+    filter: 'blur(10px)',
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    filter: 'blur(0px)',
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const brutalSlide: Variants = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+    rotate: -5,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    rotate: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 20,
+    },
+  },
+};
+
+// Export as Record with proper typing
+export const scrollAnimationVariants: Record<string, Variants> = {
+  fadeInUp,
+  fadeInDown,
+  fadeInLeft,
+  fadeInRight,
+  scaleIn,
+  rotateIn,
+  blurIn,
+  brutalSlide,
+};
+
+// Stagger Container Variants - Explicitly typed
+const staggerDefault: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const staggerFast: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const staggerSlow: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 export const staggerContainerVariants: Record<string, Variants> = {
-  default: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  },
-  fast: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  },
-  slow: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  },
+  default: staggerDefault,
+  fast: staggerFast,
+  slow: staggerSlow,
 };
 
 interface ScrollAnimationProps {
@@ -161,17 +184,22 @@ export function ScrollAnimation({
   stagger = false,
   staggerDelay = 0.1,
 }: ScrollAnimationProps) {
-  const variants = scrollAnimationVariants[animation];
+  const baseVariants = scrollAnimationVariants[animation];
 
-  // Override transition if custom duration is provided
-  if (duration && variants.visible.transition) {
-    variants.visible.transition.duration = duration;
-  }
-
-  // Add delay if provided
-  if (delay && variants.visible.transition) {
-    variants.visible.transition.delay = delay;
-  }
+  // Create customized variants with duration and delay if provided
+  const customVariants: Variants = {
+    hidden: baseVariants.hidden,
+    visible: {
+      ...baseVariants.visible,
+      transition: {
+        ...(typeof baseVariants.visible === 'object' && 'transition' in baseVariants.visible
+          ? baseVariants.visible.transition
+          : {}),
+        ...(duration !== undefined && { duration }),
+        ...(delay !== undefined && { delay }),
+      },
+    },
+  };
 
   if (stagger) {
     return (
@@ -199,7 +227,7 @@ export function ScrollAnimation({
   return (
     <motion.div
       className={className}
-      variants={variants}
+      variants={customVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount }}

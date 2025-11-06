@@ -1,14 +1,22 @@
 /**
- * Blog Post by Slug API Routes
+ * Blog Post by Slug API Routes - FIREBASE VERSION
  * Handles individual blog post operations
+ * Migrated from Prisma to Firestore
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/db/prisma';
+import {
+  COLLECTIONS,
+  BlogPost,
+  queryDocumentsAdmin,
+  updateDocumentAdmin,
+  deleteDocumentAdmin,
+} from '@/lib/firebase';
 import { updateBlogPostSchema } from '@/lib/validations/schemas';
 import { handleApiError, formatSuccessResponse, NotFoundError } from '@/lib/utils/errors';
 import { apiRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
+import { Timestamp } from 'firebase-admin/firestore';
 
 /**
  * GET /api/blog/[slug]
@@ -21,16 +29,20 @@ export async function GET(
   try {
     await apiRateLimiter.checkLimit(req);
 
-    const post = await prisma.blogPost.findUnique({
-      where: { slug: params.slug },
-    });
+    const posts = await queryDocumentsAdmin<BlogPost>(
+      COLLECTIONS.BLOG_POSTS,
+      [{ field: 'slug', operator: '==', value: params.slug }],
+      undefined,
+      'desc',
+      1
+    );
 
-    if (!post) {
+    if (posts.length === 0) {
       throw new NotFoundError('Blog post');
     }
 
     const response = NextResponse.json(
-      formatSuccessResponse(post),
+      formatSuccessResponse(posts[0]),
       { status: 200 }
     );
 
@@ -54,16 +66,34 @@ export async function PUT(
     const body = await req.json();
     const validatedData = updateBlogPostSchema.parse(body);
 
-    const post = await prisma.blogPost.update({
-      where: { slug: params.slug },
-      data: {
-        ...validatedData,
-        publishedAt: validatedData.publishedAt ? new Date(validatedData.publishedAt) : undefined,
-      },
-    });
+    // Find post by slug first
+    const posts = await queryDocumentsAdmin<BlogPost>(
+      COLLECTIONS.BLOG_POSTS,
+      [{ field: 'slug', operator: '==', value: params.slug }],
+      undefined,
+      'desc',
+      1
+    );
+
+    if (posts.length === 0) {
+      throw new NotFoundError('Blog post');
+    }
+
+    const { publishedAt, ...otherFields } = validatedData;
+    const updateData: Partial<BlogPost> = { ...otherFields };
+
+    if (publishedAt) {
+      updateData.publishedAt = Timestamp.fromDate(new Date(publishedAt));
+    }
+
+    await updateDocumentAdmin<BlogPost>(
+      COLLECTIONS.BLOG_POSTS,
+      posts[0].id,
+      updateData
+    );
 
     const response = NextResponse.json(
-      formatSuccessResponse(post, 'Blog post updated successfully'),
+      formatSuccessResponse(posts[0], 'Blog post updated successfully'),
       { status: 200 }
     );
 
@@ -84,9 +114,20 @@ export async function DELETE(
   try {
     await apiRateLimiter.checkLimit(req);
 
-    await prisma.blogPost.delete({
-      where: { slug: params.slug },
-    });
+    // Find post by slug first
+    const posts = await queryDocumentsAdmin<BlogPost>(
+      COLLECTIONS.BLOG_POSTS,
+      [{ field: 'slug', operator: '==', value: params.slug }],
+      undefined,
+      'desc',
+      1
+    );
+
+    if (posts.length === 0) {
+      throw new NotFoundError('Blog post');
+    }
+
+    await deleteDocumentAdmin(COLLECTIONS.BLOG_POSTS, posts[0].id);
 
     const response = NextResponse.json(
       formatSuccessResponse(null, 'Blog post deleted successfully'),

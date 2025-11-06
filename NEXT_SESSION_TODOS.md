@@ -2,7 +2,23 @@
 
 **Data Analisi**: 2025-11-06 (Aggiornato con E2E Test Findings)
 **Completion Status**: Phase 2 = 100% ✅ | Overall PRD = 75%
-**Tempo Stimato Rimanente**: 15-20 giorni lavorativi
+**Tempo Stimato Rimanente**: 13-18 giorni lavorativi
+
+---
+
+## 🔥 **STRATEGY UPDATE (2025-11-06)**
+
+**DATABASE DECISION**: Firebase/Firestore (instead of PostgreSQL)
+
+**Rationale**:
+- ✅ Fully managed (no server setup)
+- ✅ Auto-scaling & real-time capabilities
+- ✅ Faster implementation (~3 days saved)
+- ✅ Better for chat & analytics features
+
+**Status**: Infrastructure complete (see `FIREBASE_EXECUTION_PLAN.md`)
+
+**Next**: Phase 3A.1 (Security & Auth) → Phase 3B (Chatbot)
 
 ---
 
@@ -356,26 +372,33 @@ Creare i seguenti routes:
 
 ---
 
-#### Task 3A.2: Database Migration PostgreSQL
-**Status**: ⏳ Pending
-**Time**: 1 giorno
-**Description**: Migrare da SQLite a PostgreSQL + aggiungere models
+#### Task 3A.2: Database Migration to Firebase ✅
+**Status**: ✅ **COMPLETED (2025-11-06)**
+**Time**: Completed
+**Description**: Migrated from SQLite/PostgreSQL to Firebase/Firestore
 
-**Subtasks**:
-- [ ] Setup PostgreSQL (local or cloud)
-- [ ] Update `prisma/schema.prisma` datasource
-- [ ] Add all missing models (User, Conversation, BlogPost, Booking, etc.)
-- [ ] Add database indexes
-- [ ] Run migrations: `npx prisma migrate dev`
-- [ ] Update DATABASE_URL environment variable
-- [ ] Test all API routes with new database
+**Completed Subtasks**:
+- [x] Firebase project created: `mattia-web`
+- [x] Firestore database configured (europe-west1)
+- [x] Firebase SDK installed (`firebase` + `firebase-admin`)
+- [x] Created Firebase configuration files in `lib/firebase/`
+- [x] TypeScript types for all collections
+- [x] CRUD utility functions created
+- [x] Service account key added (`firebase-admin-key.json`)
+- [x] Environment variables configured
+- [x] Prisma removed from project
 
 **Acceptance Criteria**:
-- [ ] PostgreSQL connected
-- [ ] All models created
-- [ ] Indexes added
-- [ ] Migrations successful
-- [ ] API routes functional
+- [x] Firebase connected and functional
+- [x] All Firestore collections defined
+- [x] Utility functions for CRUD operations
+- [x] Migration guide created
+- [x] Example API migration completed (chat route)
+
+**Documentation**:
+- See `FIREBASE_EXECUTION_PLAN.md` for next steps
+- See `FIREBASE_MIGRATION_GUIDE.md` for migration patterns
+- See `PRISMA_TO_FIRESTORE_CHEATSHEET.md` for query conversion
 
 ---
 
