@@ -1,15 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Lock, Eye, EyeOff } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const callbackUrl = searchParams.get('callbackUrl') || '/admin';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,25 +22,22 @@ export default function AdminLoginPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ password }),
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        router.push('/admin');
-        router.refresh();
+      if (result?.error) {
+        setError('Invalid credentials. Please try again.');
+        setLoading(false);
       } else {
-        setError(data.error || 'Authentication failed');
+        // Successful login
+        router.push(callbackUrl);
+        router.refresh();
       }
-    } catch (error) {
-      setError('Connection error. Please try again.');
-    } finally {
+    } catch (err) {
+      setError('Authentication error. Please try again.');
       setLoading(false);
     }
   };
@@ -67,6 +69,24 @@ export default function AdminLoginPage() {
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Email Input */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-bold mb-2">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 border-4 border-black rounded-brutal focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all"
+                placeholder="mattia@selfrules.org"
+                required
+                disabled={loading}
+                autoComplete="email"
+              />
+            </div>
+
             {/* Password Input */}
             <div>
               <label htmlFor="password" className="block text-sm font-bold mb-2">
@@ -82,6 +102,7 @@ export default function AdminLoginPage() {
                   placeholder="Enter admin password"
                   required
                   disabled={loading}
+                  autoComplete="current-password"
                 />
                 <button
                   type="button"
