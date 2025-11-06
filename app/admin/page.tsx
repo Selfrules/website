@@ -126,7 +126,7 @@ export default function AdminDashboard() {
           Dashboard
         </h1>
         <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-          Welcome back, Mattia! Here's what's happening.
+          Welcome back, Mattia! Here&apos;s what&apos;s happening.
         </p>
       </div>
 
@@ -220,7 +220,7 @@ export default function AdminDashboard() {
               <div className="flex-1">
                 <p className="font-bold">New anonymous question</p>
                 <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-                  "How do you handle stakeholder disagreements?"
+                  &quot;How do you handle stakeholder disagreements?&quot;
                 </p>
                 <p className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50 mt-1">
                   5 hours ago

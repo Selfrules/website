@@ -28,7 +28,7 @@ export function useAnalytics() {
         sessionId = uuidv4();
         sessionStorage.setItem('analytics_session_id', sessionId);
       }
-      sessionIdRef.current = sessionId;
+      sessionIdRef.current = sessionId || null;
     }
   }, []);
 

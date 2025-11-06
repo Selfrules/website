@@ -73,7 +73,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 Admin Panel
               </h1>
               <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 mt-1">
-                Mattia's Portfolio
+                Mattia&apos;s Portfolio
               </p>
             </div>
 
