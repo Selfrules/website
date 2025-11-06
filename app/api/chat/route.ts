@@ -1,15 +1,31 @@
 /**
- * Chat API Routes
- * Handles AI chatbot conversations
+ * Chat API Routes - FIREBASE VERSION
+ * Migrated from Prisma to Firestore
+ *
+ * MIGRATION GUIDE:
+ * 1. Replace prisma imports with Firebase Admin
+ * 2. Replace prisma.chatConversation.findMany with queryDocumentsAdmin
+ * 3. Replace prisma.chatConversation.create with createDocumentAdmin
+ * 4. Replace prisma.chatConversation.update with updateDocumentAdmin
+ * 5. JSON.stringify no longer needed - Firestore handles objects natively
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-import prisma from '@/lib/db/prisma';
+import {
+  COLLECTIONS,
+  ChatConversation,
+  ChatMessage,
+  queryDocumentsAdmin,
+  createDocumentAdmin,
+  updateDocumentAdmin,
+  countDocumentsAdmin
+} from '@/lib/firebase';
 import { createChatMessageSchema, getChatConversationsSchema } from '@/lib/validations/schemas';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
 import { chatRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
+import { Timestamp } from 'firebase-admin/firestore';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -45,6 +61,11 @@ DO NOT:
 /**
  * GET /api/chat
  * Retrieve chat conversations
+ *
+ * MIGRATION CHANGES:
+ * - prisma.chatConversation.findMany → queryDocumentsAdmin
+ * - prisma.chatConversation.count → countDocumentsAdmin
+ * - Filters now use array format for Firestore
  */
 export async function GET(req: NextRequest) {
   try {
@@ -60,18 +81,25 @@ export async function GET(req: NextRequest) {
 
     const validatedParams = getChatConversationsSchema.parse(params);
 
-    const where: any = {};
-    if (validatedParams.sessionId) where.sessionId = validatedParams.sessionId;
-    if (validatedParams.category) where.category = validatedParams.category;
+    // Build Firestore filters
+    const filters: Array<{ field: string; operator: FirebaseFirestore.WhereFilterOp; value: any }> = [];
+    if (validatedParams.sessionId) {
+      filters.push({ field: 'sessionId', operator: '==', value: validatedParams.sessionId });
+    }
+    if (validatedParams.category) {
+      filters.push({ field: 'category', operator: '==', value: validatedParams.category });
+    }
 
+    // Execute queries in parallel
     const [conversations, total] = await Promise.all([
-      prisma.chatConversation.findMany({
-        where,
-        orderBy: { createdAt: 'desc' },
-        take: validatedParams.limit,
-        skip: validatedParams.offset,
-      }),
-      prisma.chatConversation.count({ where }),
+      queryDocumentsAdmin<ChatConversation>(
+        COLLECTIONS.CHAT_CONVERSATIONS,
+        filters,
+        'createdAt',
+        'desc',
+        validatedParams.limit
+      ),
+      countDocumentsAdmin(COLLECTIONS.CHAT_CONVERSATIONS, filters),
     ]);
 
     const response = NextResponse.json(
@@ -92,6 +120,13 @@ export async function GET(req: NextRequest) {
 /**
  * POST /api/chat
  * Send a message and get AI response
+ *
+ * MIGRATION CHANGES:
+ * - prisma.chatConversation.findFirst → queryDocumentsAdmin with limit 1
+ * - prisma.chatConversation.create → createDocumentAdmin
+ * - prisma.chatConversation.update → updateDocumentAdmin
+ * - JSON.stringify/parse removed: Firestore handles arrays natively
+ * - Date objects → Timestamp for Firestore compatibility
  */
 export async function POST(req: NextRequest) {
   try {
@@ -100,25 +135,32 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const validatedData = createChatMessageSchema.parse(body);
 
-    // Retrieve or create conversation
-    let conversation = await prisma.chatConversation.findFirst({
-      where: { sessionId: validatedData.sessionId },
-    });
+    // Retrieve existing conversation
+    const existingConversations = await queryDocumentsAdmin<ChatConversation>(
+      COLLECTIONS.CHAT_CONVERSATIONS,
+      [{ field: 'sessionId', operator: '==', value: validatedData.sessionId }],
+      undefined,
+      'desc',
+      1
+    );
 
-    const messages = conversation?.messages as any[] || [];
+    const conversation = existingConversations[0] || null;
+
+    // Get existing messages (no JSON.parse needed - Firestore returns arrays)
+    const messages: ChatMessage[] = conversation?.messages || [];
 
     // Add user message
-    const userMessage = {
+    const userMessage: ChatMessage = {
       role: 'user',
       content: validatedData.message,
-      timestamp: new Date().toISOString(),
+      timestamp: Timestamp.now(),
     };
     messages.push(userMessage);
 
     // Prepare messages for Claude API
     const claudeMessages = messages
-      .filter((m: any) => m.role === 'user' || m.role === 'assistant')
-      .map((m: any) => ({
+      .filter((m) => m.role === 'user' || m.role === 'assistant')
+      .map((m) => ({
         role: m.role,
         content: m.content,
       }));
@@ -131,41 +173,50 @@ export async function POST(req: NextRequest) {
       messages: claudeMessages,
     });
 
-    const assistantMessage = {
+    const assistantMessage: ChatMessage = {
       role: 'assistant',
       content: aiResponse.content[0].type === 'text' ? aiResponse.content[0].text : '',
-      timestamp: new Date().toISOString(),
+      timestamp: Timestamp.now(),
     };
     messages.push(assistantMessage);
 
-    // Auto-categorize conversation based on content
+    // Auto-categorize conversation
     const category = categorizeChatConversation(messages);
+
+    let updatedConversation: ChatConversation;
 
     // Update or create conversation
     if (conversation) {
-      conversation = await prisma.chatConversation.update({
-        where: { id: conversation.id },
-        data: {
+      await updateDocumentAdmin<ChatConversation>(
+        COLLECTIONS.CHAT_CONVERSATIONS,
+        conversation.id,
+        {
           messages,
           category,
-          updatedAt: new Date(),
-        },
-      });
+        }
+      );
+      updatedConversation = {
+        ...conversation,
+        messages,
+        category,
+        updatedAt: Timestamp.now(),
+      };
     } else {
-      conversation = await prisma.chatConversation.create({
-        data: {
+      updatedConversation = await createDocumentAdmin<ChatConversation>(
+        COLLECTIONS.CHAT_CONVERSATIONS,
+        {
           sessionId: validatedData.sessionId,
           userId: validatedData.userId,
           messages,
           category,
           metadata: validatedData.metadata,
-        },
-      });
+        }
+      );
     }
 
     const response = NextResponse.json(
       formatSuccessResponse({
-        conversationId: conversation.id,
+        conversationId: updatedConversation.id,
         message: assistantMessage,
       }),
       { status: 200 }
@@ -180,15 +231,15 @@ export async function POST(req: NextRequest) {
 /**
  * Categorize conversation based on content
  */
-function categorizeChatConversation(messages: any[]): string {
-  const allContent = messages.map((m: any) => m.content.toLowerCase()).join(' ');
+function categorizeChatConversation(messages: ChatMessage[]): string {
+  const allContent = messages.map((m) => m.content.toLowerCase()).join(' ');
 
   // Simple keyword-based categorization
   const leadKeywords = ['hire', 'project', 'consultation', 'collaborate', 'work together'];
   const networkingKeywords = ['connect', 'network', 'coffee', 'meet', 'introduction'];
 
-  const hasLeadIntent = leadKeywords.some(keyword => allContent.includes(keyword));
-  const hasNetworkingIntent = networkingKeywords.some(keyword => allContent.includes(keyword));
+  const hasLeadIntent = leadKeywords.some((keyword) => allContent.includes(keyword));
+  const hasNetworkingIntent = networkingKeywords.some((keyword) => allContent.includes(keyword));
 
   if (hasLeadIntent) return 'lead';
   if (hasNetworkingIntent) return 'networking';
