@@ -10,75 +10,97 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Extended Neobrutalist color palette with gradations
+        // Neobrutalist Color Palette - Figma Make
         primary: {
-          50: '#FFFBEB',
-          100: '#FFF5CC',
-          200: '#FFEB99',
-          300: '#FFE066',
-          DEFAULT: '#FFD93D',
-          400: '#FFC700',
-          500: '#E6B000',
-          600: '#CC9900',
-          700: '#B38600',
-          800: '#997300',
-          900: '#806000',
+          DEFAULT: '#0D7EFF', // Electric Blue
+          50: '#E6F4FF',
+          100: '#CCE8FF',
+          200: '#99D2FF',
+          300: '#66BBFF',
+          400: '#3399FF',
+          500: '#0D7EFF',
+          600: '#0A65CC',
+          700: '#084C99',
+          800: '#053366',
+          900: '#031A33',
         },
         secondary: {
-          50: '#F3F1FF',
-          100: '#E5E1FF',
-          200: '#C9C2FF',
-          300: '#A29BF8',
-          DEFAULT: '#6C5CE7',
-          400: '#5B4BD9',
-          500: '#5344C5',
-          600: '#4236A3',
-          700: '#362D85',
-          800: '#2B2467',
-          900: '#1F1B4A',
+          DEFAULT: '#FF006E', // Neon Pink
+          50: '#FFE6F0',
+          100: '#FFCCE0',
+          200: '#FF99C2',
+          300: '#FF66A3',
+          400: '#FF3385',
+          500: '#FF006E',
+          600: '#CC0058',
+          700: '#990042',
+          800: '#66002C',
+          900: '#330016',
         },
         accent: {
-          50: '#FFF1F1',
-          100: '#FFE4E4',
-          200: '#FFBEBE',
-          300: '#FF9999',
-          DEFAULT: '#FF6B6B',
-          400: '#FF4747',
-          500: '#FF3838',
-          600: '#E61E1E',
-          700: '#CC0000',
-          800: '#B30000',
-          900: '#990000',
+          DEFAULT: '#FFD60A', // Cyber Yellow
+          50: '#FFFBCC',
+          100: '#FFF899',
+          200: '#FFF566',
+          300: '#FFF233',
+          400: '#FFEF00',
+          500: '#FFD60A',
+          600: '#CCAB08',
+          700: '#998006',
+          800: '#665504',
+          900: '#332B02',
         },
-        // Neon accent colors from examples
-        neon: {
-          cyan: '#00D9FF',
-          pink: '#FF0099',
-          lime: '#84CC16',
-          orange: '#F97316',
-          blue: '#3B82F6',
-          purple: '#8B5CF6',
-          yellow: '#EAB308',
-          green: '#10B981',
-          red: '#EF4444',
+        purple: {
+          DEFAULT: '#7209B7', // Deep Purple
+          50: '#F3E6FF',
+          100: '#E6CCFF',
+          200: '#CC99FF',
+          300: '#B366FF',
+          400: '#9933FF',
+          500: '#7209B7',
+          600: '#5B0792',
+          700: '#44056E',
+          800: '#2E0349',
+          900: '#170225',
         },
-        // Original brutalist system colors
+        lime: {
+          DEFAULT: '#06FFA5', // Lime Green
+          50: '#E6FFF5',
+          100: '#CCFFEB',
+          200: '#99FFD7',
+          300: '#66FFC3',
+          400: '#33FFAF',
+          500: '#06FFA5',
+          600: '#05CC84',
+          700: '#049963',
+          800: '#036642',
+          900: '#013321',
+        },
+        // Background colors
+        cream: '#FFFCF2',
+        dark: '#0A0A0A',
+        surface: {
+          light: '#FFF5E1',
+          dark: '#1A1A1A',
+        },
+        // Text colors
         brutalist: {
           border: '#000000',
           shadow: '#000000',
-          bg: {
-            light: '#FAFAFA',
-            dark: '#1A1A1A',
-          },
-          surface: {
-            light: '#FFFFFF',
-            dark: '#242424',
-          },
           text: {
-            light: '#1A1A1A',
-            dark: '#FAFAFA',
+            primary: '#0A0A0A',
+            secondary: '#2D2D2D',
+            tertiary: '#6B7280',
+            light: '#FAFAFA',
+            dark: '#0A0A0A',
+          },
+          bg: {
+            light: '#FFFCF2',
+            dark: '#0A0A0A',
           },
         },
+        // Spotify integration
+        spotify: '#1DB954',
       },
       fontFamily: {
         heading: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
@@ -99,22 +121,61 @@ const config: Config = {
         'body-sm': ['0.875rem', { lineHeight: '1.5', fontWeight: '400' }], // 14px
       },
       borderRadius: {
-        'brutal': '8px',
-        'brutal-sm': '6px',
-        'brutal-lg': '12px',
+        'sm': '4px',
+        DEFAULT: '6px',
+        'md': '6px',
+        'lg': '8px',
+        'xl': '12px',
+        'brutal': '6px',
+        'brutal-sm': '4px',
+        'brutal-lg': '8px',
       },
       borderWidth: {
         'brutal': '4px',
         'brutal-thick': '6px',
       },
       boxShadow: {
-        'brutal': '8px 8px 0px #000000',
-        'brutal-sm': '4px 4px 0px #000000',
-        'brutal-lg': '12px 12px 0px #000000',
-        'brutal-hover': '12px 12px 0px #000000',
-        'brutal-active': '4px 4px 0px #000000',
+        'brutal': '6px 6px 0px #000000',
+        'brutal-sm': '3px 3px 0px #000000',
+        'brutal-lg': '10px 10px 0px #000000',
+        'brutal-hover': '10px 10px 0px #000000',
+        'brutal-active': '3px 3px 0px #000000',
+      },
+      textShadow: {
+        'hard': '6px 6px 0 #000',
+        'hard-sm': '4px 4px 0 #000',
+        'hard-lg': '8px 8px 0 #000',
       },
       spacing: {
+        // 4pt spacing grid system (matching Figma design tokens)
+        // Base unit: 4px (--spacing: .25rem)
+        '0.5': '2px',   // 0.5 unit
+        '1': '4px',     // 1 unit
+        '1.5': '6px',   // 1.5 units
+        '2': '8px',     // 2 units
+        '2.5': '10px',  // 2.5 units
+        '3': '12px',    // 3 units - CRITICAL: was 24px, now matches Figma
+        '3.5': '14px',  // 3.5 units
+        '4': '16px',    // 4 units
+        '4.5': '18px',  // 4.5 units
+        '5': '20px',    // 5 units
+        '5.5': '22px',  // 5.5 units
+        '6': '24px',    // 6 units
+        '7': '28px',    // 7 units
+        '8': '32px',    // 8 units
+        '9': '36px',    // 9 units
+        '10': '40px',   // 10 units
+        '11': '44px',   // 11 units
+        '12': '48px',   // 12 units
+        '14': '56px',   // 14 units
+        '16': '64px',   // 16 units
+        '20': '80px',   // 20 units
+        '24': '96px',   // 24 units
+        '28': '112px',  // 28 units
+        '32': '128px',  // 32 units
+        '36': '144px',  // 36 units
+        '40': '160px',  // 40 units
+        // Legacy spacing (maintained for compatibility)
         'section': '6rem', // 96px
         'section-sm': '4rem', // 64px
         'brutal-offset': '8px',
@@ -190,7 +251,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    function ({ addUtilities, theme }: { addUtilities: (utilities: Record<string, unknown>) => void; theme: (key: string) => Record<string, string> }) {
+      const textShadowUtilities = Object.entries(theme('textShadow')).reduce((acc, [key, value]) => {
+        return {
+          ...acc,
+          [`.text-shadow-${key}`]: { textShadow: value },
+        };
+      }, {});
+      addUtilities(textShadowUtilities);
+    },
+  ],
 };
 
 export default config;
