@@ -1,334 +1,269 @@
 'use client';
 
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
-import { Timeline, TimelineItem } from '@/components/ui/Timeline';
-import { Badge } from '@/components/ui/Badge';
-import { ScrollAnimation } from '@/components/animations/ScrollAnimations';
-import GridPattern from '@/components/patterns/GridPattern';
-import SkillsRadarChart from '@/components/charts/SkillsRadarChart';
-import CertificationBadge, { CertificationData } from '@/components/ui/CertificationBadge';
-import CertificationModal from '@/components/ui/CertificationModal';
-import { Briefcase, Rocket, Code, Lightbulb, Target, TrendingUp, Brain, Users, Megaphone, Calendar, Zap, Target as TargetIcon } from 'lucide-react';
+import { NeoBadge } from '@/components/ui/NeoBadge';
+import { ArrowRight, Award, Code, Palette, Rocket } from 'lucide-react';
 
-interface JourneyData {
+interface Milestone {
   id: string;
-  date: string;
-  company: string;
-  role: string;
-  description: string;
-  achievements: string[];
-  technologies: string[];
-  highlight?: boolean;
-  icon?: React.ReactNode;
-  metrics?: {
-    impact: string;
-    value: string;
-  };
+  dateKey: string;
+  roleKey: string;
+  roleColor: 'blue' | 'pink' | 'yellow' | 'purple';
+  companyKey: string;
+  descriptionKey: string;
+  achievementsKeys: string[];
+  skillsKeys: string[];
+  certificationsKeys?: string[];
+  isCurrent?: boolean;
+  icon: any;
 }
 
 export default function Journey() {
   const t = useTranslations('journey');
-  const [selectedCertification, setSelectedCertification] = useState<CertificationData | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleCertificationClick = (cert: CertificationData) => {
-    setSelectedCertification(cert);
-    setIsModalOpen(true);
-  };
-
-  // Certifications data
-  const certifications: CertificationData[] = [
+  const milestones: Milestone[] = [
     {
       id: '1',
-      title: t('certifications.1.title'),
-      tagline: t('certifications.1.tagline'),
-      issuer: t('certifications.1.issuer'),
-      date: t('certifications.1.date'),
-      icon: <Brain className="w-6 h-6 text-primary" />,
+      dateKey: 'experiences.designer.date',
+      roleKey: 'experiences.designer.role',
+      roleColor: 'purple',
+      companyKey: 'experiences.designer.company',
+      descriptionKey: 'experiences.designer.description',
+      achievementsKeys: ['experiences.designer.achievements.1', 'experiences.designer.achievements.2', 'experiences.designer.achievements.3'],
+      skillsKeys: ['experiences.designer.technologies.1', 'experiences.designer.technologies.2', 'experiences.designer.technologies.3', 'experiences.designer.technologies.4', 'experiences.designer.technologies.5'],
+      icon: Palette,
     },
     {
       id: '2',
-      title: t('certifications.2.title'),
-      tagline: t('certifications.2.tagline'),
-      issuer: t('certifications.2.issuer'),
-      date: t('certifications.2.date'),
-      icon: <Users className="w-6 h-6 text-primary" />,
+      dateKey: 'experiences.developer.date',
+      roleKey: 'experiences.developer.role',
+      roleColor: 'yellow',
+      companyKey: 'experiences.developer.company',
+      descriptionKey: 'experiences.developer.description',
+      achievementsKeys: ['experiences.developer.achievements.1', 'experiences.developer.achievements.2', 'experiences.developer.achievements.3'],
+      skillsKeys: ['experiences.developer.technologies.1', 'experiences.developer.technologies.2', 'experiences.developer.technologies.3', 'experiences.developer.technologies.4', 'experiences.developer.technologies.5', 'experiences.developer.technologies.6'],
+      certificationsKeys: ['experiences.developer.certifications.1', 'experiences.developer.certifications.2'],
+      icon: Code,
     },
     {
       id: '3',
-      title: t('certifications.3.title'),
-      tagline: t('certifications.3.tagline'),
-      issuer: t('certifications.3.issuer'),
-      date: t('certifications.3.date'),
-      icon: <Megaphone className="w-6 h-6 text-primary" />,
+      dateKey: 'experiences.po.date',
+      roleKey: 'experiences.po.role',
+      roleColor: 'pink',
+      companyKey: 'experiences.po.company',
+      descriptionKey: 'experiences.po.description',
+      achievementsKeys: ['experiences.po.achievements.1', 'experiences.po.achievements.2', 'experiences.po.achievements.3'],
+      skillsKeys: ['experiences.po.technologies.1', 'experiences.po.technologies.2', 'experiences.po.technologies.3', 'experiences.po.technologies.4', 'experiences.po.technologies.5', 'experiences.po.technologies.6'],
+      certificationsKeys: ['experiences.po.certifications.1', 'experiences.po.certifications.2'],
+      icon: Rocket,
     },
     {
       id: '4',
-      title: t('certifications.4.title'),
-      tagline: t('certifications.4.tagline'),
-      issuer: t('certifications.4.issuer'),
-      date: t('certifications.4.date'),
-      icon: <Calendar className="w-6 h-6 text-primary" />,
-    },
-    {
-      id: '5',
-      title: t('certifications.5.title'),
-      tagline: t('certifications.5.tagline'),
-      issuer: t('certifications.5.issuer'),
-      date: t('certifications.5.date'),
-      icon: <Zap className="w-6 h-6 text-primary" />,
-    },
-    {
-      id: '6',
-      title: t('certifications.6.title'),
-      tagline: t('certifications.6.tagline'),
-      issuer: t('certifications.6.issuer'),
-      date: t('certifications.6.date'),
-      icon: <TargetIcon className="w-6 h-6 text-primary" />,
+      dateKey: 'experiences.pm.date',
+      roleKey: 'experiences.pm.role',
+      roleColor: 'blue',
+      companyKey: 'experiences.pm.company',
+      descriptionKey: 'experiences.pm.description',
+      achievementsKeys: ['experiences.pm.achievements.1', 'experiences.pm.achievements.2', 'experiences.pm.achievements.3'],
+      skillsKeys: ['experiences.pm.technologies.1', 'experiences.pm.technologies.2', 'experiences.pm.technologies.3', 'experiences.pm.technologies.4'],
+      isCurrent: true,
+      icon: Award,
     },
   ];
 
-  const journeyData: JourneyData[] = [
-    {
-      id: '4',
-      date: t('experiences.pm.date'),
-      company: t('experiences.pm.company'),
-      role: t('experiences.pm.role'),
-      description: t('experiences.pm.description'),
-      achievements: [
-        t('experiences.pm.achievements.1'),
-        t('experiences.pm.achievements.2'),
-        t('experiences.pm.achievements.3'),
-      ],
-      technologies: [
-        t('experiences.pm.technologies.1'),
-        t('experiences.pm.technologies.2'),
-        t('experiences.pm.technologies.3'),
-        t('experiences.pm.technologies.4'),
-      ],
-      highlight: true,
-      icon: <Rocket className="w-5 h-5" />,
-      metrics: {
-        impact: t('experiences.pm.metrics.impact'),
-        value: t('experiences.pm.metrics.value'),
-      },
-    },
-    {
-      id: '3',
-      date: t('experiences.po.date'),
-      company: t('experiences.po.company'),
-      role: t('experiences.po.role'),
-      description: t('experiences.po.description'),
-      achievements: [
-        t('experiences.po.achievements.1'),
-        t('experiences.po.achievements.2'),
-        t('experiences.po.achievements.3'),
-      ],
-      technologies: [
-        t('experiences.po.technologies.1'),
-        t('experiences.po.technologies.2'),
-        t('experiences.po.technologies.3'),
-        t('experiences.po.technologies.4'),
-      ],
-      icon: <Target className="w-5 h-5" />,
-      metrics: {
-        impact: t('experiences.po.metrics.impact'),
-        value: t('experiences.po.metrics.value'),
-      },
-    },
-    {
-      id: '2',
-      date: t('experiences.dev.date'),
-      company: t('experiences.dev.company'),
-      role: t('experiences.dev.role'),
-      description: t('experiences.dev.description'),
-      achievements: [
-        t('experiences.dev.achievements.1'),
-        t('experiences.dev.achievements.2'),
-        t('experiences.dev.achievements.3'),
-      ],
-      technologies: [
-        t('experiences.dev.technologies.1'),
-        t('experiences.dev.technologies.2'),
-        t('experiences.dev.technologies.3'),
-        t('experiences.dev.technologies.4'),
-      ],
-      icon: <Code className="w-5 h-5" />,
-    },
-    {
-      id: '1',
-      date: t('experiences.designer.date'),
-      company: t('experiences.designer.company'),
-      role: t('experiences.designer.role'),
-      description: t('experiences.designer.description'),
-      achievements: [
-        t('experiences.designer.achievements.1'),
-        t('experiences.designer.achievements.2'),
-        t('experiences.designer.achievements.3'),
-      ],
-      technologies: [
-        t('experiences.designer.technologies.1'),
-        t('experiences.designer.technologies.2'),
-        t('experiences.designer.technologies.3'),
-        t('experiences.designer.technologies.4'),
-      ],
-      icon: <Lightbulb className="w-5 h-5" />,
-    },
-  ];
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-white to-primary/5 dark:from-brutalist-bg-dark dark:to-primary/10">
-      {/* Background Pattern */}
-      <GridPattern
-        variant="grid"
-        className="absolute inset-0"
-        opacity={0.03}
-        size="lg"
-      />
+    <section id="journey" className="bg-white py-16 md:py-24 border-b-4 border-[#000] relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-10 right-5 w-20 h-20 bg-[#FFD60A] border-4 border-[#000] rotate-12 opacity-20" />
+      <div className="absolute bottom-20 left-5 w-16 h-16 bg-[#FF006E] border-4 border-[#000] rounded-full opacity-20" />
 
-      <div className="brutal-container relative z-10">
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
-        <ScrollAnimation animation="fadeInUp">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10
-                         border-4 border-secondary rounded-brutal text-secondary
-                         font-medium mb-4">
-              <TrendingUp className="w-4 h-4" />
-              <span className="text-sm">{t('badge')}</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4">
-              {t('title')}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary ml-3">
-                {t('titleHighlight')}
-              </span>
-            </h2>
-            <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
-              {t('subtitle')}
-            </p>
+        <motion.div
+          className="text-center mb-12 md:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex justify-center mb-4">
+            <NeoBadge color="purple">{t('badge')}</NeoBadge>
           </div>
-        </ScrollAnimation>
+          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">
+            {t('title')}{' '}
+            <span className="inline-block relative">
+              {t('titleHighlight')}
+              <span className="absolute -bottom-1 left-0 w-full h-2 bg-[#FFD60A] -rotate-1 -z-10" />
+            </span>
+          </h2>
+          <p className="text-body text-[#2D2D2D] max-w-[700px] mx-auto">
+            {t('subtitle')}
+          </p>
+        </motion.div>
 
-        {/* Timeline */}
-        <Timeline orientation="vertical" animated>
-          {journeyData.map((item, index) => (
-            <TimelineItem
-              key={item.id}
-              date={item.date}
-              title={item.role}
-              icon={item.icon}
-              variant={item.highlight ? 'primary' : 'default'}
-              active={item.highlight}
-              animated={true}
-              delay={index * 0.1}
-            >
-              <div className="space-y-4">
-                {/* Company */}
-                <div className="text-lg font-bold text-secondary">
-                  {item.company}
-                </div>
+        {/* Timeline - Mobile First, Vertical */}
+        <div className="relative">
+          {/* Connecting Line - Mobile: Left aligned, Desktop: Center */}
+          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#7209B7] via-[#FFD60A] via-[#FF006E] to-[#0D7EFF] md:-translate-x-1/2" />
 
-                {/* Description */}
-                <p className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80">
-                  {item.description}
-                </p>
+          {/* Milestones */}
+          <div className="space-y-12 md:space-y-20">
+            {milestones.map((milestone, index) => {
+              const Icon = milestone.icon;
+              const isEven = index % 2 === 0;
 
-                {/* Metrics */}
-                {item.metrics && (
-                  <div className="flex items-center gap-4 p-3 bg-primary/10 rounded-brutal border-2 border-primary">
-                    <div className="text-2xl font-bold text-primary">
-                      {item.metrics.value}
-                    </div>
-                    <div className="text-sm text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                      {item.metrics.impact}
+              return (
+                <motion.div
+                  key={milestone.id}
+                  className="relative"
+                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  {/* Dot Indicator */}
+                  <div
+                    className={`
+                      absolute left-0 md:left-1/2 top-8 md:-translate-x-1/2
+                      rounded-full border-4 border-[#000] z-10 flex items-center justify-center
+                      ${milestone.isCurrent
+                        ? 'w-12 h-12 bg-[#0D7EFF] shadow-[0_0_0_8px_rgba(13,126,255,0.2)]'
+                        : 'w-10 h-10 bg-white'
+                      }
+                    `}
+                  >
+                    <Icon className={`w-5 h-5 ${milestone.isCurrent ? 'text-white' : 'text-[#0A0A0A]'}`} />
+                  </div>
+
+                  {/* Content Card - Mobile: Full width with left padding, Desktop: Half width */}
+                  <div className={`ml-12 md:ml-0 md:w-[calc(50%-40px)] ${isEven ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                    <div
+                      className={`
+                        bg-[#FFFCF2] border-4 border-[#000] rounded-lg shadow-brutal p-5 md:p-6
+                        transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg
+                        ${milestone.isCurrent ? 'bg-gradient-to-br from-[#0D7EFF]/5 to-transparent' : ''}
+                      `}
+                    >
+                      {/* Date & Role */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span
+                          className="inline-block px-3 py-1 bg-white border-2 border-[#000] rounded shadow-brutal-sm text-[#0A0A0A]"
+                          style={{
+                            fontFamily: 'Space Mono, monospace',
+                            fontSize: '12px',
+                            fontWeight: 700,
+                          }}
+                        >
+                          {t(milestone.dateKey)}
+                        </span>
+                        <NeoBadge color={milestone.roleColor} className="px-3 py-1 text-xs">
+                          {t(milestone.roleKey)}
+                        </NeoBadge>
+                        {milestone.isCurrent && (
+                          <NeoBadge color="neutral" className="px-3 py-1 text-xs">
+                            {t('current')}
+                          </NeoBadge>
+                        )}
+                      </div>
+
+                      {/* Company */}
+                      <h3 className="text-h3 mb-3 text-[#0A0A0A]">
+                        {t(milestone.companyKey)}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-body-small md:text-body text-[#2D2D2D] mb-4">
+                        {t(milestone.descriptionKey)}
+                      </p>
+
+                      {/* Achievements */}
+                      {milestone.achievementsKeys.length > 0 && (
+                        <ul className="mb-4 space-y-1.5">
+                          {milestone.achievementsKeys.map((achievementKey, i) => (
+                            <li key={i} className="flex items-start gap-2 text-body-small text-[#2D2D2D]">
+                              <ArrowRight
+                                className="w-4 h-4 flex-shrink-0 mt-0.5"
+                                style={{
+                                  color: milestone.roleColor === 'blue' ? '#0D7EFF' :
+                                         milestone.roleColor === 'pink' ? '#FF006E' :
+                                         milestone.roleColor === 'yellow' ? '#FFD60A' : '#7209B7'
+                                }}
+                              />
+                              <span>{t(achievementKey)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Skills */}
+                      <div className="mb-3">
+                        <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                          {t('skills')}:
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {milestone.skillsKeys.map((skillKey, i) => (
+                            <span
+                              key={i}
+                              className="px-2 py-1 bg-white border-2 border-[#000] rounded-sm text-xs text-[#0A0A0A]"
+                              style={{
+                                fontFamily: 'Space Mono, monospace',
+                              }}
+                            >
+                              {t(skillKey)}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Certifications */}
+                      {milestone.certificationsKeys && milestone.certificationsKeys.length > 0 && (
+                        <div>
+                          <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                            {t('certifications')}:
+                          </p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {milestone.certificationsKeys.map((certKey, i) => (
+                              <span
+                                key={i}
+                                className="px-2 py-1 border-2 border-[#000] rounded-sm text-xs flex items-center gap-1"
+                                style={{
+                                  fontFamily: 'Space Mono, monospace',
+                                  backgroundColor: milestone.roleColor === 'blue' ? '#0D7EFF' :
+                                                   milestone.roleColor === 'pink' ? '#FF006E' :
+                                                   milestone.roleColor === 'yellow' ? '#FFD60A' : '#7209B7',
+                                  color: milestone.roleColor === 'yellow' ? '#0A0A0A' : '#FFF'
+                                }}
+                              >
+                                <Award className="w-3 h-3" />
+                                {t(certKey)}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                )}
-
-                {/* Achievements */}
-                <ul className="space-y-2">
-                  {item.achievements.map((achievement, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span className="text-sm">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {item.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant={item.highlight ? 'primary' : 'outline'}
-                      size="sm"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </TimelineItem>
-          ))}
-        </Timeline>
-
-        {/* Skills Radar Chart */}
-        <div className="mt-20">
-          <SkillsRadarChart animated delay={0.6} />
-        </div>
-
-        {/* Certifications Section */}
-        <div className="mt-20">
-          <ScrollAnimation animation="fadeInUp" delay={0.7}>
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-heading font-black mb-2">
-                {t('certifications.title')}
-              </h3>
-              <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                {t('certifications.subtitle')}
-              </p>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifications.map((cert, index) => (
-              <CertificationBadge
-                key={cert.id}
-                certification={cert}
-                onClick={() => handleCertificationClick(cert)}
-                animated
-                delay={0.7 + index * 0.1}
-              />
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Certification Modal */}
-        <CertificationModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          certification={selectedCertification}
-        />
-
-        {/* Call to Action */}
-        <ScrollAnimation animation="fadeInUp" delay={1.0}>
-          <div className="mt-20 text-center">
-            <div className="inline-flex flex-col items-center gap-4 p-8 bg-white dark:bg-brutalist-surface-dark
-                         border-brutal border-black rounded-brutal shadow-brutal">
-              <h3 className="text-2xl font-bold">
-                {t('cta.title')}
-              </h3>
-              <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                {t('cta.subtitle')}
-              </p>
-              <button className="px-8 py-3 bg-primary text-brutalist-text-light font-bold
-                               border-brutal border-black rounded-brutal shadow-brutal
-                               hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1
-                               transition-all">
-                {t('cta.button')}
-              </button>
-            </div>
+        {/* End Message */}
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-block bg-[#0D7EFF] border-4 border-[#000] rounded-lg shadow-brutal px-6 py-4 rotate-1">
+            <p className="text-body text-white" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+              {t('endMessage')} 💪
+            </p>
           </div>
-        </ScrollAnimation>
+        </motion.div>
       </div>
     </section>
   );

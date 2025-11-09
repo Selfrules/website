@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Music, ExternalLink } from 'lucide-react';
 import { useNowPlaying } from '@/lib/hooks/useSpotify';
 import { cn } from '@/lib/utils';
@@ -25,20 +26,11 @@ export function SpotifyWidget() {
 
 function SpotifySkeleton() {
   return (
-    <div
-      className={cn(
-        'w-full max-w-[300px]',
-        'h-[100px] rounded-lg',
-        'border-3 border-black',
-        'bg-white',
-        'p-3 flex items-center gap-3',
-        'animate-pulse'
-      )}
-    >
-      <div className="w-16 h-16 bg-gray-200 rounded border-2 border-black" />
+    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm animate-pulse">
+      <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0" />
       <div className="flex-1 space-y-2">
-        <div className="h-4 bg-gray-200 rounded w-3/4" />
-        <div className="h-3 bg-gray-200 rounded w-1/2" />
+        <div className="h-4 bg-[#2D2D2D] rounded w-3/4" />
+        <div className="h-3 bg-[#2D2D2D] rounded w-1/2" />
       </div>
     </div>
   );
@@ -46,21 +38,17 @@ function SpotifySkeleton() {
 
 function SpotifyError() {
   return (
-    <div
-      className={cn(
-        'w-full max-w-[300px]',
-        'h-[100px] rounded-lg',
-        'border-3 border-black',
-        'bg-red-50',
-        'p-3 flex items-center gap-3'
-      )}
-    >
-      <div className="w-16 h-16 rounded border-2 border-black bg-red-100 flex items-center justify-center">
-        <Music className="w-8 h-8 text-red-500" />
+    <div className="w-full bg-[#0A0A0A] border-3 border-[#FF006E] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
+      <div className="w-16 h-16 rounded border-3 border-[#FF006E] bg-[#2D2D2D] flex items-center justify-center flex-shrink-0">
+        <Music className="w-8 h-8 text-[#FF006E]" />
       </div>
       <div className="flex-1">
-        <p className="text-sm font-bold text-red-700">Failed to load</p>
-        <p className="text-xs text-red-600">Couldn&apos;t connect to Spotify</p>
+        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          Failed to load
+        </p>
+        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+          Couldn&apos;t connect to Spotify
+        </p>
       </div>
     </div>
   );
@@ -68,25 +56,18 @@ function SpotifyError() {
 
 function SpotifyOffline() {
   return (
-    <div
-      className={cn(
-        'w-full max-w-[300px]',
-        'h-[100px] rounded-lg',
-        'border-3 border-black',
-        'bg-white',
-        'shadow-[4px_4px_0px_#000000]',
-        'p-3 flex items-center gap-3'
-      )}
-    >
-      <div className="w-16 h-16 rounded border-2 border-black bg-gray-100 flex items-center justify-center">
-        <Music className="w-8 h-8 text-gray-400" />
-      </div>
-      <div className="flex-1">
-        <p className="text-sm font-bold text-black">Not currently playing</p>
-        <div className="flex items-center gap-1 mt-1">
-          <div className="w-2 h-2 rounded-full bg-gray-400" />
-          <p className="text-xs text-black/60">Offline</p>
-        </div>
+    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
+      {/* Placeholder Album Art */}
+      <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0 animate-pulse-spotify" />
+
+      {/* Track Info */}
+      <div className="flex-1 min-w-0">
+        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          Not Playing
+        </p>
+        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+          Offline
+        </p>
       </div>
     </div>
   );
@@ -109,60 +90,40 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
       href={track.spotifyUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(
-        'w-full max-w-[300px]',
-        'h-[100px] rounded-lg',
-        'border-3 border-black',
-        'bg-white',
-        'shadow-[4px_4px_0px_#000000]',
-        'p-3 flex items-center gap-3',
-        'transition-all duration-200',
-        'hover:shadow-[6px_6px_0px_#000000] hover:-translate-x-[2px] hover:-translate-y-[2px]',
-        'group cursor-pointer'
-      )}
+      className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-brutal"
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 400 }}
     >
       {/* Album Art */}
       <div className="relative flex-shrink-0">
-        <img
+        <Image
           src={track.albumArt}
           alt={`${track.album} album cover`}
-          className="w-16 h-16 rounded border-2 border-black object-cover"
+          width={64}
+          height={64}
+          className="w-16 h-16 rounded border-3 border-[#1DB954] object-cover"
+          loading="lazy"
         />
-        {track.isPlaying && (
-          <motion.div
-            className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-black rounded-full"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            aria-label="Currently playing"
-          />
-        )}
       </div>
 
       {/* Track Info */}
       <div className="flex-1 min-w-0">
-        <h4 className="font-bold text-sm text-black truncate group-hover:text-purple-primary transition-colors">
+        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
           {track.name}
-        </h4>
-        <p className="text-xs text-black/70 truncate mt-0.5">{track.artist}</p>
-
-        {/* Status */}
-        <div className="flex items-center gap-1 mt-1.5">
-          <div
-            className={cn(
-              'w-2 h-2 rounded-full',
-              track.isPlaying ? 'bg-green-500' : 'bg-gray-400'
-            )}
-          />
-          <p className="text-xs text-black/60">
-            {track.isPlaying ? 'Playing now' : 'Paused'}
-          </p>
-        </div>
+        </p>
+        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+          {track.artist}
+        </p>
       </div>
 
-      {/* External Link Icon */}
-      <ExternalLink className="w-4 h-4 text-black/40 group-hover:text-purple-primary transition-colors flex-shrink-0" />
+      {/* Playing Indicator */}
+      {track.isPlaying && (
+        <div className="flex gap-0.5 items-end flex-shrink-0">
+          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '12px', animationDelay: '0s' }} />
+          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '20px', animationDelay: '0.2s' }} />
+          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '16px', animationDelay: '0.4s' }} />
+        </div>
+      )}
     </motion.a>
   );
 }
@@ -189,10 +150,13 @@ export function SpotifyWidgetCompact() {
       )}
       whileHover={{ scale: 1.02 }}
     >
-      <img
+      <Image
         src={track.albumArt}
         alt="Now playing"
+        width={40}
+        height={40}
         className="w-10 h-10 rounded border-2 border-black"
+        loading="lazy"
       />
       <div className="flex-1 min-w-0">
         <p className="text-xs font-bold truncate">{track.name}</p>
