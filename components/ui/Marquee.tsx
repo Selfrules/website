@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 interface MarqueeProps {
@@ -157,7 +158,14 @@ export function LogoMarquee({
           className="flex items-center justify-center h-20 px-8 bg-white dark:bg-brutalist-surface-dark border-brutal border-brutalist-border rounded-brutal shadow-brutal"
         >
           {logo.src ? (
-            <img src={logo.src} alt={logo.name} className="h-12 object-contain" />
+            <Image
+              src={logo.src}
+              alt={logo.name}
+              width={96}
+              height={48}
+              className="h-12 w-auto object-contain"
+              loading="lazy"
+            />
           ) : logo.icon ? (
             <div className="h-12 flex items-center">{logo.icon}</div>
           ) : (

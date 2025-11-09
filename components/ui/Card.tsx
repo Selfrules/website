@@ -44,10 +44,27 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 
 Card.displayName = 'Card';
 
-const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('p-6 space-y-2', className)} {...props} />
-  )
+export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: 'default' | 'design' | 'dev' | 'pm';
+}
+
+const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
+  ({ className, variant = 'default', ...props }, ref) => {
+    const variantStyles = {
+      default: '',
+      design: 'border-l-4 border-l-primary bg-primary/5 dark:bg-primary/10',
+      dev: 'border-l-4 border-l-secondary bg-secondary/5 dark:bg-secondary/10',
+      pm: 'border-l-4 border-l-accent bg-accent/5 dark:bg-accent/10',
+    };
+
+    return (
+      <div
+        ref={ref}
+        className={cn('p-6 space-y-2', variantStyles[variant], className)}
+        {...props}
+      />
+    );
+  }
 );
 CardHeader.displayName = 'CardHeader';
 

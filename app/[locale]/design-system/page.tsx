@@ -85,8 +85,8 @@ export default function DesignSystemPage() {
     { name: 'full', value: '9999px', className: 'rounded-full' },
   ];
 
-  // Component showcase data
-  const componentShowcases = [
+  // Component showcase data - memoized to prevent recreation on every render
+  const componentShowcases = useMemo(() => [
     {
       title: 'Button Component',
       description: 'Primary action buttons with neobrutalist styling and hover effects',
@@ -233,7 +233,7 @@ export default function DesignSystemPage() {
         { label: 'Large', component: <Badge variant="primary" size="lg">Large</Badge> },
       ],
     },
-  ];
+  ], []); // Empty dependency array - components data never changes
 
   // Filter components based on search and category
   const filteredComponents = useMemo(() => {

@@ -16,7 +16,6 @@ import {
   SectionDescription,
   ThemeToggle,
   AnimatedButton,
-  AnimatedCard,
 } from '@/components/ui';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
@@ -116,14 +115,16 @@ export default function DemoPage() {
                 </CardHeader>
               </Card>
 
-              <AnimatedCard variant="accent">
-                <CardHeader>
-                  <CardTitle>Animated card</CardTitle>
-                  <CardDescription>
-                    With Framer Motion effects
-                  </CardDescription>
-                </CardHeader>
-              </AnimatedCard>
+              <motion.div whileHover={{ scale: 1.02, y: -4 }} transition={{ type: "spring", stiffness: 400 }}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Animated card</CardTitle>
+                    <CardDescription>
+                      With Framer Motion effects
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
             </div>
           </motion.div>
 

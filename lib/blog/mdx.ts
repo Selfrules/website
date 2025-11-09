@@ -49,7 +49,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       title: data.title || 'Untitled',
       date: data.date || new Date().toISOString(),
       excerpt: data.excerpt || '',
-      author: data.author || 'Mattia Cintura',
+      author: data.author || 'Mattia Filippo De Luca',
       category: data.category || 'General',
       tags: data.tags || [],
       readingTime: `${readingTime} min read`,

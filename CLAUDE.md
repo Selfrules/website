@@ -75,12 +75,32 @@ The application follows a **Jamstack approach** with pre-rendering for SEO and c
 
 ## Brand Identity & Content Guidelines
 
-### Neobrutalist Design System
-- **Borders**: Always 4-6px solid black on interactive elements
-- **Shadows**: Hard shadows with 8px offset, no blur (#000000)
-- **Colors**: Primary #FFD93D (yellow), Secondary #6C5CE7 (purple)
+### Neobrutalist Design System (Cold-Tone Palette)
+
+**Updated**: 2025-11-08 - Migrated to professional cold-tone palette with WCAG AA compliance
+
+#### Color Palette
+- **Primary**: Electric Blue #1E90FF (Design/UX projects)
+- **Secondary**: Slate Blue #6A7B9F (Development projects)
+- **Accent**: Deep Navy #3E526A (PM/Strategy projects)
+- **Alternative**: Teal #2A687A (Analytics/Tools)
+
+#### Visual Elements
+- **Borders**: 4-6px solid black (`border-brutal`, `border-brutal-thick`)
+- **Shadows**: Hard shadows 8px offset, no blur (`shadow-brutal`, `shadow-brutal-hover`)
+- **Border Radius**: 6-8px standard (reduced from 12px for professional look)
 - **Typography**: Space Grotesk (headings), Inter (body), JetBrains Mono (code)
-- **Border Radius**: 8-12px for cards, full circle for avatars
+
+#### Spacing System
+- **8pt Grid**: Systematic spacing scale (8px → 160px)
+- Usage: `p-1` (8px), `m-3` (24px), `gap-6` (48px), `p-12` (96px)
+
+#### Accessibility Features (WCAG AA Compliant)
+- **Skip Links**: Keyboard navigation bypass (Tab to reveal)
+- **Touch Targets**: Minimum 48×48px on mobile (`@media (pointer: coarse)`)
+- **Reduced Motion**: Respects user preference (`prefers-reduced-motion`)
+- **Focus Indicators**: 4px solid Electric Blue outline
+- **Color Contrast**: All colors ≥4.5:1 contrast ratio
 
 ### Content Tone of Voice
 The content follows a hybrid style combining:
@@ -164,7 +184,12 @@ The admin dashboard (`/admin`) includes:
 ### Neobrutalist Component Pattern
 ```tsx
 // Always include thick borders and hard shadows
-className="border-4 border-black shadow-[8px_8px_0px_#000000] rounded-lg"
+// Use rounded-brutal (6px) or rounded-brutal-lg (8px) instead of rounded-lg
+className="border-brutal border-black shadow-brutal rounded-brutal"
+
+// Interactive hover effects
+className="hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]
+           active:shadow-brutal-active active:translate-x-[4px] active:translate-y-[4px]"
 ```
 
 ### Animation Pattern
@@ -172,6 +197,38 @@ className="border-4 border-black shadow-[8px_8px_0px_#000000] rounded-lg"
 // Purposeful animations, not decorative
 whileHover={{ x: -4, y: -4 }}
 transition={{ type: "spring", stiffness: 400 }}
+```
+
+### Component Variants Pattern
+```tsx
+// Color-coded Card Headers for project categorization
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
+
+// Design/UX projects - Electric Blue
+<Card>
+  <CardHeader variant="design">
+    <CardTitle>Figma Component Library</CardTitle>
+  </CardHeader>
+  <CardContent>...</CardContent>
+</Card>
+
+// Development projects - Slate Blue
+<CardHeader variant="dev">
+  <CardTitle>Next.js Migration</CardTitle>
+</CardHeader>
+
+// PM/Strategy projects - Deep Navy
+<CardHeader variant="pm">
+  <CardTitle>Product Roadmap 2024</CardTitle>
+</CardHeader>
+
+// Semantic Badges for skills/tags
+import { Badge } from '@/components/ui/Badge';
+
+<Badge variant="design">Figma</Badge>        // Electric Blue
+<Badge variant="dev">React</Badge>           // Slate Blue
+<Badge variant="pm">Product Strategy</Badge> // Deep Navy
+<Badge variant="tool">Google Analytics</Badge> // Teal
 ```
 
 ### API Route Pattern

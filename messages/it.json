@@ -1,21 +1,22 @@
 {
   "nav": {
     "home": "home",
-    "blog": "blog",
+    "blog": "pensieri",
     "work": "lavora con me",
     "about": "chi sono"
   },
   "hero": {
-    "badge": "Product Manager & Developer",
-    "headline1": "Ho fallito come designer.",
-    "headline2": "Poi come developer.",
-    "headline3": "Ora sono un Product Manager",
-    "headline4": "che sa davvero",
-    "headline5": "cosa costruire.",
-    "subtitle": "Perché questo conta? Perché ho imparato che il prodotto perfetto non esiste. Esiste solo quello che risolve problemi reali, costruito da chi capisce design, tech e business.",
-    "supportText": "Hai un'idea che vuoi trasformare in prodotto? Un prodotto che nessuno usa? Un team che non si capisce? Sono passato da tutte e tre le parti del tavolo. Possiamo parlarne.",
-    "cta": "Parliamone →",
-    "explore": "Esplora il portfolio",
+    "badge": "PM • DESIGNER • DEV",
+    "headline1": "Ho fallito",
+    "headline2": "come designer.",
+    "headline3": "Poi come developer.",
+    "headline4": "Ora sono un PM",
+    "headline5": "che sa davvero cosa costruire.",
+    "subtitle": "Perché? Perché ho imparato che",
+    "subtitleHighlight": "il prodotto perfetto non esiste",
+    "subtitleEnd": ". Esiste solo quello che risolve problemi reali per persone reali.",
+    "cta": "Parliamone",
+    "explore": "Leggi la storia",
     "stats": {
       "loadTimes": "Faster load times",
       "usersImpacted": "Users impacted",
@@ -28,9 +29,13 @@
   },
   "journey": {
     "badge": "Il mio percorso",
-    "title": "Il percorso",
-    "titleHighlight": "al contrario",
-    "subtitle": "La maggior parte dei PM studiano product management. Io ho fatto il percorso lungo: design, codice, e solo alla fine product. È stato scomodo, faticoso, pieno di errori. Ed è esattamente per questo che oggi so davvero cosa sto facendo.",
+    "title": "Da zero a",
+    "titleHighlight": "Product Manager",
+    "subtitle": "La maggior parte dei PM arriva dalla consulenza. Io ho fatto design, sviluppo, imprenditoria. Questo è il mio superpotere.",
+    "current": "Oggi",
+    "skills": "SKILLS",
+    "certifications": "CERTIFICAZIONI",
+    "endMessage": "12 anni di fallimenti trasformati in esperienza",
     "experiences": {
       "pm": {
         "date": "2023-oggi",
@@ -48,6 +53,9 @@
           "3": "User Research",
           "4": "Business Case"
         },
+        "certifications": {
+          "1": "Product Management Professional"
+        },
         "metrics": {
           "impact": "Tempi pagamento",
           "value": "-12%"
@@ -64,31 +72,43 @@
           "3": "Il feedback degli utenti conta più di qualsiasi opinion di un stakeholder interno"
         },
         "technologies": {
-          "1": "Roadmapping",
-          "2": "Stakeholder Management",
-          "3": "User Feedback",
-          "4": "Prioritization"
+          "1": "B2B SaaS",
+          "2": "Lead Generation",
+          "3": "Agile/Scrum",
+          "4": "User Research",
+          "5": "SQL",
+          "6": "Analytics"
+        },
+        "certifications": {
+          "1": "Certified Scrum Product Owner",
+          "2": "Product Management Certificate"
         },
         "metrics": {
           "impact": "Skill acquisita",
           "value": "3 lingue"
         }
       },
-      "dev": {
+      "developer": {
         "date": "2016-2020",
         "company": "FLOWING",
         "role": "Full-stack Developer",
-        "description": "Scrivevo codice. Costruivo API. Pensavo che la tecnica risolvesse tutto.",
+        "description": "Cinque anni a costruire piattaforme web API-first. Ho scritto codice che ancora gira in produzione. Ho capito che la differenza tra un buon prodotto e un grande prodotto sta nei dettagli che nessuno nota... finché non mancano.",
         "achievements": {
-          "1": "Ho ottimizzato un algoritmo per 10ms più veloce, mentre nessuno capiva come usare la feature",
-          "2": "Ho scritto il codice più elegante della mia carriera per un prodotto morto dopo 4 mesi",
-          "3": "Il momento di svolta: \"Ma questo a cosa serve davvero?\" - Non seppi rispondere"
+          "1": "Sviluppato 10+ piattaforme web enterprise",
+          "2": "Architetture API-first scalabili",
+          "3": "Contribuito a progetti open source"
         },
         "technologies": {
-          "1": "JavaScript",
-          "2": "API Development",
-          "3": "Backend",
-          "4": "Frontend"
+          "1": "React",
+          "2": "Node.js",
+          "3": "PostgreSQL",
+          "4": "AWS",
+          "5": "API Design",
+          "6": "TypeScript"
+        },
+        "certifications": {
+          "1": "AWS Certified Developer",
+          "2": "MongoDB Certified"
         }
       },
       "designer": {
@@ -231,5 +251,17 @@
     "bookCall": "prenota una call",
     "loading": "caricamento...",
     "error": "qualcosa è andato storto"
+  },
+  "footer": {
+    "tagline": "Product Manager che parla design, codice e business. Costruisco prodotti che risolvono davvero problemi.",
+    "badge": "Disponibile per consulenze",
+    "navigation": "Link rapidi",
+    "connect": "Connettiti",
+    "getInTouch": "Contattami",
+    "ctaText": "Hai un progetto in mente? Parliamo di come possiamo lavorare insieme.",
+    "ctaButton": "Parliamone",
+    "rights": "Tutti i diritti riservati.",
+    "privacy": "Privacy",
+    "terms": "Termini"
   }
 }

@@ -91,30 +91,62 @@ export const brutalBounce: Variants = {
   },
 };
 
-// Brutal shadow hover effect
+// Simplified brutal hover effect - simple, purposeful animation
+// Using spring physics for natural feel (stiffness: 400 as per requirements)
 export const brutalHover: Variants = {
+  rest: {
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 30,
+    },
+  },
+  hover: {
+    scale: 1.05,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 25,
+    },
+  },
+  tap: {
+    scale: 0.95,
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 30,
+    },
+  },
+};
+
+// Alternative: Shadow shift hover (keeps neobrutalist aesthetic)
+export const brutalHoverShift: Variants = {
   rest: {
     x: 0,
     y: 0,
     transition: {
-      duration: 0.2,
-      ease: [0.25, 0.1, 0.25, 1],
+      type: 'spring',
+      stiffness: 400,
+      damping: 30,
     },
   },
   hover: {
-    x: -4,
-    y: -4,
+    x: -2,
+    y: -2,
     transition: {
-      duration: 0.2,
-      ease: [0.25, 0.1, 0.25, 1],
+      type: 'spring',
+      stiffness: 400,
+      damping: 25,
     },
   },
   tap: {
-    x: 4,
-    y: 4,
+    x: 2,
+    y: 2,
     transition: {
-      duration: 0.1,
-      ease: [0.25, 0.1, 0.25, 1],
+      type: 'spring',
+      stiffness: 400,
+      damping: 30,
     },
   },
 };

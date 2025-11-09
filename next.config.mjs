@@ -30,7 +30,16 @@ const nextConfig = {
 
   // Image optimization
   images: {
-    domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co', // Spotify album art
+      },
+    ],
     formats: ['image/webp'],
   },
 

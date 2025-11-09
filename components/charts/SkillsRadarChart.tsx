@@ -19,6 +19,19 @@ export interface SkillData {
   fullMark: number;
 }
 
+interface TooltipPayload {
+  value: number;
+  name: string;
+  dataKey: string;
+  payload: SkillData;
+}
+
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: TooltipPayload[];
+  label?: string;
+}
+
 interface SkillsRadarChartProps {
   className?: string;
   animated?: boolean;
@@ -69,12 +82,12 @@ export default function SkillsRadarChart({
 
   // Neobrutalist color scheme
   const isDark = theme === 'dark';
-  const fillColor = isDark ? '#FFD93D' : '#6C5CE7'; // primary/secondary
+  const fillColor = isDark ? '#5CB3FF' : '#1E90FF'; // primary light/primary (Electric Blue)
   const strokeColor = '#000000'; // black borders
   const gridColor = isDark ? '#4A5568' : '#CBD5E0'; // subtle grid
   const textColor = isDark ? '#E2E8F0' : '#1A202C'; // text
 
-  const CustomTooltip = ({ active, payload }: any) => {
+  const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
     if (active && payload && payload.length) {
       return (
         <div className="brutal-card p-3 border-4 border-black shadow-brutal">

@@ -55,11 +55,11 @@ export default function GeometricTextures({
     : {};
 
   return (
-    <div className={cn('absolute inset-0 overflow-hidden pointer-events-none', className)}>
+    <div className={cn('absolute inset-0 overflow-hidden pointer-events-none -z-10', className)}>
       {/* Rounded Square */}
       <MotionComponent
         className={cn(
-          'absolute w-14 h-14 border-4 rounded-lg',
+          'absolute w-14 h-14 border-4 rounded-lg opacity-40',
           colors.square || defaultColors.square,
           positions[variant].square,
           'hidden lg:block',
@@ -85,7 +85,7 @@ export default function GeometricTextures({
       {/* Circle */}
       <MotionComponent
         className={cn(
-          'absolute w-12 h-12 border-4 rounded-full',
+          'absolute w-12 h-12 border-4 rounded-full opacity-40',
           colors.circle || defaultColors.circle,
           positions[variant].circle,
           'hidden lg:block',
@@ -110,7 +110,7 @@ export default function GeometricTextures({
       {/* Triangle (using CSS) */}
       <MotionComponent
         className={cn(
-          'absolute w-0 h-0',
+          'absolute w-0 h-0 opacity-40',
           positions[variant].triangle,
           'hidden lg:block',
         )}
@@ -118,10 +118,10 @@ export default function GeometricTextures({
           borderLeft: '25px solid transparent',
           borderRight: '25px solid transparent',
           borderBottom: `43px solid ${
-            colors.triangle === 'border-primary' ? '#FFD93D' :
+            colors.triangle === 'border-primary' ? '#1E90FF' :
             colors.triangle === 'border-neon-cyan' ? '#00D9FF' :
             colors.triangle === 'border-neon-pink' ? '#FF0099' :
-            '#FFD93D'
+            '#1E90FF'
           }`,
           transform: 'rotate(-20deg)',
         }}

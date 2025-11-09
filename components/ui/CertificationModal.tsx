@@ -116,27 +116,17 @@ export default function CertificationModal({
                   </div>
                 </div>
 
-                {/* Verification button */}
+                {/* Optional external link */}
                 {certification.verificationUrl && (
                   <a
                     href={certification.verificationUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-green-500 text-white font-bold border-4 border-black rounded-brutal shadow-brutal hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1 transition-all"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-primary text-black font-bold border-4 border-black rounded-brutal shadow-brutal hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1 transition-all"
                   >
-                    <Shield className="w-5 h-5" />
-                    <span>Verify on Blockchain</span>
+                    <span>View Certificate</span>
                     <ExternalLink className="w-5 h-5" />
                   </a>
-                )}
-
-                {/* No verification available message */}
-                {!certification.verificationUrl && (
-                  <div className="p-4 bg-yellow-100 border-4 border-yellow-500 rounded-brutal text-center">
-                    <p className="text-sm font-bold text-yellow-800">
-                      Blockchain verification coming soon
-                    </p>
-                  </div>
                 )}
               </div>
             </motion.div>

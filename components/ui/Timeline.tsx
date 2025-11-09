@@ -52,17 +52,17 @@ export function Timeline({
         className
       )}
     >
-      {/* Timeline line */}
+      {/* Timeline line - left-aligned on desktop for better use of space */}
       <div
         className={cn(
           'absolute bg-brutalist-border',
           orientation === 'vertical'
-            ? 'left-6 md:left-1/2 w-1 h-full -translate-x-1/2'
+            ? 'left-6 md:left-6 w-1 h-full'
             : 'top-10 h-1 w-full'
         )}
       />
 
-      {/* Timeline items */}
+      {/* Timeline items - left-aligned layout for wider cards on desktop */}
       <div
         className={cn(
           orientation === 'vertical'
@@ -106,12 +106,12 @@ export function TimelineItem({
         className
       )}
     >
-      {/* Timeline dot/icon */}
+      {/* Timeline dot/icon - left-aligned on all screen sizes */}
       <div
         className={cn(
           'absolute z-10 flex items-center justify-center',
           orientation === 'vertical'
-            ? 'left-3 md:left-1/2 md:-translate-x-1/2'
+            ? 'left-3 md:left-3'
             : 'top-6 left-1/2 -translate-x-1/2'
         )}
       >
@@ -135,55 +135,44 @@ export function TimelineItem({
         </div>
       </div>
 
-      {/* Content */}
+      {/* Content - Left-aligned layout for better space usage */}
       <div
         className={cn(
           'flex-1',
           orientation === 'vertical'
-            ? 'ml-20 md:ml-0 md:flex md:w-full'
+            ? 'ml-20 w-full'
             : 'mt-20 text-center'
         )}
       >
         {orientation === 'vertical' ? (
           <>
-            {/* Left side (date on desktop) */}
-            <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-12">
-              {date && (
-                <span className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 font-mono">
-                  {date}
-                </span>
-              )}
-            </div>
+            {/* Date positioned above card on mobile, inline on desktop */}
+            {date && (
+              <span className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 font-mono mb-2 block md:mb-3">
+                {date}
+              </span>
+            )}
 
-            {/* Right side (content) */}
-            <div className="md:w-1/2 md:pl-12">
-              {/* Mobile date */}
-              {date && (
-                <span className="md:hidden text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 font-mono mb-2 block">
-                  {date}
-                </span>
+            {/* Card content - wider on desktop with left alignment */}
+            <div
+              className={cn(
+                'p-6 bg-white dark:bg-brutalist-surface-dark rounded-brutal border-brutal shadow-brutal',
+                'w-full md:max-w-3xl', // Wider cards on desktop
+                active ? variantBorders[variant] : 'border-brutalist-border',
+                'hover:shadow-brutal-hover hover:-translate-y-1 transition-all'
               )}
-
-              {/* Card content */}
-              <div
-                className={cn(
-                  'p-6 bg-white dark:bg-brutalist-surface-dark rounded-brutal border-brutal shadow-brutal',
-                  active ? variantBorders[variant] : 'border-brutalist-border',
-                  'hover:shadow-brutal-hover hover:-translate-y-1 transition-all'
-                )}
-              >
-                {title && (
-                  <h3 className="text-xl font-bold mb-2 text-sentence-case">
-                    {title}
-                  </h3>
-                )}
-                {description && (
-                  <p className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 mb-4">
-                    {description}
-                  </p>
-                )}
-                {children}
-              </div>
+            >
+              {title && (
+                <h3 className="text-xl font-bold mb-2 text-sentence-case">
+                  {title}
+                </h3>
+              )}
+              {description && (
+                <p className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 mb-4">
+                  {description}
+                </p>
+              )}
+              {children}
             </div>
           </>
         ) : (

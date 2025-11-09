@@ -81,7 +81,7 @@ export function TimeSlotGrid() {
       transition={{ duration: 0.3 }}
     >
       {/* Date Header */}
-      <div className="mb-6 p-4 rounded-lg border-3 border-black bg-yellow-primary">
+      <div className="mb-6 p-4 rounded-lg border-3 border-black bg-primary">
         <div className="flex items-center gap-2 mb-2">
           <Clock className="w-5 h-5" />
           <h3 className="font-bold text-lg">Select a time slot</h3>
@@ -136,7 +136,7 @@ export function TimeSlotGrid() {
                     'bg-purple-primary text-white shadow-[4px_4px_0px_#000000]',
                   !isSelected &&
                     slot.available &&
-                    'bg-white hover:bg-yellow-primary',
+                    'bg-white hover:bg-primary',
                   !slot.available &&
                     'bg-gray-100 text-black/30 cursor-not-allowed border-black/20 line-through'
                 )}

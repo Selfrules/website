@@ -13,32 +13,50 @@ let adminStorage: Storage;
 
 /**
  * Initialize Firebase Admin SDK
- * Uses service account credentials from environment or file
+ * Prioritizes environment variables over file-based credentials for security
  */
 const initializeFirebaseAdmin = () => {
   // Check if already initialized
   if (getApps().length > 0) {
     adminApp = getApps()[0];
   } else {
-    try {
-      // Try to use service account file if available
-      const serviceAccount = require('../../firebase-admin-key.json');
-
+    // Priority 1: Environment variables (production/cloud)
+    if (
+      process.env.FIREBASE_ADMIN_PROJECT_ID &&
+      process.env.FIREBASE_ADMIN_CLIENT_EMAIL &&
+      process.env.FIREBASE_ADMIN_PRIVATE_KEY
+    ) {
       adminApp = initializeApp({
-        credential: cert(serviceAccount),
+        credential: cert({
+          projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
+          clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
+          privateKey: process.env.FIREBASE_ADMIN_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        }),
         projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
         storageBucket: `${process.env.FIREBASE_ADMIN_PROJECT_ID}.appspot.com`,
       });
-    } catch (error) {
-      // Fallback to environment-based initialization for cloud environments
-      // This works automatically on Cloud Functions, Cloud Run, etc.
-      if (process.env.FIREBASE_ADMIN_PROJECT_ID) {
+    }
+    // Priority 2: Cloud environment auto-detect (Cloud Functions, Cloud Run)
+    else if (process.env.FIREBASE_ADMIN_PROJECT_ID) {
+      adminApp = initializeApp({
+        projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
+      });
+    }
+    // Priority 3: Local development fallback (file-based, NOT for production)
+    else {
+      try {
+        const serviceAccount = require('../../firebase-admin-key.json');
         adminApp = initializeApp({
-          projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
+          credential: cert(serviceAccount),
+          projectId: serviceAccount.project_id,
+          storageBucket: `${serviceAccount.project_id}.appspot.com`,
         });
-      } else {
+        console.warn(
+          '⚠️  Using file-based Firebase credentials (development only). Set environment variables for production.'
+        );
+      } catch (error) {
         throw new Error(
-          'Firebase Admin initialization failed. Either provide firebase-admin-key.json or set FIREBASE_ADMIN_PROJECT_ID environment variable.'
+          'Firebase Admin initialization failed. Required: FIREBASE_ADMIN_PROJECT_ID, FIREBASE_ADMIN_CLIENT_EMAIL, FIREBASE_ADMIN_PRIVATE_KEY environment variables, OR firebase-admin-key.json file for local development.'
         );
       }
     }
