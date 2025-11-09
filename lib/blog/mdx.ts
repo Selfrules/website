@@ -115,3 +115,34 @@ export async function markdownToHtml(markdown: string) {
     .process(markdown)
   return result.toString()
 }
+
+// Extract H2 headings from markdown content for Table of Contents
+export interface TocSection {
+  id: string;
+  title: string;
+  level: number;
+}
+
+export function extractTableOfContents(markdown: string): TocSection[] {
+  const headingRegex = /^##\s+(.+)$/gm;
+  const sections: TocSection[] = [];
+  let match;
+
+  while ((match = headingRegex.exec(markdown)) !== null) {
+    const title = match[1];
+    const id = title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+
+    sections.push({
+      id,
+      title,
+      level: 2,
+    });
+  }
+
+  return sections;
+}
