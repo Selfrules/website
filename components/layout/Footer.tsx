@@ -81,11 +81,14 @@ export function Footer({ locale }: FooterProps) {
               className="text-2xl md:text-3xl mb-4"
               style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900 }}
             >
-              <span className="text-[#0D7EFF]">Mattia</span>{' '}
-              <span className="text-[#FF006E]">Cintura</span>
+              <span className="text-[#0D7EFF]">Mattia Filippo</span>{' '}
+              <span className="text-[#FF006E]">De Luca</span>
             </h3>
-            <p className="text-white/80 text-sm md:text-base mb-6 max-w-md leading-relaxed">
+            <p className="text-white/80 text-sm md:text-base mb-2 max-w-md leading-relaxed">
               {t('bio')}
+            </p>
+            <p className="text-white/60 text-xs md:text-sm mb-6">
+              {t('location')}
             </p>
 
             {/* Social Links */}
@@ -123,7 +126,7 @@ export function Footer({ locale }: FooterProps) {
                     href={link.href}
                     className="text-white/80 hover:text-[#0D7EFF] transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
                   >
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight className="w-3 h-3 text-[#0D7EFF] opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.name}
                   </Link>
                 </li>
@@ -147,7 +150,7 @@ export function Footer({ locale }: FooterProps) {
                     className="text-white/80 hover:text-[#FF006E] transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
                   >
                     {link.name}
-                    <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="w-3 h-3 text-[#FF006E] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
               ))}

@@ -154,8 +154,18 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Force black text by default - override any Tailwind defaults */
+  * {
+    color: inherit;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: inherit;
+  }
+
+  p, span, div, a {
+    color: inherit;
   }
 
   code, pre {
@@ -164,11 +174,43 @@
 }
 
 /* Typography - Mobile First */
+/* REGOLA GLOBALE: Tutte le classi di tipografia devono avere color: #0A0A0A (nero) */
+/* ECCEZIONE: Sfondi scuri (blu, teal, purple, pink, black) usano testo bianco per contrasto WCAG AA */
+
+/* Tailwind utility overrides per assicurare testo nero */
+.font-heading,
+.font-bold,
+.text-sentence-case {
+  color: #0A0A0A !important;
+}
+
+/* ECCEZIONE: text-white deve sempre fare override per sfondi scuri */
+.text-white,
+.text-white\/80,
+.text-white\/90,
+.text-white\/95 {
+  color: white !important;
+}
+
+/* Opacità per varianti text-white */
+.text-white\/80 {
+  opacity: 0.8;
+}
+
+.text-white\/90 {
+  opacity: 0.9;
+}
+
+.text-white\/95 {
+  opacity: 0.95;
+}
+
 .text-hero {
   font-size: 36px;
   line-height: 1;
   font-weight: 900;
   font-family: 'Space Grotesk', sans-serif;
+  color: #0A0A0A;
 }
 
 .text-h1 {
@@ -176,6 +218,7 @@
   line-height: 1.1;
   font-weight: 700;
   font-family: 'Space Grotesk', sans-serif;
+  color: #0A0A0A;
 }
 
 .text-h2 {
@@ -183,6 +226,7 @@
   line-height: 1.2;
   font-weight: 700;
   font-family: 'Space Grotesk', sans-serif;
+  color: #0A0A0A;
 }
 
 .text-h3 {
@@ -190,6 +234,7 @@
   line-height: 1.3;
   font-weight: 600;
   font-family: 'Space Grotesk', sans-serif;
+  color: #0A0A0A;
 }
 
 .text-body-large {
@@ -197,6 +242,7 @@
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Inter', sans-serif;
+  color: #0A0A0A;
 }
 
 .text-body {
@@ -204,6 +250,7 @@
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Inter', sans-serif;
+  color: #0A0A0A;
 }
 
 .text-body-small {
@@ -211,6 +258,7 @@
   line-height: 1.5;
   font-weight: 400;
   font-family: 'Inter', sans-serif;
+  color: #0A0A0A;
 }
 
 /* Tablet typography */
@@ -292,6 +340,39 @@
 /* Border utilities */
 .border-3 {
   border-width: 3px;
+}
+
+/* Badge variants - color-coded by project type */
+.badge-design {
+  background-color: #0D7EFF;
+  color: white;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.badge-dev {
+  background-color: #2A687A;
+  color: white;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.badge-pm {
+  background-color: #7209B7;
+  color: white;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.badge-tool {
+  background-color: #FF006E;
+  color: white;
+  box-shadow: 3px 3px 0 #000;
+}
+
+/* Special badge for featured items */
+.badge-featured {
+  background-color: #FFD60A;
+  color: #0A0A0A;
+  box-shadow: 3px 3px 0 #000;
+  font-weight: 700;
 }
 
 

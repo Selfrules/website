@@ -11,22 +11,22 @@ interface WhatImUpToProps {
 export default function WhatImUpTo({ locale }: WhatImUpToProps) {
   const translations = {
     it: {
-      badge: 'Cosa sto facendo',
+      badge: 'What I\'m doing now',
       title: 'What I\'m up to',
-      description: 'Una finestra sulla mia vita professionale ',
-      descriptionHighlight: 'in real-time',
+      description: 'Una finestra sulla mia vita professionale in real-time. ',
+      descriptionHighlight: 'Niente LinkedIn bullshit.',
       currentWork: {
         title: 'Lavoro attuale',
         company: 'QubicaAMF',
         description: 'Product Manager @ ',
-        detail: 'Sto rendendo i pagamenti 12% più veloci. Come? Ascoltando chi usa il sistema ogni giorno invece di fare meeting su meeting.',
-        metric: '-12% tempi',
+        detail: 'Mi occupo di integrazioni di pagamento e visione di prodotto. Come? Ascoltando chi usa il sistema ogni giorno invece di fare meeting su meeting. La settimana scorsa: 6 ore di user interviews. 3 insight critici. 1 feature cancellata (perché risolveva il problema sbagliato). 2 quick wins implementate in 1 sprint. Questo è product management pragmatico.',
+        metric: '+2 quick wins',
       },
       learning: {
         title: 'Learning in Public',
         thisWeek: 'Questa settimana: ',
-        topic: 'come l\'AI sta cambiando',
-        detail: 'il mio workflow. Non sostituisce il mio lavoro, lo amplifica. Il trucco? Sapere cosa delegare e cosa tenere.',
+        topic: 'come l\'AI sta cambiando il mio workflow.',
+        detail: 'Non sostituisce il mio lavoro, lo amplifica. Il trucco? Sapere cosa delegare e cosa tenere. Claude scrive la prima bozza delle PRD. Io la raffino con context che solo un umano ha. Figma Make genera 20 varianti di mockup. Io scelgo quella che funziona per gli utenti. L\'AI è il mio junior designer/developer perfetto: veloce, instancabile, ma serve sempre una guida.',
       },
       spotify: {
         title: 'Now Playing',
@@ -88,8 +88,28 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
               <h3 className="text-h3 mb-3 text-[#0A0A0A]">
                 {t.currentWork.title}
               </h3>
-              <p className="text-body-small text-[#2D2D2D] leading-relaxed">
-                {t.currentWork.description}<strong className="text-[#0D7EFF]">{t.currentWork.company}</strong> - {t.currentWork.detail}
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed mb-3">
+                {t.currentWork.description}<strong className="text-[#0D7EFF]">{t.currentWork.company}</strong>
+              </p>
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed mb-3">
+                Mi occupo di integrazioni di pagamento e visione di prodotto.
+              </p>
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed mb-3">
+                <strong className="text-[#0D7EFF]">Come?</strong> Ascoltando chi usa il sistema ogni giorno invece di fare meeting su meeting.
+              </p>
+              <div className="bg-white/50 border-l-4 border-[#0D7EFF] p-3 mb-3 rounded">
+                <p className="text-xs text-[#2D2D2D] mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}>
+                  La settimana scorsa:
+                </p>
+                <ul className="text-body-small text-[#2D2D2D] space-y-1">
+                  <li>• 6 ore di user interviews</li>
+                  <li>• 3 insight critici</li>
+                  <li>• 1 feature cancellata (risolveva il problema sbagliato)</li>
+                  <li>• 2 quick wins implementate in 1 sprint</li>
+                </ul>
+              </div>
+              <p className="text-body-small text-[#2D2D2D] italic">
+                Questo è product management pragmatico.
               </p>
               <div className="mt-4 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-[#06FFA5]" />
@@ -111,8 +131,32 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
               <h3 className="text-h3 mb-3 text-[#0A0A0A]">
                 {t.learning.title}
               </h3>
-              <p className="text-body-small text-[#2D2D2D] leading-relaxed">
-                {t.learning.thisWeek}<strong className="text-[#FF006E]">{t.learning.topic}</strong> {t.learning.detail}
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed mb-3">
+                {t.learning.thisWeek}<strong className="text-[#FF006E]">{t.learning.topic}</strong>
+              </p>
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed mb-3">
+                Non sostituisce il mio lavoro, lo amplifica.
+              </p>
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed mb-3">
+                <strong className="text-[#FF006E]">Il trucco?</strong> Sapere cosa delegare e cosa tenere.
+              </p>
+              <div className="bg-white/50 border-l-4 border-[#FF006E] p-3 mb-3 rounded">
+                <p className="text-xs text-[#2D2D2D] mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}>
+                  Esempi pratici:
+                </p>
+                <ul className="text-body-small text-[#2D2D2D] space-y-2">
+                  <li className="flex gap-2">
+                    <span className="text-[#FF006E]">→</span>
+                    <span><strong>Claude</strong> scrive la prima bozza delle PRD. Io la raffino con context che solo un umano ha.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[#FF006E]">→</span>
+                    <span><strong>Figma Make</strong> genera 20 varianti di mockup. Io scelgo quella che funziona per gli utenti.</span>
+                  </li>
+                </ul>
+              </div>
+              <p className="text-body-small text-[#2D2D2D] italic">
+                L'AI è il mio junior designer/developer perfetto: veloce, instancabile, ma serve sempre una guida.
               </p>
             </div>
           </div>

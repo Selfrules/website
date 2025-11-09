@@ -112,7 +112,7 @@ export default function BlogArticleClient({
     'Strategy': '#7209B7',
     'OKRs': '#0D7EFF',
     'Design': '#0D7EFF',
-    'Development': '#FFD60A',
+    'Development': '#2A687A',
     'Leadership': '#FF006E',
   };
 
@@ -125,7 +125,7 @@ export default function BlogArticleClient({
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-4">
           <button
             onClick={handleBackToBlog}
-            className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+            className="flex items-center gap-2 px-4 py-2 bg-white border-4 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-[#0A0A0A]"
             style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
           >
             <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
@@ -143,7 +143,7 @@ export default function BlogArticleClient({
               <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6">
                 {/* Table of Contents */}
                 <h3
-                  className="mb-4 pb-3 border-b-3 border-[#000]"
+                  className="mb-4 pb-3 border-b-4 border-[#000] text-[#0A0A0A]"
                   style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '16px' }}
                 >
                   Indice
@@ -153,7 +153,7 @@ export default function BlogArticleClient({
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`block w-full text-left px-3 py-2 rounded transition-all ${
+                      className={`block w-full text-left px-3 py-2 rounded-lg transition-all ${
                         activeSection === section.id
                           ? 'bg-[#0D7EFF] text-white'
                           : 'text-[#2D2D2D] hover:bg-gray-100'
@@ -166,9 +166,9 @@ export default function BlogArticleClient({
                 </nav>
 
                 {/* Share Buttons */}
-                <div className="pt-4 border-t-3 border-[#000]">
+                <div className="pt-4 border-t-4 border-[#000]">
                   <h4
-                    className="mb-3"
+                    className="mb-3 text-[#0A0A0A]"
                     style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
                   >
                     Condividi
@@ -176,7 +176,7 @@ export default function BlogArticleClient({
                   <div className="space-y-2">
                     <button
                       onClick={() => handleShare('twitter')}
-                      className="flex items-center gap-3 w-full px-4 py-2 bg-white border-2 border-[#000] rounded hover:bg-gray-50 transition-colors"
+                      className="flex items-center gap-3 w-full px-4 py-2 bg-[#1DA1F2] text-white border-2 border-[#000] rounded hover:opacity-90 transition-opacity"
                     >
                       <Twitter className="w-4 h-4" />
                       <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 500 }}>
@@ -185,7 +185,7 @@ export default function BlogArticleClient({
                     </button>
                     <button
                       onClick={() => handleShare('linkedin')}
-                      className="flex items-center gap-3 w-full px-4 py-2 bg-white border-2 border-[#000] rounded hover:bg-gray-50 transition-colors"
+                      className="flex items-center gap-3 w-full px-4 py-2 bg-[#0A66C2] text-white border-2 border-[#000] rounded hover:opacity-90 transition-opacity"
                     >
                       <Linkedin className="w-4 h-4" />
                       <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 500 }}>
@@ -194,7 +194,7 @@ export default function BlogArticleClient({
                     </button>
                     <button
                       onClick={handleCopyLink}
-                      className="flex items-center gap-3 w-full px-4 py-2 bg-white border-2 border-[#000] rounded hover:bg-gray-50 transition-colors"
+                      className="flex items-center gap-3 w-full px-4 py-2 bg-white text-[#0A0A0A] border-2 border-[#000] rounded hover:bg-gray-50 transition-colors"
                     >
                       {copied ? <Check className="w-4 h-4 text-green-600" /> : <LinkIcon className="w-4 h-4" />}
                       <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 500 }}>
@@ -211,9 +211,9 @@ export default function BlogArticleClient({
           <div className="lg:col-span-9">
             {/* Article Header */}
             <header className="mb-12">
-              <div className="mb-4">
+              <div className="flex items-center gap-3 mb-4">
                 <span
-                  className="px-3 py-1 border-2 border-[#000] rounded text-white inline-block"
+                  className="px-3 py-1 border-4 border-[#000] rounded-lg text-white inline-block"
                   style={{
                     backgroundColor: categoryColor,
                     fontFamily: 'Space Mono, monospace',
@@ -223,6 +223,17 @@ export default function BlogArticleClient({
                 >
                   {post.category}
                 </span>
+                <div className="flex items-center gap-2 text-[#6B7280]" style={{ fontSize: '14px' }}>
+                  <span>
+                    {new Date(post.date).toLocaleDateString('it-IT', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </span>
+                  <span>•</span>
+                  <span>{post.readingTime}</span>
+                </div>
               </div>
 
               <h1
@@ -239,20 +250,6 @@ export default function BlogArticleClient({
               <p className="text-body-large text-[#2D2D2D] mb-6">
                 {post.excerpt}
               </p>
-
-              <div className="flex items-center gap-4 text-[#6B7280]" style={{ fontSize: '14px' }}>
-                <span>{post.author}</span>
-                <span>•</span>
-                <span>
-                  {new Date(post.date).toLocaleDateString('it-IT', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric',
-                  })}
-                </span>
-                <span>•</span>
-                <span>{post.readingTime}</span>
-              </div>
             </header>
 
             {/* Article Body */}
@@ -282,7 +279,7 @@ export default function BlogArticleClient({
             {relatedPosts.length > 0 && (
               <div className="mt-20">
                 <h3
-                  className="mb-8"
+                  className="mb-8 text-[#0A0A0A]"
                   style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '28px' }}
                 >
                   Articoli correlati
@@ -295,33 +292,53 @@ export default function BlogArticleClient({
                       <article
                         key={related.slug}
                         onClick={() => handleRelatedArticleClick(related.slug)}
-                        className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6 hover:-translate-y-1 hover:shadow-brutal-lg transition-all cursor-pointer group"
+                        className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6 hover:-translate-y-1 hover:shadow-brutal-lg transition-all cursor-pointer group flex flex-col justify-between min-h-[260px]"
                       >
-                        <span
-                          className="px-3 py-1 border-2 border-[#000] rounded text-white inline-block mb-3"
-                          style={{
-                            backgroundColor: relatedColor,
-                            fontFamily: 'Space Mono, monospace',
-                            fontSize: '10px',
-                            fontWeight: 700,
-                          }}
-                        >
-                          {related.category}
-                        </span>
-                        <h4
-                          className="text-[#0A0A0A] mb-2 group-hover:text-[#0D7EFF] transition-colors"
-                          style={{
-                            fontFamily: 'Space Grotesk, sans-serif',
-                            fontWeight: 700,
-                            fontSize: '18px',
-                            lineHeight: '1.3',
-                          }}
-                        >
-                          {related.title}
-                        </h4>
-                        <p className="text-body-small text-[#6B7280] line-clamp-2">
-                          {related.excerpt}
-                        </p>
+                        <div>
+                          <span
+                            className="px-3 py-1 border-4 border-[#000] rounded-lg text-white inline-block mb-3"
+                            style={{
+                              backgroundColor: relatedColor,
+                              fontFamily: 'Space Mono, monospace',
+                              fontSize: '10px',
+                              fontWeight: 700,
+                            }}
+                          >
+                            {related.category}
+                          </span>
+                          <h4
+                            className="text-[#0A0A0A] mb-2 group-hover:text-[#0D7EFF] transition-colors"
+                            style={{
+                              fontFamily: 'Space Grotesk, sans-serif',
+                              fontWeight: 700,
+                              fontSize: '18px',
+                              lineHeight: '1.3',
+                            }}
+                          >
+                            {related.title}
+                          </h4>
+                        </div>
+
+                        <div>
+                          <div className="flex items-center gap-3 text-[#6B7280] text-xs mb-3">
+                            <span>
+                              {new Date(related.date).toLocaleDateString('it-IT', {
+                                day: 'numeric',
+                                month: 'short',
+                                year: 'numeric',
+                              })}
+                            </span>
+                            <span>•</span>
+                            <span>{related.readingTime}</span>
+                          </div>
+                          <div
+                            className="inline-flex items-center gap-2 text-[#0D7EFF] transition-all group-hover:gap-3"
+                            style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: '14px' }}
+                          >
+                            Leggi articolo
+                            <ArrowLeft className="w-4 h-4 rotate-180" />
+                          </div>
+                        </div>
                       </article>
                     );
                   })}
