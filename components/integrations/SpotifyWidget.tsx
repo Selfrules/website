@@ -86,22 +86,15 @@ interface SpotifyNowPlayingProps {
 
 function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
   return (
-    <motion.a
-      href={track.spotifyUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-brutal"
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: 'spring', stiffness: 400 }}
-    >
+    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
       {/* Album Art */}
-      <div className="relative flex-shrink-0">
+      <div className="w-16 h-16 rounded border-3 border-[#1DB954] flex-shrink-0 overflow-hidden">
         <Image
           src={track.albumArt}
           alt={`${track.album} album cover`}
           width={64}
           height={64}
-          className="w-16 h-16 rounded border-3 border-[#1DB954] object-cover"
+          className="w-full h-full object-cover"
           loading="lazy"
         />
       </div>
@@ -124,7 +117,7 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
           <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '16px', animationDelay: '0.4s' }} />
         </div>
       )}
-    </motion.a>
+    </div>
   );
 }
 

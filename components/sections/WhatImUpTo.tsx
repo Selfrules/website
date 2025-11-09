@@ -1,4 +1,7 @@
-import { Briefcase, BookOpen, Music } from 'lucide-react';
+'use client';
+
+import { Briefcase, BookOpen, Music, TrendingUp } from 'lucide-react';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { SpotifyWidget } from '@/components/integrations/SpotifyWidget';
 
 interface WhatImUpToProps {
@@ -8,45 +11,47 @@ interface WhatImUpToProps {
 export default function WhatImUpTo({ locale }: WhatImUpToProps) {
   const translations = {
     it: {
-      subtitle: 'What I\'m Up To',
-      title: 'Cosa sto facendo ora',
-      description: 'Una finestra sul mio presente. Lavoro, apprendimento e musica.',
+      badge: 'Cosa sto facendo',
+      title: 'What I\'m up to',
+      description: 'Una finestra sulla mia vita professionale ',
+      descriptionHighlight: 'in real-time',
       currentWork: {
         title: 'Lavoro attuale',
-        company: 'Product Manager @ QubicaAMF',
-        achievement: 'Sto rendendo i pagamenti 12% più veloci',
-        detail: 'Ottimizzando il checkout flow e riducendo i click da 7 a 3. A volte la risposta non è complessa.',
+        company: 'QubicaAMF',
+        description: 'Product Manager @ ',
+        detail: 'Sto rendendo i pagamenti 12% più veloci. Come? Ascoltando chi usa il sistema ogni giorno invece di fare meeting su meeting.',
+        metric: '-12% tempi',
       },
       learning: {
-        title: 'Learning in public',
-        thisWeek: 'Questa settimana',
-        topic: 'Come l\'AI sta cambiando il mio workflow',
-        description: 'Sto esplorando come Claude e GPT-4 possano accelerare il product discovery. Non sostituiscono il pensiero critico, lo amplificano.',
+        title: 'Learning in Public',
+        thisWeek: 'Questa settimana: ',
+        topic: 'come l\'AI sta cambiando',
+        detail: 'il mio workflow. Non sostituisce il mio lavoro, lo amplifica. Il trucco? Sapere cosa delegare e cosa tenere.',
       },
-      soundtrack: {
-        title: 'Soundtrack del momento',
-        description: 'La musica che accompagna il mio lavoro in questo momento',
+      spotify: {
+        title: 'Now Playing',
       },
     },
     en: {
-      subtitle: 'What I\'m Up To',
-      title: 'What I\'m doing now',
-      description: 'A window into my present. Work, learning, and music.',
+      badge: 'What I\'m doing',
+      title: 'What I\'m up to',
+      description: 'A window into my professional life ',
+      descriptionHighlight: 'in real-time',
       currentWork: {
         title: 'Current work',
-        company: 'Product Manager @ QubicaAMF',
-        achievement: 'Making payments 12% faster',
-        detail: 'Optimizing checkout flow and reducing clicks from 7 to 3. Sometimes the answer isn\'t complex.',
+        company: 'QubicaAMF',
+        description: 'Product Manager @ ',
+        detail: 'Making payments 12% faster. How? Listening to people who use the system every day instead of having meetings about meetings.',
+        metric: '-12% time',
       },
       learning: {
-        title: 'Learning in public',
-        thisWeek: 'This week',
-        topic: 'How AI is changing my workflow',
-        description: 'Exploring how Claude and GPT-4 can accelerate product discovery. They don\'t replace critical thinking, they amplify it.',
+        title: 'Learning in Public',
+        thisWeek: 'This week: ',
+        topic: 'how AI is changing',
+        detail: 'my workflow. It doesn\'t replace my work, it amplifies it. The trick? Knowing what to delegate and what to keep.',
       },
-      soundtrack: {
-        title: 'Current soundtrack',
-        description: 'The music accompanying my work right now',
+      spotify: {
+        title: 'Now Playing',
       },
     },
   };
@@ -54,105 +59,75 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
   const t = translations[locale as keyof typeof translations] || translations.en;
 
   return (
-    <section className="py-20 lg:py-32 bg-white dark:bg-brutalist-bg-dark">
-      <div className="brutal-container">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-primary/10 dark:bg-purple-primary/20
-                       border-4 border-purple-primary rounded-brutal text-purple-primary font-medium mb-4">
-            <Briefcase className="w-4 h-4" />
-            <span className="text-sm">{t.subtitle}</span>
+    <section id="now" className="bg-white py-16 md:py-24 border-b-4 border-[#000] relative overflow-hidden">
+      {/* Decorative Blob */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#0D7EFF]/10 to-[#FF006E]/10 rounded-full blur-3xl" />
+
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="flex justify-center mb-4">
+            <NeoBadge color="blue">{t.badge}</NeoBadge>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4 text-brutalist-text-light dark:text-brutalist-text-dark">
-            {t.title}
-          </h2>
-          <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
-            {t.description}
+          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">{t.title}</h2>
+          <p className="text-body text-[#2D2D2D] max-w-[600px] mx-auto">
+            {t.description}<strong className="text-[#0D7EFF]">{t.descriptionHighlight}</strong>
           </p>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Current Work */}
-          <div className="bg-primary/5 dark:bg-primary/10 border-4 border-black dark:border-white
-                         rounded-brutal shadow-[8px_8px_0px_#000000] dark:shadow-[8px_8px_0px_#FFFFFF] p-6 lg:p-8">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="p-2 bg-primary border-3 border-black rounded-lg">
-                <Briefcase className="w-5 h-5 text-black" />
+        {/* Grid - Mobile First */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Card 1 - Current Work */}
+          <div className="bg-[#FFFCF2] border-4 border-[#000] rounded-lg shadow-brutal p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#0D7EFF] opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500" />
+
+            <div className="relative z-10">
+              <div className="w-12 h-12 bg-[#0D7EFF] border-3 border-[#000] rounded-lg flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
+                <Briefcase className="w-6 h-6 text-white" strokeWidth={2.5} />
               </div>
-              <div>
-                <h3 className="text-xl font-heading font-black text-brutalist-text-light dark:text-brutalist-text-dark mb-1">
-                  {t.currentWork.title}
-                </h3>
-                <p className="text-sm font-medium text-purple-primary">
-                  {t.currentWork.company}
-                </p>
+              <h3 className="text-h3 mb-3 text-[#0A0A0A]">
+                {t.currentWork.title}
+              </h3>
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed">
+                {t.currentWork.description}<strong className="text-[#0D7EFF]">{t.currentWork.company}</strong> - {t.currentWork.detail}
+              </p>
+              <div className="mt-4 flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-[#06FFA5]" />
+                <span className="text-xs font-bold text-[#06FFA5]" style={{ fontFamily: 'Space Mono, monospace' }}>
+                  {t.currentWork.metric}
+                </span>
               </div>
             </div>
-            <div className="space-y-3">
-              <p className="text-lg font-bold text-brutalist-text-light dark:text-brutalist-text-dark">
-                {t.currentWork.achievement}
-              </p>
-              <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 leading-relaxed">
-                {t.currentWork.detail}
+          </div>
+
+          {/* Card 2 - Learning in Public */}
+          <div className="bg-[#FFFCF2] border-4 border-[#000] rounded-lg shadow-brutal p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF006E] opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500" />
+
+            <div className="relative z-10">
+              <div className="w-12 h-12 bg-[#FF006E] border-3 border-[#000] rounded-lg flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
+                <BookOpen className="w-6 h-6 text-white" strokeWidth={2.5} />
+              </div>
+              <h3 className="text-h3 mb-3 text-[#0A0A0A]">
+                {t.learning.title}
+              </h3>
+              <p className="text-body-small text-[#2D2D2D] leading-relaxed">
+                {t.learning.thisWeek}<strong className="text-[#FF006E]">{t.learning.topic}</strong> {t.learning.detail}
               </p>
             </div>
           </div>
 
-          {/* Learning in Public */}
-          <div className="bg-purple-primary/5 dark:bg-purple-primary/10 border-4 border-black dark:border-white
-                         rounded-brutal shadow-[8px_8px_0px_#000000] dark:shadow-[8px_8px_0px_#FFFFFF] p-6 lg:p-8">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="p-2 bg-purple-primary border-3 border-black rounded-lg">
-                <BookOpen className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-heading font-black text-brutalist-text-light dark:text-brutalist-text-dark mb-1">
-                  {t.learning.title}
-                </h3>
-                <p className="text-sm font-medium text-purple-primary">
-                  {t.learning.thisWeek}
-                </p>
-              </div>
+          {/* Card 3 - Spotify Widget */}
+          <div className="bg-[#FFFCF2] border-4 border-[#000] rounded-lg shadow-brutal p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg md:col-span-2 lg:col-span-1">
+            <div className="w-12 h-12 bg-[#FFD60A] border-3 border-[#000] rounded-lg flex items-center justify-center mb-4">
+              <Music className="w-6 h-6 text-[#0A0A0A]" strokeWidth={2.5} />
             </div>
-            <div className="space-y-3">
-              <p className="text-lg font-bold text-brutalist-text-light dark:text-brutalist-text-dark">
-                {t.learning.topic}
-              </p>
-              <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 leading-relaxed">
-                {t.learning.description}
-              </p>
-            </div>
-          </div>
-        </div>
+            <h3 className="text-h3 mb-4 text-[#0A0A0A]">
+              {t.spotify.title}
+            </h3>
 
-        {/* Spotify Widget - Full Width Below */}
-        <div className="mt-8">
-          <div className="bg-green-50 dark:bg-green-900/20 border-4 border-black dark:border-white
-                         rounded-brutal shadow-[8px_8px_0px_#000000] dark:shadow-[8px_8px_0px_#FFFFFF] p-6 lg:p-8">
-            <div className="flex flex-col lg:flex-row lg:items-center gap-6">
-              {/* Header */}
-              <div className="flex-1">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="p-2 bg-green-500 border-3 border-black rounded-lg">
-                    <Music className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-heading font-black text-brutalist-text-light dark:text-brutalist-text-dark mb-1">
-                      {t.soundtrack.title}
-                    </h3>
-                    <p className="text-sm text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                      {t.soundtrack.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Spotify Widget */}
-              <div className="flex justify-center lg:justify-end">
-                <SpotifyWidget />
-              </div>
-            </div>
+            {/* Spotify Widget */}
+            <SpotifyWidget />
           </div>
         </div>
       </div>

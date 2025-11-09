@@ -101,7 +101,7 @@ export function Footer({ locale }: FooterProps) {
                     className={`w-10 h-10 md:w-12 md:h-12 bg-[#1A1A1A] border-3 ${social.borderColor} rounded-lg flex items-center justify-center ${social.hoverBg} hover:-translate-y-1 transition-all group`}
                     aria-label={social.name}
                   >
-                    <Icon className={`w-5 h-5 ${social.iconColor} group-hover:text-white ${social.hoverIconColor || ''} transition-colors`} />
+                    <Icon className={`w-5 h-5 ${social.iconColor} ${social.name === 'Email' ? 'group-hover:text-[#0A0A0A]' : 'group-hover:text-white'} transition-colors`} />
                   </a>
                 );
               })}

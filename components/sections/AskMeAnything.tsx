@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { MessageCircle, Mail } from 'lucide-react';
+import { MessageCircle, Mail, Send, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AnonymousQuestionForm } from '@/components/forms/AnonymousQuestionForm';
 import { useChatStore } from '@/lib/stores/chatStore';
-import { cn } from '@/lib/utils';
 
 interface AskMeAnythingProps {
   locale: string;
@@ -17,35 +16,33 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
 
   const translations = {
     it: {
-      subtitle: 'Ask Me Anything',
-      title: 'Hai una domanda?',
-      description: 'Scegli come preferisci interagire: chat in tempo reale o domanda anonima.',
+      badge: 'Ask me anything',
+      title: 'Hai domande? Chiedi pure',
+      description: 'Puoi chattare con il mio gemello digitale AI o lasciare una domanda anonima. ',
+      descriptionHighlight: 'Rispondo a tutte entro 48 ore.',
       chatMode: {
-        title: 'Chatta con me',
-        description: 'Conversazione in tempo reale con AI. Risposte immediate, interazione diretta.',
-        buttonText: 'Apri chat',
-        badge: 'In tempo reale',
+        title: 'Chatta con il mio gemello digitale',
+        description: 'Alimentato da Claude AI, conosce tutto il mio background e può rispondere alle tue domande su design, sviluppo, product management, o qualsiasi altra cosa.',
+        buttonText: 'Inizia chat',
       },
       formMode: {
-        title: 'Domanda anonima',
-        description: 'Troppo timido per chattare? Inviami una domanda e ti risponderò sul blog.',
-        badge: 'Completamente anonimo',
+        title: 'Chiedi in anonimo',
+        description: 'Preferisci scrivere? Lascia la tua domanda qui. Rispondo pubblicamente sul blog o privatamente via email se la fornisci.',
       },
     },
     en: {
-      subtitle: 'Ask Me Anything',
-      title: 'Have a question?',
-      description: 'Choose how you prefer to interact: real-time chat or anonymous question.',
+      badge: 'Ask me anything',
+      title: 'Have questions? Ask away',
+      description: 'You can chat with my AI digital twin or leave an anonymous question. ',
+      descriptionHighlight: 'I respond to all within 48 hours.',
       chatMode: {
-        title: 'Chat with me',
-        description: 'Real-time conversation with AI. Immediate responses, direct interaction.',
-        buttonText: 'Open chat',
-        badge: 'Real-time',
+        title: 'Chat with my digital twin',
+        description: 'Powered by Claude AI, knows all my background and can answer your questions about design, development, product management, or anything else.',
+        buttonText: 'Start chat',
       },
       formMode: {
-        title: 'Anonymous question',
-        description: 'Too shy to chat? Send me a question and I\'ll answer it on the blog.',
-        badge: 'Completely anonymous',
+        title: 'Ask anonymously',
+        description: 'Prefer to write? Leave your question here. I respond publicly on the blog or privately via email if you provide it.',
       },
     },
   };
@@ -57,143 +54,94 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
   };
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-purple-primary/5 via-primary/5 to-accent/5 dark:from-purple-primary/10 dark:via-primary/10 dark:to-accent/10">
-      <div className="brutal-container">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 dark:bg-accent/20
-                       border-4 border-accent rounded-brutal text-accent font-medium mb-4">
-            <MessageCircle className="w-4 h-4" />
-            <span className="text-sm">{t.subtitle}</span>
+    <section id="ask-me" className="bg-[#0A0A0A] py-16 md:py-24 relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-10 left-5 w-16 h-16 bg-[#0D7EFF] border-4 border-[#FFD60A] rounded-full opacity-30 animate-float" />
+      <div className="absolute bottom-20 right-10 w-20 h-20 bg-[#FF006E] border-4 border-[#FFD60A] rotate-45 opacity-30 animate-wiggle" />
+
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-[#FFD60A]" />
+            <span
+              className="inline-block px-4 py-2 bg-transparent border-3 border-[#FFD60A] text-[#FFD60A] rounded shadow-brutal-sm"
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontSize: '13px',
+                fontWeight: 700,
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+              }}
+            >
+              {t.badge}
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4 text-brutalist-text-light dark:text-brutalist-text-dark">
+          <h2 className="text-h1 text-white mb-4 md:mb-6">
             {t.title}
           </h2>
-          <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
+          <p className="text-body text-white/80 max-w-[600px] mx-auto">
             {t.description}
+            <strong className="text-[#FFD60A]">{t.descriptionHighlight}</strong>
           </p>
         </div>
 
-        {/* Mode Switcher */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-white dark:bg-brutalist-bg-dark border-4 border-black dark:border-white
-                         rounded-brutal shadow-[4px_4px_0px_#000000] dark:shadow-[4px_4px_0px_#FFFFFF] p-1">
-            <button
-              onClick={() => setActiveMode('chat')}
-              className={cn(
-                'px-6 py-3 rounded-lg font-bold transition-all',
-                'flex items-center gap-2',
-                activeMode === 'chat'
-                  ? 'bg-purple-primary text-white'
-                  : 'text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 hover:text-brutalist-text-light dark:hover:text-brutalist-text-dark'
-              )}
-            >
-              <MessageCircle className="w-5 h-5" />
-              Chat
-            </button>
-            <button
-              onClick={() => setActiveMode('form')}
-              className={cn(
-                'px-6 py-3 rounded-lg font-bold transition-all',
-                'flex items-center gap-2',
-                activeMode === 'form'
-                  ? 'bg-purple-primary text-white'
-                  : 'text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 hover:text-brutalist-text-light dark:hover:text-brutalist-text-dark'
-              )}
-            >
-              <Mail className="w-5 h-5" />
-              Form
-            </button>
+        {/* Two Column Layout - Mobile First: Stack */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          {/* AI Chatbot Card */}
+          <div className="bg-[#1A1A1A] border-4 border-[#0D7EFF] rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0D7EFF]/10 to-transparent pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#0D7EFF] rounded-lg flex items-center justify-center mb-5 border-3 border-[#000]">
+                <MessageCircle className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={2.5} />
+              </div>
+
+              <h3 className="text-h3 text-white mb-3">
+                {t.chatMode.title}
+              </h3>
+
+              <p className="text-body-small md:text-body text-white/90 mb-6">
+                {t.chatMode.description}
+              </p>
+
+              <button
+                onClick={handleChatClick}
+                className="w-full px-6 py-3 md:py-4 bg-[#0D7EFF] text-white border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
+                style={{
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                }}
+              >
+                {t.chatMode.buttonText}
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Content Area */}
-        <div className="max-w-3xl mx-auto">
-          {activeMode === 'chat' ? (
-            <motion.div
-              key="chat"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="bg-white dark:bg-brutalist-bg-dark border-4 border-black dark:border-white
-                           rounded-brutal shadow-[8px_8px_0px_#000000] dark:shadow-[8px_8px_0px_#FFFFFF] p-8 lg:p-12">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="p-3 bg-purple-primary border-3 border-black rounded-lg">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="inline-flex px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400
-                                  font-bold text-xs rounded-brutal border-2 border-green-500 mb-2">
-                      {t.chatMode.badge}
-                    </div>
-                    <h3 className="text-2xl font-heading font-black text-brutalist-text-light dark:text-brutalist-text-dark mb-2">
-                      {t.chatMode.title}
-                    </h3>
-                    <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                      {t.chatMode.description}
-                    </p>
-                  </div>
-                </div>
+          {/* Anonymous Form Card */}
+          <div className="bg-[#1A1A1A] border-4 border-[#FF006E] rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FF006E]/10 to-transparent pointer-events-none" />
 
-                <ul className="space-y-3 mb-8 text-brutalist-text-light/80 dark:text-brutalist-text-dark/80">
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-primary font-bold mt-1">✓</span>
-                    <span>Risposte immediate basate su AI</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-primary font-bold mt-1">✓</span>
-                    <span>Conversazione interattiva e contestuale</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-purple-primary font-bold mt-1">✓</span>
-                    <span>Accesso a informazioni su progetti, background e competenze</span>
-                  </li>
-                </ul>
-
-                <button
-                  onClick={handleChatClick}
-                  className={cn(
-                    'w-full px-6 py-4 rounded-lg',
-                    'bg-purple-primary text-white font-bold text-lg',
-                    'border-4 border-black dark:border-white',
-                    'shadow-[8px_8px_0px_#000000] dark:shadow-[8px_8px_0px_#FFFFFF]',
-                    'transition-all',
-                    'hover:shadow-[4px_4px_0px_#000000] dark:hover:shadow-[4px_4px_0px_#FFFFFF]',
-                    'hover:translate-x-[4px] hover:translate-y-[4px]',
-                    'flex items-center justify-center gap-2'
-                  )}
-                >
-                  <MessageCircle className="w-6 h-6" />
-                  {t.chatMode.buttonText}
-                </button>
+            <div className="relative z-10">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#FF006E] rounded-lg flex items-center justify-center mb-5 border-3 border-[#000]">
+                <Mail className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={2.5} />
               </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="form"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="mb-6">
-                <div className="inline-flex px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400
-                              font-bold text-xs rounded-brutal border-2 border-blue-500 mb-2">
-                  {t.formMode.badge}
-                </div>
-                <h3 className="text-2xl font-heading font-black text-brutalist-text-light dark:text-brutalist-text-dark mb-2">
-                  {t.formMode.title}
-                </h3>
-                <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                  {t.formMode.description}
-                </p>
-              </div>
+
+              <h3 className="text-h3 text-white mb-3">
+                {t.formMode.title}
+              </h3>
+
+              <p className="text-body-small md:text-body text-white/90 mb-6">
+                {t.formMode.description}
+              </p>
 
               <AnonymousQuestionForm locale={locale} />
-            </motion.div>
-          )}
+            </div>
+          </div>
         </div>
       </div>
     </section>
