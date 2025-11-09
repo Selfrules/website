@@ -1,10 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { X, Sparkles } from 'lucide-react';
-import ChatMessage from './ChatMessage';
-import ChatInput from './ChatInput';
-import TypingIndicator from './TypingIndicator';
+import { X, Sparkles, Send } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -23,17 +20,18 @@ interface ChatInterfaceProps {
 }
 
 /**
- * ChatInterface - Main chat UI
- *
- * Features:
- * - Neobrutalist card design
- * - Message history with auto-scroll
- * - Streaming responses
- * - Session persistence
+ * ChatInterface - Main chat UI matching Figma prototype exactly
  */
 export default function ChatInterface({ onClose }: ChatInterfaceProps) {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role: 'assistant',
+      content: "Ciao! 👋 Sono l'assistente virtuale di Mattia. Come posso aiutarti?",
+      timestamp: new Date(),
+    },
+  ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [inputValue, setInputValue] = useState('');
   const [sessionId, setSessionId] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +40,6 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
     const storedSessionId = sessionStorage.getItem('chatSessionId');
     if (storedSessionId) {
       setSessionId(storedSessionId);
-      // Load conversation history
       loadConversationHistory(storedSessionId);
     } else {
       const newSessionId = `session_${Date.now()}_${Math.random().toString(36).substring(7)}`;
@@ -78,16 +75,17 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
     }
   };
 
-  const handleSendMessage = async (content: string) => {
-    if (!content.trim() || !sessionId) return;
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || !sessionId) return;
 
     // Add user message
     const userMessage: Message = {
       role: 'user',
-      content: content.trim(),
+      content: inputValue.trim(),
       timestamp: new Date(),
     };
     setMessages((prev) => [...prev, userMessage]);
+    setInputValue('');
     setIsLoading(true);
 
     try {
@@ -97,7 +95,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           sessionId,
-          message: content.trim(),
+          message: userMessage.content,
         }),
       });
 
@@ -168,56 +166,99 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
   return (
-    <div className="flex h-[600px] w-[400px] flex-col rounded-brutal-lg border-4 border-black bg-white shadow-[12px_12px_0px_#000000]">
+    // {/* Chat Window */}
+    <div className="fixed bottom-24 right-4 md:right-8 w-[calc(100vw-2rem)] md:w-[400px] h-[500px] bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg z-50 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0D7EFF] to-[#7209B7] border-b-4 border-black p-4 rounded-t flex items-center justify-between">
+      <div className="bg-gradient-to-r from-[#0D7EFF] to-[#7209B7] border-b-4 border-[#000] p-4 rounded-t flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-[#FFD60A] border-3 border-black rounded-full flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-black" />
+          <div className="w-10 h-10 bg-[#FFD60A] border-3 border-[#000] rounded-full flex items-center justify-center">
+            <Sparkles className="w-5 h-5 text-[#0A0A0A]" />
           </div>
           <div>
-            <h3 className="text-white" style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: '16px' }}>
+            <h3
+              className="text-white"
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontWeight: 700,
+                fontSize: '16px',
+              }}
+            >
               Chat con Mattia
             </h3>
-            <p className="text-white/80 text-xs">Rispondo subito</p>
+            <p
+              className="text-white/80 text-xs"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              Rispondo subito
+            </p>
           </div>
         </div>
         <button
           onClick={onClose}
-          className="rounded-lg border-2 border-white/30 p-2 transition-all hover:bg-white/10 focus:outline-none"
-          aria-label="Close chat"
+          className="w-8 h-8 bg-white border-2 border-[#000] rounded flex items-center justify-center hover:bg-[#FF006E] hover:text-white transition-colors"
         >
-          <X className="h-5 w-5 text-white" />
+          <X className="w-4 h-4" strokeWidth={3} />
         </button>
       </div>
 
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages.length === 0 && (
-          <div className="flex h-full items-center justify-center text-center">
-            <div>
-              <p className="text-lg font-semibold text-black">Ciao! 👋</p>
-              <p className="mt-2 text-sm text-gray-600">
-                Sono il digital twin di Mattia.<br />
-                Chiedimi di design, prodotto o dev!
-              </p>
+      {/* Messages Area */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#FFFCF2]">
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <div
+              className={`max-w-[80%] p-3 border-3 border-[#000] rounded-lg shadow-brutal-sm ${
+                message.role === 'user'
+                  ? 'bg-[#0D7EFF] text-white'
+                  : 'bg-white text-[#0A0A0A]'
+              }`}
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                lineHeight: '1.5',
+              }}
+            >
+              {message.content}
             </div>
           </div>
-        )}
-
-        {messages.map((message, index) => (
-          <ChatMessage key={index} message={message} />
         ))}
-
-        {isLoading && <TypingIndicator />}
-
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Input */}
-      <div className="border-t-4 border-black p-4">
-        <ChatInput onSend={handleSendMessage} disabled={isLoading} />
+      {/* Input Area */}
+      <div className="border-t-4 border-[#000] p-3 bg-white rounded-b">
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Scrivi un messaggio..."
+            className="flex-1 px-3 py-2 border-3 border-[#000] rounded focus:outline-none focus:ring-2 focus:ring-[#0D7EFF]"
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '14px',
+            }}
+            disabled={isLoading}
+          />
+          <button
+            onClick={handleSendMessage}
+            disabled={isLoading || !inputValue.trim()}
+            className="w-10 h-10 bg-[#0D7EFF] border-3 border-[#000] rounded shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all flex items-center justify-center disabled:opacity-50"
+          >
+            <Send className="w-4 h-4 text-white" strokeWidth={2.5} />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -26,11 +26,18 @@ export function SpotifyWidget() {
 
 function SpotifySkeleton() {
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm animate-pulse">
-      <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0" />
-      <div className="flex-1 space-y-2">
-        <div className="h-4 bg-[#2D2D2D] rounded w-3/4" />
-        <div className="h-3 bg-[#2D2D2D] rounded w-1/2" />
+    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
+      {/* Album Art Placeholder */}
+      <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0 animate-pulse-spotify" />
+
+      {/* Track Info */}
+      <div className="flex-1 min-w-0">
+        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          Loading...
+        </p>
+        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+          Connecting to Spotify
+        </p>
       </div>
     </div>
   );
@@ -57,7 +64,7 @@ function SpotifyError() {
 function SpotifyOffline() {
   return (
     <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
-      {/* Placeholder Album Art */}
+      {/* Album Art Placeholder */}
       <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0 animate-pulse-spotify" />
 
       {/* Track Info */}
@@ -87,7 +94,7 @@ interface SpotifyNowPlayingProps {
 function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
   return (
     <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
-      {/* Album Art */}
+      {/* Album Art Placeholder */}
       <div className="w-16 h-16 rounded border-3 border-[#1DB954] flex-shrink-0 overflow-hidden">
         <Image
           src={track.albumArt}
