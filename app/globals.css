@@ -272,21 +272,28 @@
   box-shadow: 10px 10px 0 #000;
 }
 
+/* Colored brutal shadows */
 .shadow-brutal-blue {
-  box-shadow: 6px 6px 0 var(--electric-blue);
+  box-shadow: 6px 6px 0 #0D7EFF;
 }
 
 .shadow-brutal-pink {
-  box-shadow: 6px 6px 0 var(--neon-pink);
+  box-shadow: 6px 6px 0 #FF006E;
 }
 
 .shadow-brutal-yellow {
-  box-shadow: 6px 6px 0 var(--cyber-yellow);
+  box-shadow: 6px 6px 0 #FFD60A;
 }
 
 .shadow-brutal-purple {
-  box-shadow: 6px 6px 0 var(--deep-purple);
+  box-shadow: 6px 6px 0 #7209B7;
 }
+
+/* Border utilities */
+.border-3 {
+  border-width: 3px;
+}
+
 
 /* Animations */
 @keyframes pulse-spotify {
