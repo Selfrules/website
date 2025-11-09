@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/lib/i18n';
 import { Header } from '@/components/ui/Header';
+import { Footer } from '@/components/layout/Footer';
 import { AnalyticsProvider } from '@/components/providers/AnalyticsProvider';
 
 export function generateStaticParams() {
@@ -26,8 +27,13 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <AnalyticsProvider>
+        {/* Skip link for accessibility (WCAG 2.4.1) */}
+        <a href="#main-content" className="skip-to-main">
+          Skip to main content
+        </a>
         <Header locale={locale} />
-        {children}
+        <main id="main-content">{children}</main>
+        <Footer locale={locale} />
       </AnalyticsProvider>
     </NextIntlClientProvider>
   );

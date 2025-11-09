@@ -135,7 +135,7 @@ export function CalendarPicker() {
                 'hover:scale-105 active:scale-95',
                 isSelected &&
                   'bg-purple-primary text-white shadow-[4px_4px_0px_#000000]',
-                !isSelected && !isPast && !isWeekendDay && 'bg-white hover:bg-yellow-primary',
+                !isSelected && !isPast && !isWeekendDay && 'bg-white hover:bg-primary',
                 (isPast || isWeekendDay) &&
                   'bg-gray-100 text-black/30 cursor-not-allowed border-black/20'
               )}
@@ -156,7 +156,7 @@ export function CalendarPicker() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-4 p-4 rounded-lg border-3 border-black bg-yellow-primary"
+          className="mb-4 p-4 rounded-lg border-3 border-black bg-primary"
         >
           <p className="text-sm font-bold">Selected date:</p>
           <p className="text-lg">

@@ -22,7 +22,7 @@ export function CalendarWidget() {
     <div
       className={cn(
         'w-full max-w-2xl mx-auto',
-        'border-4 border-black rounded-xl',
+        'border-4 border-black rounded-brutal-lg',
         'bg-white shadow-brutal',
         'overflow-hidden'
       )}
@@ -45,7 +45,7 @@ function StepIndicator() {
   const currentStepNumber = STEPS.find((s) => s.key === currentStep)?.number || 1;
 
   return (
-    <div className="bg-yellow-primary border-b-4 border-black p-4">
+    <div className="bg-primary border-b-4 border-black p-4">
       <div className="flex items-center justify-between">
         {STEPS.map((step, index) => (
           <div key={step.key} className="flex items-center flex-1">
@@ -57,7 +57,7 @@ function StepIndicator() {
                   'flex items-center justify-center',
                   'font-bold text-sm transition-colors',
                   step.number <= currentStepNumber
-                    ? 'bg-purple-primary text-white'
+                    ? 'bg-secondary text-white'
                     : 'bg-white text-black/40'
                 )}
                 animate={{
@@ -73,7 +73,7 @@ function StepIndicator() {
             {index < STEPS.length - 1 && (
               <div className="flex-1 h-1 mx-2 bg-black/20 relative overflow-hidden">
                 <motion.div
-                  className="absolute inset-0 bg-purple-primary"
+                  className="absolute inset-0 bg-secondary"
                   initial={{ width: '0%' }}
                   animate={{
                     width: step.number < currentStepNumber ? '100%' : '0%',

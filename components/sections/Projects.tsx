@@ -2,9 +2,9 @@
 
 import { BentoGrid, BentoGridItem } from '@/components/ui/BentoGrid';
 import { Badge } from '@/components/ui/Badge';
-import { ScrollAnimation, ScrollStagger } from '@/components/animations/ScrollAnimations';
-import { TiltEffect, ShadowLift } from '@/components/animations/HoverEffects';
+import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import DotPattern from '@/components/patterns/DotPattern';
+import { motion } from 'framer-motion';
 import { Github, ExternalLink, TrendingUp, Users, Zap, Code2 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -127,7 +127,7 @@ export default function Projects() {
 
       <div className="brutal-container relative z-10">
         {/* Section Header */}
-        <ScrollAnimation animation="fadeInUp">
+        <ScrollReveal variant="fadeInUp">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10
                          border-2 border-accent rounded-brutal text-accent
@@ -145,7 +145,7 @@ export default function Projects() {
               Dal concept al lancio. Ogni progetto racconta una storia di problemi risolti e vite migliorate.
             </p>
           </div>
-        </ScrollAnimation>
+        </ScrollReveal>
 
         {/* Bento Grid */}
         <BentoGrid columns={3} gap="md" animated>
@@ -159,8 +159,11 @@ export default function Projects() {
               animated
               delay={index * 0.1}
             >
-              <TiltEffect maxTilt={10}>
-                <div className="h-full flex flex-col">
+              <motion.div
+                className="h-full flex flex-col"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                   {/* Category Badge */}
                   <div className="flex items-center justify-between mb-4">
                     <Badge
@@ -251,27 +254,29 @@ export default function Projects() {
                       )}
                     </div>
                   )}
-                </div>
-              </TiltEffect>
+              </motion.div>
             </BentoGridItem>
           ))}
         </BentoGrid>
 
         {/* View All Projects */}
-        <ScrollAnimation animation="fadeInUp" delay={0.5}>
+        <ScrollReveal variant="fadeInUp" delay={0.5}>
           <div className="mt-12 text-center">
-            <ShadowLift liftDistance={6}>
-              <button className="inline-flex items-center gap-2 px-8 py-4
+            <motion.button
+              className="inline-flex items-center gap-2 px-8 py-4
                                bg-white dark:bg-brutalist-surface-dark
                                text-brutalist-text-light dark:text-brutalist-text-dark
                                font-bold border-brutal border-black rounded-brutal shadow-brutal
-                               hover:bg-secondary hover:text-white transition-colors">
-                <span>Vedi tutti i progetti</span>
-                <ExternalLink className="w-5 h-5" />
-              </button>
-            </ShadowLift>
+                               hover:bg-secondary hover:text-white transition-colors"
+              whileHover={{ x: -4, y: -4 }}
+              whileTap={{ x: 0, y: 0 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              <span>Vedi tutti i progetti</span>
+              <ExternalLink className="w-5 h-5" />
+            </motion.button>
           </div>
-        </ScrollAnimation>
+        </ScrollReveal>
       </div>
     </section>
   );

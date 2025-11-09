@@ -25,6 +25,18 @@ import { getFirebaseDb } from './config';
 import { getAdminDb } from './admin';
 import { FirestoreDocument, CreateDocument, UpdateDocument } from './collections';
 
+// Type-safe filter values for Firestore queries
+export type FirestoreFilterValue =
+  | string
+  | number
+  | boolean
+  | Timestamp
+  | FirebaseFirestore.Timestamp // Admin SDK Timestamp
+  | null
+  | string[]
+  | number[]
+  | boolean[];
+
 /**
  * Generic function to create a document
  */
@@ -179,7 +191,7 @@ export async function deleteDocumentAdmin(
  */
 export async function queryDocuments<T extends FirestoreDocument>(
   collectionName: string,
-  filters: Array<{ field: string; operator: WhereFilterOp; value: any }> = [],
+  filters: Array<{ field: string; operator: WhereFilterOp; value: FirestoreFilterValue }> = [],
   orderByField?: string,
   orderDirection: 'asc' | 'desc' = 'desc',
   limitCount?: number
@@ -218,7 +230,7 @@ export async function queryDocuments<T extends FirestoreDocument>(
  */
 export async function queryDocumentsAdmin<T extends FirestoreDocument>(
   collectionName: string,
-  filters: Array<{ field: string; operator: FirebaseFirestore.WhereFilterOp; value: any }> = [],
+  filters: Array<{ field: string; operator: FirebaseFirestore.WhereFilterOp; value: FirestoreFilterValue }> = [],
   orderByField?: string,
   orderDirection: 'asc' | 'desc' = 'desc',
   limitCount?: number
@@ -286,7 +298,7 @@ export async function getAllDocumentsAdmin<T extends FirestoreDocument>(
  */
 export async function countDocuments(
   collectionName: string,
-  filters: Array<{ field: string; operator: WhereFilterOp; value: any }> = []
+  filters: Array<{ field: string; operator: WhereFilterOp; value: FirestoreFilterValue }> = []
 ): Promise<number> {
   const docs = await queryDocuments(collectionName, filters);
   return docs.length;

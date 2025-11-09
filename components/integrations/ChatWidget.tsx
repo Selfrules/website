@@ -30,7 +30,7 @@ function ChatButton({ onClick, isOpen }: ChatButtonProps) {
       className={cn(
         'fixed bottom-6 right-6 z-50',
         'w-16 h-16 rounded-full',
-        'bg-yellow-primary border-4 border-black',
+        'bg-primary border-4 border-black',
         'shadow-brutal',
         'flex items-center justify-center',
         'transition-transform',
@@ -81,7 +81,7 @@ function ChatPanel({ onClose }: ChatPanelProps) {
       className={cn(
         'fixed bottom-28 right-6 z-40',
         'w-[400px] h-[600px] max-w-[calc(100vw-3rem)] max-h-[calc(100vh-8rem)]',
-        'bg-white border-4 border-black rounded-xl',
+        'bg-white border-4 border-black rounded-brutal-lg',
         'shadow-brutal',
         'flex flex-col overflow-hidden'
       )}
@@ -107,7 +107,7 @@ function ChatHeader({ onClose }: ChatHeaderProps) {
   };
 
   return (
-    <div className="flex items-center justify-between p-4 border-b-4 border-black bg-yellow-primary">
+    <div className="flex items-center justify-between p-4 border-b-4 border-black bg-primary">
       <div>
         <h3 className="font-bold text-lg">Chat with Mattia</h3>
         <p className="text-xs text-black/70">AI-powered assistant</p>
@@ -191,7 +191,7 @@ function MessageBubble({ message }: MessageBubbleProps) {
         className={cn(
           'max-w-[80%] rounded-lg border-3 border-black p-3',
           isUser
-            ? 'bg-purple-primary text-white'
+            ? 'bg-secondary text-white'
             : 'bg-gray-100 text-black'
         )}
       >
@@ -287,7 +287,7 @@ function ChatInput() {
             'flex-1 px-3 py-2 rounded-lg',
             'border-3 border-black',
             'resize-none overflow-hidden',
-            'focus:outline-none focus:ring-2 focus:ring-purple-primary',
+            'focus:outline-none focus:ring-2 focus:ring-secondary',
             'disabled:opacity-50 disabled:cursor-not-allowed'
           )}
           disabled={isPending}
@@ -299,7 +299,7 @@ function ChatInput() {
           disabled={!input.trim() || isPending}
           className={cn(
             'px-4 py-2 rounded-lg',
-            'bg-purple-primary text-white',
+            'bg-secondary text-white',
             'border-3 border-black',
             'shadow-[4px_4px_0px_#000000]',
             'transition-all',

@@ -65,7 +65,7 @@ export function BookingConfirmation() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="mb-6 p-6 rounded-lg border-4 border-black bg-yellow-primary text-left"
+        className="mb-6 p-6 rounded-lg border-4 border-black bg-primary text-left"
       >
         <div className="flex items-center gap-2 mb-4">
           <Calendar className="w-5 h-5" />

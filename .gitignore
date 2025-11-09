@@ -9,6 +9,12 @@ node_modules/
 
 # Testing
 /coverage
+coverage/
+.playwright-mcp/
+test-results/
+*.webm
+debug-*.png
+test-*.js
 *.log
 
 # Next.js

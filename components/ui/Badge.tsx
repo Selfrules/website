@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'primary' | 'secondary' | 'accent' | 'outline';
+  variant?: 'default' | 'primary' | 'secondary' | 'accent' | 'outline' | 'design' | 'dev' | 'pm' | 'tool';
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -29,6 +29,11 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
         'text-brutalist-text-light dark:text-brutalist-text-dark',
         'shadow-brutal-sm'
       ),
+      // Semantic variants (color-coded by project type)
+      design: cn('badge-design'), // Electric Blue - Design/UX projects
+      dev: cn('badge-dev'),       // Slate Blue - Development projects
+      pm: cn('badge-pm'),         // Deep Navy - PM/Strategy projects
+      tool: cn('badge-tool'),     // Teal - Tools/Analytics
     };
 
     const sizeStyles = {

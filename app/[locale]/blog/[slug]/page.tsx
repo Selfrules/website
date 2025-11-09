@@ -45,7 +45,7 @@ export async function generateMetadata({
   const canonicalUrl = `https://mattiacintura.com/${params.locale}/blog/${params.slug}`;
 
   return {
-    title: `${post.title} - Mattia Cintura`,
+    title: `${post.title} - Mattia Filippo De Luca`,
     description: post.excerpt,
     authors: [{ name: post.author }],
     openGraph: {

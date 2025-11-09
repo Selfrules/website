@@ -5,9 +5,9 @@ import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
 
-// TEMPORARY: Hardcoded hash for development (password: admin123)
-// TODO: Move to proper secret management for production
-const ADMIN_PASSWORD_HASH = '$2b$12$Rp2qNdqtPeHN2jWgBHlyTu1tBkrNAQ3fwghUfRncond2TDwLsbiVi';
+// Read admin password hash from environment variable
+// Default hash for development (password: admin123)
+const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '$2b$12$gXGBdEVavYq.l300lJ8Cl.oTezR0NTKDJ6aVujfUoqNTQbRA0HGxS';
 
 export const authOptions: NextAuthOptions = {
   providers: [

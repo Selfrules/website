@@ -75,7 +75,7 @@ export default function DecorativeAccents({
   const items = accents || (preset === 'random' ? generateRandomAccents() : defaultPresets[preset]);
 
   return (
-    <div className={cn('absolute inset-0 overflow-hidden pointer-events-none', className)}>
+    <div className={cn('absolute inset-0 overflow-hidden pointer-events-none -z-10 opacity-50', className)}>
       {items.map((accent, index) => {
         const shouldAnimate = animated && (accent.animated !== false);
         const animationVariant = index % 3;

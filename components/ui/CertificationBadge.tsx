@@ -36,76 +36,38 @@ export default function CertificationBadge({
   const badgeContent = (
     <button
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'group relative w-full p-6 bg-white dark:bg-brutalist-surface-dark',
-        'border-4 border-black rounded-brutal shadow-brutal',
+        'group relative w-full h-48 p-4 bg-white dark:bg-brutalist-surface-dark',
+        'border-4 border-black rounded-lg shadow-brutal',
         'hover:shadow-brutal-hover hover:-translate-y-1',
         'transition-all duration-300 cursor-pointer',
-        'text-left',
+        'text-left flex flex-col',
         className
       )}
     >
-      {/* Badge icon */}
-      <div className="flex items-start justify-between mb-4">
-        <div className="p-3 bg-primary/20 border-4 border-primary rounded-brutal">
-          {certification.icon || <Award className="w-6 h-6 text-primary" />}
+      {/* Compact header with icon and title - Electric Blue accent */}
+      <div className="flex items-start gap-3 mb-3">
+        <div className="p-2 bg-primary text-white border-2 border-black rounded-md flex-shrink-0">
+          {certification.icon || <Award className="w-4 h-4 text-white" />}
         </div>
 
-        {/* Verification indicator */}
-        {certification.verificationUrl && (
-          <div
-            className={cn(
-              'flex items-center gap-1 px-2 py-1 rounded-brutal text-xs font-bold transition-all',
-              isHovered
-                ? 'bg-green-500 text-white border-2 border-black'
-                : 'bg-green-100 text-green-700 border-2 border-green-500'
-            )}
-          >
-            <Shield className="w-3 h-3" />
-            <span>Verified</span>
-          </div>
-        )}
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base font-bold mb-1 line-clamp-2">
+            {certification.title}
+          </h3>
+        </div>
       </div>
 
-      {/* Title */}
-      <h3 className="text-lg font-bold mb-2 text-sentence-case">
-        {certification.title}
-      </h3>
-
-      {/* Tagline */}
-      <p className="text-sm text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-3 line-clamp-2">
+      {/* Tagline - compact */}
+      <p className="text-xs text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-auto line-clamp-2">
         {certification.tagline}
       </p>
 
-      {/* Issuer and date */}
-      <div className="flex items-center justify-between text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-        <span className="font-bold">{certification.issuer}</span>
-        <span>{certification.date}</span>
+      {/* Issuer and date - bottom aligned */}
+      <div className="flex items-center justify-between text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 pt-2 border-t-2 border-brutalist-border mt-auto">
+        <span className="font-bold truncate">{certification.issuer}</span>
+        <span className="flex-shrink-0 ml-2">{certification.date}</span>
       </div>
-
-      {/* Verification link (shown on hover) */}
-      {certification.verificationUrl && isHovered && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          className="mt-3 pt-3 border-t-2 border-brutalist-border"
-        >
-          <div className="flex items-center gap-2 text-xs font-bold text-primary">
-            <ExternalLink className="w-3 h-3" />
-            <span>Verify on blockchain →</span>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Hover effect overlay */}
-      <div
-        className={cn(
-          'absolute inset-0 bg-primary/5 rounded-brutal pointer-events-none transition-opacity',
-          isHovered ? 'opacity-100' : 'opacity-0'
-        )}
-      />
     </button>
   );
 

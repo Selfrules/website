@@ -1,21 +1,22 @@
 {
   "nav": {
     "home": "home",
-    "blog": "blog",
+    "blog": "thoughts",
     "work": "work together",
     "about": "about"
   },
   "hero": {
-    "badge": "Product Manager & Developer",
-    "headline1": "I failed as a designer.",
-    "headline2": "Then as a developer.",
-    "headline3": "Now I'm a Product Manager",
-    "headline4": "who actually knows",
-    "headline5": "what to build.",
-    "subtitle": "Why does this matter? Because I learned that the perfect product doesn't exist. Only the one that solves real problems, built by someone who understands design, tech, and business.",
-    "supportText": "Got an idea you want to turn into a product? A product nobody uses? A team that doesn't get each other? I've been on all three sides of the table. Let's talk.",
-    "cta": "Let's talk →",
-    "explore": "Explore portfolio",
+    "badge": "PM • DESIGNER • DEV",
+    "headline1": "I failed",
+    "headline2": "as a designer.",
+    "headline3": "Then as a developer.",
+    "headline4": "Now I'm a PM",
+    "headline5": "who actually knows what to build.",
+    "subtitle": "Why? Because I learned that",
+    "subtitleHighlight": "the perfect product doesn't exist",
+    "subtitleEnd": ". Only the one that solves real problems for real people.",
+    "cta": "Let's talk",
+    "explore": "Read the story",
     "stats": {
       "loadTimes": "Faster load times",
       "usersImpacted": "Users impacted",
@@ -28,9 +29,13 @@
   },
   "journey": {
     "badge": "My Journey",
-    "title": "The backwards",
-    "titleHighlight": "path",
-    "subtitle": "Most PMs study product management. I took the long route: design, code, and only then product. It was uncomfortable, exhausting, full of mistakes. And that's exactly why I actually know what I'm doing today.",
+    "title": "From zero to",
+    "titleHighlight": "Product Manager",
+    "subtitle": "Most PMs come from consulting. I did design, development, entrepreneurship. This is my superpower.",
+    "current": "Today",
+    "skills": "SKILLS",
+    "certifications": "CERTIFICATIONS",
+    "endMessage": "12 years of failures transformed into experience",
     "experiences": {
       "pm": {
         "date": "2023-present",
@@ -231,5 +236,17 @@
     "bookCall": "book a call",
     "loading": "loading...",
     "error": "something went wrong"
+  },
+  "footer": {
+    "tagline": "Product Manager who speaks design, code, and business. Building products that actually solve problems.",
+    "badge": "Available for consulting",
+    "navigation": "Quick links",
+    "connect": "Connect",
+    "getInTouch": "Get in touch",
+    "ctaText": "Have a project in mind? Let's talk about how we can work together.",
+    "ctaButton": "Let's talk",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
   }
 }
