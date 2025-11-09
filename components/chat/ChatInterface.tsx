@@ -205,7 +205,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
           onClick={onClose}
           className="w-8 h-8 bg-white border-2 border-[#000] rounded flex items-center justify-center hover:bg-[#FF006E] hover:text-white transition-colors"
         >
-          <X className="w-4 h-4" strokeWidth={3} />
+          <X className="w-4 h-4 text-[#0A0A0A]" strokeWidth={3} />
         </button>
       </div>
 
@@ -244,7 +244,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Scrivi un messaggio..."
-            className="flex-1 px-3 py-2 border-3 border-[#000] rounded focus:outline-none focus:ring-2 focus:ring-[#0D7EFF]"
+            className="flex-1 px-3 py-2 border-3 border-[#000] rounded focus:outline-none focus:ring-2 focus:ring-[#0D7EFF] text-[#0A0A0A]"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '14px',
