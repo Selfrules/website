@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
-import { ChatWidget } from '@/components/integrations/ChatWidget';
+import ChatTrigger from '@/components/chat/ChatTrigger';
 import { ReactQueryProvider } from '@/components/providers/ReactQueryProvider';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import '@/app/globals.css';
@@ -25,20 +25,20 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Mattia Cintura - Product Manager & Developer',
-    template: '%s | Mattia Cintura',
+    default: 'Mattia Filippo De Luca - Product Manager & Developer',
+    template: '%s | Mattia Filippo De Luca',
   },
   description: 'Product Manager che ha fallito come designer e developer, ora costruisce prodotti che risolvono problemi reali.',
   keywords: ['Product Manager', 'Product Design', 'Full-stack Developer', 'UX Design', 'Product Strategy'],
-  authors: [{ name: 'Mattia Cintura' }],
-  creator: 'Mattia Cintura',
+  authors: [{ name: 'Mattia Filippo De Luca' }],
+  creator: 'Mattia Filippo De Luca',
   openGraph: {
     type: 'website',
     locale: 'it_IT',
     alternateLocale: 'en_US',
     url: 'https://mattiacintura.com',
-    siteName: 'Mattia Cintura Portfolio',
-    title: 'Mattia Cintura - Product Manager & Developer',
+    siteName: 'Mattia Filippo De Luca Portfolio',
+    title: 'Mattia Filippo De Luca - Product Manager & Developer',
     description: 'Dal fallimento al successo: la storia di un PM che sa davvero cosa costruire',
   },
   robots: {
@@ -63,7 +63,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           <ThemeProvider>
             {children}
-            <ChatWidget />
+            <ChatTrigger />
           </ThemeProvider>
         </ReactQueryProvider>
       </body>

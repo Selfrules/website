@@ -1,130 +1,145 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { ScrollAnimation } from '@/components/animations/ScrollAnimations';
-import Testimonial, { TestimonialData } from '@/components/ui/Testimonial';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { useAnalytics } from '@/lib/hooks/useAnalytics';
+import { Check, Lightbulb, Users, GraduationCap } from 'lucide-react';
+
+interface CollaborationCard {
+  id: number;
+  number: string;
+  titleKey: string;
+  descriptionKey: string;
+  featuresKeys: string[];
+  color: string;
+  icon: any;
+}
 
 export default function WorkTogether() {
   const t = useTranslations('workTogether');
   const analytics = useAnalytics();
 
+  const collaborations: CollaborationCard[] = [
+    {
+      id: 1,
+      number: '01',
+      titleKey: 'modes.consulting.title',
+      descriptionKey: 'modes.consulting.description',
+      featuresKeys: ['modes.consulting.features.1', 'modes.consulting.features.2', 'modes.consulting.features.3'],
+      color: '#0D7EFF',
+      icon: Lightbulb,
+    },
+    {
+      id: 2,
+      number: '02',
+      titleKey: 'modes.brainstorming.title',
+      descriptionKey: 'modes.brainstorming.description',
+      featuresKeys: ['modes.brainstorming.features.1', 'modes.brainstorming.features.2', 'modes.brainstorming.features.3'],
+      color: '#FF006E',
+      icon: Users,
+    },
+    {
+      id: 3,
+      number: '03',
+      titleKey: 'modes.mentorship.title',
+      descriptionKey: 'modes.mentorship.description',
+      featuresKeys: ['modes.mentorship.features.1', 'modes.mentorship.features.2', 'modes.mentorship.features.3'],
+      color: '#7209B7',
+      icon: GraduationCap,
+    },
+  ];
+
   return (
-    <section id="contact" className="brutal-section bg-gradient-to-b from-accent/5 to-primary/5 dark:from-accent/10 dark:to-primary/10">
-      <div className="brutal-container">
+    <section id="work" className="bg-[#FFFCF2] py-16 md:py-24 border-b-4 border-[#000] relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
+        backgroundSize: '30px 30px'
+      }} />
+
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4">
-            {t('title')}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary ml-3">
-              {t('titleHighlight')}
-            </span>
-          </h2>
-          <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
-            {t('subtitle')}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="flex justify-center mb-4">
+            <NeoBadge color="yellow">{t('badge')}</NeoBadge>
+          </div>
+          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">{t('title')}</h2>
+          <p className="text-body text-[#2D2D2D] max-w-[600px] mx-auto">
+            {t('subtitle.part1')} <strong className="text-[#FF006E]">{t('subtitle.part2')}</strong>
           </p>
         </div>
 
-        {/* Work Modes Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Modalità 1: Consulenze */}
-          <div className="brutal-card p-6 hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1 transition-all">
-            <div className="inline-flex px-3 py-1 bg-accent/20 text-accent font-bold text-sm rounded-brutal border-2 border-accent mb-4">
-              {t('modes.consulting.badge')}
-            </div>
-            <h3 className="text-2xl font-bold mb-3">{t('modes.consulting.title')}</h3>
-            <p className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 mb-4">
-              {t('modes.consulting.description')}
-            </p>
-            <div className="space-y-2 mb-4">
-              <p className="text-sm">{t('modes.consulting.expectations.dont')}</p>
-              <p className="text-sm">{t('modes.consulting.expectations.do')}</p>
-            </div>
-            <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-              {t('modes.consulting.idealFor')}
-            </p>
-          </div>
+        {/* Grid - Mobile First: Stack, Desktop: 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+          {collaborations.map((collab) => {
+            const Icon = collab.icon;
+            return (
+              <article
+                key={collab.id}
+                className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg"
+              >
+                {/* Icon & Number */}
+                <div className="flex items-center justify-between mb-5">
+                  <div
+                    className="w-14 h-14 rounded-lg border-4 border-[#000] flex items-center justify-center"
+                    style={{ backgroundColor: collab.color }}
+                  >
+                    <Icon className="w-7 h-7 text-white" strokeWidth={2.5} />
+                  </div>
+                  <span
+                    className="text-6xl opacity-10"
+                    style={{
+                      fontFamily: 'Space Grotesk, sans-serif',
+                      fontWeight: 900,
+                      color: collab.color,
+                    }}
+                  >
+                    {collab.number}
+                  </span>
+                </div>
 
-          {/* Modalità 2: Brainstorming */}
-          <div className="brutal-card p-6 hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1 transition-all">
-            <div className="inline-flex px-3 py-1 bg-secondary/20 text-secondary font-bold text-sm rounded-brutal border-2 border-secondary mb-4">
-              {t('modes.brainstorming.badge')}
-            </div>
-            <h3 className="text-2xl font-bold mb-3">{t('modes.brainstorming.title')}</h3>
-            <p className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 mb-4">
-              {t('modes.brainstorming.description')}
-            </p>
-            <p className="text-sm mb-4">
-              {t('modes.brainstorming.whatWeDo')}
-            </p>
-            <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-              {t('modes.brainstorming.idealFor')}
-            </p>
-          </div>
+                {/* Title */}
+                <h3 className="text-h3 mb-3 text-[#0A0A0A]">
+                  {t(collab.titleKey)}
+                </h3>
 
-          {/* Modalità 3: Mentorship */}
-          <div className="brutal-card p-6 hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1 transition-all">
-            <div className="inline-flex px-3 py-1 bg-primary/20 text-primary font-bold text-sm rounded-brutal border-2 border-primary mb-4">
-              {t('modes.mentorship.badge')}
-            </div>
-            <h3 className="text-2xl font-bold mb-3">{t('modes.mentorship.title')}</h3>
-            <p className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 mb-4">
-              {t('modes.mentorship.description')}
+                {/* Description */}
+                <p className="text-body-small text-[#2D2D2D] mb-5">
+                  {t(collab.descriptionKey)}
+                </p>
+
+                {/* Features List */}
+                <ul className="space-y-2.5">
+                  {collab.featuresKeys.map((featureKey, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: collab.color }} strokeWidth={3} />
+                      <span className="text-body-small text-[#2D2D2D] leading-snug">
+                        {t(featureKey)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Call to Action Banner */}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block bg-gradient-to-r from-[#0D7EFF] via-[#FF006E] to-[#7209B7] border-4 border-[#000] rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
+            <p className="text-body md:text-body-large text-white mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+              {t('cta.title')}
             </p>
-            <p className="text-sm mb-4">
-              {t('modes.mentorship.format')}
-            </p>
-            <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
-              {t('modes.mentorship.notForYou')}
-            </p>
+            <a
+              href="#ask-me"
+              className="inline-block px-6 md:px-8 py-3 md:py-4 bg-[#FFD60A] text-[#0A0A0A] border-4 border-[#000] rounded shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all"
+              style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px', textTransform: 'uppercase' }}
+            >
+              {t('cta.button')}
+            </a>
           </div>
         </div>
 
-        {/* Testimonials Section */}
-        <div className="mt-20">
-          <ScrollAnimation animation="fadeInUp" delay={0.2}>
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-heading font-black mb-2">
-                {t('testimonials.title')}
-              </h3>
-              <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
-                {t('testimonials.subtitle')}
-              </p>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {[1, 2, 3, 4].map((num, index) => {
-              const testimonialData: TestimonialData = {
-                id: num.toString(),
-                quote: t(`testimonials.${num}.quote`),
-                author: t(`testimonials.${num}.author`),
-                role: t(`testimonials.${num}.role`),
-                company: t(`testimonials.${num}.company`),
-                verified: true,
-              };
-
-              return (
-                <Testimonial
-                  key={num}
-                  testimonial={testimonialData}
-                  animated
-                  delay={0.3 + index * 0.1}
-                />
-              );
-            })}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <button
-            onClick={() => analytics.trackCTAClick('talk_about_project', 'work_together_section')}
-            className="px-8 py-4 bg-accent text-white font-bold border-brutal border-black rounded-brutal shadow-brutal hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1 transition-all"
-          >
-            {t('cta')}
-          </button>
-        </div>
       </div>
     </section>
   );
