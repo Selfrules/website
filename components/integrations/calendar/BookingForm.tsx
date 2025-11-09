@@ -70,7 +70,7 @@ export function BookingForm() {
       transition={{ duration: 0.3 }}
     >
       {/* Booking Summary */}
-      <div className="mb-6 p-4 rounded-lg border-3 border-black bg-yellow-primary">
+      <div className="mb-6 p-4 rounded-lg border-3 border-black bg-primary">
         <h3 className="font-bold text-lg mb-2">Your booking</h3>
         <div className="space-y-1 text-sm">
           <p>
@@ -115,6 +115,7 @@ export function BookingForm() {
             className={cn(
               'w-full px-4 py-3 rounded-lg',
               'border-3 border-black',
+              'text-[#0A0A0A]',
               'focus:outline-none focus:ring-2 focus:ring-purple-primary',
               errors.name && 'border-red-500'
             )}
@@ -138,6 +139,7 @@ export function BookingForm() {
             className={cn(
               'w-full px-4 py-3 rounded-lg',
               'border-3 border-black',
+              'text-[#0A0A0A]',
               'focus:outline-none focus:ring-2 focus:ring-purple-primary',
               errors.email && 'border-red-500'
             )}
@@ -161,6 +163,7 @@ export function BookingForm() {
             className={cn(
               'w-full px-4 py-3 rounded-lg',
               'border-3 border-black',
+              'text-[#0A0A0A]',
               'focus:outline-none focus:ring-2 focus:ring-purple-primary',
               'resize-none',
               errors.reason && 'border-red-500'
