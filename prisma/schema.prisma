@@ -1,13 +1,14 @@
 // Prisma schema for Mattia Portfolio Backend
-// Database: SQLite (temporary for Phase 1 - will migrate to PostgreSQL)
+// Database: PostgreSQL (production-ready)
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // User model for authentication and preferences
@@ -134,8 +135,83 @@ model NewsletterSubscription {
   preferences String?  // JSON string: Email preferences
   subscribedAt DateTime @default(now())
   unsubscribedAt DateTime?
-  
+
   @@index([email])
   @@index([status])
   @@map("newsletter_subscriptions")
+}
+
+// Anonymous questions for "Ask Me Anything"
+model Question {
+  id          String   @id @default(cuid())
+  name        String?  // Optional name (can be anonymous)
+  email       String?  // Optional email for notification
+  question    String   // The actual question
+  category    String?  // Auto-categorized: Design, Dev, Product, Career, etc.
+  status      String   @default("pending") // pending, answered, archived
+  answeredAt  DateTime?
+  blogPostId  String?  // Link to blog post if answered publicly
+  sessionId   String?  // Browser session for analytics
+  metadata    String?  // JSON string: Additional context
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([category])
+  @@map("questions")
+}
+
+// Certifications and credentials
+model Certification {
+  id              String   @id @default(cuid())
+  title           String   // e.g., "Certified Scrum Product Owner"
+  issuer          String   // e.g., "Scrum Alliance"
+  issueDate       DateTime
+  expiryDate      DateTime?
+  credentialId    String?  // Verification ID
+  credentialUrl   String?  // Verification link
+  description     String?  // Description or achievements
+  skills          String?  // JSON string: Array of related skills
+  logo            String?  // URL to issuer logo
+  displayOrder    Int      @default(0) // Order to display on site
+  visible         Boolean  @default(true)
+  blockchain      String?  // Blockchain verification data
+  metadata        String?  // JSON string: Additional data
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([displayOrder])
+  @@index([visible])
+  @@index([issueDate])
+  @@map("certifications")
+}
+
+// Testimonials and recommendations
+model Testimonial {
+  id              String   @id @default(cuid())
+  name            String   // Person's name
+  role            String   // e.g., "CEO at Company"
+  company         String?
+  avatar          String?  // URL to avatar image
+  content         String   // Testimonial text
+  rating          Int?     // Optional 1-5 rating
+  relationship    String?  // e.g., "worked together", "client", "mentor"
+  projectContext  String?  // What project/context this relates to
+  verified        Boolean  @default(false) // Verification status
+  linkedinUrl     String?  // LinkedIn profile for verification
+  displayOrder    Int      @default(0)
+  visible         Boolean  @default(true)
+  featured        Boolean  @default(false) // Show on homepage
+  locale          String   @default("en") // Language: 'en' or 'it'
+  givenAt         DateTime? // When the testimonial was given
+  metadata        String?  // JSON string: Additional data
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([displayOrder])
+  @@index([visible])
+  @@index([featured])
+  @@index([verified])
+  @@map("testimonials")
 }

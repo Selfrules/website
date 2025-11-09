@@ -29,7 +29,7 @@ export class TokenEncryption {
     let encrypted = cipher.update(data, 'utf8', 'hex');
     encrypted += cipher.final('hex');
 
-    const authTag = cipher.getAuthTag();
+    const authTag = (cipher as any).getAuthTag();
 
     // Return: iv:authTag:encrypted
     return `${iv.toString('hex')}:${authTag.toString('hex')}:${encrypted}`;
@@ -50,7 +50,7 @@ export class TokenEncryption {
     const authTag = Buffer.from(authTagHex, 'hex');
 
     const decipher = crypto.createDecipheriv(this.algorithm, this.key, iv);
-    decipher.setAuthTag(authTag);
+    (decipher as any).setAuthTag(authTag);
 
     let decrypted = decipher.update(encrypted, 'hex', 'utf8');
     decrypted += decipher.final('utf8');

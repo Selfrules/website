@@ -1,14 +1,45 @@
 import createNextIntlPlugin from 'next-intl/plugin';
+import createMDX from '@next/mdx';
+import rehypePrettyCode from 'rehype-pretty-code';
+import remarkGfm from 'remark-gfm';
 
 const withNextIntl = createNextIntlPlugin();
 
+/** @type {import('rehype-pretty-code').Options} */
+const rehypeOptions = {
+  theme: {
+    dark: 'github-dark',
+    light: 'github-light',
+  },
+  keepBackground: false,
+};
+
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
+  },
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
+
 
   // Image optimization
   images: {
-    domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co', // Spotify album art
+      },
+    ],
     formats: ['image/webp'],
   },
 
@@ -51,4 +82,4 @@ const nextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+export default withNextIntl(withMDX(nextConfig));

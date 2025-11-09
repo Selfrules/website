@@ -1,142 +1,179 @@
 /**
- * Rate limiting middleware using sliding window algorithm
- * Stores request counts in Redis for distributed rate limiting
+ * Rate limiting middleware using Upstash Redis REST API
+ * Optimized for serverless deployment (Vercel, etc.)
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import Redis from 'ioredis';
-import { RateLimitError } from '../utils/errors';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
 
-const redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379', {
-  maxRetriesPerRequest: 3,
-  retryStrategy: (times) => {
-    if (times > 3) return null;
-    return Math.min(times * 200, 1000);
-  },
+// Initialize Upstash Redis client with REST API
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL || '',
+  token: process.env.UPSTASH_REDIS_REST_TOKEN || '',
 });
 
-redis.on('error', (err) => {
-  console.error('Redis connection error:', err);
-});
-
-export interface RateLimitConfig {
-  windowMs: number;
-  maxRequests: number;
-  keyPrefix?: string;
-  skipSuccessfulRequests?: boolean;
-  skipFailedRequests?: boolean;
-}
-
-const defaultConfig: RateLimitConfig = {
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000'),
-  maxRequests: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100'),
-  keyPrefix: 'rl:',
+// Rate limit configurations using Upstash Ratelimit
+export const rateLimiters = {
+  chat: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(10, '1 m'), // 10 requests per minute
+    analytics: true,
+    prefix: '@upstash/ratelimit:chat',
+  }),
+  analytics: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(100, '1 m'), // 100 requests per minute
+    analytics: true,
+    prefix: '@upstash/ratelimit:analytics',
+  }),
+  calendar: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(3, '1 m'), // 3 requests per minute
+    analytics: true,
+    prefix: '@upstash/ratelimit:calendar',
+  }),
+  booking: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(5, '5 m'), // 5 requests per 5 minutes
+    analytics: true,
+    prefix: '@upstash/ratelimit:booking',
+  }),
+  api: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(50, '1 m'), // 50 requests per minute
+    analytics: true,
+    prefix: '@upstash/ratelimit:api',
+  }),
 };
 
-export class SlidingWindowRateLimiter {
-  private config: Required<RateLimitConfig>;
+// Helper to get client identifier (IP or fallback)
+function getClientIdentifier(req: NextRequest): string {
+  const forwarded = req.headers.get('x-forwarded-for');
+  const realIp = req.headers.get('x-real-ip');
+  const cfConnectingIp = req.headers.get('cf-connecting-ip');
+  const customId = req.headers.get('x-client-id');
 
-  constructor(config: Partial<RateLimitConfig> = {}) {
-    this.config = {
-      ...defaultConfig,
-      ...config,
-      skipSuccessfulRequests: config.skipSuccessfulRequests ?? false,
-      skipFailedRequests: config.skipFailedRequests ?? false,
-    } as Required<RateLimitConfig>;
-  }
+  if (customId) return customId;
 
-  private getKey(identifier: string): string {
-    return this.config.keyPrefix + identifier;
-  }
-
-  private getIdentifier(req: NextRequest): string {
-    const customId = req.headers.get('x-client-id');
-    if (customId) return customId;
-
-    const forwarded = req.headers.get('x-forwarded-for');
-    const ip = forwarded ? forwarded.split(',')[0].trim() :
-               req.headers.get('x-real-ip') || 'unknown';
-
-    return ip;
-  }
-
-  async checkLimit(req: NextRequest): Promise<{
-    allowed: boolean;
-    remaining: number;
-    resetTime: number;
-  }> {
-    const identifier = this.getIdentifier(req);
-    const key = this.getKey(identifier);
-    const now = Date.now();
-    const windowStart = now - this.config.windowMs;
-
-    try {
-      await redis.zremrangebyscore(key, '-inf', windowStart.toString());
-      const requestCount = await redis.zcard(key);
-
-      if (requestCount >= this.config.maxRequests) {
-        const oldestRequest = await redis.zrange(key, 0, 0, 'WITHSCORES');
-        const resetTime = oldestRequest[1]
-          ? parseInt(oldestRequest[1]) + this.config.windowMs
-          : now + this.config.windowMs;
-
-        return { allowed: false, remaining: 0, resetTime };
-      }
-
-      const randomSuffix = Math.floor(Math.random() * 1000000);
-      const uniqueId = now.toString() + '-' + randomSuffix.toString();
-      await redis.zadd(key, now.toString(), uniqueId);
-      await redis.expire(key, Math.ceil(this.config.windowMs / 1000));
-
-      return {
-        allowed: true,
-        remaining: this.config.maxRequests - requestCount - 1,
-        resetTime: now + this.config.windowMs,
-      };
-    } catch (error) {
-      console.error('Rate limiter error:', error);
-      return {
-        allowed: true,
-        remaining: this.config.maxRequests,
-        resetTime: now + this.config.windowMs,
-      };
-    }
-  }
+  const ip = cfConnectingIp || realIp || forwarded?.split(',')[0] || 'anonymous';
+  return ip.trim();
 }
 
-export const apiRateLimiter = new SlidingWindowRateLimiter({
-  windowMs: 60000,
-  maxRequests: 100,
-  keyPrefix: 'rl:api:',
-});
+// Rate limit check function
+export async function checkRateLimit(
+  req: NextRequest,
+  limiterType: keyof typeof rateLimiters = 'api'
+): Promise<{ success: boolean; limit: number; remaining: number; reset: number }> {
+  const identifier = getClientIdentifier(req);
+  const limiter = rateLimiters[limiterType];
 
-export const chatRateLimiter = new SlidingWindowRateLimiter({
-  windowMs: 60000,
-  maxRequests: 10,
-  keyPrefix: 'rl:chat:',
-});
+  const { success, limit, remaining, reset } = await limiter.limit(identifier);
 
-export const bookingRateLimiter = new SlidingWindowRateLimiter({
-  windowMs: 300000,
-  maxRequests: 5,
-  keyPrefix: 'rl:booking:',
-});
+  return { success, limit, remaining, reset };
+}
 
-export const analyticsRateLimiter = new SlidingWindowRateLimiter({
-  windowMs: 60000,
-  maxRequests: 200,
-  keyPrefix: 'rl:analytics:',
-});
+// Middleware wrapper for API routes
+export function withRateLimit(
+  limiterType: keyof typeof rateLimiters = 'api'
+) {
+  return async (req: NextRequest) => {
+    const result = await checkRateLimit(req, limiterType);
 
-export function withRateLimit(rateLimiter: SlidingWindowRateLimiter = apiRateLimiter) {
-  return async (req: NextRequest): Promise<NextResponse | null> => {
-    const result = await rateLimiter.checkLimit(req);
-
-    if (!result.allowed) {
-      const resetDate = new Date(result.resetTime).toISOString();
-      throw new RateLimitError('Rate limit exceeded. Try again after ' + resetDate);
+    if (!result.success) {
+      return NextResponse.json(
+        {
+          error: 'Too many requests',
+          message: `Rate limit exceeded. Try again in ${Math.ceil(
+            (result.reset - Date.now()) / 1000
+          )} seconds.`,
+          limit: result.limit,
+          remaining: result.remaining,
+          reset: result.reset,
+        },
+        {
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': result.limit.toString(),
+            'X-RateLimit-Remaining': result.remaining.toString(),
+            'X-RateLimit-Reset': result.reset.toString(),
+            'Retry-After': Math.ceil((result.reset - Date.now()) / 1000).toString(),
+          },
+        }
+      );
     }
 
-    return null;
+    return null; // Continue to handler
   };
 }
+
+// Direct rate limit checkers for use in API routes
+export const chatRateLimiter = {
+  checkLimit: async (req: NextRequest) => {
+    const result = await checkRateLimit(req, 'chat');
+    if (!result.success) {
+      throw new Error(
+        `Rate limit exceeded. Try again in ${Math.ceil(
+          (result.reset - Date.now()) / 1000
+        )} seconds.`
+      );
+    }
+    return result;
+  },
+};
+
+export const analyticsRateLimiter = {
+  checkLimit: async (req: NextRequest) => {
+    const result = await checkRateLimit(req, 'analytics');
+    if (!result.success) {
+      throw new Error(
+        `Rate limit exceeded. Try again in ${Math.ceil(
+          (result.reset - Date.now()) / 1000
+        )} seconds.`
+      );
+    }
+    return result;
+  },
+};
+
+export const calendarRateLimiter = {
+  checkLimit: async (req: NextRequest) => {
+    const result = await checkRateLimit(req, 'calendar');
+    if (!result.success) {
+      throw new Error(
+        `Rate limit exceeded. Try again in ${Math.ceil(
+          (result.reset - Date.now()) / 1000
+        )} seconds.`
+      );
+    }
+    return result;
+  },
+};
+
+export const bookingRateLimiter = {
+  checkLimit: async (req: NextRequest) => {
+    const result = await checkRateLimit(req, 'booking');
+    if (!result.success) {
+      throw new Error(
+        `Rate limit exceeded. Try again in ${Math.ceil(
+          (result.reset - Date.now()) / 1000
+        )} seconds.`
+      );
+    }
+    return result;
+  },
+};
+
+export const apiRateLimiter = {
+  checkLimit: async (req: NextRequest) => {
+    const result = await checkRateLimit(req, 'api');
+    if (!result.success) {
+      throw new Error(
+        `Rate limit exceeded. Try again in ${Math.ceil(
+          (result.reset - Date.now()) / 1000
+        )} seconds.`
+      );
+    }
+    return result;
+  },
+};

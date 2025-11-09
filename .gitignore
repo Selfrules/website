@@ -9,6 +9,12 @@ node_modules/
 
 # Testing
 /coverage
+coverage/
+.playwright-mcp/
+test-results/
+*.webm
+debug-*.png
+test-*.js
 *.log
 
 # Next.js
@@ -58,6 +64,13 @@ Thumbs.db
 *.db
 *.sqlite
 *.sqlite3
+
+# Firebase
+firebase-admin-key.json
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
 
 # Monitoring
 .sentry/

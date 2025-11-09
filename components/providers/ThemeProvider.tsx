@@ -1,16 +1,19 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { useTheme } from '@/lib/theme-store';
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
-
   useEffect(() => {
+    // Always set light mode on mount
     const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
-    root.classList.add(theme);
-  }, [theme]);
+    root.classList.remove('dark');
+    root.classList.add('light');
+
+    // Also remove any stored theme preference from localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('theme-storage');
+    }
+  }, []);
 
   return <>{children}</>;
 }

@@ -1,14 +1,24 @@
 /**
- * Calendar Booking API Routes
+ * Calendar Booking API Routes - FIREBASE VERSION
  * Handles consultation booking management
+ * Migrated from Prisma to Firestore
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/db/prisma';
+import {
+  COLLECTIONS,
+  CalendarBooking,
+  queryDocumentsAdmin,
+  createDocumentAdmin,
+  updateDocumentAdmin,
+  countDocumentsAdmin,
+  getDocumentAdmin,
+} from '@/lib/firebase';
 import { createBookingSchema, getBookingsSchema, updateBookingSchema } from '@/lib/validations/schemas';
 import { handleApiError, formatSuccessResponse, NotFoundError, ConflictError } from '@/lib/utils/errors';
 import { bookingRateLimiter, apiRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
+import { Timestamp } from 'firebase-admin/firestore';
 import { nanoid } from 'nanoid';
 
 /**
@@ -31,40 +41,39 @@ export async function GET(req: NextRequest) {
 
     const validatedParams = getBookingsSchema.parse(params);
 
-    // Build query filters
-    const where: any = {};
-    if (validatedParams.status) where.status = validatedParams.status;
-    if (validatedParams.type) where.type = validatedParams.type;
+    // Build Firestore filters
+    const filters: Array<{ field: string; operator: FirebaseFirestore.WhereFilterOp; value: any }> = [];
+    if (validatedParams.status) {
+      filters.push({ field: 'status', operator: '==', value: validatedParams.status });
+    }
+    if (validatedParams.type) {
+      filters.push({ field: 'type', operator: '==', value: validatedParams.type });
+    }
 
-    if (validatedParams.startDate || validatedParams.endDate) {
-      where.dateTime = {};
-      if (validatedParams.startDate) {
-        where.dateTime.gte = new Date(validatedParams.startDate);
-      }
-      if (validatedParams.endDate) {
-        where.dateTime.lte = new Date(validatedParams.endDate);
-      }
+    if (validatedParams.startDate) {
+      filters.push({
+        field: 'dateTime',
+        operator: '>=',
+        value: Timestamp.fromDate(new Date(validatedParams.startDate)),
+      });
+    }
+    if (validatedParams.endDate) {
+      filters.push({
+        field: 'dateTime',
+        operator: '<=',
+        value: Timestamp.fromDate(new Date(validatedParams.endDate)),
+      });
     }
 
     const [bookings, total] = await Promise.all([
-      prisma.calendarBooking.findMany({
-        where,
-        orderBy: { dateTime: 'asc' },
-        take: validatedParams.limit,
-        skip: validatedParams.offset,
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          dateTime: true,
-          duration: true,
-          status: true,
-          type: true,
-          notes: true,
-          createdAt: true,
-        },
-      }),
-      prisma.calendarBooking.count({ where }),
+      queryDocumentsAdmin<CalendarBooking>(
+        COLLECTIONS.CALENDAR_BOOKINGS,
+        filters,
+        'dateTime',
+        'asc',
+        validatedParams.limit
+      ),
+      countDocumentsAdmin(COLLECTIONS.CALENDAR_BOOKINGS, filters),
     ]);
 
     const response = NextResponse.json(
@@ -93,34 +102,45 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const validatedData = createBookingSchema.parse(body);
 
-    const requestedDateTime = new Date(validatedData.dateTime);
+    const requestedDateTime = Timestamp.fromDate(new Date(validatedData.dateTime));
 
     // Check if the slot is available
-    const existingBooking = await prisma.calendarBooking.findFirst({
-      where: {
-        dateTime: requestedDateTime,
-        status: {
-          in: ['pending', 'confirmed'],
-        },
-      },
-    });
+    const existingBookings = await queryDocumentsAdmin<CalendarBooking>(
+      COLLECTIONS.CALENDAR_BOOKINGS,
+      [
+        { field: 'dateTime', operator: '==', value: requestedDateTime },
+        { field: 'status', operator: 'in', value: ['pending', 'confirmed'] },
+      ],
+      undefined,
+      'desc',
+      1
+    );
 
-    if (existingBooking) {
+    if (existingBookings.length > 0) {
       throw new ConflictError('This time slot is already booked');
     }
 
     // Check if the requested time is in the past
-    if (requestedDateTime < new Date()) {
+    if (requestedDateTime.toDate() < new Date()) {
       throw new ConflictError('Cannot book a time in the past');
     }
 
     // Create booking
-    const booking = await prisma.calendarBooking.create({
-      data: {
-        ...validatedData,
+    const booking = await createDocumentAdmin<CalendarBooking>(
+      COLLECTIONS.CALENDAR_BOOKINGS,
+      {
+        name: validatedData.name,
+        email: validatedData.email,
+        phone: validatedData.phone,
         dateTime: requestedDateTime,
-      },
-    });
+        duration: validatedData.duration,
+        type: validatedData.type,
+        notes: validatedData.notes,
+        metadata: validatedData.metadata,
+        status: 'pending',
+        reminderSent: false,
+      }
+    );
 
     // TODO: Send confirmation email
     // TODO: Create Google Calendar event
@@ -153,13 +173,29 @@ export async function PATCH(req: NextRequest) {
 
     const validatedData = updateBookingSchema.parse(updateData);
 
-    const booking = await prisma.calendarBooking.update({
-      where: { id: bookingId },
-      data: {
-        ...validatedData,
-        dateTime: validatedData.dateTime ? new Date(validatedData.dateTime) : undefined,
-      },
-    });
+    const { dateTime, ...otherFields } = validatedData;
+    const updatePayload: Partial<CalendarBooking> = {
+      ...otherFields,
+    };
+
+    if (dateTime) {
+      updatePayload.dateTime = Timestamp.fromDate(new Date(dateTime));
+    }
+
+    await updateDocumentAdmin<CalendarBooking>(
+      COLLECTIONS.CALENDAR_BOOKINGS,
+      bookingId,
+      updatePayload
+    );
+
+    const booking = await getDocumentAdmin<CalendarBooking>(
+      COLLECTIONS.CALENDAR_BOOKINGS,
+      bookingId
+    );
+
+    if (!booking) {
+      throw new NotFoundError('Booking');
+    }
 
     const response = NextResponse.json(
       formatSuccessResponse(booking, 'Booking updated successfully'),

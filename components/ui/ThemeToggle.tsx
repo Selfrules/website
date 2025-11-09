@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/lib/theme-store';
 import { cn } from '@/lib/utils';
 
@@ -18,76 +20,123 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   if (!mounted) {
     return (
-      <button
+      <div
         className={cn(
-          'inline-flex items-center justify-center',
-          'w-14 h-14 p-3',
+          'relative inline-flex items-center',
+          'w-16 h-9',
           'border-brutal border-brutalist-border rounded-brutal shadow-brutal-sm',
-          'bg-brutalist-surface-light dark:bg-brutalist-surface-dark',
-          'transition-all duration-200 ease-brutal',
+          'bg-brutalist-surface-light',
           className
         )}
         aria-label="Toggle theme"
-        disabled
       >
-        <span className="w-8 h-8" />
-      </button>
+        <span className="sr-only">Loading theme toggle</span>
+      </div>
     );
   }
+
+  const isLight = theme === 'light';
 
   return (
     <button
       onClick={toggleTheme}
       className={cn(
-        'inline-flex items-center justify-center',
-        'w-14 h-14 p-3',
+        'relative inline-flex items-center',
+        'w-16 h-9',
         'border-brutal border-brutalist-border rounded-brutal shadow-brutal-sm',
-        'bg-brutalist-surface-light dark:bg-brutalist-surface-dark',
         'transition-all duration-200 ease-brutal',
         'hover:shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px]',
         'active:shadow-none active:translate-x-[2px] active:translate-y-[2px]',
         'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary',
+        'overflow-hidden',
+        isLight ? 'bg-primary' : 'bg-accent', // Electric Blue for light, Deep Navy for dark
         className
       )}
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
+      aria-pressed={!isLight}
     >
-      {theme === 'light' ? (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-8 h-8"
-          aria-hidden="true"
+      {/* Switch Track - Updated to cold tone colors */}
+      <motion.div
+        className="absolute inset-0 rounded-brutal"
+        animate={{
+          backgroundColor: isLight ? '#1E90FF' : '#7A90AA', // Electric Blue for light, Lighter Deep Navy for dark
+        }}
+        transition={{ duration: 0.3, type: 'spring', stiffness: 400 }}
+      />
+
+      {/* Switch Handle */}
+      <motion.div
+        layout
+        className={cn(
+          'relative z-10',
+          'w-6 h-6 mx-1',
+          'bg-white rounded-brutal-sm',
+          'border-2 border-black',
+          'flex items-center justify-center'
+        )}
+        animate={{
+          x: isLight ? 0 : 30,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 400,
+          damping: 30,
+        }}
+      >
+        {/* Icon with layout animation */}
+        <motion.div
+          layout
+          className="flex items-center justify-center"
+          initial={false}
+          animate={{
+            rotate: isLight ? 0 : 360,
+            scale: 1,
+          }}
+          transition={{
+            duration: 0.4,
+            type: 'spring',
+          }}
         >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-8 h-8"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </svg>
-      )}
+          {isLight ? (
+            <Sun
+              className="w-4 h-4 text-primary"
+              strokeWidth={2.5}
+              aria-hidden="true"
+            />
+          ) : (
+            <Moon
+              className="w-4 h-4 text-secondary"
+              strokeWidth={2.5}
+              aria-hidden="true"
+            />
+          )}
+        </motion.div>
+      </motion.div>
+
+      {/* Background Icons (Optional decorative) */}
+      <motion.div
+        className="absolute right-2 top-1/2 -translate-y-1/2"
+        initial={false}
+        animate={{
+          opacity: isLight ? 0 : 0.3,
+          scale: isLight ? 0.8 : 1,
+        }}
+        transition={{ duration: 0.2 }}
+      >
+        <Moon className="w-4 h-4 text-white" strokeWidth={2} aria-hidden="true" />
+      </motion.div>
+
+      <motion.div
+        className="absolute left-2 top-1/2 -translate-y-1/2"
+        initial={false}
+        animate={{
+          opacity: isLight ? 0.3 : 0,
+          scale: isLight ? 1 : 0.8,
+        }}
+        transition={{ duration: 0.2 }}
+      >
+        <Sun className="w-4 h-4 text-white" strokeWidth={2} aria-hidden="true" />
+      </motion.div>
     </button>
   );
 }

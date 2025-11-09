@@ -114,7 +114,7 @@ describe('Input', () => {
 
     it('should have disabled styles', () => {
       render(<Input disabled />)
-      expect(screen.getByRole('textbox')).toHaveClass('disabled:opacity-50')
+      expect(screen.getByRole('textbox')).toHaveClass('disabled:opacity-60')
     })
   })
 
@@ -122,7 +122,7 @@ describe('Input', () => {
     it('should have error styles when error prop is provided', () => {
       render(<Input error="Error message" />)
       const input = screen.getByRole('textbox')
-      expect(input).toHaveClass('border-accent')
+      expect(input).toHaveClass('border-red-600')
     })
 
     it('should have aria-invalid when error exists', () => {
@@ -211,7 +211,7 @@ describe('Input', () => {
 
     it('should have shadow-brutal-sm styles', () => {
       render(<Input />)
-      expect(screen.getByRole('textbox')).toHaveClass('shadow-brutal-sm')
+      expect(screen.getByRole('textbox')).toHaveClass('shadow-[3px_3px_0_#000]')
     })
 
     it('should have hover transform effect', () => {

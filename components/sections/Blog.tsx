@@ -1,7 +1,8 @@
-import { Newspaper } from 'lucide-react';
+import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
-import CTAButton from '@/components/ui/CTAButton';
+import { NeoBadge } from '@/components/ui/NeoBadge';
+import { NeoButton } from '@/components/ui/NeoButton';
 
 interface BlogProps {
   locale: string;
@@ -9,21 +10,23 @@ interface BlogProps {
 
 export default async function Blog({ locale }: BlogProps) {
   const posts = await getAllPosts();
-  const latestPosts = posts.slice(0, 6); // Show latest 6 posts
+  const latestPosts = posts.slice(0, 3); // Show latest 3 posts
 
   const translations = {
     it: {
-      subtitle: 'Blog',
-      title: 'Ultimi pensieri',
-      description: 'Storie di fallimenti, successi e tutto quello che sta in mezzo. Senza filtri.',
-      viewAll: 'Leggi tutti gli articoli',
+      badge: 'Latest thinking',
+      title: 'Dal blog',
+      description: 'Pensieri su design, sviluppo, product management e ',
+      descriptionHighlight: 'tutto quello che ho imparato fallendo.',
+      viewAll: 'Vedi tutti gli articoli',
       noPosts: 'Nuovi articoli in arrivo...',
     },
     en: {
-      subtitle: 'Blog',
-      title: 'Latest thoughts',
-      description: 'Stories of failures, successes, and everything in between. No filters.',
-      viewAll: 'Read all articles',
+      badge: 'Latest thinking',
+      title: 'From the blog',
+      description: 'Thoughts on design, development, product management and ',
+      descriptionHighlight: 'everything I learned by failing.',
+      viewAll: 'View all articles',
       noPosts: 'New articles coming soon...',
     },
   };
@@ -31,27 +34,26 @@ export default async function Blog({ locale }: BlogProps) {
   const t = translations[locale as keyof typeof translations] || translations.it;
 
   return (
-    <section className="py-20 lg:py-32 bg-brutalist-bg-light dark:bg-brutalist-bg-dark">
-      <div className="brutal-container">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 dark:bg-primary/20
-                       border-4 border-primary rounded-brutal text-primary font-medium mb-4">
-            <Newspaper className="w-4 h-4" />
-            <span className="text-sm">{t.subtitle}</span>
+    <section id="blog" className="bg-[#FFFCF2] py-16 md:py-24 border-b-4 border-[#000] relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#7209B7]/10 to-transparent rounded-full blur-3xl" />
+
+      <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="flex justify-center mb-4">
+            <NeoBadge color="pink">{t.badge}</NeoBadge>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4 text-brutalist-text-light dark:text-brutalist-text-dark">
-            {t.title}
-          </h2>
-          <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
-            {t.description}
+          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">{t.title}</h2>
+          <p className="text-body text-[#2D2D2D] max-w-[600px] mx-auto">
+            {t.description}<strong className="text-[#FF006E]">{t.descriptionHighlight}</strong>
           </p>
         </div>
 
         {/* Blog Grid */}
         {latestPosts.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-8">
               {latestPosts.map((post, index) => (
                 <BlogCard
                   key={post.slug}
@@ -64,14 +66,16 @@ export default async function Blog({ locale }: BlogProps) {
 
             {/* View All Button */}
             <div className="text-center">
-              <CTAButton href={`/${locale}/blog`} variant="secondary">
-                {t.viewAll}
-              </CTAButton>
+              <Link href={`/${locale}/blog`}>
+                <NeoButton variant="secondary">
+                  {t.viewAll}
+                </NeoButton>
+              </Link>
             </div>
           </>
         ) : (
           <div className="text-center py-12">
-            <p className="text-lg text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+            <p className="text-lg text-[#2D2D2D]/60">
               {t.noPosts}
             </p>
           </div>

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "upstash": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/mcp-server",
+        "run",
+        "mattia@selfrules.org",
+        "53f117cb-7ce4-458e-bbdf-fe8c8e4a44db"
+      ]
+    }
+  }
+}

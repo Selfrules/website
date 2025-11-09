@@ -65,26 +65,27 @@ export {
 } from './validation/schemas';
 
 // Sanitization
-export {
-  sanitizeHTML,
-  sanitizeRichText,
-  sanitizePlainText,
-  sanitizeMarkdown,
-  sanitizeFilename,
-  sanitizeURL,
-  sanitizeEmail,
-  sanitizePhoneNumber,
-  sanitizeSlug,
-  removeInvisibleChars,
-  sanitizeJSON,
-  sanitizeChatMessage,
-  sanitizeSearchQuery,
-  sanitizeForDB,
-  sanitizeBase64,
-  sanitizeHexColor,
-  createSanitizationPipeline,
-  sanitizationPipelines,
-} from './sanitization/sanitize';
+// Temporarily disabled - requires isomorphic-dompurify package
+// export {
+//   sanitizeHTML,
+//   sanitizeRichText,
+//   sanitizePlainText,
+//   sanitizeMarkdown,
+//   sanitizeFilename,
+//   sanitizeURL,
+//   sanitizeEmail,
+//   sanitizePhoneNumber,
+//   sanitizeSlug,
+//   removeInvisibleChars,
+//   sanitizeJSON,
+//   sanitizeChatMessage,
+//   sanitizeSearchQuery,
+//   sanitizeForDB,
+//   sanitizeBase64,
+//   sanitizeHexColor,
+//   createSanitizationPipeline,
+//   sanitizationPipelines,
+// } from './sanitization/sanitize';
 
 // OAuth
 export {

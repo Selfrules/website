@@ -1,14 +1,23 @@
 /**
- * Analytics API Routes
+ * Analytics API Routes - FIREBASE VERSION
  * Handles event tracking and analytics data
+ * Migrated from Prisma to Firestore
+ * NOTE: Complex aggregations (groupBy) temporarily simplified
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/db/prisma';
+import {
+  COLLECTIONS,
+  AnalyticsEvent,
+  queryDocumentsAdmin,
+  createDocumentAdmin,
+  countDocumentsAdmin,
+} from '@/lib/firebase';
 import { createAnalyticsEventSchema, getAnalyticsEventsSchema } from '@/lib/validations/schemas';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
 import { analyticsRateLimiter, apiRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
+import { Timestamp } from 'firebase-admin/firestore';
 
 /**
  * GET /api/analytics
@@ -31,39 +40,42 @@ export async function GET(req: NextRequest) {
 
     const validatedParams = getAnalyticsEventsSchema.parse(params);
 
-    // Build query filters
-    const where: any = {};
-    if (validatedParams.eventType) where.eventType = validatedParams.eventType;
-    if (validatedParams.eventName) where.eventName = validatedParams.eventName;
-    if (validatedParams.sessionId) where.sessionId = validatedParams.sessionId;
+    // Build Firestore filters
+    const filters: Array<{ field: string; operator: FirebaseFirestore.WhereFilterOp; value: any }> = [];
+    if (validatedParams.eventType) {
+      filters.push({ field: 'eventType', operator: '==', value: validatedParams.eventType });
+    }
+    if (validatedParams.eventName) {
+      filters.push({ field: 'eventName', operator: '==', value: validatedParams.eventName });
+    }
+    if (validatedParams.sessionId) {
+      filters.push({ field: 'sessionId', operator: '==', value: validatedParams.sessionId });
+    }
 
-    if (validatedParams.startDate || validatedParams.endDate) {
-      where.timestamp = {};
-      if (validatedParams.startDate) {
-        where.timestamp.gte = new Date(validatedParams.startDate);
-      }
-      if (validatedParams.endDate) {
-        where.timestamp.lte = new Date(validatedParams.endDate);
-      }
+    if (validatedParams.startDate) {
+      filters.push({
+        field: 'timestamp',
+        operator: '>=',
+        value: Timestamp.fromDate(new Date(validatedParams.startDate)),
+      });
+    }
+    if (validatedParams.endDate) {
+      filters.push({
+        field: 'timestamp',
+        operator: '<=',
+        value: Timestamp.fromDate(new Date(validatedParams.endDate)),
+      });
     }
 
     const [events, total] = await Promise.all([
-      prisma.analyticsEvent.findMany({
-        where,
-        orderBy: { timestamp: 'desc' },
-        take: validatedParams.limit,
-        skip: validatedParams.offset,
-        select: {
-          id: true,
-          sessionId: true,
-          eventType: true,
-          eventName: true,
-          page: true,
-          metadata: true,
-          timestamp: true,
-        },
-      }),
-      prisma.analyticsEvent.count({ where }),
+      queryDocumentsAdmin<AnalyticsEvent>(
+        COLLECTIONS.ANALYTICS_EVENTS,
+        filters,
+        'timestamp',
+        'desc',
+        validatedParams.limit
+      ),
+      countDocumentsAdmin(COLLECTIONS.ANALYTICS_EVENTS, filters),
     ]);
 
     const response = NextResponse.json(
@@ -98,14 +110,21 @@ export async function POST(req: NextRequest) {
     const ipAddress = forwarded ? forwarded.split(',')[0].trim() : req.headers.get('x-real-ip') || undefined;
     const referrer = req.headers.get('referer') || undefined;
 
-    const event = await prisma.analyticsEvent.create({
-      data: {
-        ...validatedData,
+    const event = await createDocumentAdmin<AnalyticsEvent>(
+      COLLECTIONS.ANALYTICS_EVENTS,
+      {
+        eventType: validatedData.eventType,
+        eventName: validatedData.eventName,
+        page: validatedData.page,
+        sessionId: validatedData.sessionId,
+        userId: validatedData.userId,
+        metadata: validatedData.metadata,
         userAgent,
         ipAddress,
         referrer,
-      },
-    });
+        timestamp: Timestamp.now(),
+      }
+    );
 
     const response = NextResponse.json(
       formatSuccessResponse({ eventId: event.id }, 'Event tracked successfully'),
@@ -121,6 +140,8 @@ export async function POST(req: NextRequest) {
 /**
  * GET /api/analytics/stats
  * Get aggregated analytics statistics
+ * NOTE: Temporarily using client-side aggregation for Firestore migration
+ * TODO: Optimize with Cloud Functions for large datasets
  */
 export async function PATCH(req: NextRequest) {
   try {
@@ -130,52 +151,60 @@ export async function PATCH(req: NextRequest) {
     const startDate = searchParams.get('startDate');
     const endDate = searchParams.get('endDate');
 
-    const where: any = {};
-    if (startDate || endDate) {
-      where.timestamp = {};
-      if (startDate) where.timestamp.gte = new Date(startDate);
-      if (endDate) where.timestamp.lte = new Date(endDate);
+    // Build Firestore filters
+    const filters: Array<{ field: string; operator: FirebaseFirestore.WhereFilterOp; value: any }> = [];
+    if (startDate) {
+      filters.push({
+        field: 'timestamp',
+        operator: '>=',
+        value: Timestamp.fromDate(new Date(startDate)),
+      });
+    }
+    if (endDate) {
+      filters.push({
+        field: 'timestamp',
+        operator: '<=',
+        value: Timestamp.fromDate(new Date(endDate)),
+      });
     }
 
-    // Get aggregated statistics
-    const [
-      totalEvents,
-      uniqueSessions,
-      eventsByType,
-      topPages,
-    ] = await Promise.all([
-      prisma.analyticsEvent.count({ where }),
-      prisma.analyticsEvent.findMany({
-        where,
-        select: { sessionId: true },
-        distinct: ['sessionId'],
-      }),
-      prisma.analyticsEvent.groupBy({
-        by: ['eventType'],
-        where,
-        _count: { eventType: true },
-        orderBy: { _count: { eventType: 'desc' } },
-      }),
-      prisma.analyticsEvent.groupBy({
-        by: ['page'],
-        where: { ...where, page: { not: null } },
-        _count: { page: true },
-        orderBy: { _count: { page: 'desc' } },
-        take: 10,
-      }),
+    // Get total count and all events for aggregation
+    const [totalEvents, allEvents] = await Promise.all([
+      countDocumentsAdmin(COLLECTIONS.ANALYTICS_EVENTS, filters),
+      queryDocumentsAdmin<AnalyticsEvent>(
+        COLLECTIONS.ANALYTICS_EVENTS,
+        filters,
+        'timestamp',
+        'desc',
+        10000 // Reasonable limit for aggregation
+      ),
     ]);
+
+    // Client-side aggregations (Firestore doesn't have native groupBy/distinct)
+    const uniqueSessionsSet = new Set(allEvents.map(e => e.sessionId));
+
+    const eventTypeMap = new Map<string, number>();
+    allEvents.forEach(e => {
+      eventTypeMap.set(e.eventType, (eventTypeMap.get(e.eventType) || 0) + 1);
+    });
+
+    const pageMap = new Map<string, number>();
+    allEvents.forEach(e => {
+      if (e.page) {
+        pageMap.set(e.page, (pageMap.get(e.page) || 0) + 1);
+      }
+    });
 
     const stats = {
       totalEvents,
-      uniqueSessions: uniqueSessions.length,
-      eventsByType: eventsByType.map(e => ({
-        type: e.eventType,
-        count: e._count.eventType,
-      })),
-      topPages: topPages.map(p => ({
-        page: p.page,
-        views: p._count.page,
-      })),
+      uniqueSessions: uniqueSessionsSet.size,
+      eventsByType: Array.from(eventTypeMap.entries())
+        .map(([type, count]) => ({ type, count }))
+        .sort((a, b) => b.count - a.count),
+      topPages: Array.from(pageMap.entries())
+        .map(([page, views]) => ({ page, views }))
+        .sort((a, b) => b.views - a.views)
+        .slice(0, 10),
     };
 
     const response = NextResponse.json(

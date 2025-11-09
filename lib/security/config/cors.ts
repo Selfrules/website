@@ -26,7 +26,7 @@ const ALLOWED_ORIGINS = {
  * Get allowed origins based on environment
  */
 export function getAllowedOrigins(): string[] {
-  const env = process.env.NODE_ENV || 'development';
+  const env = (process.env.NODE_ENV || 'development') as string;
 
   switch (env) {
     case 'production':
