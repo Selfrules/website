@@ -2,15 +2,19 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'primary' | 'secondary' | 'accent' | 'outline' | 'design' | 'dev' | 'pm' | 'tool';
+  variant?: 'default' | 'primary' | 'secondary' | 'accent' | 'outline' | 'design' | 'dev' | 'pm' | 'tool' | 'featured';
   size?: 'sm' | 'md' | 'lg';
 }
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, variant = 'default', size = 'md', children, ...props }, ref) => {
+    // Per le varianti semantiche (design, dev, pm, tool, featured), non applichiamo font-heading/font-bold
+    // perché hanno già i loro stili completi definiti in globals.css con i colori corretti
+    const isSemanticVariant = ['design', 'dev', 'pm', 'tool', 'featured'].includes(variant);
+
     const baseStyles = cn(
       'inline-flex items-center justify-center gap-1',
-      'font-heading font-bold text-sentence-case',
+      !isSemanticVariant && 'font-heading font-bold text-sentence-case',
       'border-brutal border-brutalist-border rounded-brutal-sm',
       'whitespace-nowrap'
     );
@@ -30,10 +34,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
         'shadow-brutal-sm'
       ),
       // Semantic variants (color-coded by project type)
+      // Questi badge hanno gli stili completi definiti in globals.css
       design: cn('badge-design'), // Electric Blue - Design/UX projects
-      dev: cn('badge-dev'),       // Slate Blue - Development projects
-      pm: cn('badge-pm'),         // Deep Navy - PM/Strategy projects
-      tool: cn('badge-tool'),     // Teal - Tools/Analytics
+      dev: cn('badge-dev'),       // Teal - Development projects
+      pm: cn('badge-pm'),         // Deep Purple - PM/Strategy projects
+      tool: cn('badge-tool'),     // Neon Pink - Tools/Analytics
+      featured: cn('badge-featured'), // Cyber Yellow - Featured/Special items
     };
 
     const sizeStyles = {

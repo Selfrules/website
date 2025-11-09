@@ -44,7 +44,7 @@ export default function Journey() {
       descriptionKey: 'experiences.developer.description',
       achievementsKeys: ['experiences.developer.achievements.1', 'experiences.developer.achievements.2', 'experiences.developer.achievements.3'],
       skillsKeys: ['experiences.developer.technologies.1', 'experiences.developer.technologies.2', 'experiences.developer.technologies.3', 'experiences.developer.technologies.4', 'experiences.developer.technologies.5', 'experiences.developer.technologies.6'],
-      certificationsKeys: ['experiences.developer.certifications.1', 'experiences.developer.certifications.2'],
+      certificationsKeys: ['experiences.developer.certifications.1'],
       icon: Code,
     },
     {
@@ -67,7 +67,8 @@ export default function Journey() {
       companyKey: 'experiences.pm.company',
       descriptionKey: 'experiences.pm.description',
       achievementsKeys: ['experiences.pm.achievements.1', 'experiences.pm.achievements.2', 'experiences.pm.achievements.3'],
-      skillsKeys: ['experiences.pm.technologies.1', 'experiences.pm.technologies.2', 'experiences.pm.technologies.3', 'experiences.pm.technologies.4'],
+      skillsKeys: ['experiences.pm.technologies.1', 'experiences.pm.technologies.2', 'experiences.pm.technologies.3', 'experiences.pm.technologies.4', 'experiences.pm.technologies.5', 'experiences.pm.technologies.6', 'experiences.pm.technologies.7'],
+      certificationsKeys: ['experiences.pm.certifications.1', 'experiences.pm.certifications.2', 'experiences.pm.certifications.3', 'experiences.pm.certifications.4'],
       isCurrent: true,
       icon: Award,
     },
@@ -92,9 +93,9 @@ export default function Journey() {
           </div>
           <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">
             {t('title')}{' '}
-            <span className="inline-block relative">
+            <span className="inline-block relative z-10">
               {t('titleHighlight')}
-              <span className="absolute -bottom-1 left-0 w-full h-2 bg-[#FFD60A] -rotate-1 -z-10" />
+              <span className="absolute -bottom-1 left-0 w-full h-2 bg-[#FFD60A] -rotate-1 z-[-1]" />
             </span>
           </h2>
           <p className="text-body text-[#2D2D2D] max-w-[700px] mx-auto">
@@ -199,7 +200,7 @@ export default function Journey() {
                       {/* Skills */}
                       <div className="mb-3">
                         <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                          {t('skills')}:
+                          {t('skillsLabel')}:
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {milestone.skillsKeys.map((skillKey, i) => (
@@ -220,7 +221,7 @@ export default function Journey() {
                       {milestone.certificationsKeys && milestone.certificationsKeys.length > 0 && (
                         <div>
                           <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                            {t('certifications')}:
+                            {t('certificationsLabel')}:
                           </p>
                           <div className="flex flex-wrap gap-1.5">
                             {milestone.certificationsKeys.map((certKey, i) => (

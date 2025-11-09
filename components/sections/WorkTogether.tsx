@@ -63,9 +63,10 @@ export default function WorkTogether() {
           <div className="flex justify-center mb-4">
             <NeoBadge color="yellow">{t('badge')}</NeoBadge>
           </div>
-          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">{t('title')}</h2>
-          <p className="text-body text-[#2D2D2D] max-w-[600px] mx-auto">
-            {t('subtitle.part1')} <strong className="text-[#FF006E]">{t('subtitle.part2')}</strong>
+          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">{t('title')} <span className="text-[#FF006E]">{t('titleHighlight')}</span></h2>
+          <p className="text-body text-[#2D2D2D] max-w-[700px] mx-auto">
+            {t('subtitle.part1')}<br/>
+            <strong className="text-[#FF006E]">{t('subtitle.part2')}</strong>
           </p>
         </div>
 
@@ -125,10 +126,13 @@ export default function WorkTogether() {
         </div>
 
         {/* Call to Action Banner */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center">
           <div className="inline-block bg-gradient-to-r from-[#0D7EFF] via-[#FF006E] to-[#7209B7] border-4 border-[#000] rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
-            <p className="text-body md:text-body-large text-white mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+            <p className="text-h3 md:text-h2 text-white mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
               {t('cta.title')}
+            </p>
+            <p className="text-body-small md:text-body text-white/90 mb-5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              {t('cta.description')}
             </p>
             <a
               href="#ask-me"

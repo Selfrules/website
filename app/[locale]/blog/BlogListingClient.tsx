@@ -18,7 +18,7 @@ const categoryColors: Record<string, string> = {
   'Strategy': '#7209B7',
   'OKRs': '#0D7EFF',
   'Design': '#0D7EFF',
-  'Development': '#FFD60A',
+  'Development': '#2A687A',
   'Leadership': '#FF006E',
 };
 
@@ -90,7 +90,7 @@ export default function BlogListingClient({
               ← Home
             </button>
 
-            <h1 className="text-h1 md:text-[64px] text-white mb-6">
+            <h1 className="text-h1 md:text-[64px] text-white mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Tutti gli articoli
             </h1>
             <p className="text-body-large text-white/95 mb-8 max-w-[600px]">
@@ -129,10 +129,7 @@ export default function BlogListingClient({
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <Filter className="w-5 h-5 text-[#2D2D2D]" />
-            <h3
-              className="text-[#0A0A0A]"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '18px' }}
-            >
+            <h3 className="text-h3 text-[#0A0A0A]">
               Filtra per categoria
             </h3>
           </div>
@@ -204,18 +201,11 @@ export default function BlogListingClient({
                       </span>
                     </div>
 
-                    <h3
-                      className="text-[#0A0A0A] mb-3 group-hover:text-[#0D7EFF] transition-colors leading-tight"
-                      style={{
-                        fontFamily: 'Space Grotesk, sans-serif',
-                        fontWeight: 700,
-                        fontSize: '20px',
-                      }}
-                    >
+                    <h3 className="text-h3 text-[#0A0A0A] mb-3 group-hover:text-[#0D7EFF] transition-colors leading-tight">
                       {post.title}
                     </h3>
 
-                    <p className="text-body-small text-[#2D2D2D] mb-4 line-clamp-3">
+                    <p className="text-body-small text-[#0A0A0A] mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
                   </div>
@@ -236,7 +226,7 @@ export default function BlogListingClient({
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-[#0D7EFF] transition-all group-hover:gap-3" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: '14px' }}>
+                    <div className="flex items-center gap-2 text-body-small text-[#0D7EFF] transition-all group-hover:gap-3" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}>
                       Leggi articolo
                       <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                     </div>
@@ -253,7 +243,7 @@ export default function BlogListingClient({
               <h3 className="text-h3 text-[#0A0A0A] mb-3">
                 Nessun articolo trovato
               </h3>
-              <p className="text-body text-[#2D2D2D] mb-6 max-w-[400px]">
+              <p className="text-body text-[#0A0A0A] mb-6 max-w-[400px]">
                 Prova a modificare i filtri o la ricerca per trovare quello che cerchi.
               </p>
               <button
@@ -273,7 +263,7 @@ export default function BlogListingClient({
             <h3 className="text-h3 text-[#0A0A0A] mb-4">
               Non trovi quello che cerchi?
             </h3>
-            <p className="text-body text-[#0A0A0A]/80 mb-6 max-w-[600px] mx-auto">
+            <p className="text-body text-[#0A0A0A] mb-6 max-w-[600px] mx-auto" style={{ opacity: 0.8 }}>
               Scrivimi direttamente! Sono sempre felice di rispondere a domande specifiche o suggerimenti per futuri articoli.
             </p>
             <button

@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { NeoBadge } from '@/components/ui/NeoBadge';
+import { ArrowRight } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
 
 interface BlogCardProps {
@@ -10,6 +9,16 @@ interface BlogCardProps {
   locale: string;
   featured?: boolean;
 }
+
+// Category color mapping
+const categoryColors: Record<string, string> = {
+  'Product': '#FF006E',
+  'Strategy': '#7209B7',
+  'OKRs': '#0D7EFF',
+  'Design': '#0D7EFF',
+  'Development': '#2A687A',
+  'Leadership': '#FF006E',
+};
 
 export default function BlogCard({ post, locale, featured = false }: BlogCardProps) {
   const formatDate = (dateString: string) => {
@@ -21,6 +30,8 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
     });
   };
 
+  const categoryColor = categoryColors[post.category] || '#2D2D2D';
+
   if (featured) {
     return (
       <article className="lg:col-span-3">
@@ -30,9 +41,30 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full" />
 
             <div className="relative z-10">
-              <NeoBadge color="yellow" className="mb-4">
-                {post.category}
-              </NeoBadge>
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className="px-3 py-1 border-2 border-[#000] rounded-lg text-[#0A0A0A] inline-block"
+                  style={{
+                    backgroundColor: '#FFD60A',
+                    fontFamily: 'Space Mono, monospace',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                  }}
+                >
+                  {post.category}
+                </span>
+                <span
+                  className="px-3 py-1 bg-white border-2 border-[#000] rounded-lg text-[#0A0A0A] inline-block"
+                  style={{
+                    fontFamily: 'Space Mono, monospace',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                  }}
+                >
+                  FEATURED
+                </span>
+              </div>
+
               <h3 className="text-h2 md:text-h1 text-white mb-4">
                 {post.title}
               </h3>
@@ -42,19 +74,18 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
-              <div className="flex items-center gap-4 text-white/90 text-sm">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" />
-                  {post.readingTime}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4" />
-                  {formatDate(post.date)}
-                </span>
+              <div className="flex items-center gap-3 text-white/90 text-sm">
+                <span>{formatDate(post.date)}</span>
+                <span>•</span>
+                <span>{post.readingTime}</span>
               </div>
-              <button className="px-6 py-3 bg-[#FFD60A] text-[#0A0A0A] border-3 border-[#000] rounded shadow-brutal-sm transition-all hover:-translate-y-1 hover:shadow-brutal font-bold text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              <div
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFD60A] text-[#0A0A0A] border-4 border-[#000] rounded-lg shadow-brutal-sm transition-all hover:-translate-y-1 hover:shadow-brutal"
+                style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
+              >
                 {locale === 'it' ? 'Leggi ora' : 'Read now'}
-              </button>
+                <ArrowRight className="w-4 h-4" />
+              </div>
             </div>
           </div>
         </Link>
@@ -63,32 +94,35 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
   }
 
   return (
-    <article className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6 min-h-[280px] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg cursor-pointer group">
+    <article className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6 min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg cursor-pointer group">
       <Link href={`/${locale}/blog/${post.slug}`}>
         <div>
-          <NeoBadge color="neutral" className="mb-3 text-xs">
+          <span
+            className="px-3 py-1 border-2 border-[#000] rounded text-white inline-block mb-3"
+            style={{
+              backgroundColor: categoryColor,
+              fontFamily: 'Space Mono, monospace',
+              fontSize: '11px',
+              fontWeight: 700,
+            }}
+          >
             {post.category}
-          </NeoBadge>
-          <h3 className="text-h3 mb-3 text-[#0A0A0A] group-hover:text-[#0D7EFF] transition-colors">
+          </span>
+          <h3 className="text-h3 text-[#0A0A0A] mb-3 group-hover:text-[#0D7EFF] transition-colors">
             {post.title}
           </h3>
-          <p className="text-body-small text-[#2D2D2D] mb-4 line-clamp-3">
+          <p className="text-body-small text-[#0A0A0A] mb-4 line-clamp-2">
             {post.excerpt}
           </p>
         </div>
 
         <div>
-          <div className="flex items-center gap-3 text-[#6B7280] text-xs mb-4">
-            <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" />
-              {post.readingTime}
-            </span>
-            <span className="flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" />
-              {formatDate(post.date)}
-            </span>
+          <div className="flex items-center gap-3 text-body-small text-[#6B7280] mb-3">
+            <span>{formatDate(post.date)}</span>
+            <span>•</span>
+            <span>{post.readingTime}</span>
           </div>
-          <div className="inline-flex items-center gap-2 text-[#0D7EFF] transition-all group-hover:gap-3 font-semibold text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          <div className="inline-flex items-center gap-2 text-body-small text-[#0D7EFF] transition-all group-hover:gap-3" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}>
             {locale === 'it' ? 'Leggi articolo' : 'Read article'}
             <ArrowRight className="w-4 h-4" />
           </div>

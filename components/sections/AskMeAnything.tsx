@@ -19,15 +19,15 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
       badge: 'Ask me anything',
       title: 'Hai domande? Chiedi pure',
       description: 'Puoi chattare con il mio gemello digitale AI o lasciare una domanda anonima. ',
-      descriptionHighlight: 'Rispondo a tutte entro 48 ore.',
+      descriptionHighlight: 'Rispondo a tutte entro 48 ore. Sì, davvero tutte. Anche quelle scomode.',
       chatMode: {
         title: 'Chatta con il mio gemello digitale',
-        description: 'Alimentato da Claude AI, conosce tutto il mio background e può rispondere alle tue domande su design, sviluppo, product management, o qualsiasi altra cosa.',
+        description: 'Alimentato da Claude AI, conosce tutto il mio background e può rispondere alle tue domande su: Design, sviluppo, product management • Come sono passato da un ruolo all\'altro • Errori che ho fatto (sono tanti) e cosa ho imparato • Consigli per il tuo percorso. È come parlare con me, ma disponibile 24/7 e con pazienza infinita per le domande ripetitive.',
         buttonText: 'Inizia chat',
       },
       formMode: {
         title: 'Chiedi in anonimo',
-        description: 'Preferisci scrivere? Lascia la tua domanda qui. Rispondo pubblicamente sul blog o privatamente via email se la fornisci.',
+        description: 'Preferisci scrivere? Lascia la tua domanda qui. Rispondo pubblicamente sul blog (così aiuta anche altri). Niente nome richiesto. Niente giudizio. Solo domande reali e risposte oneste.',
       },
     },
     en: {
@@ -102,8 +102,31 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
                 {t.chatMode.title}
               </h3>
 
-              <p className="text-body-small md:text-body text-white/90 mb-6">
-                {t.chatMode.description}
+              <p className="text-body-small md:text-body text-white/90 mb-3">
+                Alimentato da Claude AI, conosce tutto il mio background e può rispondere alle tue domande su:
+              </p>
+
+              <ul className="text-body-small md:text-body text-white/90 space-y-2 mb-4 ml-4">
+                <li className="flex gap-2">
+                  <span className="text-[#0D7EFF]">•</span>
+                  <span>Design, sviluppo, product management</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#0D7EFF]">•</span>
+                  <span>Come sono passato da un ruolo all'altro</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#0D7EFF]">•</span>
+                  <span>Errori che ho fatto (sono tanti) e cosa ho imparato</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#0D7EFF]">•</span>
+                  <span>Consigli per il tuo percorso</span>
+                </li>
+              </ul>
+
+              <p className="text-body-small md:text-body text-white/80 italic mb-6">
+                È come parlare con me, ma disponibile 24/7 e con pazienza infinita per le domande ripetitive.
               </p>
 
               <button
