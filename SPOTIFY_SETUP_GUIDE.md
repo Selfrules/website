@@ -4,6 +4,22 @@ Guida rapida per completare l'integrazione del Spotify "Now Playing" widget.
 
 ---
 
+## ⚠️ **IMPORTANTE: Cambio Spotify API 2025**
+
+Da **aprile 2025**, Spotify ha modificato i requisiti per i redirect URI:
+
+- ❌ **NON più accettato**: `http://localhost:PORT`
+- ✅ **OBBLIGATORIO**: `http://127.0.0.1:PORT` (IP loopback esplicito)
+
+**Cosa significa per te**:
+- Devi usare `127.0.0.1` invece di `localhost` ovunque
+- Nel browser, visita `http://127.0.0.1:3000` non `http://localhost:3000`
+- Nel Spotify Dashboard, configura `http://127.0.0.1:3000/api/spotify/callback`
+
+**Documentazione**: [Spotify Migration Guide](https://developer.spotify.com/documentation/web-api/tutorials/migration-insecure-redirect-uri)
+
+---
+
 ## ✅ **Già Fatto**
 
 - ✅ File `.env` creato con credenziali
@@ -25,11 +41,15 @@ Guida rapida per completare l'integrazione del Spotify "Now Playing" widget.
 4. Scroll fino a **"Redirect URIs"**
 5. **Aggiungi questo URI**:
    ```
-   http://localhost:3000/api/spotify/callback
+   http://127.0.0.1:3000/api/spotify/callback
    ```
 6. Clicca **"Add"** poi **"Save"** in fondo
 
-**IMPORTANTE**: Senza questo passaggio, l'OAuth fallirà con errore "redirect_uri_mismatch".
+**IMPORTANTE**:
+- ⚠️ Da aprile 2025, Spotify **NON accetta più "localhost"** - devi usare l'IP loopback `127.0.0.1`
+- ❌ NON usare: `http://localhost:3000/api/spotify/callback`
+- ✅ USA: `http://127.0.0.1:3000/api/spotify/callback`
+- Senza questo passaggio, l'OAuth fallirà con errore "redirect_uri_mismatch" o "insecure_redirect_uri"
 
 ---
 
@@ -48,8 +68,9 @@ Aspetta che il server si avvii su `http://localhost:3000`
 
 1. Apri il browser e vai su:
    ```
-   http://localhost:3000/spotify-setup
+   http://127.0.0.1:3000/spotify-setup
    ```
+   **NOTA**: Usa `127.0.0.1` NON `localhost` (anche nel browser)
 
 2. Clicca il pulsante verde **"Authorize with Spotify"**
 
@@ -79,7 +100,7 @@ Aspetta che il server si avvii su `http://localhost:3000`
 
 8. **Vai alla homepage**:
    ```
-   http://localhost:3000
+   http://127.0.0.1:3000
    ```
 
 9. **Cerca il widget "Now Playing"** nella sezione "What I'm up to" 🎉
@@ -143,9 +164,19 @@ Aspetta che il server si avvii su `http://localhost:3000`
 
 ## 🐛 **Troubleshooting**
 
+### **Errore: "Invalid redirect URI" o Spotify rifiuta di salvare l'URI**
+**Causa**: Spotify non accetta più "localhost" da aprile 2025
+**Soluzione**:
+1. Usa `http://127.0.0.1:3000/api/spotify/callback` invece di `localhost`
+2. Assicurati che sia HTTP (non HTTPS) per loopback
+3. Verifica che la porta sia corretta (3000)
+
 ### **Errore: "redirect_uri_mismatch"**
-**Causa**: Redirect URI non configurato nel Spotify Dashboard
-**Soluzione**: Segui Step 1 sopra
+**Causa**: Redirect URI non configurato nel Spotify Dashboard o mismatch tra dashboard e .env
+**Soluzione**:
+1. Verifica che nel Spotify Dashboard ci sia esattamente: `http://127.0.0.1:3000/api/spotify/callback`
+2. Verifica che nel `.env` ci sia `SPOTIFY_REDIRECT_URI=http://127.0.0.1:3000/api/spotify/callback`
+3. Riavvia il server dopo modifiche al `.env`
 
 ### **Errore: "invalid_client"**
 **Causa**: Client ID o Secret errati nel `.env`
