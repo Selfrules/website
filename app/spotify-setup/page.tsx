@@ -10,30 +10,58 @@ import Link from 'next/link';
  * Interactive page to authorize the Spotify integration and obtain refresh token.
  * Displays success state with token or error messages.
  *
+ * SECURITY: Tokens are retrieved from HTTP-only cookies via API, NOT from URL params.
+ * This prevents exposure in browser history, referrer headers, and server logs.
+ *
  * Flow:
  * 1. User clicks "Authorize with Spotify"
  * 2. Redirects to /api/spotify/auth
  * 3. User authorizes on Spotify
- * 4. Redirects back here with success/error
+ * 4. Callback sets tokens in HTTP-only cookies
+ * 5. This page fetches tokens from /api/spotify/token (cookie auto-deleted)
  */
 export default function SpotifySetupPage() {
   const searchParams = useSearchParams();
   const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [tokens, setTokens] = useState<{
+    refresh_token?: string;
+    access_token?: string;
+    expires_in?: number;
+  } | null>(null);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   const success = searchParams.get('success') === 'true';
   const error = searchParams.get('error');
   const errorMessage = searchParams.get('message');
-  const refreshToken = searchParams.get('refresh_token');
-  const accessToken = searchParams.get('access_token');
-  const expiresIn = searchParams.get('expires_in');
 
-  // Auto-copy token to clipboard on success
+  // Fetch tokens from API when success (tokens stored in HTTP-only cookies)
   useEffect(() => {
-    if (refreshToken && !copied) {
-      navigator.clipboard.writeText(refreshToken);
-      setCopied(true);
+    if (success && !tokens && !loading) {
+      setLoading(true);
+      fetch('/api/spotify/token')
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error('Failed to retrieve token');
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setTokens(data);
+          // Auto-copy to clipboard
+          if (data.refresh_token) {
+            navigator.clipboard.writeText(data.refresh_token);
+            setCopied(true);
+          }
+        })
+        .catch((err) => {
+          setFetchError(err.message || 'Unknown error');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     }
-  }, [refreshToken, copied]);
+  }, [success, tokens, loading]);
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -98,8 +126,41 @@ export default function SpotifySetupPage() {
             </div>
           )}
 
+          {/* Loading State (fetching from cookie) */}
+          {success && loading && (
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-500 border-4 border-black rounded-full mb-4 animate-pulse">
+                <svg
+                  className="w-10 h-10 text-white animate-spin"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-2">
+                Retrieving Token...
+              </h2>
+              <p className="text-gray-400">
+                Securely fetching your refresh token
+              </p>
+            </div>
+          )}
+
           {/* Success State */}
-          {success && refreshToken && (
+          {success && tokens?.refresh_token && !loading && (
             <div>
               <div className="text-center mb-6">
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500 border-4 border-black rounded-full mb-4">
@@ -134,11 +195,11 @@ export default function SpotifySetupPage() {
                   <input
                     type="text"
                     readOnly
-                    value={refreshToken}
+                    value={tokens.refresh_token}
                     className="w-full p-3 pr-24 border-3 border-gray-300 rounded-lg font-mono text-sm bg-gray-50"
                   />
                   <button
-                    onClick={() => handleCopy(refreshToken)}
+                    onClick={() => handleCopy(tokens.refresh_token!)}
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded border-2 border-black text-sm font-bold"
                   >
                     {copied ? '✓ Copied' : 'Copy'}
@@ -176,20 +237,30 @@ export default function SpotifySetupPage() {
                   Show Debug Information
                 </summary>
                 <div className="mt-3 p-4 bg-gray-100 border-2 border-gray-300 rounded-lg font-mono text-xs space-y-2">
-                  <div>
-                    <strong>Access Token:</strong>{' '}
-                    <span className="text-gray-600">
-                      {accessToken?.substring(0, 40)}...
-                    </span>
-                  </div>
-                  <div>
-                    <strong>Expires In:</strong>{' '}
-                    <span className="text-gray-600">{expiresIn} seconds</span>
-                  </div>
+                  {tokens.access_token && (
+                    <div>
+                      <strong>Access Token:</strong>{' '}
+                      <span className="text-gray-600">
+                        {tokens.access_token.substring(0, 40)}...
+                      </span>
+                    </div>
+                  )}
+                  {tokens.expires_in && (
+                    <div>
+                      <strong>Expires In:</strong>{' '}
+                      <span className="text-gray-600">{tokens.expires_in} seconds</span>
+                    </div>
+                  )}
                   <div>
                     <strong>Refresh Token:</strong>{' '}
                     <span className="text-gray-600">
-                      {refreshToken.substring(0, 40)}...
+                      {tokens.refresh_token!.substring(0, 40)}...
+                    </span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-gray-300">
+                    <strong className="text-green-600">Security:</strong>{' '}
+                    <span className="text-gray-600">
+                      Token retrieved from HTTP-only cookie, not URL params
                     </span>
                   </div>
                 </div>
@@ -210,6 +281,62 @@ export default function SpotifySetupPage() {
                   Authorize Again
                 </button>
               </div>
+            </div>
+          )}
+
+          {/* Token Fetch Error State */}
+          {success && fetchError && !loading && (
+            <div>
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-red-500 border-4 border-black rounded-full mb-4">
+                  <svg
+                    className="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-red-600 mb-2">
+                  Token Retrieval Failed
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  Couldn't retrieve the refresh token from secure storage
+                </p>
+              </div>
+
+              {/* Error Details */}
+              <div className="bg-red-50 border-3 border-red-400 rounded-lg p-4 mb-6">
+                <h3 className="font-bold text-red-900 mb-2">Possible Causes:</h3>
+                <ul className="text-sm text-red-800 space-y-1 list-disc list-inside">
+                  <li>Token cookie expired (5-minute limit)</li>
+                  <li>Browser cookies disabled</li>
+                  <li>Page was refreshed after successful auth</li>
+                  <li>Server error: {fetchError}</li>
+                </ul>
+              </div>
+
+              {/* Solution */}
+              <div className="bg-yellow-50 border-3 border-yellow-400 rounded-lg p-4 mb-6">
+                <h3 className="font-bold text-yellow-900 mb-2">Solution:</h3>
+                <p className="text-sm text-yellow-800">
+                  Please try authorizing again. Make sure cookies are enabled and don't refresh the page during the process.
+                </p>
+              </div>
+
+              {/* Retry Button */}
+              <a
+                href="/api/spotify/auth"
+                className="block text-center bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold py-3 px-6 border-4 border-black rounded-brutal shadow-brutal hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1 transition-all"
+              >
+                Try Again
+              </a>
             </div>
           )}
 
@@ -262,7 +389,7 @@ export default function SpotifySetupPage() {
                 <ul className="list-disc list-inside text-sm text-yellow-800 space-y-1">
                   <li>Make sure you're logged into the correct Spotify account</li>
                   <li>Check that your .env file has valid SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET</li>
-                  <li>Verify the redirect URI in Spotify dashboard matches: <code>http://localhost:3000/api/spotify/callback</code></li>
+                  <li>Verify the redirect URI in Spotify dashboard matches: <code>http://127.0.0.1:3000/api/spotify/callback</code> (use 127.0.0.1 NOT localhost)</li>
                   <li>Try clearing your browser cookies and cache</li>
                 </ul>
               </div>

@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimit } from '@/lib/middleware/rate-limit';
 
 /**
  * Spotify OAuth Authorization Route
  *
  * Initiates the Spotify OAuth flow by redirecting the user to Spotify's
  * authorization page.
+ *
+ * Rate Limit: 10 requests per 10 minutes per IP
  *
  * Required Scopes:
  * - user-read-currently-playing: Read the user's currently playing track
@@ -15,12 +18,39 @@ import { NextRequest, NextResponse } from 'next/server';
  */
 export async function GET(request: NextRequest) {
   try {
+    // Check rate limit
+    const rateLimitResult = await checkRateLimit(request, 'spotifyAuth');
+
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        {
+          error: 'Too many requests',
+          message: `Rate limit exceeded. Try again in ${Math.ceil(
+            (rateLimitResult.reset - Date.now()) / 1000
+          )} seconds.`,
+          limit: rateLimitResult.limit,
+          remaining: rateLimitResult.remaining,
+          reset: rateLimitResult.reset,
+        },
+        {
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': rateLimitResult.limit.toString(),
+            'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+            'X-RateLimit-Reset': rateLimitResult.reset.toString(),
+            'Retry-After': Math.ceil((rateLimitResult.reset - Date.now()) / 1000).toString(),
+          },
+        }
+      );
+    }
     const clientId = process.env.SPOTIFY_CLIENT_ID;
     const redirectUri = process.env.SPOTIFY_REDIRECT_URI ||
                        `${process.env.NEXT_PUBLIC_APP_URL}/api/spotify/callback`;
 
     if (!clientId) {
-      console.error('❌ Missing SPOTIFY_CLIENT_ID in environment variables');
+      if (process.env.NODE_ENV === 'development') {
+        console.error('❌ Missing SPOTIFY_CLIENT_ID in environment variables');
+      }
       return NextResponse.json(
         { error: 'Spotify client ID not configured' },
         { status: 500 }
@@ -42,16 +72,20 @@ export async function GET(request: NextRequest) {
     authUrl.searchParams.set('scope', scopes.join(' '));
     authUrl.searchParams.set('show_dialog', 'true'); // Force consent screen
 
-    console.log('🎵 Redirecting to Spotify authorization...');
-    console.log('   Client ID:', clientId.substring(0, 10) + '...');
-    console.log('   Redirect URI:', redirectUri);
-    console.log('   Scopes:', scopes.join(', '));
+    // Log only in development (don't expose client info in production logs)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('🎵 Redirecting to Spotify authorization...');
+      console.log('   Redirect URI:', redirectUri);
+      console.log('   Scopes:', scopes.join(', '));
+    }
 
     // Redirect to Spotify
     return NextResponse.redirect(authUrl.toString());
 
   } catch (error) {
-    console.error('❌ Error initiating Spotify authorization:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('❌ Error initiating Spotify authorization:', error);
+    }
     return NextResponse.json(
       {
         error: 'Failed to initiate authorization',

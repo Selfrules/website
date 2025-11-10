@@ -45,6 +45,18 @@ export const rateLimiters = {
     analytics: true,
     prefix: '@upstash/ratelimit:api',
   }),
+  spotifyAuth: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(10, '10 m'), // 10 requests per 10 minutes (OAuth initiation)
+    analytics: true,
+    prefix: '@upstash/ratelimit:spotify:auth',
+  }),
+  spotifyCallback: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(20, '10 m'), // 20 requests per 10 minutes (OAuth callback)
+    analytics: true,
+    prefix: '@upstash/ratelimit:spotify:callback',
+  }),
 };
 
 // Helper to get client identifier (IP or fallback)
