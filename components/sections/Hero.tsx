@@ -34,7 +34,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="container max-w-[1440px] mx-auto px-6 md:px-8 lg:px-12 py-12 md:py-16 relative z-10">
+      <div className="container max-w-[1440px] mx-auto px-6 md:px-8 lg:px-12 py-8 md:py-12 relative z-10">
         <div className="flex flex-col items-center text-center space-y-6 md:space-y-10">
           {/* Badge with Icon */}
           <motion.div
