@@ -1,0 +1,68 @@
+# Lock files - 898KB / 25,201 lines
+package-lock.json
+npm-shrinkwrap.json
+yarn.lock
+pnpm-lock.yaml
+
+# Documentation scratch work - 722KB / 51 files
+claudedocs/
+docs/
+files/
+
+# Test artifacts
+test-results/
+playwright-report/
+coverage/
+*.webm
+debug-*.png
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Large markdown documentation files
+CHANGELOG.md
+NEXT_SESSION_TODOS.md
+E2E_TEST_FINDINGS.md
+DEVOPS_INFRASTRUCTURE_SUMMARY.md
+SECURITY_REPORT.md
+COMPONENT_INDEX.md
+CLEANUP_REPORT.md
+
+# Phase reports (archived documentation)
+**/PHASE_*.md
+
+# Test files (load only when needed)
+e2e/*.spec.ts
+**/__tests__/*.test.ts
+**/__tests__/*.test.tsx
+
+# i18n files (reference only)
+messages/en.json
+messages/it.json
+
+# Content files (reference only)
+content/website_copy_*.md
+
+# Large specification files
+files/*.md
+
+# Archived documentation
+.archive/
+
+# Environment and configuration
+.env*
+firebase-admin-key.json
+.firebase/
+
+# IDE
+.vscode/
+.idea/
+
+# Backup files
+*.bak
+
+# Large showcase/demo pages (load only when explicitly needed)
+app/[locale]/design-system/page.tsx

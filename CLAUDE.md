@@ -182,71 +182,29 @@ The admin dashboard (`/admin`) includes:
 ## Common Patterns
 
 ### Neobrutalist Component Pattern
-```tsx
-// Always include thick borders and hard shadows
-// Use rounded-brutal (6px) or rounded-brutal-lg (8px) instead of rounded-lg
-className="border-brutal border-black shadow-brutal rounded-brutal"
+Utilizza le utility Tailwind definite in `tailwind.config.ts`:
+- **Borders**: `border-brutal`, `border-brutal-thick` (4-6px solid black)
+- **Shadows**: `shadow-brutal`, `shadow-brutal-hover` (8px hard shadows)
+- **Radius**: `rounded-brutal` (6px), `rounded-brutal-lg` (8px)
+- **Hover effects**: Translate (-4px, -4px) with shadow increase
 
-// Interactive hover effects
-className="hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]
-           active:shadow-brutal-active active:translate-x-[4px] active:translate-y-[4px]"
-```
+**Reference implementations**: `components/ui/Card.tsx`, `components/ui/Button.tsx`
 
 ### Animation Pattern
-```tsx
-// Purposeful animations, not decorative
-whileHover={{ x: -4, y: -4 }}
-transition={{ type: "spring", stiffness: 400 }}
-```
+Purposeful animations using Framer Motion: `whileHover={{ x: -4, y: -4 }}` with spring physics.
 
 ### Component Variants Pattern
-```tsx
-// Color-coded Card Headers for project categorization
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
+Color-coded variants for project categorization:
+- **design** (Electric Blue #1E90FF): Design/UX projects
+- **dev** (Slate Blue #6A7B9F): Development projects
+- **pm** (Deep Navy #3E526A): PM/Strategy projects
+- **tool** (Teal #2A687A): Analytics/Tools
 
-// Design/UX projects - Electric Blue
-<Card>
-  <CardHeader variant="design">
-    <CardTitle>Figma Component Library</CardTitle>
-  </CardHeader>
-  <CardContent>...</CardContent>
-</Card>
-
-// Development projects - Slate Blue
-<CardHeader variant="dev">
-  <CardTitle>Next.js Migration</CardTitle>
-</CardHeader>
-
-// PM/Strategy projects - Deep Navy
-<CardHeader variant="pm">
-  <CardTitle>Product Roadmap 2024</CardTitle>
-</CardHeader>
-
-// Semantic Badges for skills/tags
-import { Badge } from '@/components/ui/Badge';
-
-<Badge variant="design">Figma</Badge>        // Electric Blue
-<Badge variant="dev">React</Badge>           // Slate Blue
-<Badge variant="pm">Product Strategy</Badge> // Deep Navy
-<Badge variant="tool">Google Analytics</Badge> // Teal
-```
+**Reference implementations**: `components/ui/Card.tsx`, `components/ui/Badge.tsx`
 
 ### API Route Pattern
-```ts
-// Consistent error handling and rate limiting
-export async function POST(request: Request) {
-  const rateLimitCheck = await checkRateLimit(request);
-  if (!rateLimitCheck.success) return rateLimitResponse();
-
-  try {
-    const body = await request.json();
-    const validated = schema.parse(body);
-    // Process request
-  } catch (error) {
-    return handleApiError(error);
-  }
-}
-```
+Consistent error handling with rate limiting and Zod validation.
+**Reference implementation**: `app/api/chat/route.ts:252`
 
 ## Key Technical Decisions
 
