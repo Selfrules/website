@@ -27,7 +27,14 @@ export interface BookingData {
 }
 
 /**
- * BookingForm - Collect user information for booking
+ * BookingForm - Collect user information for booking (Legacy Implementation)
+ *
+ * @deprecated Consider using the modern implementation at
+ * components/integrations/calendar/BookingForm.tsx which includes:
+ * - react-hook-form for better performance
+ * - Zod validation schema
+ * - Zustand store integration
+ * - Better TypeScript types
  *
  * Features:
  * - Form validation
