@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { useTranslations } from 'next-intl';
+import { GoogleCalendarPopup, useGoogleCalendar } from '@/components/ui/GoogleCalendarPopup';
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const { isOpen, openCalendar, closeCalendar } = useGoogleCalendar();
 
   return (
     <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center bg-[#FFFCF2] border-b-4 border-[#000] overflow-hidden">
@@ -94,6 +96,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <button
+              onClick={openCalendar}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
               style={{
                 fontFamily: 'Space Grotesk, sans-serif',
@@ -117,6 +120,9 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Google Calendar Popup */}
+      <GoogleCalendarPopup isOpen={isOpen} onClose={closeCalendar} />
     </section>
   );
 }

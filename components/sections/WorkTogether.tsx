@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { useAnalytics } from '@/lib/hooks/useAnalytics';
 import { Check, Lightbulb, Users, GraduationCap } from 'lucide-react';
+import { GoogleCalendarPopup, useGoogleCalendar } from '@/components/ui/GoogleCalendarPopup';
 
 interface CollaborationCard {
   id: number;
@@ -18,6 +19,7 @@ interface CollaborationCard {
 export default function WorkTogether() {
   const t = useTranslations('workTogether');
   const analytics = useAnalytics();
+  const { isOpen, openCalendar, closeCalendar } = useGoogleCalendar();
 
   const collaborations: CollaborationCard[] = [
     {
@@ -134,17 +136,20 @@ export default function WorkTogether() {
             <p className="text-body-small md:text-body text-white/90 mb-5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               {t('cta.description')}
             </p>
-            <a
-              href="#ask-me"
+            <button
+              onClick={openCalendar}
               className="inline-block px-6 md:px-8 py-3 md:py-4 bg-[#FFD60A] text-[#0A0A0A] border-4 border-[#000] rounded shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all"
               style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px', textTransform: 'uppercase' }}
             >
               {t('cta.button')}
-            </a>
+            </button>
           </div>
         </div>
 
       </div>
+
+      {/* Google Calendar Popup */}
+      <GoogleCalendarPopup isOpen={isOpen} onClose={closeCalendar} />
     </section>
   );
 }
