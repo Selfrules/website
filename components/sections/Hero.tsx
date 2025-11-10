@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { Button } from '@/components/ui/Button';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
@@ -94,12 +93,27 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Button variant="primary" size="lg">
+            <button
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontSize: '14px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+              }}
+            >
               {t('cta')} <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="secondary" size="lg">
+            </button>
+            <button
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontSize: '14px',
+                fontWeight: 700,
+              }}
+            >
               {t('explore')}
-            </Button>
+            </button>
           </motion.div>
         </div>
       </div>
