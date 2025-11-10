@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Music, ExternalLink } from 'lucide-react';
@@ -7,14 +8,14 @@ import { useNowPlaying } from '@/lib/hooks/useSpotify';
 import { cn } from '@/lib/utils';
 
 export function SpotifyWidget() {
-  const { data: track, isLoading, isError } = useNowPlaying();
+  const { data: track, isLoading, isError, error, refetch } = useNowPlaying();
 
   if (isLoading) {
     return <SpotifySkeleton />;
   }
 
   if (isError) {
-    return <SpotifyError />;
+    return <SpotifyError error={error} onRetry={refetch} />;
   }
 
   if (!track) {
@@ -43,19 +44,50 @@ function SpotifySkeleton() {
   );
 }
 
-function SpotifyError() {
+interface SpotifyErrorProps {
+  error?: any;
+  onRetry?: () => void;
+}
+
+function SpotifyError({ error, onRetry }: SpotifyErrorProps) {
+  // Check if error is authentication-related
+  const isAuthError = error?.message?.includes('401') ||
+                     error?.message?.includes('Unauthorized') ||
+                     error?.message?.includes('token');
+
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#FF006E] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
-      <div className="w-16 h-16 rounded border-3 border-[#FF006E] bg-[#2D2D2D] flex items-center justify-center flex-shrink-0">
-        <Music className="w-8 h-8 text-[#FF006E]" />
+    <div className="w-full bg-[#0A0A0A] border-3 border-[#FF006E] rounded-lg p-4 shadow-brutal-sm">
+      <div className="flex items-center gap-4 mb-3">
+        <div className="w-16 h-16 rounded border-3 border-[#FF006E] bg-[#2D2D2D] flex items-center justify-center flex-shrink-0">
+          <Music className="w-8 h-8 text-[#FF006E]" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            {isAuthError ? 'Authentication Error' : 'Connection Failed'}
+          </p>
+          <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+            {isAuthError ? 'Spotify not authorized' : 'Couldn\'t connect to Spotify'}
+          </p>
+        </div>
       </div>
-      <div className="flex-1">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-          Failed to load
-        </p>
-        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
-          Couldn&apos;t connect to Spotify
-        </p>
+
+      {/* Action Buttons */}
+      <div className="flex gap-2 mt-2">
+        {isAuthError ? (
+          <a
+            href="/spotify-setup"
+            className="flex-1 text-center text-xs md:text-sm bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold py-2 px-3 border-2 border-black rounded shadow-[2px_2px_0px_#000] hover:shadow-[3px_3px_0px_#000] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all"
+          >
+            Authorize Spotify
+          </a>
+        ) : (
+          <button
+            onClick={onRetry}
+            className="flex-1 text-xs md:text-sm bg-white hover:bg-gray-100 text-black font-bold py-2 px-3 border-2 border-black rounded shadow-[2px_2px_0px_#000] hover:shadow-[3px_3px_0px_#000] hover:-translate-x-[1px] hover:-translate-y-[1px] transition-all"
+          >
+            Retry
+          </button>
+        )}
       </div>
     </div>
   );
@@ -63,20 +95,29 @@ function SpotifyError() {
 
 function SpotifyOffline() {
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
-      {/* Album Art Placeholder */}
-      <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0 animate-pulse-spotify" />
+    <a
+      href="https://open.spotify.com/user/mattia@selfrules.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 shadow-brutal-sm hover:border-[#1DB954] transition-colors group"
+    >
+      <div className="flex items-center gap-4">
+        {/* Album Art Placeholder */}
+        <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-gray-700 group-hover:border-[#1DB954] flex items-center justify-center flex-shrink-0 transition-colors">
+          <Music className="w-8 h-8 text-gray-400 group-hover:text-[#1DB954] transition-colors" />
+        </div>
 
-      {/* Track Info */}
-      <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-          Not Playing
-        </p>
-        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
-          Offline
-        </p>
+        {/* Track Info */}
+        <div className="flex-1 min-w-0">
+          <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            Not Playing
+          </p>
+          <p className="text-[#6B7280] group-hover:text-[#1DB954] truncate text-xs md:text-sm transition-colors" style={{ fontFamily: 'Inter, sans-serif' }}>
+            View on Spotify →
+          </p>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -92,39 +133,79 @@ interface SpotifyNowPlayingProps {
 }
 
 function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
-      {/* Album Art Placeholder */}
-      <div className="w-16 h-16 rounded border-3 border-[#1DB954] flex-shrink-0 overflow-hidden">
-        <Image
-          src={track.albumArt}
-          alt={`${track.album} album cover`}
-          width={64}
-          height={64}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-      </div>
-
-      {/* Track Info */}
-      <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-          {track.name}
-        </p>
-        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
-          {track.artist}
-        </p>
-      </div>
-
-      {/* Playing Indicator */}
-      {track.isPlaying && (
-        <div className="flex gap-0.5 items-end flex-shrink-0">
-          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '12px', animationDelay: '0s' }} />
-          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '20px', animationDelay: '0.2s' }} />
-          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '16px', animationDelay: '0.4s' }} />
+    <motion.a
+      href={track.spotifyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative block w-full bg-[#0A0A0A] border-3 border-[#000] hover:border-[#1DB954] rounded-lg p-4 shadow-brutal-sm transition-all group"
+      whileHover={{ scale: 1.02 }}
+      onHoverStart={() => setShowTooltip(true)}
+      onHoverEnd={() => setShowTooltip(false)}
+    >
+      <div className="flex items-center gap-4">
+        {/* Album Art */}
+        <div className="w-16 h-16 rounded border-3 border-[#1DB954] flex-shrink-0 overflow-hidden relative">
+          <Image
+            src={track.albumArt}
+            alt={`${track.album} album cover`}
+            width={64}
+            height={64}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          {/* Overlay on hover */}
+          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <ExternalLink className="w-6 h-6 text-white" />
+          </div>
         </div>
+
+        {/* Track Info */}
+        <div className="flex-1 min-w-0">
+          <p
+            className="text-white truncate mb-1 text-sm md:text-base font-bold group-hover:text-[#1DB954] transition-colors"
+            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            title={track.name}
+          >
+            {track.name}
+          </p>
+          <p
+            className="text-[#6B7280] truncate text-xs md:text-sm"
+            style={{ fontFamily: 'Inter, sans-serif' }}
+            title={`${track.artist} • ${track.album}`}
+          >
+            {track.artist}
+          </p>
+        </div>
+
+        {/* Playing Indicator */}
+        {track.isPlaying && (
+          <div className="flex gap-0.5 items-end flex-shrink-0">
+            <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '12px', animationDelay: '0s' }} />
+            <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '20px', animationDelay: '0.2s' }} />
+            <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '16px', animationDelay: '0.4s' }} />
+          </div>
+        )}
+      </div>
+
+      {/* Tooltip */}
+      {showTooltip && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute left-0 right-0 -bottom-2 translate-y-full z-10 bg-white border-3 border-black rounded-lg p-3 shadow-brutal-sm hidden md:block"
+        >
+          <p className="text-xs font-bold text-black mb-1">{track.name}</p>
+          <p className="text-xs text-gray-600">by {track.artist}</p>
+          <p className="text-xs text-gray-500">on {track.album}</p>
+          <p className="text-xs text-[#1DB954] mt-2 font-bold">
+            Click to open in Spotify →
+          </p>
+        </motion.div>
       )}
-    </div>
+    </motion.a>
   );
 }
 
