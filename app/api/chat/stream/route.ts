@@ -5,7 +5,6 @@
  */
 
 import { NextRequest } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
 import {
   COLLECTIONS,
   ChatConversation,
@@ -18,9 +17,13 @@ import { chatRateLimiter } from '@/lib/middleware/rate-limit';
 import { RateLimitError } from '@/lib/utils/errors';
 import { Timestamp } from 'firebase-admin/firestore';
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+// Lazy-load Anthropic SDK to reduce bundle size
+async function getAnthropicClient() {
+  const { default: Anthropic } = await import('@anthropic-ai/sdk');
+  return new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
+  });
+}
 
 const SYSTEM_PROMPT = `You are the digital twin of Mattia, a Product Manager with a unique background:
 - 6 years in design: "Design without strategy is just decoration"
@@ -91,6 +94,9 @@ export async function POST(req: NextRequest) {
         role: m.role,
         content: m.content,
       }));
+
+    // Lazy-load Anthropic SDK
+    const anthropic = await getAnthropicClient();
 
     // Create streaming response
     const stream = new ReadableStream({

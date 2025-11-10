@@ -11,7 +11,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
 import {
   COLLECTIONS,
   ChatConversation,
@@ -27,9 +26,13 @@ import { chatRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { Timestamp } from 'firebase-admin/firestore';
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+// Lazy-load Anthropic SDK to reduce bundle size
+async function getAnthropicClient() {
+  const { default: Anthropic } = await import('@anthropic-ai/sdk');
+  return new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
+  });
+}
 
 const SYSTEM_PROMPT = `You are the digital twin of Mattia, a Product Manager with a unique background:
 - 6 years in design: "Design without strategy is just decoration"
@@ -165,7 +168,8 @@ export async function POST(req: NextRequest) {
         content: m.content,
       }));
 
-    // Get AI response
+    // Get AI response (lazy-load Anthropic SDK)
+    const anthropic = await getAnthropicClient();
     const aiResponse = await anthropic.messages.create({
       model: 'claude-3-5-sonnet-20241022',
       max_tokens: 1024,
