@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { Button } from '@/components/ui/Button';
 
 interface BlogProps {
   locale: string;
@@ -67,9 +66,16 @@ export default async function Blog({ locale }: BlogProps) {
             {/* View All Button */}
             <div className="text-center">
               <Link href={`/${locale}/blog`}>
-                <Button variant="secondary" size="lg">
+                <button
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFD60A] text-[#0A0A0A] border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
+                  style={{
+                    fontFamily: 'Space Grotesk, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                  }}
+                >
                   {t.viewAll}
-                </Button>
+                </button>
               </Link>
             </div>
           </>
