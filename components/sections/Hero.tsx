@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { NeoButton } from '@/components/ui/NeoButton';
+import { Button } from '@/components/ui/Button';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
@@ -94,12 +94,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <NeoButton variant="primary">
+            <Button variant="primary" size="lg">
               {t('cta')} <ArrowRight className="w-5 h-5" />
-            </NeoButton>
-            <NeoButton variant="secondary">
+            </Button>
+            <Button variant="secondary" size="lg">
               {t('explore')}
-            </NeoButton>
+            </Button>
           </motion.div>
         </div>
       </div>

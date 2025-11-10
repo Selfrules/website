@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { NeoButton } from '@/components/ui/NeoButton';
+import { Button } from '@/components/ui/Button';
 
 interface BlogProps {
   locale: string;
@@ -67,9 +67,9 @@ export default async function Blog({ locale }: BlogProps) {
             {/* View All Button */}
             <div className="text-center">
               <Link href={`/${locale}/blog`}>
-                <NeoButton variant="secondary">
+                <Button variant="secondary" size="lg">
                   {t.viewAll}
-                </NeoButton>
+                </Button>
               </Link>
             </div>
           </>

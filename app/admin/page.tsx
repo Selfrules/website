@@ -41,19 +41,24 @@ export default function AdminDashboard() {
 
   const loadDashboardStats = async () => {
     try {
-      // TODO: Implement API endpoint for dashboard stats
-      // For now, using placeholder data
-      setStats({
-        totalArticles: 12,
-        publishedArticles: 8,
-        totalConversations: 156,
-        totalQuestions: 42,
-        pendingQuestions: 7,
-        totalBookings: 23,
-        pageViews: 3547,
-      });
+      const response = await fetch('/api/admin/stats');
+      if (!response.ok) {
+        throw new Error('Failed to fetch dashboard stats');
+      }
+      const data = await response.json();
+      setStats(data.data);
     } catch (error) {
       console.error('Failed to load dashboard stats:', error);
+      // Fallback to zero stats on error
+      setStats({
+        totalArticles: 0,
+        publishedArticles: 0,
+        totalConversations: 0,
+        totalQuestions: 0,
+        pendingQuestions: 0,
+        totalBookings: 0,
+        pageViews: 0,
+      });
     } finally {
       setLoading(false);
     }

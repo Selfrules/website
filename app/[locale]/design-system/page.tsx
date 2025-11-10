@@ -3,6 +3,9 @@
 import { InsightCard, FrameworkBox, MetricsGrid, HighlightBox } from '@/components/blog/article';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import ColorPalette from '@/components/design-system/ColorPalette';
+import Typography from '@/components/design-system/Typography';
+import BrutalShadows from '@/components/design-system/BrutalShadows';
 
 export default function DesignSystemPage() {
   return (
@@ -15,90 +18,11 @@ export default function DesignSystemPage() {
           </p>
         </header>
 
-        <section className="mb-16">
-          <h2 className="text-h2 text-[#0A0A0A] mb-6">Palette Colori</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div className="bg-[#0D7EFF] border-4 border-[#000] rounded-lg shadow-brutal p-6">
-              <p className="text-white font-bold mb-1">Electric Blue</p>
-              <p className="text-white/80 text-sm">#0D7EFF</p>
-              <p className="text-white/60 text-xs mt-2">Design/UX</p>
-            </div>
-            <div className="bg-[#2A687A] border-4 border-[#000] rounded-lg shadow-brutal p-6">
-              <p className="text-white font-bold mb-1">Teal</p>
-              <p className="text-white/80 text-sm">#2A687A</p>
-              <p className="text-white/60 text-xs mt-2">Development</p>
-            </div>
-            <div className="bg-[#7209B7] border-4 border-[#000] rounded-lg shadow-brutal p-6">
-              <p className="text-white font-bold mb-1">Deep Purple</p>
-              <p className="text-white/80 text-sm">#7209B7</p>
-              <p className="text-white/60 text-xs mt-2">PM/Strategy</p>
-            </div>
-            <div className="bg-[#FF006E] border-4 border-[#000] rounded-lg shadow-brutal p-6">
-              <p className="text-white font-bold mb-1">Neon Pink</p>
-              <p className="text-white/80 text-sm">#FF006E</p>
-              <p className="text-white/60 text-xs mt-2">Tools/Analytics</p>
-            </div>
-            <div className="bg-[#FFD60A] border-4 border-[#000] rounded-lg shadow-brutal p-6">
-              <p className="text-[#0A0A0A] font-bold mb-1">Cyber Yellow</p>
-              <p className="text-[#0A0A0A]/80 text-sm">#FFD60A</p>
-              <p className="text-[#0A0A0A]/60 text-xs mt-2">Featured only</p>
-            </div>
-          </div>
-        </section>
+        <ColorPalette />
 
-        <section className="mb-16">
-          <h2 className="text-h2 text-[#0A0A0A] mb-6">Tipografia</h2>
-          <div className="mb-6 bg-[#FFF5E1] border-2 border-[#FFD60A] rounded-lg p-4">
-            <p className="text-body-small text-[#0A0A0A]">
-              <strong>⚠️ REGOLA IMPORTANTE:</strong> Tutte le classi di tipografia (text-*, font-*) devono sempre applicare il colore nero (#0A0A0A) come default.
-              Non usare mai testo bianco come colore di default. Il colore del testo deve essere esplicitamente specificato solo quando si vuole un colore diverso dal nero.
-            </p>
-          </div>
-          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8 space-y-6">
-            <div>
-              <p className="text-hero text-[#0A0A0A]">Hero Text</p>
-              <p className="text-sm text-[#6B7280]">Space Grotesk · 900 · 36-72px</p>
-            </div>
-            <div>
-              <p className="text-h1 text-[#0A0A0A]">Heading 1</p>
-              <p className="text-sm text-[#6B7280]">Space Grotesk · 700 · 28-46px</p>
-            </div>
-            <div>
-              <p className="text-h2 text-[#0A0A0A]">Heading 2</p>
-              <p className="text-sm text-[#6B7280]">Space Grotesk · 700 · 24-37px</p>
-            </div>
-            <div>
-              <p className="text-h3 text-[#0A0A0A]">Heading 3</p>
-              <p className="text-sm text-[#6B7280]">Space Grotesk · 600 · 20-24px</p>
-            </div>
-            <div>
-              <p className="text-body text-[#0A0A0A]">Body Regular</p>
-              <p className="text-sm text-[#6B7280]">Inter · 400 · 16-17px</p>
-            </div>
-            <div>
-              <p className="text-body-small text-[#0A0A0A]">Body Small</p>
-              <p className="text-sm text-[#6B7280]">Inter · 400 · 14-15px</p>
-            </div>
-          </div>
-        </section>
+        <Typography />
 
-        <section className="mb-16">
-          <h2 className="text-h2 text-[#0A0A0A] mb-6">Brutal Shadows</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-sm p-8">
-              <p className="font-bold text-[#0A0A0A]">shadow-brutal-sm</p>
-              <p className="text-sm text-[#6B7280]">3px 3px 0 #000</p>
-            </div>
-            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
-              <p className="font-bold text-[#0A0A0A]">shadow-brutal</p>
-              <p className="text-sm text-[#6B7280]">6px 6px 0 #000</p>
-            </div>
-            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8">
-              <p className="font-bold text-[#0A0A0A]">shadow-brutal-lg</p>
-              <p className="text-sm text-[#6B7280]">10px 10px 0 #000</p>
-            </div>
-          </div>
-        </section>
+        <BrutalShadows />
 
         <section className="mb-16">
           <h2 className="text-h2 text-[#0A0A0A] mb-6">Badges (Categorizzazione Progetti)</h2>

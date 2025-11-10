@@ -142,8 +142,18 @@ export async function POST(req: NextRequest) {
       }
     );
 
-    // TODO: Send confirmation email
-    // TODO: Create Google Calendar event
+    // Send confirmation emails (non-blocking)
+    // Don't await - send in background to avoid delaying response
+    import('@/lib/email/notifications').then(({ sendBookingConfirmation, sendAdminBookingNotification }) => {
+      sendBookingConfirmation(booking).catch((err) =>
+        console.error('Failed to send booking confirmation:', err)
+      );
+      sendAdminBookingNotification(booking).catch((err) =>
+        console.error('Failed to send admin notification:', err)
+      );
+    });
+
+    // TODO: Create Google Calendar event (requires OAuth flow setup)
 
     const response = NextResponse.json(
       formatSuccessResponse(booking, 'Booking created successfully'),
