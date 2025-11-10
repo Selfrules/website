@@ -31,27 +31,43 @@
     "badge": "My Journey",
     "title": "From zero to",
     "titleHighlight": "Product Manager",
-    "subtitle": "Most PMs come from consulting. I did design, development, entrepreneurship. This is my superpower.",
+    "subtitle": "Most PMs come from consulting or business. I did design, development, entrepreneurship. This is my superpower: I speak all three languages.",
     "current": "Today",
-    "skills": "SKILLS",
-    "certifications": "CERTIFICATIONS",
+    "skillsLabel": "What I bring",
+    "certificationsLabel": "What I studied",
     "endMessage": "12 years of failures transformed into experience",
     "experiences": {
       "pm": {
         "date": "2023-present",
         "company": "QubicaAMF",
         "role": "Product Manager",
-        "description": "Unifying everything I've learned to build things that matter.",
+        "description": "Now I unify everything I've learned. Design + Development + Business = Product Management. No more silos. No more translators. Just results.",
         "achievements": {
-          "1": "-12% payment times (not magic, just fewer useless clicks)",
-          "2": "+9% integration adoption (less PDFs, more 3-minute videos)",
-          "3": "-25% post-release incidents (putting Product, Support, and Engineering in the same room every Friday)"
+          "1": "-12% payment times in 6 months. How? Not magic. Just fewer useless clicks. From 7 steps to 3.",
+          "2": "+9% platform integration adoption. How? Less 47-page PDFs. More 3-minute videos.",
+          "3": "-25% post-release incidents. How? One room. Every Friday. Product, Support, Engineering. 40 minutes talking about what went wrong."
         },
         "technologies": {
           "1": "Product Strategy",
-          "2": "API Design",
-          "3": "User Research",
-          "4": "Business Case"
+          "2": "Platform Integration",
+          "3": "API Design",
+          "4": "User Research",
+          "5": "Business Case",
+          "6": "A/B Testing",
+          "7": "Analytics"
+        },
+        "philosophy": {
+          "intro": "My superpower today? I speak three languages fluently:",
+          "1": "Design Language: \"The user gets stuck here because the visual hierarchy is wrong\"",
+          "2": "Developer Language: \"This feature would require 3 sprints of refactoring\"",
+          "3": "Business Language: \"This problem costs €15K/month in support tickets\"",
+          "conclusion": "You don't need a translator when you are the translator."
+        },
+        "certifications": {
+          "1": "AI for Product (Product School 2025)",
+          "2": "Product Leader (Product School 2025)",
+          "3": "Product Marketing Manager (Product School 2025)",
+          "4": "Product Knowledge Professional (Product Compass 2024)"
         },
         "metrics": {
           "impact": "Payment times",
@@ -59,58 +75,70 @@
         }
       },
       "po": {
-        "date": "2021-2023",
+        "date": "2020-2023",
         "company": "ActiveProspect",
         "role": "Product Owner",
-        "description": "Bridging business and tech. Translating needs into features.",
+        "description": "I bridged business and tech. Translated needs into features. Roadmap. Backlog. Sprint planning. But most importantly: I learned to say \"no\".",
         "achievements": {
-          "1": "The real work of Product isn't saying \"yes\" to everything, but saying \"no\" to the right things",
-          "2": "A beautiful roadmap is useless if it's not aligned with business",
-          "3": "User feedback matters more than any internal stakeholder's opinion"
+          "1": "The real work of Product isn't saying \"yes\" to everything. It's saying \"no\" to the right things.",
+          "2": "A beautiful roadmap is useless if it's not aligned with business. User feedback matters more than any internal stakeholder's opinion.",
+          "3": "The hardest lesson? Not every problem should be solved with code. Sometimes the solution is a 3-minute video. Or simply talking to the customer before developing."
         },
         "technologies": {
-          "1": "Roadmapping",
-          "2": "Stakeholder Management",
-          "3": "User Feedback",
-          "4": "Prioritization"
+          "1": "B2B SaaS",
+          "2": "Lead Generation",
+          "3": "Agile/Scrum",
+          "4": "User Research",
+          "5": "SQL",
+          "6": "Analytics"
+        },
+        "certifications": {
+          "1": "Certified Scrum Product Owner (Scrum Alliance 2020)",
+          "2": "Google PM Specialization (Coursera 2023)"
         },
         "metrics": {
           "impact": "Skill acquired",
           "value": "3 languages"
         }
       },
-      "dev": {
-        "date": "2016-2020",
+      "developer": {
+        "date": "2017-2019",
         "company": "FLOWING",
-        "role": "Full-stack Developer",
-        "description": "Writing code. Building APIs. Thinking tech solved everything.",
+        "role": "Designer & Developer",
+        "description": "No more just wireframes to pass to someone else. No more just code someone else had designed. At Flowing I started doing what seemed obvious: design the experience and then build it. Everything.",
         "achievements": {
-          "1": "I optimized an algorithm to be 10ms faster while nobody understood how to use the feature",
-          "2": "I wrote the most elegant code of my career for a product that died after 4 months",
-          "3": "The turning point: \"But what's this really for?\" - I couldn't answer"
+          "1": "The project that shaped me the most? CliensPiù - an advanced management software for law firms. A real application that lawyers had to work with 8 hours a day.",
+          "2": "When you design something people will use daily for years, every friction counts. How do you organize 500 legal cases without driving anyone crazy? How do you make finding a document take 3 seconds instead of 3 minutes?",
+          "3": "CliensPiù is still in use today. After years, it works. This doesn't happen by accident - it happens when you design and build thinking about who will have to live inside it, not just how it looks in the screenshot."
         },
         "technologies": {
-          "1": "JavaScript",
-          "2": "API Development",
-          "3": "Backend",
-          "4": "Frontend"
+          "1": "React",
+          "2": "Node.js",
+          "3": "PostgreSQL",
+          "4": "Full-stack Development",
+          "5": "UX Implementation",
+          "6": "System Architecture"
+        },
+        "certifications": {
+          "1": "Certified ScrumMaster (Scrum Alliance 2019)"
         }
       },
       "designer": {
         "date": "2012-2018",
         "company": "Selfrules",
-        "role": "Designer & Business Owner",
-        "description": "Designing websites. Managing clients. Thinking I knew everything.",
+        "role": "Web Designer & Founder",
+        "description": "I opened an agency at 25. I thought I knew everything. I designed beautiful websites. Managed clients. Invoiced. And I discovered three uncomfortable truths the hard way:",
         "achievements": {
           "1": "Beautiful design that nobody understands how to use is just art, not product",
           "2": "Perfect mockup that can't be developed is wasted time",
-          "3": "The failure: 3 weeks on a design technically impossible within budget"
+          "3": "My most expensive failure: 3 weeks on a design technically impossible within the client's budget"
         },
         "technologies": {
-          "1": "Design",
-          "2": "Business",
-          "3": "Client Management",
-          "4": "Web Design"
+          "1": "Adobe Creative Suite",
+          "2": "Web Design",
+          "3": "User Research",
+          "4": "Business",
+          "5": "Client Management"
         }
       }
     },
@@ -172,33 +200,43 @@
     }
   },
   "workTogether": {
+    "badge": "Let's work together",
     "title": "How we can",
     "titleHighlight": "work together",
-    "subtitle": "I don't sell consulting. I don't sell hours. I sell results. If you have a concrete problem and want someone who understands design, tech, and business without needing translators, let's talk.",
+    "subtitle": {
+      "part1": "I don't sell consulting. I don't sell hours. I sell results.",
+      "part2": "If you have a concrete problem and want someone who understands design, tech, and business without needing translators, let's talk."
+    },
     "modes": {
       "consulting": {
         "badge": "Strategic consulting",
         "title": "Unlock your product in 90 minutes",
         "description": "Got a product that won't take off? A team going in circles? A roadmap that looks strategic but delivers no results? Let's take 90 minutes.",
-        "expectations": {
-          "dont": "Don't expect: Beautiful slides with buzzwords.",
-          "do": "Expect: Direct questions, pragmatic analysis, clear action plan."
-        },
-        "idealFor": "Ideal for: Founders, Product Managers, Tech Leads who know they're stuck but don't understand where."
+        "features": {
+          "1": "End-to-end techno-strategic analysis",
+          "2": "Prioritized roadmap with business impact",
+          "3": "Follow-up session after 30 days"
+        }
       },
       "brainstorming": {
         "badge": "Brainstorming sessions",
-        "title": "Two brains, one problem, infinite solutions",
-        "description": "Sometimes the problem isn't that you don't have solutions. It's that you have too many and don't know which to choose. Or worse, you have the wrong solution to the right problem.",
-        "whatWeDo": "What we do: Practical work session. Sketches, diagrams, cost-benefit analysis. We leave with solution prototypes, not just vague ideas.",
-        "idealFor": "Ideal for: Teams in discovery phase, complex architectural decisions, when you need an outsider to challenge your assumptions."
+        "title": "From chaos to clarity",
+        "description": "Got a vague idea? A project that hasn't taken shape yet? A team that needs alignment? Let's transform chaos into a plan.",
+        "features": {
+          "1": "Interactive workshop 2-3 hours",
+          "2": "Reusable framework for the team",
+          "3": "Session documentation + next steps"
+        }
       },
       "mentorship": {
         "badge": "Mentorship",
-        "title": "The path I wish someone had shown me",
-        "description": "Are you a designer wanting to understand development? A developer wanting to move into product? A junior PM wanting to grow?",
-        "format": "Format: 1 hour every 2 weeks. Analysis of your current work. Practical advice. Access to templates and frameworks I use.",
-        "notForYou": "It's not for you if you're looking for someone to tell you what to do. It's for you if you want to learn to think, not just execute."
+        "title": "Grow as a Product Manager",
+        "description": "Already in product but want to grow? Want to transition from design/dev to product? I'll guide you through the journey. No theory, just practice.",
+        "features": {
+          "1": "Bi-weekly 1-on-1 sessions",
+          "2": "Code/design review on real projects",
+          "3": "Personalized career path + accountability"
+        }
       }
     },
     "testimonials": {
@@ -229,7 +267,11 @@
         "company": "Creative Labs"
       }
     },
-    "cta": "Let's talk about your project →"
+    "cta": {
+      "title": "Ready to build something that matters?",
+      "description": "Let's talk. No commitment. No aggressive selling. Just a conversation between people who want to solve real problems.",
+      "button": "Let's start the conversation"
+    }
   },
   "common": {
     "readMore": "read more",
@@ -238,15 +280,26 @@
     "error": "something went wrong"
   },
   "footer": {
+    "bio": "Product Manager who speaks designer, writes code, and builds products that solve real problems.",
+    "location": "Based in Italy 🇮🇹 | Working Remote 🌍",
     "tagline": "Product Manager who speaks design, code, and business. Building products that actually solve problems.",
     "badge": "Available for consulting",
     "navigation": "Quick links",
     "connect": "Connect",
     "getInTouch": "Get in touch",
+    "madeWith": "Made with",
+    "andCoffee": "and coffee ☕",
     "ctaText": "Have a project in mind? Let's talk about how we can work together.",
     "ctaButton": "Let's talk",
     "rights": "All rights reserved.",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "resources": {
+      "title": "Resources",
+      "tools": "My tools stack",
+      "design": "Design resources",
+      "stack": "Tech stack",
+      "newsletter": "Newsletter"
+    }
   }
 }
