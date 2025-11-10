@@ -59,44 +59,14 @@ export default function AnalyticsPage() {
 
   const loadAnalytics = async () => {
     try {
-      // TODO: Implement API endpoint for analytics
-      // Placeholder data for now
+      const response = await fetch(`/api/admin/analytics-data?timeRange=${timeRange}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch analytics data');
+      }
+      const result = await response.json();
       setData({
-        overview: {
-          totalPageViews: 12547,
-          uniqueVisitors: 3892,
-          avgSessionDuration: 245, // seconds
-          bounceRate: 42.5, // percentage
-          trends: {
-            pageViews: 15.3,
-            visitors: 8.7,
-            duration: -5.2,
-            bounce: 3.1,
-          },
-        },
-        topPages: [
-          { path: '/', views: 4523, avgTime: 180 },
-          { path: '/blog', views: 2341, avgTime: 320 },
-          { path: '/blog/product-management', views: 1876, avgTime: 425 },
-          { path: '/blog/design-failure', views: 1234, avgTime: 380 },
-          { path: '#contact', views: 987, avgTime: 95 },
-        ],
-        traffic: [
-          { date: '2024-01-01', views: 420, visitors: 145 },
-          { date: '2024-01-02', views: 385, visitors: 132 },
-          { date: '2024-01-03', views: 456, visitors: 167 },
-          { date: '2024-01-04', views: 502, visitors: 189 },
-          { date: '2024-01-05', views: 478, visitors: 172 },
-          { date: '2024-01-06', views: 391, visitors: 138 },
-          { date: '2024-01-07', views: 445, visitors: 158 },
-        ],
-        events: [
-          { name: 'hero_cta_clicked', count: 234, category: 'engagement' },
-          { name: 'chat_opened', count: 187, category: 'interaction' },
-          { name: 'blog_shared', count: 156, category: 'social' },
-          { name: 'form_submitted', count: 89, category: 'conversion' },
-        ],
-        heatmapData: [], // Placeholder for heatmap
+        ...result.data,
+        heatmapData: [], // Heatmap data not yet implemented
       });
     } catch (error) {
       console.error('Failed to load analytics:', error);
