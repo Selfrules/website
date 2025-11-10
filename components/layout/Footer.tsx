@@ -124,7 +124,7 @@ export function Footer({ locale }: FooterProps) {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-[#0D7EFF] transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
+                    className="text-white/80 hover:!text-[#0D7EFF] transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-3 h-3 text-[#0D7EFF] opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.name}
@@ -147,10 +147,10 @@ export function Footer({ locale }: FooterProps) {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-[#FF006E] transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
+                    className="text-white/80 hover:!text-[#6A7B9F] transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
                   >
                     {link.name}
-                    <ExternalLink className="w-3 h-3 text-[#FF006E] opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="w-3 h-3 text-[#6A7B9F] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
               ))}
