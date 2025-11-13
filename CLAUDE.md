@@ -133,13 +133,14 @@ The application follows a **Jamstack approach** with pre-rendering for SEO and c
 
 ### Neobrutalist Design System (Cold-Tone Palette)
 
-**Updated**: 2025-11-08 - Migrated to professional cold-tone palette with WCAG AA compliance
+**Updated**: 2025-11-13 - Updated with correct Figma Make palette
 
 #### Color Palette
-- **Primary**: Electric Blue #1E90FF (Design/UX projects)
-- **Secondary**: Slate Blue #6A7B9F (Development projects)
-- **Accent**: Deep Navy #3E526A (PM/Strategy projects)
-- **Alternative**: Teal #2A687A (Analytics/Tools)
+- **Electric Blue**: #0D7EFF (Design/UX projects)
+- **Teal**: #2A687A (Development projects)
+- **Deep Purple**: #7209B7 (PM/Strategy projects)
+- **Cyber Yellow**: #FFD60A (Featured/Special items - use black text #0A0A0A)
+- **Neon Pink**: #FF006E (Analytics/Tools projects)
 
 #### Visual Elements
 - **Borders**: 4-6px solid black (`border-brutal`, `border-brutal-thick`)
@@ -179,6 +180,135 @@ Write: "We're solving the '3am password reset' problem - when users are locked o
 
 Instead of: "Optimized performance metrics"
 Write: "Cut payment times by 12%. How? Reduced clicks from 7 to 3. Sometimes the answer isn't complex."
+
+## Design System Usage (PRIORITÀ MASSIMA)
+
+### Regola d'Oro
+**SEMPRE** utilizzare il design system custom. **MAI** utilizzare utility Tailwind vanilla quando esiste un'alternativa custom.
+
+### Design Tokens Reference
+
+Tutti i design tokens sono definiti in `tailwind.config.ts`. Utilizzare SEMPRE questi invece di valori hard-coded.
+
+#### Colori
+
+**Palette Principale (Badge e Progetti)**
+| Uso | Utility Class | Hex | Text Color | Quando Usare |
+|-----|---------------|-----|------------|--------------|
+| Electric Blue | `bg-electric-blue` `text-electric-blue` | #0D7EFF | white | Design/UX projects, design badges |
+| Teal | `bg-teal` `text-teal` | #2A687A | white | Development projects, dev badges |
+| Deep Purple | `bg-deep-purple` `text-deep-purple` | #7209B7 | white | PM/Strategy projects, strategy badges |
+| Cyber Yellow | `bg-cyber-yellow` `text-cyber-yellow` | #FFD60A | black (#0A0A0A) | ⭐ Featured/Special projects |
+| Neon Pink | `bg-neon-pink` `text-neon-pink` | #FF006E | white | Analytics/Tools projects |
+
+**Colori Strutturali**
+| Uso | Utility Class | Hex | Quando Usare |
+|-----|---------------|-----|--------------|
+| Borders | `border-black` | #000000 | Bordi brutalist standard |
+| Card Borders | `border-white` | #FFFFFF | Bordi card su sfondo scuro |
+| Card Background | `bg-cream` | #FFFCF2 | Sfondo card light mode |
+
+#### Borders
+| Utility | Width | Quando Usare |
+|---------|-------|--------------|
+| `border-brutal` | 4px | Standard borders |
+| `border-brutal-thick` | 6px | Emphasis borders |
+| `border-brutal-thin` | 3px | Subtle borders |
+
+#### Shadows
+| Utility | Offset | Quando Usare |
+|---------|--------|--------------|
+| `shadow-brutal` | 8px | Standard elements |
+| `shadow-brutal-hover` | 12px | Hover states |
+| `shadow-brutal-sm` | 4px | Small elements |
+| `shadow-brutal-lg` | 16px | Hero elements |
+
+#### Border Radius
+| Utility | Radius | Quando Usare |
+|---------|--------|--------------|
+| `rounded-brutal` | 6px | Standard |
+| `rounded-brutal-lg` | 8px | Large elements |
+
+#### Spacing (8pt Grid)
+| Utility | Value | Quando Usare |
+|---------|-------|--------------|
+| `p-brutal-xs` / `m-brutal-xs` | 8px | Tight spacing |
+| `p-brutal-sm` / `m-brutal-sm` | 16px | Small spacing |
+| `p-brutal-md` / `m-brutal-md` | 24px | Medium spacing |
+| `p-brutal-lg` / `m-brutal-lg` | 32px | Large spacing |
+| `p-brutal-xl` / `m-brutal-xl` | 48px | Extra large spacing |
+
+### Componenti Riusabili
+
+**SEMPRE** riutilizzare componenti esistenti da `/components/ui/` prima di crearne di nuovi.
+
+| Componente | Path | Quando Usare |
+|------------|------|--------------|
+| Button | `/components/ui/Button.tsx` | Tutti i bottoni, CTAs |
+| Card | `/components/ui/Card.tsx` | Contenitori di contenuto, project cards |
+| Badge | `/components/ui/Badge.tsx` | Tag, labels, categorie (varianti: design, dev, pm, tool, featured) |
+| Input | `/components/ui/Input.tsx` | Form inputs |
+| Textarea | `/components/ui/Textarea.tsx` | Multi-line text inputs |
+
+Per riferimenti visivi completi, consultare: `/app/[locale]/design-system/page.tsx`
+
+### Pattern DO/DON'T
+
+#### ✅ DO: Usa Design System Custom
+```tsx
+// Button con design system
+<Button variant="primary" size="lg">
+  Click me
+</Button>
+
+// Badge con colori corretti
+<Badge variant="design">Design/UX</Badge>  // Electric Blue
+<Badge variant="dev">Development</Badge>   // Teal
+<Badge variant="pm">PM/Strategy</Badge>    // Deep Purple
+<Badge variant="featured">Featured</Badge> // Cyber Yellow
+<Badge variant="tool">Analytics</Badge>    // Neon Pink
+
+// Card con utility custom
+<div className="border-brutal shadow-brutal rounded-brutal bg-cream p-brutal-md">
+  Content
+</div>
+```
+
+#### ❌ DON'T: Usa Tailwind Vanilla
+```tsx
+// SBAGLIATO: Valori hard-coded
+<button className="bg-[#0D7EFF] px-6 py-3 rounded-lg shadow-lg">
+  Click me
+</button>
+
+// SBAGLIATO: Utility vanilla quando esiste alternativa custom
+<div className="border-4 shadow-xl rounded-lg bg-white p-6">
+  Content
+</div>
+
+// SBAGLIATO: Colori vecchi
+<Badge className="bg-[#1E90FF]">Design</Badge>  // Vecchio Electric Blue
+<Badge className="bg-slate-blue">Dev</Badge>    // Non esiste più
+```
+
+### Checklist per Nuovi Componenti
+
+Quando crei un nuovo componente UI:
+- [ ] Usa design tokens da `tailwind.config.ts`
+- [ ] Applica utility brutalist (`border-brutal`, `shadow-brutal`, `rounded-brutal`)
+- [ ] Rispetta 8pt grid per spacing (`p-brutal-*`, `m-brutal-*`)
+- [ ] Implementa tutte le varianti colore necessarie (electric-blue, teal, deep-purple, cyber-yellow, neon-pink)
+- [ ] Aggiungi JSDoc con `@component` e `@category` per auto-catalogazione
+- [ ] Testa dark mode
+- [ ] Verifica contrasto WCAG AA (colori ≥4.5:1)
+- [ ] Aggiungi animazioni Framer Motion se appropriato
+
+### Riferimento Rapido
+
+- **Design Tokens**: `tailwind.config.ts`
+- **Componenti UI**: `/components/ui/`
+- **Pagina Design System**: `/app/[locale]/design-system/page.tsx`
+- **Esempi Pattern**: Vedi sezione "Neobrutalist Component Pattern" sotto
 
 ## API Integrations
 
