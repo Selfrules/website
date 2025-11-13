@@ -6,6 +6,62 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is Mattia's personal website - a neobrutalist portfolio and blog platform built with Next.js 14, featuring AI-powered interactions and a unique brand identity that combines pragmatic directness with purpose-driven storytelling.
 
+## Backlog System
+
+This project uses a structured backlog system with **Epics** and **User Stories** designed specifically for Claude Code to interpret and execute as tasks.
+
+### Quick Start
+1. **View Backlog**: Read `.backlog/backlog.md` for complete overview
+2. **Select Story**: Choose based on priority, size, and execution environment
+3. **Follow Story**: Each story has detailed implementation steps, test plans, and Definition of Done
+4. **Track Progress**: Update story status when completing tasks
+
+### Structure
+```
+.backlog/
+  ├── backlog.md                 # Master backlog with all epics
+  ├── templates/                 # Templates for new epics/stories
+  ├── epics/
+  │   ├── 01-design-system/
+  │   │   ├── epic.md           # Epic overview
+  │   │   └── stories/          # User stories for this epic
+  │   ├── 02-google-calendar/
+  │   ├── 03-copy-content/
+  │   ├── 04-chatbot/
+  │   ├── 05-spotify-player/
+  │   └── 06-blog/
+  └── README.md                  # Backlog system documentation
+```
+
+### Story Execution Environments
+Stories are tagged for where they can be executed:
+- **🌐 Claude Code Web**: Can be completed on claude.ai/code
+- **💻 Claude Code Locale**: Requires agents/MCP tools only available in local Claude Code
+- **🔄 Entrambi**: Partially web, partially local
+
+**When using agents** (copywriter-hybrid, hormozi-conversion-optimizer, etc.), you MUST use Claude Code Locale.
+
+### Current Epics
+1. **EPIC-001**: Design System Consolidation (🔴 High Priority)
+2. **EPIC-002**: Google Calendar Widget Fix (🔴 High Priority)
+3. **EPIC-003**: Copy & Content Optimization (🟠 High Priority)
+4. **EPIC-004**: AI Chatbot Implementation (🔴 High Priority)
+5. **EPIC-005**: Spotify Player Integration (🟡 Medium Priority)
+6. **EPIC-006**: Blog Redesign & Content Generation (🟠 High Priority)
+
+### How to Use
+When you receive a task request from the user:
+1. Check if it relates to an existing story in the backlog
+2. If yes, reference the story and follow its implementation guide
+3. If no, work on it independently or suggest creating a new story
+
+**Important**: The backlog is in `.claudeignore` to avoid context overload. Load it explicitly when:
+- User asks about backlog/roadmap
+- Starting work on a planned epic/story
+- Planning new features
+
+For complete documentation, see: `.backlog/README.md`
+
 ## Key Commands
 
 ### Development

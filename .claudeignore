@@ -66,3 +66,7 @@ firebase-admin-key.json
 
 # Large showcase/demo pages (load only when explicitly needed)
 app/[locale]/design-system/page.tsx
+
+# Backlog system (epics and user stories for Claude Code)
+# Load only when working on backlog planning or when explicitly needed
+.backlog/
