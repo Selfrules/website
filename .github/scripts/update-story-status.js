@@ -95,15 +95,21 @@ try {
 // Update status and date
 const today = new Date().toISOString().split('T')[0];
 
-// Regex to match the Stato line in Metadata section
-// Format: - **Stato**: <emoji> <Status> | **Data**: YYYY-MM-DD
-const statusRegex = /^(\s*-\s*\*\*Stato\*\*:\s*)([📋🔄✅⏸️❌])\s*([^|]+)(\s*\|\s*\*\*Data\*\*:\s*)(.+)$/m;
+// Try two different formats for Stato field
+
+// Format 1: - **Stato**: <emoji> <Status> | **Data**: YYYY-MM-DD
+const statusRegexWithPipe = /^(\s*-\s*\*\*Stato\*\*:\s*)([📋🔄✅⏸️❌])\s*([^|]+)(\s*\|\s*\*\*Data\*\*:\s*)(.+)$/m;
+
+// Format 2 (multi-line):
+// - **Stato**: <emoji> <Status>
+// - **Data Creazione**: YYYY-MM-DD
+const statusRegexSeparate = /^(\s*-\s*\*\*Stato\*\*:\s*)([📋🔄✅⏸️❌])\s*(.+)$/m;
 
 let updatedContent = content;
 let statusChanged = false;
 
-// Check current status
-const currentMatch = content.match(statusRegex);
+// Try Format 1 (with pipe)
+let currentMatch = content.match(statusRegexWithPipe);
 if (currentMatch) {
   const currentEmoji = currentMatch[2];
   const currentStatus = currentMatch[3].trim();
@@ -114,23 +120,71 @@ if (currentMatch) {
   // Only update if not already Done
   if (currentEmoji !== '✅') {
     updatedContent = content.replace(
-      statusRegex,
+      statusRegexWithPipe,
       `$1✅ Done $4${today}`
     );
     statusChanged = true;
     console.log(`✅ Updated status: ✅ Done (${today})`);
   } else {
     console.log('ℹ️  Story already marked as Done, updating date only...');
-    // Update date even if already Done
     updatedContent = content.replace(
-      statusRegex,
+      statusRegexWithPipe,
       `$1✅ Done $4${today}`
     );
     statusChanged = true;
   }
+}
+// Try Format 2 (separate lines)
+else if (content.match(statusRegexSeparate)) {
+  currentMatch = content.match(statusRegexSeparate);
+  const currentEmoji = currentMatch[2];
+  const currentStatus = currentMatch[3].trim();
+
+  console.log(`📊 Current status: ${currentEmoji} ${currentStatus}`);
+
+  // Only update if not already Done
+  if (currentEmoji !== '✅') {
+    // Update status line
+    updatedContent = content.replace(
+      statusRegexSeparate,
+      `$1✅ Done`
+    );
+
+    // Add or update completion date
+    const dataCompletamentoRegex = /^(\s*-\s*\*\*Data Completamento\*\*:\s*)(.+)$/m;
+    if (content.match(dataCompletamentoRegex)) {
+      // Update existing completion date
+      updatedContent = updatedContent.replace(
+        dataCompletamentoRegex,
+        `$1${today}`
+      );
+    } else {
+      // Add new completion date after Data Creazione
+      const dataCreazioneRegex = /^(\s*-\s*\*\*Data Creazione\*\*:\s*.+)$/m;
+      updatedContent = updatedContent.replace(
+        dataCreazioneRegex,
+        `$1\n- **Data Completamento**: ${today}`
+      );
+    }
+
+    statusChanged = true;
+    console.log(`✅ Updated status: ✅ Done (${today})`);
+  } else {
+    console.log('ℹ️  Story already marked as Done');
+    // Still update/add completion date
+    const dataCompletamentoRegex = /^(\s*-\s*\*\*Data Completamento\*\*:\s*)(.+)$/m;
+    if (content.match(dataCompletamentoRegex)) {
+      updatedContent = content.replace(
+        dataCompletamentoRegex,
+        `$1${today}`
+      );
+      statusChanged = true;
+    }
+  }
 } else {
   console.error('❌ Could not find status line in story file');
-  console.error('   Expected format: - **Stato**: <emoji> <status> | **Data**: YYYY-MM-DD');
+  console.error('   Expected format 1: - **Stato**: <emoji> <status> | **Data**: YYYY-MM-DD');
+  console.error('   Expected format 2: - **Stato**: <emoji> <status> (on separate line)');
   process.exit(1);
 }
 
