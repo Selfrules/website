@@ -14,6 +14,7 @@ import {
 } from '@/lib/firebase';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
 import { addCorsHeaders } from '@/lib/middleware/cors';
+import { Timestamp } from 'firebase-admin/firestore';
 
 interface DashboardStats {
   totalArticles: number;
@@ -44,6 +45,7 @@ export async function GET(req: NextRequest) {
     // Calculate date 30 days ago for pageViews
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    const thirtyDaysAgoTimestamp = Timestamp.fromDate(thirtyDaysAgo);
 
     // Execute all count queries in parallel for better performance
     const [
@@ -82,7 +84,7 @@ export async function GET(req: NextRequest) {
         COLLECTIONS.ANALYTICS_EVENTS,
         [
           { field: 'eventType', operator: '==', value: 'page_view' },
-          { field: 'timestamp', operator: '>=', value: thirtyDaysAgo }
+          { field: 'timestamp', operator: '>=', value: thirtyDaysAgoTimestamp }
         ],
         undefined,
         'desc',

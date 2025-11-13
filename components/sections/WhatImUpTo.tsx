@@ -156,7 +156,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
                 </ul>
               </div>
               <p className="text-body-small text-[#2D2D2D] italic">
-                L'AI è il mio junior designer/developer perfetto: veloce, instancabile, ma serve sempre una guida.
+                L&apos;AI è il mio junior designer/developer perfetto: veloce, instancabile, ma serve sempre una guida.
               </p>
             </div>
           </div>

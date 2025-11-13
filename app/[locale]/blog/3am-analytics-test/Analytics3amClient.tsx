@@ -271,7 +271,7 @@ function renderArticleContent(
     const showCTA = title === 'The 3am question';
 
     return (
-      <React.Fragment key={index}>
+      <div key={index}>
         <section id={sectionId} className="mb-8 scroll-mt-24">
           <h2 className="font-heading font-bold text-h3 md:text-h2 text-[#0A0A0A] mb-4">
             {title}
@@ -305,7 +305,7 @@ function renderArticleContent(
             variant="gradient"
           />
         )}
-      </React.Fragment>
+      </div>
     );
   });
 }

@@ -13,6 +13,7 @@ import {
   AnalyticsEvent,
 } from '@/lib/firebase';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
+import { Timestamp } from 'firebase-admin/firestore';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 
 interface AnalyticsData {
@@ -70,11 +71,12 @@ export async function GET(req: NextRequest) {
     const daysAgo = timeRange === '7d' ? 7 : timeRange === '90d' ? 90 : 30;
     const startDate = new Date(now);
     startDate.setDate(startDate.getDate() - daysAgo);
+    const startTimestamp = Timestamp.fromDate(startDate);
 
     // Fetch all analytics events in time range
     const events = await queryDocumentsAdmin<AnalyticsEvent>(
       COLLECTIONS.ANALYTICS_EVENTS,
-      [{ field: 'timestamp', operator: '>=', value: startDate }],
+      [{ field: 'timestamp', operator: '>=', value: startTimestamp }],
       'timestamp',
       'desc',
       10000 // Limit for performance
@@ -109,7 +111,7 @@ export async function GET(req: NextRequest) {
     // Calculate daily traffic
     const trafficByDate: Record<string, { views: number; sessions: Set<string> }> = {};
     pageViews.forEach((event) => {
-      const date = new Date(event.timestamp.toDate()).toISOString().split('T')[0];
+      const date = new Date((event.timestamp as any).toDate?.() || event.timestamp).toISOString().split('T')[0];
       if (!trafficByDate[date]) {
         trafficByDate[date] = { views: 0, sessions: new Set() };
       }
@@ -146,12 +148,13 @@ export async function GET(req: NextRequest) {
     // Calculate trends (compare to previous period)
     const previousStartDate = new Date(startDate);
     previousStartDate.setDate(previousStartDate.getDate() - daysAgo);
+    const previousStartTimestamp = Timestamp.fromDate(previousStartDate);
 
     const previousEvents = await queryDocumentsAdmin<AnalyticsEvent>(
       COLLECTIONS.ANALYTICS_EVENTS,
       [
-        { field: 'timestamp', operator: '>=', value: previousStartDate },
-        { field: 'timestamp', operator: '<', value: startDate }
+        { field: 'timestamp', operator: '>=', value: previousStartTimestamp },
+        { field: 'timestamp', operator: '<', value: startTimestamp }
       ],
       'timestamp',
       'desc',
