@@ -113,7 +113,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#0D7EFF]">•</span>
-                  <span>Come sono passato da un ruolo all'altro</span>
+                  <span>Come sono passato da un ruolo all&apos;altro</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#0D7EFF]">•</span>

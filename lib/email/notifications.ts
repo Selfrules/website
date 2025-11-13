@@ -164,7 +164,7 @@ function formatEmailDate(date: Date): string {
 export async function sendBookingConfirmation(
   booking: CalendarBooking
 ): Promise<boolean> {
-  const bookingDate = new Date(booking.dateTime);
+  const bookingDate = new Date((booking.dateTime as any).toDate?.() || booking.dateTime);
   const formattedDate = formatEmailDate(bookingDate);
 
   const html = `
@@ -286,7 +286,7 @@ export async function sendAdminBookingNotification(
   const adminEmail = process.env.ADMIN_EMAIL;
   if (!adminEmail) return false;
 
-  const bookingDate = new Date(booking.dateTime);
+  const bookingDate = new Date((booking.dateTime as any).toDate?.() || booking.dateTime);
   const formattedDate = formatEmailDate(bookingDate);
 
   const html = `
