@@ -10,7 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Neobrutalist Color Palette - Figma Make
+        // ============================================
+        // NEOBRUTALIST DESIGN SYSTEM - FIGMA MAKE PALETTE
+        // Official brand colors - WCAG AA Compliant
+        // ============================================
+
+        // Brand Colors (Primary Design System)
+        'electric-blue': '#0D7EFF',  // Design/UX projects
+        'teal': '#2A687A',           // Development projects
+        'deep-purple': '#7209B7',    // PM/Strategy projects
+        'neon-pink': '#FF006E',      // Analytics/Tools projects
+        'cyber-yellow': '#FFD60A',   // Featured/Special items
+
+        // Semantic Color Mapping
         primary: {
           DEFAULT: '#0D7EFF', // Electric Blue
           50: '#E6F4FF',
@@ -76,14 +88,20 @@ const config: Config = {
           800: '#036642',
           900: '#013321',
         },
-        // Background colors
+
+        // Functional Colors
+        'brutal-black': '#000000',
+        'brutal-white': '#FFFFFF',
+
+        // Background & Surface Colors
         cream: '#FFFCF2',
         dark: '#0A0A0A',
         surface: {
           light: '#FFF5E1',
           dark: '#1A1A1A',
         },
-        // Text colors
+
+        // Text Colors
         brutalist: {
           border: '#000000',
           shadow: '#000000',
@@ -99,7 +117,8 @@ const config: Config = {
             dark: '#0A0A0A',
           },
         },
-        // Spotify integration
+
+        // Integration Colors
         spotify: '#1DB954',
       },
       fontFamily: {
@@ -131,15 +150,26 @@ const config: Config = {
         'brutal-lg': '8px',
       },
       borderWidth: {
-        'brutal': '4px',
-        'brutal-thick': '6px',
+        // Neobrutalist Border System
+        'brutal': '4px',              // Standard brutalist border
+        'brutal-thin': '3px',          // Subtle borders
+        'brutal-thick': '6px',         // Emphasis borders
+        'brutal-extra-thick': '8px',   // Hero/statement borders
       },
       boxShadow: {
-        'brutal': '6px 6px 0px #000000',
-        'brutal-sm': '3px 3px 0px #000000',
-        'brutal-lg': '10px 10px 0px #000000',
-        'brutal-hover': '10px 10px 0px #000000',
-        'brutal-active': '3px 3px 0px #000000',
+        // Neobrutalist Shadow System - Hard shadows with no blur
+        'brutal': '8px 8px 0px 0px #000000',           // Standard shadow
+        'brutal-sm': '4px 4px 0px 0px #000000',        // Small elements
+        'brutal-lg': '16px 16px 0px 0px #000000',      // Hero elements
+        'brutal-hover': '12px 12px 0px 0px #000000',   // Hover state (increased depth)
+        'brutal-active': '4px 4px 0px 0px #000000',    // Active/pressed state (reduced depth)
+
+        // Colored Shadows for Brand Emphasis
+        'brutal-colored-blue': '8px 8px 0px 0px #0D7EFF',    // Electric Blue - Design/UX
+        'brutal-colored-purple': '8px 8px 0px 0px #7209B7',  // Deep Purple - PM/Strategy
+        'brutal-colored-pink': '8px 8px 0px 0px #FF006E',    // Neon Pink - Analytics/Tools
+        'brutal-colored-yellow': '8px 8px 0px 0px #FFD60A',  // Cyber Yellow - Featured
+        'brutal-colored-teal': '8px 8px 0px 0px #2A687A',    // Teal - Development
       },
       textShadow: {
         'hard': '6px 6px 0 #000',
@@ -147,14 +177,18 @@ const config: Config = {
         'hard-lg': '8px 8px 0 #000',
       },
       spacing: {
-        // 4pt spacing grid system (matching Figma design tokens)
+        // ============================================
+        // SPACING SYSTEM
+        // ============================================
+
+        // 4pt Tailwind Grid (Base Spacing - Maintained for Compatibility)
         // Base unit: 4px (--spacing: .25rem)
         '0.5': '2px',   // 0.5 unit
         '1': '4px',     // 1 unit
         '1.5': '6px',   // 1.5 units
         '2': '8px',     // 2 units
         '2.5': '10px',  // 2.5 units
-        '3': '12px',    // 3 units - CRITICAL: was 24px, now matches Figma
+        '3': '12px',    // 3 units
         '3.5': '14px',  // 3.5 units
         '4': '16px',    // 4 units
         '4.5': '18px',  // 4.5 units
@@ -175,10 +209,20 @@ const config: Config = {
         '32': '128px',  // 32 units
         '36': '144px',  // 36 units
         '40': '160px',  // 40 units
-        // Legacy spacing (maintained for compatibility)
-        'section': '6rem', // 96px
-        'section-sm': '4rem', // 64px
-        'brutal-offset': '8px',
+
+        // 8pt Brutal Grid (Design System Standard)
+        // Use these for new components following the design system
+        'brutal-xs': '8px',    // 1 unit (tight spacing)
+        'brutal-sm': '16px',   // 2 units (small spacing)
+        'brutal-md': '24px',   // 3 units (medium spacing)
+        'brutal-lg': '32px',   // 4 units (large spacing)
+        'brutal-xl': '48px',   // 6 units (extra large spacing)
+        'brutal-2xl': '64px',  // 8 units (2x large spacing)
+
+        // Legacy/Semantic Spacing (Maintained for Compatibility)
+        'section': '6rem',        // 96px (section spacing)
+        'section-sm': '4rem',     // 64px (small section spacing)
+        'brutal-offset': '8px',   // Default shadow offset
       },
       screens: {
         'xs': '480px',
