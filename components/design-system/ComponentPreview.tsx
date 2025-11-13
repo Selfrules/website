@@ -14,7 +14,6 @@ interface ComponentPreviewProps {
   preview: ReactNode;
   code: string;
   language?: string;
-  isDark?: boolean;
 }
 
 export default function ComponentPreview({
@@ -22,8 +21,7 @@ export default function ComponentPreview({
   description,
   preview,
   code,
-  language = 'tsx',
-  isDark = false
+  language = 'tsx'
 }: ComponentPreviewProps) {
   return (
     <div className="space-y-4">
@@ -35,11 +33,7 @@ export default function ComponentPreview({
       </div>
 
       {/* Live Preview */}
-      <div
-        className={`border-4 border-[#000] rounded-brutal p-8 ${
-          isDark ? 'bg-[#0A0A0A]' : 'bg-white'
-        }`}
-      >
+      <div className="border-4 border-[#000] rounded-brutal p-8 bg-white">
         {preview}
       </div>
 

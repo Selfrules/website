@@ -12,11 +12,6 @@ test.describe('Design System Page', () => {
     ).toBeVisible();
   });
 
-  test('should have dark mode toggle', async ({ page }) => {
-    const toggleButton = page.getByRole('button', { name: /Dark Mode|Light Mode/ });
-    await expect(toggleButton).toBeVisible();
-  });
-
   test('can navigate categories and see content', async ({ page }) => {
     // Test Colors tab
     await page.click('text=Colors');
@@ -63,24 +58,6 @@ test.describe('Design System Page', () => {
 
     // Wait for the button to reset
     await expect(copyButton).toHaveText('Copia', { timeout: 3000 });
-  });
-
-  test('dark mode toggle works', async ({ page }) => {
-    // Check initial state (light mode)
-    const body = page.locator('div').first();
-    await expect(body).toHaveClass(/bg-\[#FFFCF2\]/);
-
-    // Click dark mode toggle
-    await page.click('text=Dark Mode');
-
-    // Verify dark mode is active
-    await expect(body).toHaveClass(/bg-\[#0A0A0A\]/);
-
-    // Toggle back to light mode
-    await page.click('text=Light Mode');
-
-    // Verify light mode is active again
-    await expect(body).toHaveClass(/bg-\[#FFFCF2\]/);
   });
 
   test('is responsive on mobile', async ({ page }) => {

@@ -1,14 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
 import ComponentPreview from '@/components/design-system/ComponentPreview';
-import DarkModeToggle from '@/components/design-system/DarkModeToggle';
 import { Badge } from '@/components/ui/Badge';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 
 export default function DesignSystemPage() {
-  const [isDark, setIsDark] = useState(false);
 
   const categories = [
     { id: 'colors', label: 'Colors' },
@@ -21,17 +18,14 @@ export default function DesignSystemPage() {
   ];
 
   return (
-    <div className={`min-h-screen ${isDark ? 'bg-[#0A0A0A]' : 'bg-[#FFFCF2]'} transition-colors`}>
+    <div className="min-h-screen bg-[#FFFCF2]">
       <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-12 md:py-16">
         {/* Header */}
         <header className="mb-12">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-            <h1 className={`text-hero ${isDark ? 'text-white' : 'text-[#0A0A0A]'}`}>
-              Design System
-            </h1>
-            <DarkModeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
-          </div>
-          <p className={`text-body-large max-w-[700px] ${isDark ? 'text-white/80' : 'text-[#2D2D2D]'}`}>
+          <h1 className="text-hero text-[#0A0A0A] mb-4">
+            Design System
+          </h1>
+          <p className="text-body-large max-w-[700px] text-[#2D2D2D]">
             Sistema di design neobrutalist con palette cold-tone professionale. WCAG AA compliant.
           </p>
         </header>
@@ -61,7 +55,6 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Color Palette"
               description="Palette principale per badge e progetti"
-              isDark={isDark}
               preview={
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                   {[
@@ -78,7 +71,7 @@ export default function DesignSystemPage() {
                       >
                         <span className="font-bold text-sm">{color.hex}</span>
                       </div>
-                      <div className={isDark ? 'text-white' : 'text-[#0A0A0A]'}>
+                      <div className="text-[#0A0A0A]">
                         <p className="font-bold text-sm">{color.name}</p>
                         <p className="text-xs text-[#6B7280]">{color.use}</p>
                       </div>
@@ -102,26 +95,25 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Typography Scale"
               description="Gerarchia tipografica del design system"
-              isDark={isDark}
               preview={
                 <div className="space-y-6">
-                  <div className={isDark ? 'text-white' : 'text-[#0A0A0A]'}>
+                  <div className="text-[#0A0A0A]">
                     <p className="text-hero mb-2">Hero Title</p>
                     <code className="text-xs text-[#6B7280]">text-hero (56px)</code>
                   </div>
-                  <div className={isDark ? 'text-white' : 'text-[#0A0A0A]'}>
+                  <div className="text-[#0A0A0A]">
                     <p className="text-h1 mb-2">Heading 1</p>
                     <code className="text-xs text-[#6B7280]">text-h1 (48px)</code>
                   </div>
-                  <div className={isDark ? 'text-white' : 'text-[#0A0A0A]'}>
+                  <div className="text-[#0A0A0A]">
                     <p className="text-h2 mb-2">Heading 2</p>
                     <code className="text-xs text-[#6B7280]">text-h2 (36px)</code>
                   </div>
-                  <div className={isDark ? 'text-white' : 'text-[#0A0A0A]'}>
+                  <div className="text-[#0A0A0A]">
                     <p className="text-h3 mb-2">Heading 3</p>
                     <code className="text-xs text-[#6B7280]">text-h3 (24px)</code>
                   </div>
-                  <div className={isDark ? 'text-white' : 'text-[#0A0A0A]'}>
+                  <div className="text-[#0A0A0A]">
                     <p className="text-body mb-2">Body Text</p>
                     <code className="text-xs text-[#6B7280]">text-body (16px)</code>
                   </div>
@@ -140,7 +132,6 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Primary Button"
               description="Bottone principale con effetto hover"
-              isDark={isDark}
               preview={
                 <button
                   className="px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
@@ -162,7 +153,6 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Secondary Button"
               description="Bottone secondario outline"
-              isDark={isDark}
               preview={
                 <button
                   className="px-6 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg"
@@ -186,7 +176,6 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Basic Card"
               description="Card con header colorato e contenuto"
-              isDark={isDark}
               preview={
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Card>
@@ -229,14 +218,11 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Input Field"
               description="Campo input con bordi brutalist"
-              isDark={isDark}
               preview={
                 <input
                   type="text"
                   placeholder="Il tuo nome"
-                  className={`w-full px-4 py-3 border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#0D7EFF] focus:outline-none transition-all ${
-                    isDark ? 'bg-[#0A0A0A] text-white' : 'bg-white text-[#0A0A0A]'
-                  }`}
+                  className="w-full px-4 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#0D7EFF] focus:outline-none transition-all"
                   style={{
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '15px',
@@ -253,14 +239,11 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Text Area"
               description="Campo textarea per messaggi lunghi"
-              isDark={isDark}
               preview={
                 <textarea
                   placeholder="Il tuo messaggio"
                   rows={4}
-                  className={`w-full px-4 py-3 border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#FF006E] focus:outline-none transition-all resize-none ${
-                    isDark ? 'bg-[#0A0A0A] text-white' : 'bg-white text-[#0A0A0A]'
-                  }`}
+                  className="w-full px-4 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#FF006E] focus:outline-none transition-all resize-none"
                   style={{
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '15px',
@@ -280,7 +263,6 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="Badge Variants"
               description="Badge per categorizzazione progetti"
-              isDark={isDark}
               preview={
                 <div className="flex flex-wrap gap-3">
                   <Badge variant="design">Design/UX</Badge>
@@ -303,7 +285,6 @@ export default function DesignSystemPage() {
             <ComponentPreview
               title="8pt Grid System"
               description="Sistema di spaziatura basato su multipli di 8px"
-              isDark={isDark}
               preview={
                 <div className="space-y-4">
                   {[
@@ -314,7 +295,7 @@ export default function DesignSystemPage() {
                     { class: 'p-brutal-xl', px: '48px' },
                   ].map((spacing) => (
                     <div key={spacing.class} className="flex items-center gap-4">
-                      <code className={`text-xs ${isDark ? 'text-white' : 'text-[#0A0A0A]'} w-32`}>
+                      <code className="text-xs text-[#0A0A0A] w-32">
                         {spacing.class}
                       </code>
                       <div
