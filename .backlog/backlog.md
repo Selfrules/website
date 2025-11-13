@@ -56,7 +56,7 @@ Rendere il widget Google Calendar completamente funzionale e usabile su desktop 
 ### User Stories
 | ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
 |----|--------|----------|------------|----------|-------|
-| GC-001 | Fix popup centering & responsiveness | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
+| GC-001 | Fix popup centering & responsiveness | 🔴 | 🟡 M | 🌐 Web | ✅ Completato (2025-11-13) |
 | GC-002 | Test e validazione booking flow | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
 | GC-003 | Miglioramenti UX e design system | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
 

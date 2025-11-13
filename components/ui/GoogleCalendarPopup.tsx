@@ -36,23 +36,31 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Backdrop */}
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {/* Backdrop/Overlay */}
           <motion.div
-            className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
+            data-testid="calendar-popup-overlay"
           />
 
-          {/* Modal */}
+          {/* Modal - Centered with Flexbox */}
           <motion.div
-            className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[90%] md:max-w-[800px] md:h-[90vh] md:max-h-[700px] bg-white border-4 border-[#000] rounded-lg shadow-brutal z-50 flex flex-col"
+            className="relative bg-white border-4 border-[#000] rounded-lg shadow-brutal w-full max-w-[800px] h-[90vh] max-h-[700px] flex flex-col"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', duration: 0.5 }}
+            data-testid="calendar-popup"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 md:p-6 border-b-4 border-[#000] bg-[#FFFCF2]">
@@ -78,7 +86,7 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
               />
             </div>
           </motion.div>
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   );
