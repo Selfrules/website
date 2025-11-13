@@ -45,7 +45,7 @@ Aggiornare `CLAUDE.md` con una sezione dedicata e dettagliata che:
 
 - [ ] **AC2**: Tutti i design tokens sono documentati con esempi
   - Scenario: Claude Code deve usare un colore
-  - Risultato atteso: Sa usare `bg-electric-blue` invece di `bg-[#1E90FF]`
+  - Risultato atteso: Sa usare `bg-electric-blue` invece di `bg-[#0D7EFF]`
 
 - [ ] **AC3**: Esistono esempi DO/DON'T per pattern comuni
   - Scenario: Claude Code deve creare un button
@@ -94,12 +94,22 @@ Aggiungere questa sezione dopo "Brand Identity & Content Guidelines":
 Tutti i design tokens sono definiti in `tailwind.config.ts`. Utilizzare SEMPRE questi invece di valori hard-coded.
 
 #### Colori
+
+**Palette Principale (Badge e Progetti)**
+| Uso | Utility Class | Hex | Text Color | Quando Usare |
+|-----|---------------|-----|------------|--------------|
+| Electric Blue | `bg-electric-blue` `text-electric-blue` | #0D7EFF | white | Design/UX projects, design badges |
+| Teal | `bg-teal` `text-teal` | #2A687A | white | Development projects, dev badges |
+| Deep Purple | `bg-deep-purple` `text-deep-purple` | #7209B7 | white | PM/Strategy projects, strategy badges |
+| Cyber Yellow | `bg-cyber-yellow` `text-cyber-yellow` | #FFD60A | black (#0A0A0A) | ⭐ Featured/Special projects |
+| Neon Pink | `bg-neon-pink` `text-neon-pink` | #FF006E | white | Analytics/Tools projects |
+
+**Colori Strutturali**
 | Uso | Utility Class | Hex | Quando Usare |
 |-----|---------------|-----|--------------|
-| Primary | `bg-electric-blue` `text-electric-blue` | #1E90FF | Design/UX projects, primary CTAs |
-| Secondary | `bg-slate-blue` `text-slate-blue` | #6A7B9F | Development projects, secondary actions |
-| Accent | `bg-deep-navy` `text-deep-navy` | #3E526A | PM/Strategy projects, accents |
-| Alternative | `bg-teal` `text-teal` | #2A687A | Analytics/Tools, alternatives |
+| Borders | `border-black` | #000000 | Bordi brutalist standard |
+| Card Borders | `border-white` | #FFFFFF | Bordi card su sfondo scuro |
+| Card Background | `bg-cream` | #FFFCF2 | Sfondo card light mode |
 
 #### Borders
 | Utility | Width | Quando Usare |
@@ -152,8 +162,14 @@ Per riferimenti visivi completi, consultare: `/app/[locale]/design-system/page.t
   Click me
 </Button>
 
+// Badge con colori corretti
+<Badge variant="design">Design/UX</Badge>  // Electric Blue
+<Badge variant="dev">Development</Badge>   // Teal
+<Badge variant="pm">PM/Strategy</Badge>    // Deep Purple
+<Badge variant="featured">Featured</Badge> // Cyber Yellow
+
 // Card con utility custom
-<div className="border-brutal shadow-brutal rounded-brutal bg-white p-brutal-md">
+<div className="border-brutal shadow-brutal rounded-brutal bg-cream p-brutal-md">
   Content
 </div>
 ```
@@ -161,7 +177,7 @@ Per riferimenti visivi completi, consultare: `/app/[locale]/design-system/page.t
 #### ❌ DON'T: Usa Tailwind Vanilla
 ```tsx
 // SBAGLIATO: Valori hard-coded
-<button className="bg-[#1E90FF] px-6 py-3 rounded-lg shadow-lg">
+<button className="bg-[#0D7EFF] px-6 py-3 rounded-lg shadow-lg">
   Click me
 </button>
 
@@ -169,6 +185,10 @@ Per riferimenti visivi completi, consultare: `/app/[locale]/design-system/page.t
 <div className="border-4 shadow-xl rounded-lg bg-white p-6">
   Content
 </div>
+
+// SBAGLIATO: Colori vecchi
+<Badge className="bg-[#1E90FF]">Design</Badge>  // Vecchio Electric Blue
+<Badge className="bg-slate-blue">Dev</Badge>    // Non esiste più
 ```
 
 ### Checklist per Nuovi Componenti
@@ -177,7 +197,7 @@ Quando crei un nuovo componente UI:
 - [ ] Usa design tokens da `tailwind.config.ts`
 - [ ] Applica utility brutalist (`border-brutal`, `shadow-brutal`, `rounded-brutal`)
 - [ ] Rispetta 8pt grid per spacing
-- [ ] Implementa tutte le varianti (primary, secondary, accent, alternative)
+- [ ] Implementa tutte le varianti colore (electric-blue, teal, deep-purple, cyber-yellow, neon-pink)
 - [ ] Aggiungi JSDoc con `@component` e `@category` per auto-catalogazione
 - [ ] Testa dark mode
 - [ ] Verifica contrasto WCAG AA
@@ -273,3 +293,4 @@ Inserire la nuova sezione **dopo** "Brand Identity & Content Guidelines" e **pri
 | Data | Modifiche | Stato |
 |------|-----------|-------|
 | 2025-11-13 | Story creata | Todo |
+| 2025-11-13 | Aggiornata mappatura colori: Electric Blue #0D7EFF, Teal #2A687A, Deep Purple #7209B7, Cyber Yellow #FFD60A, Neon Pink #FF006E | Todo |
