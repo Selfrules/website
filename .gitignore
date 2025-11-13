@@ -12,6 +12,7 @@ node_modules/
 coverage/
 .playwright-mcp/
 test-results/
+playwright-report/
 *.webm
 debug-*.png
 test-*.js
