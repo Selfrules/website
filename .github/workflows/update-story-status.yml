@@ -1,0 +1,65 @@
+name: Update Story Status on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  update-story:
+    # Only run if PR was merged (not just closed)
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Extract Story ID from PR title
+        id: extract-story
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          echo "PR Title: $PR_TITLE"
+
+          # Extract story ID using regex [STORY-ID]
+          if [[ $PR_TITLE =~ \[([A-Z]+-[0-9]+)\] ]]; then
+            STORY_ID="${BASH_REMATCH[1]}"
+            echo "story_id=$STORY_ID" >> $GITHUB_OUTPUT
+            echo "Found Story ID: $STORY_ID"
+          else
+            echo "No Story ID found in PR title"
+            echo "story_id=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update story status
+        if: steps.extract-story.outputs.story_id != ''
+        run: |
+          node .github/scripts/update-story-status.js "${{ steps.extract-story.outputs.story_id }}"
+
+      - name: Commit and push changes
+        if: steps.extract-story.outputs.story_id != ''
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          # Check if there are changes
+          if [[ -n $(git status --porcelain) ]]; then
+            git add .backlog/
+            git commit -m "chore(backlog): mark ${{ steps.extract-story.outputs.story_id }} as Done
+
+Auto-updated by PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}
+Merged by: @${{ github.event.pull_request.user.login }}"
+            git push
+            echo "✅ Story status updated successfully"
+          else
+            echo "⚠️ No changes to commit (story file may not exist or already marked as Done)"
+          fi
