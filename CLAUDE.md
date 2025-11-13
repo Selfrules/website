@@ -62,6 +62,28 @@ When you receive a task request from the user:
 
 For complete documentation, see: `.backlog/README.md`
 
+### PR Title Convention (IMPORTANT)
+
+When creating Pull Requests for stories from the backlog, ALWAYS use this format:
+
+```
+[STORY-ID] Description
+```
+
+**Examples**:
+- `[GC-002] Add E2E tests for booking flow`
+- `[DS-003] Update CLAUDE.md design guidelines`
+- `[BL-001] Redesign blog section with neobrutalist cards`
+
+This enables automatic story status updates when PRs are merged. GitHub Actions will:
+1. Extract the Story ID from the PR title
+2. Find the story file in `.backlog/epics/*/stories/`
+3. Update status to `✅ Done`
+4. Update completion date
+5. Commit the changes automatically
+
+**Note**: PRs without Story IDs (hotfixes, chores, docs) can still be merged - the automation gracefully skips them.
+
 ## Key Commands
 
 ### Development

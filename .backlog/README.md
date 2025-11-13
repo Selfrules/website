@@ -304,6 +304,75 @@ Alcune stories richiedono entrambi gli ambienti per parti diverse.
 
 ---
 
+## Automazione del Workflow
+
+### 🤖 Auto-Update dello Stato delle Stories
+
+Quando una Pull Request viene mergiata su `main`, lo stato della story viene **aggiornato automaticamente** tramite GitHub Actions.
+
+#### Come Funziona
+
+1. **Crei una PR** con il titolo che include lo Story ID tra parentesi quadre
+2. **La PR viene mergiata** su `main`
+3. **GitHub Actions** si attiva automaticamente
+4. **Bot aggiorna** lo stato della story a `✅ Done`
+5. **Bot fa commit** dell'aggiornamento nel backlog
+
+#### Convenzione PR Title
+
+**Formato richiesto**:
+```
+[STORY-ID] Descrizione della PR
+```
+
+**Esempi**:
+```
+✅ [GC-002] Add E2E tests for booking flow
+✅ [DS-003] Update CLAUDE.md design guidelines
+✅ [BL-001] Redesign blog section with neobrutalist cards
+✅ [CB-002] Implement RAG system for chatbot
+
+❌ GC-002: Add tests (no brackets)
+❌ [gc-002] Add tests (lowercase)
+❌ Add E2E tests (no story ID)
+```
+
+#### Workflow Automation
+
+Il file `.github/workflows/update-story-status.yml` gestisce l'automazione:
+
+```yaml
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+steps:
+  1. Extract Story ID from PR title
+  2. Find story file in .backlog/epics/*/stories/
+  3. Update status to ✅ Done
+  4. Update completion date
+  5. Commit changes
+```
+
+#### Fallback Graceful
+
+Se il bot non trova lo Story ID o il file della story:
+- ⚠️ Non fa nulla (non va in errore)
+- 📝 Logga un warning nei GitHub Actions logs
+- ✅ La PR viene mergiata normalmente
+
+Questo permette di mergiare PR senza Story ID (es. hotfix, docs, chore).
+
+#### Verificare l'Automazione
+
+Dopo il merge, controlla:
+1. **GitHub Actions tab**: Workflow `Update Story Status` deve essere verde ✅
+2. **Story file**: Stato deve essere `✅ Done | Data: YYYY-MM-DD`
+3. **Backlog commit**: Commit automatico dal bot
+
+---
+
 ## Best Practices
 
 ### Per Claude Code

@@ -5,7 +5,7 @@
 - **Epic**: [EPIC-002](./../epic.md)
 - **Priorità**: 🔴 Critica | **Dimensione**: 🟢 S (2-4h)
 - **Execution Environment**: 🌐 Claude Code Web
-- **Stato**: 📋 Todo | **Data**: 2025-11-13
+- **Stato**: ✅ Done | **Data**: 2025-11-13
 
 ## User Story
 **Come** utente **Voglio** completare una prenotazione Google Calendar dall'inizio alla fine **Così che** possa effettivamente parlare con Mattia
