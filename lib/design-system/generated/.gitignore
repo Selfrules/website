@@ -1,0 +1,7 @@
+# Auto-generated design system files
+# These files are generated during build and should not be committed
+
+*.md
+*.json
+*.ts
+!.gitignore
