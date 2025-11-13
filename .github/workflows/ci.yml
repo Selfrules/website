@@ -3,6 +3,9 @@ name: CI
 on:
   pull_request:
     branches: [main, develop]
+    # Skip CI for Claude Code branches (preview.yml handles these)
+    branches-ignore:
+      - 'claude/**'
   push:
     branches: [main, develop]
 

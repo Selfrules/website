@@ -6,9 +6,46 @@ on:
     branches: [main, develop]
 
 jobs:
+  # Shared setup job to avoid redundant npm ci across jobs
+  setup:
+    name: Setup Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache node_modules
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-deps-
+
+      - name: Install dependencies
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Upload node_modules
+        uses: actions/upload-artifact@v4
+        with:
+          name: node_modules
+          path: node_modules
+          retention-days: 1
+
   deploy-preview:
     name: Deploy Preview Environment
     runs-on: ubuntu-latest
+    needs: setup
     environment:
       name: preview-pr-${{ github.event.pull_request.number }}
       url: ${{ steps.deploy.outputs.url }}
@@ -21,10 +58,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Download node_modules
+        uses: actions/download-artifact@v4
+        with:
+          name: node_modules
+          path: node_modules
 
       - name: Run linting
         run: npm run lint
@@ -92,6 +131,8 @@ jobs:
             }
 
       - name: Run Lighthouse CI
+        # Only run Lighthouse on main branch PRs to save time
+        if: github.base_ref == 'main'
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: |
@@ -102,7 +143,7 @@ jobs:
   visual-regression:
     name: Visual Regression Testing
     runs-on: ubuntu-latest
-    needs: deploy-preview
+    needs: [setup, deploy-preview]
 
     steps:
       - name: Checkout code
@@ -112,12 +153,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Download node_modules
+        uses: actions/download-artifact@v4
+        with:
+          name: node_modules
+          path: node_modules
 
-      - name: Install Playwright
+      - name: Cache Playwright browsers
+        id: cache-playwright
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install Playwright browsers
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
       - name: Run visual tests
