@@ -102,7 +102,7 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
           transition={{ duration: 0.2 }}
           role="dialog"
           aria-modal="true"
-          aria-labelledby="calendar-popup-title"
+          aria-label="Google Calendar - Prenota un appuntamento"
         >
           {/* Backdrop/Overlay */}
           <motion.div
@@ -118,37 +118,27 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
           {/* Modal - Centered with Flexbox */}
           <motion.div
             ref={modalRef}
-            className="relative bg-cream border-brutal shadow-brutal-lg rounded-brutal w-full max-w-[800px] h-[90vh] max-h-[700px] flex flex-col"
+            className="relative bg-white border-brutal shadow-brutal-lg rounded-brutal w-full max-w-[800px] h-[90vh] max-h-[700px] overflow-hidden"
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', duration: 0.5 }}
             data-testid="calendar-popup"
           >
-            {/* Header */}
-            <div className="flex items-center justify-between p-brutal-md md:p-brutal-lg border-b border-brutal bg-cream">
-              <h2
-                id="calendar-popup-title"
-                className="text-h3 md:text-h2 text-black font-heading"
-              >
-                Fissa un appuntamento
-              </h2>
+            {/* Floating Close Button - Top Right */}
+            <button
+              ref={closeButtonRef}
+              onClick={onClose}
+              className="group absolute top-brutal-md right-brutal-md z-20 p-brutal-sm bg-white border-brutal shadow-brutal rounded-brutal
+                         hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1
+                         transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-electric-blue"
+              aria-label="Chiudi calendario"
+            >
+              <X className="w-6 h-6 text-black group-hover:rotate-90 transition-transform duration-300" strokeWidth={3} />
+            </button>
 
-              {/* Neobrutalist Close Button */}
-              <button
-                ref={closeButtonRef}
-                onClick={onClose}
-                className="group relative p-brutal-sm bg-white border-brutal shadow-brutal rounded-brutal
-                           hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1
-                           transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-electric-blue"
-                aria-label="Chiudi calendario"
-              >
-                <X className="w-6 h-6 text-black group-hover:rotate-90 transition-transform duration-300" strokeWidth={3} />
-              </button>
-            </div>
-
-            {/* Content Area */}
-            <div className="flex-1 relative overflow-hidden bg-white">
+            {/* Content Area - Full Height */}
+            <div className="relative w-full h-full bg-white">
               {/* Loading State */}
               {isLoading && !hasError && (
                 <div
