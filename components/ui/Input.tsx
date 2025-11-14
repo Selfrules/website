@@ -7,6 +7,20 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   helperText?: string;
 }
 
+/**
+ * Input component with neobrutalist design system styling
+ *
+ * @component
+ * @category Form
+ * @example
+ * ```tsx
+ * <Input
+ *   label="Email"
+ *   placeholder="your@email.com"
+ *   error="Invalid email"
+ * />
+ * ```
+ */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type = 'text', label, error, helperText, id, ...props }, ref) => {
     const inputId = id || `input-${Math.random().toString(36).substring(7)}`;
@@ -30,13 +44,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'font-body text-body',
             'bg-brutalist-surface-light dark:bg-brutalist-surface-dark',
             'text-brutalist-text-light dark:text-brutalist-text-dark',
-            'border-brutal border-brutalist-border rounded-md shadow-[3px_3px_0_#000]',
+            'border-brutal border-brutalist-border rounded-brutal shadow-brutal-sm',
             'transition-all duration-200 ease-brutal',
             'placeholder:text-gray-500 placeholder:opacity-70',
-            'focus:outline-none focus:border-primary focus:shadow-[5px_5px_0_#1E90FF]',
+            'focus:outline-none focus:border-primary focus:shadow-brutal-colored-blue',
             'hover:shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px]',
             'disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-gray-100',
-            error && 'border-red-600 shadow-[3px_3px_0_#dc2626] focus:border-red-600 focus:shadow-[5px_5px_0_#dc2626]',
+            error && 'border-red-600 shadow-brutal-sm focus:border-red-600 focus:shadow-brutal',
             className
           )}
           aria-invalid={error ? 'true' : 'false'}

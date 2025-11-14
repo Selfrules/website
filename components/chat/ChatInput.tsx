@@ -43,12 +43,12 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
         disabled={disabled}
         placeholder="Scrivi il tuo messaggio..."
         rows={2}
-        className="flex-1 resize-none rounded-md border-3 border-black px-3 py-2 text-sm bg-white shadow-[3px_3px_0_#000] placeholder:text-gray-500 placeholder:opacity-70 focus:outline-none focus:border-primary focus:shadow-[5px_5px_0_#1E90FF] disabled:bg-gray-100 disabled:text-gray-500 disabled:opacity-60 transition-all"
+        className="flex-1 resize-none rounded-brutal border-brutal border-black px-3 py-2 text-sm bg-white shadow-brutal-sm placeholder:text-gray-500 placeholder:opacity-70 focus:outline-none focus:border-primary focus:shadow-brutal-colored-blue disabled:bg-gray-100 disabled:text-gray-500 disabled:opacity-60 transition-all"
       />
       <button
         onClick={handleSend}
         disabled={disabled || !input.trim()}
-        className="flex h-full items-center justify-center rounded-md border-3 border-black bg-primary px-4 shadow-[4px_4px_0_#000] transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000000] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0_#000] focus:outline-none focus:ring-4 focus:ring-primary/30"
+        className="flex h-full items-center justify-center rounded-brutal border-brutal border-black bg-primary px-4 shadow-brutal-sm transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-brutal-sm focus:outline-none focus:ring-4 focus:ring-primary/30"
         aria-label="Send message"
       >
         <Send className="h-5 w-5 text-white" />

@@ -19,7 +19,7 @@ export default function TypingIndicator() {
       </div>
 
       {/* Typing animation */}
-      <div className="flex items-center rounded-lg border-2 border-black bg-white px-4 py-3 shadow-[4px_4px_0px_#000000]">
+      <div className="flex items-center rounded-brutal-lg border-2 border-black bg-white px-4 py-3 shadow-brutal-sm">
         <div className="flex gap-1">
           <span
             className="h-2 w-2 animate-bounce rounded-full bg-black"

@@ -10,6 +10,12 @@ interface TestimonialModalProps {
   testimonial: TestimonialData | null;
 }
 
+/**
+ * TestimonialModal component with neobrutalist design system styling
+ *
+ * @component
+ * @category UI
+ */
 export default function TestimonialModal({
   isOpen,
   onClose,
@@ -37,7 +43,7 @@ export default function TestimonialModal({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-brutalist-surface-dark border-4 border-black rounded-brutal shadow-[12px_12px_0px_#000000]"
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-brutalist-surface-dark border-brutal-thick border-black rounded-brutal shadow-brutal-hover"
             >
               {/* Close button */}
               <button
