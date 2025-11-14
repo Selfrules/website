@@ -351,7 +351,7 @@ Quando crei un nuovo componente UI:
 
 ### Umami Analytics
 - **Provider**: Umami Cloud (https://cloud.umami.is)
-- **Website ID**: `fbcdf857-0a39-4929-9d50-06422f9e3983`
+- **Website ID**: Configured via `NEXT_PUBLIC_UMAMI_WEBSITE_ID` environment variable
 - **Integration**: Dual tracking (custom API + Umami)
 - **Features**:
   - Automatic page view tracking
