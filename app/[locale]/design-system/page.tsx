@@ -18,14 +18,14 @@ export default function DesignSystemPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FFFCF2]">
+    <div className="min-h-screen bg-cream">
       <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-12 md:py-16">
         {/* Header */}
         <header className="mb-12">
-          <h1 className="text-hero text-[#0A0A0A] mb-4">
+          <h1 className="text-hero text-dark mb-4">
             Design System
           </h1>
-          <p className="text-body-large max-w-[700px] text-[#2D2D2D]">
+          <p className="text-body-large max-w-[700px] text-brutalist-text-secondary">
             Sistema di design neobrutalist con palette cold-tone professionale. WCAG AA compliant.
           </p>
         </header>
@@ -33,12 +33,12 @@ export default function DesignSystemPage() {
         {/* Tabs Navigation */}
         <Tabs.Root defaultValue="colors" className="space-y-8">
           {/* Tab List */}
-          <Tabs.List className="flex flex-wrap gap-2 border-b-4 border-[#000] pb-4">
+          <Tabs.List className="flex flex-wrap gap-2 border-b-4 border-black pb-4">
             {categories.map((category) => (
               <Tabs.Trigger
                 key={category.id}
                 value={category.id}
-                className="px-4 py-2 border-3 border-[#000] rounded-brutal shadow-brutal data-[state=active]:bg-[#0D7EFF] data-[state=active]:text-white bg-white text-[#0A0A0A] hover:-translate-y-0.5 transition-all"
+                className="px-4 py-2 border-brutal border-black rounded-brutal shadow-brutal data-[state=active]:bg-electric-blue data-[state=active]:text-white bg-white text-dark hover:-translate-y-0.5 transition-all"
                 style={{
                   fontFamily: 'Space Grotesk, sans-serif',
                   fontWeight: 600,
@@ -61,19 +61,19 @@ export default function DesignSystemPage() {
                     { name: 'Electric Blue', hex: '#0D7EFF', use: 'Design/UX' },
                     { name: 'Teal', hex: '#2A687A', use: 'Development' },
                     { name: 'Deep Purple', hex: '#7209B7', use: 'PM/Strategy' },
-                    { name: 'Cyber Yellow', hex: '#FFD60A', use: 'Featured', textClass: 'text-[#0A0A0A]' },
+                    { name: 'Cyber Yellow', hex: '#FFD60A', use: 'Featured', textClass: 'text-dark' },
                     { name: 'Neon Pink', hex: '#FF006E', use: 'Analytics/Tools' },
                   ].map((color) => (
                     <div key={color.hex} className="space-y-2">
                       <div
-                        className={`h-24 rounded-brutal border-4 border-[#000] shadow-brutal flex items-center justify-center ${color.textClass || 'text-white'}`}
+                        className={`h-24 rounded-brutal border-4 border-black shadow-brutal flex items-center justify-center ${color.textClass || 'text-white'}`}
                         style={{ backgroundColor: color.hex }}
                       >
                         <span className="font-bold text-sm">{color.hex}</span>
                       </div>
-                      <div className="text-[#0A0A0A]">
+                      <div className="text-dark">
                         <p className="font-bold text-sm">{color.name}</p>
-                        <p className="text-xs text-[#6B7280]">{color.use}</p>
+                        <p className="text-xs text-brutalist-text-tertiary">{color.use}</p>
                       </div>
                     </div>
                   ))}
@@ -97,25 +97,25 @@ export default function DesignSystemPage() {
               description="Gerarchia tipografica del design system"
               preview={
                 <div className="space-y-6">
-                  <div className="text-[#0A0A0A]">
+                  <div className="text-dark">
                     <p className="text-hero mb-2">Hero Title</p>
-                    <code className="text-xs text-[#6B7280]">text-hero (56px)</code>
+                    <code className="text-xs text-brutalist-text-tertiary">text-hero (56px)</code>
                   </div>
-                  <div className="text-[#0A0A0A]">
+                  <div className="text-dark">
                     <p className="text-h1 mb-2">Heading 1</p>
-                    <code className="text-xs text-[#6B7280]">text-h1 (48px)</code>
+                    <code className="text-xs text-brutalist-text-tertiary">text-h1 (48px)</code>
                   </div>
-                  <div className="text-[#0A0A0A]">
+                  <div className="text-dark">
                     <p className="text-h2 mb-2">Heading 2</p>
-                    <code className="text-xs text-[#6B7280]">text-h2 (36px)</code>
+                    <code className="text-xs text-brutalist-text-tertiary">text-h2 (36px)</code>
                   </div>
-                  <div className="text-[#0A0A0A]">
+                  <div className="text-dark">
                     <p className="text-h3 mb-2">Heading 3</p>
-                    <code className="text-xs text-[#6B7280]">text-h3 (24px)</code>
+                    <code className="text-xs text-brutalist-text-tertiary">text-h3 (24px)</code>
                   </div>
-                  <div className="text-[#0A0A0A]">
+                  <div className="text-dark">
                     <p className="text-body mb-2">Body Text</p>
-                    <code className="text-xs text-[#6B7280]">text-body (16px)</code>
+                    <code className="text-xs text-brutalist-text-tertiary">text-body (16px)</code>
                   </div>
                 </div>
               }
@@ -134,7 +134,7 @@ export default function DesignSystemPage() {
               description="Bottone principale con effetto hover"
               preview={
                 <button
-                  className="px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
+                  className="px-6 py-3 bg-electric-blue text-white border-brutal border-black rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
                   style={{
                     fontFamily: 'Space Grotesk, sans-serif',
                     fontSize: '14px',
@@ -145,7 +145,7 @@ export default function DesignSystemPage() {
                   Primary Action
                 </button>
               }
-              code={`<button className="px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg">
+              code={`<button className="px-6 py-3 bg-electric-blue text-white border-brutal border-black rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg">
   Primary Action
 </button>`}
             />
@@ -155,7 +155,7 @@ export default function DesignSystemPage() {
               description="Bottone secondario outline"
               preview={
                 <button
-                  className="px-6 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg"
+                  className="px-6 py-3 bg-white text-dark border-brutal border-black rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg"
                   style={{
                     fontFamily: 'Space Grotesk, sans-serif',
                     fontSize: '14px',
@@ -165,7 +165,7 @@ export default function DesignSystemPage() {
                   Secondary Action
                 </button>
               }
-              code={`<button className="px-6 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg">
+              code={`<button className="px-6 py-3 bg-white text-dark border-brutal border-black rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg">
   Secondary Action
 </button>`}
             />
@@ -183,7 +183,7 @@ export default function DesignSystemPage() {
                       <CardTitle>Design/UX Project</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-body-small text-[#2D2D2D]">
+                      <p className="text-body-small text-brutalist-text-secondary">
                         Progetti di design, Figma, sistemi di design, user experience.
                       </p>
                     </CardContent>
@@ -193,7 +193,7 @@ export default function DesignSystemPage() {
                       <CardTitle>Development Project</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-body-small text-[#2D2D2D]">
+                      <p className="text-body-small text-brutalist-text-secondary">
                         Progetti di sviluppo, React, Next.js, migrazioni tecniche.
                       </p>
                     </CardContent>
@@ -205,7 +205,7 @@ export default function DesignSystemPage() {
     <CardTitle>Design/UX Project</CardTitle>
   </CardHeader>
   <CardContent>
-    <p className="text-body-small text-[#2D2D2D]">
+    <p className="text-body-small text-brutalist-text-secondary">
       Progetti di design, Figma, sistemi di design.
     </p>
   </CardContent>
@@ -222,7 +222,7 @@ export default function DesignSystemPage() {
                 <input
                   type="text"
                   placeholder="Il tuo nome"
-                  className="w-full px-4 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#0D7EFF] focus:outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white text-dark border-brutal border-black rounded placeholder:text-brutalist-text-tertiary focus:border-electric-blue focus:outline-none transition-all"
                   style={{
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '15px',
@@ -232,7 +232,7 @@ export default function DesignSystemPage() {
               code={`<input
   type="text"
   placeholder="Il tuo nome"
-  className="w-full px-4 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#0D7EFF] focus:outline-none transition-all"
+  className="w-full px-4 py-3 bg-white text-dark border-brutal border-black rounded placeholder:text-brutalist-text-tertiary focus:border-electric-blue focus:outline-none transition-all"
 />`}
             />
 
@@ -243,7 +243,7 @@ export default function DesignSystemPage() {
                 <textarea
                   placeholder="Il tuo messaggio"
                   rows={4}
-                  className="w-full px-4 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#FF006E] focus:outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white text-dark border-brutal border-black rounded placeholder:text-brutalist-text-tertiary focus:border-neon-pink focus:outline-none transition-all resize-none"
                   style={{
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '15px',
@@ -253,7 +253,7 @@ export default function DesignSystemPage() {
               code={`<textarea
   placeholder="Il tuo messaggio"
   rows={4}
-  className="w-full px-4 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded placeholder:text-[#6B7280] focus:border-[#FF006E] focus:outline-none transition-all resize-none"
+  className="w-full px-4 py-3 bg-white text-dark border-brutal border-black rounded placeholder:text-brutalist-text-tertiary focus:border-neon-pink focus:outline-none transition-all resize-none"
 />`}
             />
           </Tabs.Content>
@@ -295,13 +295,13 @@ export default function DesignSystemPage() {
                     { class: 'p-brutal-xl', px: '48px' },
                   ].map((spacing) => (
                     <div key={spacing.class} className="flex items-center gap-4">
-                      <code className="text-xs text-[#0A0A0A] w-32">
+                      <code className="text-xs text-dark w-32">
                         {spacing.class}
                       </code>
                       <div
-                        className={`${spacing.class} bg-[#0D7EFF] border-2 border-[#000] rounded`}
+                        className={`${spacing.class} bg-electric-blue border-2 border-black rounded`}
                       >
-                        <div className="bg-white text-[#0A0A0A] text-xs px-2 py-1 rounded">
+                        <div className="bg-white text-dark text-xs px-2 py-1 rounded">
                           {spacing.px}
                         </div>
                       </div>

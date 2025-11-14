@@ -85,9 +85,9 @@ export default function Analytics3amClient({
     <>
       <ReadingProgress />
 
-      <div className="min-h-screen bg-[#FFFCF2]">
+      <div className="min-h-screen bg-cream">
         {/* Sticky Header with Back Button */}
-        <div className="sticky top-0 z-40 bg-[#FFFCF2] border-b-brutal border-black">
+        <div className="sticky top-0 z-40 bg-cream border-b-brutal border-black">
           <div className="container max-w-[1200px] mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4">
             <button
               onClick={handleBackToBlog}
@@ -121,8 +121,8 @@ export default function Analytics3amClient({
                           onClick={() => scrollToSection(section.id)}
                           className={`block w-full text-left px-3 py-2 rounded-brutal transition-all min-h-[48px] flex items-center ${
                             activeSection === section.id
-                              ? 'bg-[#2A687A] text-white'
-                              : 'text-[#2D2D2D] hover:bg-gray-100'
+                              ? 'bg-teal text-white'
+                              : 'text-brutalist-text-secondary hover:bg-gray-100'
                           }`}
                           style={{
                             fontFamily: 'Inter, sans-serif',
@@ -175,8 +175,8 @@ export default function Analytics3amClient({
                           onClick={() => scrollToSection(section.id)}
                           className={`block w-full text-left px-3 py-2 rounded-brutal transition-all min-h-[48px] flex items-center ${
                             activeSection === section.id
-                              ? 'bg-[#2A687A] text-white'
-                              : 'text-[#2D2D2D] hover:bg-gray-100'
+                              ? 'bg-teal text-white'
+                              : 'text-brutalist-text-secondary hover:bg-gray-100'
                           }`}
                           style={{
                             fontFamily: 'Inter, sans-serif',
@@ -206,7 +206,7 @@ export default function Analytics3amClient({
                   </Badge>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2 md:gap-3 text-[#6B7280] text-body-sm mb-4">
+                <div className="flex flex-wrap items-center gap-2 md:gap-3 text-brutalist-text-tertiary text-body-sm mb-4">
                   <time dateTime={post.date}>
                     {new Date(post.date).toLocaleDateString('en-US', {
                       day: 'numeric',
@@ -220,11 +220,11 @@ export default function Analytics3amClient({
                   <span>{post.author}</span>
                 </div>
 
-                <h1 className="font-heading font-black text-h2 md:text-h1 text-[#0A0A0A] mb-6 leading-tight">
+                <h1 className="font-heading font-black text-h2 md:text-h1 text-dark mb-6 leading-tight">
                   {post.title}
                 </h1>
 
-                <p className="text-body-lg text-[#2D2D2D] leading-relaxed max-w-[65ch]">
+                <p className="text-body-lg text-brutalist-text-secondary leading-relaxed max-w-[65ch]">
                   {post.excerpt}
                 </p>
               </header>
@@ -273,7 +273,7 @@ function renderArticleContent(
     return (
       <div key={index}>
         <section id={sectionId} className="mb-8 scroll-mt-24">
-          <h2 className="font-heading font-bold text-h3 md:text-h2 text-[#0A0A0A] mb-4">
+          <h2 className="font-heading font-bold text-h3 md:text-h2 text-dark mb-4">
             {title}
           </h2>
           <div

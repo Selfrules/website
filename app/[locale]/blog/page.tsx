@@ -50,7 +50,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const tags = Array.from(new Set(allTags));
 
   return (
-    <main className="min-h-screen bg-[#FFFCF2]">
+    <main className="min-h-screen bg-cream">
       <Suspense fallback={<BlogLoadingSkeleton />}>
         <BlogListingClient
           initialPosts={allPosts}
@@ -66,9 +66,9 @@ export default async function BlogPage({ params }: BlogPageProps) {
 // Loading skeleton component
 function BlogLoadingSkeleton() {
   return (
-    <div className="min-h-screen bg-[#FFFCF2]">
+    <div className="min-h-screen bg-cream">
       {/* Hero Skeleton */}
-      <div className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-b-4 border-[#000] py-16 md:py-24">
+      <div className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-b-4 border-black py-16 md:py-24">
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8">
           <div className="h-12 w-48 bg-white/20 rounded-lg mb-6 animate-pulse" />
           <div className="h-16 w-96 bg-white/30 rounded-lg mb-6 animate-pulse" />
@@ -84,7 +84,7 @@ function BlogLoadingSkeleton() {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="h-80 bg-white border-4 border-black rounded-lg shadow-brutal animate-pulse"
+              className="h-80 bg-white border-brutal-thick border-black rounded-lg shadow-brutal animate-pulse"
             />
           ))}
         </div>
