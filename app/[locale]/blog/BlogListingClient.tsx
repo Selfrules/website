@@ -31,23 +31,43 @@ export default function BlogListingClient({
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 9;
 
   // Add 'All' to categories list
   const allCategories = useMemo(() => ['All', ...categories], [categories]);
 
-  // Filter posts based on search and category
+  // Filter posts based on search, category, and tags
   const filteredPosts = useMemo(() => {
-    return initialPosts.filter(post => {
+    const filtered = initialPosts.filter(post => {
       const matchesSearch =
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.category.toLowerCase().includes(searchQuery.toLowerCase());
+        post.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.tags?.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
 
       const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
 
-      return matchesSearch && matchesCategory;
+      const matchesTags = selectedTags.length === 0 ||
+        selectedTags.every(selectedTag => post.tags?.includes(selectedTag));
+
+      return matchesSearch && matchesCategory && matchesTags;
     });
-  }, [initialPosts, searchQuery, selectedCategory]);
+
+    // Reset to page 1 when filters change
+    setCurrentPage(1);
+
+    return filtered;
+  }, [initialPosts, searchQuery, selectedCategory, selectedTags]);
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+  const paginatedPosts = useMemo(() => {
+    const startIndex = (currentPage - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    return filteredPosts.slice(startIndex, endIndex);
+  }, [filteredPosts, currentPage, postsPerPage]);
 
   const handleClearSearch = () => {
     setSearchQuery('');
@@ -56,6 +76,15 @@ export default function BlogListingClient({
   const handleResetFilters = () => {
     setSearchQuery('');
     setSelectedCategory('All');
+    setSelectedTags([]);
+  };
+
+  const toggleTag = (tag: string) => {
+    if (selectedTags.includes(tag)) {
+      setSelectedTags(selectedTags.filter(t => t !== tag));
+    } else {
+      setSelectedTags([...selectedTags, tag]);
+    }
   };
 
   const handleArticleClick = (slug: string) => {
@@ -126,7 +155,7 @@ export default function BlogListingClient({
       {/* Filters & Content */}
       <section className="container max-w-[1200px] mx-auto px-6 md:px-8 py-12 md:py-16">
         {/* Category Filters */}
-        <div className="mb-10">
+        <div className="mb-6">
           <div className="flex items-center gap-3 mb-4">
             <Filter className="w-5 h-5 text-brutalist-text-secondary" />
             <h3 className="text-h3 text-dark">
@@ -165,6 +194,81 @@ export default function BlogListingClient({
           </div>
         </div>
 
+        {/* Tag Filters */}
+        {tags.length > 0 && (
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-h3 text-dark">
+                Filtra per tag
+              </h3>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag) => {
+                const isActive = selectedTags.includes(tag);
+
+                return (
+                  <button
+                    key={tag}
+                    onClick={() => toggleTag(tag)}
+                    className={`px-4 py-2 border-2 border-black rounded-lg shadow-brutal-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal ${
+                      isActive
+                        ? 'bg-teal text-white'
+                        : 'bg-white text-dark'
+                    }`}
+                    style={{
+                      fontFamily: 'Space Mono, monospace',
+                      fontWeight: 600,
+                      fontSize: '12px',
+                    }}
+                  >
+                    #{tag}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Active Filters Display */}
+        {(selectedCategory !== 'All' || selectedTags.length > 0) && (
+          <div className="mb-6 p-4 bg-white border-brutal border-black rounded-lg">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-body-small font-bold text-dark">
+                Filtri attivi:
+              </span>
+              <button
+                onClick={handleResetFilters}
+                className="text-body-small text-electric-blue hover:underline"
+                style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}
+              >
+                Resetta tutto
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {selectedCategory !== 'All' && (
+                <span className="px-3 py-1 bg-electric-blue text-white border-2 border-black rounded text-xs font-bold">
+                  Categoria: {selectedCategory}
+                </span>
+              )}
+              {selectedTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-teal text-white border-2 border-black rounded text-xs font-bold flex items-center gap-1"
+                >
+                  #{tag}
+                  <button
+                    onClick={() => toggleTag(tag)}
+                    className="ml-1 hover:opacity-70"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Results Count */}
         <div className="mb-6">
           <p className="text-body-small text-brutalist-text-tertiary">
@@ -176,8 +280,9 @@ export default function BlogListingClient({
 
         {/* Articles Grid */}
         {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {filteredPosts.map((post) => {
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {paginatedPosts.map((post) => {
               const categoryColor = categoryColors[post.category] || '#2D2D2D';
 
               return (
@@ -235,6 +340,83 @@ export default function BlogListingClient({
               );
             })}
           </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="mt-12 flex justify-center items-center gap-2">
+              <button
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all ${
+                  currentPage === 1
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                    : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
+                }`}
+                style={{
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '14px',
+                }}
+              >
+                ← Precedente
+              </button>
+
+              <div className="flex gap-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
+                  // Show first page, last page, current page, and pages around current
+                  const showPage =
+                    pageNum === 1 ||
+                    pageNum === totalPages ||
+                    (pageNum >= currentPage - 1 && pageNum <= currentPage + 1);
+
+                  if (!showPage) {
+                    // Show ellipsis
+                    if (pageNum === currentPage - 2 || pageNum === currentPage + 2) {
+                      return <span key={pageNum} className="px-2 text-dark">...</span>;
+                    }
+                    return null;
+                  }
+
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => setCurrentPage(pageNum)}
+                      className={`w-10 h-10 border-brutal border-black rounded-lg shadow-brutal-sm transition-all ${
+                        currentPage === pageNum
+                          ? 'bg-electric-blue text-white'
+                          : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
+                      }`}
+                      style={{
+                        fontFamily: 'Space Grotesk, sans-serif',
+                        fontWeight: 700,
+                        fontSize: '14px',
+                      }}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                disabled={currentPage === totalPages}
+                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all ${
+                  currentPage === totalPages
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                    : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
+                }`}
+                style={{
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '14px',
+                }}
+              >
+                Successivo →
+              </button>
+            </div>
+          )}
+          </>
         ) : (
           // No Results
           <div className="text-center py-20">

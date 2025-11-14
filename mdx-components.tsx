@@ -2,6 +2,10 @@ import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import Callout from '@/components/mdx/Callout'
+import PullQuote from '@/components/mdx/PullQuote'
+import ImageGallery from '@/components/mdx/ImageGallery'
+import CodeBlock from '@/components/mdx/CodeBlock'
 
 // Custom components for MDX
 const components: MDXComponents = {
@@ -33,18 +37,41 @@ const components: MDXComponents = {
       {...props}
     />
   ),
-  code: (props: React.ComponentProps<'code'>) => (
-    <code
-      className="px-2 py-1 rounded-sm bg-gray-100 dark:bg-gray-800 text-sm font-mono text-secondary"
-      {...props}
-    />
-  ),
-  pre: (props: React.ComponentProps<'pre'>) => (
-    <pre
-      className="mb-6 p-4 bg-gray-900 rounded-brutal border-4 border-black overflow-x-auto shadow-brutal"
-      {...props}
-    />
-  ),
+  code: (props: React.ComponentProps<'code'>) => {
+    // If code is inside a pre tag, it will be handled by CodeBlock
+    // This is for inline code only
+    if (props.className) {
+      return <code {...props} />;
+    }
+    return (
+      <code
+        className="px-2 py-1 rounded-sm bg-gray-100 dark:bg-gray-800 text-sm font-mono text-brutalist-text-secondary border border-gray-300"
+        {...props}
+      />
+    );
+  },
+  pre: (props: React.ComponentProps<'pre'>) => {
+    // Extract code from children
+    const children = props.children as React.ReactElement;
+    const code = children?.props?.children;
+    const className = children?.props?.className;
+
+    if (typeof code === 'string') {
+      return (
+        <CodeBlock className={className}>
+          {code}
+        </CodeBlock>
+      );
+    }
+
+    // Fallback to default pre if code structure is unexpected
+    return (
+      <pre
+        className="mb-6 p-4 bg-gray-900 rounded-brutal border-brutal border-black overflow-x-auto shadow-brutal"
+        {...props}
+      />
+    );
+  },
   // Use Next.js Image component
   img: (props: React.ComponentProps<'img'>) => {
     // Next Image requires src, so we provide a fallback
@@ -84,34 +111,11 @@ const components: MDXComponents = {
     )
   },
   // Custom storytelling components
-  Callout: ({ children, type = 'info', title }: { children: React.ReactNode; type?: 'info' | 'warning' | 'tip'; title?: string }) => {
-    const styles = {
-      info: 'bg-secondary/5 dark:bg-secondary/10 border-secondary-600',
-      warning: 'bg-accent/5 dark:bg-accent/10 border-accent',
-      tip: 'bg-primary/5 dark:bg-primary/10 border-primary'
-    }
+  Callout: Callout as any,
+  PullQuote: PullQuote as any,
+  ImageGallery: ImageGallery as any,
 
-    const icons = {
-      info: '💡',
-      warning: '⚠️',
-      tip: '✨'
-    }
-
-    return (
-      <div className={`story-callout ${styles[type]} border-4`}>
-        {title && (
-          <div className="story-callout-title flex items-center gap-2">
-            <span>{icons[type]}</span>
-            <span>{title}</span>
-          </div>
-        )}
-        <div className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 leading-relaxed">
-          {children}
-        </div>
-      </div>
-    )
-  },
-
+  // Legacy Quote component (kept for backwards compatibility)
   Quote: ({ children, author }: { children: React.ReactNode; author?: string }) => (
     <div className="story-quote">
       <div className="relative">
