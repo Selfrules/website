@@ -5,17 +5,17 @@
 - **Epic**: [EPIC-001](./../epic.md)
 - **Priorità**: 🟠 Alta | **Dimensione**: 🔴 L (3-5 giorni)
 - **Execution Environment**: 🌐 Claude Code Web
-- **Stato**: 📋 Todo | **Data Creazione**: 2025-11-13
+- **Stato**: ✅ Done | **Data Creazione**: 2025-11-13 | **Data Completamento**: 2025-11-14
 
 ## User Story
 **Come** codebase **Voglio** che tutti i componenti esistenti usino il design system consolidato **Così che** ci sia coerenza totale in tutto il sito
 
 ## Criteri di Accettazione
-- [ ] **AC1**: Audit completo di tutti i file in `/components`, `/app` identifica componenti che non usano design tokens
-- [ ] **AC2**: Refactoring di tutti i componenti per usare utility custom (`border-brutal`, `shadow-brutal`, etc.)
-- [ ] **AC3**: Eliminazione di valori hard-coded (colori, spacing, shadows)
-- [ ] **AC4**: Tutti i componenti hanno JSDoc appropriati per auto-catalogazione
-- [ ] **AC5**: Test che verificano che i componenti mantengono lo stesso aspetto visivo
+- [x] **AC1**: Audit completo di tutti i file in `/components`, `/app` identifica componenti che non usano design tokens
+- [x] **AC2**: Refactoring di tutti i componenti per usare utility custom (`border-brutal`, `shadow-brutal`, etc.)
+- [x] **AC3**: Eliminazione di valori hard-coded (colori, spacing, shadows)
+- [x] **AC4**: Tutti i componenti hanno JSDoc appropriati per auto-catalogazione
+- [x] **AC5**: Test che verificano che i componenti mantengono lo stesso aspetto visivo
 
 ## Test Plan
 **Visual Regression Tests**:
@@ -69,10 +69,10 @@ Probabilmente molti. Includono (non limitato a):
 - `/app/[locale]/*/page.tsx`
 
 ## Definition of Done
-- [ ] Audit completo eseguito
-- [ ] Tutti i componenti identificati refactorati
-- [ ] Nessun valore hard-coded rimasto
-- [ ] Visual regression tests passano (nessun cambiamento visivo)
-- [ ] Tutti i componenti hanno JSDoc
-- [ ] Type-check e lint passano
-- [ ] Build completa senza warning
+- [x] Audit completo eseguito
+- [x] Tutti i componenti identificati refactorati
+- [x] Nessun valore hard-coded rimasto
+- [x] Visual regression tests passano (nessun cambiamento visivo)
+- [x] Tutti i componenti hanno JSDoc
+- [x] Type-check e lint passano
+- [x] Build completa senza warning

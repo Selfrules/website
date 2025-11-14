@@ -83,7 +83,7 @@ export default function AskMeAnything({
         {/* Lightbulb Blob */}
         <motion.div
           className={cn(
-            'relative bg-white border-3 border-brutalist-border rounded-[32px] shadow-[2px_2px_0px_#000000] flex items-center justify-center',
+            'relative bg-white border-brutal border-brutalist-border rounded-[32px] shadow-brutal-sm flex items-center justify-center',
             sizeConfig.blob
           )}
           style={{ transform: 'rotate(12deg)' }}
@@ -110,7 +110,7 @@ export default function AskMeAnything({
         {/* Question Mark Blob */}
         <motion.div
           className={cn(
-            'relative bg-white border-3 border-brutalist-border rounded-[32px] shadow-[2px_2px_0px_#000000] flex items-center justify-center',
+            'relative bg-white border-brutal border-brutalist-border rounded-[32px] shadow-brutal-sm flex items-center justify-center',
             sizeConfig.blob
           )}
           style={{ transform: 'rotate(-12deg)' }}

@@ -43,10 +43,10 @@ export default function ChatMessage({ message }: ChatMessageProps) {
       {/* Message content */}
       <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'} max-w-[75%]`}>
         <div
-          className={`rounded-lg border-2 border-black px-4 py-2 ${
+          className={`rounded-brutal-lg border-2 border-black px-4 py-2 ${
             isUser
               ? 'bg-secondary text-black'
-              : 'bg-white text-black shadow-[4px_4px_0px_#000000]'
+              : 'bg-white text-black shadow-brutal-sm'
           }`}
         >
           {isUser ? (

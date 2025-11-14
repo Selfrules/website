@@ -79,7 +79,7 @@ export default function AdminLoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border-3 border-black rounded-md shadow-[3px_3px_0_#000] bg-white text-[#0A0A0A] placeholder:text-gray-500 placeholder:opacity-70 focus:outline-none focus:border-primary focus:shadow-[5px_5px_0_#1E90FF] disabled:opacity-60 disabled:bg-gray-100 transition-all"
+                className="w-full px-4 py-3 border-brutal border-black rounded-brutal shadow-brutal-sm bg-white text-dark placeholder:text-gray-500 placeholder:opacity-70 focus:outline-none focus:border-primary focus:shadow-brutal-colored-blue disabled:opacity-60 disabled:bg-gray-100 transition-all"
                 placeholder="mattia@selfrules.org"
                 required
                 disabled={loading}
@@ -98,7 +98,7 @@ export default function AdminLoginPage() {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 border-3 border-black rounded-md shadow-[3px_3px_0_#000] bg-white text-[#0A0A0A] placeholder:text-gray-500 placeholder:opacity-70 focus:outline-none focus:border-primary focus:shadow-[5px_5px_0_#1E90FF] disabled:opacity-60 disabled:bg-gray-100 transition-all"
+                  className="w-full px-4 py-3 border-brutal border-black rounded-brutal shadow-brutal-sm bg-white text-dark placeholder:text-gray-500 placeholder:opacity-70 focus:outline-none focus:border-primary focus:shadow-brutal-colored-blue disabled:opacity-60 disabled:bg-gray-100 transition-all"
                   placeholder="Enter admin password"
                   required
                   disabled={loading}
@@ -126,7 +126,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading || !password}
-              className="w-full px-6 py-3 bg-primary text-white font-bold border-4 border-black rounded-md shadow-[8px_8px_0_#000] hover:shadow-[4px_4px_0_#000] hover:translate-x-[4px] hover:translate-y-[4px] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[8px_8px_0_#000]"
+              className="w-full px-6 py-3 bg-primary text-white font-bold border-brutal-thick border-black rounded-brutal shadow-brutal hover:shadow-brutal-sm hover:translate-x-[4px] hover:translate-y-[4px] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-brutal"
             >
               {loading ? 'Authenticating...' : 'Login'}
             </button>

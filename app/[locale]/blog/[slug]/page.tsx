@@ -104,9 +104,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 // Loading skeleton
 function BlogArticleLoadingSkeleton() {
   return (
-    <div className="min-h-screen bg-[#FFFCF2]">
+    <div className="min-h-screen bg-cream">
       {/* Sticky header skeleton */}
-      <div className="sticky top-0 z-40 bg-[#FFFCF2] border-b-4 border-[#000] py-4">
+      <div className="sticky top-0 z-40 bg-cream border-b-4 border-black py-4">
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8">
           <div className="h-10 w-40 bg-gray-200 rounded-lg animate-pulse" />
         </div>
@@ -117,7 +117,7 @@ function BlogArticleLoadingSkeleton() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Sidebar skeleton */}
           <div className="hidden lg:block lg:col-span-3">
-            <div className="h-96 bg-white border-4 border-[#000] rounded-lg animate-pulse" />
+            <div className="h-96 bg-white border-brutal-thick border-black rounded-lg animate-pulse" />
           </div>
 
           {/* Article skeleton */}

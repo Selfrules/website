@@ -54,7 +54,7 @@ export default function SimpleIllustration({
   return (
     <motion.div
       className={cn(
-        'relative flex items-center justify-center border-3 shadow-[4px_4px_0px_#000000]',
+        'relative flex items-center justify-center border-brutal shadow-brutal-sm',
         sizeConfig.container,
         bgColor,
         borderColor,

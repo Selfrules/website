@@ -135,9 +135,9 @@ export function BookingConfirmation() {
               'w-full py-3 px-6 rounded-lg',
               'bg-purple-primary text-white font-bold',
               'border-4 border-black',
-              'shadow-[8px_8px_0px_#000000]',
+              'shadow-brutal',
               'transition-all',
-              'hover:shadow-[4px_4px_0px_#000000] hover:translate-x-[4px] hover:translate-y-[4px]',
+              'hover:shadow-brutal-sm hover:translate-x-[4px] hover:translate-y-[4px]',
               'flex items-center justify-center gap-2',
               'inline-flex'
             )}

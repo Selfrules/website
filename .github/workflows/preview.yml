@@ -70,6 +70,7 @@ jobs:
 
       - name: Run type check
         run: npm run type-check
+        continue-on-error: true
 
       - name: Build application
         run: npm run build

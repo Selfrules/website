@@ -81,9 +81,9 @@ export default async function Analytics3amPage({ params }: Analytics3amPageProps
 // Loading skeleton
 function ArticleLoadingSkeleton() {
   return (
-    <div className="min-h-screen bg-[#FFFCF2]">
+    <div className="min-h-screen bg-cream">
       {/* Sticky header skeleton */}
-      <div className="sticky top-0 z-40 bg-[#FFFCF2] border-b-brutal border-black py-4">
+      <div className="sticky top-0 z-40 bg-cream border-b-brutal border-black py-4">
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8">
           <div className="h-10 w-40 bg-gray-200 rounded-brutal animate-pulse" />
         </div>

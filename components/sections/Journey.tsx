@@ -127,9 +127,9 @@ export default function Journey() {
                   <div
                     className={`
                       absolute left-0 md:left-1/2 top-8 md:-translate-x-1/2
-                      rounded-full border-4 border-[#000] z-10 flex items-center justify-center
+                      rounded-full border-brutal-thick border-black z-10 flex items-center justify-center
                       ${milestone.isCurrent
-                        ? 'w-12 h-12 bg-[#0D7EFF] shadow-[0_0_0_8px_rgba(13,126,255,0.2)]'
+                        ? 'w-12 h-12 bg-electric-blue ring-8 ring-electric-blue/20'
                         : 'w-10 h-10 bg-white'
                       }
                     `}
@@ -259,7 +259,7 @@ export default function Journey() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-[#0D7EFF] border-4 border-[#000] rounded-lg shadow-brutal px-6 py-4 rotate-1">
+          <div className="inline-block bg-electric-blue border-brutal-thick border-black rounded-brutal-lg shadow-brutal px-6 py-4 rotate-1">
             <p className="text-body text-white" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
               {t('endMessage')} 💪
             </p>
