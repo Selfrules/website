@@ -301,10 +301,10 @@ function ChatInput() {
             'px-4 py-2 rounded-lg',
             'bg-secondary text-white',
             'border-3 border-black',
-            'shadow-[4px_4px_0px_#000000]',
+            'shadow-brutal-sm',
             'transition-all',
-            'hover:shadow-[2px_2px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px]',
-            'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-[4px_4px_0px_#000000] disabled:hover:translate-x-0 disabled:hover:translate-y-0'
+            'hover:shadow-brutal-active hover:translate-x-[2px] hover:translate-y-[2px]',
+            'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-brutal-sm disabled:hover:translate-x-0 disabled:hover:translate-y-0'
           )}
           aria-label="Send message"
         >

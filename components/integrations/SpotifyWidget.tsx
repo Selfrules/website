@@ -144,8 +144,8 @@ export function SpotifyWidgetCompact() {
       className={cn(
         'flex items-center gap-2 p-2 rounded-lg',
         'border-2 border-black bg-white',
-        'shadow-[2px_2px_0px_#000000]',
-        'hover:shadow-[3px_3px_0px_#000000] hover:-translate-x-[1px] hover:-translate-y-[1px]',
+        'shadow-brutal-sm',
+        'hover:shadow-brutal-sm hover:-translate-x-[1px] hover:-translate-y-[1px]',
         'transition-all'
       )}
       whileHover={{ scale: 1.02 }}

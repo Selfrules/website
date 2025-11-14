@@ -133,7 +133,7 @@ export function TimeSlotGrid() {
                   'font-bold text-sm transition-all',
                   'hover:scale-105 active:scale-95',
                   isSelected &&
-                    'bg-purple-primary text-white shadow-[4px_4px_0px_#000000]',
+                    'bg-purple-primary text-white shadow-brutal-sm',
                   !isSelected &&
                     slot.available &&
                     'bg-white hover:bg-primary',
@@ -200,11 +200,11 @@ export function TimeSlotGrid() {
             'flex-1 py-3 px-6 rounded-lg',
             'bg-purple-primary text-white font-bold',
             'border-4 border-black',
-            'shadow-[8px_8px_0px_#000000]',
+            'shadow-brutal',
             'transition-all',
-            'hover:shadow-[4px_4px_0px_#000000] hover:translate-x-[4px] hover:translate-y-[4px]',
+            'hover:shadow-brutal-sm hover:translate-x-[4px] hover:translate-y-[4px]',
             'disabled:opacity-50 disabled:cursor-not-allowed',
-            'disabled:hover:shadow-[8px_8px_0px_#000000] disabled:hover:translate-x-0 disabled:hover:translate-y-0'
+            'disabled:hover:shadow-brutal disabled:hover:translate-x-0 disabled:hover:translate-y-0'
           )}
         >
           Continue to Details
