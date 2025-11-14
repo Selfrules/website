@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Twitter, Linkedin, Facebook, Link as LinkIcon, Check } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
+import ReadingProgressBar from './ReadingProgressBar';
 
 interface BlogArticleClientProps {
   post: BlogPost;
@@ -120,6 +121,9 @@ export default function BlogArticleClient({
 
   return (
     <div className="min-h-screen bg-[#FFFCF2]">
+      {/* Reading Progress Bar */}
+      <ReadingProgressBar />
+
       {/* Sticky Header with Back Button */}
       <div className="sticky top-0 z-40 bg-[#FFFCF2] border-b-4 border-[#000]">
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-4">
