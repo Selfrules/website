@@ -99,7 +99,7 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
             <Badge variant={categoryVariant} size="sm" className="mb-brutal-sm">
               {post.category}
             </Badge>
-            <h3 className="text-body mb-brutal-sm text-black group-hover:text-electric-blue transition-colors leading-snug" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+            <h3 className="text-body mb-brutal-sm text-black group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
               {post.title}
             </h3>
             <p className="text-body-small text-brutalist-text-light line-clamp-3 mb-brutal-sm">

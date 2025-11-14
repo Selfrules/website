@@ -90,7 +90,12 @@
       "Bash(if exist nul echo \"nul file exists\" else echo \"nul file not found\")",
       "Bash(del nul 2)",
       "Bash(NUL)",
-      "Bash(\"C:\\Users\\Utente\\Desktop\\selfrules\\mattia_web\\app\\[locale]\\design-system\\page.tsx\")"
+      "Bash(\"C:\\Users\\Utente\\Desktop\\selfrules\\mattia_web\\app\\[locale]\\design-system\\page.tsx\")",
+      "Bash(if [ -f \"nul\" ])",
+      "Bash(then file nul)",
+      "Bash(fi)",
+      "Bash(then rm nul)",
+      "Bash(else echo \"nul file not found\")"
     ],
     "deny": [],
     "ask": []

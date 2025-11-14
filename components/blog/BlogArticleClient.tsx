@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Twitter, Linkedin, Facebook, Link as LinkIcon, Check } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, Twitter, Linkedin, Link2, ChevronRight, TrendingUp, Users, CheckCircle, ArrowRight } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
-import ReadingProgressBar from './ReadingProgressBar';
 
 interface BlogArticleClientProps {
   post: BlogPost;
@@ -14,14 +13,11 @@ interface BlogArticleClientProps {
   fullUrl: string;
 }
 
-// Mock section data - in real implementation, this would be extracted from MDX
-const articleSections = [
-  { id: 'introduzione', title: 'Introduzione' },
-  { id: 'il-problema', title: 'Il problema' },
-  { id: 'la-soluzione', title: 'La soluzione' },
-  { id: 'risultati', title: 'Risultati' },
-  { id: 'conclusioni', title: 'Conclusioni' },
-];
+interface TableOfContentItem {
+  id: string;
+  title: string;
+  level: number;
+}
 
 export default function BlogArticleClient({
   post,
@@ -31,22 +27,69 @@ export default function BlogArticleClient({
   fullUrl,
 }: BlogArticleClientProps) {
   const router = useRouter();
-  const [activeSection, setActiveSection] = useState('introduzione');
-  const [copied, setCopied] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [readingProgress, setReadingProgress] = useState(0);
 
-  // Scroll spy for Table of Contents
+  // Table of Contents - extracted from content or mock
+  const tableOfContents: TableOfContentItem[] = [
+    { id: 'intro', title: 'Introduzione', level: 1 },
+    { id: 'problema', title: 'Il problema', level: 1 },
+    { id: 'contesto', title: 'Il contesto', level: 2 },
+    { id: 'sfide', title: 'Le sfide', level: 2 },
+    { id: 'soluzione', title: 'La soluzione', level: 1 },
+    { id: 'approccio', title: 'Approccio', level: 2 },
+    { id: 'implementazione', title: 'Implementazione', level: 2 },
+    { id: 'risultati', title: 'Risultati', level: 1 },
+    { id: 'lezioni', title: 'Lezioni apprese', level: 1 },
+    { id: 'conclusione', title: 'Conclusione', level: 1 },
+  ];
+
+  const shareUrl = fullUrl;
+  const shareTitle = post.title;
+
+  const handleShare = (platform: string) => {
+    const urls = {
+      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+    };
+
+    if (platform === 'copy') {
+      navigator.clipboard.writeText(shareUrl);
+      alert('Link copiato negli appunti!');
+    } else if (urls[platform as keyof typeof urls]) {
+      window.open(urls[platform as keyof typeof urls], '_blank', 'width=600,height=400');
+    }
+    setShowShareMenu(false);
+  };
+
+  const handleBackToBlog = () => {
+    router.push(`/${locale}/blog`);
+  };
+
+  // Reading progress bar
   useEffect(() => {
     const handleScroll = () => {
-      const sections = articleSections.map((section) =>
-        document.getElementById(section.id)
-      );
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setReadingProgress(scrolled);
+    };
 
-      const scrollPosition = window.scrollY + 100;
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll spy for ToC
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = tableOfContents.map(item => document.getElementById(item.id));
+      const scrollPosition = window.scrollY + 150;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(articleSections[i].id);
+          setActiveSection(tableOfContents[i].id);
           break;
         }
       }
@@ -56,302 +99,319 @@ export default function BlogArticleClient({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleBackToBlog = () => {
-    router.push(`/${locale}/blog`);
-  };
-
-  const handleRelatedArticleClick = (slug: string) => {
-    router.push(`/${locale}/blog/${slug}`);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
       const offset = 100;
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
     }
   };
-
-  const handleShare = (platform: string) => {
-    const encodedUrl = encodeURIComponent(fullUrl);
-    const encodedTitle = encodeURIComponent(post.title);
-    const encodedText = encodeURIComponent(post.excerpt);
-
-    let shareUrl = '';
-
-    switch (platform) {
-      case 'twitter':
-        shareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
-        break;
-      case 'linkedin':
-        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-        break;
-      case 'facebook':
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-        break;
-    }
-
-    if (shareUrl) {
-      window.open(shareUrl, '_blank', 'width=600,height=400');
-    }
-  };
-
-  const handleCopyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(fullUrl);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
-  // Category color mapping
-  const categoryColors: Record<string, string> = {
-    'Product': '#FF006E',
-    'Strategy': '#7209B7',
-    'OKRs': '#0D7EFF',
-    'Design': '#0D7EFF',
-    'Development': '#2A687A',
-    'Leadership': '#FF006E',
-  };
-
-  const categoryColor = categoryColors[post.category] || '#2D2D2D';
 
   return (
     <div className="min-h-screen bg-[#FFFCF2]">
       {/* Reading Progress Bar */}
-      <ReadingProgressBar />
+      <div className="fixed top-0 left-0 w-full h-1 bg-[#E5E5E5] z-50">
+        <div
+          className="h-full bg-gradient-to-r from-[#0D7EFF] via-[#7209B7] to-[#FF006E] transition-all duration-150"
+          style={{ width: `${readingProgress}%` }}
+        />
+      </div>
 
-      {/* Sticky Header with Back Button */}
-      <div className="sticky top-0 z-40 bg-[#FFFCF2] border-b-4 border-[#000]">
+      {/* Header */}
+      <div className="sticky top-0 z-40 bg-[#FFFCF2] border-b-4 border-[#000] mt-1">
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-4">
-          <button
-            onClick={handleBackToBlog}
-            className="flex items-center gap-2 px-4 py-2 bg-white border-4 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-[#0A0A0A]"
-            style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
-          >
-            <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
-            Torna al Blog
-          </button>
+          <div className="flex items-center justify-between">
+            <button
+              onClick={handleBackToBlog}
+              className="flex items-center gap-2 px-4 py-2 bg-white text-[#0A0A0A] border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontWeight: 700,
+                fontSize: '14px',
+              }}
+            >
+              <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
+              <span className="hidden sm:inline">Torna al Blog</span>
+              <span className="sm:hidden">Blog</span>
+            </button>
+
+            {/* Quick Actions */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setShowShareMenu(!showShareMenu)}
+                className="relative p-2 bg-white text-[#0A0A0A] border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+              >
+                <Share2 className="w-4 h-4" />
+              </button>
+
+              {showShareMenu && (
+                <div className="absolute top-16 right-6 bg-white border-3 border-[#000] rounded-lg shadow-brutal p-3 flex flex-col gap-2 min-w-[180px] z-10">
+                  <button
+                    onClick={() => handleShare('twitter')}
+                    className="flex items-center gap-2 px-3 py-2 text-[#0A0A0A] hover:bg-[#FFFCF2] rounded text-left transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}
+                  >
+                    <Twitter className="w-4 h-4 text-[#1DA1F2]" />
+                    Twitter
+                  </button>
+                  <button
+                    onClick={() => handleShare('linkedin')}
+                    className="flex items-center gap-2 px-3 py-2 text-[#0A0A0A] hover:bg-[#FFFCF2] rounded text-left transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}
+                  >
+                    <Linkedin className="w-4 h-4 text-[#0A66C2]" />
+                    LinkedIn
+                  </button>
+                  <button
+                    onClick={() => handleShare('copy')}
+                    className="flex items-center gap-2 px-3 py-2 text-[#0A0A0A] hover:bg-[#FFFCF2] rounded text-left transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}
+                  >
+                    <Link2 className="w-4 h-4" />
+                    Copia link
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <article className="container max-w-[1200px] mx-auto px-6 md:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Sidebar - Table of Contents & Share */}
+      <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Sidebar - ToC & Share */}
           <aside className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-24">
-              <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6">
-                {/* Table of Contents */}
+            <div className="sticky top-28 space-y-6">
+              {/* Table of Contents */}
+              <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-5">
                 <h3
-                  className="mb-4 pb-3 border-b-4 border-[#000] text-[#0A0A0A]"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '16px' }}
+                  className="mb-4 pb-3 border-b-3 border-[#000] text-[#0A0A0A]"
+                  style={{
+                    fontFamily: 'Space Grotesk, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '14px',
+                  }}
                 >
-                  Indice
+                  📑 Indice
                 </h3>
-                <nav className="space-y-2 mb-6">
-                  {articleSections.map((section) => (
+                <nav className="space-y-1">
+                  {tableOfContents.map((item) => (
                     <button
-                      key={section.id}
-                      onClick={() => scrollToSection(section.id)}
-                      className={`block w-full text-left px-3 py-2 rounded-lg transition-all ${
-                        activeSection === section.id
-                          ? 'bg-[#0D7EFF] text-white'
-                          : 'text-[#2D2D2D] hover:bg-gray-100'
-                      }`}
-                      style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: activeSection === section.id ? 600 : 400 }}
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`w-full text-left px-3 py-2 rounded-lg transition-all group ${
+                        activeSection === item.id
+                          ? 'bg-[#0D7EFF] text-white shadow-brutal-sm'
+                          : 'text-[#2D2D2D] hover:bg-[#FFFCF2] hover:translate-x-1'
+                      } ${item.level === 2 ? 'pl-6 text-sm' : 'text-sm'}`}
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontWeight: activeSection === item.id ? 600 : 400,
+                      }}
                     >
-                      {section.title}
+                      {item.title}
                     </button>
                   ))}
                 </nav>
+              </div>
 
-                {/* Share Buttons */}
-                <div className="pt-4 border-t-4 border-[#000]">
-                  <h4
-                    className="mb-3 text-[#0A0A0A]"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
+              {/* Share Buttons */}
+              <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-5">
+                <h4
+                  className="mb-3 text-[#0A0A0A]"
+                  style={{
+                    fontFamily: 'Space Grotesk, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '14px',
+                  }}
+                >
+                  🔗 Condividi
+                </h4>
+                <div className="flex flex-col gap-2">
+                  <button
+                    onClick={() => handleShare('twitter')}
+                    className="flex items-center gap-2 px-3 py-2.5 bg-[#1DA1F2] text-white border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 600 }}
                   >
-                    Condividi
-                  </h4>
-                  <div className="space-y-2">
-                    <button
-                      onClick={() => handleShare('twitter')}
-                      className="flex items-center gap-3 w-full px-4 py-2 bg-[#1DA1F2] text-white border-2 border-[#000] rounded hover:opacity-90 transition-opacity"
-                    >
-                      <Twitter className="w-4 h-4" />
-                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 500 }}>
-                        Twitter
-                      </span>
-                    </button>
-                    <button
-                      onClick={() => handleShare('linkedin')}
-                      className="flex items-center gap-3 w-full px-4 py-2 bg-[#0A66C2] text-white border-2 border-[#000] rounded hover:opacity-90 transition-opacity"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 500 }}>
-                        LinkedIn
-                      </span>
-                    </button>
-                    <button
-                      onClick={handleCopyLink}
-                      className="flex items-center gap-3 w-full px-4 py-2 bg-white text-[#0A0A0A] border-2 border-[#000] rounded hover:bg-gray-50 transition-colors"
-                    >
-                      {copied ? <Check className="w-4 h-4 text-green-600" /> : <LinkIcon className="w-4 h-4" />}
-                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 500 }}>
-                        {copied ? 'Copiato!' : 'Copia link'}
-                      </span>
-                    </button>
-                  </div>
+                    <Twitter className="w-4 h-4" />
+                    Twitter
+                  </button>
+                  <button
+                    onClick={() => handleShare('linkedin')}
+                    className="flex items-center gap-2 px-3 py-2.5 bg-[#0A66C2] text-white border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 600 }}
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </button>
+                  <button
+                    onClick={() => handleShare('copy')}
+                    className="flex items-center gap-2 px-3 py-2.5 bg-white text-[#0A0A0A] border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+                    style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', fontWeight: 600 }}
+                  >
+                    <Link2 className="w-4 h-4" />
+                    Copia link
+                  </button>
                 </div>
               </div>
             </div>
           </aside>
 
-          {/* Article Content */}
-          <div className="lg:col-span-9">
+          {/* Main Content */}
+          <main className="lg:col-span-9">
             {/* Article Header */}
-            <header className="mb-12">
-              <div className="flex items-center gap-3 mb-4">
+            <header className="mb-10">
+              {/* Breadcrumb */}
+              <div className="flex items-center gap-2 mb-6 text-sm text-[#6B7280]">
+                <button
+                  onClick={handleBackToBlog}
+                  className="hover:text-[#0D7EFF] transition-colors"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  Blog
+                </button>
+                <ChevronRight className="w-3 h-3" />
+                <span style={{ fontFamily: 'Inter, sans-serif' }}>{post.category}</span>
+              </div>
+
+              {/* Meta Info */}
+              <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span
-                  className="px-3 py-1 border-4 border-[#000] rounded-lg text-white inline-block"
+                  className="px-3 py-1.5 border-3 border-[#000] rounded-lg shadow-brutal-sm text-white"
                   style={{
-                    backgroundColor: categoryColor,
+                    backgroundColor: getCategoryColor(post.category),
                     fontFamily: 'Space Mono, monospace',
-                    fontSize: '11px',
+                    fontSize: '12px',
                     fontWeight: 700,
                   }}
                 >
                   {post.category}
                 </span>
-                <div className="flex items-center gap-2 text-[#6B7280]" style={{ fontSize: '14px' }}>
-                  <span>
+                <div className="flex items-center gap-4 text-[#6B7280]" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="w-4 h-4" />
                     {new Date(post.date).toLocaleDateString('it-IT', {
                       day: 'numeric',
-                      month: 'long',
+                      month: 'short',
                       year: 'numeric',
                     })}
                   </span>
-                  <span>•</span>
-                  <span>{post.readingTime}</span>
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="w-4 h-4" />
+                    {post.readingTime}
+                  </span>
                 </div>
               </div>
 
-              <h1
-                className="text-[#0A0A0A] mb-6 leading-tight"
-                style={{
-                  fontFamily: 'Space Grotesk, sans-serif',
-                  fontWeight: 900,
-                  fontSize: 'clamp(32px, 5vw, 56px)',
-                }}
-              >
-                {post.title}
-              </h1>
+              {/* Title */}
+              <h1 className="text-h1 text-[#0A0A0A] mb-6 leading-tight">{post.title}</h1>
 
-              <p className="text-body-large text-[#2D2D2D] mb-6">
-                {post.excerpt}
-              </p>
+              {/* Excerpt */}
+              <p className="text-body-large text-[#2D2D2D] leading-relaxed mb-8">{post.excerpt}</p>
             </header>
 
-            {/* Article Body */}
+            {/* Article Content with MDX */}
             <div
-              className="prose prose-lg max-w-none blog-content"
+              className="prose prose-lg max-w-none blog-article-content"
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
 
-            {/* Gradient CTA Section */}
-            <div className="mt-16 bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 md:p-12 -rotate-1">
-              <h3 className="text-h3 text-white mb-4">
-                Vuoi implementare strategie simili nel tuo team?
-              </h3>
-              <p className="text-body text-white/90 mb-6 max-w-[600px]">
-                Parliamone! Sono sempre disponibile per discutere di product management, strategia e innovazione.
-              </p>
-              <button
-                onClick={() => router.push(`/${locale}#ask-me`)}
-                className="px-8 py-4 bg-white text-[#0A0A0A] border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
-                style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '16px' }}
-              >
-                Contattami
-              </button>
+            {/* Main CTA Section */}
+            <div className="mt-16 bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 md:p-12 -rotate-1 hover:rotate-0 transition-transform">
+              <div className="text-center rotate-1 hover:-rotate-1 transition-transform">
+                <h3 className="text-white mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900, fontSize: '28px' }}>
+                  Vuoi implementare strategie simili nel tuo team?
+                </h3>
+                <p className="text-body-large text-white/95 mb-6 max-w-[600px] mx-auto leading-relaxed">
+                  Offro sessioni di consulenza personalizzate per aiutarti a costruire processi di Product Management efficaci.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => {
+                      router.push(`/${locale}#ask-me`);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFD60A] text-[#0A0A0A] border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '16px' }}
+                  >
+                    Prenota una consulenza
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={handleBackToBlog}
+                    className="inline-block px-8 py-4 bg-white text-[#0A0A0A] border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '16px' }}
+                  >
+                    Leggi altri articoli
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* Related Articles */}
             {relatedPosts.length > 0 && (
-              <div className="mt-20">
-                <h3
-                  className="mb-8 text-[#0A0A0A]"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '28px' }}
-                >
-                  Articoli correlati
-                </h3>
+              <div className="mt-16">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-h3 text-[#0A0A0A]">📚 Continua a leggere</h3>
+                  <button
+                    onClick={handleBackToBlog}
+                    className="text-[#0D7EFF] hover:underline text-body-small transition-all"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}
+                  >
+                    Vedi tutti →
+                  </button>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {relatedPosts.map((related) => {
-                    const relatedColor = categoryColors[related.category] || '#2D2D2D';
-
-                    return (
-                      <article
-                        key={related.slug}
-                        onClick={() => handleRelatedArticleClick(related.slug)}
-                        className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6 hover:-translate-y-1 hover:shadow-brutal-lg transition-all cursor-pointer group flex flex-col justify-between min-h-[260px]"
-                      >
-                        <div>
-                          <span
-                            className="px-3 py-1 border-4 border-[#000] rounded-lg text-white inline-block mb-3"
-                            style={{
-                              backgroundColor: relatedColor,
-                              fontFamily: 'Space Mono, monospace',
-                              fontSize: '10px',
-                              fontWeight: 700,
-                            }}
-                          >
-                            {related.category}
+                  {relatedPosts.map((related) => (
+                    <article
+                      key={related.slug}
+                      onClick={() => router.push(`/${locale}/blog/${related.slug}`)}
+                      className="group bg-white border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all cursor-pointer"
+                    >
+                      <div className="p-6">
+                        <span
+                          className="inline-block px-3 py-1 mb-4 border-2 border-[#000] rounded-lg text-white"
+                          style={{
+                            backgroundColor: getCategoryColor(related.category),
+                            fontFamily: 'Space Mono, monospace',
+                            fontSize: '11px',
+                            fontWeight: 700,
+                          }}
+                        >
+                          {related.category}
+                        </span>
+                        <h4 className="text-body mb-4 text-[#0A0A0A] group-hover:text-[#0D7EFF] transition-colors" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                          {related.title}
+                        </h4>
+                        <div className="flex items-center justify-between">
+                          <span className="text-body-small text-[#6B7280] flex items-center gap-1.5">
+                            <Clock className="w-4 h-4" />
+                            {related.readingTime}
                           </span>
-                          <h4
-                            className="text-[#0A0A0A] mb-2 group-hover:text-[#0D7EFF] transition-colors"
-                            style={{
-                              fontFamily: 'Space Grotesk, sans-serif',
-                              fontWeight: 700,
-                              fontSize: '18px',
-                              lineHeight: '1.3',
-                            }}
-                          >
-                            {related.title}
-                          </h4>
+                          <ChevronRight className="w-5 h-5 text-[#0D7EFF] group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
                         </div>
-
-                        <div>
-                          <div className="flex items-center gap-3 text-[#6B7280] text-xs mb-3">
-                            <span>
-                              {new Date(related.date).toLocaleDateString('it-IT', {
-                                day: 'numeric',
-                                month: 'short',
-                                year: 'numeric',
-                              })}
-                            </span>
-                            <span>•</span>
-                            <span>{related.readingTime}</span>
-                          </div>
-                          <div
-                            className="inline-flex items-center gap-2 text-[#0D7EFF] transition-all group-hover:gap-3"
-                            style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600, fontSize: '14px' }}
-                          >
-                            Leggi articolo
-                            <ArrowLeft className="w-4 h-4 rotate-180" />
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })}
+                      </div>
+                    </article>
+                  ))}
                 </div>
               </div>
             )}
-          </div>
+          </main>
         </div>
-      </article>
+      </div>
     </div>
   );
+}
+
+// Helper function to get category color
+function getCategoryColor(category: string): string {
+  const colorMap: Record<string, string> = {
+    'Product': '#FF006E',    // Neon Pink
+    'Strategy': '#7209B7',   // Deep Purple
+    'OKRs': '#0D7EFF',       // Electric Blue
+    'Design': '#0D7EFF',     // Electric Blue
+    'Development': '#2A687A', // Teal
+    'Leadership': '#7209B7', // Deep Purple
+  };
+  return colorMap[category] || '#0D7EFF';
 }

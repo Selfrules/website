@@ -120,6 +120,9 @@ const config: Config = {
 
         // Integration Colors
         spotify: '#1DB954',
+
+        // Border Colors
+        'border-light': '#E5E5E5', // Light border for subtle separators
       },
       fontFamily: {
         heading: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
@@ -240,6 +243,7 @@ const config: Config = {
         'grid-pattern': 'linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)',
         'diagonal-lines': 'repeating-linear-gradient(45deg, currentColor, currentColor 1px, transparent 1px, transparent 15px)',
         'diagonal-lines-reverse': 'repeating-linear-gradient(-45deg, currentColor, currentColor 1px, transparent 1px, transparent 15px)',
+        'gradient-blog-hero': 'linear-gradient(135deg, #0D7EFF 0%, #7209B7 100%)', // Blog hero gradient (Electric Blue → Deep Purple)
       },
       backgroundSize: {
         'dot-size': '20px 20px',

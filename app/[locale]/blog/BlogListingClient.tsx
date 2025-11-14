@@ -12,14 +12,14 @@ interface BlogListingClientProps {
   locale: string;
 }
 
-// Color mapping for categories
-const categoryColors: Record<string, string> = {
-  'Product': '#FF006E',
-  'Strategy': '#7209B7',
-  'OKRs': '#0D7EFF',
-  'Design': '#0D7EFF',
-  'Development': '#2A687A',
-  'Leadership': '#FF006E',
+// Color mapping for categories (using Tailwind classes)
+const categoryColorClasses: Record<string, string> = {
+  'Product': 'bg-neon-pink',
+  'Strategy': 'bg-deep-purple',
+  'OKRs': 'bg-electric-blue',
+  'Design': 'bg-electric-blue',
+  'Development': 'bg-teal',
+  'Leadership': 'bg-neon-pink',
 };
 
 export default function BlogListingClient({
@@ -113,13 +113,12 @@ export default function BlogListingClient({
           <div className="max-w-[800px]">
             <button
               onClick={handleBackToHome}
-              className="mb-6 px-4 py-2 bg-white/20 backdrop-blur-sm text-white border-brutal border-white/40 rounded-lg hover:bg-white/30 transition-all flex items-center gap-2"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
+              className="mb-6 px-4 py-2 bg-white/20 backdrop-blur-sm text-white border-brutal border-white/40 rounded-lg hover:bg-white/30 transition-all flex items-center gap-2 font-heading font-bold text-sm"
             >
               ← Home
             </button>
 
-            <h1 className="text-h1 md:text-[64px] text-white mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h1 className="text-h1 md:text-[64px] text-white mb-6 font-heading">
               Tutti gli articoli
             </h1>
             <p className="text-body-large text-white/95 mb-8 max-w-[600px]">
@@ -135,8 +134,7 @@ export default function BlogListingClient({
                   placeholder="Cerca articoli per titolo, contenuto o categoria..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-12 py-4 bg-white border-brutal-thick border-black rounded-lg shadow-brutal focus:outline-none focus:shadow-brutal-lg transition-all text-dark"
-                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px' }}
+                  className="w-full pl-12 pr-12 py-4 bg-white border-brutal-thick border-black rounded-lg shadow-brutal focus:outline-none focus:shadow-brutal-lg transition-all text-dark font-body text-base"
                 />
                 {searchQuery && (
                   <button
@@ -166,21 +164,15 @@ export default function BlogListingClient({
           <div className="flex flex-wrap gap-3">
             {allCategories.map((category) => {
               const isActive = selectedCategory === category;
-              const categoryColor = categoryColors[category] || '#2D2D2D';
+              const categoryColorClass = categoryColorClasses[category] || 'bg-brutalist-text-secondary';
 
               return (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-5 py-2.5 border-brutal border-black rounded-lg shadow-brutal-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal ${
-                    isActive ? 'text-white' : 'bg-white text-dark'
+                  className={`px-5 py-2.5 border-brutal border-black rounded-lg shadow-brutal-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal font-heading font-bold text-sm ${
+                    isActive ? `${categoryColorClass} text-white` : 'bg-white text-dark'
                   }`}
-                  style={{
-                    fontFamily: 'Space Grotesk, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '14px',
-                    backgroundColor: isActive ? categoryColor : undefined,
-                  }}
                 >
                   {category}
                   {category !== 'All' && (
@@ -211,16 +203,11 @@ export default function BlogListingClient({
                   <button
                     key={tag}
                     onClick={() => toggleTag(tag)}
-                    className={`px-4 py-2 border-2 border-black rounded-lg shadow-brutal-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal ${
+                    className={`px-4 py-2 border-2 border-black rounded-lg shadow-brutal-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal font-mono font-semibold text-xs ${
                       isActive
                         ? 'bg-teal text-white'
                         : 'bg-white text-dark'
                     }`}
-                    style={{
-                      fontFamily: 'Space Mono, monospace',
-                      fontWeight: 600,
-                      fontSize: '12px',
-                    }}
                   >
                     #{tag}
                   </button>
@@ -239,8 +226,7 @@ export default function BlogListingClient({
               </span>
               <button
                 onClick={handleResetFilters}
-                className="text-body-small text-electric-blue hover:underline"
-                style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}
+                className="text-body-small text-electric-blue hover:underline font-heading font-semibold"
               >
                 Resetta tutto
               </button>
@@ -283,7 +269,7 @@ export default function BlogListingClient({
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {paginatedPosts.map((post) => {
-              const categoryColor = categoryColors[post.category] || '#2D2D2D';
+              const categoryColorClass = categoryColorClasses[post.category] || 'bg-brutalist-text-secondary';
 
               return (
                 <article
@@ -294,13 +280,7 @@ export default function BlogListingClient({
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span
-                        className="px-3 py-1 border-2 border-black rounded text-white inline-block"
-                        style={{
-                          backgroundColor: categoryColor,
-                          fontFamily: 'Space Mono, monospace',
-                          fontSize: '11px',
-                          fontWeight: 700,
-                        }}
+                        className={`px-3 py-1 border-2 border-black rounded text-white inline-block font-mono text-[11px] font-bold ${categoryColorClass}`}
                       >
                         {post.category}
                       </span>
@@ -316,7 +296,7 @@ export default function BlogListingClient({
                   </div>
 
                   <div>
-                    <div className="flex items-center gap-3 text-brutalist-text-tertiary mb-4" style={{ fontSize: '13px' }}>
+                    <div className="flex items-center gap-3 text-brutalist-text-tertiary mb-4 text-[13px]">
                       <span className="flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5" />
                         {post.readingTime}
@@ -331,7 +311,7 @@ export default function BlogListingClient({
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-body-small text-electric-blue transition-all group-hover:gap-3" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}>
+                    <div className="flex items-center gap-2 text-body-small text-electric-blue transition-all group-hover:gap-3 font-heading font-semibold">
                       Leggi articolo
                       <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                     </div>
@@ -347,16 +327,11 @@ export default function BlogListingClient({
               <button
                 onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                 disabled={currentPage === 1}
-                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all ${
+                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all font-heading font-bold text-sm ${
                   currentPage === 1
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                     : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
                 }`}
-                style={{
-                  fontFamily: 'Space Grotesk, sans-serif',
-                  fontWeight: 700,
-                  fontSize: '14px',
-                }}
               >
                 ← Precedente
               </button>
@@ -381,16 +356,11 @@ export default function BlogListingClient({
                     <button
                       key={pageNum}
                       onClick={() => setCurrentPage(pageNum)}
-                      className={`w-10 h-10 border-brutal border-black rounded-lg shadow-brutal-sm transition-all ${
+                      className={`w-10 h-10 border-brutal border-black rounded-lg shadow-brutal-sm transition-all font-heading font-bold text-sm ${
                         currentPage === pageNum
                           ? 'bg-electric-blue text-white'
                           : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
                       }`}
-                      style={{
-                        fontFamily: 'Space Grotesk, sans-serif',
-                        fontWeight: 700,
-                        fontSize: '14px',
-                      }}
                     >
                       {pageNum}
                     </button>
@@ -401,16 +371,11 @@ export default function BlogListingClient({
               <button
                 onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                 disabled={currentPage === totalPages}
-                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all ${
+                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all font-heading font-bold text-sm ${
                   currentPage === totalPages
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                     : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
                 }`}
-                style={{
-                  fontFamily: 'Space Grotesk, sans-serif',
-                  fontWeight: 700,
-                  fontSize: '14px',
-                }}
               >
                 Successivo →
               </button>
@@ -430,8 +395,7 @@ export default function BlogListingClient({
               </p>
               <button
                 onClick={handleResetFilters}
-                className="px-6 py-3 bg-electric-blue text-white border-brutal border-black rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
-                style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
+                className="px-6 py-3 bg-electric-blue text-white border-brutal border-black rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-heading font-bold text-sm"
               >
                 Resetta filtri
               </button>
@@ -445,13 +409,12 @@ export default function BlogListingClient({
             <h3 className="text-h3 text-dark mb-4">
               Non trovi quello che cerchi?
             </h3>
-            <p className="text-body text-dark mb-6 max-w-[600px] mx-auto" style={{ opacity: 0.8 }}>
+            <p className="text-body text-dark/80 mb-6 max-w-[600px] mx-auto">
               Scrivimi direttamente! Sono sempre felice di rispondere a domande specifiche o suggerimenti per futuri articoli.
             </p>
             <button
               onClick={handleContactClick}
-              className="px-8 py-4 bg-dark text-white border-brutal-thick border-black rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '16px' }}
+              className="px-8 py-4 bg-dark text-white border-brutal-thick border-black rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-heading font-bold text-base"
             >
               Contattami
             </button>

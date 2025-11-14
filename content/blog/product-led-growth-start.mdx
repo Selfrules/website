@@ -1,0 +1,176 @@
+---
+title: "Product-Led Growth: Da dove iniziare"
+excerpt: "Una guida pratica per trasformare il tuo prodotto nel principale motore di acquisizione, con esempi concreti e metriche da monitorare fin dal primo giorno."
+date: "2025-10-28"
+category: "Strategy"
+readingTime: "8 min"
+featured: false
+---
+
+<section id="intro" className="mb-16 scroll-mt-28">
+
+## Introduzione
+
+Il Product-Led Growth (PLG) è diventato la strategia di crescita dominante per le aziende SaaS negli ultimi anni.
+
+Ma **cosa significa davvero** implementare una strategia PLG? E soprattutto, **da dove si comincia** quando non si ha un team enorme o budget illimitati?
+
+In questo articolo condivido la mia esperienza pratica nell'implementazione di PLG in una startup early-stage.
+
+</section>
+
+<section id="problema" className="mb-16 scroll-mt-28">
+
+## Il problema con i modelli tradizionali
+
+Per anni, l'acquisizione clienti B2B è stata dominata da **sales-led** e **marketing-led** growth.
+
+<div className="bg-[#FFD60A] border-4 border-[#000] rounded-lg shadow-brutal-lg p-6 my-8 -rotate-1 hover:rotate-0 transition-transform">
+  <div className="rotate-1">
+    <p className="text-body text-[#0A0A0A] m-0 leading-relaxed" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+      💡 <span className="underline decoration-4 decoration-[#FF006E]">Insight chiave:</span> Il 60% dei buyer B2B completa l'80% del processo di acquisto prima di parlare con sales.
+    </p>
+  </div>
+</div>
+
+### <span id="contesto">Il contesto competitivo</span>
+
+Gli utenti moderni si aspettano di **provare prima di comprare**. Vogliono esplorare il prodotto autonomamente, capire il valore immediato, e decidere senza pressioni di vendita.
+
+### <span id="sfide">Le sfide principali</span>
+
+<div className="space-y-3 my-6">
+  <div className="flex items-start gap-3 p-4 bg-[#FFFCF2] border-2 border-[#E5E5E5] rounded-lg hover:border-[#0D7EFF] transition-colors">
+    <div className="w-6 h-6 rounded-full bg-[#0D7EFF] flex-shrink-0 flex items-center justify-center text-white" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '12px' }}>1</div>
+    <p className="text-body text-[#2D2D2D] m-0">Costo di acquisizione cliente (CAC) sempre più alto</p>
+  </div>
+  <div className="flex items-start gap-3 p-4 bg-[#FFFCF2] border-2 border-[#E5E5E5] rounded-lg hover:border-[#7209B7] transition-colors">
+    <div className="w-6 h-6 rounded-full bg-[#7209B7] flex-shrink-0 flex items-center justify-center text-white" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '12px' }}>2</div>
+    <p className="text-body text-[#2D2D2D] m-0">Cicli di vendita lunghi e imprevedibili</p>
+  </div>
+  <div className="flex items-start gap-3 p-4 bg-[#FFFCF2] border-2 border-[#E5E5E5] rounded-lg hover:border-[#FF006E] transition-colors">
+    <div className="w-6 h-6 rounded-full bg-[#FF006E] flex-shrink-0 flex items-center justify-center text-white" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '12px' }}>3</div>
+    <p className="text-body text-[#2D2D2D] m-0">Scalabilità limitata dal team sales</p>
+  </div>
+</div>
+
+</section>
+
+<section id="soluzione" className="mb-16 scroll-mt-28">
+
+## Il framework PLG che ho implementato
+
+La transizione a Product-Led Growth richiede un **cambio di mindset fondamentale**: il prodotto diventa il principale canale di acquisizione, attivazione e retention.
+
+### <span id="approccio">I tre pilastri fondamentali</span>
+
+<div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-6 md:p-8 my-8">
+  <h4 className="text-h4 text-[#0A0A0A] mb-6">🚀 Le tre fasi del PLG</h4>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div className="bg-[#0D7EFF]/10 border-3 border-[#0D7EFF] rounded-lg p-5 hover:shadow-brutal-sm hover:-translate-y-1 transition-all">
+      <div className="w-10 h-10 bg-[#0D7EFF] border-2 border-[#000] rounded-lg flex items-center justify-center mb-3">
+        <span className="text-white text-xl font-bold">1</span>
+      </div>
+      <h5 className="text-body mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+        Acquisition
+      </h5>
+      <p className="text-body-small text-[#2D2D2D]">Free trial o freemium per zero friction onboarding</p>
+    </div>
+    <div className="bg-[#7209B7]/10 border-3 border-[#7209B7] rounded-lg p-5 hover:shadow-brutal-sm hover:-translate-y-1 transition-all">
+      <div className="w-10 h-10 bg-[#7209B7] border-2 border-[#000] rounded-lg flex items-center justify-center mb-3">
+        <span className="text-white text-xl font-bold">2</span>
+      </div>
+      <h5 className="text-body mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+        Activation
+      </h5>
+      <p className="text-body-small text-[#2D2D2D]">Aha moment veloce con time-to-value ridotto</p>
+    </div>
+    <div className="bg-[#FFD60A]/10 border-3 border-[#FFD60A] rounded-lg p-5 hover:shadow-brutal-sm hover:-translate-y-1 transition-all">
+      <div className="w-10 h-10 bg-[#FFD60A] border-2 border-[#000] rounded-lg flex items-center justify-center mb-3">
+        <span className="text-[#0A0A0A] text-xl font-bold">3</span>
+      </div>
+      <h5 className="text-body mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+        Expansion
+      </h5>
+      <p className="text-body-small text-[#2D2D2D]">Growth loops interni e viral features</p>
+    </div>
+  </div>
+</div>
+
+### <span id="implementazione">Implementazione step-by-step</span>
+
+**Step 1: Identifica l'Aha Moment**
+
+Il primo passo è capire qual è il momento esatto in cui l'utente **percepisce il valore** del prodotto. Per noi era quando completavano il primo progetto collaborativo.
+
+**Step 2: Riduci Time-to-Value**
+
+Abbiamo ridotto il time-to-value da 7 giorni a **45 minuti** con:
+- Onboarding guidato interattivo
+- Template pre-compilati
+- Quick wins immediati
+
+**Step 3: Costruisci Growth Loops**
+
+Ogni feature dovrebbe incentivare la condivisione naturale del prodotto. Nel nostro caso: inviti team, condivisione progetti, export con watermark per free tier.
+
+</section>
+
+<section id="risultati" className="mb-16 scroll-mt-28">
+
+## Risultati misurabili
+
+Dopo **3 mesi** di implementazione PLG:
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10">
+  <div className="bg-[#0D7EFF] border-4 border-[#000] rounded-lg shadow-brutal-lg p-6 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+    <p className="mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900, fontSize: '48px', color: 'white', lineHeight: '1' }}>
+      -65%
+    </p>
+    <p className="text-body text-white/95 m-0">Riduzione CAC</p>
+  </div>
+  <div className="bg-[#FF006E] border-4 border-[#000] rounded-lg shadow-brutal-lg p-6 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+    <p className="mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 900, fontSize: '48px', color: 'white', lineHeight: '1' }}>
+      3.2x
+    </p>
+    <p className="text-body text-white/95 m-0">Crescita user base mensile</p>
+  </div>
+</div>
+
+</section>
+
+<section id="lezioni" className="mb-16 scroll-mt-28">
+
+## Lezioni chiave
+
+<div className="space-y-5">
+  <div className="bg-white border-l-4 border-[#0D7EFF] shadow-brutal p-6 hover:-translate-x-1 transition-transform">
+    <h4 className="text-body mb-3 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+      1. PLG non significa "no sales"
+    </h4>
+    <p className="text-body text-[#2D2D2D] m-0 leading-relaxed">
+      Le migliori aziende PLG hanno **sales motion sofisticati** che intervengono al momento giusto del customer journey.
+    </p>
+  </div>
+
+  <div className="bg-white border-l-4 border-[#7209B7] shadow-brutal p-6 hover:-translate-x-1 transition-transform">
+    <h4 className="text-body mb-3 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+      2. L'onboarding è tutto
+    </h4>
+    <p className="text-body text-[#2D2D2D] m-0 leading-relaxed">
+      Se l'utente non raggiunge l'Aha moment entro **48 ore**, probabilmente lo hai perso per sempre.
+    </p>
+  </div>
+</div>
+
+</section>
+
+<section id="conclusione" className="mb-12 scroll-mt-28">
+
+## Conclusione
+
+Product-Led Growth non è una strategia "all or nothing". Puoi iniziare con **piccoli esperimenti** incrementali.
+
+Il segreto è **misurare tutto**, iterare velocemente, e costruire un prodotto che si vende da solo attraverso il valore che crea.
+
+</section>
