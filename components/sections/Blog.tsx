@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
 import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Button } from '@/components/ui/Button';
 
 interface BlogProps {
   locale: string;
@@ -33,55 +34,59 @@ export default async function Blog({ locale }: BlogProps) {
   const t = translations[locale as keyof typeof translations] || translations.it;
 
   return (
-    <section id="blog" className="bg-[#FFFCF2] py-16 md:py-24 border-b-4 border-[#000] relative overflow-hidden">
+    <section id="blog" className="bg-cream py-brutal-xl md:py-brutal-2xl border-b-brutal border-brutalist-border relative overflow-hidden">
       {/* Background Decoration */}
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#7209B7]/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-deep-purple/10 to-transparent rounded-full blur-3xl" />
 
-      <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
+      <div className="container max-w-[1200px] mx-auto px-brutal-sm md:px-brutal-lg relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="flex justify-center mb-4">
+        <div className="text-center mb-brutal-lg md:mb-brutal-xl">
+          <div className="flex justify-center mb-brutal-sm">
             <NeoBadge color="pink">{t.badge}</NeoBadge>
           </div>
-          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">{t.title}</h2>
-          <p className="text-body text-[#2D2D2D] max-w-[600px] mx-auto">
-            {t.description}<strong className="text-[#FF006E]">{t.descriptionHighlight}</strong>
+          <h2 className="text-h1 mb-brutal-sm md:mb-brutal-md text-black">{t.title}</h2>
+          <p className="text-body text-brutalist-text-light max-w-[600px] mx-auto">
+            {t.description}<strong className="text-neon-pink">{t.descriptionHighlight}</strong>
           </p>
         </div>
 
-        {/* Blog Grid */}
+        {/* Blog Grid - Featured Post + Regular Posts */}
         {latestPosts.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-8">
-              {latestPosts.map((post, index) => (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-brutal-md md:gap-brutal-lg">
+              {/* Featured Post - Full Width */}
+              {latestPosts[0] && (
+                <BlogCard
+                  key={latestPosts[0].slug}
+                  post={latestPosts[0]}
+                  locale={locale}
+                  featured={true}
+                />
+              )}
+
+              {/* Regular Posts - 2 columns */}
+              {latestPosts.slice(1, 3).map((post) => (
                 <BlogCard
                   key={post.slug}
                   post={post}
                   locale={locale}
-                  featured={index === 0}
+                  featured={false}
                 />
               ))}
             </div>
 
             {/* View All Button */}
-            <div className="text-center">
+            <div className="text-center mt-brutal-lg">
               <Link href={`/${locale}/blog`}>
-                <button
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FFD60A] text-[#0A0A0A] border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm"
-                  style={{
-                    fontFamily: 'Space Grotesk, sans-serif',
-                    fontSize: '14px',
-                    fontWeight: 700,
-                  }}
-                >
+                <Button variant="accent" size="md">
                   {t.viewAll}
-                </button>
+                </Button>
               </Link>
             </div>
           </>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-lg text-[#2D2D2D]/60">
+          <div className="text-center py-brutal-xl">
+            <p className="text-lg text-brutalist-text-light/60">
               {t.noPosts}
             </p>
           </div>
