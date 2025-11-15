@@ -136,7 +136,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           <div className="flex-1" />
 
           {/* Metadata Footer - with border-top separator as per prototype */}
-          <div className="pt-4 border-t border-brutal-thin border-black">
+          <div className="pt-brutal-sm border-t border-brutal-thin border-black">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3 text-body-small text-brutalist-text-tertiary">
                 <span className="flex items-center gap-1.5">
