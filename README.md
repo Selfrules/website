@@ -49,10 +49,6 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 - **AnimatedButton**: Button with brutal hover effects
 - **AnimatedCard**: Card with motion animations
 
-### Theme System
-- **ThemeToggle**: Dark/light mode toggle with persistence
-- **ThemeProvider**: Global theme management with Zustand
-
 ## Tailwind Configuration
 
 ### Custom Colors
@@ -113,7 +109,6 @@ mattia_web/
 │   └── ui/               # Design system components
 ├── lib/
 │   ├── animations.ts      # Framer Motion variants
-│   ├── theme-store.ts     # Theme state management
 │   └── utils.ts           # Utility functions
 └── tailwind.config.ts     # Tailwind configuration
 ```

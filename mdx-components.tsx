@@ -14,13 +14,13 @@ const components: MDXComponents = {
     <h1 className="text-4xl md:text-5xl font-display font-bold mb-6 text-primary" {...props} />
   ),
   h2: (props: React.ComponentProps<'h2'>) => (
-    <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 mt-8 text-brutalist-text-light dark:text-brutalist-text-dark" {...props} />
+    <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 mt-8 text-brutalist-text-light" {...props} />
   ),
   h3: (props: React.ComponentProps<'h3'>) => (
     <h3 className="text-xl md:text-2xl font-display font-semibold mb-3 mt-6" {...props} />
   ),
   p: (props: React.ComponentProps<'p'>) => (
-    <p className="mb-4 text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 leading-relaxed" {...props} />
+    <p className="mb-4 text-brutalist-text-light/80 leading-relaxed" {...props} />
   ),
   ul: (props: React.ComponentProps<'ul'>) => (
     <ul className="mb-4 ml-8 list-disc space-y-2" {...props} />
@@ -29,11 +29,11 @@ const components: MDXComponents = {
     <ol className="mb-4 ml-8 list-decimal space-y-2" {...props} />
   ),
   li: (props: React.ComponentProps<'li'>) => (
-    <li className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80" {...props} />
+    <li className="text-brutalist-text-light/80" {...props} />
   ),
   blockquote: (props: React.ComponentProps<'blockquote'>) => (
     <blockquote
-      className="border-l-4 border-primary pl-4 italic my-6 text-brutalist-text-light/70 dark:text-brutalist-text-dark/70"
+      className="border-l-4 border-primary pl-4 italic my-6 text-brutalist-text-light/70"
       {...props}
     />
   ),
@@ -45,7 +45,7 @@ const components: MDXComponents = {
     }
     return (
       <code
-        className="px-2 py-1 rounded-sm bg-gray-100 dark:bg-gray-800 text-sm font-mono text-brutalist-text-secondary border border-gray-300"
+        className="px-2 py-1 rounded-sm bg-gray-100 text-sm font-mono text-brutalist-text-secondary border border-gray-300"
         {...props}
       />
     );
@@ -133,7 +133,7 @@ const components: MDXComponents = {
   Section: ({ children, title }: { children: React.ReactNode; title?: string }) => (
     <section className="story-section">
       {title && (
-        <h3 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-brutalist-text-light dark:text-brutalist-text-dark pb-4 border-b-4 border-black">
+        <h3 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-brutalist-text-light pb-4 border-b-4 border-black">
           {title}
         </h3>
       )}
@@ -142,7 +142,7 @@ const components: MDXComponents = {
   ),
 
   Highlight: ({ children }: { children: React.ReactNode }) => (
-    <mark className="bg-primary/30 dark:bg-primary/20 px-2 py-1 rounded font-semibold">
+    <mark className="bg-primary/30 px-2 py-1 rounded font-semibold">
       {children}
     </mark>
   ),
