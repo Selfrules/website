@@ -403,12 +403,6 @@ Quando crei un nuovo componente UI:
 4. Apply tone of voice guidelines
 5. Add interactive components where appropriate
 
-### Admin Features
-The admin dashboard (`/admin`) includes:
-- Article creator with AI assistance
-- Conversation manager for chatbot interactions
-- Analytics dashboard with heatmaps and insights
-
 ## Common Patterns
 
 ### Neobrutalist Component Pattern

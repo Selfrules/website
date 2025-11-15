@@ -335,8 +335,6 @@ export async function sendAdminBookingNotification(
       ${booking.notes}
     </div>
     ` : ''}
-
-    <p><a href="${process.env.NEXT_PUBLIC_APP_URL}/admin">View in Admin Dashboard</a></p>
   </div>
 </body>
 </html>
