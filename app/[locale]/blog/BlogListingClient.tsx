@@ -8,7 +8,7 @@ import BlogCard from '@/components/blog/BlogCard';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
-import { getCategoryBgColor, getCategoryVariant, TAG_COLORS } from '@/lib/blog/category-utils';
+import { getCategoryVariant } from '@/lib/blog/category-utils';
 
 interface BlogListingClientProps {
   initialPosts: BlogPost[];
@@ -165,20 +165,12 @@ export default function BlogListingClient({
               const isActive = selectedCategory === category;
 
               return (
-                <Button
+                <Badge
                   key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  variant={isActive ? 'primary' : 'outline'}
+                  variant={category !== 'All' && isActive ? getCategoryVariant(category) : 'outline'}
                   size="sm"
-                  style={
-                    isActive && category !== 'All'
-                      ? {
-                          backgroundColor: getCategoryBgColor(category),
-                          color: 'white',
-                          borderColor: 'black',
-                        }
-                      : undefined
-                  }
+                  onClick={() => setSelectedCategory(category)}
+                  className="cursor-pointer hover:-translate-y-0.5 hover:shadow-brutal transition-all"
                 >
                   {category}
                   {category !== 'All' && (
@@ -186,7 +178,7 @@ export default function BlogListingClient({
                       ({initialPosts.filter(p => p.category === category).length})
                     </span>
                   )}
-                </Button>
+                </Badge>
               );
             })}
           </div>
@@ -209,11 +201,9 @@ export default function BlogListingClient({
                   <button
                     key={tag}
                     onClick={() => toggleTag(tag)}
-                    className="inline-flex items-center justify-center gap-1 px-3 py-1 border-brutal border-black rounded-brutal-sm shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-body-sm font-heading font-bold uppercase tracking-wider whitespace-nowrap"
-                    style={{
-                      backgroundColor: isActive ? TAG_COLORS.active : TAG_COLORS.inactive,
-                      color: isActive ? TAG_COLORS.text.active : TAG_COLORS.text.inactive,
-                    }}
+                    className={`inline-flex items-center justify-center gap-1 px-3 py-1 border-brutal border-black rounded-brutal-sm shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-body-sm font-heading font-bold uppercase tracking-wider whitespace-nowrap ${
+                      isActive ? 'bg-teal text-white' : 'bg-white text-black'
+                    }`}
                     aria-pressed={isActive}
                     aria-label={`Filtra per tag ${tag}`}
                   >

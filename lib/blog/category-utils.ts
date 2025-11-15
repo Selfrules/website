@@ -36,7 +36,7 @@ export const categoryToBgColor: Readonly<Record<KnownCategory, string>> = {
  */
 export function getCategoryVariant(category: string): CategoryVariant {
   const variant = categoryToVariant[category as KnownCategory];
-  if (!variant) {
+  if (!variant && process.env.NODE_ENV === 'development') {
     console.warn(`Unknown category "${category}", defaulting to "design" variant`);
   }
   return variant || 'design';
@@ -48,20 +48,8 @@ export function getCategoryVariant(category: string): CategoryVariant {
  */
 export function getCategoryBgColor(category: string): string {
   const color = categoryToBgColor[category as KnownCategory];
-  if (!color) {
+  if (!color && process.env.NODE_ENV === 'development') {
     console.warn(`Unknown category "${category}", defaulting to Electric Blue`);
   }
   return color || '#0D7EFF';
 }
-
-/**
- * Tag button colors from design system
- */
-export const TAG_COLORS = {
-  active: '#2A687A',   // Teal
-  inactive: '#FFFFFF', // White
-  text: {
-    active: '#FFFFFF',   // White text on active
-    inactive: '#000000', // Black text on inactive
-  },
-} as const;
