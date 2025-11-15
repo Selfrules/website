@@ -42,7 +42,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             'w-full px-4 py-3',
             'font-body text-body',
             'bg-brutalist-surface-light dark:bg-brutalist-surface-dark',
-            'text-brutalist-text-light dark:text-brutalist-text-dark',
+            'text-brutalist-text-primary dark:text-brutalist-text-dark',
             'border-brutal border-brutalist-border rounded-brutal shadow-brutal-sm',
             'transition-all duration-200 ease-brutal',
             'placeholder:text-gray-500 placeholder:opacity-70',
