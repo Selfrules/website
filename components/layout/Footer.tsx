@@ -110,7 +110,7 @@ export function Footer({ locale }: FooterProps) {
 
           {/* Quick Links */}
           <div className="hidden md:block">
-            <h4 className="text-base md:text-lg mb-4 text-cyber-yellow font-heading font-bold">
+            <h4 className="text-base md:text-lg mb-4 text-cyber-yellow text-h4">
               {t('navigation')}
             </h4>
             <ul className="space-y-2.5">
@@ -130,7 +130,7 @@ export function Footer({ locale }: FooterProps) {
 
           {/* Resources */}
           <div className="hidden md:block">
-            <h4 className="text-base md:text-lg mb-4 text-cyber-yellow font-heading font-bold">
+            <h4 className="text-base md:text-lg mb-4 text-cyber-yellow text-h4">
               {t('resources.title')}
             </h4>
             <ul className="space-y-2.5">
