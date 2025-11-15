@@ -12,47 +12,47 @@ interface WhatImUpToProps {
 export default function WhatImUpTo({ locale }: WhatImUpToProps) {
   const translations = {
     it: {
-      badge: 'What I\'m doing now',
-      title: 'What I\'m up to',
-      description: 'Una finestra sulla mia vita professionale in real-time. ',
-      descriptionHighlight: 'Niente LinkedIn bullshit.',
+      badge: 'Cosa sto facendo ora',
+      title: 'Cosa sto facendo ora',
+      description: 'Cosa sto facendo ora. Davvero. Niente "Felice di annunciare" o "Grato per questa opportunità". ',
+      descriptionHighlight: 'Solo fatti.',
       currentWork: {
-        title: 'Lavoro attuale',
+        title: 'Dove lavoro',
         company: 'QubicaAMF',
         description: 'Product Manager @ ',
         detail: 'Mi occupo di integrazioni di pagamento e visione di prodotto. Come? Ascoltando chi usa il sistema ogni giorno invece di fare meeting su meeting. La settimana scorsa: 6 ore di user interviews. 3 insight critici. 1 feature cancellata (perché risolveva il problema sbagliato). 2 quick wins implementate in 1 sprint. Questo è product management pragmatico.',
         metric: '+2 quick wins',
       },
       learning: {
-        title: 'Learning in Public',
+        title: 'Cosa sto imparando',
         thisWeek: 'Questa settimana: ',
         topic: 'come l\'AI sta cambiando il mio workflow.',
         detail: 'Non sostituisce il mio lavoro, lo amplifica. Il trucco? Sapere cosa delegare e cosa tenere. Claude scrive la prima bozza delle PRD. Io la raffino con context che solo un umano ha. Figma Make genera 20 varianti di mockup. Io scelgo quella che funziona per gli utenti. L\'AI è il mio junior designer/developer perfetto: veloce, instancabile, ma serve sempre una guida.',
       },
       spotify: {
-        title: 'Now Playing',
+        title: 'Cosa ascolto',
       },
     },
     en: {
-      badge: 'What I\'m doing',
+      badge: 'What I\'m doing now',
       title: 'What I\'m up to',
-      description: 'A window into my professional life ',
-      descriptionHighlight: 'in real-time',
+      description: 'What I\'m doing now. Really. No "Thrilled to announce" or "Grateful for this opportunity". ',
+      descriptionHighlight: 'Just facts.',
       currentWork: {
-        title: 'Current work',
+        title: 'Where I work',
         company: 'QubicaAMF',
         description: 'Product Manager @ ',
         detail: 'Making payments 12% faster. How? Listening to people who use the system every day instead of having meetings about meetings.',
         metric: '-12% time',
       },
       learning: {
-        title: 'Learning in Public',
+        title: 'What I\'m learning',
         thisWeek: 'This week: ',
         topic: 'how AI is changing',
         detail: 'my workflow. It doesn\'t replace my work, it amplifies it. The trick? Knowing what to delegate and what to keep.',
       },
       spotify: {
-        title: 'Now Playing',
+        title: 'Now playing',
       },
     },
   };

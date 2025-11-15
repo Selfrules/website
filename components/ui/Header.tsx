@@ -20,16 +20,16 @@ export function Header({ locale }: HeaderProps) {
       journey: 'Percorso',
       now: 'Now',
       blog: 'Blog',
-      work: 'Collabora',
-      contact: 'Contatti',
+      work: 'Lavoriamo insieme',
+      contact: 'Parliamo',
     },
     en: {
       home: 'Home',
       journey: 'Journey',
       now: 'Now',
       blog: 'Blog',
-      work: 'Work',
-      contact: 'Contact',
+      work: 'Work with me',
+      contact: 'Let\'s talk',
     },
   };
 

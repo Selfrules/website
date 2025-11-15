@@ -2,21 +2,21 @@
   "nav": {
     "home": "home",
     "blog": "thoughts",
-    "work": "work together",
-    "about": "about"
+    "work": "work with me",
+    "about": "let's talk"
   },
   "hero": {
     "badge": "PM • DESIGNER • DEV",
     "headline1": "I failed",
     "headline2": "as a designer.",
     "headline3": "Then as a developer.",
-    "headline4": "Now I'm a PM",
-    "headline5": "who actually knows what to build.",
-    "subtitle": "Why? Because I learned that",
-    "subtitleHighlight": "the perfect product doesn't exist",
-    "subtitleEnd": ". Only the one that solves real problems for real people.",
+    "headline4": "Now I'm the PM",
+    "headline5": "you call when everyone says 'yes' but nobody knows what to do.",
+    "subtitle": "Why? Because after 200+ failures I learned one thing:",
+    "subtitleHighlight": "the problem is never what they tell you in the first meeting",
+    "subtitleEnd": ".",
     "cta": "Let's talk",
-    "explore": "Read the story",
+    "explore": "How I got here",
     "stats": {
       "loadTimes": "Faster load times",
       "usersImpacted": "Users impacted",
@@ -28,14 +28,14 @@
     }
   },
   "journey": {
-    "badge": "My Journey",
-    "title": "From zero to",
-    "titleHighlight": "Product Manager",
-    "subtitle": "Most PMs come from consulting or business. I did design, development, entrepreneurship. This is my superpower: I speak all three languages.",
+    "badge": "The journey",
+    "title": "Why I speak 3 languages",
+    "titleHighlight": "(and they're not English, Italian, Spanish)",
+    "subtitle": "Most PMs only speak 'business'. Then they join a meeting and the designer says 'user journey' while the developer says 'technical debt'. Chaos. I translate. Without losing anything.",
     "current": "Today",
     "skillsLabel": "What I bring",
     "certificationsLabel": "What I studied",
-    "endMessage": "12 years of failures transformed into experience",
+    "endMessage": "12 years. 200+ projects. The difference between experience and failures? You remember all the failures.",
     "experiences": {
       "pm": {
         "date": "2023-present",
@@ -201,11 +201,11 @@
   },
   "workTogether": {
     "badge": "Let's work together",
-    "title": "How we can",
+    "title": "3 ways to",
     "titleHighlight": "work together",
     "subtitle": {
-      "part1": "I don't sell consulting. I don't sell hours. I sell results.",
-      "part2": "If you have a concrete problem and want someone who understands design, tech, and business without needing translators, let's talk."
+      "part1": "I don't sell hours. I don't sell consulting. I sell this:",
+      "part2": "a solution your designer understands, your developer can build, and your CFO approves. No translators in between."
     },
     "modes": {
       "consulting": {
@@ -220,7 +220,7 @@
       },
       "brainstorming": {
         "badge": "Brainstorming sessions",
-        "title": "From chaos to clarity",
+        "title": "Transform chaos into roadmap",
         "description": "Got a vague idea? A project that hasn't taken shape yet? A team that needs alignment? Let's transform chaos into a plan.",
         "features": {
           "1": "Interactive workshop 2-3 hours",
@@ -230,7 +230,7 @@
       },
       "mentorship": {
         "badge": "Mentorship",
-        "title": "Grow as a Product Manager",
+        "title": "Mentorship for PM",
         "description": "Already in product but want to grow? Want to transition from design/dev to product? I'll guide you through the journey. No theory, just practice.",
         "features": {
           "1": "Bi-weekly 1-on-1 sessions",
@@ -268,9 +268,9 @@
       }
     },
     "cta": {
-      "title": "Ready to build something that matters?",
-      "description": "Let's talk. No commitment. No aggressive selling. Just a conversation between people who want to solve real problems.",
-      "button": "Let's start the conversation"
+      "title": "Got a stuck product?",
+      "description": "15-minute call. Zero pitch. Zero PowerPoint. Just you, me, and the problem to solve.",
+      "button": "Book 15 minutes"
     }
   },
   "common": {
@@ -280,15 +280,15 @@
     "error": "something went wrong"
   },
   "footer": {
-    "bio": "Product Manager who speaks designer, writes code, and builds products that solve real problems.",
-    "location": "Based in Italy 🇮🇹 | Working Remote 🌍",
+    "bio": "PM who speaks design, writes code, and translates between business and tech without losing anything.",
+    "location": "Italy 🇮🇹 | Work anywhere 🌍",
     "tagline": "Product Manager who speaks design, code, and business. Building products that actually solve problems.",
     "badge": "Available for consulting",
-    "navigation": "Quick links",
+    "navigation": "Navigation",
     "connect": "Connect",
     "getInTouch": "Get in touch",
-    "madeWith": "Made with",
-    "andCoffee": "and coffee ☕",
+    "madeWith": "Made with too much coffee",
+    "andCoffee": "",
     "ctaText": "Have a project in mind? Let's talk about how we can work together.",
     "ctaButton": "Let's talk",
     "rights": "All rights reserved.",
@@ -296,7 +296,7 @@
     "terms": "Terms",
     "resources": {
       "title": "Resources",
-      "tools": "My tools stack",
+      "tools": "Tools I use",
       "design": "Design resources",
       "stack": "Tech stack",
       "newsletter": "Newsletter"
