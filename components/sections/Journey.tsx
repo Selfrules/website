@@ -177,12 +177,11 @@ export default function Journey() {
                           {milestone.achievementsKeys.map((achievementKey, i) => (
                             <li key={i} className="flex items-start gap-2 text-body-small text-brutalist-text-secondary">
                               <ArrowRight
-                                className="w-4 h-4 flex-shrink-0 mt-0.5"
-                                style={{
-                                  color: milestone.roleColor === 'blue' ? '#0D7EFF' :
-                                         milestone.roleColor === 'pink' ? '#FF006E' :
-                                         milestone.roleColor === 'yellow' ? '#FFD60A' : '#7209B7'
-                                }}
+                                className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
+                                  milestone.roleColor === 'blue' ? 'text-dynamic-blue' :
+                                  milestone.roleColor === 'pink' ? 'text-dynamic-pink' :
+                                  milestone.roleColor === 'yellow' ? 'text-dynamic-yellow' : 'text-dynamic-purple'
+                                }`}
                               />
                               <span>{t(achievementKey)}</span>
                             </li>
@@ -214,13 +213,11 @@ export default function Journey() {
                             {milestone.certificationsKeys.map((certKey, i) => (
                               <span
                                 key={i}
-                                className="px-2 py-1 border-2 border-black rounded-sm text-xs flex items-center gap-1 font-mono"
-                                style={{
-                                  backgroundColor: milestone.roleColor === 'blue' ? '#0D7EFF' :
-                                                   milestone.roleColor === 'pink' ? '#FF006E' :
-                                                   milestone.roleColor === 'yellow' ? '#FFD60A' : '#7209B7',
-                                  color: milestone.roleColor === 'yellow' ? '#0A0A0A' : '#FFF'
-                                }}
+                                className={`px-2 py-1 border-2 border-black rounded-sm text-xs flex items-center gap-1 font-mono ${
+                                  milestone.roleColor === 'blue' ? 'bg-dynamic-blue text-white' :
+                                  milestone.roleColor === 'pink' ? 'bg-dynamic-pink text-white' :
+                                  milestone.roleColor === 'yellow' ? 'bg-dynamic-yellow text-brutalist-text-primary' : 'bg-dynamic-purple text-white'
+                                }`}
                               >
                                 <Award className="w-3 h-3" />
                                 {t(certKey)}

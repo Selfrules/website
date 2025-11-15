@@ -321,6 +321,25 @@ const config: Config = {
       }, {});
       addUtilities(textShadowUtilities);
     },
+    // Dynamic Color Utilities (for runtime role-based colors)
+    function ({ addUtilities }: { addUtilities: (utilities: Record<string, unknown>) => void }) {
+      const dynamicColorUtilities = {
+        // Background colors
+        '.bg-dynamic-blue': { backgroundColor: '#0D7EFF' },
+        '.bg-dynamic-pink': { backgroundColor: '#FF006E' },
+        '.bg-dynamic-yellow': { backgroundColor: '#FFD60A' },
+        '.bg-dynamic-purple': { backgroundColor: '#7209B7' },
+        '.bg-dynamic-teal': { backgroundColor: '#2A687A' },
+
+        // Text colors
+        '.text-dynamic-blue': { color: '#0D7EFF' },
+        '.text-dynamic-pink': { color: '#FF006E' },
+        '.text-dynamic-yellow': { color: '#FFD60A' },
+        '.text-dynamic-purple': { color: '#7209B7' },
+        '.text-dynamic-teal': { color: '#2A687A' },
+      };
+      addUtilities(dynamicColorUtilities);
+    },
   ],
 };
 
