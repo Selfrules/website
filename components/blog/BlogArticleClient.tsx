@@ -101,7 +101,7 @@ export default function BlogArticleClient({
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [tableOfContents]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

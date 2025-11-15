@@ -1066,7 +1066,7 @@ export default function DesignSystemPage() {
                 Learning Objectives
               </h3>
               <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Box "Cosa imparerai" con lista di obiettivi e link CTA. Perfetto per l'inizio degli articoli.
+                Box &quot;Cosa imparerai&quot; con lista di obiettivi e link CTA. Perfetto per l&apos;inizio degli articoli.
               </p>
               <LearningObjectives
                 objectives={[
@@ -1191,7 +1191,7 @@ export default function DesignSystemPage() {
                 Metrics Grid
               </h3>
               <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Griglia di metriche/risultati. Mostra l'impatto di un progetto in modo visuale.
+                Griglia di metriche/risultati. Mostra l&apos;impatto di un progetto in modo visuale.
               </p>
               <MetricsGrid
                 title="Risultati del Progetto"
@@ -1227,7 +1227,7 @@ export default function DesignSystemPage() {
                   },
                   {
                     title: 'Il team deve essere coinvolto',
-                    description: 'Le decisioni prese insieme hanno un tasso di successo 3x superiore. L\'ownership condiviso fa la differenza.'
+                    description: 'Le decisioni prese insieme hanno un tasso di successo 3x superiore. L&apos;ownership condiviso fa la differenza.'
                   }
                 ]}
               />
@@ -1236,7 +1236,7 @@ export default function DesignSystemPage() {
             {/* Usage Guidelines */}
             <div className="mt-12 bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
               <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-3">
-                Linee Guida per l'Uso
+                Linee Guida per l&apos;Uso
               </h4>
               <ul className="space-y-3 text-body-small text-brutalist-text-secondary">
                 <li className="flex gap-3">
