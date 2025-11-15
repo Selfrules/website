@@ -146,48 +146,97 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
 
 ---
 
+## EPIC-007: Security Vulnerabilities Audit & Remediation
+
+**Priorità**: 🔴 Critica | **Stima**: L (2-3 settimane) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Eliminare tutte le vulnerabilità di sicurezza identificate nell'audit prima del deployment in produzione. Implementare best practices OWASP Top 10 e garantire compliance GDPR.
+
+### Context
+Security audit ha identificato **31 vulnerabilità**: 4 Critical, 8 High, 16 Medium, 3 Low. Blocca il deployment in produzione fino al completamento delle Priority 0 stories.
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| SV-001 | Fix authentication & authorization | 🔴 P0 | 🔴 XL | 🌐 Web | 📋 Todo |
+| SV-002 | Fix secrets management (bcrypt) | 🔴 P0 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-003 | Remove CORS wildcards | 🔴 P0 | 🟢 S | 🌐 Web | 📋 Todo |
+| SV-004 | Add XSS protection (sanitization) | 🔴 P0 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-005 | Implement Content Security Policy | 🔴 P0 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-006 | Update dependencies & headers | 🟠 P1 | 🟢 S | 🌐 Web | 📋 Todo |
+| SV-007 | Improve rate limiting coverage | 🟠 P1 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-008 | Improve session management | 🟠 P1 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-009 | Add CSRF protection | 🟠 P1 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-010 | GDPR compliance implementation | 🟡 P2 | 🔴 L | 🌐 Web | 📋 Todo |
+
+**Links**: [Epic](./epics/07-security-vulnerabilities/epic.md) | [Stories](./epics/07-security-vulnerabilities/stories/) | [Audit Report](/SECURITY_AUDIT.md)
+
+---
+
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 10 stories
-- 🟠 Alta: 12 stories
-- 🟡 Media: 8 stories
+- 🔴 Critica: 15 stories (🆕 +5 da EPIC-007 P0)
+- 🟠 Alta: 16 stories (🆕 +4 da EPIC-007 P1)
+- 🟡 Media: 9 stories (🆕 +1 da EPIC-007 P2)
 - 🟢 Bassa: 3 stories
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 12 stories
-- 🟡 Medium (1-2 giorni): 16 stories
-- 🔴 Large (3-5 giorni): 5 stories
+- 🟢 Small (2-4h): 14 stories
+- 🟡 Medium (1-2 giorni): 22 stories
+- 🔴 Large (3-5 giorni): 6 stories
+- ⚫ XL (3-5 giorni): 1 story
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 15 stories
+- 🌐 Claude Code Web: 25 stories (🆕 +10 da EPIC-007)
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 6 epiche, 33 user stories
+**Totale**: 7 epiche, 43 user stories
+
+### ⚠️ Production Blockers
+**EPIC-007 (Security)** - 5 critical stories (P0) must be completed before production deployment:
+- SV-001: Authentication & Authorization
+- SV-002: Secrets Management
+- SV-003: CORS Wildcards
+- SV-004: XSS Protection
+- SV-005: Content Security Policy
 
 ---
 
 ## Ordine Consigliato di Esecuzione
 
-### Phase 1: Foundations (Settimane 1-2)
-1. **EPIC-001** Design System (prerequisito per tutto)
+### ⚠️ Phase 0: SECURITY CRITICAL (MUST DO FIRST - Settimane 1-2)
+**🔴 BLOCCA IL DEPLOYMENT IN PRODUZIONE**
+1. **EPIC-007** Security Vulnerabilities (P0 stories ONLY)
+   - SV-001: Authentication & Authorization (XL - 3-5 giorni)
+   - SV-002: Secrets Management (M - 1 giorno)
+   - SV-003: CORS Wildcards (S - 0.5 giorni)
+   - SV-004: XSS Protection (M - 1-2 giorni)
+   - SV-005: CSP Implementation (M - 1-2 giorni)
+
+   **Dopo P0**: Completare P1 stories (SV-006 to SV-009) prima del deployment
+
+### Phase 1: Foundations (Settimane 3-4)
+2. **EPIC-001** Design System (prerequisito per features)
    - Iniziare con DS-001, DS-003 (Web)
    - Poi DS-002 (Locale per auto-catalogazione)
    - Poi DS-004, DS-005
 
-### Phase 2: Quick Wins (Settimana 3)
-2. **EPIC-002** Google Calendar (critico per conversione)
-3. **CC-005** Footer update (veloce)
+### Phase 2: Quick Wins (Settimana 5)
+3. **EPIC-002** Google Calendar (critico per conversione)
+4. **CC-005** Footer update (veloce)
+5. **SV-010** GDPR Compliance (P2, richiesto in EU)
 
-### Phase 3: Content & Copy (Settimane 4-5)
-4. **EPIC-003** Copy/Contenuto (con agenti)
-5. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
+### Phase 3: Content & Copy (Settimane 6-7)
+6. **EPIC-003** Copy/Contenuto (con agenti)
+7. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
 
-### Phase 4: Advanced Features (Settimane 6-9)
-6. **EPIC-004** Chatbot (complesso, richiede tempo)
-7. **EPIC-005** Spotify Player
-8. **BL-004, BL-005** Content generation con AI
+### Phase 4: Advanced Features (Settimane 8-11)
+8. **EPIC-004** Chatbot (complesso, richiede tempo)
+9. **EPIC-005** Spotify Player
+10. **BL-004, BL-005** Content generation con AI
 
 ---
 
