@@ -13,7 +13,7 @@ export default function Hero() {
   const { isOpen, openCalendar, closeCalendar } = useGoogleCalendar();
 
   return (
-    <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center bg-cream border-b-4 border-black overflow-hidden">
+    <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center bg-cream border-b-brutal-thick border-black overflow-hidden">
       {/* Floating Geometric Shapes - Hidden on mobile for better readability */}
       <div className="hidden md:block absolute top-[10%] right-[5%] w-[80px] h-[80px] md:w-[120px] md:h-[120px] bg-electric-blue border-brutal border-black rounded-full opacity-80 animate-float" />
       <div className="hidden md:block absolute top-[30%] left-[3%] w-[60px] h-[60px] md:w-[90px] md:h-[90px] bg-neon-pink border-brutal border-black rotate-45 opacity-80 animate-wiggle" />

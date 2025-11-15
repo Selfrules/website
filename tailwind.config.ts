@@ -337,6 +337,9 @@ const config: Config = {
         '.text-dynamic-yellow': { color: '#FFD60A' },
         '.text-dynamic-purple': { color: '#7209B7' },
         '.text-dynamic-teal': { color: '#2A687A' },
+
+        // Brutalist text colors (accessible utilities)
+        '.text-brutalist-text-light': { color: '#FAFAFA' },
       };
       addUtilities(dynamicColorUtilities);
     },

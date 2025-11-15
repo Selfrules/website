@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Button } from '@/components/ui/Button';
 import BlogCard from '@/components/blog/BlogCard';
 import { getAllPosts } from '@/lib/blog/mdx';
 
@@ -82,12 +83,9 @@ export default async function BlogNew({ locale }: BlogProps) {
         {/* View All Button */}
         <div className="text-center mt-8">
           <Link href={`/${locale}/blog`}>
-            <button
-              className="inline-block px-6 md:px-8 py-3 md:py-4 bg-neon-pink text-white border-brutal border-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px', textTransform: 'uppercase' }}
-            >
+            <Button variant="primary" size="lg" className="bg-neon-pink uppercase">
               {t.viewAll}
-            </button>
+            </Button>
           </Link>
         </div>
       </div>

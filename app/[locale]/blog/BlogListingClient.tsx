@@ -102,7 +102,7 @@ export default function BlogListingClient({
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-b-4 border-black relative overflow-hidden">
+      <section className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-b-brutal-thick border-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full" />
           <div className="absolute bottom-20 right-20 w-48 h-48 bg-white rotate-45" />

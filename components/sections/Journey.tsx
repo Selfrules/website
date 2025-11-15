@@ -75,7 +75,7 @@ export default function Journey() {
   ];
 
   return (
-    <section id="journey" className="bg-white py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
+    <section id="journey" className="bg-white py-16 md:py-24 border-b-brutal-thick border-black relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-10 right-5 w-20 h-20 bg-cyber-yellow border-brutal border-black rotate-12 opacity-20" />
       <div className="absolute bottom-20 left-5 w-16 h-16 bg-neon-pink border-brutal border-black rounded-full opacity-20" />
@@ -141,14 +141,14 @@ export default function Journey() {
                   <div className={`ml-12 md:ml-0 md:w-[calc(50%-40px)] ${isEven ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
                     <div
                       className={`
-                        bg-cream border-brutal border-black rounded-lg shadow-brutal p-5 md:p-6
+                        bg-cream border-brutal border-black rounded-brutal shadow-brutal p-5 md:p-6
                         transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg
                         ${milestone.isCurrent ? 'bg-gradient-to-br from-electric-blue/5 to-transparent' : ''}
                       `}
                     >
                       {/* Date & Role */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="inline-block px-3 py-1 bg-white border-2 border-black rounded shadow-brutal-sm text-brutalist-text-primary font-mono text-xs font-bold">
+                        <span className="inline-block px-3 py-1 bg-white border-brutal-thin border-black rounded shadow-brutal-sm text-brutalist-text-primary font-mono text-xs font-bold">
                           {t(milestone.dateKey)}
                         </span>
                         <NeoBadge color={milestone.roleColor} className="px-3 py-1 text-xs">
@@ -178,9 +178,9 @@ export default function Journey() {
                             <li key={i} className="flex items-start gap-2 text-body-small text-brutalist-text-secondary">
                               <ArrowRight
                                 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
-                                  milestone.roleColor === 'blue' ? 'text-dynamic-blue' :
-                                  milestone.roleColor === 'pink' ? 'text-dynamic-pink' :
-                                  milestone.roleColor === 'yellow' ? 'text-dynamic-yellow' : 'text-dynamic-purple'
+                                  milestone.roleColor === 'blue' ? 'text-electric-blue' :
+                                  milestone.roleColor === 'pink' ? 'text-neon-pink' :
+                                  milestone.roleColor === 'yellow' ? 'text-cyber-yellow' : 'text-deep-purple'
                                 }`}
                               />
                               <span>{t(achievementKey)}</span>
@@ -196,7 +196,7 @@ export default function Journey() {
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {milestone.skillsKeys.map((skillKey, i) => (
-                            <span key={i} className="px-2 py-1 bg-white border-2 border-black rounded-sm text-xs text-brutalist-text-primary font-mono">
+                            <span key={i} className="px-2 py-1 bg-white border-brutal-thin border-black rounded-sm text-xs text-brutalist-text-primary font-mono">
                               {t(skillKey)}
                             </span>
                           ))}
@@ -213,10 +213,10 @@ export default function Journey() {
                             {milestone.certificationsKeys.map((certKey, i) => (
                               <span
                                 key={i}
-                                className={`px-2 py-1 border-2 border-black rounded-sm text-xs flex items-center gap-1 font-mono ${
-                                  milestone.roleColor === 'blue' ? 'bg-dynamic-blue text-white' :
-                                  milestone.roleColor === 'pink' ? 'bg-dynamic-pink text-white' :
-                                  milestone.roleColor === 'yellow' ? 'bg-dynamic-yellow text-brutalist-text-primary' : 'bg-dynamic-purple text-white'
+                                className={`px-2 py-1 border-brutal-thin border-black rounded-sm text-xs flex items-center gap-1 font-mono ${
+                                  milestone.roleColor === 'blue' ? 'bg-electric-blue text-white' :
+                                  milestone.roleColor === 'pink' ? 'bg-neon-pink text-white' :
+                                  milestone.roleColor === 'yellow' ? 'bg-cyber-yellow text-brutalist-text-primary' : 'bg-deep-purple text-white'
                                 }`}
                               >
                                 <Award className="w-3 h-3" />
