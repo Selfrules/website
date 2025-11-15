@@ -72,7 +72,7 @@ export const InsightBox = React.forwardRef<HTMLDivElement, InsightBoxProps>(
             <p className="text-body font-heading font-bold text-brutalist-text-primary mb-2">
               💡 {title}:
             </p>
-            <div className="text-body-small text-brutalist-text-secondary">
+            <div className="text-body-sm text-brutalist-text-secondary">
               {children}
             </div>
           </div>

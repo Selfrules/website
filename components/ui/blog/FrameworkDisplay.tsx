@@ -90,7 +90,7 @@ export const FrameworkDisplay = React.forwardRef<HTMLDivElement, FrameworkDispla
                 </h4>
 
                 {/* Description */}
-                <p className="text-body-small text-brutalist-text-secondary">
+                <p className="text-body-sm text-brutalist-text-secondary">
                   {column.description}
                 </p>
               </div>

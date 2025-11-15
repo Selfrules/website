@@ -79,7 +79,7 @@ export const LearningObjectives = React.forwardRef<HTMLDivElement, LearningObjec
         {/* Objectives List */}
         <ul className="space-y-3 mb-brutal-md">
           {objectives.map((objective, index) => (
-            <li key={index} className="flex gap-3 text-body-small text-brutalist-text-secondary">
+            <li key={index} className="flex gap-3 text-body-sm text-brutalist-text-secondary">
               <span className={cn('font-bold', colors.text)}>→</span>
               <span>{objective}</span>
             </li>
@@ -90,7 +90,7 @@ export const LearningObjectives = React.forwardRef<HTMLDivElement, LearningObjec
         <a
           href={ctaHref}
           className={cn(
-            'inline-flex items-center gap-2 font-heading font-bold text-body-small uppercase tracking-wider',
+            'inline-flex items-center gap-2 font-heading font-bold text-body-sm uppercase tracking-wider',
             colors.text,
             'hover:underline transition-all'
           )}

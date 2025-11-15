@@ -75,13 +75,13 @@ export const ProblemList = React.forwardRef<HTMLDivElement, ProblemListProps>(
                     styles.numberBg
                   )}
                 >
-                  <span className="text-body-small font-heading font-black text-white">
+                  <span className="text-body-sm font-heading font-black text-white">
                     {index + 1}
                   </span>
                 </div>
 
                 {/* Problem Text */}
-                <p className="text-body-small text-brutalist-text-primary flex-1 pt-1">
+                <p className="text-body-sm text-brutalist-text-primary flex-1 pt-1">
                   {problem}
                 </p>
               </div>

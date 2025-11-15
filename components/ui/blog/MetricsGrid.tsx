@@ -87,7 +87,7 @@ export const MetricsGrid = React.forwardRef<HTMLDivElement, MetricsGridProps>(
                 </div>
 
                 {/* Description */}
-                <p className="text-body-small text-brutalist-text-secondary">
+                <p className="text-body-sm text-brutalist-text-secondary">
                   {metric.description}
                 </p>
               </div>

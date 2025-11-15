@@ -101,7 +101,7 @@ export const LessonsList = React.forwardRef<HTMLDivElement, LessonsListProps>(
                   <h4 className="text-body font-heading font-bold text-brutalist-text-primary mb-2">
                     {lesson.title}
                   </h4>
-                  <p className="text-body-small text-brutalist-text-secondary">
+                  <p className="text-body-sm text-brutalist-text-secondary">
                     {lesson.description}
                   </p>
                 </div>
