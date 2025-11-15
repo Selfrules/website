@@ -26,16 +26,16 @@ export function SpotifyWidget() {
 
 function SpotifySkeleton() {
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
+    <div className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
       {/* Album Art Placeholder */}
-      <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0 animate-pulse-spotify" />
+      <div className="w-16 h-16 bg-gradient-to-br from-electric-blue to-deep-purple rounded border-brutal-thin border-spotify flex-shrink-0 animate-pulse-spotify" />
 
       {/* Track Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
           Loading...
         </p>
-        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
           Connecting to Spotify
         </p>
       </div>
@@ -45,15 +45,15 @@ function SpotifySkeleton() {
 
 function SpotifyError() {
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#FF006E] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
-      <div className="w-16 h-16 rounded border-3 border-[#FF006E] bg-[#2D2D2D] flex items-center justify-center flex-shrink-0">
-        <Music className="w-8 h-8 text-[#FF006E]" />
+    <div className="w-full bg-dark border-brutal-thin border-neon-pink rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
+      <div className="w-16 h-16 rounded border-brutal-thin border-neon-pink bg-brutalist-text-secondary flex items-center justify-center flex-shrink-0">
+        <Music className="w-8 h-8 text-neon-pink" />
       </div>
       <div className="flex-1">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
           Failed to load
         </p>
-        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
           Couldn&apos;t connect to Spotify
         </p>
       </div>
@@ -63,16 +63,16 @@ function SpotifyError() {
 
 function SpotifyOffline() {
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
+    <div className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
       {/* Album Art Placeholder */}
-      <div className="w-16 h-16 bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] rounded border-3 border-[#1DB954] flex-shrink-0 animate-pulse-spotify" />
+      <div className="w-16 h-16 bg-gradient-to-br from-electric-blue to-deep-purple rounded border-brutal-thin border-spotify flex-shrink-0 animate-pulse-spotify" />
 
       {/* Track Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
           Not Playing
         </p>
-        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
           Offline
         </p>
       </div>
@@ -93,9 +93,9 @@ interface SpotifyNowPlayingProps {
 
 function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
   return (
-    <div className="w-full bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 flex items-center gap-4 shadow-brutal-sm">
+    <div className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
       {/* Album Art Placeholder */}
-      <div className="w-16 h-16 rounded border-3 border-[#1DB954] flex-shrink-0 overflow-hidden">
+      <div className="w-16 h-16 rounded border-brutal-thin border-spotify flex-shrink-0 overflow-hidden">
         <Image
           src={track.albumArt}
           alt={`${track.album} album cover`}
@@ -108,10 +108,10 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
 
       {/* Track Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
           {track.name}
         </p>
-        <p className="text-[#6B7280] truncate text-xs md:text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
           {track.artist}
         </p>
       </div>
@@ -119,9 +119,9 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
       {/* Playing Indicator */}
       {track.isPlaying && (
         <div className="flex gap-0.5 items-end flex-shrink-0">
-          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '12px', animationDelay: '0s' }} />
-          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '20px', animationDelay: '0.2s' }} />
-          <div className="w-1 bg-[#1DB954] rounded-full animate-pulse" style={{ height: '16px', animationDelay: '0.4s' }} />
+          <div className="w-1 bg-spotify rounded-full animate-pulse" style={{ height: '12px', animationDelay: '0s' }} />
+          <div className="w-1 bg-spotify rounded-full animate-pulse" style={{ height: '20px', animationDelay: '0.2s' }} />
+          <div className="w-1 bg-spotify rounded-full animate-pulse" style={{ height: '16px', animationDelay: '0.4s' }} />
         </div>
       )}
     </div>
@@ -142,8 +142,8 @@ export function SpotifyWidgetCompact() {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex items-center gap-2 p-2 rounded-lg',
-        'border-2 border-black bg-white',
+        'flex items-center gap-2 p-2 rounded-brutal',
+        'border-brutal-thin border-black bg-white',
         'shadow-brutal-sm',
         'hover:shadow-brutal-sm hover:-translate-x-[1px] hover:-translate-y-[1px]',
         'transition-all'
@@ -155,7 +155,7 @@ export function SpotifyWidgetCompact() {
         alt="Now playing"
         width={40}
         height={40}
-        className="w-10 h-10 rounded border-2 border-black"
+        className="w-10 h-10 rounded border-brutal-thin border-black"
         loading="lazy"
       />
       <div className="flex-1 min-w-0">
