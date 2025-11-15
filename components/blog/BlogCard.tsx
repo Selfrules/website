@@ -42,10 +42,10 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
               <div className="flex items-center gap-3 mb-brutal-sm">
                 <NeoBadge color="yellow">
                   {post.category}
-                </NeoBadge>
-                <NeoBadge color="yellow">
-                  FEATURED
-                </NeoBadge>
+                </Badge>
+                <Badge variant="featured" size="sm">
+                  DA NON PERDERE
+                </Badge>
               </div>
 
               <h3 className="text-h2 md:text-h1 text-brutalist-text-primary mb-brutal-sm font-heading font-black">

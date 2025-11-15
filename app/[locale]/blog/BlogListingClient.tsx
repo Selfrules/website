@@ -131,10 +131,10 @@ export default function BlogListingClient({
             </Button>
 
             <h1 className="text-h1 md:text-[64px] text-white mb-6 font-heading">
-              Tutti gli articoli
+              Cose che ho imparato (sbagliando)
             </h1>
             <p className="text-body-large text-white/95 mb-8 max-w-[600px]">
-              Pensieri, riflessioni e lezioni apprese dal mondo del Product Management, Design e Development.
+              200+ progetti. 12 anni di carriera. Ogni articolo qui è una lezione che è costata tempo, soldi o orgoglio. O tutti e tre.
             </p>
 
             {/* Search Bar */}
@@ -143,7 +143,7 @@ export default function BlogListingClient({
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brutalist-text-tertiary z-10" aria-hidden="true" />
                 <Input
                   type="text"
-                  placeholder="Cerca articoli per titolo, contenuto o categoria..."
+                  placeholder="Cerca un problema specifico..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-12"
@@ -319,7 +319,7 @@ export default function BlogListingClient({
                 variant="outline"
                 size="sm"
               >
-                ← Precedente
+                ← Indietro
               </Button>
 
               <div className="flex gap-2">
@@ -358,7 +358,7 @@ export default function BlogListingClient({
                 variant="outline"
                 size="sm"
               >
-                Successivo →
+                Avanti →
               </Button>
             </div>
           )}
@@ -369,10 +369,10 @@ export default function BlogListingClient({
             <div className="inline-block p-brutal-xl bg-white border-brutal-thick border-black rounded-brutal shadow-brutal mb-6">
               <Search className="w-16 h-16 text-brutalist-text-tertiary mx-auto mb-4" />
               <h3 className="text-h3 text-dark mb-3">
-                Nessun articolo trovato
+                Niente qui
               </h3>
               <p className="text-body text-dark mb-6 max-w-[400px]">
-                Prova a modificare i filtri o la ricerca per trovare quello che cerchi.
+                Prova altri filtri oppure fammi una domanda diretta. Magari diventa un articolo.
               </p>
               <Button
                 onClick={handleResetFilters}
@@ -388,11 +388,11 @@ export default function BlogListingClient({
         {/* CTA Section at bottom */}
         {filteredPosts.length > 0 && (
           <div className="mt-20 bg-cyber-yellow border-brutal-thick border-black rounded-brutal-lg shadow-brutal-lg p-brutal-xl text-center -rotate-1 hover:rotate-0 transition-transform">
-            <h3 className="text-h3 text-brutalist-text-primary mb-4">
-              Non trovi quello che cerchi?
+            <h3 className="text-h3 text-dark mb-4">
+              Il tuo problema non è qui?
             </h3>
-            <p className="text-body text-brutalist-text-secondary mb-6 max-w-[600px] mx-auto">
-              Scrivimi direttamente! Sono sempre felice di rispondere a domande specifiche o suggerimenti per futuri articoli.
+            <p className="text-body text-dark/80 mb-6 max-w-[600px] mx-auto">
+              Fammi una domanda diretta. Se è interessante, diventa il prossimo articolo. Se no, rispondo comunque.
             </p>
             <Button
               onClick={handleContactClick}
@@ -400,7 +400,7 @@ export default function BlogListingClient({
               size="lg"
               className="bg-brutalist-text-primary text-white hover:bg-brutalist-text-primary/90"
             >
-              Contattami
+              Fammi una domanda
             </Button>
           </div>
         )}

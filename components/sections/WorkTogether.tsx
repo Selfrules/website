@@ -98,7 +98,7 @@ export default function WorkTogether() {
             <p className="text-body-small md:text-body text-white/90 mb-5 font-heading">
               {t('cta.description')}
             </p>
-            <Button variant="accent" size="lg" onClick={openCalendar} className="uppercase">
+            <Button variant="accent" size="lg" onClick={openCalendar}>
               {t('cta.button')}
             </Button>
           </div>

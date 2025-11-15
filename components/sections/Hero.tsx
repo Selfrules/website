@@ -83,7 +83,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Button variant="primary" size="md" onClick={openCalendar} className="uppercase">
+            <Button variant="primary" size="md" onClick={openCalendar}>
               {t('cta')} <ArrowRight className="w-5 h-5" />
             </Button>
             <Button variant="outline" size="md" className="bg-white">

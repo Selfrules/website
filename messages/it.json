@@ -2,21 +2,21 @@
   "nav": {
     "home": "home",
     "blog": "pensieri",
-    "work": "lavora con me",
-    "about": "chi sono"
+    "work": "lavoriamo insieme",
+    "about": "parliamo"
   },
   "hero": {
     "badge": "PM • DESIGNER • DEV",
     "headline1": "Ho fallito",
     "headline2": "come designer.",
     "headline3": "Poi come developer.",
-    "headline4": "Ora sono un PM",
-    "headline5": "che sa davvero cosa costruire.",
-    "subtitle": "Perché? Perché ho imparato che",
-    "subtitleHighlight": "il prodotto perfetto non esiste",
-    "subtitleEnd": ". Esiste solo quello che risolve problemi reali per persone reali.",
+    "headline4": "Ora sono il PM",
+    "headline5": "che chiami quando tutti dicono 'sì' ma nessuno sa cosa fare.",
+    "subtitle": "Perché? Perché dopo 200+ fallimenti ho capito una cosa:",
+    "subtitleHighlight": "il problema non è mai quello che ti dicono al primo meeting",
+    "subtitleEnd": ".",
     "cta": "Parliamone",
-    "explore": "Leggi la storia",
+    "explore": "Come sono arrivato qui",
     "stats": {
       "loadTimes": "Faster load times",
       "usersImpacted": "Users impacted",
@@ -28,14 +28,14 @@
     }
   },
   "journey": {
-    "badge": "Il mio percorso",
-    "title": "Da zero a",
-    "titleHighlight": "Product Manager",
-    "subtitle": "La maggior parte dei PM arriva dalla consulenza o dal business. Io ho fatto design, sviluppo, imprenditoria. Questo è il mio superpotere: parlo tutte e tre le lingue.",
+    "badge": "Il percorso",
+    "title": "Perché parlo 3 lingue",
+    "titleHighlight": "(e non sono italiano, inglese, spagnolo)",
+    "subtitle": "La maggior parte dei PM parla solo 'business'. Poi arriva in meeting e il designer dice 'user journey' mentre lo sviluppatore dice 'technical debt'. Caos. Io traduco. Senza perdere pezzi.",
     "current": "Oggi",
-    "skillsLabel": "What I bring",
-    "certificationsLabel": "What I studied",
-    "endMessage": "12 anni di fallimenti trasformati in esperienza",
+    "skillsLabel": "Cosa porto al tavolo",
+    "certificationsLabel": "Cosa ho studiato",
+    "endMessage": "12 anni. 200+ progetti. La differenza tra esperienza e fallimenti? I fallimenti te li ricordi tutti.",
     "experiences": {
       "pm": {
         "date": "2023-oggi",
@@ -200,17 +200,17 @@
     }
   },
   "workTogether": {
-    "badge": "Let's work together",
-    "title": "Come possiamo",
+    "badge": "Lavoriamo insieme",
+    "title": "3 modi per",
     "titleHighlight": "lavorare insieme",
     "subtitle": {
-      "part1": "Non vendo consulenze. Non vendo ore. Vendo risultati.",
-      "part2": "Se hai un problema concreto e vuoi qualcuno che capisca design, tech e business senza bisogno di traduttori, possiamo parlare."
+      "part1": "Non vendo ore. Non vendo consulenze. Vendo questo:",
+      "part2": "una soluzione che il tuo designer capisce, il tuo developer può buildare, e il tuo CFO approva. Senza traduttori in mezzo."
     },
     "modes": {
       "consulting": {
         "badge": "Consulenze strategiche",
-        "title": "Sblocchiamo il tuo prodotto in 90 minuti",
+        "title": "Sblocca il tuo prodotto in 90 minuti",
         "description": "Hai un prodotto che non decolla? Un team che gira in tondo? Una roadmap che sembra strategica ma non porta risultati? Prendiamoci 90 minuti.",
         "features": {
           "1": "Analisi tecno-strategica end-to-end",
@@ -220,7 +220,7 @@
       },
       "brainstorming": {
         "badge": "Brainstorming sessions",
-        "title": "Dal caos alla chiarezza",
+        "title": "Trasforma il caos in roadmap",
         "description": "Hai un'idea vaga? Un progetto che ancora non ha forma? Un team che ha bisogno di allineamento? Trasformiamo il caos in un piano.",
         "features": {
           "1": "Workshop interattivo 2-3 ore",
@@ -230,7 +230,7 @@
       },
       "mentorship": {
         "badge": "Mentorship",
-        "title": "Cresci come Product Manager",
+        "title": "Mentorship per PM",
         "description": "Hai già un ruolo in product ma vuoi crescere? Vuoi transizionare da design/dev a product? Ti guido nel percorso. No teoria, solo pratica.",
         "features": {
           "1": "1-on-1 sessions bi-settimanali",
@@ -268,9 +268,9 @@
       }
     },
     "cta": {
-      "title": "Pronto a costruire qualcosa che conta?",
-      "description": "Parliamo. Senza impegno. Senza vendita aggressiva. Solo una conversazione tra persone che vogliono risolvere problemi reali.",
-      "button": "Iniziamo la conversazione"
+      "title": "Hai un prodotto bloccato?",
+      "description": "15 minuti di call. Zero pitch. Zero PowerPoint. Solo tu, io, e il problema da risolvere.",
+      "button": "Prenotiamo 15 minuti"
     }
   },
   "common": {
@@ -280,15 +280,15 @@
     "error": "qualcosa è andato storto"
   },
   "footer": {
-    "bio": "Product Manager che parla designer, scrive codice, e costruisce prodotti che risolvono problemi reali.",
-    "location": "Basato in Italia 🇮🇹 | Lavoro Remote 🌍",
+    "bio": "PM che parla designer, scrive codice, e traduce tra business e tech senza perdere pezzi.",
+    "location": "Italia 🇮🇹 | Lavoro ovunque 🌍",
     "tagline": "Product Manager che parla design, codice e business. Costruisco prodotti che risolvono davvero problemi.",
     "badge": "Disponibile per consulenze",
-    "navigation": "Link rapidi",
+    "navigation": "Navigazione",
     "connect": "Connettiti",
     "getInTouch": "Contattami",
-    "madeWith": "Made with",
-    "andCoffee": "and coffee ☕",
+    "madeWith": "Fatto con troppo caffè",
+    "andCoffee": "",
     "ctaText": "Hai un progetto in mente? Parliamo di come possiamo lavorare insieme.",
     "ctaButton": "Parliamone",
     "rights": "Tutti i diritti riservati.",
@@ -296,9 +296,9 @@
     "terms": "Termini",
     "resources": {
       "title": "Risorse",
-      "tools": "My tools stack",
-      "design": "Design resources",
-      "stack": "Tech stack",
+      "tools": "Tool che uso",
+      "design": "Risorse design",
+      "stack": "Stack tecnico",
       "newsletter": "Newsletter"
     }
   }

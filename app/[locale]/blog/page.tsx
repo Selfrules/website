@@ -15,26 +15,26 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   const t = await getTranslations({ locale: params.locale, namespace: 'blog' });
 
   return {
-    title: t('meta.title', { default: 'Pensieri - Mattia Filippo De Luca' }),
+    title: t('meta.title', { default: 'Lessons from the Trenches - Mattia Filippo De Luca' }),
     description: t('meta.description', {
       default:
-        'Product management insights, startup lessons, and tech reflections from a PM who learned through failure.',
+        '200+ fallimenti documentati. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti.',
     }),
     openGraph: {
-      title: t('meta.title', { default: 'Pensieri - Mattia Filippo De Luca' }),
+      title: t('meta.title', { default: 'Lessons from the Trenches - Mattia Filippo De Luca' }),
       description: t('meta.description', {
         default:
-          'Product management insights, startup lessons, and tech reflections from a PM who learned through failure.',
+          '200+ fallimenti documentati. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti.',
       }),
       type: 'website',
       locale: params.locale,
     },
     twitter: {
       card: 'summary_large_image',
-      title: t('meta.title', { default: 'Pensieri - Mattia Filippo De Luca' }),
+      title: t('meta.title', { default: 'Lessons from the Trenches - Mattia Filippo De Luca' }),
       description: t('meta.description', {
         default:
-          'Product management insights, startup lessons, and tech reflections from a PM who learned through failure.',
+          '200+ fallimenti documentati. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti.',
       }),
     },
   };

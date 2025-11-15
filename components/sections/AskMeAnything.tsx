@@ -18,27 +18,27 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
 
   const translations = {
     it: {
-      badge: 'Ask me anything',
-      title: 'Hai domande? Chiedi pure',
-      description: 'Puoi chattare con il mio gemello digitale AI o lasciare una domanda anonima. ',
-      descriptionHighlight: 'Rispondo a tutte entro 48 ore. Sì, davvero tutte. Anche quelle scomode.',
+      badge: 'Chiedimi qualsiasi cosa',
+      title: 'Hai una domanda? Chiedi. Anche quella scomoda.',
+      description: 'Chat con il mio AI clone oppure domanda anonima. Rispondo in 48 ore. Tutte. ',
+      descriptionHighlight: 'Sì, anche "Quanto guadagni?" o "Hai mai pensato di mollare tutto?"',
       chatMode: {
-        title: 'Chatta con il mio gemello digitale',
+        title: 'Parla con il mio AI clone',
         description: 'Alimentato da Claude AI, conosce tutto il mio background e può rispondere alle tue domande su: Design, sviluppo, product management • Come sono passato da un ruolo all\'altro • Errori che ho fatto (sono tanti) e cosa ho imparato • Consigli per il tuo percorso. È come parlare con me, ma disponibile 24/7 e con pazienza infinita per le domande ripetitive.',
         buttonText: 'Inizia chat',
       },
       formMode: {
-        title: 'Chiedi in anonimo',
+        title: 'Chiedi anonimo',
         description: 'Preferisci scrivere? Lascia la tua domanda qui. Rispondo pubblicamente sul blog (così aiuta anche altri). Niente nome richiesto. Niente giudizio. Solo domande reali e risposte oneste.',
       },
     },
     en: {
       badge: 'Ask me anything',
-      title: 'Have questions? Ask away',
-      description: 'You can chat with my AI digital twin or leave an anonymous question. ',
-      descriptionHighlight: 'I respond to all within 48 hours.',
+      title: 'Got a question? Ask. Even the uncomfortable one.',
+      description: 'Chat with my AI clone or ask anonymously. I reply in 48 hours. All of them. ',
+      descriptionHighlight: 'Yes, even "How much do you make?" or "Ever thought of quitting?"',
       chatMode: {
-        title: 'Chat with my digital twin',
+        title: 'Talk to my AI clone',
         description: 'Powered by Claude AI, knows all my background and can answer your questions about design, development, product management, or anything else.',
         buttonText: 'Start chat',
       },
@@ -120,7 +120,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
                 È come parlare con me, ma disponibile 24/7 e con pazienza infinita per le domande ripetitive.
               </p>
 
-              <Button variant="primary" size="lg" onClick={handleChatClick} className="w-full uppercase">
+              <Button variant="primary" size="lg" onClick={handleChatClick} className="w-full">
                 {t.chatMode.buttonText}
               </Button>
             </div>

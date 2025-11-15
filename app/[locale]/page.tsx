@@ -8,11 +8,11 @@ import ChatTrigger from '@/components/chat/ChatTrigger';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Mattia Filippo De Luca - Product Manager & Developer',
-  description: 'Product Manager che ha fallito come designer e developer, ora costruisce prodotti che risolvono problemi reali.',
+  title: 'Mattia De Luca - PM che parla designer e scrive codice',
+  description: 'Ho fallito come designer. Poi come developer. Ora sono il PM che vuoi quando nessuno capisce cosa il team tecnico sta dicendo.',
   openGraph: {
-    title: 'Mattia Filippo De Luca - Product Manager & Developer',
-    description: 'Dal fallimento al successo: la storia di un PM che sa davvero cosa costruire',
+    title: 'Mattia De Luca - PM che parla designer e scrive codice',
+    description: '3 anni come designer. 5 come developer. 12 come PM. Traduco tra business, design e tech senza perdere pezzi per strada.',
     type: 'website',
   },
 };

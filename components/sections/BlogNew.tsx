@@ -17,20 +17,20 @@ export default async function BlogNew({ locale }: BlogProps) {
 
   const translations = {
     it: {
-      badge: 'Latest thinking',
-      title: 'Dal blog',
-      description: 'Pensieri su design, sviluppo, product management e ',
-      descriptionHighlight: 'tutto quello che ho imparato fallendo.',
-      viewAll: 'Visualizza tutti gli articoli',
-      readNow: 'Leggi ora',
+      badge: 'Ultimi pensieri',
+      title: 'Cosa ho imparato fallendo',
+      description: 'Design, sviluppo, product management. E tutti i modi in cui ho sbagliato ',
+      descriptionHighlight: 'prima di capire come funziona davvero.',
+      viewAll: 'Vedi tutti gli articoli',
+      readNow: 'Leggi',
     },
     en: {
       badge: 'Latest thinking',
-      title: 'From the blog',
-      description: 'Thoughts on design, development, product management and ',
-      descriptionHighlight: 'everything I learned by failing.',
-      viewAll: 'View all articles',
-      readNow: 'Read now',
+      title: 'What I learned failing',
+      description: 'Design, development, product management. And all the ways I got it wrong ',
+      descriptionHighlight: 'before understanding how it actually works.',
+      viewAll: 'See all articles',
+      readNow: 'Read',
     },
   };
 
@@ -83,7 +83,7 @@ export default async function BlogNew({ locale }: BlogProps) {
         {/* View All Button */}
         <div className="text-center mt-8">
           <Link href={`/${locale}/blog`}>
-            <Button variant="primary" size="lg" className="bg-neon-pink uppercase">
+            <Button variant="primary" size="lg" className="bg-neon-pink">
               {t.viewAll}
             </Button>
           </Link>

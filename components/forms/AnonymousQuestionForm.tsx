@@ -119,7 +119,7 @@ export function AnonymousQuestionForm({ locale }: AnonymousQuestionFormProps) {
       <button
         type="submit"
         disabled={isSubmitting || !formData.question.trim()}
-        className="w-full px-6 py-3 md:py-4 bg-neon-pink text-white border-brutal border-black rounded-brutal shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed font-heading text-sm font-bold uppercase"
+        className="w-full px-6 py-3 md:py-4 bg-neon-pink text-white border-brutal border-black rounded-brutal shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed font-heading text-sm font-bold"
       >
         {isSubmitting ? t.submitting : t.submitButton}
         <Send className="w-4 h-4" />
