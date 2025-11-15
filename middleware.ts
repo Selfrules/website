@@ -36,6 +36,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Skip i18n for design-system page (universal access)
+  if (pathname.startsWith('/design-system')) {
+    return NextResponse.next();
+  }
+
   // Apply i18n middleware for public routes
   return intlMiddleware(request);
 }
