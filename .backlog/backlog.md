@@ -3,7 +3,7 @@
 Backlog strutturato per Claude Code con epiche e user stories dettagliate.
 
 **Data Creazione**: 2025-11-13
-**Ultima Modifica**: 2025-11-13
+**Ultima Modifica**: 2025-11-15
 
 ---
 
@@ -146,48 +146,77 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
 
 ---
 
+## EPIC-007: Production Performance Optimization
+
+**Priorità**: 🔴 Alta | **Stima**: M (1-2 settimane) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Portare il sito a Lighthouse score 90-95+ ottimizzando font loading, bundle size, immagini, Core Web Vitals, caching e configurazione Next.js per produzione.
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| PF-001 | Font Loading Optimization & Render Blocking Fix | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| PF-002 | Bundle Size Reduction & Dynamic Imports | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
+| PF-003 | Image Optimization & AVIF Support | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| PF-004 | Remove Component Duplication | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| PF-005 | API & Data Fetching Optimization | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
+| PF-006 | Core Web Vitals Improvements (CLS, LCP, INP) | 🟠 | 🔴 L | 🌐 Web | 📋 Todo |
+| PF-007 | ISR & Caching Strategy | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| PF-008 | Next.js Build Configuration Optimization | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+
+**Links**: [Epic](./epics/07-performance/epic.md) | [Stories](./epics/07-performance/stories/)
+
+---
+
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 10 stories
-- 🟠 Alta: 12 stories
-- 🟡 Media: 8 stories
+- 🔴 Critica: 13 stories
+- 🟠 Alta: 15 stories
+- 🟡 Media: 10 stories
 - 🟢 Bassa: 3 stories
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 12 stories
-- 🟡 Medium (1-2 giorni): 16 stories
-- 🔴 Large (3-5 giorni): 5 stories
+- 🟢 Small (2-4h): 15 stories
+- 🟡 Medium (1-2 giorni): 19 stories
+- 🔴 Large (3-5 giorni): 7 stories
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 15 stories
+- 🌐 Claude Code Web: 23 stories
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 6 epiche, 33 user stories
+**Totale**: 7 epiche, 41 user stories
 
 ---
 
 ## Ordine Consigliato di Esecuzione
 
-### Phase 1: Foundations (Settimane 1-2)
-1. **EPIC-001** Design System (prerequisito per tutto)
+### Phase 1: Foundations & Performance (Settimane 1-3)
+1. **EPIC-007** Performance Optimization (🔴 CRITICO per produzione)
+   - Week 1: PF-001, PF-004, PF-008 (Quick wins: +15-20 pts)
+   - Week 2: PF-002, PF-003 (Bundle & Images: +10-15 pts)
+   - Week 3: PF-006, PF-007, PF-005 (Core Web Vitals: +10-15 pts)
+   - **Target finale**: Lighthouse 90-95+
+
+2. **EPIC-001** Design System (prerequisito per UI consistency)
    - Iniziare con DS-001, DS-003 (Web)
    - Poi DS-002 (Locale per auto-catalogazione)
    - Poi DS-004, DS-005
 
-### Phase 2: Quick Wins (Settimana 3)
-2. **EPIC-002** Google Calendar (critico per conversione)
-3. **CC-005** Footer update (veloce)
+### Phase 2: Quick Wins & Conversion (Settimana 4)
+3. **EPIC-002** Google Calendar (critico per conversione)
+4. **CC-005** Footer update (veloce)
 
-### Phase 3: Content & Copy (Settimane 4-5)
-4. **EPIC-003** Copy/Contenuto (con agenti)
-5. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
+### Phase 3: Content & Copy (Settimane 5-6)
+5. **EPIC-003** Copy/Contenuto (con agenti)
+6. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
 
-### Phase 4: Advanced Features (Settimane 6-9)
-6. **EPIC-004** Chatbot (complesso, richiede tempo)
-7. **EPIC-005** Spotify Player
-8. **BL-004, BL-005** Content generation con AI
+### Phase 4: Advanced Features (Settimane 7-10)
+7. **EPIC-004** Chatbot (complesso, richiede tempo)
+8. **EPIC-005** Spotify Player
+9. **BL-004, BL-005** Content generation con AI
 
 ---
 
