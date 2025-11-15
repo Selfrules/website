@@ -175,58 +175,43 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
 
   return (
     // {/* Chat Window */}
-    <div className="fixed bottom-24 right-4 md:right-8 w-[calc(100vw-2rem)] md:w-[400px] h-[500px] bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg z-50 flex flex-col">
+    <div className="fixed bottom-24 right-4 md:right-8 w-[calc(100vw-2rem)] md:w-[400px] h-[500px] bg-white border-brutal border-black rounded-lg shadow-brutal-lg z-50 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0D7EFF] to-[#7209B7] border-b-4 border-[#000] p-4 rounded-t flex items-center justify-between">
+      <div className="bg-gradient-to-r from-electric-blue to-deep-purple border-b-4 border-black p-4 rounded-t flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-[#FFD60A] border-3 border-[#000] rounded-full flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-[#0A0A0A]" />
+          <div className="w-10 h-10 bg-cyber-yellow border-brutal-thin border-black rounded-full flex items-center justify-center">
+            <Sparkles className="w-5 h-5 text-brutalist-text-primary" />
           </div>
           <div>
-            <h3
-              className="text-white"
-              style={{
-                fontFamily: 'Space Grotesk, sans-serif',
-                fontWeight: 700,
-                fontSize: '16px',
-              }}
-            >
+            <h3 className="text-white font-heading font-bold text-base">
               Chat con Mattia
             </h3>
-            <p
-              className="text-white/80 text-xs"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
+            <p className="text-white/80 text-xs font-body">
               Rispondo subito
             </p>
           </div>
         </div>
         <button
           onClick={onClose}
-          className="w-8 h-8 bg-white border-2 border-[#000] rounded flex items-center justify-center hover:bg-[#FF006E] hover:text-white transition-colors"
+          className="w-8 h-8 bg-white border-2 border-black rounded flex items-center justify-center hover:bg-neon-pink hover:text-white transition-colors"
         >
-          <X className="w-4 h-4 text-[#0A0A0A]" strokeWidth={3} />
+          <X className="w-4 h-4 text-brutalist-text-primary" strokeWidth={3} />
         </button>
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#FFFCF2]">
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-cream">
         {messages.map((message, index) => (
           <div
             key={index}
             className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
-              className={`max-w-[80%] p-3 border-3 border-[#000] rounded-lg shadow-brutal-sm ${
+              className={`max-w-[80%] p-3 border-brutal-thin border-black rounded-lg shadow-brutal-sm font-body text-sm leading-relaxed ${
                 message.role === 'user'
-                  ? 'bg-[#0D7EFF] text-white'
-                  : 'bg-white text-[#0A0A0A]'
+                  ? 'bg-electric-blue text-white'
+                  : 'bg-white text-brutalist-text-primary'
               }`}
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '14px',
-                lineHeight: '1.5',
-              }}
             >
               {message.content}
             </div>
@@ -236,7 +221,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
       </div>
 
       {/* Input Area */}
-      <div className="border-t-4 border-[#000] p-3 bg-white rounded-b">
+      <div className="border-t-4 border-black p-3 bg-white rounded-b">
         <div className="flex gap-2">
           <input
             type="text"
@@ -244,17 +229,13 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Scrivi un messaggio..."
-            className="flex-1 px-3 py-2 border-3 border-[#000] rounded focus:outline-none focus:ring-2 focus:ring-[#0D7EFF] text-[#0A0A0A]"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '14px',
-            }}
+            className="flex-1 px-3 py-2 border-brutal-thin border-black rounded focus:outline-none focus:ring-2 focus:ring-electric-blue text-brutalist-text-primary font-body text-sm"
             disabled={isLoading}
           />
           <button
             onClick={handleSendMessage}
             disabled={isLoading || !inputValue.trim()}
-            className="w-10 h-10 bg-[#0D7EFF] border-3 border-[#000] rounded shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all flex items-center justify-center disabled:opacity-50"
+            className="w-10 h-10 bg-electric-blue border-brutal-thin border-black rounded shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all flex items-center justify-center disabled:opacity-50"
           >
             <Send className="w-4 h-4 text-white" strokeWidth={2.5} />
           </button>

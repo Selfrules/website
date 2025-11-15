@@ -44,10 +44,7 @@ export default function PullQuote({
       {(author || role) && (
         <cite className="not-italic flex flex-col gap-1">
           {author && (
-            <span
-              className="text-body font-bold text-dark"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            >
+            <span className="text-body font-bold text-brutalist-text-primary font-heading">
               — {author}
             </span>
           )}

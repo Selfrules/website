@@ -87,7 +87,7 @@ export default function ImageGallery({
               className="absolute top-4 right-4 p-2 bg-white rounded-brutal border-brutal shadow-brutal hover:shadow-brutal-hover transition-all"
               aria-label="Close lightbox"
             >
-              <X className="w-6 h-6 text-dark" />
+              <X className="w-6 h-6 text-brutalist-text-primary" />
             </button>
 
             <motion.div

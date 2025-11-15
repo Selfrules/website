@@ -80,7 +80,7 @@ export default function ReadingProgressBar() {
           </svg>
           {/* Percentage text */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-xs font-bold text-dark font-heading">
+            <span className="text-xs font-bold text-brutalist-text-primary font-heading">
               {Math.round(progress)}%
             </span>
           </div>

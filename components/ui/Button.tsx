@@ -26,13 +26,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         'active:shadow-brutal-active'
       ),
       secondary: cn(
-        'bg-secondary text-white shadow-brutal',
+        'bg-secondary text-brutalist-text-light shadow-brutal',
         'hover:bg-secondary-dark hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]',
         'active:shadow-brutal-active'
       ),
       accent: cn(
-        'bg-accent text-black shadow-brutal',
-        'hover:bg-accent-dark hover:text-black hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]',
+        'bg-accent text-brutalist-text-primary shadow-brutal',
+        'hover:bg-accent-dark hover:text-brutalist-text-primary hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]',
         'active:shadow-brutal-active'
       ),
       outline: cn(
