@@ -75,10 +75,10 @@ export default function Journey() {
   ];
 
   return (
-    <section id="journey" className="bg-white py-16 md:py-24 border-b-4 border-[#000] relative overflow-hidden">
+    <section id="journey" className="bg-white py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-10 right-5 w-20 h-20 bg-[#FFD60A] border-4 border-[#000] rotate-12 opacity-20" />
-      <div className="absolute bottom-20 left-5 w-16 h-16 bg-[#FF006E] border-4 border-[#000] rounded-full opacity-20" />
+      <div className="absolute top-10 right-5 w-20 h-20 bg-cyber-yellow border-brutal border-black rotate-12 opacity-20" />
+      <div className="absolute bottom-20 left-5 w-16 h-16 bg-neon-pink border-brutal border-black rounded-full opacity-20" />
 
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
@@ -91,14 +91,14 @@ export default function Journey() {
           <div className="flex justify-center mb-4">
             <NeoBadge color="purple">{t('badge')}</NeoBadge>
           </div>
-          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">
+          <h2 className="text-h1 mb-4 md:mb-6 text-dark">
             {t('title')}{' '}
             <span className="inline-block relative z-10">
               {t('titleHighlight')}
-              <span className="absolute -bottom-1 left-0 w-full h-2 bg-[#FFD60A] -rotate-1 z-[-1]" />
+              <span className="absolute -bottom-1 left-0 w-full h-2 bg-cyber-yellow -rotate-1 z-[-1]" />
             </span>
           </h2>
-          <p className="text-body text-[#2D2D2D] max-w-[700px] mx-auto">
+          <p className="text-body text-gray-700 max-w-[700px] mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -106,7 +106,7 @@ export default function Journey() {
         {/* Timeline - Mobile First, Vertical */}
         <div className="relative">
           {/* Connecting Line - Mobile: Left aligned, Desktop: Center */}
-          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#7209B7] via-[#FFD60A] via-[#FF006E] to-[#0D7EFF] md:-translate-x-1/2" />
+          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-deep-purple via-cyber-yellow via-neon-pink to-electric-blue md:-translate-x-1/2" />
 
           {/* Milestones */}
           <div className="space-y-12 md:space-y-20">
@@ -134,28 +134,21 @@ export default function Journey() {
                       }
                     `}
                   >
-                    <Icon className={`w-5 h-5 ${milestone.isCurrent ? 'text-white' : 'text-[#0A0A0A]'}`} />
+                    <Icon className={`w-5 h-5 ${milestone.isCurrent ? 'text-white' : 'text-dark'}`} />
                   </div>
 
                   {/* Content Card - Mobile: Full width with left padding, Desktop: Half width */}
                   <div className={`ml-12 md:ml-0 md:w-[calc(50%-40px)] ${isEven ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
                     <div
                       className={`
-                        bg-[#FFFCF2] border-4 border-[#000] rounded-lg shadow-brutal p-5 md:p-6
+                        bg-cream border-brutal border-black rounded-lg shadow-brutal p-5 md:p-6
                         transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg
-                        ${milestone.isCurrent ? 'bg-gradient-to-br from-[#0D7EFF]/5 to-transparent' : ''}
+                        ${milestone.isCurrent ? 'bg-gradient-to-br from-electric-blue/5 to-transparent' : ''}
                       `}
                     >
                       {/* Date & Role */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span
-                          className="inline-block px-3 py-1 bg-white border-2 border-[#000] rounded shadow-brutal-sm text-[#0A0A0A]"
-                          style={{
-                            fontFamily: 'Space Mono, monospace',
-                            fontSize: '12px',
-                            fontWeight: 700,
-                          }}
-                        >
+                        <span className="inline-block px-3 py-1 bg-white border-2 border-black rounded shadow-brutal-sm text-dark font-mono text-xs font-bold">
                           {t(milestone.dateKey)}
                         </span>
                         <NeoBadge color={milestone.roleColor} className="px-3 py-1 text-xs">
@@ -169,12 +162,12 @@ export default function Journey() {
                       </div>
 
                       {/* Company */}
-                      <h3 className="text-h3 mb-3 text-[#0A0A0A]">
+                      <h3 className="text-h3 mb-3 text-dark">
                         {t(milestone.companyKey)}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-body-small md:text-body text-[#2D2D2D] mb-4">
+                      <p className="text-body-small md:text-body text-gray-700 mb-4">
                         {t(milestone.descriptionKey)}
                       </p>
 
@@ -182,7 +175,7 @@ export default function Journey() {
                       {milestone.achievementsKeys.length > 0 && (
                         <ul className="mb-4 space-y-1.5">
                           {milestone.achievementsKeys.map((achievementKey, i) => (
-                            <li key={i} className="flex items-start gap-2 text-body-small text-[#2D2D2D]">
+                            <li key={i} className="flex items-start gap-2 text-body-small text-gray-700">
                               <ArrowRight
                                 className="w-4 h-4 flex-shrink-0 mt-0.5"
                                 style={{
@@ -199,18 +192,12 @@ export default function Journey() {
 
                       {/* Skills */}
                       <div className="mb-3">
-                        <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                        <p className="text-xs font-bold mb-2 text-dark font-heading">
                           {t('skillsLabel')}:
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {milestone.skillsKeys.map((skillKey, i) => (
-                            <span
-                              key={i}
-                              className="px-2 py-1 bg-white border-2 border-[#000] rounded-sm text-xs text-[#0A0A0A]"
-                              style={{
-                                fontFamily: 'Space Mono, monospace',
-                              }}
-                            >
+                            <span key={i} className="px-2 py-1 bg-white border-2 border-black rounded-sm text-xs text-dark font-mono">
                               {t(skillKey)}
                             </span>
                           ))}
@@ -220,16 +207,15 @@ export default function Journey() {
                       {/* Certifications */}
                       {milestone.certificationsKeys && milestone.certificationsKeys.length > 0 && (
                         <div>
-                          <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                          <p className="text-xs font-bold mb-2 text-dark font-heading">
                             {t('certificationsLabel')}:
                           </p>
                           <div className="flex flex-wrap gap-1.5">
                             {milestone.certificationsKeys.map((certKey, i) => (
                               <span
                                 key={i}
-                                className="px-2 py-1 border-2 border-[#000] rounded-sm text-xs flex items-center gap-1"
+                                className="px-2 py-1 border-2 border-black rounded-sm text-xs flex items-center gap-1 font-mono"
                                 style={{
-                                  fontFamily: 'Space Mono, monospace',
                                   backgroundColor: milestone.roleColor === 'blue' ? '#0D7EFF' :
                                                    milestone.roleColor === 'pink' ? '#FF006E' :
                                                    milestone.roleColor === 'yellow' ? '#FFD60A' : '#7209B7',
@@ -260,7 +246,7 @@ export default function Journey() {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-block bg-electric-blue border-brutal-thick border-black rounded-brutal-lg shadow-brutal px-6 py-4 rotate-1">
-            <p className="text-body text-white" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+            <p className="text-body text-white font-heading font-bold">
               {t('endMessage')} 💪
             </p>
           </div>

@@ -52,12 +52,9 @@ export default function WorkTogether() {
   ];
 
   return (
-    <section id="work" className="bg-[#FFFCF2] py-16 md:py-24 border-b-4 border-[#000] relative overflow-hidden">
+    <section id="work" className="bg-cream py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
-        backgroundSize: '30px 30px'
-      }} />
+      <div className="absolute inset-0 opacity-5 bg-dot-pattern" style={{ backgroundSize: '30px 30px' }} />
 
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
@@ -65,10 +62,10 @@ export default function WorkTogether() {
           <div className="flex justify-center mb-4">
             <NeoBadge color="yellow">{t('badge')}</NeoBadge>
           </div>
-          <h2 className="text-h1 mb-4 md:mb-6 text-[#0A0A0A]">{t('title')} <span className="text-[#FF006E]">{t('titleHighlight')}</span></h2>
-          <p className="text-body text-[#2D2D2D] max-w-[700px] mx-auto">
+          <h2 className="text-h1 mb-4 md:mb-6 text-dark">{t('title')} <span className="text-neon-pink">{t('titleHighlight')}</span></h2>
+          <p className="text-body text-gray-700 max-w-[700px] mx-auto">
             {t('subtitle.part1')}<br/>
-            <strong className="text-[#FF006E]">{t('subtitle.part2')}</strong>
+            <strong className="text-neon-pink">{t('subtitle.part2')}</strong>
           </p>
         </div>
 
@@ -79,35 +76,31 @@ export default function WorkTogether() {
             return (
               <article
                 key={collab.id}
-                className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg"
+                className="bg-white border-brutal border-black rounded-lg shadow-brutal p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg"
               >
                 {/* Icon & Number */}
                 <div className="flex items-center justify-between mb-5">
                   <div
-                    className="w-14 h-14 rounded-lg border-4 border-[#000] flex items-center justify-center"
+                    className="w-14 h-14 rounded-lg border-brutal border-black flex items-center justify-center"
                     style={{ backgroundColor: collab.color }}
                   >
                     <Icon className="w-7 h-7 text-white" strokeWidth={2.5} />
                   </div>
                   <span
-                    className="text-6xl opacity-10"
-                    style={{
-                      fontFamily: 'Space Grotesk, sans-serif',
-                      fontWeight: 900,
-                      color: collab.color,
-                    }}
+                    className="text-6xl opacity-10 font-heading font-black"
+                    style={{ color: collab.color }}
                   >
                     {collab.number}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-h3 mb-3 text-[#0A0A0A]">
+                <h3 className="text-h3 mb-3 text-dark">
                   {t(collab.titleKey)}
                 </h3>
 
                 {/* Description */}
-                <p className="text-body-small text-[#2D2D2D] mb-5">
+                <p className="text-body-small text-gray-700 mb-5">
                   {t(collab.descriptionKey)}
                 </p>
 
@@ -116,7 +109,7 @@ export default function WorkTogether() {
                   {collab.featuresKeys.map((featureKey, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: collab.color }} strokeWidth={3} />
-                      <span className="text-body-small text-[#2D2D2D] leading-snug">
+                      <span className="text-body-small text-gray-700 leading-snug">
                         {t(featureKey)}
                       </span>
                     </li>
@@ -129,17 +122,16 @@ export default function WorkTogether() {
 
         {/* Call to Action Banner */}
         <div className="text-center">
-          <div className="inline-block bg-gradient-to-r from-[#0D7EFF] via-[#FF006E] to-[#7209B7] border-4 border-[#000] rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
-            <p className="text-h3 md:text-h2 text-white mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+          <div className="inline-block bg-gradient-to-r from-electric-blue via-neon-pink to-deep-purple border-brutal border-black rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
+            <p className="text-h3 md:text-h2 text-white mb-3 font-heading font-bold">
               {t('cta.title')}
             </p>
-            <p className="text-body-small md:text-body text-white/90 mb-5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <p className="text-body-small md:text-body text-white/90 mb-5 font-heading">
               {t('cta.description')}
             </p>
             <button
               onClick={openCalendar}
-              className="inline-block px-6 md:px-8 py-3 md:py-4 bg-[#FFD60A] text-[#0A0A0A] border-4 border-[#000] rounded shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px', textTransform: 'uppercase' }}
+              className="inline-block px-6 md:px-8 py-3 md:py-4 bg-cyber-yellow text-dark border-brutal border-black rounded shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm uppercase"
             >
               {t('cta.button')}
             </button>
