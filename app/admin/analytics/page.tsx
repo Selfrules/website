@@ -99,7 +99,7 @@ export default function AnalyticsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <p className="text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+        <p className="text-brutalist-text-light/60">
           Loading analytics...
         </p>
       </div>
@@ -109,7 +109,7 @@ export default function AnalyticsPage() {
   if (!data) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <p className="text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+        <p className="text-brutalist-text-light/60">
           Failed to load analytics data
         </p>
       </div>
@@ -122,7 +122,7 @@ export default function AnalyticsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-4xl font-heading font-black mb-2">Analytics</h1>
-          <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+          <p className="text-lg text-brutalist-text-light/70">
             Visitor insights and engagement metrics
           </p>
         </div>
@@ -162,7 +162,7 @@ export default function AnalyticsPage() {
           <div className="text-3xl font-bold mb-1">
             {data.overview.totalPageViews.toLocaleString()}
           </div>
-          <div className="text-sm font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+          <div className="text-sm font-bold text-brutalist-text-light/60">
             Total Page Views
           </div>
         </div>
@@ -177,7 +177,7 @@ export default function AnalyticsPage() {
           <div className="text-3xl font-bold mb-1">
             {data.overview.uniqueVisitors.toLocaleString()}
           </div>
-          <div className="text-sm font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+          <div className="text-sm font-bold text-brutalist-text-light/60">
             Unique Visitors
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function AnalyticsPage() {
           <div className="text-3xl font-bold mb-1">
             {formatDuration(data.overview.avgSessionDuration)}
           </div>
-          <div className="text-sm font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+          <div className="text-sm font-bold text-brutalist-text-light/60">
             Avg Session Duration
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function AnalyticsPage() {
           <div className="text-3xl font-bold mb-1">
             {data.overview.bounceRate}%
           </div>
-          <div className="text-sm font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+          <div className="text-sm font-bold text-brutalist-text-light/60">
             Bounce Rate
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function AnalyticsPage() {
                       {day.visitors} visitors
                     </div>
                   </div>
-                  <span className="text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                  <span className="text-xs text-brutalist-text-light/60">
                     {new Date(day.date).toLocaleDateString('en-US', {
                       month: 'short',
                       day: 'numeric',
@@ -262,17 +262,17 @@ export default function AnalyticsPage() {
                 <div key={idx}>
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-bold text-sm truncate">{page.path}</span>
-                    <span className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                    <span className="text-sm text-brutalist-text-light/60">
                       {page.views.toLocaleString()} views
                     </span>
                   </div>
-                  <div className="w-full h-3 bg-brutalist-text-light/10 dark:bg-brutalist-text-dark/10 rounded-brutal overflow-hidden">
+                  <div className="w-full h-3 bg-brutalist-text-light/10 rounded-brutal overflow-hidden">
                     <div
                       className="h-full bg-primary rounded-brutal"
                       style={{ width: `${percentage}%` }}
                     />
                   </div>
-                  <div className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50 mt-1">
+                  <div className="text-xs text-brutalist-text-light/50 mt-1">
                     Avg time: {formatDuration(page.avgTime)}
                   </div>
                 </div>
@@ -288,11 +288,11 @@ export default function AnalyticsPage() {
             {data.events.map((event, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-between p-3 bg-brutalist-text-light/5 dark:bg-brutalist-text-dark/5 rounded-brutal border-2 border-brutalist-text-light/10"
+                className="flex items-center justify-between p-3 bg-brutalist-text-light/5 rounded-brutal border-2 border-brutalist-text-light/10"
               >
                 <div>
                   <div className="font-bold text-sm">{event.name}</div>
-                  <div className="text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                  <div className="text-xs text-brutalist-text-light/60">
                     {event.category}
                   </div>
                 </div>
@@ -318,11 +318,11 @@ export default function AnalyticsPage() {
         </div>
         <div className="aspect-video bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-brutal border-4 border-brutalist-text-light/10 flex items-center justify-center">
           <div className="text-center">
-            <Map className="w-16 h-16 text-brutalist-text-light/20 dark:text-brutalist-text-dark/20 mx-auto mb-4" />
-            <p className="text-lg font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+            <Map className="w-16 h-16 text-brutalist-text-light/20 mx-auto mb-4" />
+            <p className="text-lg font-bold text-brutalist-text-light/60">
               Interactive heatmap visualization
             </p>
-            <p className="text-sm text-brutalist-text-light/40 dark:text-brutalist-text-dark/40">
+            <p className="text-sm text-brutalist-text-light/40">
               See where users click, scroll, and engage
             </p>
           </div>

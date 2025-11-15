@@ -258,32 +258,6 @@ Breakpoints:
 - `xl`: 1440px (primary desktop breakpoint)
 - `2xl`: 1920px
 
-## Dark Mode
-
-### Using the Hook
-```tsx
-'use client';
-
-import { useTheme } from '@/lib/theme-store';
-
-export function MyComponent() {
-  const { theme, setTheme, toggleTheme } = useTheme();
-
-  return (
-    <button onClick={toggleTheme}>
-      Current theme: {theme}
-    </button>
-  );
-}
-```
-
-### Styling for Dark Mode
-```tsx
-<div className="bg-white dark:bg-gray-900 text-black dark:text-white">
-  Content adapts to theme
-</div>
-```
-
 ## Utility Classes
 
 ### Containers
@@ -359,9 +333,6 @@ http://localhost:3000/demo
 
 ### Fonts not loading?
 Make sure you've run `npm install` and the fonts are downloaded from Google Fonts.
-
-### Dark mode not persisting?
-The theme is stored in localStorage. Make sure you're using the `ThemeProvider` in your layout.
 
 ### Components not styled?
 Ensure Tailwind is configured correctly and you've imported `globals.css` in your layout.

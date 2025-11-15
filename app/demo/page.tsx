@@ -14,7 +14,6 @@ import {
   SectionHeader,
   SectionTitle,
   SectionDescription,
-  ThemeToggle,
   AnimatedButton,
 } from '@/components/ui';
 import { motion } from 'framer-motion';
@@ -26,10 +25,6 @@ export default function DemoPage() {
       <a href="#main-content" className="skip-to-main">
         Skip to main content
       </a>
-
-      <div className="fixed top-6 right-6 z-50">
-        <ThemeToggle />
-      </div>
 
       <Section id="main-content" spacing="lg">
         <SectionHeader>
@@ -220,7 +215,7 @@ export default function DemoPage() {
               <p className="font-body text-body-sm">
                 Body text small - For captions and secondary information
               </p>
-              <code className="font-mono text-body bg-brutalist-surface-dark dark:bg-brutalist-surface-light px-2 py-1 rounded-brutal-sm">
+              <code className="font-mono text-body bg-brutalist-surface-dark px-2 py-1 rounded-brutal-sm">
                 const code = &apos;JetBrains Mono&apos;;
               </code>
             </div>

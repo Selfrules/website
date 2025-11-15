@@ -155,7 +155,7 @@ export default function SkillsMatrix({
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex px-3 py-1 bg-white dark:bg-brutalist-surface-dark border-2 border-black rounded-md text-sm font-medium"
+                    className="inline-flex px-3 py-1 bg-white border-2 border-black rounded-md text-sm font-medium"
                   >
                     {skill}
                   </span>
@@ -225,7 +225,7 @@ export default function SkillsMatrix({
                         {category.skills.map((skill) => (
                           <span
                             key={skill}
-                            className="inline-flex px-3 py-1 bg-white dark:bg-brutalist-surface-dark border-2 border-black rounded-md text-sm font-medium"
+                            className="inline-flex px-3 py-1 bg-white border-2 border-black rounded-md text-sm font-medium"
                           >
                             {skill}
                           </span>
@@ -254,7 +254,7 @@ export default function SkillsMatrix({
         </div>
       </div>
 
-      <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-6">
+      <p className="text-brutalist-text-light/70 mb-6">
         {t('skills.description')}
       </p>
 

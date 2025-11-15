@@ -62,7 +62,7 @@ export default function AdminLoginPage() {
             <h1 className="text-3xl font-heading font-black mb-2">
               Admin Login
             </h1>
-            <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+            <p className="text-brutalist-text-light/70">
               Enter your password to access the dashboard
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function AdminLoginPage() {
           </form>
 
           {/* Footer */}
-          <div className="mt-6 text-center text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+          <div className="mt-6 text-center text-sm text-brutalist-text-light/60">
             <p>Protected admin area - Authorized access only</p>
           </div>
         </div>

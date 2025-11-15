@@ -321,7 +321,6 @@ Quando crei un nuovo componente UI:
 - [ ] Rispetta 8pt grid per spacing (`p-brutal-*`, `m-brutal-*`)
 - [ ] Implementa tutte le varianti colore necessarie (electric-blue, teal, deep-purple, cyber-yellow, neon-pink)
 - [ ] Aggiungi JSDoc con `@component` e `@category` per auto-catalogazione
-- [ ] Testa dark mode
 - [ ] Verifica contrasto WCAG AA (colori ≥4.5:1)
 - [ ] Aggiungi animazioni Framer Motion se appropriato
 
@@ -395,8 +394,7 @@ Quando crei un nuovo componente UI:
 2. Implement with mobile-first approach
 3. Add appropriate Framer Motion animations
 4. Ensure i18n support for new content
-5. Test dark mode compatibility
-6. Verify Core Web Vitals impact
+5. Verify Core Web Vitals impact
 
 ### Blog Content Workflow
 1. Create MDX file in `/content/blog/`

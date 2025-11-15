@@ -90,12 +90,12 @@ export default function TableOfContents({ className = '' }: TableOfContentsProps
       variants={fadeInUp}
       initial="hidden"
       animate="visible"
-      className={`sticky top-24 bg-white dark:bg-surface-dark border-4 border-black rounded-brutal shadow-brutal p-6 ${className}`}
+      className={`sticky top-24 bg-white border-4 border-black rounded-brutal shadow-brutal p-6 ${className}`}
       aria-label="Table of contents"
     >
       <div className="flex items-center gap-2 mb-4 pb-3 border-b-4 border-black">
         <List className="w-5 h-5 text-primary" />
-        <h2 className="font-heading font-bold text-lg text-brutalist-text-light dark:text-brutalist-text-dark">
+        <h2 className="font-heading font-bold text-lg text-brutalist-text-light">
           Table of contents
         </h2>
       </div>
@@ -115,7 +115,7 @@ export default function TableOfContents({ className = '' }: TableOfContentsProps
                 className={`text-left w-full px-3 py-2 rounded-brutal-sm border-2 border-black text-sm transition-all ${
                   isActive
                     ? 'bg-primary text-black font-bold shadow-brutal-xs'
-                    : 'bg-transparent text-brutalist-text-light dark:text-brutalist-text-dark hover:bg-gray-100 dark:hover:bg-brutalist-text-light/10'
+                    : 'bg-transparent text-brutalist-text-light hover:bg-gray-100'
                 }`}
               >
                 {heading.text}

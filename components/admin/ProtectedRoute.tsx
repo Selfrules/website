@@ -38,7 +38,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20">
         <div className="text-center">
           <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
-          <p className="text-lg font-bold text-brutalist-text-light dark:text-brutalist-text-dark">
+          <p className="text-lg font-bold text-brutalist-text-light">
             Verifying authentication...
           </p>
         </div>

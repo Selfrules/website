@@ -35,7 +35,7 @@ export default function Testimonial({
     <button
       onClick={onClick}
       className={cn(
-        'relative h-64 p-6 bg-white dark:bg-brutalist-surface-dark',
+        'relative h-64 p-6 bg-white',
         'border-4 border-black rounded-brutal shadow-brutal',
         'hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1',
         'transition-all duration-300 cursor-pointer',
@@ -58,7 +58,7 @@ export default function Testimonial({
 
       {/* Quote text - truncated */}
       <blockquote className="mt-4 mb-auto flex-1 overflow-hidden">
-        <p className="text-base text-brutalist-text-light/90 dark:text-brutalist-text-dark/90 leading-relaxed line-clamp-4">
+        <p className="text-base text-brutalist-text-light/90 leading-relaxed line-clamp-4">
           &quot;{testimonial.quote}&quot;
         </p>
       </blockquote>
@@ -71,7 +71,7 @@ export default function Testimonial({
       {/* Author info */}
       <div className="pt-3 border-t-4 border-brutalist-border">
         <p className="font-bold text-base mb-1">{testimonial.author}</p>
-        <p className="text-xs text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+        <p className="text-xs text-brutalist-text-light/70">
           {testimonial.role}
         </p>
         <p className="text-xs text-primary font-bold mt-1">{testimonial.company}</p>

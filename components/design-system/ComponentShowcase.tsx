@@ -99,7 +99,7 @@ export function ComponentShowcase({
         {activeTab === 'preview' && (
           <div className="space-y-6">
             {/* Main Component Preview */}
-            <div className="p-8 border-4 border-brutalist-border rounded-brutal bg-brutalist-bg-light dark:bg-brutalist-bg-dark flex items-center justify-center min-h-[200px]">
+            <div className="p-8 border-4 border-brutalist-border rounded-brutal bg-brutalist-bg-light flex items-center justify-center min-h-[200px]">
               {component}
             </div>
 
@@ -111,9 +111,9 @@ export function ComponentShowcase({
                   {variants.map((variant, index) => (
                     <div
                       key={index}
-                      className="p-6 border-4 border-brutalist-border rounded-brutal bg-brutalist-surface-light dark:bg-brutalist-surface-dark flex flex-col items-center justify-center gap-4 min-h-[150px]"
+                      className="p-6 border-4 border-brutalist-border rounded-brutal bg-brutalist-surface-light flex flex-col items-center justify-center gap-4 min-h-[150px]"
                     >
-                      <span className="text-body-sm font-heading font-semibold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                      <span className="text-body-sm font-heading font-semibold text-brutalist-text-light/60">
                         {variant.label}
                       </span>
                       {variant.component}
@@ -134,7 +134,7 @@ export function ComponentShowcase({
                   variant="ghost"
                   size="sm"
                   onClick={handleCopy}
-                  className="bg-brutalist-surface-light/90 dark:bg-brutalist-surface-dark/90"
+                  className="bg-brutalist-surface-light/90"
                 >
                   {copied ? (
                     <>
@@ -192,7 +192,7 @@ export function ComponentShowcase({
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-brutalist-surface-light dark:bg-brutalist-surface-dark">
+                  <tbody className="bg-brutalist-surface-light">
                     {props.map((prop, index) => (
                       <tr
                         key={prop.name}
@@ -211,7 +211,7 @@ export function ComponentShowcase({
                           )}
                         </td>
                         <td className="px-4 py-3 border-r-4 border-brutalist-border">
-                          <code className="text-body-sm font-mono text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+                          <code className="text-body-sm font-mono text-brutalist-text-light/70">
                             {prop.type}
                           </code>
                         </td>
@@ -221,13 +221,13 @@ export function ComponentShowcase({
                               {prop.default}
                             </code>
                           ) : (
-                            <span className="text-body-sm text-brutalist-text-light/40 dark:text-brutalist-text-dark/40">
+                            <span className="text-body-sm text-brutalist-text-light/40">
                               -
                             </span>
                           )}
                         </td>
                         <td className="px-4 py-3">
-                          <span className="text-body-sm text-brutalist-text-light dark:text-brutalist-text-dark">
+                          <span className="text-body-sm text-brutalist-text-light">
                             {prop.description}
                           </span>
                         </td>

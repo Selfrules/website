@@ -37,7 +37,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       outline: cn(
         'button-outline shadow-brutal',
         'hover:bg-brutalist-text-light hover:text-brutalist-bg-light hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]',
-        'dark:hover:bg-brutalist-text-dark dark:hover:text-brutalist-bg-dark',
         'active:shadow-brutal-active'
       ),
       ghost: cn(

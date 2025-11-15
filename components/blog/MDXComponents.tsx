@@ -10,22 +10,22 @@ interface CalloutProps {
 export function Callout({ type = 'info', children }: CalloutProps) {
   const styles = {
     info: {
-      bg: 'bg-blue-50 dark:bg-blue-950',
+      bg: 'bg-blue-50',
       border: 'border-blue-500',
       icon: <Info className="w-5 h-5 text-blue-500" />,
     },
     warning: {
-      bg: 'bg-amber-50 dark:bg-amber-950',
+      bg: 'bg-amber-50',
       border: 'border-amber-500',
       icon: <AlertTriangle className="w-5 h-5 text-amber-500" />,
     },
     success: {
-      bg: 'bg-green-50 dark:bg-green-950',
+      bg: 'bg-green-50',
       border: 'border-green-500',
       icon: <CheckCircle className="w-5 h-5 text-green-500" />,
     },
     tip: {
-      bg: 'bg-purple-50 dark:bg-purple-950',
+      bg: 'bg-purple-50',
       border: 'border-purple-500',
       icon: <AlertCircle className="w-5 h-5 text-purple-500" />,
     },
@@ -39,7 +39,7 @@ export function Callout({ type = 'info', children }: CalloutProps) {
     >
       <div className="flex gap-3">
         <div className="flex-shrink-0 mt-0.5">{style.icon}</div>
-        <div className="flex-1 text-body text-brutalist-text-light dark:text-brutalist-text-dark">
+        <div className="flex-1 text-body text-brutalist-text-light">
           {children}
         </div>
       </div>
@@ -52,25 +52,25 @@ export const MDXComponents = {
   // Headings
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
-      className="font-heading font-black text-h1 text-brutalist-text-light dark:text-brutalist-text-dark mt-12 mb-6 first:mt-0"
+      className="font-heading font-black text-h1 text-brutalist-text-light mt-12 mb-6 first:mt-0"
       {...props}
     />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
-      className="font-heading font-bold text-h2 text-brutalist-text-light dark:text-brutalist-text-dark mt-10 mb-4 pb-2 border-b-4 border-black"
+      className="font-heading font-bold text-h2 text-brutalist-text-light mt-10 mb-4 pb-2 border-b-4 border-black"
       {...props}
     />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
-      className="font-heading font-bold text-h3 text-brutalist-text-light dark:text-brutalist-text-dark mt-8 mb-3"
+      className="font-heading font-bold text-h3 text-brutalist-text-light mt-8 mb-3"
       {...props}
     />
   ),
   h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
-      className="font-heading font-bold text-h4 text-brutalist-text-light dark:text-brutalist-text-dark mt-6 mb-2"
+      className="font-heading font-bold text-h4 text-brutalist-text-light mt-6 mb-2"
       {...props}
     />
   ),
@@ -78,7 +78,7 @@ export const MDXComponents = {
   // Paragraphs and Text
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className="text-body text-brutalist-text-light dark:text-brutalist-text-dark mb-4 leading-relaxed"
+      className="text-body text-brutalist-text-light mb-4 leading-relaxed"
       {...props}
     />
   ),
@@ -104,7 +104,7 @@ export const MDXComponents = {
   ),
   li: (props: React.HTMLAttributes<HTMLLIElement>) => (
     <li
-      className="flex gap-3 text-body text-brutalist-text-light dark:text-brutalist-text-dark before:content-['�'] before:text-primary before:font-bold before:flex-shrink-0"
+      className="flex gap-3 text-body text-brutalist-text-light before:content-['�'] before:text-primary before:font-bold before:flex-shrink-0"
       {...props}
     />
   ),
@@ -123,7 +123,7 @@ export const MDXComponents = {
     if (!props.className) {
       return (
         <code
-          className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 border-2 border-black rounded-brutal-sm font-mono text-sm text-primary"
+          className="px-2 py-0.5 bg-gray-100 border-2 border-black rounded-brutal-sm font-mono text-sm text-primary"
           {...props}
         />
       );
@@ -171,7 +171,7 @@ export const MDXComponents = {
     <thead className="bg-primary" {...props} />
   ),
   tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <tbody className="bg-white dark:bg-surface-dark" {...props} />
+    <tbody className="bg-white" {...props} />
   ),
   tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr className="border-b-2 border-black" {...props} />
@@ -184,7 +184,7 @@ export const MDXComponents = {
   ),
   td: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
-      className="px-4 py-3 text-brutalist-text-light dark:text-brutalist-text-dark border-r-2 border-black last:border-r-0"
+      className="px-4 py-3 text-brutalist-text-light border-r-2 border-black last:border-r-0"
       {...props}
     />
   ),

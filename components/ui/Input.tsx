@@ -30,7 +30,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block font-heading font-semibold text-body text-brutalist-text-light dark:text-brutalist-text-dark"
+            className="block font-heading font-semibold text-body text-brutalist-text-light"
           >
             {label}
           </label>
@@ -42,8 +42,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             'w-full px-4 py-3',
             'font-body text-body',
-            'bg-brutalist-surface-light dark:bg-brutalist-surface-dark',
-            'text-brutalist-text-light dark:text-brutalist-text-dark',
+            'bg-brutalist-surface-light',
+            'text-brutalist-text-light',
             'border-brutal border-brutalist-border rounded-brutal shadow-brutal-sm',
             'transition-all duration-200 ease-brutal',
             'placeholder:text-gray-500 placeholder:opacity-70',
@@ -69,7 +69,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {helperText && !error && (
           <p
             id={`${inputId}-helper`}
-            className="text-body-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60"
+            className="text-body-sm text-brutalist-text-light/60"
           >
             {helperText}
           </p>

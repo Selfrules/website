@@ -130,7 +130,7 @@ export default function AdminDashboard() {
         <h1 className="text-4xl font-heading font-black mb-2">
           Dashboard
         </h1>
-        <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+        <p className="text-lg text-brutalist-text-light/70">
           Welcome back, Mattia! Here&apos;s what&apos;s happening.
         </p>
       </div>
@@ -154,10 +154,10 @@ export default function AdminDashboard() {
               <div className="text-3xl font-bold mb-1">
                 {loading ? '...' : card.value}
               </div>
-              <div className="text-sm font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 mb-1">
+              <div className="text-sm font-bold text-brutalist-text-light/60 mb-1">
                 {card.name}
               </div>
-              <div className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50">
+              <div className="text-xs text-brutalist-text-light/50">
                 {card.subtitle}
               </div>
             </Link>
@@ -185,7 +185,7 @@ export default function AdminDashboard() {
                 <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                   {action.name}
                 </h3>
-                <p className="text-sm text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+                <p className="text-sm text-brutalist-text-light/70">
                   {action.description}
                 </p>
               </Link>
@@ -208,10 +208,10 @@ export default function AdminDashboard() {
               </div>
               <div className="flex-1">
                 <p className="font-bold">New chat conversation</p>
-                <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                <p className="text-sm text-brutalist-text-light/60">
                   User asked about product management consulting
                 </p>
-                <p className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50 mt-1">
+                <p className="text-xs text-brutalist-text-light/50 mt-1">
                   2 hours ago
                 </p>
               </div>
@@ -224,10 +224,10 @@ export default function AdminDashboard() {
               </div>
               <div className="flex-1">
                 <p className="font-bold">New anonymous question</p>
-                <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                <p className="text-sm text-brutalist-text-light/60">
                   &quot;How do you handle stakeholder disagreements?&quot;
                 </p>
-                <p className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50 mt-1">
+                <p className="text-xs text-brutalist-text-light/50 mt-1">
                   5 hours ago
                 </p>
               </div>
@@ -240,10 +240,10 @@ export default function AdminDashboard() {
               </div>
               <div className="flex-1">
                 <p className="font-bold">Consultation booked</p>
-                <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                <p className="text-sm text-brutalist-text-light/60">
                   90-minute strategic consulting session
                 </p>
-                <p className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50 mt-1">
+                <p className="text-xs text-brutalist-text-light/50 mt-1">
                   1 day ago
                 </p>
               </div>

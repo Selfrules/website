@@ -12,11 +12,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     const baseStyles = cn(
       'border-brutal border-brutalist-border rounded-brutal shadow-brutal',
       'transition-all duration-200 ease-brutal',
-      'bg-brutalist-surface-light dark:bg-brutalist-surface-dark'
+      'bg-brutalist-surface-light'
     );
 
     const variantStyles = {
-      default: 'bg-brutalist-surface-light dark:bg-brutalist-surface-dark',
+      default: 'bg-brutalist-surface-light',
       primary: 'bg-primary text-brutalist-text-light',
       secondary: 'bg-secondary text-white',
       accent: 'bg-accent text-white',
@@ -52,9 +52,9 @@ const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ className, variant = 'default', ...props }, ref) => {
     const variantStyles = {
       default: '',
-      design: 'border-l-4 border-l-primary bg-primary/5 dark:bg-primary/10',
-      dev: 'border-l-4 border-l-secondary bg-secondary/5 dark:bg-secondary/10',
-      pm: 'border-l-4 border-l-accent bg-accent/5 dark:bg-accent/10',
+      design: 'border-l-4 border-l-primary bg-primary/5',
+      dev: 'border-l-4 border-l-secondary bg-secondary/5',
+      pm: 'border-l-4 border-l-accent bg-accent/5',
     };
 
     return (
@@ -83,7 +83,7 @@ const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttribu
   ({ className, ...props }, ref) => (
     <p
       ref={ref}
-      className={cn('text-body text-brutalist-text-light/80 dark:text-brutalist-text-dark/80', className)}
+      className={cn('text-body text-brutalist-text-light/80', className)}
       {...props}
     />
   )

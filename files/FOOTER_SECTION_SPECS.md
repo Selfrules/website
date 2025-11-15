@@ -623,20 +623,6 @@ Il footer presenta informazioni di contatto e navigazione con:
 </div>
 ```
 
-## Dark Mode Considerations
-
-Se implementi dark mode, il footer rimane dark ma con contrasti regolati:
-
-```css
-@media (prefers-color-scheme: light) {
-  /* Footer mantiene dark theme per design consistency */
-  .main-footer {
-    background: #1A1A1A;
-    color: #fff;
-  }
-}
-```
-
 ## Note Implementazione
 
 1. **Top border gradient**: 4px height, linear da blue a yellow

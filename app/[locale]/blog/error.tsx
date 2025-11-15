@@ -24,11 +24,11 @@ export default function BlogError({
           <div className="mb-6 p-6 bg-accent/10 border-brutal border-accent rounded-brutal">
             <AlertCircle className="w-16 h-16 text-accent mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-2">Ops! Qualcosa è andato storto</h2>
-            <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-4">
+            <p className="text-brutalist-text-light/70 mb-4">
               {error.message || 'Impossibile caricare gli articoli del blog'}
             </p>
             {error.digest && (
-              <p className="text-sm text-brutalist-text-light/50 dark:text-brutalist-text-dark/50 font-mono">
+              <p className="text-sm text-brutalist-text-light/50 font-mono">
                 Error ID: {error.digest}
               </p>
             )}

@@ -60,7 +60,7 @@ export default function CertificationsSection({
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-lg font-bold text-left">View All Certifications</h3>
-            <p className="text-sm text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 text-left">
+            <p className="text-sm text-brutalist-text-light/70 text-left">
               {certifications.length} certifications
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function CertificationsSection({
                       e.stopPropagation();
                       handleCertificationClick(cert);
                     }}
-                    className="p-3 bg-white dark:bg-brutalist-surface-dark border-2 border-black rounded-md hover:shadow-brutal transition-all cursor-pointer"
+                    className="p-3 bg-white border-2 border-black rounded-md hover:shadow-brutal transition-all cursor-pointer"
                   >
                     <div className="flex items-start gap-3">
                       <div className="p-2 bg-primary text-white border-2 border-black rounded-md flex-shrink-0">
@@ -99,10 +99,10 @@ export default function CertificationsSection({
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="text-sm font-bold mb-1">{cert.title}</h4>
-                        <p className="text-xs text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-1">
+                        <p className="text-xs text-brutalist-text-light/70 mb-1">
                           {cert.tagline}
                         </p>
-                        <div className="flex items-center justify-between text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                        <div className="flex items-center justify-between text-xs text-brutalist-text-light/60">
                           <span className="font-bold">{cert.issuer}</span>
                           <span>{cert.date}</span>
                         </div>
@@ -123,7 +123,7 @@ export default function CertificationsSection({
       {/* Section header */}
       <div className="text-center mb-6">
         <h2 className="text-3xl font-heading font-black mb-2">{title}</h2>
-        <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+        <p className="text-lg text-brutalist-text-light/70">
           {subtitle}
         </p>
       </div>
