@@ -2,21 +2,21 @@ name: Claude Code Review
 
 on:
   pull_request:
-    types: [opened, synchronize]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
+    types: [opened, synchronize, labeled]
+    # Skip for Claude Code branches (internal work)
+    branches-ignore:
+      - 'claude/**'
 
 jobs:
   claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
+    # Run only when:
+    # 1. PR has 'needs-review' label, OR
+    # 2. Author is external contributor (FIRST_TIME_CONTRIBUTOR, FIRST_TIMER, CONTRIBUTOR)
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'needs-review') ||
+      github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR' ||
+      github.event.pull_request.author_association == 'FIRST_TIMER' ||
+      github.event.pull_request.author_association == 'CONTRIBUTOR'
 
     runs-on: ubuntu-latest
     permissions:

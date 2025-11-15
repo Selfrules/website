@@ -159,72 +159,39 @@ Security audit ha identificato **31 vulnerabilità**: 4 Critical, 8 High, 16 Med
 ### User Stories
 | ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
 |----|--------|----------|------------|----------|-------|
-| SV-001 | Fix authentication & authorization | 🔴 P0 | 🔴 XL | 🌐 Web | 📋 Todo |
-| SV-002 | Fix secrets management (bcrypt) | 🔴 P0 | 🟡 M | 🌐 Web | 📋 Todo |
-| SV-003 | Remove CORS wildcards | 🔴 P0 | 🟢 S | 🌐 Web | 📋 Todo |
-| SV-004 | Add XSS protection (sanitization) | 🔴 P0 | 🟡 M | 🌐 Web | 📋 Todo |
-| SV-005 | Implement Content Security Policy | 🔴 P0 | 🟡 M | 🌐 Web | 📋 Todo |
-| SV-006 | Update dependencies & headers | 🟠 P1 | 🟢 S | 🌐 Web | 📋 Todo |
-| SV-007 | Improve rate limiting coverage | 🟠 P1 | 🟡 M | 🌐 Web | 📋 Todo |
-| SV-008 | Improve session management | 🟠 P1 | 🟡 M | 🌐 Web | 📋 Todo |
-| SV-009 | Add CSRF protection | 🟠 P1 | 🟡 M | 🌐 Web | 📋 Todo |
-| SV-010 | GDPR compliance implementation | 🟡 P2 | 🔴 L | 🌐 Web | 📋 Todo |
+| SEO-001 | Implementare robots.txt e sitemap.xml dinamico | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
+| SEO-002 | Implementare JSON-LD Schema (Person, Article, WebSite) | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
+| SEO-003 | Fix hreflang e canonical URLs per i18n | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-004 | Enhanceare blog metadata (tags, modifiedTime, featured images) | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SEO-005 | Implementare Author credibility schema e /about page | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SEO-006 | Implementare RSS/JSON feed per LLM ingestion | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-007 | Enhanceare Blog API con endpoint per slug singoli | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-008 | Ottimizzare Image SEO (alt validation, lazy loading) | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-009 | Setup Lighthouse CI e Web Vitals monitoring | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
 
-**Links**: [Epic](./epics/07-security-vulnerabilities/epic.md) | [Stories](./epics/07-security-vulnerabilities/stories/) | [Audit Report](/SECURITY_AUDIT.md)
-
----
-
-## EPIC-008: Production Performance Optimization
-
-**Priorità**: 🔴 Alta | **Stima**: M (1-2 settimane) | **Ambiente**: 🌐 Web
-
-### Obiettivo
-Portare il sito a Lighthouse score 90-95+ ottimizzando font loading, bundle size, immagini, Core Web Vitals, caching e configurazione Next.js per produzione.
-
-### User Stories
-| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
-|----|--------|----------|------------|----------|-------|
-| PF-001 | Font Loading Optimization & Render Blocking Fix | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
-| PF-002 | Bundle Size Reduction & Dynamic Imports | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
-| PF-003 | Image Optimization & AVIF Support | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
-| PF-004 | Remove Component Duplication | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
-| PF-005 | API & Data Fetching Optimization | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
-| PF-006 | Core Web Vitals Improvements (CLS, LCP, INP) | 🟠 | 🔴 L | 🌐 Web | 📋 Todo |
-| PF-007 | ISR & Caching Strategy | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
-| PF-008 | Next.js Build Configuration Optimization | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
-
-**Links**: [Epic](./epics/08-performance/epic.md) | [Stories](./epics/08-performance/stories/)
+**Links**: [Epic](./epics/09-seo-optimization/epic.md) | [Stories](./epics/09-seo-optimization/stories/)
 
 ---
 
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 18 stories (🆕 +5 da EPIC-007 P0)
-- 🟠 Alta: 19 stories (🆕 +4 da EPIC-007 P1)
-- 🟡 Media: 11 stories (🆕 +1 da EPIC-007 P2)
+- 🔴 Critica: 13 stories
+- 🟠 Alta: 15 stories
+- 🟡 Media: 11 stories
 - 🟢 Bassa: 3 stories
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 17 stories
-- 🟡 Medium (1-2 giorni): 26 stories
-- 🔴 Large (3-5 giorni): 7 stories
-- ⚫ XL (1+ settimane): 1 story
+- 🟢 Small (2-4h): 16 stories
+- 🟡 Medium (1-2 giorni): 20 stories
+- 🔴 Large (3-5 giorni): 6 stories
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 33 stories (🆕 +10 da EPIC-007)
+- 🌐 Claude Code Web: 24 stories
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 8 epiche, 51 user stories
-
-### ⚠️ Production Blockers
-**EPIC-007 (Security)** - 5 critical stories (P0) must be completed before production deployment:
-- SV-001: Authentication & Authorization
-- SV-002: Secrets Management
-- SV-003: CORS Configuration
-- SV-004: XSS Protection
-- SV-005: Content Security Policy
+**Totale**: 9 epiche, 42 user stories
 
 ---
 
@@ -249,18 +216,30 @@ Portare il sito a Lighthouse score 90-95+ ottimizzando font loading, bundle size
    - Poi DS-002 (Locale per auto-catalogazione)
    - Poi DS-004, DS-005
 
-### Phase 2: Quick Wins & Conversion (Settimana 7)
-4. **EPIC-002** Google Calendar (critico per conversione)
-5. **CC-005** Footer update (veloce)
+### Phase 2: Quick Wins & SEO Foundations (Settimane 3-4)
+2. **EPIC-002** Google Calendar (critico per conversione)
+3. **EPIC-009** SEO Optimization - TIER 1 Critical (SEO-001, SEO-002, SEO-003)
+   - Sitemap/robots.txt (SEO-001)
+   - JSON-LD schemas (SEO-002)
+   - hreflang fix (SEO-003)
+4. **CC-005** Footer update (veloce)
 
-### Phase 3: Content & Copy (Settimane 8-9)
+### Phase 3: Content & Copy (Settimane 5-6)
+5. **EPIC-009** SEO Optimization - TIER 2 High Impact (SEO-004, SEO-005, SEO-006)
+   - Blog metadata enhancement (SEO-004)
+   - Author credibility (SEO-005)
+   - RSS/JSON feeds (SEO-006)
 6. **EPIC-003** Copy/Contenuto (con agenti)
 7. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
 
-### Phase 4: Advanced Features (Settimane 10-13)
-8. **EPIC-004** Chatbot (complesso, richiede tempo)
-9. **EPIC-005** Spotify Player
-10. **BL-004, BL-005** Content generation con AI
+### Phase 4: Advanced Features & Optimization (Settimane 7-10)
+8. **EPIC-009** SEO Optimization - TIER 3 Optimization (SEO-007, SEO-008, SEO-009)
+   - Blog API enhancement (SEO-007)
+   - Image SEO (SEO-008)
+   - Lighthouse CI (SEO-009)
+9. **EPIC-004** Chatbot (complesso, richiede tempo)
+10. **EPIC-005** Spotify Player
+11. **BL-004, BL-005** Content generation con AI
 
 ---
 
