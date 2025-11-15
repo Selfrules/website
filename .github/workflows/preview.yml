@@ -132,8 +132,12 @@ jobs:
             }
 
       - name: Run Lighthouse CI
-        # Only run Lighthouse on main branch PRs to save time
-        if: github.base_ref == 'main'
+        # Only run Lighthouse when:
+        # 1. PR targets main branch (production-critical), OR
+        # 2. PR has 'performance-test' label
+        if: |
+          github.base_ref == 'main' ||
+          contains(github.event.pull_request.labels.*.name, 'performance-test')
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: |
@@ -145,6 +149,13 @@ jobs:
     name: Visual Regression Testing
     runs-on: ubuntu-latest
     needs: [setup, deploy-preview]
+    # Run only when:
+    # 1. PR has 'visual-test' label, OR
+    # 2. PR is targeting main branch (production-critical), OR
+    # 3. PR modifies UI components
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'visual-test') ||
+      github.base_ref == 'main'
 
     steps:
       - name: Checkout code
