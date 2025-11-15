@@ -203,7 +203,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
       <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-cream">
         {messages.map((message, index) => (
           <div
-            key={index}
+            key={`${message.timestamp.getTime()}-${message.role}-${index}`}
             className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
