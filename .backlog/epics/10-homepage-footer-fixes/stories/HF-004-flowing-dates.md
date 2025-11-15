@@ -6,9 +6,10 @@
 - **Priorità**: 🟠 Alta
 - **Dimensione**: 🟢 S (30min - 1h)
 - **Execution Environment**: 🌐 Claude Code Web
-- **Stato**: 📋 Todo
+- **Stato**: ✅ Done
 - **Assegnata a**: Claude Code
 - **Data Creazione**: 2025-11-15
+- **Data Completamento**: 2025-11-15
 
 ---
 
@@ -95,3 +96,4 @@ Correggere le date di Flowing nella timeline professionale da qualsiasi valore a
 | Data | Modifiche | Stato |
 |------|-----------|-------|
 | 2025-11-15 | Story creata | Todo |
+| 2025-11-15 | Updated Flowing dates from 2016-2019/2017-2019 to 2016-2020 in both IT and EN versions | Done |
