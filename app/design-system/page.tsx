@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { NeoBadge } from '@/components/ui/NeoBadge';
@@ -341,37 +340,6 @@ export default function DesignSystemPage() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Cards */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Cards
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Card>
-                  <CardHeader variant="design">
-                    <CardTitle>Design Project</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-body-small text-brutalist-text-secondary mb-4">
-                      Example card with electric blue header for design projects.
-                    </p>
-                    <Badge variant="design">Design/UX</Badge>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader variant="dev">
-                    <CardTitle>Development Project</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-body-small text-brutalist-text-secondary mb-4">
-                      Example card with teal header for development projects.
-                    </p>
-                    <Badge variant="dev">Development</Badge>
-                  </CardContent>
-                </Card>
               </div>
             </div>
 
