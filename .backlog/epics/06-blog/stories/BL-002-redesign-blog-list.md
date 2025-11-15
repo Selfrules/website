@@ -116,10 +116,10 @@ function TagFilter({ tags, selected, onChange }) {
 ```tsx
 // app/[locale]/blog/page.tsx
 export const metadata: Metadata = {
-  title: 'Blog | Mattia Cintura - PM, Designer, Developer',
+  title: 'Blog | Mattia Filippo De Luca - PM, Designer, Developer',
   description: 'Articoli su product management, design, sviluppo e leadership',
   openGraph: {
-    title: 'Blog | Mattia Cintura',
+    title: 'Blog | Mattia Filippo De Luca',
     description: 'Riflessioni su prodotto, design e sviluppo',
     type: 'website',
   },
