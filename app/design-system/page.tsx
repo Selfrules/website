@@ -8,6 +8,7 @@ import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ExperienceCard } from '@/components/ui/ExperienceCard';
 import { ActivityCard } from '@/components/ui/ActivityCard';
 import { CollaborationCard } from '@/components/ui/CollaborationCard';
+import { BlogCard } from '@/components/ui/BlogCard';
 import { DesignSystemNav } from '@/components/design-system/DesignSystemNav';
 import {
   Palette,
@@ -909,6 +910,118 @@ export default function DesignSystemPage() {
                   icon={GraduationCap}
                   color="purple"
                 />
+              </div>
+            </div>
+
+            {/* Blog Cards Pattern */}
+            <div className="mt-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Blog Cards Pattern
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Neobrutalist blog cards with two layout variants: with description (preview text) or without (compact). Both maintain fixed height for consistent grid layouts.
+              </p>
+
+              {/* With Description */}
+              <div className="mb-8">
+                <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-4">
+                  With Description
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <BlogCard
+                    variant="design"
+                    title="The art of saying no"
+                    description="Sometimes the best product decisions are the features you don't build. Here's why strategic rejection beats feature bloat."
+                    readingTime={5}
+                    date="15 Nov 2024"
+                    href="#"
+                  />
+                  <BlogCard
+                    variant="pm"
+                    title="From chaos to clarity"
+                    description="How I went from drowning in Jira tickets to shipping features users actually want. The trick? It's not about doing more."
+                    readingTime={7}
+                    date="12 Nov 2024"
+                    href="#"
+                  />
+                  <BlogCard
+                    variant="featured"
+                    title="Quick wins that matter"
+                    description="Three micro-optimizations that cut payment time by 12%. Sometimes the answer isn't complex—it's just counting clicks."
+                    readingTime={4}
+                    date="10 Nov 2024"
+                    href="#"
+                  />
+                </div>
+              </div>
+
+              {/* Without Description */}
+              <div>
+                <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-4">
+                  Without Description (Compact)
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <BlogCard
+                    variant="dev"
+                    title="Code review checklist"
+                    readingTime={3}
+                    date="8 Nov 2024"
+                    href="#"
+                  />
+                  <BlogCard
+                    variant="tool"
+                    title="Analytics that don't lie"
+                    readingTime={6}
+                    date="5 Nov 2024"
+                    href="#"
+                  />
+                  <BlogCard
+                    variant="design"
+                    title="User research in a week"
+                    readingTime={5}
+                    date="1 Nov 2024"
+                    href="#"
+                  />
+                </div>
+              </div>
+
+              {/* Usage Notes */}
+              <div className="mt-6 bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
+                <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-3">
+                  Usage Guidelines
+                </h4>
+                <ul className="space-y-3 text-body-small text-brutalist-text-secondary">
+                  <li className="flex gap-3">
+                    <span className="text-electric-blue font-bold">→</span>
+                    <span>
+                      <strong className="text-brutalist-text-primary">Fixed Height:</strong> Both variants use h-[400px] for consistent grid layouts
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-neon-pink font-bold">→</span>
+                    <span>
+                      <strong className="text-brutalist-text-primary">Title Styling:</strong> Always uppercase with font-black for maximum impact
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-deep-purple font-bold">→</span>
+                    <span>
+                      <strong className="text-brutalist-text-primary">Description Truncation:</strong> line-clamp-3 ensures descriptions don't overflow
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-cyber-yellow font-bold">→</span>
+                    <span>
+                      <strong className="text-brutalist-text-primary">Category Variants:</strong> design (Electric Blue), dev (Teal), pm (Deep Purple), tool (Neon Pink), featured (Cyber Yellow)
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-teal font-bold">→</span>
+                    <span>
+                      <strong className="text-brutalist-text-primary">Hover Effects:</strong> Uses standard brutalist hover (-4px translate + shadow increase)
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </section>
