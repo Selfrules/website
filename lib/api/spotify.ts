@@ -27,6 +27,14 @@ interface SpotifyTrack {
   progress?: number;
 }
 
+interface SpotifyPodcast {
+  title: string;
+  show: string;
+  image: string;
+  url: string;
+  playedAt: string;
+}
+
 let cachedAccessToken: string | null = null;
 let tokenExpiresAt: number = 0;
 
@@ -159,5 +167,44 @@ export async function getCurrentOrRecentTrack(): Promise<SpotifyTrack | null> {
   } catch (error) {
     console.error('Spotify API error:', error);
     return null; // Graceful fallback
+  }
+}
+
+/**
+ * Get recently played podcast episodes
+ */
+export async function getRecentPodcasts(limit: number = 2): Promise<SpotifyPodcast[]> {
+  try {
+    const token = await getAccessToken();
+
+    const response = await axios.get(
+      `https://api.spotify.com/v1/me/player/recently-played?limit=50`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.data?.items?.length) {
+      return [];
+    }
+
+    // Filter only podcast episodes and take top N
+    const podcasts = response.data.items
+      .filter((item: any) => item.track.type === 'episode')
+      .slice(0, limit)
+      .map((item: any) => ({
+        title: item.track.name,
+        show: item.track.show.name,
+        image: item.track.images?.[0]?.url || item.track.show?.images?.[0]?.url || '',
+        url: item.track.external_urls.spotify,
+        playedAt: item.played_at,
+      }));
+
+    return podcasts;
+  } catch (error) {
+    console.error('Spotify recent podcasts error:', error);
+    return []; // Graceful fallback
   }
 }
