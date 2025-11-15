@@ -7,6 +7,7 @@ import type { BlogPost } from '@/lib/blog/mdx';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card, CardContent } from '@/components/ui/Card';
+import { getCategoryVariant } from '@/lib/blog/category-utils';
 
 interface BlogArticleClientProps {
   post: BlogPost;
@@ -383,15 +384,3 @@ export default function BlogArticleClient({
   );
 }
 
-// Helper function to get category variant
-function getCategoryVariant(category: string): 'design' | 'dev' | 'pm' | 'tool' | 'featured' {
-  const variantMap: Record<string, 'design' | 'dev' | 'pm' | 'tool' | 'featured'> = {
-    'Product': 'tool',      // Neon Pink
-    'Strategy': 'pm',       // Deep Purple
-    'OKRs': 'design',       // Electric Blue
-    'Design': 'design',     // Electric Blue
-    'Development': 'dev',   // Teal
-    'Leadership': 'pm',     // Deep Purple
-  };
-  return variantMap[category] || 'design';
-}

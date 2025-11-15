@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, X, Filter } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
@@ -8,6 +8,7 @@ import BlogCard from '@/components/blog/BlogCard';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
+import { getCategoryColorClass } from '@/lib/blog/category-utils';
 
 interface BlogListingClientProps {
   initialPosts: BlogPost[];
@@ -15,16 +16,6 @@ interface BlogListingClientProps {
   tags: string[];
   locale: string;
 }
-
-// Category to Badge variant mapping
-const categoryVariants: Record<string, 'design' | 'dev' | 'pm' | 'tool' | 'featured'> = {
-  'Product': 'tool',      // Neon Pink
-  'Strategy': 'pm',       // Deep Purple
-  'OKRs': 'design',       // Electric Blue
-  'Design': 'design',     // Electric Blue
-  'Development': 'dev',   // Teal
-  'Leadership': 'pm',     // Deep Purple
-};
 
 export default function BlogListingClient({
   initialPosts,
@@ -44,7 +35,7 @@ export default function BlogListingClient({
 
   // Filter posts based on search, category, and tags
   const filteredPosts = useMemo(() => {
-    const filtered = initialPosts.filter(post => {
+    return initialPosts.filter(post => {
       const matchesSearch =
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -58,12 +49,12 @@ export default function BlogListingClient({
 
       return matchesSearch && matchesCategory && matchesTags;
     });
-
-    // Reset to page 1 when filters change
-    setCurrentPage(1);
-
-    return filtered;
   }, [initialPosts, searchQuery, selectedCategory, selectedTags]);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedCategory, selectedTags]);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -134,20 +125,22 @@ export default function BlogListingClient({
             {/* Search Bar */}
             <div className="relative max-w-[600px]">
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brutalist-text-tertiary z-10" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brutalist-text-tertiary z-10" aria-hidden="true" />
                 <Input
                   type="text"
                   placeholder="Cerca articoli per titolo, contenuto o categoria..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-12"
+                  aria-label="Cerca articoli"
                 />
                 {searchQuery && (
                   <button
                     onClick={handleClearSearch}
                     className="absolute right-4 top-1/2 -translate-y-1/2 text-brutalist-text-tertiary hover:text-dark transition-colors z-10"
+                    aria-label="Cancella ricerca"
                   >
-                    <X className="w-5 h-5" />
+                    <X className="w-5 h-5" aria-hidden="true" />
                   </button>
                 )}
               </div>
@@ -170,7 +163,7 @@ export default function BlogListingClient({
           <div className="flex flex-wrap gap-3">
             {allCategories.map((category) => {
               const isActive = selectedCategory === category;
-              const categoryVariant = categoryVariants[category];
+              const categoryColorClass = category !== 'All' ? getCategoryColorClass(category) : '';
 
               return (
                 <Button
@@ -178,7 +171,7 @@ export default function BlogListingClient({
                   onClick={() => setSelectedCategory(category)}
                   variant={isActive ? 'primary' : 'outline'}
                   size="sm"
-                  className={isActive && categoryVariant ? `badge-${categoryVariant}` : ''}
+                  className={isActive && categoryColorClass ? categoryColorClass : ''}
                 >
                   {category}
                   {category !== 'All' && (
@@ -206,15 +199,19 @@ export default function BlogListingClient({
                 const isActive = selectedTags.includes(tag);
 
                 return (
-                  <Badge
+                  <button
                     key={tag}
                     onClick={() => toggleTag(tag)}
-                    variant={isActive ? 'dev' : 'outline'}
-                    size="sm"
-                    className="cursor-pointer hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+                    className="inline-flex items-center justify-center gap-1 px-3 py-1 border-brutal border-black rounded-brutal-sm shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-body-sm font-heading font-bold uppercase tracking-wider whitespace-nowrap"
+                    style={{
+                      backgroundColor: isActive ? '#2A687A' : 'white',
+                      color: isActive ? 'white' : 'black',
+                    }}
+                    aria-pressed={isActive}
+                    aria-label={`Filtra per tag ${tag}`}
                   >
                     #{tag}
-                  </Badge>
+                  </button>
                 );
               })}
             </div>
