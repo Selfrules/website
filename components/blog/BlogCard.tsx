@@ -107,7 +107,7 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
             </p>
           </div>
 
-          <div className="mt-auto pt-brutal-sm border-t border-gray-200">
+          <div className="mt-auto pt-brutal-sm border-t border-brutal-thin border-black">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3 text-body-small text-brutalist-text-tertiary">
                 <span className="flex items-center gap-1.5">

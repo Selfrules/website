@@ -61,6 +61,7 @@ export default function DesignSystemPage() {
     { name: 'Primary', utility: 'brutalist-text-primary', hex: '#0A0A0A', use: 'Headings, important text' },
     { name: 'Secondary', utility: 'brutalist-text-secondary', hex: '#2D2D2D', use: 'Body text' },
     { name: 'Tertiary', utility: 'brutalist-text-tertiary', hex: '#6B7280', use: 'Captions, labels' },
+    { name: 'Light', utility: 'brutalist-text-light', hex: '#FAFAFA', use: 'Text on dark backgrounds' },
   ];
 
   const gradients = [
@@ -159,7 +160,7 @@ export default function DesignSystemPage() {
               <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
                 Text Colors
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {textColors.map((color) => (
                   <div key={color.hex} className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-4">
                     <div className="mb-3">

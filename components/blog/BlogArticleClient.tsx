@@ -113,7 +113,7 @@ export default function BlogArticleClient({
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
         <div
-          className="h-full bg-gradient-to-r bg-gradient-brand transition-all duration-150"
+          className="h-full bg-gradient-brand transition-all duration-150"
           style={{ width: `${readingProgress}%` }}
         />
       </div>
