@@ -6,9 +6,10 @@
 - **Priorità**: 🔴 Alta
 - **Dimensione**: 🟡 M (2-4h)
 - **Execution Environment**: 🌐 Claude Code Web
-- **Stato**: 📋 Todo
+- **Stato**: ✅ Done
 - **Assegnata a**: Claude Code
 - **Data Creazione**: 2025-11-15
+- **Data Completamento**: 2025-11-15
 
 ---
 
@@ -182,3 +183,4 @@ npm run lint
 | Data | Modifiche | Stato |
 |------|-----------|-------|
 | 2025-11-15 | Story creata | Todo |
+| 2025-11-15 | Implementata - Added border-black to Card and BlogCard components | ✅ Done |
