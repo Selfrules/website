@@ -33,10 +33,10 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
           <motion.div
             whileHover={{ y: -8 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="group bg-cyber-yellow border-brutal shadow-brutal hover:shadow-brutal-lg rounded-brutal-lg p-brutal-lg md:p-brutal-xl min-h-[300px] md:min-h-[350px] flex flex-col justify-between cursor-pointer relative overflow-hidden"
+            className="group bg-gradient-blog-hero border-brutal shadow-brutal hover:shadow-brutal-lg rounded-brutal-lg p-brutal-lg md:p-brutal-xl min-h-[300px] md:min-h-[350px] flex flex-col justify-between cursor-pointer relative overflow-hidden"
           >
             {/* Decorative Circle */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-black/5 rounded-full" />
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full" />
 
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-brutal-sm">
@@ -48,16 +48,16 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
                 </Badge>
               </div>
 
-              <h3 className="text-h2 md:text-h1 text-brutalist-text-primary mb-brutal-sm font-heading font-black">
+              <h3 className="text-h2 md:text-h1 text-white mb-brutal-sm font-heading font-black">
                 {post.title}
               </h3>
-              <p className="text-body-small md:text-body text-brutalist-text-secondary mb-brutal-md max-w-[800px]">
+              <p className="text-body-small md:text-body text-white/90 mb-brutal-md max-w-[800px]">
                 {post.excerpt}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
-              <div className="flex items-center gap-4 text-brutalist-text-secondary text-sm">
+              <div className="flex items-center gap-4 text-white/80 text-sm">
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-4 h-4" />
                   {post.readingTime}
@@ -67,7 +67,7 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
                   {formatDate(post.date)}
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-body-small text-brutalist-text-primary font-heading font-bold group-hover:gap-3 transition-all">
+              <div className="flex items-center gap-2 text-body-small text-white font-heading font-bold group-hover:gap-3 transition-all">
                 <span className="uppercase">{locale === 'it' ? 'Leggi ora' : 'Read now'}</span>
                 <ArrowRight className="w-5 h-5" />
               </div>
