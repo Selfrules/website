@@ -10,9 +10,9 @@ export function NeoBadge({ children, color = 'blue', className = '' }: NeoBadgeP
   const colorClasses = {
     blue: 'bg-electric-blue text-white border-black',
     pink: 'bg-neon-pink text-white border-black',
-    yellow: 'bg-cyber-yellow text-dark border-black',
+    yellow: 'bg-cyber-yellow text-brutalist-text-primary border-black',
     purple: 'bg-deep-purple text-white border-black',
-    neutral: 'bg-white text-dark border-black',
+    neutral: 'bg-white text-brutalist-text-primary border-black',
   };
 
   return (

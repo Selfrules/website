@@ -81,7 +81,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
         {/* Two Column Layout - Mobile First: Stack */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {/* AI Chatbot Card */}
-          <div className="bg-gray-900 border-brutal border-electric-blue rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
+          <div className="bg-surface-dark border-brutal border-electric-blue rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 to-transparent pointer-events-none" />
 
@@ -128,7 +128,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
           </div>
 
           {/* Anonymous Form Card */}
-          <div className="bg-gray-900 border-brutal border-neon-pink rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
+          <div className="bg-surface-dark border-brutal border-neon-pink rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-neon-pink/10 to-transparent pointer-events-none" />
 

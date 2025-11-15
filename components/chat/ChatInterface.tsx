@@ -180,7 +180,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
       <div className="bg-gradient-to-r from-electric-blue to-deep-purple border-b-4 border-black p-4 rounded-t flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-cyber-yellow border-brutal-thin border-black rounded-full flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-dark" />
+            <Sparkles className="w-5 h-5 text-brutalist-text-primary" />
           </div>
           <div>
             <h3 className="text-white font-heading font-bold text-base">
@@ -195,7 +195,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
           onClick={onClose}
           className="w-8 h-8 bg-white border-2 border-black rounded flex items-center justify-center hover:bg-neon-pink hover:text-white transition-colors"
         >
-          <X className="w-4 h-4 text-dark" strokeWidth={3} />
+          <X className="w-4 h-4 text-brutalist-text-primary" strokeWidth={3} />
         </button>
       </div>
 
@@ -210,7 +210,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
               className={`max-w-[80%] p-3 border-brutal-thin border-black rounded-lg shadow-brutal-sm font-body text-sm leading-relaxed ${
                 message.role === 'user'
                   ? 'bg-electric-blue text-white'
-                  : 'bg-white text-dark'
+                  : 'bg-white text-brutalist-text-primary'
               }`}
             >
               {message.content}
@@ -229,7 +229,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Scrivi un messaggio..."
-            className="flex-1 px-3 py-2 border-brutal-thin border-black rounded focus:outline-none focus:ring-2 focus:ring-electric-blue text-dark font-body text-sm"
+            className="flex-1 px-3 py-2 border-brutal-thin border-black rounded focus:outline-none focus:ring-2 focus:ring-electric-blue text-brutalist-text-primary font-body text-sm"
             disabled={isLoading}
           />
           <button

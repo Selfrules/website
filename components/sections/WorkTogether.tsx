@@ -63,8 +63,8 @@ export default function WorkTogether() {
           <div className="flex justify-center mb-4">
             <NeoBadge color="yellow">{t('badge')}</NeoBadge>
           </div>
-          <h2 className="text-h1 mb-4 md:mb-6 text-dark">{t('title')} <span className="text-neon-pink">{t('titleHighlight')}</span></h2>
-          <p className="text-body text-gray-700 max-w-[700px] mx-auto">
+          <h2 className="text-h1 mb-4 md:mb-6 text-brutalist-text-primary">{t('title')} <span className="text-neon-pink">{t('titleHighlight')}</span></h2>
+          <p className="text-body text-brutalist-text-secondary max-w-[700px] mx-auto">
             {t('subtitle.part1')}<br/>
             <strong className="text-neon-pink">{t('subtitle.part2')}</strong>
           </p>
@@ -96,12 +96,12 @@ export default function WorkTogether() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-h3 mb-3 text-dark">
+                <h3 className="text-h3 mb-3 text-brutalist-text-primary">
                   {t(collab.titleKey)}
                 </h3>
 
                 {/* Description */}
-                <p className="text-body-small text-gray-700 mb-5">
+                <p className="text-body-small text-brutalist-text-secondary mb-5">
                   {t(collab.descriptionKey)}
                 </p>
 
@@ -110,7 +110,7 @@ export default function WorkTogether() {
                   {collab.featuresKeys.map((featureKey, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: collab.color }} strokeWidth={3} />
-                      <span className="text-body-small text-gray-700 leading-snug">
+                      <span className="text-body-small text-brutalist-text-secondary leading-snug">
                         {t(featureKey)}
                       </span>
                     </li>

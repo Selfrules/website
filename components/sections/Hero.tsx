@@ -27,7 +27,7 @@ export default function Hero() {
       />
 
       {/* Grid Pattern Background */}
-      <div className="absolute inset-0 opacity-5 bg-grid-pattern" style={{ backgroundSize: '40px 40px' }} />
+      <div className="absolute inset-0 opacity-5 text-black bg-grid-pattern bg-grid-size" />
 
       <div className="container max-w-[1440px] mx-auto px-6 md:px-8 lg:px-12 py-8 md:py-12 relative z-10">
         <div className="flex flex-col items-center text-center space-y-6 md:space-y-10">
@@ -46,7 +46,7 @@ export default function Hero() {
 
           {/* Main Headline - More Dynamic */}
           <motion.h1
-            className="text-hero max-w-[900px] text-dark relative px-4 md:px-0"
+            className="text-hero max-w-[900px] text-brutalist-text-primary relative px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -73,7 +73,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <p className="text-body-large text-gray-700 leading-relaxed">
+            <p className="text-body-large text-brutalist-text-secondary leading-relaxed">
               {t('subtitle')}{' '}
               <strong className="text-neon-pink">
                 {t('subtitleHighlight')}

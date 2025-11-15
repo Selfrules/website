@@ -69,8 +69,8 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
           <div className="flex justify-center mb-4">
             <NeoBadge color="blue">{t.badge}</NeoBadge>
           </div>
-          <h2 className="text-h1 mb-4 md:mb-6 text-dark">{t.title}</h2>
-          <p className="text-body text-gray-700 max-w-[600px] mx-auto">
+          <h2 className="text-h1 mb-4 md:mb-6 text-brutalist-text-primary">{t.title}</h2>
+          <p className="text-body text-brutalist-text-secondary max-w-[600px] mx-auto">
             {t.description}<strong className="text-electric-blue">{t.descriptionHighlight}</strong>
           </p>
         </div>
@@ -85,30 +85,30 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
               <div className="w-12 h-12 bg-electric-blue border-brutal-thin border-black rounded-lg flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
                 <Briefcase className="w-6 h-6 text-white" strokeWidth={2.5} />
               </div>
-              <h3 className="text-h3 mb-3 text-dark">
+              <h3 className="text-h3 mb-3 text-brutalist-text-primary">
                 {t.currentWork.title}
               </h3>
-              <p className="text-body-small text-gray-700 leading-relaxed mb-3">
+              <p className="text-body-small text-brutalist-text-secondary leading-relaxed mb-3">
                 {t.currentWork.description}<strong className="text-electric-blue">{t.currentWork.company}</strong>
               </p>
-              <p className="text-body-small text-gray-700 leading-relaxed mb-3">
+              <p className="text-body-small text-brutalist-text-secondary leading-relaxed mb-3">
                 Mi occupo di integrazioni di pagamento e visione di prodotto.
               </p>
-              <p className="text-body-small text-gray-700 leading-relaxed mb-3">
+              <p className="text-body-small text-brutalist-text-secondary leading-relaxed mb-3">
                 <strong className="text-electric-blue">Come?</strong> Ascoltando chi usa il sistema ogni giorno invece di fare meeting su meeting.
               </p>
               <div className="bg-white/50 border-l-4 border-electric-blue p-3 mb-3 rounded">
-                <p className="text-xs text-gray-700 mb-2 font-heading font-semibold">
+                <p className="text-xs text-brutalist-text-secondary mb-2 font-heading font-semibold">
                   La settimana scorsa:
                 </p>
-                <ul className="text-body-small text-gray-700 space-y-1">
+                <ul className="text-body-small text-brutalist-text-secondary space-y-1">
                   <li>• 6 ore di user interviews</li>
                   <li>• 3 insight critici</li>
                   <li>• 1 feature cancellata (risolveva il problema sbagliato)</li>
                   <li>• 2 quick wins implementate in 1 sprint</li>
                 </ul>
               </div>
-              <p className="text-body-small text-gray-700 italic">
+              <p className="text-body-small text-brutalist-text-secondary italic">
                 Questo è product management pragmatico.
               </p>
               <div className="mt-4 flex items-center gap-2">
@@ -128,23 +128,23 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
               <div className="w-12 h-12 bg-neon-pink border-brutal-thin border-black rounded-lg flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
                 <BookOpen className="w-6 h-6 text-white" strokeWidth={2.5} />
               </div>
-              <h3 className="text-h3 mb-3 text-dark">
+              <h3 className="text-h3 mb-3 text-brutalist-text-primary">
                 {t.learning.title}
               </h3>
-              <p className="text-body-small text-gray-700 leading-relaxed mb-3">
+              <p className="text-body-small text-brutalist-text-secondary leading-relaxed mb-3">
                 {t.learning.thisWeek}<strong className="text-neon-pink">{t.learning.topic}</strong>
               </p>
-              <p className="text-body-small text-gray-700 leading-relaxed mb-3">
+              <p className="text-body-small text-brutalist-text-secondary leading-relaxed mb-3">
                 Non sostituisce il mio lavoro, lo amplifica.
               </p>
-              <p className="text-body-small text-gray-700 leading-relaxed mb-3">
+              <p className="text-body-small text-brutalist-text-secondary leading-relaxed mb-3">
                 <strong className="text-neon-pink">Il trucco?</strong> Sapere cosa delegare e cosa tenere.
               </p>
               <div className="bg-white/50 border-l-4 border-neon-pink p-3 mb-3 rounded">
-                <p className="text-xs text-gray-700 mb-2 font-heading font-semibold">
+                <p className="text-xs text-brutalist-text-secondary mb-2 font-heading font-semibold">
                   Esempi pratici:
                 </p>
-                <ul className="text-body-small text-gray-700 space-y-2">
+                <ul className="text-body-small text-brutalist-text-secondary space-y-2">
                   <li className="flex gap-2">
                     <span className="text-neon-pink">→</span>
                     <span><strong>Claude</strong> scrive la prima bozza delle PRD. Io la raffino con context che solo un umano ha.</span>
@@ -155,7 +155,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
                   </li>
                 </ul>
               </div>
-              <p className="text-body-small text-gray-700 italic">
+              <p className="text-body-small text-brutalist-text-secondary italic">
                 L&apos;AI è il mio junior designer/developer perfetto: veloce, instancabile, ma serve sempre una guida.
               </p>
             </div>
@@ -164,9 +164,9 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
           {/* Card 3 - Spotify Widget */}
           <div className="bg-cream border-brutal border-black rounded-lg shadow-brutal p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg md:col-span-2 lg:col-span-1">
             <div className="w-12 h-12 bg-cyber-yellow border-brutal-thin border-black rounded-lg flex items-center justify-center mb-4">
-              <Music className="w-6 h-6 text-dark" strokeWidth={2.5} />
+              <Music className="w-6 h-6 text-brutalist-text-primary" strokeWidth={2.5} />
             </div>
-            <h3 className="text-h3 mb-4 text-dark">
+            <h3 className="text-h3 mb-4 text-brutalist-text-primary">
               {t.spotify.title}
             </h3>
 

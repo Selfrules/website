@@ -112,7 +112,7 @@ export default async function BlogNew({ locale }: BlogProps) {
                         {new Date(featuredPost.date).toLocaleDateString(locale === 'it' ? 'it-IT' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                       </span>
                     </div>
-                    <span className="px-6 py-3 bg-cyber-yellow text-dark border-brutal-thin border-black rounded-brutal-sm shadow-brutal-sm transition-all hover:-translate-y-1 hover:shadow-brutal font-bold text-sm font-heading">
+                    <span className="px-6 py-3 bg-cyber-yellow text-brutalist-text-primary border-brutal-thin border-black rounded-brutal-sm shadow-brutal-sm transition-all hover:-translate-y-1 hover:shadow-brutal font-bold text-sm font-heading">
                       {t.readNow}
                     </span>
                   </div>
@@ -134,7 +134,7 @@ export default async function BlogNew({ locale }: BlogProps) {
                   >
                     {post.category}
                   </span>
-                  <h3 className="text-body mb-4 text-dark group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
+                  <h3 className="text-body mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
                     {post.title}
                   </h3>
                   <div className="flex items-center justify-between">

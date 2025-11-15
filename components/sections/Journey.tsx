@@ -91,14 +91,14 @@ export default function Journey() {
           <div className="flex justify-center mb-4">
             <NeoBadge color="purple">{t('badge')}</NeoBadge>
           </div>
-          <h2 className="text-h1 mb-4 md:mb-6 text-dark">
+          <h2 className="text-h1 mb-4 md:mb-6 text-brutalist-text-primary">
             {t('title')}{' '}
             <span className="inline-block relative z-10">
               {t('titleHighlight')}
               <span className="absolute -bottom-1 left-0 w-full h-2 bg-cyber-yellow -rotate-1 z-[-1]" />
             </span>
           </h2>
-          <p className="text-body text-gray-700 max-w-[700px] mx-auto">
+          <p className="text-body text-brutalist-text-secondary max-w-[700px] mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export default function Journey() {
                       }
                     `}
                   >
-                    <Icon className={`w-5 h-5 ${milestone.isCurrent ? 'text-white' : 'text-dark'}`} />
+                    <Icon className={`w-5 h-5 ${milestone.isCurrent ? 'text-white' : 'text-brutalist-text-primary'}`} />
                   </div>
 
                   {/* Content Card - Mobile: Full width with left padding, Desktop: Half width */}
@@ -148,7 +148,7 @@ export default function Journey() {
                     >
                       {/* Date & Role */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="inline-block px-3 py-1 bg-white border-2 border-black rounded shadow-brutal-sm text-dark font-mono text-xs font-bold">
+                        <span className="inline-block px-3 py-1 bg-white border-2 border-black rounded shadow-brutal-sm text-brutalist-text-primary font-mono text-xs font-bold">
                           {t(milestone.dateKey)}
                         </span>
                         <NeoBadge color={milestone.roleColor} className="px-3 py-1 text-xs">
@@ -162,12 +162,12 @@ export default function Journey() {
                       </div>
 
                       {/* Company */}
-                      <h3 className="text-h3 mb-3 text-dark">
+                      <h3 className="text-h3 mb-3 text-brutalist-text-primary">
                         {t(milestone.companyKey)}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-body-small md:text-body text-gray-700 mb-4">
+                      <p className="text-body-small md:text-body text-brutalist-text-secondary mb-4">
                         {t(milestone.descriptionKey)}
                       </p>
 
@@ -175,7 +175,7 @@ export default function Journey() {
                       {milestone.achievementsKeys.length > 0 && (
                         <ul className="mb-4 space-y-1.5">
                           {milestone.achievementsKeys.map((achievementKey, i) => (
-                            <li key={i} className="flex items-start gap-2 text-body-small text-gray-700">
+                            <li key={i} className="flex items-start gap-2 text-body-small text-brutalist-text-secondary">
                               <ArrowRight
                                 className="w-4 h-4 flex-shrink-0 mt-0.5"
                                 style={{
@@ -192,12 +192,12 @@ export default function Journey() {
 
                       {/* Skills */}
                       <div className="mb-3">
-                        <p className="text-xs font-bold mb-2 text-dark font-heading">
+                        <p className="text-xs font-bold mb-2 text-brutalist-text-primary font-heading">
                           {t('skillsLabel')}:
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {milestone.skillsKeys.map((skillKey, i) => (
-                            <span key={i} className="px-2 py-1 bg-white border-2 border-black rounded-sm text-xs text-dark font-mono">
+                            <span key={i} className="px-2 py-1 bg-white border-2 border-black rounded-sm text-xs text-brutalist-text-primary font-mono">
                               {t(skillKey)}
                             </span>
                           ))}
@@ -207,7 +207,7 @@ export default function Journey() {
                       {/* Certifications */}
                       {milestone.certificationsKeys && milestone.certificationsKeys.length > 0 && (
                         <div>
-                          <p className="text-xs font-bold mb-2 text-dark font-heading">
+                          <p className="text-xs font-bold mb-2 text-brutalist-text-primary font-heading">
                             {t('certificationsLabel')}:
                           </p>
                           <div className="flex flex-wrap gap-1.5">
