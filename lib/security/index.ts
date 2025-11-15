@@ -7,11 +7,12 @@
 export * from './types';
 
 // Middleware
-export {
-  rateLimitMiddleware,
-  checkRateLimit,
-  RATE_LIMITS,
-} from './middleware/rateLimit';
+// TODO: Create middleware/rateLimit module
+// export {
+//   rateLimitMiddleware,
+//   checkRateLimit,
+//   RATE_LIMITS,
+// } from './middleware/rateLimit';
 
 // Configuration
 export {
@@ -41,28 +42,29 @@ export {
 } from './config/env';
 
 // Validation
-export {
-  // Schemas
-  blogPostCreateSchema,
-  blogPostUpdateSchema,
-  blogPostQuerySchema,
-  chatMessageSchema,
-  chatFeedbackSchema,
-  calendarBookingSchema,
-  calendarCancelSchema,
-  calendarRescheduleSchema,
-  analyticsEventSchema,
-  analyticsPageViewSchema,
-  adminLoginSchema,
-  adminContentGenerationSchema,
-  contactFormSchema,
-  newsletterSubscribeSchema,
-  newsletterUnsubscribeSchema,
-  // Helpers
-  validate,
-  validateSafe,
-  formatValidationErrors,
-} from './validation/schemas';
+// TODO: Create validation/schemas module
+// export {
+//   // Schemas
+//   blogPostCreateSchema,
+//   blogPostUpdateSchema,
+//   blogPostQuerySchema,
+//   chatMessageSchema,
+//   chatFeedbackSchema,
+//   calendarBookingSchema,
+//   calendarCancelSchema,
+//   calendarRescheduleSchema,
+//   analyticsEventSchema,
+//   analyticsPageViewSchema,
+//   adminLoginSchema,
+//   adminContentGenerationSchema,
+//   contactFormSchema,
+//   newsletterSubscribeSchema,
+//   newsletterUnsubscribeSchema,
+//   // Helpers
+//   validate,
+//   validateSafe,
+//   formatValidationErrors,
+// } from './validation/schemas';
 
 // Sanitization
 // Temporarily disabled - requires isomorphic-dompurify package

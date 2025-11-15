@@ -288,10 +288,11 @@ export function groupByCategory(
   const grouped: Partial<Record<ComponentCategory, ComponentMetadata[]>> = {};
 
   for (const component of components) {
-    if (!grouped[component.category]) {
-      grouped[component.category] = [];
+    const category = component.category as ComponentCategory;
+    if (!grouped[category]) {
+      grouped[category] = [];
     }
-    grouped[component.category]!.push(component);
+    grouped[category]!.push(component);
   }
 
   return grouped as Record<ComponentCategory, ComponentMetadata[]>;

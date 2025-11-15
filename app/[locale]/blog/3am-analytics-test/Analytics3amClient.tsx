@@ -6,7 +6,8 @@ import { ArrowLeft } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
 import type { TocSection } from '@/lib/blog/mdx';
 import { Badge } from '@/components/ui/Badge';
-import { LeadMagnetCard, CTACard } from '@/components/blog/article';
+// TODO: Create LeadMagnetCard and CTACard components
+// import { LeadMagnetCard, CTACard } from '@/components/blog/article';
 import ShareButtons from '@/components/blog/ShareButtons';
 import ReadingProgress from '@/components/blog/ReadingProgress';
 
@@ -282,7 +283,8 @@ function renderArticleContent(
           />
         </section>
 
-        {showLeadMagnet && (
+        {/* TODO: Re-enable when LeadMagnetCard and CTACard components are created */}
+        {/* {showLeadMagnet && (
           <LeadMagnetCard
             title="Get the 3am Test Template"
             description="Turn these 3 questions into a 1-page audit template. Score your metrics, identify deletion candidates, document your reasoning."
@@ -294,9 +296,9 @@ function renderArticleContent(
             ctaText="Download the Template"
             onDownload={onDownloadTemplate}
           />
-        )}
+        )} */}
 
-        {showCTA && (
+        {/* {showCTA && (
           <CTACard
             title="Book a Dashboard Clarity Session"
             description="I'll audit your current metrics against the 3am test. We'll identify what to delete, what to keep, and what's missing. You'll get a 1-page action plan with deletion priorities."
@@ -304,7 +306,7 @@ function renderArticleContent(
             onAction={onBookSession}
             variant="gradient"
           />
-        )}
+        )} */}
       </div>
     );
   });

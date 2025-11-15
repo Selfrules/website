@@ -823,7 +823,7 @@ export default function DesignSystemPage() {
                 Activity Dashboard Pattern
               </h3>
               <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Combine ActivityCard components to create "What I'm Up To" sections or real-time activity dashboards.
+                Combine ActivityCard components to create &quot;What I&apos;m Up To&quot; sections or real-time activity dashboards.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <ActivityCard
@@ -1021,7 +1021,7 @@ export default function DesignSystemPage() {
                   <li className="flex gap-3">
                     <span className="text-teal font-bold">→</span>
                     <span>
-                      <strong className="text-brutalist-text-primary">Description:</strong> line-clamp-3 ensures descriptions don't overflow (only when provided)
+                      <strong className="text-brutalist-text-primary">Description:</strong> line-clamp-3 ensures descriptions don&apos;t overflow (only when provided)
                     </span>
                   </li>
                   <li className="flex gap-3">

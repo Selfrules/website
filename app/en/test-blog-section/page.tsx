@@ -5,15 +5,15 @@ import BlogNew from '@/components/sections/BlogNew';
 import type { BlogPost } from '@/lib/blog/mdx';
 
 export default function TestBlogSectionPage() {
-  const handleArticleClick = (article: BlogPost) => {
-    console.log('Article clicked:', article);
-    alert(`Clicked on: ${article.title}`);
-  };
+  // const handleArticleClick = (article: BlogPost) => {
+  //   console.log('Article clicked:', article);
+  //   alert(`Clicked on: ${article.title}`);
+  // };
 
-  const handleViewAllClick = () => {
-    console.log('View All clicked');
-    alert('View All Articles clicked!');
-  };
+  // const handleViewAllClick = () => {
+  //   console.log('View All clicked');
+  //   alert('View All Articles clicked!');
+  // };
 
   return (
     <div className="min-h-screen bg-slate-100">
@@ -28,10 +28,7 @@ export default function TestBlogSectionPage() {
       </div>
 
       {/* Blog Section Component */}
-      <BlogNew
-        onArticleClick={handleArticleClick}
-        onViewAllClick={handleViewAllClick}
-      />
+      <BlogNew locale="en" />
 
       {/* Test Footer */}
       <div className="bg-dark text-white py-8 border-t-brutal border-black">
@@ -44,7 +41,7 @@ export default function TestBlogSectionPage() {
             <li>✓ <code className="bg-white/10 px-2 py-1 rounded">shadow-brutal</code> - Hard shadows</li>
             <li>✓ <code className="bg-white/10 px-2 py-1 rounded">rounded-brutal</code> - 6px border radius</li>
             <li>✓ <code className="bg-white/10 px-2 py-1 rounded">bg-cyber-yellow</code> - CTA buttons</li>
-            <li>✓ <code className="bg-white/10 px-2 py-1 rounded">Badge variant="secondary|featured"</code> - Color-coded badges</li>
+            <li>✓ <code className="bg-white/10 px-2 py-1 rounded">Badge variant=&quot;secondary|featured&quot;</code> - Color-coded badges</li>
           </ul>
         </div>
       </div>

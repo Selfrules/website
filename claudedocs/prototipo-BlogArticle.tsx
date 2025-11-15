@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Clock, Calendar, Share2, Twitter, Linkedin, Link2, ChevronRight, Bookmark, TrendingUp, Users, CheckCircle, ArrowRight } from 'lucide-react';
-import { Footer } from './Footer';
-import { ChatBot } from './ChatBot';
+// import { Footer } from './Footer';
+// import { ChatBot } from './ChatBot';
 
 interface BlogArticleProps {
   onBack: () => void;
@@ -736,10 +736,10 @@ export function BlogArticle({ onBack, article, currentLang, onLanguageChange, on
       </div>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
 
       {/* Floating ChatBot */}
-      <ChatBot />
+      {/* <ChatBot /> */}
     </div>
   );
 }

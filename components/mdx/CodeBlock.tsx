@@ -147,7 +147,7 @@ export default function CodeBlock({
       <div className="border-brutal border-t-0 border-black rounded-b-brutal shadow-brutal overflow-hidden">
         <SyntaxHighlighter
           language={language}
-          style={brutalistTheme}
+          style={brutalistTheme as any}
           showLineNumbers={showLineNumbers}
           lineNumberStyle={{
             minWidth: '3em',
