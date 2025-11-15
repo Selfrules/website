@@ -11,7 +11,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', disabled, children, ...props }, ref) => {
     const baseStyles = cn(
       'inline-flex items-center justify-center gap-2',
-      'font-heading font-bold text-sentence-case',
+      'font-mono font-bold text-sentence-case',
       'border-brutal border-brutalist-border rounded-brutal',
       'transition-all duration-200 ease-brutal',
       'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary',
@@ -21,12 +21,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary: cn(
-        'bg-primary text-brutalist-text-light shadow-brutal',
+        'bg-primary text-white shadow-brutal',
         'hover:bg-primary-dark hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]',
         'active:shadow-brutal-active'
       ),
       secondary: cn(
-        'bg-secondary text-brutalist-text-light shadow-brutal',
+        'bg-secondary text-white shadow-brutal',
         'hover:bg-secondary-dark hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]',
         'active:shadow-brutal-active'
       ),
