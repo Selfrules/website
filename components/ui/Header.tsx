@@ -56,7 +56,7 @@ export function Header({ locale }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FFFCF2] border-b-4 border-[#000]">
+    <header className="sticky top-0 z-50 bg-cream border-b-brutal border-black">
       <div className="container max-w-[1440px] mx-auto px-5 md:px-8 py-4 md:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -65,15 +65,7 @@ export function Header({ locale }: HeaderProps) {
             className="flex items-center group"
           >
             <div className="relative">
-              <div
-                className="px-4 py-2 bg-[#0D7EFF] border-4 border-[#000] rounded-lg shadow-brutal-sm transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-brutal"
-                style={{
-                  fontFamily: 'Space Grotesk, sans-serif',
-                  fontWeight: 900,
-                  fontSize: '20px',
-                  letterSpacing: '0.1em',
-                }}
-              >
+              <div className="px-4 py-2 bg-electric-blue border-brutal border-black rounded-brutal shadow-brutal-sm transition-all duration-200 group-hover:-translate-y-0.5 group-hover:shadow-brutal font-heading font-black text-xl tracking-wider">
                 <span className="text-white">MFDL</span>
               </div>
             </div>
@@ -85,15 +77,10 @@ export function Header({ locale }: HeaderProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-[#2D2D2D] hover:text-[#0D7EFF] transition-colors relative group"
-                style={{
-                  fontFamily: 'Space Grotesk, sans-serif',
-                  fontWeight: 600,
-                  fontSize: '14px',
-                }}
+                className="px-4 py-2 text-brutalist-text-secondary hover:text-electric-blue transition-colors relative group font-heading font-semibold text-sm"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0D7EFF] group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-electric-blue group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </nav>
@@ -101,41 +88,31 @@ export function Header({ locale }: HeaderProps) {
           {/* Right Side: Language Switcher + Mobile Menu */}
           <div className="flex items-center gap-3">
             {/* Language Switcher */}
-            <div className="flex items-center gap-2 bg-white border-[3px] border-[#000] rounded-lg shadow-brutal-sm overflow-hidden">
+            <div className="flex items-center gap-2 bg-white border-brutal-thin border-black rounded-brutal shadow-brutal-sm overflow-hidden">
               <button
                 onClick={() => {
                   if (locale !== 'it') toggleLocale();
                 }}
                 className={cn(
-                  'px-3 py-1.5 transition-all',
+                  'px-3 py-1.5 transition-all font-mono font-bold text-xs',
                   locale === 'it'
-                    ? 'bg-[#FF006E] text-white'
-                    : 'bg-transparent text-[#2D2D2D] hover:bg-[#FFFCF2]'
+                    ? 'bg-neon-pink text-white'
+                    : 'bg-transparent text-brutalist-text-secondary hover:bg-cream'
                 )}
-                style={{
-                  fontFamily: 'Space Mono, monospace',
-                  fontWeight: 700,
-                  fontSize: '12px',
-                }}
               >
                 IT
               </button>
-              <div className="w-px h-6 bg-[#000]" />
+              <div className="w-px h-6 bg-black" />
               <button
                 onClick={() => {
                   if (locale !== 'en') toggleLocale();
                 }}
                 className={cn(
-                  'px-3 py-1.5 transition-all',
+                  'px-3 py-1.5 transition-all font-mono font-bold text-xs',
                   locale === 'en'
-                    ? 'bg-[#FF006E] text-white'
-                    : 'bg-transparent text-[#2D2D2D] hover:bg-[#FFFCF2]'
+                    ? 'bg-neon-pink text-white'
+                    : 'bg-transparent text-brutalist-text-secondary hover:bg-cream'
                 )}
-                style={{
-                  fontFamily: 'Space Mono, monospace',
-                  fontWeight: 700,
-                  fontSize: '12px',
-                }}
               >
                 EN
               </button>
@@ -144,7 +121,7 @@ export function Header({ locale }: HeaderProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-10 h-10 bg-[#0D7EFF] border-[3px] border-[#000] rounded-lg shadow-brutal-sm flex items-center justify-center transition-all hover:-translate-y-0.5 hover:shadow-brutal active:translate-y-0 active:shadow-brutal-sm"
+              className="lg:hidden w-10 h-10 bg-electric-blue border-brutal-thin border-black rounded-brutal shadow-brutal-sm flex items-center justify-center transition-all hover:-translate-y-0.5 hover:shadow-brutal active:translate-y-0 active:shadow-brutal-sm"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -158,18 +135,13 @@ export function Header({ locale }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden mt-4 pt-4 border-t-[3px] border-[#000]">
+          <nav className="lg:hidden mt-4 pt-4 border-t-brutal-thin border-black">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-3 bg-white border-[3px] border-[#000] rounded-lg shadow-brutal-sm text-[#0A0A0A] hover:bg-[#0D7EFF] hover:text-white transition-all active:translate-y-0.5"
-                  style={{
-                    fontFamily: 'Space Grotesk, sans-serif',
-                    fontWeight: 600,
-                    fontSize: '14px',
-                  }}
+                  className="px-4 py-3 bg-white border-brutal-thin border-black rounded-brutal shadow-brutal-sm text-dark hover:bg-electric-blue hover:text-white transition-all active:translate-y-0.5 font-heading font-semibold text-sm"
                 >
                   {link.label}
                 </a>

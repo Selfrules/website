@@ -175,9 +175,9 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
 
   return (
     // {/* Chat Window */}
-    <div className="fixed bottom-24 right-4 md:right-8 w-[calc(100vw-2rem)] md:w-[400px] h-[500px] bg-white border-brutal border-black rounded-lg shadow-brutal-lg z-50 flex flex-col">
+    <div className="fixed bottom-24 right-4 md:right-8 w-[calc(100vw-2rem)] md:w-[400px] h-[500px] bg-white border-brutal border-black rounded-brutal shadow-brutal-lg z-50 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-electric-blue to-deep-purple border-b-4 border-black p-4 rounded-t flex items-center justify-between">
+      <div className="bg-gradient-to-r from-electric-blue to-deep-purple border-b-brutal border-black p-4 rounded-t-brutal flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-cyber-yellow border-brutal-thin border-black rounded-full flex items-center justify-center">
             <Sparkles className="w-5 h-5 text-brutalist-text-primary" />
@@ -193,7 +193,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
         </div>
         <button
           onClick={onClose}
-          className="w-8 h-8 bg-white border-2 border-black rounded flex items-center justify-center hover:bg-neon-pink hover:text-white transition-colors"
+          className="w-8 h-8 bg-white border-brutal-thin border-black rounded-brutal flex items-center justify-center hover:bg-neon-pink hover:text-white transition-colors"
         >
           <X className="w-4 h-4 text-brutalist-text-primary" strokeWidth={3} />
         </button>
@@ -203,11 +203,11 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
       <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-cream">
         {messages.map((message, index) => (
           <div
-            key={index}
+            key={`${message.timestamp.getTime()}-${message.role}-${index}`}
             className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
-              className={`max-w-[80%] p-3 border-brutal-thin border-black rounded-lg shadow-brutal-sm font-body text-sm leading-relaxed ${
+              className={`max-w-[80%] p-3 border-brutal-thin border-black rounded-brutal shadow-brutal-sm font-body text-sm leading-relaxed ${
                 message.role === 'user'
                   ? 'bg-electric-blue text-white'
                   : 'bg-white text-brutalist-text-primary'
@@ -221,7 +221,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
       </div>
 
       {/* Input Area */}
-      <div className="border-t-4 border-black p-3 bg-white rounded-b">
+      <div className="border-t-brutal border-black p-3 bg-white rounded-b-brutal">
         <div className="flex gap-2">
           <input
             type="text"
@@ -229,13 +229,13 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Scrivi un messaggio..."
-            className="flex-1 px-3 py-2 border-brutal-thin border-black rounded focus:outline-none focus:ring-2 focus:ring-electric-blue text-brutalist-text-primary font-body text-sm"
+            className="flex-1 px-3 py-2 border-brutal-thin border-black rounded-brutal focus:outline-none focus:ring-2 focus:ring-electric-blue text-brutalist-text-primary font-body text-sm"
             disabled={isLoading}
           />
           <button
             onClick={handleSendMessage}
             disabled={isLoading || !inputValue.trim()}
-            className="w-10 h-10 bg-electric-blue border-brutal-thin border-black rounded shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all flex items-center justify-center disabled:opacity-50"
+            className="w-10 h-10 bg-electric-blue border-brutal-thin border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all flex items-center justify-center disabled:opacity-50"
           >
             <Send className="w-4 h-4 text-white" strokeWidth={2.5} />
           </button>
