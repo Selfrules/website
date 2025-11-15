@@ -43,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'w-full px-4 py-3',
             'font-body text-body',
             'bg-brutalist-surface-light',
-            'text-brutalist-text-light',
+            'text-brutalist-text-primary',
             'border-brutal border-brutalist-border rounded-brutal shadow-brutal-sm',
             'transition-all duration-200 ease-brutal',
             'placeholder:text-gray-500 placeholder:opacity-70',
