@@ -42,7 +42,7 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
               <div className="flex items-center gap-3 mb-brutal-sm">
                 <NeoBadge color="yellow">
                   {post.category}
-                </Badge>
+                </NeoBadge>
                 <Badge variant="featured" size="sm">
                   DA NON PERDERE
                 </Badge>
