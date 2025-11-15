@@ -1,7 +1,7 @@
-# [EPIC-007] SEO Optimization for Search Engines & LLMs
+# [EPIC-009] SEO Optimization for Search Engines & LLMs
 
 ## Metadata
-- **Epic ID**: EPIC-007
+- **Epic ID**: EPIC-009
 - **Priorità**: 🔴 Alta
 - **Stato**: 📋 Not Started
 - **Execution Environment**: 🌐 Claude Code Web
@@ -133,3 +133,4 @@ Audit completo effettuato il 2025-11-15 ha identificato:
 | Data | Autore | Modifiche |
 |------|--------|-----------|
 | 2025-11-15 | Claude Code | Epica creata da audit SEO completo |
+| 2025-11-15 | Claude Code | Rinumerata da EPIC-007 a EPIC-009 per allineamento con master |

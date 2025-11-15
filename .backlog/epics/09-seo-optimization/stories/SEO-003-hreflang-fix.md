@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Story ID**: SEO-003
-- **Epic**: [EPIC-007](./../epic.md)
+- **Epic**: [EPIC-009](./../epic.md)
 - **Priorità**: 🔴 Critica | **Dimensione**: 🟢 S (< 1 giorno)
 - **Execution Environment**: 🌐 Claude Code Web
 - **Stato**: 📋 Not Started | **Data Completamento**: -

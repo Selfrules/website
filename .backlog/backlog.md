@@ -146,7 +146,7 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
 
 ---
 
-## EPIC-007: SEO Optimization per Search Engines & LLMs
+## EPIC-009: SEO Optimization per Search Engines & LLMs
 
 **Priorità**: 🔴 Alta | **Stima**: L (2-3 settimane) | **Ambiente**: 🌐 Web
 
@@ -166,7 +166,7 @@ Implementare sistema SEO completamente automatizzato e scalabile per massimizzar
 | SEO-008 | Ottimizzare Image SEO (alt validation, lazy loading) | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
 | SEO-009 | Setup Lighthouse CI e Web Vitals monitoring | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
 
-**Links**: [Epic](./epics/07-seo-optimization/epic.md) | [Stories](./epics/07-seo-optimization/stories/)
+**Links**: [Epic](./epics/09-seo-optimization/epic.md) | [Stories](./epics/09-seo-optimization/stories/)
 
 ---
 
@@ -188,7 +188,7 @@ Implementare sistema SEO completamente automatizzato e scalabile per massimizzar
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 7 epiche, 42 user stories
+**Totale**: 9 epiche, 42 user stories
 
 ---
 
@@ -202,14 +202,14 @@ Implementare sistema SEO completamente automatizzato e scalabile per massimizzar
 
 ### Phase 2: Quick Wins & SEO Foundations (Settimane 3-4)
 2. **EPIC-002** Google Calendar (critico per conversione)
-3. **EPIC-007** SEO Optimization - TIER 1 Critical (SEO-001, SEO-002, SEO-003)
+3. **EPIC-009** SEO Optimization - TIER 1 Critical (SEO-001, SEO-002, SEO-003)
    - Sitemap/robots.txt (SEO-001)
    - JSON-LD schemas (SEO-002)
    - hreflang fix (SEO-003)
 4. **CC-005** Footer update (veloce)
 
 ### Phase 3: Content & Copy (Settimane 5-6)
-5. **EPIC-007** SEO Optimization - TIER 2 High Impact (SEO-004, SEO-005, SEO-006)
+5. **EPIC-009** SEO Optimization - TIER 2 High Impact (SEO-004, SEO-005, SEO-006)
    - Blog metadata enhancement (SEO-004)
    - Author credibility (SEO-005)
    - RSS/JSON feeds (SEO-006)
@@ -217,7 +217,7 @@ Implementare sistema SEO completamente automatizzato e scalabile per massimizzar
 7. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
 
 ### Phase 4: Advanced Features & Optimization (Settimane 7-10)
-8. **EPIC-007** SEO Optimization - TIER 3 Optimization (SEO-007, SEO-008, SEO-009)
+8. **EPIC-009** SEO Optimization - TIER 3 Optimization (SEO-007, SEO-008, SEO-009)
    - Blog API enhancement (SEO-007)
    - Image SEO (SEO-008)
    - Lighthouse CI (SEO-009)
