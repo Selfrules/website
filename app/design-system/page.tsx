@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { NeoBadge } from '@/components/ui/NeoBadge';
+import { ExperienceCard } from '@/components/ui/ExperienceCard';
 import { DesignSystemNav } from '@/components/design-system/DesignSystemNav';
 import {
   Palette,
@@ -18,7 +19,9 @@ import {
   X,
   Heart,
   Star,
-  Zap
+  Zap,
+  Award,
+  Briefcase
 } from 'lucide-react';
 
 export default function DesignSystemPage() {
@@ -368,6 +371,34 @@ export default function DesignSystemPage() {
                 </div>
               </div>
             </div>
+
+            {/* Experience Card */}
+            <div className="mt-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Experience Card
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Comprehensive card for displaying work experience, education, or career milestones with badges, achievements, skills, and certifications.
+              </p>
+              <ExperienceCard
+                date="2021 - 2023"
+                role="Senior Product Manager"
+                roleColor="blue"
+                company="QubicaAMF"
+                description="Led product strategy for bowling center management systems, driving innovation in entertainment technology and customer experience."
+                achievements={[
+                  "Increased user engagement by 40% through data-driven UX improvements",
+                  "Launched 3 major features that reduced operational costs by 25%",
+                  "Built and led cross-functional team of 12 people across 4 countries"
+                ]}
+                skills={["Product Strategy", "UX Design", "Data Analysis", "Agile/Scrum", "Stakeholder Management"]}
+                certifications={[
+                  { name: "Certified Scrum Product Owner", icon: Award },
+                  { name: "Google Analytics Certified", icon: Award }
+                ]}
+                isCurrent={false}
+              />
+            </div>
           </section>
 
           {/* Utilities Section */}
@@ -569,6 +600,58 @@ export default function DesignSystemPage() {
                     </div>
                   );
                 })}
+              </div>
+            </div>
+
+            {/* Experience Timeline Pattern */}
+            <div className="mt-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Experience Timeline Pattern
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Combine ExperienceCard components to create professional timelines for portfolios, resumes, or about pages. Perfect for showcasing career progression or educational journey.
+              </p>
+              <div className="space-y-6">
+                <ExperienceCard
+                  date="2023 - Present"
+                  role="Product Manager"
+                  roleColor="purple"
+                  company="Tech Startup Inc."
+                  description="Leading product development for a SaaS platform serving 10k+ users."
+                  achievements={[
+                    "Grew MRR by 150% in 6 months through feature prioritization",
+                    "Reduced churn rate from 8% to 3% with improved onboarding"
+                  ]}
+                  skills={["Product-Led Growth", "SaaS Metrics", "A/B Testing"]}
+                  isCurrent
+                />
+                <ExperienceCard
+                  date="2021 - 2023"
+                  role="Senior Designer"
+                  roleColor="blue"
+                  company="Design Agency Co."
+                  description="Crafted digital experiences for Fortune 500 clients and startups."
+                  achievements={[
+                    "Led design for 15+ successful product launches",
+                    "Mentored junior designers and established design system"
+                  ]}
+                  skills={["UI/UX Design", "Figma", "Design Systems", "User Research"]}
+                  certifications={[
+                    { name: "UX Certification", icon: Award }
+                  ]}
+                />
+                <ExperienceCard
+                  date="2019 - 2021"
+                  role="Junior Developer"
+                  roleColor="teal"
+                  company="Software Solutions Ltd."
+                  description="Built web applications using modern JavaScript frameworks."
+                  achievements={[
+                    "Contributed to 20+ client projects",
+                    "Improved code coverage from 40% to 85%"
+                  ]}
+                  skills={["React", "Node.js", "TypeScript", "PostgreSQL"]}
+                />
               </div>
             </div>
           </section>
