@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { MessageCircle, Mail, Send, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/Button';
 import { AnonymousQuestionForm } from '@/components/forms/AnonymousQuestionForm';
 import { useChatStore } from '@/lib/stores/chatStore';
 
@@ -120,12 +121,9 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
                 È come parlare con me, ma disponibile 24/7 e con pazienza infinita per le domande ripetitive.
               </p>
 
-              <button
-                onClick={handleChatClick}
-                className="w-full px-6 py-3 md:py-4 bg-electric-blue text-white border-brutal-thin border-black rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm font-heading text-sm font-bold uppercase"
-              >
+              <Button variant="primary" size="lg" onClick={handleChatClick} className="w-full uppercase">
                 {t.chatMode.buttonText}
-              </button>
+              </Button>
             </div>
           </div>
 

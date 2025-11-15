@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Button } from '@/components/ui/Button';
 import { useAnalytics } from '@/lib/hooks/useAnalytics';
 import { Check, Lightbulb, Users, GraduationCap } from 'lucide-react';
 import { GoogleCalendarPopup, useGoogleCalendar } from '@/components/ui/GoogleCalendarPopup';
@@ -129,12 +130,9 @@ export default function WorkTogether() {
             <p className="text-body-small md:text-body text-white/90 mb-5 font-heading">
               {t('cta.description')}
             </p>
-            <button
-              onClick={openCalendar}
-              className="inline-block px-6 md:px-8 py-3 md:py-4 bg-cyber-yellow text-dark border-brutal border-black rounded shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm uppercase"
-            >
+            <Button variant="accent" size="lg" onClick={openCalendar} className="uppercase">
               {t('cta.button')}
-            </button>
+            </Button>
           </div>
         </div>
 

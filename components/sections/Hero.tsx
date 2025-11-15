@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Button } from '@/components/ui/Button';
 import { useTranslations } from 'next-intl';
 import { GoogleCalendarPopup, useGoogleCalendar } from '@/components/ui/GoogleCalendarPopup';
 
@@ -88,15 +89,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <button
-              onClick={openCalendar}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-electric-blue text-white border-brutal-thin border-black rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm font-heading text-sm font-bold uppercase"
-            >
+            <Button variant="primary" size="md" onClick={openCalendar} className="uppercase">
               {t('cta')} <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-dark border-brutal-thin border-black rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm font-heading text-sm font-bold">
+            </Button>
+            <Button variant="outline" size="md">
               {t('explore')}
-            </button>
+            </Button>
           </motion.div>
         </div>
       </div>
