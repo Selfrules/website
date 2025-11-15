@@ -106,7 +106,7 @@ export default function Journey() {
         {/* Timeline - Mobile First, Vertical */}
         <div className="relative">
           {/* Connecting Line - Mobile: Left aligned, Desktop: Center */}
-          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-deep-purple via-cyber-yellow via-neon-pink to-electric-blue md:-translate-x-1/2" />
+          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-timeline md:-translate-x-1/2" />
 
           {/* Milestones */}
           <div className="space-y-12 md:space-y-20">

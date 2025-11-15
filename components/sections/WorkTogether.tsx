@@ -123,7 +123,7 @@ export default function WorkTogether() {
 
         {/* Call to Action Banner */}
         <div className="text-center">
-          <div className="inline-block bg-gradient-to-r from-electric-blue via-neon-pink to-deep-purple border-brutal border-black rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
+          <div className="inline-block bg-gradient-brand border-brutal border-black rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
             <p className="text-h3 md:text-h2 text-white mb-3 font-heading font-bold">
               {t('cta.title')}
             </p>

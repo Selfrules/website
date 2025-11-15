@@ -243,7 +243,18 @@ const config: Config = {
         'grid-pattern': 'linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)',
         'diagonal-lines': 'repeating-linear-gradient(45deg, currentColor, currentColor 1px, transparent 1px, transparent 15px)',
         'diagonal-lines-reverse': 'repeating-linear-gradient(-45deg, currentColor, currentColor 1px, transparent 1px, transparent 15px)',
+
+        // Named Brand Gradients
         'gradient-blog-hero': 'linear-gradient(135deg, #0D7EFF 0%, #7209B7 100%)', // Blog hero gradient (Electric Blue → Deep Purple)
+        'gradient-brand': 'linear-gradient(to right, #0D7EFF, #FF006E, #7209B7)', // Full brand gradient (Blue → Pink → Purple)
+        'gradient-text-accent': 'linear-gradient(to right, #2A687A, #FFD60A)', // Text accent gradient (Teal → Yellow)
+        'gradient-timeline': 'linear-gradient(to bottom, #7209B7, #FFD60A, #FF006E, #0D7EFF)', // Timeline gradient (Purple → Yellow → Pink → Blue)
+
+        // Glow Overlays (10% opacity for subtle effects)
+        'gradient-glow-blue': 'linear-gradient(to bottom right, rgba(13, 126, 255, 0.1), transparent)',
+        'gradient-glow-pink': 'linear-gradient(to bottom right, rgba(255, 0, 110, 0.1), transparent)',
+        'gradient-glow-purple': 'linear-gradient(to top right, rgba(114, 9, 183, 0.1), transparent)',
+        'gradient-glow-mixed': 'linear-gradient(to bottom right, rgba(13, 126, 255, 0.1), rgba(255, 0, 110, 0.1))',
       },
       backgroundSize: {
         'dot-size': '20px 20px',

@@ -52,7 +52,7 @@ export default async function BlogNew({ locale }: BlogProps) {
   return (
     <section id="blog" className="bg-cream py-16 md:py-24 border-b-brutal border-black relative overflow-hidden">
       {/* Background Decoration */}
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-deep-purple/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-glow-purple rounded-full blur-3xl" />
 
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
