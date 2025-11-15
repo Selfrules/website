@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Clock, Calendar, Share2, Twitter, Linkedin, Link2, ChevronRight, TrendingUp, Users, CheckCircle, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, Twitter, Linkedin, Link2, ChevronRight, ArrowRight } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { Card, CardContent } from '@/components/ui/Card';
 
 interface BlogArticleClientProps {
   post: BlogPost;
@@ -122,53 +125,59 @@ export default function BlogArticleClient({
       <div className="sticky top-0 z-40 bg-cream border-b-brutal-thick border-black mt-1">
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-4">
           <div className="flex items-center justify-between">
-            <button
+            <Button
               onClick={handleBackToBlog}
-              className="flex items-center gap-2 px-4 py-2 bg-white text-brutalist-text-primary border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
-              style={{
-                fontFamily: 'Space Grotesk, sans-serif',
-                fontWeight: 700,
-                fontSize: '14px',
-              }}
+              variant="outline"
+              size="sm"
             >
               <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
               <span className="hidden sm:inline">Torna al Blog</span>
               <span className="sm:hidden">Blog</span>
-            </button>
+            </Button>
 
             {/* Quick Actions */}
             <div className="flex items-center gap-2">
-              <button
+              <Button
                 onClick={() => setShowShareMenu(!showShareMenu)}
-                className="relative p-2 bg-white text-brutalist-text-primary border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+                variant="outline"
+                size="sm"
+                className="relative p-2"
               >
                 <Share2 className="w-4 h-4" />
-              </button>
+              </Button>
 
               {showShareMenu && (
-                <div className="absolute top-16 right-6 bg-white border-brutal border-black rounded-brutal shadow-brutal p-3 flex flex-col gap-2 min-w-[180px] z-10">
-                  <button
-                    onClick={() => handleShare('twitter')}
-                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors font-body text-sm"
-                  >
-                    <Twitter className="w-4 h-4 text-[#1DA1F2]" />
-                    Twitter
-                  </button>
-                  <button
-                    onClick={() => handleShare('linkedin')}
-                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors font-body text-sm"
-                  >
-                    <Linkedin className="w-4 h-4 text-[#0A66C2]" />
-                    LinkedIn
-                  </button>
-                  <button
-                    onClick={() => handleShare('copy')}
-                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors font-body text-sm"
-                  >
-                    <Link2 className="w-4 h-4" />
-                    Copia link
-                  </button>
-                </div>
+                <Card className="absolute top-16 right-6 p-3 min-w-[180px] z-10">
+                  <CardContent className="p-0 flex flex-col gap-2">
+                    <Button
+                      onClick={() => handleShare('twitter')}
+                      variant="ghost"
+                      size="sm"
+                      className="justify-start"
+                    >
+                      <Twitter className="w-4 h-4 text-[#1DA1F2]" />
+                      Twitter
+                    </Button>
+                    <Button
+                      onClick={() => handleShare('linkedin')}
+                      variant="ghost"
+                      size="sm"
+                      className="justify-start"
+                    >
+                      <Linkedin className="w-4 h-4 text-[#0A66C2]" />
+                      LinkedIn
+                    </Button>
+                    <Button
+                      onClick={() => handleShare('copy')}
+                      variant="ghost"
+                      size="sm"
+                      className="justify-start"
+                    >
+                      <Link2 className="w-4 h-4" />
+                      Copia link
+                    </Button>
+                  </CardContent>
+                </Card>
               )}
             </div>
           </div>
@@ -181,74 +190,63 @@ export default function BlogArticleClient({
           <aside className="hidden lg:block lg:col-span-3">
             <div className="sticky top-28 space-y-6">
               {/* Table of Contents */}
-              <div className="bg-white border-brutal-thick border-black rounded-brutal shadow-brutal p-5">
-                <h3
-                  className="mb-4 pb-3 border-b-brutal border-black text-brutalist-text-primary"
-                  style={{
-                    fontFamily: 'Space Grotesk, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '14px',
-                  }}
-                >
-                  📑 Indice
-                </h3>
-                <nav className="space-y-1">
-                  {tableOfContents.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => scrollToSection(item.id)}
-                      className={`w-full text-left px-3 py-2 rounded-brutal transition-all group ${
-                        activeSection === item.id
-                          ? 'bg-[#0D7EFF] text-white shadow-brutal-sm'
-                          : 'text-brutalist-text-secondary hover:bg-cream hover:translate-x-1'
-                      } ${item.level === 2 ? 'pl-6 text-sm' : 'text-sm'}`}
-                      style={{
-                        fontFamily: 'Inter, sans-serif',
-                        fontWeight: activeSection === item.id ? 600 : 400,
-                      }}
-                    >
-                      {item.title}
-                    </button>
-                  ))}
-                </nav>
-              </div>
+              <Card>
+                <CardContent className="p-brutal-md">
+                  <h3 className="text-body-small font-heading font-bold mb-4 pb-3 border-b-brutal border-black text-brutalist-text-primary">
+                    📑 Indice
+                  </h3>
+                  <nav className="space-y-1">
+                    {tableOfContents.map((item) => (
+                      <Button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        variant={activeSection === item.id ? 'primary' : 'ghost'}
+                        size="sm"
+                        className={`w-full justify-start ${item.level === 2 ? 'pl-6 text-sm' : 'text-sm'}`}
+                      >
+                        {item.title}
+                      </Button>
+                    ))}
+                  </nav>
+                </CardContent>
+              </Card>
 
               {/* Share Buttons */}
-              <div className="bg-white border-brutal-thick border-black rounded-brutal shadow-brutal p-5">
-                <h4
-                  className="mb-3 text-brutalist-text-primary"
-                  style={{
-                    fontFamily: 'Space Grotesk, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '14px',
-                  }}
-                >
-                  🔗 Condividi
-                </h4>
-                <div className="flex flex-col gap-2">
-                  <button
-                    onClick={() => handleShare('twitter')}
-                    className="flex items-center gap-2 px-3 py-2.5 bg-[#1DA1F2] text-white border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-body text-sm font-semibold"
-                  >
-                    <Twitter className="w-4 h-4" />
-                    Twitter
-                  </button>
-                  <button
-                    onClick={() => handleShare('linkedin')}
-                    className="flex items-center gap-2 px-3 py-2.5 bg-[#0A66C2] text-white border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-body text-sm font-semibold"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </button>
-                  <button
-                    onClick={() => handleShare('copy')}
-                    className="flex items-center gap-2 px-3 py-2.5 bg-white text-brutalist-text-primary border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-body text-sm font-semibold"
-                  >
-                    <Link2 className="w-4 h-4" />
-                    Copia link
-                  </button>
-                </div>
-              </div>
+              <Card>
+                <CardContent className="p-brutal-md">
+                  <h4 className="text-body-small font-heading font-bold mb-3 text-brutalist-text-primary">
+                    🔗 Condividi
+                  </h4>
+                  <div className="flex flex-col gap-2">
+                    <Button
+                      onClick={() => handleShare('twitter')}
+                      variant="primary"
+                      size="sm"
+                      className="bg-[#1DA1F2] hover:bg-[#1a8cd8]"
+                    >
+                      <Twitter className="w-4 h-4" />
+                      Twitter
+                    </Button>
+                    <Button
+                      onClick={() => handleShare('linkedin')}
+                      variant="primary"
+                      size="sm"
+                      className="bg-[#0A66C2] hover:bg-[#095196]"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                      LinkedIn
+                    </Button>
+                    <Button
+                      onClick={() => handleShare('copy')}
+                      variant="outline"
+                      size="sm"
+                    >
+                      <Link2 className="w-4 h-4" />
+                      Copia link
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </aside>
 
@@ -258,29 +256,23 @@ export default function BlogArticleClient({
             <header className="mb-10">
               {/* Breadcrumb */}
               <div className="flex items-center gap-2 mb-6 text-sm text-brutalist-text-tertiary">
-                <button
+                <Button
                   onClick={handleBackToBlog}
-                  className="hover:text-[#0D7EFF] transition-colors font-body"
+                  variant="ghost"
+                  size="sm"
+                  className="p-0 h-auto hover:text-electric-blue"
                 >
                   Blog
-                </button>
+                </Button>
                 <ChevronRight className="w-3 h-3" />
                 <span className="font-body">{post.category}</span>
               </div>
 
               {/* Meta Info */}
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <span
-                  className="px-3 py-1.5 border-brutal border-black rounded-brutal shadow-brutal-sm text-white"
-                  style={{
-                    backgroundColor: getCategoryColor(post.category),
-                    fontFamily: 'Space Mono, monospace',
-                    fontSize: '12px',
-                    fontWeight: 700,
-                  }}
-                >
+                <Badge variant={getCategoryVariant(post.category)} size="sm">
                   {post.category}
-                </span>
+                </Badge>
                 <div className="flex items-center gap-4 text-brutalist-text-tertiary font-body text-sm">
                   <span className="flex items-center gap-1.5">
                     <Calendar className="w-4 h-4" />
@@ -311,8 +303,8 @@ export default function BlogArticleClient({
             />
 
             {/* Main CTA Section */}
-            <div className="mt-16 bg-gradient-brand border-brutal-thick border-black rounded-brutal shadow-brutal-lg p-8 md:p-12 -rotate-1 hover:rotate-0 transition-transform">
-              <div className="text-center rotate-1 hover:-rotate-1 transition-transform">
+            <div className="mt-16 bg-gradient-brand border-brutal-thick border-black rounded-brutal-lg shadow-brutal-lg p-brutal-xl -rotate-1 hover:rotate-0 transition-transform">
+              <div className="text-center">
                 <h3 className="text-white mb-4 font-heading font-black text-[28px]">
                   Vuoi implementare strategie simili nel tuo team?
                 </h3>
@@ -320,21 +312,23 @@ export default function BlogArticleClient({
                   Offro sessioni di consulenza personalizzate per aiutarti a costruire processi di Product Management efficaci.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
-                    onClick={() => {
-                      router.push(`/${locale}#ask-me`);
-                    }}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyber-yellow text-brutalist-text-primary border-brutal-thick border-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-heading font-bold text-base"
+                  <Button
+                    onClick={() => router.push(`/${locale}#ask-me`)}
+                    variant="accent"
+                    size="lg"
+                    className="bg-cyber-yellow text-dark hover:bg-cyber-yellow/90"
                   >
                     Prenota una consulenza
                     <ArrowRight className="w-5 h-5" />
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={handleBackToBlog}
-                    className="inline-block px-8 py-4 bg-white text-brutalist-text-primary border-brutal-thick border-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-heading font-bold text-base"
+                    variant="outline"
+                    size="lg"
+                    className="bg-white"
                   >
                     Leggi altri articoli
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -344,33 +338,29 @@ export default function BlogArticleClient({
               <div className="mt-16">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-h3 text-brutalist-text-primary">📚 Continua a leggere</h3>
-                  <button
+                  <Button
                     onClick={handleBackToBlog}
-                    className="text-[#0D7EFF] hover:underline text-body-small transition-all font-heading font-semibold"
+                    variant="ghost"
+                    size="sm"
+                    className="text-electric-blue hover:underline"
                   >
                     Vedi tutti →
-                  </button>
+                  </Button>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {relatedPosts.map((related) => (
-                    <article
+                    <Card
                       key={related.slug}
                       onClick={() => router.push(`/${locale}/blog/${related.slug}`)}
-                      className="group bg-white border-brutal-thick border-black rounded-brutal shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all cursor-pointer"
+                      hoverable
+                      clickable
+                      className="group"
                     >
-                      <div className="p-6">
-                        <span
-                          className="inline-block px-3 py-1 mb-4 border-2 border-black rounded-brutal text-white"
-                          style={{
-                            backgroundColor: getCategoryColor(related.category),
-                            fontFamily: 'Space Mono, monospace',
-                            fontSize: '11px',
-                            fontWeight: 700,
-                          }}
-                        >
+                      <CardContent className="p-brutal-md">
+                        <Badge variant={getCategoryVariant(related.category)} size="sm" className="mb-4">
                           {related.category}
-                        </span>
-                        <h4 className="text-body mb-4 text-brutalist-text-primary group-hover:text-[#0D7EFF] transition-colors font-heading font-bold">
+                        </Badge>
+                        <h4 className="text-body mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors font-heading font-bold">
                           {related.title}
                         </h4>
                         <div className="flex items-center justify-between">
@@ -378,10 +368,10 @@ export default function BlogArticleClient({
                             <Clock className="w-4 h-4" />
                             {related.readingTime}
                           </span>
-                          <ChevronRight className="w-5 h-5 text-[#0D7EFF] group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
+                          <ChevronRight className="w-5 h-5 text-electric-blue group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
                         </div>
-                      </div>
-                    </article>
+                      </CardContent>
+                    </Card>
                   ))}
                 </div>
               </div>
@@ -393,15 +383,15 @@ export default function BlogArticleClient({
   );
 }
 
-// Helper function to get category color
-function getCategoryColor(category: string): string {
-  const colorMap: Record<string, string> = {
-    'Product': '#FF006E',    // Neon Pink
-    'Strategy': '#7209B7',   // Deep Purple
-    'OKRs': '#0D7EFF',       // Electric Blue
-    'Design': '#0D7EFF',     // Electric Blue
-    'Development': '#2A687A', // Teal
-    'Leadership': '#7209B7', // Deep Purple
+// Helper function to get category variant
+function getCategoryVariant(category: string): 'design' | 'dev' | 'pm' | 'tool' | 'featured' {
+  const variantMap: Record<string, 'design' | 'dev' | 'pm' | 'tool' | 'featured'> = {
+    'Product': 'tool',      // Neon Pink
+    'Strategy': 'pm',       // Deep Purple
+    'OKRs': 'design',       // Electric Blue
+    'Design': 'design',     // Electric Blue
+    'Development': 'dev',   // Teal
+    'Leadership': 'pm',     // Deep Purple
   };
-  return colorMap[category] || '#0D7EFF';
+  return variantMap[category] || 'design';
 }
