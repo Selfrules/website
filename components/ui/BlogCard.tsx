@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/Badge';
-import { Calendar, Clock } from 'lucide-react';
+import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -86,13 +86,21 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
     href,
     ...props
   }, ref) => {
-    // Mapping variant names to badge categories
+    // Mapping variant names to badge categories and colors
     const badgeLabels = {
       design: 'Design/UX',
       dev: 'Development',
       pm: 'Product',
       tool: 'Tools',
       featured: 'Featured',
+    };
+
+    const badgeColors = {
+      design: 'blue' as const,
+      dev: 'teal' as const,
+      pm: 'purple' as const,
+      tool: 'pink' as const,
+      featured: 'yellow' as const,
     };
 
     return (
@@ -115,13 +123,13 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         <div className="p-6 flex flex-col h-full">
           {/* Badge inline */}
           <div className="mb-4">
-            <Badge variant={variant} size="sm">
+            <NeoBadge color={badgeColors[variant]}>
               {badgeLabels[variant]}
-            </Badge>
+            </NeoBadge>
           </div>
 
           {/* Title - hover changes color as per prototype */}
-          <h3 className="text-body mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
+          <h3 className="text-body-xs mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
             {title}
           </h3>
 
@@ -135,19 +143,20 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           {/* Spacer to push metadata to bottom */}
           <div className="flex-1" />
 
-          {/* Metadata Footer - with border-top separator as per prototype */}
-          <div className="pt-brutal-sm border-t border-brutal-thin border-black">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3 text-body-small text-brutalist-text-tertiary">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4" />
-                  {date}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" />
-                  {readingTime} min
-                </span>
-              </div>
+          {/* Metadata Footer */}
+          <div className="pt-brutal-sm">
+            <div className="flex items-center gap-2 text-body-small text-brutalist-text-tertiary mb-3">
+              <Clock className="w-4 h-4" />
+              <span>{readingTime} min read</span>
+              <span>-</span>
+              <Calendar className="w-4 h-4" />
+              <span>{date}</span>
+            </div>
+
+            {/* CTA */}
+            <div className="flex items-center gap-2 text-body-small text-electric-blue font-heading font-bold group-hover:gap-3 transition-all">
+              <span>Leggi articolo</span>
+              <ArrowRight className="w-4 h-4" />
             </div>
           </div>
         </div>
