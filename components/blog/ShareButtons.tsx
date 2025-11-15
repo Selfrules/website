@@ -68,7 +68,7 @@ export default function ShareButtons({
       className={`flex items-center gap-3 ${className}`}
     >
       <span className="font-heading font-bold text-sm text-brutalist-text-light">
-        Share:
+        Condividi:
       </span>
 
       {/* Social Share Buttons */}

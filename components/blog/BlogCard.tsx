@@ -44,7 +44,7 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
                   {post.category}
                 </Badge>
                 <Badge variant="featured" size="sm">
-                  FEATURED
+                  DA NON PERDERE
                 </Badge>
               </div>
 
