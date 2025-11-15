@@ -183,7 +183,7 @@ Correggere inconsistenze visive e di contenuto nelle sezioni Homepage (Hero, Jou
 ### User Stories
 | ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
 |----|--------|----------|------------|----------|-------|
-| HF-001 | Fix hero button background color | 🟢 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-001 | Fix hero button background color | 🟢 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |
 | HF-002 | Update languages in Journey section | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
 | HF-003 | Fix project count consistency | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
 | HF-004 | Update Flowing employment dates | 🟠 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |

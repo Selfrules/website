@@ -6,9 +6,10 @@
 - **Priorità**: 🟢 Bassa
 - **Dimensione**: 🟢 S (1-2h)
 - **Execution Environment**: 🌐 Claude Code Web
-- **Stato**: 📋 Todo
+- **Stato**: ✅ Done
 - **Assegnata a**: Claude Code
 - **Data Creazione**: 2025-11-15
+- **Data Completamento**: 2025-11-15
 
 ---
 
@@ -113,3 +114,4 @@ Modificare lo stile del pulsante "come sono arrivato qui" affinché abbia:
 | Data | Modifiche | Stato |
 |------|-----------|-------|
 | 2025-11-15 | Story creata | Todo |
+| 2025-11-15 | Modificato Hero.tsx: aggiunto !bg-white per override CSS | Done |
