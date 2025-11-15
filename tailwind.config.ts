@@ -181,6 +181,7 @@ const config: Config = {
         'body-lg': ['1.125rem', { lineHeight: '1.6', fontWeight: '400' }], // 18px
         'body': ['1rem', { lineHeight: '1.6', fontWeight: '400' }], // 16px
         'body-sm': ['0.875rem', { lineHeight: '1.5', fontWeight: '400' }], // 14px
+        'body-xs': ['0.75rem', { lineHeight: '1.5', fontWeight: '400' }], // 12px
       },
       borderRadius: {
         'sm': '4px',

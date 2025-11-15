@@ -97,7 +97,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
 
     const badgeColors = {
       design: 'blue' as const,
-      dev: 'neutral' as const,
+      dev: 'teal' as const,
       pm: 'purple' as const,
       tool: 'pink' as const,
       featured: 'yellow' as const,
