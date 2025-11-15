@@ -78,7 +78,7 @@ Ottimizzare tutti i contenuti del sito per tone of voice, conversione, e complia
 | CC-002 | Allineamento versione EN con tone of voice | 🟠 | 🟡 M | 💻 Locale | 📋 Todo |
 | CC-003 | Aggiunta aneddoti esperienze | 🟡 | 🟢 S | 💻 Locale | 📋 Todo |
 | CC-004 | Verifica badge hero "PM • Designer • Dev" | 🟢 | 🟢 S | 💻 Locale | 📋 Todo |
-| CC-005 | Footer: sostituire "Mattia Cintura" con "MFDL" | 🟢 | 🟢 S | 🌐 Web | 📋 Todo |
+| CC-005 | Footer: sostituire "Mattia Cintura" con "MFDL" | 🟢 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |
 | CC-006 | Creare pagina Privacy Policy IT/EN | 🔴 | 🟡 M | 💻 Locale | 📋 Todo |
 | CC-007 | Creare pagina Termini di Servizio IT/EN | 🟠 | 🟡 M | 💻 Locale | 📋 Todo |
 
@@ -146,12 +146,15 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
 
 ---
 
-## EPIC-009: SEO Optimization per Search Engines & LLMs
+## EPIC-007: Security Vulnerabilities Audit & Remediation
 
-**Priorità**: 🔴 Alta | **Stima**: L (2-3 settimane) | **Ambiente**: 🌐 Web
+**Priorità**: 🔴 Critica | **Stima**: L (2-3 settimane) | **Ambiente**: 🌐 Web
 
 ### Obiettivo
-Implementare sistema SEO completamente automatizzato e scalabile per massimizzare discoverability su motori di ricerca tradizionali (Google, Bing) e LLM (ChatGPT, Perplexity, Claude, Gemini).
+Eliminare tutte le vulnerabilità di sicurezza identificate nell'audit prima del deployment in produzione. Implementare best practices OWASP Top 10 e garantire compliance GDPR.
+
+### Context
+Security audit ha identificato **31 vulnerabilità**: 4 Critical, 8 High, 16 Medium, 3 Low. Blocca il deployment in produzione fino al completamento delle Priority 0 stories.
 
 ### User Stories
 | ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
@@ -194,8 +197,21 @@ Implementare sistema SEO completamente automatizzato e scalabile per massimizzar
 
 ## Ordine Consigliato di Esecuzione
 
-### Phase 1: Foundations (Settimane 1-2)
-1. **EPIC-001** Design System (prerequisito per tutto)
+### Phase 0: 🚨 PRODUCTION BLOCKERS (Settimane 1-3) - DA COMPLETARE PRIMA DEL DEPLOYMENT
+1. **EPIC-007** Security Vulnerabilities (🔴 CRITICO - blocca produzione)
+   - Week 1 (P0 - Critical): SV-001, SV-002, SV-003, SV-004, SV-005
+   - Week 2 (P1 - High): SV-006, SV-007, SV-008, SV-009
+   - Week 3 (P2 - Medium): SV-010
+   - **Target**: 0 vulnerabilità critiche/alte prima del go-live
+
+### Phase 1: Foundations & Performance (Settimane 4-6)
+2. **EPIC-008** Performance Optimization (🔴 CRITICO per produzione)
+   - Week 4: PF-001, PF-004, PF-008 (Quick wins: +15-20 pts)
+   - Week 5: PF-002, PF-003 (Bundle & Images: +10-15 pts)
+   - Week 6: PF-006, PF-007, PF-005 (Core Web Vitals: +10-15 pts)
+   - **Target finale**: Lighthouse 90-95+
+
+3. **EPIC-001** Design System (prerequisito per UI consistency)
    - Iniziare con DS-001, DS-003 (Web)
    - Poi DS-002 (Locale per auto-catalogazione)
    - Poi DS-004, DS-005

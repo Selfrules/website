@@ -40,9 +40,9 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
       <article className="lg:col-span-3">
         <Link href={`/${locale}/blog/${post.slug}`}>
           <motion.div
-            whileHover={{ x: -4, y: -4 }}
+            whileHover={{ y: -8 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="bg-gradient-to-br from-electric-blue via-deep-purple to-neon-pink border-brutal shadow-brutal hover:shadow-brutal-hover rounded-brutal bg-white p-brutal-lg md:p-brutal-xl min-h-[300px] md:min-h-[350px] flex flex-col justify-between cursor-pointer relative overflow-hidden"
+            className="bg-gradient-to-br from-electric-blue via-deep-purple to-neon-pink border-brutal shadow-brutal hover:shadow-brutal-lg rounded-brutal-lg bg-white p-brutal-lg md:p-brutal-xl min-h-[300px] md:min-h-[350px] flex flex-col justify-between cursor-pointer relative overflow-hidden"
           >
             {/* Decorative Circle */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full" />
@@ -90,9 +90,9 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
   return (
     <Link href={`/${locale}/blog/${post.slug}`}>
       <motion.article
-        whileHover={{ x: -4, y: -4 }}
+        whileHover={{ y: -8 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="group bg-white border-brutal shadow-brutal hover:shadow-brutal-hover rounded-brutal cursor-pointer"
+        className="group bg-white border-brutal shadow-brutal hover:shadow-brutal-lg rounded-brutal-lg cursor-pointer"
       >
         <div className="p-brutal-md flex flex-col h-full">
           <div className="mb-auto">
