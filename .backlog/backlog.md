@@ -146,7 +146,7 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
 
 ---
 
-## EPIC-007: Production Performance Optimization
+## EPIC-008: Production Performance Optimization
 
 **Priorità**: 🔴 Alta | **Stima**: M (1-2 settimane) | **Ambiente**: 🌐 Web
 
@@ -165,7 +165,7 @@ Portare il sito a Lighthouse score 90-95+ ottimizzando font loading, bundle size
 | PF-007 | ISR & Caching Strategy | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
 | PF-008 | Next.js Build Configuration Optimization | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
 
-**Links**: [Epic](./epics/07-performance/epic.md) | [Stories](./epics/07-performance/stories/)
+**Links**: [Epic](./epics/08-performance/epic.md) | [Stories](./epics/08-performance/stories/)
 
 ---
 
@@ -187,14 +187,14 @@ Portare il sito a Lighthouse score 90-95+ ottimizzando font loading, bundle size
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 7 epiche, 41 user stories
+**Totale**: 8 epiche, 41 user stories
 
 ---
 
 ## Ordine Consigliato di Esecuzione
 
 ### Phase 1: Foundations & Performance (Settimane 1-3)
-1. **EPIC-007** Performance Optimization (🔴 CRITICO per produzione)
+1. **EPIC-008** Performance Optimization (🔴 CRITICO per produzione)
    - Week 1: PF-001, PF-004, PF-008 (Quick wins: +15-20 pts)
    - Week 2: PF-002, PF-003 (Bundle & Images: +10-15 pts)
    - Week 3: PF-006, PF-007, PF-005 (Core Web Vitals: +10-15 pts)

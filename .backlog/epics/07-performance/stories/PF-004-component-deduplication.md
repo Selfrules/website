@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Story ID**: PF-004
-- **Epic**: [EPIC-007](../epic.md)
+- **Epic**: [EPIC-008](../epic.md)
 - **Priorità**: 🔴 Critica | **Dimensione**: 🟢 S (1-2h)
 - **Execution Environment**: 🌐 Claude Code Web
 - **Stato**: 📋 Todo | **Data Completamento**: -

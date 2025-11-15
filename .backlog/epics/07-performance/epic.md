@@ -1,7 +1,7 @@
-# [EPIC-007] Production Performance Optimization
+# [EPIC-008] Production Performance Optimization
 
 ## Metadata
-- **Epic ID**: EPIC-007
+- **Epic ID**: EPIC-008
 - **Priorità**: 🔴 Alta
 - **Stato**: 📋 Not Started
 - **Execution Environment**: 🌐 Claude Code Web
