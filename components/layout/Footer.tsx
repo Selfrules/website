@@ -138,10 +138,10 @@ export function Footer({ locale }: FooterProps) {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:!text-teal transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
+                    className="text-white/80 hover:!text-neon-pink transition-colors text-sm md:text-base inline-flex items-center gap-2 group"
                   >
                     {link.name}
-                    <ExternalLink className="w-3 h-3 text-teal opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="w-3 h-3 text-neon-pink opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
               ))}

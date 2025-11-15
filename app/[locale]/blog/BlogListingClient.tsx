@@ -2,11 +2,12 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Search, X, Filter } from 'lucide-react';
+import { Search, X, Filter, ArrowLeft } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { Input } from '@/components/ui/Input';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 
@@ -16,6 +17,19 @@ interface BlogListingClientProps {
   tags: string[];
   locale: string;
 }
+
+// Helper function to map category to NeoBadge color
+const getCategoryColor = (category: string): 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal' => {
+  const categoryLower = category.toLowerCase();
+
+  if (categoryLower.includes('design') || categoryLower.includes('ux')) return 'blue';
+  if (categoryLower.includes('dev') || categoryLower.includes('sviluppo')) return 'teal';
+  if (categoryLower.includes('pm') || categoryLower.includes('product') || categoryLower.includes('strategy')) return 'purple';
+  if (categoryLower.includes('tool') || categoryLower.includes('analytic') || categoryLower.includes('strumenti')) return 'pink';
+  if (categoryLower.includes('featured') || categoryLower.includes('special')) return 'yellow';
+
+  return 'neutral';
+};
 
 export default function BlogListingClient({
   initialPosts,
@@ -108,11 +122,12 @@ export default function BlogListingClient({
           <div className="max-w-[800px]">
             <Button
               onClick={handleBackToHome}
-              variant="ghost"
-              size="sm"
-              className="mb-6 bg-white/20 backdrop-blur-sm text-white border-brutal border-white/40 hover:bg-white/30"
+              variant="outline"
+              size="md"
+              className="mb-6 bg-white text-brutalist-text-primary border-brutal border-black hover:-translate-y-1"
             >
-              ← Home
+              <ArrowLeft className="w-5 h-5" />
+              Home
             </Button>
 
             <h1 className="text-h1 md:text-[64px] text-white mb-6 font-heading">
@@ -164,21 +179,36 @@ export default function BlogListingClient({
             {allCategories.map((category) => {
               const isActive = selectedCategory === category;
 
+              // For "All" category, use neutral color
+              if (category === 'All') {
+                return (
+                  <NeoBadge
+                    key={category}
+                    color={isActive ? 'neutral' : 'neutral'}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`cursor-pointer transition-all ${
+                      isActive ? 'ring-4 ring-black/20' : 'opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    {category}
+                  </NeoBadge>
+                );
+              }
+
               return (
-                <Badge
+                <NeoBadge
                   key={category}
-                  variant={category !== 'All' && isActive ? getCategoryVariant(category) : 'outline'}
-                  size="sm"
+                  color={getCategoryColor(category)}
                   onClick={() => setSelectedCategory(category)}
-                  className="cursor-pointer hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+                  className={`cursor-pointer transition-all ${
+                    isActive ? 'ring-4 ring-black/20' : 'opacity-60 hover:opacity-100'
+                  }`}
                 >
                   {category}
-                  {category !== 'All' && (
-                    <span className="ml-2 opacity-70">
-                      ({initialPosts.filter(p => p.category === category).length})
-                    </span>
-                  )}
-                </Badge>
+                  <span className="ml-2 opacity-70">
+                    ({initialPosts.filter(p => p.category === category).length})
+                  </span>
+                </NeoBadge>
               );
             })}
           </div>
@@ -368,7 +398,7 @@ export default function BlogListingClient({
               onClick={handleContactClick}
               variant="primary"
               size="lg"
-              className="bg-dark hover:bg-dark/90"
+              className="bg-brutalist-text-primary text-white hover:bg-brutalist-text-primary/90"
             >
               Fammi una domanda
             </Button>
