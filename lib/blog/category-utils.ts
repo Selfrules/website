@@ -4,10 +4,12 @@
 
 export type CategoryVariant = 'design' | 'dev' | 'pm' | 'tool' | 'featured';
 
+export type KnownCategory = 'Product' | 'Strategy' | 'OKRs' | 'Design' | 'Development' | 'Leadership';
+
 /**
  * Maps blog post categories to badge/component variants
  */
-export const categoryToVariant: Record<string, CategoryVariant> = {
+export const categoryToVariant: Readonly<Record<KnownCategory, CategoryVariant>> = {
   'Product': 'tool',      // Neon Pink
   'Strategy': 'pm',       // Deep Purple
   'OKRs': 'design',       // Electric Blue
@@ -17,28 +19,49 @@ export const categoryToVariant: Record<string, CategoryVariant> = {
 };
 
 /**
- * Maps blog post categories to Tailwind color classes
- * Use this for components that need direct color classes (not Badge/Button variants)
+ * Maps blog post categories to background colors (hex values)
+ * Use this for inline styles when Tailwind classes don't work due to specificity
  */
-export const categoryToColorClass: Record<string, string> = {
-  'Product': 'bg-neon-pink text-white',
-  'Strategy': 'bg-deep-purple text-white',
-  'OKRs': 'bg-electric-blue text-white',
-  'Design': 'bg-electric-blue text-white',
-  'Development': 'bg-teal text-white',
-  'Leadership': 'bg-deep-purple text-white',
+export const categoryToBgColor: Readonly<Record<KnownCategory, string>> = {
+  'Product': '#FF006E',    // Neon Pink
+  'Strategy': '#7209B7',   // Deep Purple
+  'OKRs': '#0D7EFF',       // Electric Blue
+  'Design': '#0D7EFF',     // Electric Blue
+  'Development': '#2A687A', // Teal
+  'Leadership': '#7209B7', // Deep Purple
 };
 
 /**
  * Get badge variant for a given category
  */
 export function getCategoryVariant(category: string): CategoryVariant {
-  return categoryToVariant[category] || 'design';
+  const variant = categoryToVariant[category as KnownCategory];
+  if (!variant) {
+    console.warn(`Unknown category "${category}", defaulting to "design" variant`);
+  }
+  return variant || 'design';
 }
 
 /**
- * Get color class for a given category
+ * Get background color (hex) for a given category
+ * Useful for inline styles when CSS specificity is an issue
  */
-export function getCategoryColorClass(category: string): string {
-  return categoryToColorClass[category] || 'bg-electric-blue text-white';
+export function getCategoryBgColor(category: string): string {
+  const color = categoryToBgColor[category as KnownCategory];
+  if (!color) {
+    console.warn(`Unknown category "${category}", defaulting to Electric Blue`);
+  }
+  return color || '#0D7EFF';
 }
+
+/**
+ * Tag button colors from design system
+ */
+export const TAG_COLORS = {
+  active: '#2A687A',   // Teal
+  inactive: '#FFFFFF', // White
+  text: {
+    active: '#FFFFFF',   // White text on active
+    inactive: '#000000', // Black text on inactive
+  },
+} as const;

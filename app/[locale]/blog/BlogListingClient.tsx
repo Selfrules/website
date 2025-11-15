@@ -8,7 +8,7 @@ import BlogCard from '@/components/blog/BlogCard';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
-import { getCategoryColorClass } from '@/lib/blog/category-utils';
+import { getCategoryBgColor, getCategoryVariant, TAG_COLORS } from '@/lib/blog/category-utils';
 
 interface BlogListingClientProps {
   initialPosts: BlogPost[];
@@ -163,7 +163,6 @@ export default function BlogListingClient({
           <div className="flex flex-wrap gap-3">
             {allCategories.map((category) => {
               const isActive = selectedCategory === category;
-              const categoryColorClass = category !== 'All' ? getCategoryColorClass(category) : '';
 
               return (
                 <Button
@@ -171,7 +170,15 @@ export default function BlogListingClient({
                   onClick={() => setSelectedCategory(category)}
                   variant={isActive ? 'primary' : 'outline'}
                   size="sm"
-                  className={isActive && categoryColorClass ? categoryColorClass : ''}
+                  style={
+                    isActive && category !== 'All'
+                      ? {
+                          backgroundColor: getCategoryBgColor(category),
+                          color: 'white',
+                          borderColor: 'black',
+                        }
+                      : undefined
+                  }
                 >
                   {category}
                   {category !== 'All' && (
@@ -204,8 +211,8 @@ export default function BlogListingClient({
                     onClick={() => toggleTag(tag)}
                     className="inline-flex items-center justify-center gap-1 px-3 py-1 border-brutal border-black rounded-brutal-sm shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-body-sm font-heading font-bold uppercase tracking-wider whitespace-nowrap"
                     style={{
-                      backgroundColor: isActive ? '#2A687A' : 'white',
-                      color: isActive ? 'white' : 'black',
+                      backgroundColor: isActive ? TAG_COLORS.active : TAG_COLORS.inactive,
+                      color: isActive ? TAG_COLORS.text.active : TAG_COLORS.text.inactive,
                     }}
                     aria-pressed={isActive}
                     aria-label={`Filtra per tag ${tag}`}
@@ -236,7 +243,7 @@ export default function BlogListingClient({
             </div>
             <div className="flex flex-wrap gap-2">
               {selectedCategory !== 'All' && (
-                <Badge variant="design" size="sm">
+                <Badge variant={getCategoryVariant(selectedCategory)} size="sm">
                   Categoria: {selectedCategory}
                 </Badge>
               )}
@@ -251,8 +258,9 @@ export default function BlogListingClient({
                   <button
                     onClick={() => toggleTag(tag)}
                     className="ml-1 hover:opacity-70"
+                    aria-label={`Rimuovi filtro ${tag}`}
                   >
-                    <X className="w-3 h-3" />
+                    <X className="w-3 h-3" aria-hidden="true" />
                   </button>
                 </Badge>
               ))}
