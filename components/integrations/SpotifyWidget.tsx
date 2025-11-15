@@ -93,9 +93,15 @@ interface SpotifyNowPlayingProps {
 
 function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
   return (
-    <div className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
-      {/* Album Art Placeholder */}
-      <div className="w-16 h-16 rounded border-brutal-thin border-spotify flex-shrink-0 overflow-hidden">
+    <motion.a
+      href={track.spotifyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm hover:shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] transition-all group"
+      whileHover={{ scale: 1.01 }}
+    >
+      {/* Album Art */}
+      <div className="w-16 h-16 rounded border-brutal-thin border-spotify flex-shrink-0 overflow-hidden relative">
         <Image
           src={track.albumArt}
           alt={`${track.album} album cover`}
@@ -104,11 +110,15 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
           className="w-full h-full object-cover"
           loading="lazy"
         />
+        {/* Spotify Logo Overlay on Hover */}
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <ExternalLink className="w-6 h-6 text-white" />
+        </div>
       </div>
 
       {/* Track Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
+        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold group-hover:text-spotify transition-colors">
           {track.name}
         </p>
         <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
@@ -124,7 +134,7 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
           <div className="w-1 bg-spotify rounded-full animate-pulse" style={{ height: '16px', animationDelay: '0.4s' }} />
         </div>
       )}
-    </div>
+    </motion.a>
   );
 }
 

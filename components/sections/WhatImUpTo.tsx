@@ -3,7 +3,7 @@
 import { Briefcase, BookOpen, Music, TrendingUp } from 'lucide-react';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ActivityCard } from '@/components/ui/ActivityCard';
-import { SpotifyWidget } from '@/components/integrations/SpotifyWidget';
+import { SpotifyWidget, RecentPodcasts } from '@/components/integrations';
 
 interface WhatImUpToProps {
   locale: string;
@@ -152,7 +152,10 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
             color="yellow"
             className="md:col-span-2 lg:col-span-1"
           >
-            <SpotifyWidget />
+            <div className="space-y-6">
+              <SpotifyWidget />
+              <RecentPodcasts />
+            </div>
           </ActivityCard>
         </div>
       </div>
