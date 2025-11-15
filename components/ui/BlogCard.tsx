@@ -129,7 +129,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           </div>
 
           {/* Title - hover changes color as per prototype */}
-          <h3 className="text-body-xs mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
+          <h3 className="text-h4 mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
             {title}
           </h3>
 
