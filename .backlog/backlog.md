@@ -173,25 +173,51 @@ Security audit ha identificato **31 vulnerabilità**: 4 Critical, 8 High, 16 Med
 
 ---
 
+## EPIC-010: Homepage & Footer Fixes
+
+**Priorità**: 🔴 Alta | **Stima**: S (3-5 giorni) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Correggere inconsistenze visive e di contenuto nelle sezioni Homepage (Hero, Journey, Blog) e Footer, garantendo aderenza al design system neobrutalist e accuratezza informazioni professionali.
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| HF-001 | Fix hero button background color | 🟢 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-002 | Update languages in Journey section | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-003 | Fix project count consistency | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-004 | Update Flowing employment dates | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-005 | Add gradient to featured blog card | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-006 | Fix Card borders globally | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
+| HF-007 | Footer navigation titles yellow color | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-008 | Footer Italian flag emoji | 🟢 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-009 | Footer MFDL branding | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+
+**Totale**: 9 stories (8 Small, 1 Medium)
+
+**Links**: [Epic](./epics/10-homepage-footer-fixes/epic.md) | [Stories](./epics/10-homepage-footer-fixes/stories/)
+
+---
+
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 13 stories
-- 🟠 Alta: 15 stories
-- 🟡 Media: 11 stories
-- 🟢 Bassa: 3 stories
+- 🔴 Critica: 14 stories (+1)
+- 🟠 Alta: 18 stories (+3)
+- 🟡 Media: 14 stories (+3)
+- 🟢 Bassa: 5 stories (+2)
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 16 stories
-- 🟡 Medium (1-2 giorni): 20 stories
+- 🟢 Small (2-4h): 24 stories (+8)
+- 🟡 Medium (1-2 giorni): 21 stories (+1)
 - 🔴 Large (3-5 giorni): 6 stories
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 24 stories
+- 🌐 Claude Code Web: 33 stories (+9)
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 9 epiche, 42 user stories
+**Totale**: 10 epiche, 51 user stories
 
 ---
 
@@ -218,11 +244,14 @@ Security audit ha identificato **31 vulnerabilità**: 4 Critical, 8 High, 16 Med
 
 ### Phase 2: Quick Wins & SEO Foundations (Settimane 3-4)
 2. **EPIC-002** Google Calendar (critico per conversione)
-3. **EPIC-009** SEO Optimization - TIER 1 Critical (SEO-001, SEO-002, SEO-003)
+3. **EPIC-010** Homepage & Footer Fixes (🔴 ALTA priorità - design consistency)
+   - Week 3-4: HF-006 (Card borders - impatta design system), HF-002, HF-003, HF-004 (content accuracy)
+   - Week 4: HF-001, HF-005, HF-007, HF-008, HF-009 (visual polish)
+   - **Target**: Homepage e Footer visivamente consistenti e con informazioni accurate
+4. **EPIC-009** SEO Optimization - TIER 1 Critical (SEO-001, SEO-002, SEO-003)
    - Sitemap/robots.txt (SEO-001)
    - JSON-LD schemas (SEO-002)
    - hreflang fix (SEO-003)
-4. **CC-005** Footer update (veloce)
 
 ### Phase 3: Content & Copy (Settimane 5-6)
 5. **EPIC-009** SEO Optimization - TIER 2 High Impact (SEO-004, SEO-005, SEO-006)
