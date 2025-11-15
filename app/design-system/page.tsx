@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ExperienceCard } from '@/components/ui/ExperienceCard';
+import { ActivityCard } from '@/components/ui/ActivityCard';
+import { CollaborationCard } from '@/components/ui/CollaborationCard';
 import { DesignSystemNav } from '@/components/design-system/DesignSystemNav';
 import {
   Palette,
@@ -21,7 +23,12 @@ import {
   Star,
   Zap,
   Award,
-  Briefcase
+  Briefcase,
+  BookOpen,
+  TrendingUp,
+  Lightbulb,
+  Users,
+  GraduationCap
 } from 'lucide-react';
 
 export default function DesignSystemPage() {
@@ -166,6 +173,44 @@ export default function DesignSystemPage() {
                     <p className="text-xs text-brutalist-text-secondary">{color.use}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Colored Text Utilities */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Colored Text Utilities
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Use brand colors for text highlights and emphasis. Perfect for drawing attention to key words or phrases.
+              </p>
+              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
+                <div className="space-y-4">
+                  {brandColors.map((color) => (
+                    <div key={color.utility} className="flex items-center justify-between">
+                      <div>
+                        <code className="text-sm font-mono text-brutalist-text-primary">
+                          text-{color.utility}
+                        </code>
+                        <p className="text-xs text-brutalist-text-tertiary mt-1">
+                          {color.use}
+                        </p>
+                      </div>
+                      <p className={`text-h4 font-heading font-bold text-${color.utility}`}>
+                        The quick brown fox
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 p-4 bg-cream rounded-lg">
+                  <p className="text-body-small text-brutalist-text-secondary">
+                    <strong className="text-brutalist-text-primary">Example:</strong>{' '}
+                    Use <code className="text-xs bg-white px-2 py-1 rounded border border-black">text-electric-blue</code> for{' '}
+                    <span className="text-electric-blue font-bold">highlighted terms</span>, or{' '}
+                    <code className="text-xs bg-white px-2 py-1 rounded border border-black">text-neon-pink</code> for{' '}
+                    <span className="text-neon-pink font-bold">call-to-action phrases</span>.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -398,6 +443,114 @@ export default function DesignSystemPage() {
                 ]}
                 isCurrent={false}
               />
+            </div>
+
+            {/* Activity Card */}
+            <div className="mt-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Activity Card
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Showcase current activities, learning updates, or real-time status with colored icons, decorative blobs, and optional metrics.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <ActivityCard
+                  title="Current Work"
+                  icon={Briefcase}
+                  color="blue"
+                  metric={{ label: "+2 quick wins", icon: TrendingUp }}
+                >
+                  <p className="text-body-small text-brutalist-text-secondary">
+                    Product Manager @ <strong className="text-electric-blue">QubicaAMF</strong>
+                  </p>
+                  <p className="text-body-small text-brutalist-text-secondary">
+                    <strong className="text-electric-blue">Focus:</strong> Payment integrations and product vision
+                  </p>
+                  <div className="bg-white/50 border-l-4 border-electric-blue p-3 rounded">
+                    <p className="text-xs text-brutalist-text-secondary mb-2 font-heading font-semibold">
+                      Last week:
+                    </p>
+                    <ul className="text-body-small text-brutalist-text-secondary space-y-1">
+                      <li>• 6 hours of user interviews</li>
+                      <li>• 3 critical insights</li>
+                      <li>• 2 quick wins shipped</li>
+                    </ul>
+                  </div>
+                </ActivityCard>
+
+                <ActivityCard
+                  title="Learning in Public"
+                  icon={BookOpen}
+                  color="pink"
+                >
+                  <p className="text-body-small text-brutalist-text-secondary">
+                    This week: <strong className="text-neon-pink">AI workflow optimization</strong>
+                  </p>
+                  <p className="text-body-small text-brutalist-text-secondary">
+                    <strong className="text-neon-pink">The trick?</strong> Knowing what to delegate and what to keep.
+                  </p>
+                  <div className="bg-white/50 border-l-4 border-neon-pink p-3 rounded">
+                    <ul className="text-body-small text-brutalist-text-secondary space-y-2">
+                      <li className="flex gap-2">
+                        <span className="text-neon-pink">→</span>
+                        <span><strong>Claude</strong> writes PRD drafts</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <span className="text-neon-pink">→</span>
+                        <span><strong>I</strong> add human context</span>
+                      </li>
+                    </ul>
+                  </div>
+                </ActivityCard>
+              </div>
+            </div>
+
+            {/* Collaboration Card */}
+            <div className="mt-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Collaboration Card
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Display service offerings or collaboration modes with numbered cards, icons, and feature lists.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <CollaborationCard
+                  number="01"
+                  title="Consulting"
+                  description="Strategic guidance for your product challenges"
+                  features={[
+                    "Product strategy sessions",
+                    "User research analysis",
+                    "Roadmap planning"
+                  ]}
+                  icon={Lightbulb}
+                  color="blue"
+                />
+                <CollaborationCard
+                  number="02"
+                  title="Brainstorming"
+                  description="Collaborative ideation and problem-solving"
+                  features={[
+                    "Feature ideation workshops",
+                    "User journey mapping",
+                    "Solution validation"
+                  ]}
+                  icon={Users}
+                  color="pink"
+                />
+                <CollaborationCard
+                  number="03"
+                  title="Mentorship"
+                  description="1-on-1 coaching for product managers"
+                  features={[
+                    "Career development guidance",
+                    "Portfolio reviews",
+                    "Interview preparation"
+                  ]}
+                  icon={GraduationCap}
+                  color="purple"
+                />
+              </div>
             </div>
           </section>
 
@@ -651,6 +804,102 @@ export default function DesignSystemPage() {
                     "Improved code coverage from 40% to 85%"
                   ]}
                   skills={["React", "Node.js", "TypeScript", "PostgreSQL"]}
+                />
+              </div>
+            </div>
+
+            {/* Activity Dashboard Pattern */}
+            <div className="mt-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Activity Dashboard Pattern
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Combine ActivityCard components to create "What I'm Up To" sections or real-time activity dashboards.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ActivityCard
+                  title="Current Work"
+                  icon={Briefcase}
+                  color="blue"
+                  metric={{ label: "+12% faster", icon: TrendingUp }}
+                >
+                  <p className="text-body-small text-brutalist-text-secondary mb-2">
+                    Optimizing payment flows @ <strong className="text-electric-blue">Company</strong>
+                  </p>
+                  <p className="text-body-small text-brutalist-text-secondary italic">
+                    Making payments 12% faster through user research.
+                  </p>
+                </ActivityCard>
+
+                <ActivityCard
+                  title="Learning"
+                  icon={BookOpen}
+                  color="pink"
+                >
+                  <p className="text-body-small text-brutalist-text-secondary mb-2">
+                    This week: <strong className="text-neon-pink">AI workflows</strong>
+                  </p>
+                  <p className="text-body-small text-brutalist-text-secondary">
+                    Experimenting with Claude for PRD drafts and Figma for rapid prototyping.
+                  </p>
+                </ActivityCard>
+
+                <ActivityCard
+                  title="Side Project"
+                  icon={Zap}
+                  color="yellow"
+                >
+                  <p className="text-body-small text-brutalist-text-secondary">
+                    Building a <strong className="text-cyber-yellow">design system</strong> for personal portfolio
+                  </p>
+                </ActivityCard>
+              </div>
+            </div>
+
+            {/* Collaboration Grid Pattern */}
+            <div className="mt-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Collaboration Grid Pattern
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Use CollaborationCard components to showcase service offerings, pricing tiers, or ways to work together.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <CollaborationCard
+                  number="01"
+                  title="Quick Call"
+                  description="30-minute focused session"
+                  features={[
+                    "Quick problem-solving",
+                    "Expert second opinion",
+                    "Actionable next steps"
+                  ]}
+                  icon={Lightbulb}
+                  color="blue"
+                />
+                <CollaborationCard
+                  number="02"
+                  title="Deep Dive"
+                  description="2-hour comprehensive workshop"
+                  features={[
+                    "In-depth analysis",
+                    "Strategy development",
+                    "Implementation roadmap"
+                  ]}
+                  icon={Users}
+                  color="pink"
+                />
+                <CollaborationCard
+                  number="03"
+                  title="Ongoing Partnership"
+                  description="Monthly retainer for continuous support"
+                  features={[
+                    "Regular check-ins",
+                    "Priority support",
+                    "Long-term planning"
+                  ]}
+                  icon={GraduationCap}
+                  color="purple"
                 />
               </div>
             </div>
