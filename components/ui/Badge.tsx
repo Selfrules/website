@@ -14,7 +14,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
 
     const baseStyles = cn(
       'inline-flex items-center justify-center gap-1',
-      !isSemanticVariant && 'font-heading font-bold text-sentence-case',
+      !isSemanticVariant && 'font-heading font-bold uppercase tracking-wider',
       'border-brutal border-brutalist-border rounded-brutal-sm',
       'whitespace-nowrap'
     );

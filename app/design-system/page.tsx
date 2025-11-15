@@ -318,6 +318,10 @@ export default function DesignSystemPage() {
               <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
                 Buttons
               </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                All buttons use <code className="text-xs bg-cream px-2 py-1 rounded border border-black">font-heading</code> (Space Grotesk) with uppercase and wider tracking, matching NeoBadge style.
+                Text colors: Primary/Secondary use white text, Accent uses black text (for yellow background readability).
+              </p>
               <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
                 <div className="space-y-6">
                   <div>
@@ -365,6 +369,9 @@ export default function DesignSystemPage() {
               <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
                 Badges
               </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                All badges use <code className="text-xs bg-cream px-2 py-1 rounded border border-black">font-heading</code> (Space Grotesk) with uppercase and tracking-wider, following the NeoBadge design pattern.
+              </p>
               <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
                 <div className="space-y-6">
                   <div>
