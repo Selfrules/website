@@ -9,11 +9,11 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   variant?: 'design' | 'dev' | 'pm' | 'tool' | 'featured';
   /**
-   * Blog post title (displayed in uppercase)
+   * Blog post title
    */
   title: string;
   /**
-   * Optional description (will be truncated with ellipsis)
+   * Optional description (truncated with line-clamp-3)
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   onClick?: () => void;
   /**
-   * Optional href for the CTA button
+   * Optional href for navigation (currently unused but kept for future use)
    */
   href?: string;
 }
