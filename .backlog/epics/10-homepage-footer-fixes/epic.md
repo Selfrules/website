@@ -61,7 +61,7 @@ Correggere tutte le inconsistenze visive e di contenuto nelle sezioni Homepage e
 - [ ] **HF-004** Update Flowing employment dates (🟢 S) - [Link](./stories/HF-004-flowing-dates.md)
 - [ ] **HF-005** Add gradient to featured blog card (🟢 S) - [Link](./stories/HF-005-featured-blog-gradient.md)
 - [ ] **HF-006** Fix Card borders globally (🟡 M) - [Link](./stories/HF-006-card-borders.md)
-- [ ] **HF-007** Footer navigation titles yellow color (🟢 S) - [Link](./stories/HF-007-footer-titles-yellow.md)
+- [x] **HF-007** Footer navigation titles yellow color (🟢 S) - [Link](./stories/HF-007-footer-titles-yellow.md) ✅ Done (2025-11-15)
 - [ ] **HF-008** Footer Italian flag emoji (🟢 S) - [Link](./stories/HF-008-footer-flag-emoji.md)
 - [ ] **HF-009** Footer MFDL branding (🟢 S) - [Link](./stories/HF-009-footer-mfdl.md)
 

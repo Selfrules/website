@@ -6,9 +6,10 @@
 - **Priorità**: 🟡 Media
 - **Dimensione**: 🟢 S (30min - 1h)
 - **Execution Environment**: 🌐 Claude Code Web
-- **Stato**: 📋 Todo
+- **Stato**: ✅ Done
 - **Assegnata a**: Claude Code
 - **Data Creazione**: 2025-11-15
+- **Data Completamento**: 2025-11-15 (Already completed in commit f9dcfa7)
 
 ---
 
@@ -143,3 +144,4 @@ grep -r "Risorse" app/ components/
 | Data | Modifiche | Stato |
 |------|-----------|-------|
 | 2025-11-15 | Story creata | Todo |
+| 2025-11-15 | Story verified as already completed in commit f9dcfa7 - Footer titles already using text-cyber-yellow | Done |
