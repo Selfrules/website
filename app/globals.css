@@ -375,6 +375,61 @@
   font-weight: 700;
 }
 
+/* Button variants - typography and colors with proper contrast */
+/* These classes override the global font-heading/font-bold black text rule */
+.button-primary {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #0D7EFF;
+  color: white !important;
+}
+
+.button-secondary {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #FF006E;
+  color: white !important;
+}
+
+.button-accent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #FFD60A;
+  color: #0A0A0A !important;
+}
+
+.button-outline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: transparent;
+  color: #0A0A0A !important;
+}
+
+.dark .button-outline {
+  color: #FAFAFA !important;
+}
+
+.button-ghost {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: transparent;
+  color: #0A0A0A !important;
+}
+
+.dark .button-ghost {
+  color: #FAFAFA !important;
+}
+
 
 /* Animations */
 @keyframes pulse-spotify {
