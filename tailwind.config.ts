@@ -340,6 +340,14 @@ const config: Config = {
       };
       addUtilities(dynamicColorUtilities);
     },
+    // Animation Delay Utilities
+    function ({ addUtilities }: { addUtilities: (utilities: Record<string, unknown>) => void }) {
+      const animationDelayUtilities = {
+        '.delay-500': { animationDelay: '0.5s' },
+        '.delay-1000': { animationDelay: '1s' },
+      };
+      addUtilities(animationDelayUtilities);
+    },
   ],
 };
 
