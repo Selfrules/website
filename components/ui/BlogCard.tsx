@@ -1,7 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
 import { Calendar, Clock } from 'lucide-react';
 
 export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,11 +9,11 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   variant?: 'design' | 'dev' | 'pm' | 'tool' | 'featured';
   /**
-   * Blog post title (displayed in uppercase)
+   * Blog post title
    */
   title: string;
   /**
-   * Optional description (will be truncated with ellipsis)
+   * Optional description (truncated with line-clamp-3)
    */
   description?: string;
   /**
@@ -30,7 +29,7 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   onClick?: () => void;
   /**
-   * Optional href for the CTA button
+   * Optional href for navigation (currently unused but kept for future use)
    */
   href?: string;
 }
@@ -42,11 +41,16 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @category Blog
  *
  * @description
- * Neobrutalist blog card with two layout variants:
- * - With description: Shows truncated preview text
- * - Without description: More compact, focus on title and metadata
+ * Neobrutalist blog card following the Designprototipo pattern with two layout variants:
+ * - With description: Shows truncated preview text (line-clamp-3)
+ * - Without description: Compact layout, focus on title and metadata
  *
- * Both variants maintain the same fixed height for consistent grid layouts.
+ * Pattern specifications (from prototype):
+ * - White background (bg-white) with 4px black border
+ * - Vertical hover animation (lifts up 8px)
+ * - Title changes color to Electric Blue on hover
+ * - Metadata footer separated by top border
+ * - Badge inline with content (not in separate container)
  *
  * @example
  * ```tsx
@@ -60,7 +64,7 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
  *   href="/blog/art-of-saying-no"
  * />
  *
- * // Without description
+ * // Without description (compact)
  * <BlogCard
  *   variant="dev"
  *   title="Quick wins: 3 micro-optimizations"
@@ -95,15 +99,11 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
       <div
         ref={ref}
         className={cn(
-          // Base brutalist styles
-          'bg-cream border-brutal border-black rounded-brutal shadow-brutal',
+          // Base brutalist styles - WHITE BACKGROUND as per prototype
+          'group bg-white border-brutal border-black rounded-brutal-lg shadow-brutal',
           'transition-all duration-200 ease-brutal',
-          // Fixed height for both variants
-          'h-[400px]',
-          // Flex layout for content distribution
-          'flex flex-col',
-          // Hover effects
-          'hover:shadow-brutal-hover hover:translate-x-[-4px] hover:translate-y-[-4px]',
+          // Hover effects - VERTICAL ONLY as per prototype
+          'hover:shadow-brutal-lg hover:-translate-y-2',
           // Clickable cursor
           (onClick || href) && 'cursor-pointer',
           className
@@ -111,17 +111,17 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         onClick={onClick}
         {...props}
       >
-        {/* Badge */}
-        <div className="p-6 pb-4">
-          <Badge variant={variant} size="md">
-            {badgeLabels[variant]}
-          </Badge>
-        </div>
+        {/* Content Area - p-6 as per prototype */}
+        <div className="p-6 flex flex-col h-full">
+          {/* Badge inline */}
+          <div className="mb-4">
+            <Badge variant={variant} size="sm">
+              {badgeLabels[variant]}
+            </Badge>
+          </div>
 
-        {/* Content Area - Flexible */}
-        <div className="px-6 flex-1 flex flex-col">
-          {/* Title */}
-          <h3 className="text-h3 font-heading font-black text-brutalist-text-primary uppercase mb-4 leading-tight">
+          {/* Title - hover changes color as per prototype */}
+          <h3 className="text-body mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
             {title}
           </h3>
 
@@ -132,37 +132,24 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
             </p>
           )}
 
-          {/* Spacer to push metadata and CTA to bottom */}
+          {/* Spacer to push metadata to bottom */}
           <div className="flex-1" />
 
-          {/* Metadata */}
-          <div className="flex items-center gap-4 text-brutalist-text-tertiary mb-4">
-            <div className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4" />
-              <span className="text-body-xs font-mono">{date}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4" />
-              <span className="text-body-xs font-mono">{readingTime} min</span>
+          {/* Metadata Footer - with border-top separator as per prototype */}
+          <div className="pt-brutal-sm border-t border-brutal-thin border-black">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3 text-body-small text-brutalist-text-tertiary">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4" />
+                  {date}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-4 h-4" />
+                  {readingTime} min
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* CTA Button */}
-        <div className="p-6 pt-0">
-          <Button
-            variant="outline"
-            size="sm"
-            className="w-full uppercase"
-            onClick={(e) => {
-              e.stopPropagation();
-              if (href) {
-                window.location.href = href;
-              }
-            }}
-          >
-            Leggi l'articolo
-          </Button>
         </div>
       </div>
     );
