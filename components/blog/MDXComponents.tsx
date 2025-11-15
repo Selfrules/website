@@ -104,7 +104,7 @@ export const MDXComponents = {
   ),
   li: (props: React.HTMLAttributes<HTMLLIElement>) => (
     <li
-      className="flex gap-3 text-body text-brutalist-text-light dark:text-brutalist-text-dark before:content-['’'] before:text-primary before:font-bold before:flex-shrink-0"
+      className="flex gap-3 text-body text-brutalist-text-light dark:text-brutalist-text-dark before:content-['ï¿½'] before:text-primary before:font-bold before:flex-shrink-0"
       {...props}
     />
   ),
@@ -135,7 +135,7 @@ export const MDXComponents = {
   // Pre (code blocks)
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
     <pre
-      className="my-6 p-4 bg-gray-900 border-4 border-black rounded-brutal shadow-brutal overflow-x-auto"
+      className="my-6 p-4 bg-surface-dark border-4 border-black rounded-brutal shadow-brutal overflow-x-auto"
       {...props}
     />
   ),
@@ -171,7 +171,7 @@ export const MDXComponents = {
     <thead className="bg-primary" {...props} />
   ),
   tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <tbody className="bg-white dark:bg-gray-900" {...props} />
+    <tbody className="bg-white dark:bg-surface-dark" {...props} />
   ),
   tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr className="border-b-2 border-black" {...props} />

@@ -52,7 +52,7 @@ export default function BlogSearch({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          className="w-full pl-12 pr-12 py-3 bg-white dark:bg-gray-900 border-4 border-black rounded-brutal shadow-brutal text-brutalist-text-light dark:text-brutalist-text-dark placeholder:text-brutalist-text-light/40 dark:placeholder:text-brutalist-text-dark/40 font-body text-body focus:outline-none transition-all"
+          className="w-full pl-12 pr-12 py-3 bg-white dark:bg-surface-dark border-4 border-black rounded-brutal shadow-brutal text-brutalist-text-light dark:text-brutalist-text-dark placeholder:text-brutalist-text-light/40 dark:placeholder:text-brutalist-text-dark/40 font-body text-body focus:outline-none transition-all"
           aria-label="Search blog posts"
         />
 
@@ -64,7 +64,7 @@ export default function BlogSearch({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={handleClear}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-1 bg-gray-200 dark:bg-gray-800 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-1 bg-gray-200 dark:bg-surface-dark rounded-full hover:bg-gray-300 dark:hover:bg-surface-dark/80 transition-colors"
               aria-label="Clear search"
             >
               <X className="w-4 h-4 text-brutalist-text-light dark:text-brutalist-text-dark" />
