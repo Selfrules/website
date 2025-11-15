@@ -7,8 +7,8 @@ export default function BlogLoading() {
       <div className="brutal-container">
         {/* Header Skeleton */}
         <div className="mb-12 space-y-4 animate-pulse">
-          <div className="h-12 w-48 bg-gray-200 dark:bg-gray-700 rounded-brutal" />
-          <div className="h-6 w-96 bg-gray-200 dark:bg-gray-700 rounded-brutal" />
+          <div className="h-12 w-48 bg-gray-200 rounded-brutal" />
+          <div className="h-6 w-96 bg-gray-200 rounded-brutal" />
         </div>
 
         {/* Blog Grid Skeleton */}
@@ -16,14 +16,14 @@ export default function BlogLoading() {
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <Card key={i} className="animate-pulse">
               <CardHeader>
-                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-brutal mb-2" />
-                <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-700 rounded-brutal" />
+                <div className="h-6 bg-gray-200 rounded-brutal mb-2" />
+                <div className="h-4 w-3/4 bg-gray-200 rounded-brutal" />
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-brutal" />
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-brutal" />
-                  <div className="h-4 w-2/3 bg-gray-200 dark:bg-gray-700 rounded-brutal" />
+                  <div className="h-4 bg-gray-200 rounded-brutal" />
+                  <div className="h-4 bg-gray-200 rounded-brutal" />
+                  <div className="h-4 w-2/3 bg-gray-200 rounded-brutal" />
                 </div>
               </CardContent>
             </Card>

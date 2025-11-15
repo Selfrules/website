@@ -45,7 +45,7 @@ export default function BlogFilters({
     >
       {/* Category Filters */}
       <div className="space-y-3">
-        <h3 className="font-heading font-bold text-lg text-brutalist-text-light dark:text-brutalist-text-dark">
+        <h3 className="font-heading font-bold text-lg text-brutalist-text-light">
           Categories
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -54,7 +54,7 @@ export default function BlogFilters({
             className={`px-4 py-2 border-4 border-black rounded-brutal font-heading font-bold text-sm transition-all ${
               selectedCategory === null
                 ? 'bg-primary text-black shadow-brutal'
-                : 'bg-white dark:bg-surface-dark text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-sm'
+                : 'bg-white text-brutalist-text-light hover:shadow-brutal-sm'
             }`}
           >
             All
@@ -66,7 +66,7 @@ export default function BlogFilters({
               className={`px-4 py-2 border-4 border-black rounded-brutal font-heading font-bold text-sm transition-all ${
                 selectedCategory === category
                   ? 'bg-primary text-black shadow-brutal'
-                  : 'bg-white dark:bg-surface-dark text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-sm'
+                  : 'bg-white text-brutalist-text-light hover:shadow-brutal-sm'
               }`}
             >
               {category}
@@ -77,7 +77,7 @@ export default function BlogFilters({
 
       {/* Tag Filters */}
       <div className="space-y-3">
-        <h3 className="font-heading font-bold text-lg text-brutalist-text-light dark:text-brutalist-text-dark">
+        <h3 className="font-heading font-bold text-lg text-brutalist-text-light">
           Tags
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -90,7 +90,7 @@ export default function BlogFilters({
                 className={`px-3 py-1 border-2 border-black rounded-brutal-sm font-mono text-xs transition-all ${
                   isSelected
                     ? 'bg-secondary text-white shadow-brutal-sm'
-                    : 'bg-white dark:bg-surface-dark text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-xs'
+                    : 'bg-white text-brutalist-text-light hover:shadow-brutal-xs'
                 }`}
               >
                 #{tag}
@@ -109,7 +109,7 @@ export default function BlogFilters({
           className="space-y-3 pt-3 border-t-4 border-black"
         >
           <div className="flex items-center justify-between">
-            <h4 className="font-heading font-bold text-sm text-brutalist-text-light dark:text-brutalist-text-dark">
+            <h4 className="font-heading font-bold text-sm text-brutalist-text-light">
               Active filters
             </h4>
             <button

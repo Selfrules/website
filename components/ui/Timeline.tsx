@@ -25,7 +25,7 @@ interface TimelineItemProps {
 }
 
 const variantColors = {
-  default: 'bg-brutalist-text-light dark:bg-brutalist-text-dark',
+  default: 'bg-brutalist-text-light',
   primary: 'bg-primary',
   secondary: 'bg-secondary',
   accent: 'bg-accent',
@@ -117,7 +117,7 @@ export function TimelineItem({
       >
         <div
           className={cn(
-            'flex items-center justify-center rounded-full border-4 bg-white dark:bg-brutalist-surface-dark transition-all',
+            'flex items-center justify-center rounded-full border-4 bg-white transition-all',
             active ? 'w-12 h-12' : 'w-10 h-10',
             active ? variantBorders[variant] : 'border-brutalist-border',
             active && 'shadow-brutal'
@@ -148,7 +148,7 @@ export function TimelineItem({
           <>
             {/* Date positioned above card on mobile, inline on desktop */}
             {date && (
-              <span className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 font-mono mb-2 block md:mb-3">
+              <span className="text-sm text-brutalist-text-light/60 font-mono mb-2 block md:mb-3">
                 {date}
               </span>
             )}
@@ -156,7 +156,7 @@ export function TimelineItem({
             {/* Card content - wider on desktop with left alignment */}
             <div
               className={cn(
-                'p-6 bg-white dark:bg-brutalist-surface-dark rounded-brutal border-brutal shadow-brutal',
+                'p-6 bg-white rounded-brutal border-brutal shadow-brutal',
                 'w-full md:max-w-3xl', // Wider cards on desktop
                 active ? variantBorders[variant] : 'border-brutalist-border',
                 'hover:shadow-brutal-hover hover:-translate-y-1 transition-all'
@@ -168,7 +168,7 @@ export function TimelineItem({
                 </h3>
               )}
               {description && (
-                <p className="text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 mb-4">
+                <p className="text-brutalist-text-light/80 mb-4">
                   {description}
                 </p>
               )}
@@ -179,13 +179,13 @@ export function TimelineItem({
           /* Horizontal layout */
           <>
             {date && (
-              <span className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 font-mono mb-2">
+              <span className="text-sm text-brutalist-text-light/60 font-mono mb-2">
                 {date}
               </span>
             )}
             <div
               className={cn(
-                'p-4 bg-white dark:bg-brutalist-surface-dark rounded-brutal border-brutal shadow-brutal',
+                'p-4 bg-white rounded-brutal border-brutal shadow-brutal',
                 active ? variantBorders[variant] : 'border-brutalist-border',
                 'hover:shadow-brutal-hover hover:-translate-y-1 transition-all'
               )}
@@ -196,7 +196,7 @@ export function TimelineItem({
                 </h3>
               )}
               {description && (
-                <p className="text-sm text-brutalist-text-light/80 dark:text-brutalist-text-dark/80 mb-2">
+                <p className="text-sm text-brutalist-text-light/80 mb-2">
                   {description}
                 </p>
               )}

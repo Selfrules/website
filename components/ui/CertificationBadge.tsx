@@ -37,7 +37,7 @@ export default function CertificationBadge({
     <button
       onClick={onClick}
       className={cn(
-        'group relative w-full h-48 p-4 bg-white dark:bg-brutalist-surface-dark',
+        'group relative w-full h-48 p-4 bg-white',
         'border-4 border-black rounded-lg shadow-brutal',
         'hover:shadow-brutal-hover hover:-translate-y-1',
         'transition-all duration-300 cursor-pointer',
@@ -59,12 +59,12 @@ export default function CertificationBadge({
       </div>
 
       {/* Tagline - compact */}
-      <p className="text-xs text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-auto line-clamp-2">
+      <p className="text-xs text-brutalist-text-light/70 mb-auto line-clamp-2">
         {certification.tagline}
       </p>
 
       {/* Issuer and date - bottom aligned */}
-      <div className="flex items-center justify-between text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 pt-2 border-t-2 border-brutalist-border mt-auto">
+      <div className="flex items-center justify-between text-xs text-brutalist-text-light/60 pt-2 border-t-2 border-brutalist-border mt-auto">
         <span className="font-bold truncate">{certification.issuer}</span>
         <span className="flex-shrink-0 ml-2">{certification.date}</span>
       </div>

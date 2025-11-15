@@ -29,13 +29,13 @@ export default function BlogPostError({
             <h2 className="text-3xl font-bold mb-3">
               {isNotFound ? 'Articolo non trovato' : 'Errore nel caricamento'}
             </h2>
-            <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-4">
+            <p className="text-lg text-brutalist-text-light/70 mb-4">
               {isNotFound
                 ? "L'articolo che stai cercando non esiste o è stato rimosso."
                 : error.message || 'Si è verificato un problema nel caricamento dell\'articolo'}
             </p>
             {error.digest && (
-              <p className="text-sm text-brutalist-text-light/50 dark:text-brutalist-text-dark/50 font-mono">
+              <p className="text-sm text-brutalist-text-light/50 font-mono">
                 Error ID: {error.digest}
               </p>
             )}

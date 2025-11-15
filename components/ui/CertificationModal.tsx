@@ -43,12 +43,12 @@ export default function CertificationModal({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-brutalist-surface-dark border-brutal-thick border-black rounded-brutal shadow-brutal-hover"
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white border-brutal-thick border-black rounded-brutal shadow-brutal-hover"
             >
               {/* Close button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 p-2 hover:bg-brutalist-text-light/10 dark:hover:bg-brutalist-text-dark/10 rounded-brutal transition-colors"
+                className="absolute top-4 right-4 p-2 hover:bg-brutalist-text-light/10 rounded-brutal transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-6 h-6" />
@@ -66,7 +66,7 @@ export default function CertificationModal({
                     <h2 className="text-3xl font-heading font-black mb-2">
                       {certification.title}
                     </h2>
-                    <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+                    <p className="text-lg text-brutalist-text-light/70">
                       {certification.tagline}
                     </p>
                   </div>
@@ -75,10 +75,10 @@ export default function CertificationModal({
                 {/* Details grid */}
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
                   {/* Issuer */}
-                  <div className="p-4 bg-brutalist-text-light/5 dark:bg-brutalist-text-dark/5 rounded-brutal border-2 border-brutalist-border">
+                  <div className="p-4 bg-brutalist-text-light/5 rounded-brutal border-2 border-brutalist-border">
                     <div className="flex items-center gap-2 mb-2">
                       <Building className="w-4 h-4 text-primary" />
-                      <span className="text-xs font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                      <span className="text-xs font-bold text-brutalist-text-light/60">
                         Issuer
                       </span>
                     </div>
@@ -86,10 +86,10 @@ export default function CertificationModal({
                   </div>
 
                   {/* Date */}
-                  <div className="p-4 bg-brutalist-text-light/5 dark:bg-brutalist-text-dark/5 rounded-brutal border-2 border-brutalist-border">
+                  <div className="p-4 bg-brutalist-text-light/5 rounded-brutal border-2 border-brutalist-border">
                     <div className="flex items-center gap-2 mb-2">
                       <Calendar className="w-4 h-4 text-primary" />
-                      <span className="text-xs font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                      <span className="text-xs font-bold text-brutalist-text-light/60">
                         Issued
                       </span>
                     </div>
@@ -98,10 +98,10 @@ export default function CertificationModal({
 
                   {/* Credential ID (if available) */}
                   {certification.credentialId && (
-                    <div className="md:col-span-2 p-4 bg-brutalist-text-light/5 dark:bg-brutalist-text-dark/5 rounded-brutal border-2 border-brutalist-border">
+                    <div className="md:col-span-2 p-4 bg-brutalist-text-light/5 rounded-brutal border-2 border-brutalist-border">
                       <div className="flex items-center gap-2 mb-2">
                         <FileText className="w-4 h-4 text-primary" />
-                        <span className="text-xs font-bold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                        <span className="text-xs font-bold text-brutalist-text-light/60">
                           Credential ID
                         </span>
                       </div>
@@ -115,8 +115,8 @@ export default function CertificationModal({
                 {/* Certificate image placeholder */}
                 <div className="mb-6 aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 rounded-brutal border-4 border-brutalist-border flex items-center justify-center">
                   <div className="text-center p-8">
-                    <Award className="w-16 h-16 text-brutalist-text-light/20 dark:text-brutalist-text-dark/20 mx-auto mb-4" />
-                    <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                    <Award className="w-16 h-16 text-brutalist-text-light/20 mx-auto mb-4" />
+                    <p className="text-sm text-brutalist-text-light/60">
                       Certificate image placeholder
                     </p>
                   </div>

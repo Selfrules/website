@@ -19,7 +19,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
     };
 
     const variantStyles = {
-      default: 'bg-brutalist-bg-light dark:bg-brutalist-bg-dark',
+      default: 'bg-brutalist-bg-light',
       primary: 'bg-primary text-brutalist-text-light',
       secondary: 'bg-secondary text-white',
       accent: 'bg-accent text-white',
@@ -74,7 +74,7 @@ const SectionDescription = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-lg md:text-body-xl max-w-3xl mx-auto',
-      'text-brutalist-text-light/80 dark:text-brutalist-text-dark/80',
+      'text-brutalist-text-light/80',
       className
     )}
     {...props}

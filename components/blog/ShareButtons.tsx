@@ -67,7 +67,7 @@ export default function ShareButtons({
       animate="visible"
       className={`flex items-center gap-3 ${className}`}
     >
-      <span className="font-heading font-bold text-sm text-brutalist-text-light dark:text-brutalist-text-dark">
+      <span className="font-heading font-bold text-sm text-brutalist-text-light">
         Share:
       </span>
 
@@ -80,7 +80,7 @@ export default function ShareButtons({
             href={button.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`p-2 bg-white dark:bg-surface-dark border-2 border-black rounded-brutal-sm shadow-brutal-xs ${button.color} hover:text-white transition-all group`}
+            className={`p-2 bg-white border-2 border-black rounded-brutal-sm shadow-brutal-xs ${button.color} hover:text-white transition-all group`}
             aria-label={button.ariaLabel}
           >
             <Icon className="w-4 h-4" />
@@ -91,7 +91,7 @@ export default function ShareButtons({
       {/* Copy Link Button */}
       <button
         onClick={copyToClipboard}
-        className="p-2 bg-white dark:bg-surface-dark border-2 border-black rounded-brutal-sm shadow-brutal-xs hover:bg-primary hover:text-black transition-all group relative"
+        className="p-2 bg-white border-2 border-black rounded-brutal-sm shadow-brutal-xs hover:bg-primary hover:text-black transition-all group relative"
         aria-label="Copy link to clipboard"
       >
         {copied ? (

@@ -39,10 +39,10 @@ const gapClasses = {
 };
 
 const variantClasses = {
-  default: 'bg-white dark:bg-brutalist-surface-dark border-brutal border-brutalist-border',
-  primary: 'bg-primary/10 dark:bg-primary/20 border-brutal border-primary',
-  secondary: 'bg-secondary/10 dark:bg-secondary/20 border-brutal border-secondary',
-  accent: 'bg-accent/10 dark:bg-accent/20 border-brutal border-accent',
+  default: 'bg-white border-brutal border-brutalist-border',
+  primary: 'bg-primary/10 border-brutal border-primary',
+  secondary: 'bg-secondary/10 border-brutal border-secondary',
+  accent: 'bg-accent/10 border-brutal border-accent',
 };
 
 export function BentoGrid({

@@ -179,7 +179,7 @@ export default function SkillsRadarChart({
         {skillsData.map((skill, index) => (
           <div
             key={index}
-            className="flex items-center gap-2 p-2 bg-brutalist-text-light/5 dark:bg-brutalist-text-dark/5 rounded-brutal border-2 border-brutalist-border"
+            className="flex items-center gap-2 p-2 bg-brutalist-text-light/5 rounded-brutal border-2 border-brutalist-border"
           >
             <div className="w-3 h-3 rounded-full bg-primary border-2 border-black" />
             <span className="text-xs font-bold truncate">{skill.skill}</span>
@@ -191,7 +191,7 @@ export default function SkillsRadarChart({
       </div>
 
       {/* Additional info */}
-      <p className="mt-4 text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 text-center">
+      <p className="mt-4 text-sm text-brutalist-text-light/60 text-center">
         {t('skills.description')}
       </p>
     </div>

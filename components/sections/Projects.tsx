@@ -141,7 +141,7 @@ export default function Projects() {
                 fanno la differenza
               </span>
             </h2>
-            <p className="text-xl text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 max-w-2xl mx-auto">
+            <p className="text-xl text-brutalist-text-light/70 max-w-2xl mx-auto">
               Dal concept al lancio. Ogni progetto racconta una storia di problemi risolti e vite migliorate.
             </p>
           </div>
@@ -188,7 +188,7 @@ export default function Projects() {
 
                   {/* Description */}
                   <p className="text-sm lg:text-base text-brutalist-text-light/70
-                              dark:text-brutalist-text-dark/70 mb-4 flex-grow">
+ mb-4 flex-grow">
                     {project.description}
                   </p>
 
@@ -198,7 +198,7 @@ export default function Projects() {
                       {Object.entries(project.metrics).map(([key, value]) => (
                         <div
                           key={key}
-                          className="px-3 py-2 bg-white/50 dark:bg-black/20
+                          className="px-3 py-2 bg-white/50
                                    border border-current rounded-brutal"
                         >
                           <div className="text-xs opacity-70 capitalize">
@@ -215,7 +215,7 @@ export default function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-2 py-1 bg-black/5 dark:bg-white/5 rounded"
+                        className="text-xs px-2 py-1 bg-black/5 rounded"
                       >
                         {tech}
                       </span>
@@ -264,8 +264,8 @@ export default function Projects() {
           <div className="mt-12 text-center">
             <motion.button
               className="inline-flex items-center gap-2 px-8 py-4
-                               bg-white dark:bg-brutalist-surface-dark
-                               text-brutalist-text-light dark:text-brutalist-text-dark
+                               bg-white
+                               text-brutalist-text-light
                                font-bold border-brutal border-black rounded-brutal shadow-brutal
                                hover:bg-secondary hover:text-white transition-colors"
               whileHover={{ x: -4, y: -4 }}

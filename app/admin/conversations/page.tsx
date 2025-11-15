@@ -165,7 +165,7 @@ export default function ConversationsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-4xl font-heading font-black mb-2">Conversations</h1>
-          <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+          <p className="text-lg text-brutalist-text-light/70">
             Manage chatbot interactions and leads
           </p>
         </div>
@@ -214,7 +214,7 @@ export default function ConversationsPage() {
         <div className="space-y-4">
           {loading ? (
             <div className="brutal-card p-8 text-center">
-              <p className="text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+              <p className="text-brutalist-text-light/60">
                 Loading conversations...
               </p>
             </div>
@@ -222,7 +222,7 @@ export default function ConversationsPage() {
             <div className="brutal-card p-8 text-center">
               <MessageSquare className="w-12 h-12 text-brutalist-text-light/40 mx-auto mb-4" />
               <p className="text-lg font-bold mb-2">No conversations found</p>
-              <p className="text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+              <p className="text-brutalist-text-light/60">
                 {filter === 'all'
                   ? 'No conversations yet'
                   : `No ${filter} conversations`}
@@ -250,7 +250,7 @@ export default function ConversationsPage() {
                     )}
                     {getSentimentIcon(conv.sentiment)}
                   </div>
-                  <div className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50">
+                  <div className="text-xs text-brutalist-text-light/50">
                     {new Date(conv.createdAt).toLocaleDateString()}
                   </div>
                 </div>
@@ -259,7 +259,7 @@ export default function ConversationsPage() {
                   {conv.messages[0]?.content || 'No messages'}
                 </p>
 
-                <div className="flex items-center gap-4 text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                <div className="flex items-center gap-4 text-xs text-brutalist-text-light/60">
                   <span className="flex items-center gap-1">
                     <MessageSquare className="w-3 h-3" />
                     {conv.messages.length} messages
@@ -292,11 +292,11 @@ export default function ConversationsPage() {
                     )}
                     {getSentimentIcon(selectedConversation.sentiment)}
                   </div>
-                  <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+                  <p className="text-sm text-brutalist-text-light/60">
                     Session: {selectedConversation.sessionId.slice(0, 16)}...
                   </p>
                 </div>
-                <div className="text-right text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50">
+                <div className="text-right text-xs text-brutalist-text-light/50">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
                     {new Date(selectedConversation.createdAt).toLocaleString()}
@@ -319,7 +319,7 @@ export default function ConversationsPage() {
                       <span className="text-xs font-bold">
                         {msg.role === 'user' ? 'User' : 'Assistant'}
                       </span>
-                      <span className="text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50">
+                      <span className="text-xs text-brutalist-text-light/50">
                         {new Date(msg.timestamp).toLocaleTimeString()}
                       </span>
                     </div>
@@ -342,7 +342,7 @@ export default function ConversationsPage() {
             <div className="brutal-card p-12 text-center">
               <Eye className="w-12 h-12 text-brutalist-text-light/40 mx-auto mb-4" />
               <p className="text-lg font-bold mb-2">Select a conversation</p>
-              <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+              <p className="text-sm text-brutalist-text-light/60">
                 Click on any conversation to view details
               </p>
             </div>

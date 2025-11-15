@@ -301,8 +301,7 @@ npm run db:seed
 1. Admin dashboard for content management
 2. Analytics tracking implementation
 3. Newsletter subscription system
-4. Dark mode toggle functionality
-5. Performance optimization
+4. Performance optimization
 
 ### Phase 3
 1. Advanced analytics visualization

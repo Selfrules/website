@@ -34,7 +34,7 @@ export default function RelatedPosts({
               Related articles
             </h2>
           </div>
-          <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 text-body-lg max-w-2xl">
+          <p className="text-brutalist-text-light/70 text-body-lg max-w-2xl">
             Continue exploring similar topics and deepen your understanding
           </p>
         </motion.div>

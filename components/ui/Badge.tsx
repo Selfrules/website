@@ -21,8 +21,8 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
 
     const variantStyles = {
       default: cn(
-        'bg-brutalist-surface-light dark:bg-brutalist-surface-dark',
-        'text-brutalist-text-light dark:text-brutalist-text-dark',
+        'bg-brutalist-surface-light',
+        'text-brutalist-text-light',
         'shadow-brutal-sm'
       ),
       primary: cn('bg-primary text-brutalist-text-light shadow-brutal-sm'),
@@ -30,7 +30,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       accent: cn('bg-accent text-white shadow-brutal-sm'),
       outline: cn(
         'bg-transparent',
-        'text-brutalist-text-light dark:text-brutalist-text-dark',
+        'text-brutalist-text-light',
         'shadow-brutal-sm'
       ),
       // Semantic variants (color-coded by project type)

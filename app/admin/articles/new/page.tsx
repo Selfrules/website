@@ -138,7 +138,7 @@ export default function NewArticlePage() {
           </button>
           <div>
             <h1 className="text-4xl font-heading font-black">Create Article</h1>
-            <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+            <p className="text-sm text-brutalist-text-light/60">
               Write a new blog post with AI assistance
             </p>
           </div>
@@ -196,7 +196,7 @@ export default function NewArticlePage() {
               URL Slug *
             </label>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+              <span className="text-sm text-brutalist-text-light/60">
                 /blog/
               </span>
               <input
@@ -359,7 +359,7 @@ export default function NewArticlePage() {
                 className="w-full px-4 py-2 border-4 border-black rounded-brutal focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all"
                 placeholder="tag1, tag2, tag3"
               />
-              <p className="text-xs text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 mt-1">
+              <p className="text-xs text-brutalist-text-light/60 mt-1">
                 Comma-separated tags
               </p>
             </div>
@@ -384,7 +384,7 @@ export default function NewArticlePage() {
           {/* Help Card */}
           <div className="brutal-card p-6 bg-primary/10">
             <h3 className="text-lg font-bold mb-2">💡 Writing Tips</h3>
-            <ul className="text-sm space-y-2 text-brutalist-text-light/80 dark:text-brutalist-text-dark/80">
+            <ul className="text-sm space-y-2 text-brutalist-text-light/80">
               <li>• Start with the problem, not the solution</li>
               <li>• Use everyday metaphors for complex concepts</li>
               <li>• Keep paragraphs to 3-4 lines max</li>

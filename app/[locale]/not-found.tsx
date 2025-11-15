@@ -1,10 +1,10 @@
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-brutalist-bg-dark">
+    <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="text-center">
         <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
         <h2 className="text-2xl font-semibold mb-4">Pagina non trovata</h2>
-        <p className="text-brutalist-text-light/70 dark:text-brutalist-text-dark/70 mb-8">
+        <p className="text-brutalist-text-light/70 mb-8">
           La pagina che stai cercando non esiste.
         </p>
         <a

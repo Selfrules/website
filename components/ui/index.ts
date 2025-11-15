@@ -5,7 +5,6 @@ export { Input } from './Input';
 export { Textarea } from './Textarea';
 export { Badge } from './Badge';
 export { Section, SectionHeader, SectionTitle, SectionDescription } from './Section';
-export { ThemeToggle } from './ThemeToggle';
 
 // Animated Components
 export { AnimatedButton } from './AnimatedButton';
@@ -17,5 +16,4 @@ export type { InputProps } from './Input';
 export type { TextareaProps } from './Textarea';
 export type { BadgeProps } from './Badge';
 export type { SectionProps } from './Section';
-export type { ThemeToggleProps } from './ThemeToggle';
 export type { AnimatedButtonProps } from './AnimatedButton';

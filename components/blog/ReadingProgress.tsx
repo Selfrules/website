@@ -25,7 +25,7 @@ export default function ReadingProgress() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-2 bg-brutalist-bg-light dark:bg-brutalist-bg-dark">
+    <div className="fixed top-0 left-0 right-0 z-50 h-2 bg-brutalist-bg-light">
       {/* Border */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-black" />
 

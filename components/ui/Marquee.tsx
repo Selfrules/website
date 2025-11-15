@@ -59,11 +59,11 @@ export default function Marquee({
       {gradient && (
         <>
           <div
-            className="absolute left-0 top-0 z-10 h-full bg-gradient-to-r from-white dark:from-brutalist-bg-dark to-transparent"
+            className="absolute left-0 top-0 z-10 h-full bg-gradient-to-r from-white to-transparent"
             style={{ width: `${gradientWidth}px` }}
           />
           <div
-            className="absolute right-0 top-0 z-10 h-full bg-gradient-to-l from-white dark:from-brutalist-bg-dark to-transparent"
+            className="absolute right-0 top-0 z-10 h-full bg-gradient-to-l from-white to-transparent"
             style={{ width: `${gradientWidth}px` }}
           />
         </>
@@ -121,7 +121,7 @@ export function TextMarquee({
     <Marquee speed={speed} className={className}>
       {texts.map((text, index) => (
         <React.Fragment key={index}>
-          <MarqueeItem className="text-xl font-bold text-brutalist-text-light dark:text-brutalist-text-dark">
+          <MarqueeItem className="text-xl font-bold text-brutalist-text-light">
             {text}
           </MarqueeItem>
           {index < texts.length - 1 && (
@@ -155,7 +155,7 @@ export function LogoMarquee({
       {logos.map((logo, index) => (
         <MarqueeItem
           key={index}
-          className="flex items-center justify-center h-20 px-8 bg-white dark:bg-brutalist-surface-dark border-brutal border-brutalist-border rounded-brutal shadow-brutal"
+          className="flex items-center justify-center h-20 px-8 bg-white border-brutal border-brutalist-border rounded-brutal shadow-brutal"
         >
           {logo.src ? (
             <Image

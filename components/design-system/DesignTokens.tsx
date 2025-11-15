@@ -21,10 +21,10 @@ export function ColorSwatch({ name, hex, usage, textColor = 'dark' }: ColorSwatc
       />
       <div className="space-y-1">
         <h4 className="font-heading font-bold text-body text-sentence-case">{name}</h4>
-        <code className="block text-body-sm font-mono text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+        <code className="block text-body-sm font-mono text-brutalist-text-light/60">
           {hex}
         </code>
-        <p className="text-body-sm text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+        <p className="text-body-sm text-brutalist-text-light/70">
           {usage}
         </p>
       </div>
@@ -79,19 +79,19 @@ export function TypeScale({ style, font, size, weight, lineHeight, example }: Ty
       <CardContent className="space-y-4">
         <div className="grid grid-cols-2 gap-4 text-body-sm">
           <div>
-            <span className="font-heading font-semibold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+            <span className="font-heading font-semibold text-brutalist-text-light/60">
               Size:
             </span>
             <code className="ml-2 font-mono text-secondary">{size}</code>
           </div>
           <div>
-            <span className="font-heading font-semibold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+            <span className="font-heading font-semibold text-brutalist-text-light/60">
               Weight:
             </span>
             <code className="ml-2 font-mono text-secondary">{weight}</code>
           </div>
           <div className="col-span-2">
-            <span className="font-heading font-semibold text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+            <span className="font-heading font-semibold text-brutalist-text-light/60">
               Line Height:
             </span>
             <code className="ml-2 font-mono text-secondary">{lineHeight}</code>
@@ -121,10 +121,10 @@ export function ShadowExample({ name, value, usage }: ShadowExampleProps) {
         />
         <div className="text-center space-y-2">
           <h4 className="font-heading font-bold text-body text-sentence-case">{name}</h4>
-          <code className="block text-body-sm font-mono text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+          <code className="block text-body-sm font-mono text-brutalist-text-light/60">
             {value}
           </code>
-          <p className="text-body-sm text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+          <p className="text-body-sm text-brutalist-text-light/70">
             {usage}
           </p>
         </div>
@@ -140,7 +140,7 @@ export interface SpacingScaleProps {
 
 export function SpacingScale({ scale, value }: SpacingScaleProps) {
   return (
-    <div className="flex items-center gap-4 p-4 border-4 border-brutalist-border rounded-brutal bg-brutalist-surface-light dark:bg-brutalist-surface-dark">
+    <div className="flex items-center gap-4 p-4 border-4 border-brutalist-border rounded-brutal bg-brutalist-surface-light">
       <div className="w-20 flex-shrink-0">
         <code className="font-mono font-bold text-body text-secondary">space-{scale}</code>
       </div>
@@ -151,7 +151,7 @@ export function SpacingScale({ scale, value }: SpacingScaleProps) {
         />
       </div>
       <div className="w-20 flex-shrink-0 text-right">
-        <code className="font-mono text-body-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+        <code className="font-mono text-body-sm text-brutalist-text-light/60">
           {value}
         </code>
       </div>
@@ -177,7 +177,7 @@ export function BorderRadius({ name, value, className }: BorderRadiusProps) {
       />
       <div className="text-center space-y-1">
         <h4 className="font-heading font-bold text-body text-sentence-case">{name}</h4>
-        <code className="block text-body-sm font-mono text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+        <code className="block text-body-sm font-mono text-brutalist-text-light/60">
           {value}
         </code>
       </div>

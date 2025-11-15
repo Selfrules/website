@@ -31,10 +31,10 @@ export function AnimatedButton({
     secondary: cn('bg-secondary text-white shadow-brutal'),
     accent: cn('bg-accent text-white shadow-brutal'),
     outline: cn(
-      'bg-transparent text-brutalist-text-light dark:text-brutalist-text-dark shadow-brutal'
+      'bg-transparent text-brutalist-text-light shadow-brutal'
     ),
     ghost: cn(
-      'bg-transparent text-brutalist-text-light dark:text-brutalist-text-dark border-transparent shadow-none'
+      'bg-transparent text-brutalist-text-light border-transparent shadow-none'
     ),
   };
 

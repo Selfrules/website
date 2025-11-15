@@ -79,7 +79,7 @@ export default function ArticlesPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-4xl font-heading font-black mb-2">Articles</h1>
-          <p className="text-lg text-brutalist-text-light/70 dark:text-brutalist-text-dark/70">
+          <p className="text-lg text-brutalist-text-light/70">
             Manage your blog posts and create new content
           </p>
         </div>
@@ -113,7 +113,7 @@ export default function ArticlesPage() {
       <div className="space-y-4">
         {loading ? (
           <div className="brutal-card p-8 text-center">
-            <p className="text-brutalist-text-light/60 dark:text-brutalist-text-dark/60">
+            <p className="text-brutalist-text-light/60">
               Loading articles...
             </p>
           </div>
@@ -121,7 +121,7 @@ export default function ArticlesPage() {
           <div className="brutal-card p-8 text-center">
             <FileText className="w-12 h-12 text-brutalist-text-light/40 mx-auto mb-4" />
             <p className="text-lg font-bold mb-2">No articles found</p>
-            <p className="text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 mb-4">
+            <p className="text-brutalist-text-light/60 mb-4">
               {filter === 'all'
                 ? 'Start by creating your first article'
                 : `No ${filter} articles yet`}
@@ -159,10 +159,10 @@ export default function ArticlesPage() {
                       {article.category}
                     </span>
                   </div>
-                  <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 mb-2">
+                  <p className="text-sm text-brutalist-text-light/60 mb-2">
                     /{article.slug}
                   </p>
-                  <div className="flex items-center gap-4 text-xs text-brutalist-text-light/50 dark:text-brutalist-text-dark/50">
+                  <div className="flex items-center gap-4 text-xs text-brutalist-text-light/50">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
                       {article.published

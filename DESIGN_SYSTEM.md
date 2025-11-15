@@ -289,10 +289,10 @@ Questo crea armonia senza monotonia.
 --color-bg-light: hsl(0, 0%, 96%);       /* #F5F5F5 - Off-white background */
 --color-bg-white: hsl(0, 0%, 100%);      /* #FFFFFF - Pure white */
 
-/* Dark Mode */
+/* Dark sections (for sections with dark background in light mode) */
 --color-bg-dark: hsl(0, 0%, 10%);        /* #1A1A1A - Dark background */
 --color-surface-dark: hsl(0, 0%, 14%);   /* #242424 - Dark surface */
---color-text-light: hsl(0, 0%, 98%);     /* #FAFAFA - Dark mode text */
+--color-text-light: hsl(0, 0%, 98%);     /* #FAFAFA - Light text on dark backgrounds */
 ```
 
 ### Semantic Colors
@@ -326,25 +326,6 @@ Questo crea armonia senza monotonia.
 
 /* Ice - Decorative (use sparingly) */
 --color-ice: hsl(204, 52%, 82%);         /* #B8D4E8 */
-```
-
-### Dark Mode Implementation
-
-**Per convertire Light → Dark mode:**
-```
-Dark Mode L value = 100 - Light Mode L value
-```
-
-Esempio:
-```css
-/* Light Mode */
---color-bg-light: hsl(0, 0%, 96%);  /* L = 96% */
-
-/* Dark Mode (100 - 96 = 4) */
---color-bg-dark: hsl(0, 0%, 4%);    /* L = 4% (troppo scuro) */
-
-/* Adjusted (più leggibile) */
---color-bg-dark: hsl(0, 0%, 10%);   /* L = 10% */
 ```
 
 ### Color-Coding by Skill
@@ -1390,16 +1371,6 @@ body {
   --text-body: 1.063rem;    /* 17px */
   --text-body-sm: 0.938rem; /* 15px */
   --text-caption: 0.813rem; /* 13px */
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-light: hsl(0, 0%, 10%);
-    --color-bg-white: hsl(0, 0%, 14%);
-    --color-near-black: hsl(0, 0%, 98%);
-    --color-gray-900: hsl(0, 0%, 85%);
-  }
 }
 ```
 

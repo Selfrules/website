@@ -61,7 +61,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Sidebar */}
         <aside
           className={`
-            fixed top-0 left-0 h-full w-64 bg-white dark:bg-brutalist-surface-dark
+            fixed top-0 left-0 h-full w-64 bg-white
             border-r-4 border-black z-40 transform transition-transform duration-300
             ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
           `}
@@ -72,7 +72,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <h1 className="text-2xl font-heading font-black">
                 Admin Panel
               </h1>
-              <p className="text-sm text-brutalist-text-light/60 dark:text-brutalist-text-dark/60 mt-1">
+              <p className="text-sm text-brutalist-text-light/60 mt-1">
                 Mattia&apos;s Portfolio
               </p>
             </div>
