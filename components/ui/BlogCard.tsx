@@ -1,7 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
 import { Calendar, Clock } from 'lucide-react';
 
 export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
