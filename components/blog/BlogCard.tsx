@@ -6,22 +6,13 @@ import { motion } from 'framer-motion';
 import type { BlogPost } from '@/lib/blog/mdx';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { getCategoryVariant } from '@/lib/blog/category-utils';
 
 interface BlogCardProps {
   post: BlogPost;
   locale: string;
   featured?: boolean;
 }
-
-// Category to Badge variant mapping
-const categoryVariants: Record<string, 'design' | 'dev' | 'pm' | 'tool' | 'featured'> = {
-  'Product': 'tool',      // Neon Pink
-  'Strategy': 'pm',       // Deep Purple
-  'OKRs': 'design',       // Electric Blue
-  'Design': 'design',     // Electric Blue
-  'Development': 'dev',   // Teal
-  'Leadership': 'pm',     // Deep Purple
-};
 
 export default function BlogCard({ post, locale, featured = false }: BlogCardProps) {
   const formatDate = (dateString: string) => {
@@ -33,7 +24,7 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
     });
   };
 
-  const categoryVariant = categoryVariants[post.category] || 'default';
+  const categoryVariant = getCategoryVariant(post.category);
 
   if (featured) {
     return (

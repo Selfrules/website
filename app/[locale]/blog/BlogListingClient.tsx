@@ -1,9 +1,14 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Search, X, Clock, Calendar, Filter, ArrowRight } from 'lucide-react';
+import { Search, X, Filter } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
+import BlogCard from '@/components/blog/BlogCard';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { Input } from '@/components/ui/Input';
+import { getCategoryVariant } from '@/lib/blog/category-utils';
 
 interface BlogListingClientProps {
   initialPosts: BlogPost[];
@@ -11,16 +16,6 @@ interface BlogListingClientProps {
   tags: string[];
   locale: string;
 }
-
-// Color mapping for categories (using Tailwind classes)
-const categoryColorClasses: Record<string, string> = {
-  'Product': 'bg-neon-pink',
-  'Strategy': 'bg-deep-purple',
-  'OKRs': 'bg-electric-blue',
-  'Design': 'bg-electric-blue',
-  'Development': 'bg-teal',
-  'Leadership': 'bg-neon-pink',
-};
 
 export default function BlogListingClient({
   initialPosts,
@@ -40,7 +35,7 @@ export default function BlogListingClient({
 
   // Filter posts based on search, category, and tags
   const filteredPosts = useMemo(() => {
-    const filtered = initialPosts.filter(post => {
+    return initialPosts.filter(post => {
       const matchesSearch =
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -54,12 +49,12 @@ export default function BlogListingClient({
 
       return matchesSearch && matchesCategory && matchesTags;
     });
-
-    // Reset to page 1 when filters change
-    setCurrentPage(1);
-
-    return filtered;
   }, [initialPosts, searchQuery, selectedCategory, selectedTags]);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedCategory, selectedTags]);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -111,12 +106,14 @@ export default function BlogListingClient({
 
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-24 relative z-10">
           <div className="max-w-[800px]">
-            <button
+            <Button
               onClick={handleBackToHome}
-              className="mb-6 px-4 py-2 bg-white/20 backdrop-blur-sm text-white border-brutal border-white/40 rounded-lg hover:bg-white/30 transition-all flex items-center gap-2 font-heading font-bold text-sm"
+              variant="ghost"
+              size="sm"
+              className="mb-6 bg-white/20 backdrop-blur-sm text-white border-brutal border-white/40 hover:bg-white/30"
             >
               ← Home
-            </button>
+            </Button>
 
             <h1 className="text-h1 md:text-[64px] text-white mb-6 font-heading">
               Tutti gli articoli
@@ -128,20 +125,22 @@ export default function BlogListingClient({
             {/* Search Bar */}
             <div className="relative max-w-[600px]">
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brutalist-text-tertiary" />
-                <input
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brutalist-text-tertiary z-10" aria-hidden="true" />
+                <Input
                   type="text"
                   placeholder="Cerca articoli per titolo, contenuto o categoria..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-12 py-4 bg-white border-brutal-thick border-black rounded-lg shadow-brutal focus:outline-none focus:shadow-brutal-lg transition-all text-dark font-body text-base"
+                  className="w-full pl-12 pr-12"
+                  aria-label="Cerca articoli"
                 />
                 {searchQuery && (
                   <button
                     onClick={handleClearSearch}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-brutalist-text-tertiary hover:text-dark transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-brutalist-text-tertiary hover:text-dark transition-colors z-10"
+                    aria-label="Cancella ricerca"
                   >
-                    <X className="w-5 h-5" />
+                    <X className="w-5 h-5" aria-hidden="true" />
                   </button>
                 )}
               </div>
@@ -164,15 +163,14 @@ export default function BlogListingClient({
           <div className="flex flex-wrap gap-3">
             {allCategories.map((category) => {
               const isActive = selectedCategory === category;
-              const categoryColorClass = categoryColorClasses[category] || 'bg-brutalist-text-secondary';
 
               return (
-                <button
+                <Badge
                   key={category}
+                  variant={category !== 'All' && isActive ? getCategoryVariant(category) : 'outline'}
+                  size="sm"
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-5 py-2.5 border-brutal border-black rounded-lg shadow-brutal-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal font-heading font-bold text-sm ${
-                    isActive ? `${categoryColorClass} text-white` : 'bg-white text-dark'
-                  }`}
+                  className="cursor-pointer hover:-translate-y-0.5 hover:shadow-brutal transition-all"
                 >
                   {category}
                   {category !== 'All' && (
@@ -180,7 +178,7 @@ export default function BlogListingClient({
                       ({initialPosts.filter(p => p.category === category).length})
                     </span>
                   )}
-                </button>
+                </Badge>
               );
             })}
           </div>
@@ -203,11 +201,11 @@ export default function BlogListingClient({
                   <button
                     key={tag}
                     onClick={() => toggleTag(tag)}
-                    className={`px-4 py-2 border-2 border-black rounded-lg shadow-brutal-sm transition-all hover:-translate-y-0.5 hover:shadow-brutal font-mono font-semibold text-xs ${
-                      isActive
-                        ? 'bg-teal text-white'
-                        : 'bg-white text-dark'
+                    className={`inline-flex items-center justify-center gap-1 px-3 py-1 border-brutal border-black rounded-brutal-sm shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-body-sm font-heading font-bold uppercase tracking-wider whitespace-nowrap ${
+                      isActive ? 'bg-teal text-white' : 'bg-white text-black'
                     }`}
+                    aria-pressed={isActive}
+                    aria-label={`Filtra per tag ${tag}`}
                   >
                     #{tag}
                   </button>
@@ -219,37 +217,42 @@ export default function BlogListingClient({
 
         {/* Active Filters Display */}
         {(selectedCategory !== 'All' || selectedTags.length > 0) && (
-          <div className="mb-6 p-4 bg-white border-brutal border-black rounded-lg">
+          <div className="mb-6 p-brutal-md bg-white border-brutal border-black rounded-brutal shadow-brutal-sm">
             <div className="flex items-center justify-between mb-3">
               <span className="text-body-small font-bold text-dark">
                 Filtri attivi:
               </span>
-              <button
+              <Button
                 onClick={handleResetFilters}
-                className="text-body-small text-electric-blue hover:underline font-heading font-semibold"
+                variant="ghost"
+                size="sm"
+                className="text-electric-blue hover:underline"
               >
                 Resetta tutto
-              </button>
+              </Button>
             </div>
             <div className="flex flex-wrap gap-2">
               {selectedCategory !== 'All' && (
-                <span className="px-3 py-1 bg-electric-blue text-white border-2 border-black rounded text-xs font-bold">
+                <Badge variant={getCategoryVariant(selectedCategory)} size="sm">
                   Categoria: {selectedCategory}
-                </span>
+                </Badge>
               )}
               {selectedTags.map((tag) => (
-                <span
+                <Badge
                   key={tag}
-                  className="px-3 py-1 bg-teal text-white border-2 border-black rounded text-xs font-bold flex items-center gap-1"
+                  variant="dev"
+                  size="sm"
+                  className="flex items-center gap-1"
                 >
                   #{tag}
                   <button
                     onClick={() => toggleTag(tag)}
                     className="ml-1 hover:opacity-70"
+                    aria-label={`Rimuovi filtro ${tag}`}
                   >
-                    <X className="w-3 h-3" />
+                    <X className="w-3 h-3" aria-hidden="true" />
                   </button>
-                </span>
+                </Badge>
               ))}
             </div>
           </div>
@@ -268,73 +271,26 @@ export default function BlogListingClient({
         {filteredPosts.length > 0 ? (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {paginatedPosts.map((post) => {
-              const categoryColorClass = categoryColorClasses[post.category] || 'bg-brutalist-text-secondary';
-
-              return (
-                <article
+              {paginatedPosts.map((post) => (
+                <BlogCard
                   key={post.slug}
-                  onClick={() => handleArticleClick(post.slug)}
-                  className="bg-white border-brutal-thick border-black rounded-lg shadow-brutal p-6 min-h-[320px] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg cursor-pointer group"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span
-                        className={`px-3 py-1 border-2 border-black rounded text-white inline-block font-mono text-[11px] font-bold ${categoryColorClass}`}
-                      >
-                        {post.category}
-                      </span>
-                    </div>
-
-                    <h3 className="text-h3 text-dark mb-3 group-hover:text-electric-blue transition-colors leading-tight">
-                      {post.title}
-                    </h3>
-
-                    <p className="text-body-small text-dark mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-3 text-brutalist-text-tertiary mb-4 text-[13px]">
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" />
-                        {post.readingTime}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5" />
-                        {new Date(post.date).toLocaleDateString('it-IT', {
-                          day: 'numeric',
-                          month: 'short',
-                          year: 'numeric'
-                        })}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-2 text-body-small text-electric-blue transition-all group-hover:gap-3 font-heading font-semibold">
-                      Leggi articolo
-                      <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+                  post={post}
+                  locale={locale}
+                />
+              ))}
+            </div>
 
           {/* Pagination */}
           {totalPages > 1 && (
             <div className="mt-12 flex justify-center items-center gap-2">
-              <button
+              <Button
                 onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                 disabled={currentPage === 1}
-                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all font-heading font-bold text-sm ${
-                  currentPage === 1
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
-                }`}
+                variant="outline"
+                size="sm"
               >
                 ← Precedente
-              </button>
+              </Button>
 
               <div className="flex gap-2">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
@@ -353,39 +309,34 @@ export default function BlogListingClient({
                   }
 
                   return (
-                    <button
+                    <Button
                       key={pageNum}
                       onClick={() => setCurrentPage(pageNum)}
-                      className={`w-10 h-10 border-brutal border-black rounded-lg shadow-brutal-sm transition-all font-heading font-bold text-sm ${
-                        currentPage === pageNum
-                          ? 'bg-electric-blue text-white'
-                          : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
-                      }`}
+                      variant={currentPage === pageNum ? 'primary' : 'outline'}
+                      size="sm"
+                      className="w-10 h-10 p-0"
                     >
                       {pageNum}
-                    </button>
+                    </Button>
                   );
                 })}
               </div>
 
-              <button
+              <Button
                 onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                 disabled={currentPage === totalPages}
-                className={`px-4 py-2 border-brutal border-black rounded-lg shadow-brutal-sm transition-all font-heading font-bold text-sm ${
-                  currentPage === totalPages
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-dark hover:-translate-y-0.5 hover:shadow-brutal'
-                }`}
+                variant="outline"
+                size="sm"
               >
                 Successivo →
-              </button>
+              </Button>
             </div>
           )}
           </>
         ) : (
           // No Results
           <div className="text-center py-20">
-            <div className="inline-block p-8 bg-white border-brutal-thick border-black rounded-lg shadow-brutal mb-6">
+            <div className="inline-block p-brutal-xl bg-white border-brutal-thick border-black rounded-brutal shadow-brutal mb-6">
               <Search className="w-16 h-16 text-brutalist-text-tertiary mx-auto mb-4" />
               <h3 className="text-h3 text-dark mb-3">
                 Nessun articolo trovato
@@ -393,31 +344,34 @@ export default function BlogListingClient({
               <p className="text-body text-dark mb-6 max-w-[400px]">
                 Prova a modificare i filtri o la ricerca per trovare quello che cerchi.
               </p>
-              <button
+              <Button
                 onClick={handleResetFilters}
-                className="px-6 py-3 bg-electric-blue text-white border-brutal border-black rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-heading font-bold text-sm"
+                variant="primary"
+                size="md"
               >
                 Resetta filtri
-              </button>
+              </Button>
             </div>
           </div>
         )}
 
         {/* CTA Section at bottom */}
         {filteredPosts.length > 0 && (
-          <div className="mt-20 bg-cyber-yellow border-brutal-thick border-black rounded-lg shadow-brutal-lg p-8 md:p-12 text-center -rotate-1">
+          <div className="mt-20 bg-cyber-yellow border-brutal-thick border-black rounded-brutal-lg shadow-brutal-lg p-brutal-xl text-center -rotate-1 hover:rotate-0 transition-transform">
             <h3 className="text-h3 text-dark mb-4">
               Non trovi quello che cerchi?
             </h3>
             <p className="text-body text-dark/80 mb-6 max-w-[600px] mx-auto">
               Scrivimi direttamente! Sono sempre felice di rispondere a domande specifiche o suggerimenti per futuri articoli.
             </p>
-            <button
+            <Button
               onClick={handleContactClick}
-              className="px-8 py-4 bg-dark text-white border-brutal-thick border-black rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-heading font-bold text-base"
+              variant="primary"
+              size="lg"
+              className="bg-dark hover:bg-dark/90"
             >
               Contattami
-            </button>
+            </Button>
           </div>
         )}
       </section>
