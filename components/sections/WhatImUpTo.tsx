@@ -61,7 +61,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
   return (
     <section id="now" className="bg-white py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
       {/* Decorative Blob */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-electric-blue/10 to-neon-pink/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-glow-mixed rounded-full blur-3xl" />
 
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}

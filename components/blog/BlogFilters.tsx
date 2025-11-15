@@ -54,7 +54,7 @@ export default function BlogFilters({
             className={`px-4 py-2 border-4 border-black rounded-brutal font-heading font-bold text-sm transition-all ${
               selectedCategory === null
                 ? 'bg-primary text-black shadow-brutal'
-                : 'bg-white dark:bg-gray-900 text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-sm'
+                : 'bg-white dark:bg-surface-dark text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-sm'
             }`}
           >
             All
@@ -66,7 +66,7 @@ export default function BlogFilters({
               className={`px-4 py-2 border-4 border-black rounded-brutal font-heading font-bold text-sm transition-all ${
                 selectedCategory === category
                   ? 'bg-primary text-black shadow-brutal'
-                  : 'bg-white dark:bg-gray-900 text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-sm'
+                  : 'bg-white dark:bg-surface-dark text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-sm'
               }`}
             >
               {category}
@@ -90,7 +90,7 @@ export default function BlogFilters({
                 className={`px-3 py-1 border-2 border-black rounded-brutal-sm font-mono text-xs transition-all ${
                   isSelected
                     ? 'bg-secondary text-white shadow-brutal-sm'
-                    : 'bg-white dark:bg-gray-900 text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-xs'
+                    : 'bg-white dark:bg-surface-dark text-brutalist-text-light dark:text-brutalist-text-dark hover:shadow-brutal-xs'
                 }`}
               >
                 #{tag}

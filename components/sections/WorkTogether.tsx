@@ -82,14 +82,18 @@ export default function WorkTogether() {
                 {/* Icon & Number */}
                 <div className="flex items-center justify-between mb-5">
                   <div
-                    className="w-14 h-14 rounded-lg border-brutal border-black flex items-center justify-center"
-                    style={{ backgroundColor: collab.color }}
+                    className={`w-14 h-14 rounded-lg border-brutal border-black flex items-center justify-center ${
+                      collab.color === '#0D7EFF' ? 'bg-dynamic-blue' :
+                      collab.color === '#FF006E' ? 'bg-dynamic-pink' : 'bg-dynamic-purple'
+                    }`}
                   >
                     <Icon className="w-7 h-7 text-white" strokeWidth={2.5} />
                   </div>
                   <span
-                    className="text-6xl opacity-10 font-heading font-black"
-                    style={{ color: collab.color }}
+                    className={`text-6xl opacity-10 font-heading font-black ${
+                      collab.color === '#0D7EFF' ? 'text-dynamic-blue' :
+                      collab.color === '#FF006E' ? 'text-dynamic-pink' : 'text-dynamic-purple'
+                    }`}
                   >
                     {collab.number}
                   </span>
@@ -109,7 +113,10 @@ export default function WorkTogether() {
                 <ul className="space-y-2.5">
                   {collab.featuresKeys.map((featureKey, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: collab.color }} strokeWidth={3} />
+                      <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                        collab.color === '#0D7EFF' ? 'text-dynamic-blue' :
+                        collab.color === '#FF006E' ? 'text-dynamic-pink' : 'text-dynamic-purple'
+                      }`} strokeWidth={3} />
                       <span className="text-body-small text-brutalist-text-secondary leading-snug">
                         {t(featureKey)}
                       </span>
@@ -123,7 +130,7 @@ export default function WorkTogether() {
 
         {/* Call to Action Banner */}
         <div className="text-center">
-          <div className="inline-block bg-gradient-to-r from-electric-blue via-neon-pink to-deep-purple border-brutal border-black rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
+          <div className="inline-block bg-gradient-brand border-brutal border-black rounded-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
             <p className="text-h3 md:text-h2 text-white mb-3 font-heading font-bold">
               {t('cta.title')}
             </p>

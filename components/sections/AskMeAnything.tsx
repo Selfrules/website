@@ -83,7 +83,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
           {/* AI Chatbot Card */}
           <div className="bg-surface-dark border-brutal border-electric-blue rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-glow-blue pointer-events-none" />
 
             <div className="relative z-10">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-electric-blue rounded-lg flex items-center justify-center mb-5 border-brutal-thin border-black">
@@ -130,7 +130,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
           {/* Anonymous Form Card */}
           <div className="bg-surface-dark border-brutal border-neon-pink rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-neon-pink/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-glow-pink pointer-events-none" />
 
             <div className="relative z-10">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-neon-pink rounded-lg flex items-center justify-center mb-5 border-brutal-thin border-black">

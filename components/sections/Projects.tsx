@@ -137,7 +137,7 @@ export default function Projects() {
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-display-2 font-heading font-black mb-4">
               Progetti che
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent ml-3">
+              <span className="text-transparent bg-clip-text bg-gradient-text-accent ml-3">
                 fanno la differenza
               </span>
             </h2>

@@ -17,14 +17,8 @@ export default function Hero() {
       {/* Floating Geometric Shapes - Hidden on mobile for better readability */}
       <div className="hidden md:block absolute top-[10%] right-[5%] w-[80px] h-[80px] md:w-[120px] md:h-[120px] bg-electric-blue border-brutal border-black rounded-full opacity-80 animate-float" />
       <div className="hidden md:block absolute top-[30%] left-[3%] w-[60px] h-[60px] md:w-[90px] md:h-[90px] bg-neon-pink border-brutal border-black rotate-45 opacity-80 animate-wiggle" />
-      <div
-        className="hidden md:block absolute bottom-[15%] right-[10%] w-[70px] h-[70px] md:w-[100px] md:h-[100px] bg-cyber-yellow border-brutal border-black opacity-80 animate-float"
-        style={{ animationDelay: '1s' }}
-      />
-      <div
-        className="hidden md:block absolute bottom-[30%] left-[8%] w-[50px] h-[50px] md:w-[70px] md:h-[70px] bg-deep-purple border-brutal border-black rounded-full opacity-70 animate-wiggle"
-        style={{ animationDelay: '0.5s' }}
-      />
+      <div className="hidden md:block absolute bottom-[15%] right-[10%] w-[70px] h-[70px] md:w-[100px] md:h-[100px] bg-cyber-yellow border-brutal border-black opacity-80 animate-float delay-1000" />
+      <div className="hidden md:block absolute bottom-[30%] left-[8%] w-[50px] h-[50px] md:w-[70px] md:h-[70px] bg-deep-purple border-brutal border-black rounded-full opacity-70 animate-wiggle delay-500" />
 
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 opacity-5 text-black bg-grid-pattern bg-grid-size" />
