@@ -100,7 +100,7 @@ Il footer presenta informazioni di contatto e navigazione con:
       <div class="footer-bottom-content">
         <!-- Copyright -->
         <p class="footer-copyright">
-          © 2025 Mattia Cintura. Fatto con 
+          © 2025 MFDL. Fatto con
           <span class="heart">❤️</span> e troppi caffè
         </p>
         

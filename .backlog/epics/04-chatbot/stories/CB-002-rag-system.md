@@ -54,7 +54,7 @@ export async function retrieveContext(query: string) {
 ```typescript
 // lib/chatbot/system-prompt.ts
 export function buildSystemPrompt(retrievedContext: string) {
-  return `Sei l'assistente virtuale di Mattia Cintura.
+  return `Sei l'assistente virtuale di Mattia Filippo De Luca.
 
 Usa SOLO le seguenti informazioni per rispondere:
 ${retrievedContext}

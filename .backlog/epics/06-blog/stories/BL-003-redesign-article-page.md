@@ -195,7 +195,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
 
   return {
-    title: `${post.title} | Mattia Cintura`,
+    title: `${post.title} | Mattia Filippo De Luca`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -203,7 +203,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
       images: [post.coverImage],
       type: 'article',
       publishedTime: post.publishedAt,
-      authors: ['Mattia Cintura'],
+      authors: ['Mattia Filippo De Luca'],
     },
   };
 }
