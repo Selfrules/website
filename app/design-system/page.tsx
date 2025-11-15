@@ -318,6 +318,10 @@ export default function DesignSystemPage() {
               <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
                 Buttons
               </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                All buttons use <code className="text-xs bg-cream px-2 py-1 rounded border border-black">font-mono</code> (JetBrains Mono) and appropriate text colors:
+                Primary/Secondary use white text, Accent uses black text (for yellow background readability).
+              </p>
               <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
                 <div className="space-y-6">
                   <div>
