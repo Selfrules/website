@@ -102,14 +102,14 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
             <h3 className="text-body mb-brutal-sm text-black group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
               {post.title}
             </h3>
-            <p className="text-body-small text-brutalist-text-light line-clamp-3 mb-brutal-sm">
+            <p className="text-body-small text-brutalist-text-secondary line-clamp-3 mb-brutal-sm">
               {post.excerpt}
             </p>
           </div>
 
-          <div className="mt-auto pt-brutal-sm border-t border-brutalist-border/20">
+          <div className="mt-auto pt-brutal-sm border-t border-gray-200">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3 text-body-small text-brutalist-text-light/70">
+              <div className="flex items-center gap-3 text-body-small text-brutalist-text-tertiary">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4" />
                   {formatDate(post.date)}

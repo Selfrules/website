@@ -65,9 +65,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
         <div className="text-center mb-12 md:mb-16">
           <div className="flex justify-center items-center gap-2 mb-4">
             <Sparkles className="w-5 h-5 text-cyber-yellow" />
-            <span className="inline-block px-4 py-2 bg-transparent border-brutal-thin border-cyber-yellow text-cyber-yellow rounded shadow-brutal-sm font-heading text-[13px] font-bold tracking-wider uppercase">
-              {t.badge}
-            </span>
+            <NeoBadge color="yellow">{t.badge}</NeoBadge>
           </div>
           <h2 className="text-h1 text-white mb-4 md:mb-6">
             {t.title}
