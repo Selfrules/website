@@ -12,7 +12,7 @@
     "headline3": "Then as a developer.",
     "headline4": "Now I'm the PM",
     "headline5": "you call when everyone says 'yes' but nobody knows what to do.",
-    "subtitle": "Why? Because after 200+ failures I learned one thing:",
+    "subtitle": "Why? Because after 12 years of expensive mistakes I learned one thing:",
     "subtitleHighlight": "the problem is never what they tell you in the first meeting",
     "subtitleEnd": ".",
     "cta": "Let's talk",
@@ -35,7 +35,7 @@
     "current": "Today",
     "skillsLabel": "What I bring",
     "certificationsLabel": "What I studied",
-    "endMessage": "12 years. 200+ projects. The difference between experience and failures? You remember all the failures.",
+    "endMessage": "12 years. 8 sectors, 50+ implementations. E-commerce, SaaS, Fintech. Zero fake projects.",
     "experiences": {
       "pm": {
         "date": "2023-present",
@@ -300,6 +300,12 @@
       "design": "Design resources",
       "stack": "Tech stack",
       "newsletter": "Newsletter"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Lessons from the Trenches - Mattia Filippo De Luca",
+      "description": "12 years. 8 sectors, 50+ implementations. What I learned building products, leading teams, and surviving endless meetings."
     }
   }
 }

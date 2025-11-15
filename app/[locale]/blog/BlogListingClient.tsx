@@ -134,7 +134,7 @@ export default function BlogListingClient({
               Cose che ho imparato (sbagliando)
             </h1>
             <p className="text-body-large text-white/95 mb-8 max-w-[600px]">
-              200+ progetti. 12 anni di carriera. Ogni articolo qui è una lezione che è costata tempo, soldi o orgoglio. O tutti e tre.
+              8 settori, 50+ implementazioni. 12 anni di carriera. Ogni articolo qui è una lezione che è costata tempo, soldi o orgoglio. O tutti e tre.
             </p>
 
             {/* Search Bar */}

@@ -12,7 +12,7 @@
     "headline3": "Poi come developer.",
     "headline4": "Ora sono il PM",
     "headline5": "che chiami quando tutti dicono 'sì' ma nessuno sa cosa fare.",
-    "subtitle": "Perché? Perché dopo 200+ fallimenti ho capito una cosa:",
+    "subtitle": "Perché? Perché dopo 12 anni di errori costosi ho capito una cosa:",
     "subtitleHighlight": "il problema non è mai quello che ti dicono al primo meeting",
     "subtitleEnd": ".",
     "cta": "Parliamone",
@@ -35,7 +35,7 @@
     "current": "Oggi",
     "skillsLabel": "Cosa porto al tavolo",
     "certificationsLabel": "Cosa ho studiato",
-    "endMessage": "12 anni. 200+ progetti. La differenza tra esperienza e fallimenti? I fallimenti te li ricordi tutti.",
+    "endMessage": "12 anni. 8 settori, 50+ implementazioni. E-commerce, SaaS, Fintech. Zero progetti finti.",
     "experiences": {
       "pm": {
         "date": "2023-oggi",
@@ -300,6 +300,12 @@
       "design": "Risorse design",
       "stack": "Stack tecnico",
       "newsletter": "Newsletter"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Lezioni dal campo - Mattia Filippo De Luca",
+      "description": "12 anni. 8 settori, 50+ implementazioni. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti."
     }
   }
 }
