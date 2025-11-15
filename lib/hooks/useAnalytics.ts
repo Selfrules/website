@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { trackUmamiEvent } from '@/lib/analytics/umami';
 
 export interface AnalyticsEventData {
   eventType: string;
@@ -34,6 +35,7 @@ export function useAnalytics() {
 
   /**
    * Track an analytics event
+   * Sends events to both custom analytics API and Umami (dual tracking)
    */
   const track = useCallback(async (
     eventName: string,
@@ -49,7 +51,8 @@ export function useAnalytics() {
         metadata,
       };
 
-      await fetch('/api/analytics', {
+      // Send to custom analytics API
+      const apiPromise = fetch('/api/analytics', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,6 +62,12 @@ export function useAnalytics() {
           sessionId: sessionIdRef.current,
         }),
       });
+
+      // Send to Umami (dual tracking)
+      const umamiPromise = trackUmamiEvent(eventName, metadata);
+
+      // Wait for both to complete (fire and forget)
+      await Promise.allSettled([apiPromise, umamiPromise]);
     } catch (error) {
       // Silently fail - don't block user experience
       console.warn('Analytics tracking failed:', error);

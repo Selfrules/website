@@ -349,6 +349,30 @@ Quando crei un nuovo componente UI:
 - Auto token refresh
 - Fallback for offline status
 
+### Umami Analytics
+- **Provider**: Umami Cloud (https://cloud.umami.is)
+- **Website ID**: Configured via `NEXT_PUBLIC_UMAMI_WEBSITE_ID` environment variable
+- **Integration**: Dual tracking (custom API + Umami)
+- **Features**:
+  - Automatic page view tracking
+  - Custom event tracking for user interactions
+  - Privacy-first (GDPR compliant, no cookies)
+  - Real-time dashboard with funnels and cohort analysis
+- **Implementation**:
+  - Script tracker: `components/analytics/UmamiScript.tsx`
+  - Utilities: `lib/analytics/umami.ts`
+  - Hook: `lib/hooks/useAnalytics.ts` (dual tracking)
+- **Event Categories**:
+  - Page views (automatic)
+  - CTA clicks (`cta_click`)
+  - Form submissions (`form_submit`)
+  - Blog views (`blog_view`)
+  - Chat interactions (`chat_interaction`)
+  - Calendar actions (`calendar_action`)
+  - Scroll depth (`scroll_depth`)
+  - Downloads (`download`)
+  - Outbound links (`outbound_click`)
+
 ## Performance & Security Guidelines
 
 ### Performance Targets
