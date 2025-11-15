@@ -189,7 +189,7 @@ Correggere inconsistenze visive e di contenuto nelle sezioni Homepage (Hero, Jou
 | HF-004 | Update Flowing employment dates | 🟠 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |
 | HF-005 | Add gradient to featured blog card | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
 | HF-006 | Fix Card borders globally | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
-| HF-007 | Footer navigation titles yellow color | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| HF-007 | Footer navigation titles yellow color | 🟡 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |
 | HF-008 | Footer Italian flag emoji | 🟢 | 🟢 S | 🌐 Web | 📋 Todo |
 | HF-009 | Footer MFDL branding | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
 
