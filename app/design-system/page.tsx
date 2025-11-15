@@ -198,7 +198,7 @@ export default function DesignSystemPage() {
                           {color.use}
                         </p>
                       </div>
-                      <p className={`text-h4 font-heading font-bold text-${color.utility}`}>
+                      <p className="text-h4 font-heading font-bold" style={{ color: color.hex }}>
                         The quick brown fox
                       </p>
                     </div>
