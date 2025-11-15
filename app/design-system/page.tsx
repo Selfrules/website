@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { NeoBadge } from '@/components/ui/NeoBadge';
+import { DesignSystemNav } from '@/components/design-system/DesignSystemNav';
 import {
   Palette,
   Type,
@@ -23,8 +23,6 @@ import {
 } from 'lucide-react';
 
 export default function DesignSystemPage() {
-  const [activeSection, setActiveSection] = useState('colors');
-
   const sections = [
     { id: 'colors', label: 'Colors', icon: Palette },
     { id: 'typography', label: 'Typography', icon: Type },
@@ -88,36 +86,7 @@ export default function DesignSystemPage() {
 
       <div className="container max-w-[1440px] mx-auto px-6 md:px-8 py-12 flex gap-8">
         {/* Sidebar Navigation */}
-        <aside className="hidden lg:block w-64 shrink-0 sticky top-32 self-start">
-          <nav className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-4">
-            <p className="text-xs font-bold text-brutalist-text-tertiary uppercase mb-3 font-heading">
-              Navigation
-            </p>
-            <ul className="space-y-1">
-              {sections.map((section) => {
-                const Icon = section.icon;
-                return (
-                  <li key={section.id}>
-                    <button
-                      onClick={() => {
-                        setActiveSection(section.id);
-                        document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className={`w-full flex items-center gap-2 px-3 py-2 rounded text-sm font-medium transition-all ${
-                        activeSection === section.id
-                          ? 'bg-electric-blue text-white'
-                          : 'text-brutalist-text-secondary hover:bg-gray-100'
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                      {section.label}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </aside>
+        <DesignSystemNav sections={sections} />
 
         {/* Main Content */}
         <main className="flex-1 space-y-16">
