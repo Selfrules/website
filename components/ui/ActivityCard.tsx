@@ -98,7 +98,7 @@ export const ActivityCard = React.forwardRef<HTMLDivElement, ActivityCardProps>(
       <div
         ref={ref}
         className={cn(
-          'bg-cream border-brutal border-black rounded-lg shadow-brutal p-6',
+          'bg-cream border-brutal border-black rounded-lg shadow-brutal p-5 md:p-6',
           'transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg',
           'relative overflow-hidden group',
           className

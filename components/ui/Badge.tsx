@@ -43,7 +43,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     };
 
     const sizeStyles = {
-      sm: 'px-2 py-0.5 text-[0.75rem]',
+      sm: 'px-2 py-0.5 text-body-xs',
       md: 'px-3 py-1 text-body-sm',
       lg: 'px-4 py-1.5 text-body',
     };

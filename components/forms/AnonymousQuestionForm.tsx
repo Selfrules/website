@@ -92,24 +92,34 @@ export function AnonymousQuestionForm({ locale }: AnonymousQuestionFormProps) {
           onChange={(e) => setFormData({ ...formData, question: e.target.value })}
           required
           rows={4}
-          className="w-full px-4 py-3 bg-[#0A0A0A] text-white border-3 border-[#2D2D2D] rounded placeholder:text-[#6B7280] focus:border-[#FF006E] focus:outline-none transition-all resize-none"
-          style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '15px',
-          }}
+          className="w-full px-4 py-3 bg-dark text-white border-brutal-thin border-brutalist-text-secondary rounded-brutal placeholder:text-brutalist-text-tertiary focus:border-neon-pink focus:outline-none transition-all resize-none font-body text-body"
         />
+        {submitStatus === 'error' && errorMessage && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-2 text-sm text-error flex items-center gap-2"
+          >
+            <AlertCircle className="w-4 h-4" />
+            {errorMessage}
+          </motion.p>
+        )}
+        {submitStatus === 'success' && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-2 text-sm text-success flex items-center gap-2"
+          >
+            <Check className="w-4 h-4" />
+            {t.successMessage}
+          </motion.p>
+        )}
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting || !formData.question.trim()}
-        className="w-full px-6 py-3 md:py-4 bg-[#FF006E] text-white border-3 border-[#000] rounded shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-        style={{
-          fontFamily: 'Space Grotesk, sans-serif',
-          fontSize: '14px',
-          fontWeight: 700,
-          textTransform: 'uppercase',
-        }}
+        className="w-full px-6 py-3 md:py-4 bg-neon-pink text-white border-brutal border-black rounded-brutal shadow-brutal transition-all hover:-translate-y-1 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed font-heading text-sm font-bold uppercase"
       >
         {isSubmitting ? t.submitting : t.submitButton}
         <Send className="w-4 h-4" />
