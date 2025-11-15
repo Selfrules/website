@@ -11,6 +11,16 @@ import { CollaborationCard } from '@/components/ui/CollaborationCard';
 import { BlogCard } from '@/components/ui/BlogCard';
 import { DesignSystemNav } from '@/components/design-system/DesignSystemNav';
 import {
+  LearningObjectives,
+  InsightBox,
+  TeamComposition,
+  ProblemList,
+  FrameworkDisplay,
+  CTABox,
+  MetricsGrid,
+  LessonsList,
+} from '@/components/ui/blog';
+import {
   Palette,
   Type,
   Layers,
@@ -39,6 +49,7 @@ export default function DesignSystemPage() {
     { id: 'components', label: 'Components', icon: Layers },
     { id: 'utilities', label: 'Utilities', icon: Box },
     { id: 'patterns', label: 'Patterns', icon: Sparkles },
+    { id: 'blog-components', label: 'Blog Components', icon: BookOpen },
   ];
 
   const brandColors = [
@@ -1032,6 +1043,227 @@ export default function DesignSystemPage() {
                   </li>
                 </ul>
               </div>
+            </div>
+          </section>
+
+          {/* Blog Components Section */}
+          <section id="blog-components" className="scroll-mt-24">
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-3">
+                <BookOpen className="w-6 h-6 text-teal" />
+                <h2 className="text-h2 font-heading font-black text-brutalist-text-primary">
+                  Blog Components
+                </h2>
+              </div>
+              <p className="text-body text-brutalist-text-secondary">
+                Componenti UI riusabili per articoli di blog, creati seguendo il design system neobrutalist.
+              </p>
+            </div>
+
+            {/* Learning Objectives */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Learning Objectives
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Box "Cosa imparerai" con lista di obiettivi e link CTA. Perfetto per l'inizio degli articoli.
+              </p>
+              <LearningObjectives
+                objectives={[
+                  'Come bilanciare richieste stakeholder e bisogni utenti',
+                  'Framework pratico di prioritizzazione con scoring trasparente',
+                  'Risultati misurabili: +42% engagement, -60% feature ignorate'
+                ]}
+                ctaText="Vai alla soluzione"
+                ctaHref="#solution"
+                color="electric-blue"
+              />
+            </div>
+
+            {/* Insight Box */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Insight Box
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Callout per evidenziare insight chiave. Disponibile in diverse varianti colore.
+              </p>
+              <div className="space-y-4">
+                <InsightBox variant="default">
+                  Il 70% delle feature richieste dagli stakeholder non risolvevano problemi reali degli utenti.
+                </InsightBox>
+                <InsightBox variant="blue" title="Key Insight">
+                  La trasparenza nel processo decisionale elimina il 90% delle dispute sulla roadmap.
+                </InsightBox>
+              </div>
+            </div>
+
+            {/* Team Composition */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Team Composition
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Display numerico della composizione del team. Utile per mostrare contesto aziendale.
+              </p>
+              <TeamComposition
+                members={[
+                  { count: 8, role: 'Sviluppatori', color: 'teal' },
+                  { count: 2, role: 'Designer', color: 'blue' },
+                  { count: 1, role: 'PM (io)', color: 'purple' }
+                ]}
+              />
+            </div>
+
+            {/* Problem List */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Problem List
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Lista numerata di problemi/challenges. Perfetto per descrivere il contesto di un progetto.
+              </p>
+              <ProblemList
+                title="Le sfide principali"
+                problems={[
+                  'Roadmap sovraffollata di feature request non validate',
+                  'Mancanza di dati quantitativi sulle priorità',
+                  'Comunicazione frammentata tra team e stakeholder',
+                  'Deadline irrealistiche imposte dal management'
+                ]}
+                variant="red"
+              />
+            </div>
+
+            {/* Framework Display */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Framework Display
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Mostra framework o metodologie a colonne. Ideale per presentare concetti strutturati.
+              </p>
+              <FrameworkDisplay
+                title="Framework di Prioritizzazione"
+                columns={[
+                  {
+                    title: 'Impatto Utente',
+                    description: 'Quanti utenti beneficiano della feature?',
+                    icon: Users,
+                    color: 'blue'
+                  },
+                  {
+                    title: 'Sforzo Tecnico',
+                    description: 'Complessità di sviluppo e tempo richiesto',
+                    icon: Code2,
+                    color: 'teal'
+                  },
+                  {
+                    title: 'Allineamento',
+                    description: 'Coerenza con vision e strategia aziendale',
+                    icon: Star,
+                    color: 'purple'
+                  }
+                ]}
+              />
+            </div>
+
+            {/* CTA Box */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                CTA Box
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Call-to-action con gradiente e bottone. Per conversioni o lead generation.
+              </p>
+              <CTABox
+                title="Ti piace questo approccio?"
+                description="Scopri come posso aiutarti a implementarlo nel tuo team"
+                buttonText="Prenota una consulenza"
+                buttonHref="#contact"
+                variant="brand"
+              />
+            </div>
+
+            {/* Metrics Grid */}
+            <div className="mb-12">
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Metrics Grid
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Griglia di metriche/risultati. Mostra l'impatto di un progetto in modo visuale.
+              </p>
+              <MetricsGrid
+                title="Risultati del Progetto"
+                columns={4}
+                metrics={[
+                  { value: '+42%', description: 'User engagement sulle nuove feature', trend: 'up', color: 'green' },
+                  { value: '-60%', description: 'Feature ignorate dagli utenti', trend: 'down', color: 'green' },
+                  { value: '+35%', description: 'Velocità di delivery del team', trend: 'up', color: 'blue' },
+                  { value: '4.8/5', description: 'Soddisfazione stakeholder', trend: 'neutral', color: 'purple' }
+                ]}
+              />
+            </div>
+
+            {/* Lessons List */}
+            <div>
+              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
+                Lessons List
+              </h3>
+              <p className="text-body-small text-brutalist-text-secondary mb-6">
+                Lista di lessons learned. Perfetto per concludere case study con takeaway chiave.
+              </p>
+              <LessonsList
+                title="Lezioni chiave"
+                color="purple"
+                lessons={[
+                  {
+                    title: 'La trasparenza vince sempre',
+                    description: 'Rendere visibile il processo decisionale elimina il 90% delle dispute sulla roadmap. Tutti sanno come e perché vengono prese le decisioni.'
+                  },
+                  {
+                    title: 'I dati battono le opinioni',
+                    description: 'Un framework quantitativo toglie l\'emotività dalle decisioni difficili. Le discussioni diventano oggettive e costruttive.'
+                  },
+                  {
+                    title: 'Il team deve essere coinvolto',
+                    description: 'Le decisioni prese insieme hanno un tasso di successo 3x superiore. L\'ownership condiviso fa la differenza.'
+                  }
+                ]}
+              />
+            </div>
+
+            {/* Usage Guidelines */}
+            <div className="mt-12 bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
+              <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-3">
+                Linee Guida per l'Uso
+              </h4>
+              <ul className="space-y-3 text-body-small text-brutalist-text-secondary">
+                <li className="flex gap-3">
+                  <span className="text-electric-blue font-bold">→</span>
+                  <span>
+                    <strong className="text-brutalist-text-primary">Importazione:</strong> Importa componenti da <code className="text-xs bg-cream px-2 py-1 rounded border border-black">@/components/ui/blog</code>
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-neon-pink font-bold">→</span>
+                  <span>
+                    <strong className="text-brutalist-text-primary">Design Tokens:</strong> Tutti i componenti usano i design tokens del sistema (colori, spacing, shadows)
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-deep-purple font-bold">→</span>
+                  <span>
+                    <strong className="text-brutalist-text-primary">Responsive:</strong> Tutti i componenti sono mobile-first e responsive
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-teal font-bold">→</span>
+                  <span>
+                    <strong className="text-brutalist-text-primary">Accessibilità:</strong> Seguono le linee guida WCAG AA con contrasto appropriato
+                  </span>
+                </li>
+              </ul>
             </div>
           </section>
 
