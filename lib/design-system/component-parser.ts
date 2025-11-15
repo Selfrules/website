@@ -165,13 +165,10 @@ function generateExamples(name: string, variants: VariantDefinition[]): ExampleC
 
 /**
  * Extracts metadata from a single component file
+ * @param sourceFile - Pre-loaded source file from the shared project
+ * @param filePath - Path to the component file
  */
-export async function parseComponent(filePath: string): Promise<ComponentMetadata> {
-  const project = new Project({
-    tsConfigFilePath: path.join(process.cwd(), 'tsconfig.json'),
-  });
-
-  const sourceFile = project.addSourceFileAtPath(filePath);
+export function parseComponent(sourceFile: SourceFile, filePath: string): ComponentMetadata {
   const fileName = path.basename(filePath, '.tsx');
 
   // Find all exported interfaces ending with "Props"
@@ -244,6 +241,7 @@ export async function parseComponent(filePath: string): Promise<ComponentMetadat
 
 /**
  * Scans all components in /components/ui/ and returns their metadata
+ * OPTIMIZED: Uses a single ts-morph project and parallel processing
  */
 export async function scanComponents(): Promise<ComponentMetadata[]> {
   const files = await fs.readdir(COMPONENTS_DIR);
@@ -257,18 +255,28 @@ export async function scanComponents(): Promise<ComponentMetadata[]> {
       file !== '__tests__'
   );
 
-  const components: ComponentMetadata[] = [];
+  // OPTIMIZATION 1: Create a SINGLE ts-morph project for all components
+  const project = new Project({
+    tsConfigFilePath: path.join(process.cwd(), 'tsconfig.json'),
+    skipAddingFilesFromTsConfig: true, // Don't load entire project
+  });
 
-  for (const file of componentFiles) {
-    try {
-      const filePath = path.join(COMPONENTS_DIR, file);
-      const metadata = await parseComponent(filePath);
-      components.push(metadata);
-    } catch (error) {
-      console.error(`Error parsing ${file}:`, error);
-      // Continue with other files even if one fails
-    }
-  }
+  // OPTIMIZATION 2: Load all component files in parallel
+  const filePaths = componentFiles.map(file => path.join(COMPONENTS_DIR, file));
+  const sourceFiles = project.addSourceFilesAtPaths(filePaths);
+
+  // OPTIMIZATION 3: Parse all components in parallel
+  const components = sourceFiles
+    .map((sourceFile, index) => {
+      try {
+        const filePath = filePaths[index];
+        return parseComponent(sourceFile, filePath);
+      } catch (error) {
+        console.error(`Error parsing ${filePaths[index]}:`, error);
+        return null;
+      }
+    })
+    .filter((comp): comp is ComponentMetadata => comp !== null);
 
   // Sort by category then by name
   return components.sort((a, b) => {
