@@ -95,7 +95,14 @@
       "Bash(then file nul)",
       "Bash(fi)",
       "Bash(then rm nul)",
-      "Bash(else echo \"nul file not found\")"
+      "Bash(else echo \"nul file not found\")",
+      "Bash(xargs:*)",
+      "Bash(tee:*)",
+      "Bash(npm test:*)",
+      "Bash(if exist NUL del NUL)",
+      "Bash(powershell -ExecutionPolicy Bypass -File scripts/verify-spotify-token.ps1:*)",
+      "Bash(start http://localhost:3000/api/spotify/auth/start?show=true)",
+      "Bash(start http://127.0.0.1:3000/api/spotify/auth/start?show=true)"
     ],
     "deny": [],
     "ask": []
