@@ -2,7 +2,7 @@ import React from 'react';
 
 interface NeoBadgeProps {
   children: React.ReactNode;
-  color?: 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral';
+  color?: 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal';
   className?: string;
 }
 
@@ -13,6 +13,7 @@ export function NeoBadge({ children, color = 'blue', className = '' }: NeoBadgeP
     yellow: 'bg-cyber-yellow text-brutalist-text-primary border-black',
     purple: 'bg-deep-purple text-white border-black',
     neutral: 'bg-white text-brutalist-text-primary border-black',
+    teal: 'bg-teal text-white border-black',
   };
 
   return (

@@ -4,7 +4,7 @@ Sistema di backlog strutturato per Claude Code con epiche e user stories dettagl
 
 **Versione**: 1.0
 **Data Creazione**: 2025-11-13
-**Maintainer**: Claude Code + Mattia Cintura
+**Maintainer**: Claude Code + MFDL
 
 ---
 

@@ -198,7 +198,7 @@ export default function DesignSystemPage() {
                           {color.use}
                         </p>
                       </div>
-                      <p className={`text-h4 font-heading font-bold text-${color.utility}`}>
+                      <p className="text-h4 font-heading font-bold" style={{ color: color.hex }}>
                         The quick brown fox
                       </p>
                     </div>
@@ -919,7 +919,7 @@ export default function DesignSystemPage() {
                 Blog Cards Pattern
               </h3>
               <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Neobrutalist blog cards with two layout variants: with description (preview text) or without (compact). Both maintain fixed height for consistent grid layouts.
+                Neobrutalist blog cards following the Designprototipo pattern. Two layout variants: with description (preview text) or without (compact). White background with vertical lift hover animation.
               </p>
 
               {/* With Description */}
@@ -990,35 +990,44 @@ export default function DesignSystemPage() {
                 <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-3">
                   Usage Guidelines
                 </h4>
+                <p className="text-body-small text-brutalist-text-secondary mb-4 italic">
+                  Based on Designprototipo reference: <a href="https://github.com/Selfrules/Designprototipo" target="_blank" rel="noopener noreferrer" className="text-electric-blue underline">BlogSection.tsx Regular Posts</a>
+                </p>
                 <ul className="space-y-3 text-body-small text-brutalist-text-secondary">
                   <li className="flex gap-3">
                     <span className="text-electric-blue font-bold">→</span>
                     <span>
-                      <strong className="text-brutalist-text-primary">Fixed Height:</strong> Both variants use h-[400px] for consistent grid layouts
+                      <strong className="text-brutalist-text-primary">Background:</strong> White background (bg-white) as per prototype, not cream
                     </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-neon-pink font-bold">→</span>
                     <span>
-                      <strong className="text-brutalist-text-primary">Title Styling:</strong> Always uppercase with font-black for maximum impact
+                      <strong className="text-brutalist-text-primary">Hover Animation:</strong> Vertical lift only (hover:-translate-y-2), 8px upward movement
                     </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-deep-purple font-bold">→</span>
                     <span>
-                      <strong className="text-brutalist-text-primary">Description Truncation:</strong> line-clamp-3 ensures descriptions don't overflow
+                      <strong className="text-brutalist-text-primary">Title Hover:</strong> Title changes color to Electric Blue (#0D7EFF) on card hover
                     </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-cyber-yellow font-bold">→</span>
                     <span>
-                      <strong className="text-brutalist-text-primary">Category Variants:</strong> design (Electric Blue), dev (Teal), pm (Deep Purple), tool (Neon Pink), featured (Cyber Yellow)
+                      <strong className="text-brutalist-text-primary">Layout:</strong> Badge inline, metadata footer with top border separator (pt-4 border-t)
                     </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-teal font-bold">→</span>
                     <span>
-                      <strong className="text-brutalist-text-primary">Hover Effects:</strong> Uses standard brutalist hover (-4px translate + shadow increase)
+                      <strong className="text-brutalist-text-primary">Description:</strong> line-clamp-3 ensures descriptions don't overflow (only when provided)
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-neon-pink font-bold">→</span>
+                    <span>
+                      <strong className="text-brutalist-text-primary">Category Variants:</strong> design (Electric Blue), dev (Teal), pm (Deep Purple), tool (Neon Pink), featured (Cyber Yellow)
                     </span>
                   </li>
                 </ul>

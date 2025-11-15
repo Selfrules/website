@@ -164,7 +164,7 @@ export function Footer({ locale }: FooterProps) {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
           <p className="flex items-center gap-2">
-            © {currentYear} Mattia Cintura. {t('madeWith')}{' '}
+            © {currentYear} MFDL. {t('madeWith')}{' '}
             <Heart className="w-4 h-4 text-[#FF006E] fill-[#FF006E] animate-pulse" />
             {' '}{t('andCoffee')}
           </p>
