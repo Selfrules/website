@@ -101,7 +101,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         ref={ref}
         className={cn(
           // Base brutalist styles - WHITE BACKGROUND as per prototype
-          'group bg-white border-brutal border-black rounded-lg shadow-brutal',
+          'group bg-white border-brutal border-black rounded-brutal-lg shadow-brutal',
           'transition-all duration-200 ease-brutal',
           // Hover effects - VERTICAL ONLY as per prototype
           'hover:shadow-brutal-lg hover:-translate-y-2',
