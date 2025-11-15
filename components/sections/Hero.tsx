@@ -86,7 +86,7 @@ export default function Hero() {
             <Button variant="primary" size="md" onClick={openCalendar} className="uppercase">
               {t('cta')} <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="outline" size="md">
+            <Button variant="outline" size="md" className="bg-white">
               {t('explore')}
             </Button>
           </motion.div>
