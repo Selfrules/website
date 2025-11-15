@@ -6,9 +6,10 @@
 - **Priorità**: 🟡 Media
 - **Dimensione**: 🟢 S (1-2h)
 - **Execution Environment**: 🌐 Claude Code Web
-- **Stato**: 📋 Todo
+- **Stato**: ✅ Done
 - **Assegnata a**: Claude Code
 - **Data Creazione**: 2025-11-15
+- **Data Completamento**: 2025-11-15
 
 ---
 
@@ -150,3 +151,4 @@ className="bg-gradient-to-br from-cyber-yellow to-electric-blue text-black"
 | Data | Modifiche | Stato |
 |------|-----------|-------|
 | 2025-11-15 | Story creata | Todo |
+| 2025-11-15 | Applied gradient-blog-hero (Electric Blue → Deep Purple) to featured card, updated all text colors to white for WCAG AA compliance | Done |
