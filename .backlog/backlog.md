@@ -3,7 +3,7 @@
 Backlog strutturato per Claude Code con epiche e user stories dettagliate.
 
 **Data Creazione**: 2025-11-13
-**Ultima Modifica**: 2025-11-13
+**Ultima Modifica**: 2025-11-15
 
 ---
 
@@ -146,25 +146,49 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
 
 ---
 
+## EPIC-007: SEO Optimization per Search Engines & LLMs
+
+**Priorità**: 🔴 Alta | **Stima**: L (2-3 settimane) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Implementare sistema SEO completamente automatizzato e scalabile per massimizzare discoverability su motori di ricerca tradizionali (Google, Bing) e LLM (ChatGPT, Perplexity, Claude, Gemini).
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| SEO-001 | Implementare robots.txt e sitemap.xml dinamico | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
+| SEO-002 | Implementare JSON-LD Schema (Person, Article, WebSite) | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
+| SEO-003 | Fix hreflang e canonical URLs per i18n | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-004 | Enhanceare blog metadata (tags, modifiedTime, featured images) | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SEO-005 | Implementare Author credibility schema e /about page | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SEO-006 | Implementare RSS/JSON feed per LLM ingestion | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-007 | Enhanceare Blog API con endpoint per slug singoli | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-008 | Ottimizzare Image SEO (alt validation, lazy loading) | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-009 | Setup Lighthouse CI e Web Vitals monitoring | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
+
+**Links**: [Epic](./epics/07-seo-optimization/epic.md) | [Stories](./epics/07-seo-optimization/stories/)
+
+---
+
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 10 stories
-- 🟠 Alta: 12 stories
-- 🟡 Media: 8 stories
+- 🔴 Critica: 13 stories
+- 🟠 Alta: 15 stories
+- 🟡 Media: 11 stories
 - 🟢 Bassa: 3 stories
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 12 stories
-- 🟡 Medium (1-2 giorni): 16 stories
-- 🔴 Large (3-5 giorni): 5 stories
+- 🟢 Small (2-4h): 16 stories
+- 🟡 Medium (1-2 giorni): 20 stories
+- 🔴 Large (3-5 giorni): 6 stories
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 15 stories
+- 🌐 Claude Code Web: 24 stories
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 6 epiche, 33 user stories
+**Totale**: 7 epiche, 42 user stories
 
 ---
 
@@ -176,18 +200,30 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
    - Poi DS-002 (Locale per auto-catalogazione)
    - Poi DS-004, DS-005
 
-### Phase 2: Quick Wins (Settimana 3)
+### Phase 2: Quick Wins & SEO Foundations (Settimane 3-4)
 2. **EPIC-002** Google Calendar (critico per conversione)
-3. **CC-005** Footer update (veloce)
+3. **EPIC-007** SEO Optimization - TIER 1 Critical (SEO-001, SEO-002, SEO-003)
+   - Sitemap/robots.txt (SEO-001)
+   - JSON-LD schemas (SEO-002)
+   - hreflang fix (SEO-003)
+4. **CC-005** Footer update (veloce)
 
-### Phase 3: Content & Copy (Settimane 4-5)
-4. **EPIC-003** Copy/Contenuto (con agenti)
-5. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
+### Phase 3: Content & Copy (Settimane 5-6)
+5. **EPIC-007** SEO Optimization - TIER 2 High Impact (SEO-004, SEO-005, SEO-006)
+   - Blog metadata enhancement (SEO-004)
+   - Author credibility (SEO-005)
+   - RSS/JSON feeds (SEO-006)
+6. **EPIC-003** Copy/Contenuto (con agenti)
+7. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
 
-### Phase 4: Advanced Features (Settimane 6-9)
-6. **EPIC-004** Chatbot (complesso, richiede tempo)
-7. **EPIC-005** Spotify Player
-8. **BL-004, BL-005** Content generation con AI
+### Phase 4: Advanced Features & Optimization (Settimane 7-10)
+8. **EPIC-007** SEO Optimization - TIER 3 Optimization (SEO-007, SEO-008, SEO-009)
+   - Blog API enhancement (SEO-007)
+   - Image SEO (SEO-008)
+   - Lighthouse CI (SEO-009)
+9. **EPIC-004** Chatbot (complesso, richiede tempo)
+10. **EPIC-005** Spotify Player
+11. **BL-004, BL-005** Content generation con AI
 
 ---
 
