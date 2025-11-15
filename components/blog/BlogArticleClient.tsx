@@ -149,24 +149,21 @@ export default function BlogArticleClient({
                 <div className="absolute top-16 right-6 bg-white border-brutal border-black rounded-brutal shadow-brutal p-3 flex flex-col gap-2 min-w-[180px] z-10">
                   <button
                     onClick={() => handleShare('twitter')}
-                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors"
-                    className="font-body text-sm"
+                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors font-body text-sm"
                   >
                     <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                     Twitter
                   </button>
                   <button
                     onClick={() => handleShare('linkedin')}
-                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors"
-                    className="font-body text-sm"
+                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors font-body text-sm"
                   >
                     <Linkedin className="w-4 h-4 text-[#0A66C2]" />
                     LinkedIn
                   </button>
                   <button
                     onClick={() => handleShare('copy')}
-                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors"
-                    className="font-body text-sm"
+                    className="flex items-center gap-2 px-3 py-2 text-brutalist-text-primary hover:bg-cream rounded text-left transition-colors font-body text-sm"
                   >
                     <Link2 className="w-4 h-4" />
                     Copia link
@@ -186,7 +183,7 @@ export default function BlogArticleClient({
               {/* Table of Contents */}
               <div className="bg-white border-brutal-thick border-black rounded-brutal shadow-brutal p-5">
                 <h3
-                  className="mb-4 pb-3 border-b-3 border-black text-brutalist-text-primary"
+                  className="mb-4 pb-3 border-b-brutal border-black text-brutalist-text-primary"
                   style={{
                     fontFamily: 'Space Grotesk, sans-serif',
                     fontWeight: 700,
@@ -231,24 +228,21 @@ export default function BlogArticleClient({
                 <div className="flex flex-col gap-2">
                   <button
                     onClick={() => handleShare('twitter')}
-                    className="flex items-center gap-2 px-3 py-2.5 bg-[#1DA1F2] text-white border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
-                    className="font-body text-sm font-semibold"
+                    className="flex items-center gap-2 px-3 py-2.5 bg-[#1DA1F2] text-white border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-body text-sm font-semibold"
                   >
                     <Twitter className="w-4 h-4" />
                     Twitter
                   </button>
                   <button
                     onClick={() => handleShare('linkedin')}
-                    className="flex items-center gap-2 px-3 py-2.5 bg-[#0A66C2] text-white border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
-                    className="font-body text-sm font-semibold"
+                    className="flex items-center gap-2 px-3 py-2.5 bg-[#0A66C2] text-white border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-body text-sm font-semibold"
                   >
                     <Linkedin className="w-4 h-4" />
                     LinkedIn
                   </button>
                   <button
                     onClick={() => handleShare('copy')}
-                    className="flex items-center gap-2 px-3 py-2.5 bg-white text-brutalist-text-primary border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
-                    className="font-body text-sm font-semibold"
+                    className="flex items-center gap-2 px-3 py-2.5 bg-white text-brutalist-text-primary border-brutal border-black rounded-brutal shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all font-body text-sm font-semibold"
                   >
                     <Link2 className="w-4 h-4" />
                     Copia link
@@ -266,8 +260,7 @@ export default function BlogArticleClient({
               <div className="flex items-center gap-2 mb-6 text-sm text-brutalist-text-tertiary">
                 <button
                   onClick={handleBackToBlog}
-                  className="hover:text-[#0D7EFF] transition-colors"
-                  className="font-body"
+                  className="hover:text-[#0D7EFF] transition-colors font-body"
                 >
                   Blog
                 </button>
@@ -288,7 +281,7 @@ export default function BlogArticleClient({
                 >
                   {post.category}
                 </span>
-                <div className="flex items-center gap-4 text-brutalist-text-tertiary" className="font-body text-sm">
+                <div className="flex items-center gap-4 text-brutalist-text-tertiary font-body text-sm">
                   <span className="flex items-center gap-1.5">
                     <Calendar className="w-4 h-4" />
                     {new Date(post.date).toLocaleDateString('it-IT', {
@@ -320,7 +313,7 @@ export default function BlogArticleClient({
             {/* Main CTA Section */}
             <div className="mt-16 bg-gradient-brand border-brutal-thick border-black rounded-brutal shadow-brutal-lg p-8 md:p-12 -rotate-1 hover:rotate-0 transition-transform">
               <div className="text-center rotate-1 hover:-rotate-1 transition-transform">
-                <h3 className="text-white mb-4" className="font-heading font-black text-[28px]">
+                <h3 className="text-white mb-4 font-heading font-black text-[28px]">
                   Vuoi implementare strategie simili nel tuo team?
                 </h3>
                 <p className="text-body-large text-white/95 mb-6 max-w-[600px] mx-auto leading-relaxed">
@@ -331,16 +324,14 @@ export default function BlogArticleClient({
                     onClick={() => {
                       router.push(`/${locale}#ask-me`);
                     }}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyber-yellow text-brutalist-text-primary border-brutal-thick border-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
-                    className="font-heading font-bold text-base"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyber-yellow text-brutalist-text-primary border-brutal-thick border-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-heading font-bold text-base"
                   >
                     Prenota una consulenza
                     <ArrowRight className="w-5 h-5" />
                   </button>
                   <button
                     onClick={handleBackToBlog}
-                    className="inline-block px-8 py-4 bg-white text-brutalist-text-primary border-brutal-thick border-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all"
-                    className="font-heading font-bold text-base"
+                    className="inline-block px-8 py-4 bg-white text-brutalist-text-primary border-brutal-thick border-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-heading font-bold text-base"
                   >
                     Leggi altri articoli
                   </button>
@@ -355,8 +346,7 @@ export default function BlogArticleClient({
                   <h3 className="text-h3 text-brutalist-text-primary">📚 Continua a leggere</h3>
                   <button
                     onClick={handleBackToBlog}
-                    className="text-[#0D7EFF] hover:underline text-body-small transition-all"
-                    className="font-heading font-semibold"
+                    className="text-[#0D7EFF] hover:underline text-body-small transition-all font-heading font-semibold"
                   >
                     Vedi tutti →
                   </button>
@@ -380,7 +370,7 @@ export default function BlogArticleClient({
                         >
                           {related.category}
                         </span>
-                        <h4 className="text-body mb-4 text-brutalist-text-primary group-hover:text-[#0D7EFF] transition-colors" className="font-heading font-bold">
+                        <h4 className="text-body mb-4 text-brutalist-text-primary group-hover:text-[#0D7EFF] transition-colors font-heading font-bold">
                           {related.title}
                         </h4>
                         <div className="flex items-center justify-between">

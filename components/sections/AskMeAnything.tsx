@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { MessageCircle, Mail, Send, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { AnonymousQuestionForm } from '@/components/forms/AnonymousQuestionForm';
 import { useChatStore } from '@/lib/stores/chatStore';
 
