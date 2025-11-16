@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 
 export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -103,14 +103,24 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
       featured: 'yellow' as const,
     };
 
+    // Gradient backgrounds based on variant
+    const gradientBackgrounds = {
+      design: 'bg-gradient-to-br from-electric-blue to-deep-purple',
+      dev: 'bg-gradient-to-br from-teal to-electric-blue',
+      pm: 'bg-gradient-to-br from-deep-purple via-neon-pink to-electric-blue',
+      tool: 'bg-gradient-to-br from-neon-pink to-deep-purple',
+      featured: 'bg-gradient-to-br from-cyber-yellow via-neon-pink to-electric-blue',
+    };
+
     return (
       <div
         ref={ref}
         className={cn(
-          // Base brutalist styles - WHITE BACKGROUND as per prototype
-          'group bg-white border-brutal border-black rounded-brutal-lg shadow-brutal',
+          // Base brutalist styles with gradient background
+          'group border-brutal-thick border-black rounded-brutal-lg shadow-brutal',
+          gradientBackgrounds[variant],
           'transition-all duration-200 ease-brutal',
-          // Hover effects - VERTICAL ONLY as per prototype
+          // Hover effects - VERTICAL ONLY
           'hover:shadow-brutal-lg hover:-translate-y-2',
           // Clickable cursor
           (onClick || href) && 'cursor-pointer',
@@ -128,14 +138,14 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
             </NeoBadge>
           </div>
 
-          {/* Title - hover changes color as per prototype */}
-          <h3 className="text-h4 mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
+          {/* Title */}
+          <h3 className="text-h4 mb-4 text-white transition-colors leading-snug font-heading font-bold">
             {title}
           </h3>
 
           {/* Description (if provided) */}
           {description && (
-            <p className="text-body-small text-brutalist-text-secondary mb-4 line-clamp-3">
+            <p className="text-body-small text-white/90 mb-4 line-clamp-3">
               {description}
             </p>
           )}
@@ -143,20 +153,15 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           {/* Spacer to push metadata to bottom */}
           <div className="flex-1" />
 
-          {/* Metadata Footer */}
-          <div className="pt-brutal-sm">
-            <div className="flex items-center gap-2 text-body-small text-brutalist-text-tertiary mb-3">
-              <Clock className="w-4 h-4" />
-              <span>{readingTime} min read</span>
-              <span>-</span>
+          {/* Metadata Footer - Compact */}
+          <div className="flex items-center gap-3 text-body-small text-white/80">
+            <div className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
               <span>{date}</span>
             </div>
-
-            {/* CTA */}
-            <div className="flex items-center gap-2 text-body-small text-electric-blue font-heading font-bold group-hover:gap-3 transition-all">
-              <span>Leggi articolo</span>
-              <ArrowRight className="w-4 h-4" />
+            <div className="flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              <span>{readingTime} min</span>
             </div>
           </div>
         </div>
