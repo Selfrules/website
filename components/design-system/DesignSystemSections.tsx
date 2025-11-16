@@ -150,15 +150,15 @@ export function BlogComponentsSection() {
             <NeoHeading as="h3" size="h3" className="mb-brutal-md">Social Share</NeoHeading>
             <div className="space-y-4">
               <div className="flex flex-wrap gap-3">
-                <button className="flex items-center gap-2 px-4 py-2.5 bg-electric-blue text-white rounded-lg border-3 border-[#000] shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm">
+                <button className="flex items-center gap-2 px-4 py-2.5 bg-[#0D7EFF] text-white rounded-lg border-3 border-[#000] shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm">
                   <Twitter className="h-4 w-4" />
                   Twitter
                 </button>
-                <button className="flex items-center gap-2 px-4 py-2.5 bg-electric-blue text-white rounded-lg border-3 border-[#000] shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm">
+                <button className="flex items-center gap-2 px-4 py-2.5 bg-[#0D7EFF] text-white rounded-lg border-3 border-[#000] shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm">
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
                 </button>
-                <button className="flex items-center gap-2 px-4 py-2.5 bg-electric-blue text-white rounded-lg border-3 border-[#000] shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm">
+                <button className="flex items-center gap-2 px-4 py-2.5 bg-[#0D7EFF] text-white rounded-lg border-3 border-[#000] shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all font-heading font-bold text-sm">
                   <Facebook className="h-4 w-4" />
                   Facebook
                 </button>

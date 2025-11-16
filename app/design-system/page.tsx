@@ -21,7 +21,8 @@ import {
   FormsSection,
   TimelineSection,
   HeroSection as HeroComponentSection,
-  WorkTogetherSection as WorkTogetherComponentSection
+  WorkTogetherSection as WorkTogetherComponentSection,
+  LinksColoredTextSection
 } from '@/components/design-system/DesignSystemAdditional';
 
 export default function DesignSystemPage() {
@@ -127,7 +128,7 @@ export default function DesignSystemPage() {
 
           {/* Quick Navigation */}
           <div className="flex flex-wrap justify-center gap-3">
-            {['Colors', 'Typography', 'Spacing', 'Components', 'Blog', 'Patterns', 'Navigation', 'ChatBot', 'Forms', 'Timeline', 'Hero', 'Services', 'Effects', 'Accessibility', 'Icons'].map((section) => (
+            {['Colors', 'Typography', 'Spacing', 'Components', 'Links', 'Blog', 'Patterns', 'Navigation', 'ChatBot', 'Forms', 'Timeline', 'Hero', 'Services', 'Effects', 'Accessibility', 'Icons'].map((section) => (
               <a
                 key={section}
                 href={`#${section.toLowerCase()}`}
@@ -582,6 +583,8 @@ export default function DesignSystemPage() {
             </div>
           </div>
         </section>
+
+        <LinksColoredTextSection />
 
         {/* 5. EFFECTS & SHADOWS */}
         <section id="effects" className="mb-32 scroll-mt-24">

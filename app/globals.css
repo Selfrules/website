@@ -185,7 +185,7 @@
 .font-heading,
 .font-bold,
 .text-sentence-case {
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 /* ECCEZIONE: text-white must override for dark backgrounds */
@@ -212,16 +212,50 @@
 /* Text color utilities for grays */
 .text-secondary,
 .text-\[\#2D2D2D\] {
-  color: #2D2D2D !important;
+  color: #2D2D2D;
 }
 
 .text-tertiary,
 .text-\[\#6B7280\] {
-  color: #6B7280 !important;
+  color: #6B7280;
 }
 
 .text-\[\#0A0A0A\] {
-  color: #0A0A0A !important;
+  color: #0A0A0A;
+}
+
+/* Link color utilities - override font-bold default */
+.text-electric-blue {
+  color: #0D7EFF;
+}
+
+.text-neon-pink {
+  color: #FF006E;
+}
+
+.text-deep-purple {
+  color: #7209B7;
+}
+
+.text-cyber-yellow {
+  color: #FFD60A;
+}
+
+.text-lime-green {
+  color: #06FFA5;
+}
+
+/* Hover states for colored text */
+.hover\:text-electric-blue:hover {
+  color: #0D7EFF;
+}
+
+.hover\:text-neon-pink:hover {
+  color: #FF006E;
+}
+
+.hover\:text-deep-purple:hover {
+  color: #7209B7;
 }
 
 .text-hero {
@@ -395,14 +429,13 @@
 }
 
 /* Button variants - typography and colors with proper contrast */
-/* These classes override the global font-heading/font-bold black text rule */
 .button-primary {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: #0D7EFF;
-  color: white !important;
+  color: white;
 }
 
 .button-secondary {
@@ -411,7 +444,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: #2A687A;
-  color: white !important;
+  color: white;
 }
 
 .button-accent {
@@ -420,7 +453,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: #FFD60A;
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 .button-outline {
@@ -429,7 +462,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: transparent;
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 .button-ghost {
@@ -438,7 +471,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: transparent;
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 /* Animations */
@@ -469,6 +502,15 @@
   }
 }
 
+@keyframes pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 0 8px rgba(13, 126, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(13, 126, 255, 0.1);
+  }
+}
+
 .animate-pulse-spotify {
   animation: pulse-spotify 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -479,6 +521,27 @@
 
 .animate-wiggle {
   animation: wiggle 3s ease-in-out infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Timeline Gradients */
+.timeline-gradient {
+  background: linear-gradient(to bottom, #7209B7 0%, #FFD60A 33%, #FF006E 66%, #0D7EFF 100%);
+}
+
+.timeline-gradient-purple-blue {
+  background: linear-gradient(to bottom, #7209B7 0%, #0D7EFF 100%);
+}
+
+.timeline-gradient-yellow-pink {
+  background: linear-gradient(to bottom, #FFD60A 0%, #FF006E 100%);
+}
+
+.timeline-gradient-full {
+  background: linear-gradient(to bottom, #7209B7 0%, #FFD60A 25%, #FF006E 50%, #0D7EFF 75%, #7209B7 100%);
 }
 
 /* Reduced motion */
