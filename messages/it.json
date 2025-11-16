@@ -202,7 +202,7 @@
   "workTogether": {
     "badge": "Lavoriamo insieme",
     "title": "3 modi per",
-    "titleHighlight": "lavorare insieme",
+    "titleHighlight": "smettere di girare in circolo",
     "subtitle": {
       "part1": "Non vendo ore. Non vendo consulenze. Vendo questo:",
       "part2": "una soluzione che il tuo designer capisce, il tuo developer può buildare, e il tuo CFO approva. Senza traduttori in mezzo."
@@ -322,8 +322,8 @@
     }
   },
   "whatImUpTo": {
-    "badge": "Cosa sto facendo ora",
-    "title": "Cosa sto facendo ora",
+    "badge": "Right now",
+    "title": "Progetti in corso",
     "description": "Cosa sto facendo ora. Davvero. Niente \"Entusiasta di annunciare\" o \"Grato per questa opportunità\". ",
     "descriptionHighlight": "Solo fatti.",
     "currentWork": {
@@ -335,7 +335,7 @@
         "label": "ricariche vendute in una domenica",
         "context": "integrazione cashless"
       },
-      "intro": "Ho sbloccato un nuovo canale di vendita. Risultato? +30 ricariche in una domenica, comprate dal sito web.",
+      "intro": "Perché un cliente dovrebbe chiamarti per comprare quando può farlo in 3 click? Risultato: +30 ricariche in una domenica. Dal sito. Senza telefono.",
       "secret": "Il segreto non è la tecnologia: è capire quale problema stai risolvendo prima di scrivere codice. Quando si parla di soldi, tutti ascoltano. Ma devi sapere cosa dire.",
       "exampleLabel": "Come funziona:",
       "examples": [

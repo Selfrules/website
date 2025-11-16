@@ -202,7 +202,7 @@
   "workTogether": {
     "badge": "Let's work together",
     "title": "3 ways to",
-    "titleHighlight": "work together",
+    "titleHighlight": "stop going in circles",
     "subtitle": {
       "part1": "I don't sell hours. I don't sell consulting. I sell this:",
       "part2": "a solution your designer understands, your developer can build, and your CFO approves. No translators in between."
@@ -322,8 +322,8 @@
     }
   },
   "whatImUpTo": {
-    "badge": "What I'm doing now",
-    "title": "What I'm up to",
+    "badge": "Right now",
+    "title": "Current projects",
     "description": "What I'm doing now. Really. No \"Thrilled to announce\" or \"Grateful for this opportunity\". ",
     "descriptionHighlight": "Just facts.",
     "currentWork": {
@@ -335,7 +335,7 @@
         "label": "top-ups sold in one Sunday",
         "context": "cashless integration"
       },
-      "intro": "I unlocked a new sales channel. Result? +30 top-ups in one Sunday, purchased from the website.",
+      "intro": "Why should a customer call you to buy when they can do it in 3 clicks? Result: +30 top-ups in one Sunday. From the website. No phone calls.",
       "secret": "The secret isn't technology: it's understanding what problem you're solving before writing code. When it's about money, everyone pays attention. But you need to know what to say.",
       "exampleLabel": "How it works:",
       "examples": [
