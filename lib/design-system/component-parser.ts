@@ -180,16 +180,36 @@ export function parseComponent(sourceFile: SourceFile, filePath: string): Compon
   const mainPropsInterface = propsInterfaces.find(i => i.getName() === `${fileName}Props`) || propsInterfaces[0];
 
   // Extract all exported components from the file
-  const allExportedSymbols = sourceFile
-    .getExportSymbols()
-    .map(s => s.getName());
+  // Use getExportedDeclarations() to get only declarations exported from THIS file
+  const exportedDeclarations = sourceFile.getExportedDeclarations();
 
-  const hasDefaultExport = allExportedSymbols.includes('default');
+  const allExportedSymbols: string[] = [];
+  let hasDefaultExport = false;
 
-  // Filter out: default, Props interfaces, Data interfaces (usually types, not components)
+  exportedDeclarations.forEach((declarations, name) => {
+    if (name === 'default') {
+      hasDefaultExport = true;
+      return;
+    }
+
+    // Check if any declaration is a function or variable (i.e., a component)
+    const isComponent = declarations.some(decl => {
+      // Accept functions and variables, reject interfaces and types
+      return (
+        decl.getKind() === SyntaxKind.FunctionDeclaration ||
+        decl.getKind() === SyntaxKind.VariableDeclaration ||
+        decl.getKind() === SyntaxKind.VariableStatement
+      );
+    });
+
+    if (isComponent) {
+      allExportedSymbols.push(name);
+    }
+  });
+
+  // Filter out: Props interfaces, Data interfaces (usually types, not components)
   const exportedComponents = allExportedSymbols
     .filter(name =>
-      name !== 'default' &&
       !name.endsWith('Props') &&
       !name.endsWith('Data') &&
       !name.startsWith('use') // Exclude hooks
