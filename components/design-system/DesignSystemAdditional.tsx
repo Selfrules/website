@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import {
   MessageCircle, Send, User, Bot, Code2, Zap, Sparkles,
   ArrowRight, CheckCircle, XCircle, AlertCircle, Clock,
-  Calendar, MapPin, Target, Trophy, Rocket
+  Calendar, MapPin, Target, Trophy, Rocket, Search
 } from 'lucide-react';
 import { NeoButton } from '@/components/ui/NeoButton';
 import { NeoBadge } from '@/components/ui/NeoBadge';

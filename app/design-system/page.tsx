@@ -1,1290 +1,833 @@
 'use client';
 
-import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { Input } from '@/components/ui/Input';
-import { Textarea } from '@/components/ui/Textarea';
-import { NeoBadge } from '@/components/ui/NeoBadge';
-import { ExperienceCard } from '@/components/ui/ExperienceCard';
-import { ActivityCard } from '@/components/ui/ActivityCard';
-import { CollaborationCard } from '@/components/ui/CollaborationCard';
-import { BlogCard } from '@/components/ui/BlogCard';
-import { DesignSystemNav } from '@/components/design-system/DesignSystemNav';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
-  LearningObjectives,
-  InsightBox,
-  TeamComposition,
-  ProblemList,
-  FrameworkDisplay,
-  CTABox,
-  MetricsGrid,
-  LessonsList,
-} from '@/components/ui/blog';
-import {
-  Palette,
-  Type,
-  Layers,
-  Box,
-  Sparkles,
-  Code2,
-  ArrowRight,
-  Check,
-  X,
-  Heart,
-  Star,
-  Zap,
-  Award,
-  Briefcase,
-  BookOpen,
-  TrendingUp,
-  Lightbulb,
-  Users,
-  GraduationCap
+  ArrowLeft, Copy, Check, Zap, Heart, AlertCircle,
+  CheckCircle, Info, AlertTriangle, Clock, Calendar, Search,
+  User, Settings, Mail, Phone, ChevronRight, X, Menu, Star,
+  TrendingUp, Users, Target, Bookmark, Share2, Twitter, Linkedin,
+  Facebook, Link2, ArrowRight, ChevronDown, Home, FileText,
+  Eye, MessageCircle, BarChart3, Grid3x3
 } from 'lucide-react';
+import { NeoBadge } from '@/components/ui/NeoBadge';
+import {
+  BlogComponentsSection,
+  PatternsTexturesSection,
+  NavigationComponentsSection
+} from '@/components/design-system/DesignSystemSections';
+import {
+  ChatBotSection,
+  FormsSection,
+  TimelineSection,
+  HeroSection as HeroComponentSection,
+  WorkTogetherSection as WorkTogetherComponentSection
+} from '@/components/design-system/DesignSystemAdditional';
 
 export default function DesignSystemPage() {
-  const sections = [
-    { id: 'colors', label: 'Colors', icon: Palette },
-    { id: 'typography', label: 'Typography', icon: Type },
-    { id: 'components', label: 'Components', icon: Layers },
-    { id: 'utilities', label: 'Utilities', icon: Box },
-    { id: 'patterns', label: 'Patterns', icon: Sparkles },
-    { id: 'blog-components', label: 'Blog Components', icon: BookOpen },
+  const router = useRouter();
+  const [copiedCode, setCopiedCode] = useState<string>('');
+
+  const copyToClipboard = (code: string, id: string) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCode(id);
+    setTimeout(() => setCopiedCode(''), 2000);
+  };
+
+  const handleBack = () => {
+    router.push('/');
+  };
+
+  // Color System Data
+  const primaryColors = [
+    { name: 'Electric Blue', variable: '--color-blue', hex: '#0D7EFF', rgb: 'rgb(13, 126, 255)', usage: 'Primary actions, links, interactive elements' },
+    { name: 'Neon Pink', variable: '--color-pink', hex: '#FF006E', rgb: 'rgb(255, 0, 110)', usage: 'Accents, highlights, CTAs' },
+    { name: 'Cyber Yellow', variable: '--color-yellow', hex: '#FFD60A', rgb: 'rgb(255, 214, 10)', usage: 'Warnings, featured content, energy' },
+    { name: 'Deep Purple', variable: '--color-purple', hex: '#7209B7', rgb: 'rgb(114, 9, 183)', usage: 'Premium features, depth, contrast' },
   ];
 
-  const brandColors = [
-    { name: 'Electric Blue', utility: 'electric-blue', hex: '#0D7EFF', use: 'Design/UX', textClass: 'text-white' },
-    { name: 'Neon Pink', utility: 'neon-pink', hex: '#FF006E', use: 'Analytics/Tools', textClass: 'text-white' },
-    { name: 'Cyber Yellow', utility: 'cyber-yellow', hex: '#FFD60A', use: 'Featured/Special', textClass: 'text-black' },
-    { name: 'Deep Purple', utility: 'deep-purple', hex: '#7209B7', use: 'PM/Strategy', textClass: 'text-white' },
-    { name: 'Teal', utility: 'teal', hex: '#2A687A', use: 'Development', textClass: 'text-white' },
+  const neutralColors = [
+    { name: 'Black', hex: '#0A0A0A', usage: 'Text, borders, shadows' },
+    { name: 'Dark Gray', hex: '#2D2D2D', usage: 'Secondary text' },
+    { name: 'Medium Gray', hex: '#6B7280', usage: 'Muted text, icons' },
+    { name: 'Light Gray', hex: '#E5E5E5', usage: 'Borders, dividers' },
+    { name: 'Cream', hex: '#FFFCF2', usage: 'Background, surfaces' },
+    { name: 'White', hex: '#FFFFFF', usage: 'Cards, overlays' },
   ];
 
-  const functionalColors = [
-    { name: 'Primary', utility: 'primary', hex: '#0D7EFF', use: 'Primary actions' },
-    { name: 'Secondary', utility: 'secondary', hex: '#2A687A', use: 'Secondary actions' },
-    { name: 'Accent', utility: 'accent', hex: '#FFD60A', use: 'Highlights' },
-    { name: 'Success', utility: 'success', hex: '#10B981', use: 'Success states' },
-    { name: 'Error', utility: 'error', hex: '#EF4444', use: 'Error states' },
-    { name: 'Warning', utility: 'warning', hex: '#F59E0B', use: 'Warning states' },
+  // Typography Scale
+  const typographyScale = [
+    { name: 'Heading 1', class: 'text-h1', size: '48px / 56px', weight: '900', font: 'Space Grotesk', usage: 'Page titles, hero headings' },
+    { name: 'Heading 2', class: 'text-h2', size: '40px / 48px', weight: '900', font: 'Space Grotesk', usage: 'Section titles' },
+    { name: 'Heading 3', class: 'text-h3', size: '32px / 40px', weight: '700', font: 'Space Grotesk', usage: 'Subsection titles' },
+    { name: 'Heading 4', class: 'text-h4', size: '24px / 32px', weight: '700', font: 'Space Grotesk', usage: 'Card titles' },
+    { name: 'Body Large', class: 'text-body-large', size: '20px / 32px', weight: '400', font: 'Inter', usage: 'Lead paragraphs, excerpts' },
+    { name: 'Body', class: 'text-body', size: '16px / 28px', weight: '400', font: 'Inter', usage: 'Standard body text' },
+    { name: 'Body Small', class: 'text-body-small', size: '14px / 24px', weight: '400', font: 'Inter', usage: 'Meta info, captions' },
+    { name: 'Code', class: 'font-mono', size: '14px / 20px', weight: '400', font: 'Space Mono', usage: 'Code snippets, technical text' },
   ];
 
-  const textColors = [
-    { name: 'Primary', utility: 'brutalist-text-primary', hex: '#0A0A0A', use: 'Headings, important text' },
-    { name: 'Secondary', utility: 'brutalist-text-secondary', hex: '#2D2D2D', use: 'Body text' },
-    { name: 'Tertiary', utility: 'brutalist-text-tertiary', hex: '#6B7280', use: 'Captions, labels' },
-    { name: 'Light', utility: 'brutalist-text-light', hex: '#FAFAFA', use: 'Text on dark backgrounds' },
+  // Spacing Scale
+  const spacingScale = [
+    { token: 'space-1', value: '4px', usage: 'Micro spacing, tight elements' },
+    { token: 'space-2', value: '8px', usage: 'Small gaps, compact layouts' },
+    { token: 'space-3', value: '12px', usage: 'Standard element spacing' },
+    { token: 'space-4', value: '16px', usage: 'Default padding, margins' },
+    { token: 'space-5', value: '20px', usage: 'Medium spacing' },
+    { token: 'space-6', value: '24px', usage: 'Large element gaps' },
+    { token: 'space-8', value: '32px', usage: 'Section spacing' },
+    { token: 'space-10', value: '40px', usage: 'Large sections' },
+    { token: 'space-12', value: '48px', usage: 'Major section breaks' },
+    { token: 'space-16', value: '64px', usage: 'Page-level spacing' },
   ];
 
-  const gradients = [
-    { name: 'Brand', utility: 'bg-gradient-brand', description: 'Full brand gradient (Blue → Pink → Purple)' },
-    { name: 'Timeline', utility: 'bg-gradient-timeline', description: 'Timeline gradient (Purple → Yellow → Pink → Blue)' },
-    { name: 'Text Accent', utility: 'bg-gradient-text-accent', description: 'Text accent (Teal → Yellow)' },
-    { name: 'Blog Hero', utility: 'bg-gradient-blog-hero', description: 'Blog hero (Electric Blue → Deep Purple)' },
-    { name: 'Glow Blue', utility: 'bg-gradient-glow-blue', description: 'Subtle blue glow (10% opacity)' },
-    { name: 'Glow Pink', utility: 'bg-gradient-glow-pink', description: 'Subtle pink glow (10% opacity)' },
-    { name: 'Glow Purple', utility: 'bg-gradient-glow-purple', description: 'Subtle purple glow (10% opacity)' },
-    { name: 'Glow Mixed', utility: 'bg-gradient-glow-mixed', description: 'Mixed blue/pink glow' },
+  // Shadow Scale
+  const shadowScale = [
+    { name: 'shadow-brutal-sm', value: '2px 2px 0px 0px rgba(0,0,0,1)', usage: 'Small elements, badges' },
+    { name: 'shadow-brutal', value: '4px 4px 0px 0px rgba(0,0,0,1)', usage: 'Buttons, cards (default)' },
+    { name: 'shadow-brutal-lg', value: '8px 8px 0px 0px rgba(0,0,0,1)', usage: 'Large cards, modals (hover)' },
   ];
 
   return (
-    <div className="min-h-screen bg-cream">
-      {/* Header */}
-      <header className="bg-white border-b-brutal border-black sticky top-0 z-50">
-        <div className="container max-w-[1440px] mx-auto px-6 md:px-8 py-6">
+    <div className="min-h-screen bg-[#FFFCF2]">
+      {/* Fixed Header */}
+      <div className="sticky top-0 z-50 bg-white border-b-4 border-[#000]">
+        <div className="container max-w-[1400px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-h2 font-heading font-black text-brutalist-text-primary mb-2">
-                Design System
-              </h1>
-              <p className="text-body-small text-brutalist-text-secondary">
-                Neobrutalist Design System · WCAG AA Compliant
-              </p>
+            <button
+              onClick={handleBack}
+              className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all"
+              style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px' }}
+            >
+              <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
+              Back to Site
+            </button>
+            <div className="flex items-center gap-3">
+              <span className="px-3 py-1 bg-[#FFD60A] border-2 border-[#000] rounded text-[#0A0A0A] font-mono text-xs font-bold">
+                v1.0.0
+              </span>
+              <span className="text-body-small text-[#6B7280]">Last updated: Nov 16, 2025</span>
             </div>
-            <NeoBadge color="blue">v2.0</NeoBadge>
           </div>
         </div>
-      </header>
+      </div>
 
-      <div className="container max-w-[1440px] mx-auto px-6 md:px-8 py-12 flex gap-8">
-        {/* Sidebar Navigation */}
-        <DesignSystemNav sections={sections} />
+      <div className="container max-w-[1400px] mx-auto px-8 py-16">
+        {/* Hero Header */}
+        <header className="text-center mb-20">
+          <div className="inline-block mb-6">
+            <NeoBadge color="blue">Documentation</NeoBadge>
+          </div>
+          <h1 className="text-h1 mb-6">Neobrutalist Design System</h1>
+          <p className="text-body-large text-[#2D2D2D] max-w-[800px] mx-auto mb-8">
+            A comprehensive design system for building bold, unapologetic digital products.
+            Built with <strong className="text-[#0D7EFF]">accessibility</strong>, <strong className="text-[#FF006E]">performance</strong>,
+            and <strong className="text-[#7209B7]">developer experience</strong> in mind.
+          </p>
 
-        {/* Main Content */}
-        <main className="flex-1 space-y-16">
-          {/* Colors Section */}
-          <section id="colors" className="scroll-mt-24">
-            <div className="mb-8">
-              <div className="flex items-center gap-3 mb-3">
-                <Palette className="w-6 h-6 text-electric-blue" />
-                <h2 className="text-h2 font-heading font-black text-brutalist-text-primary">
-                  Colors
-                </h2>
-              </div>
-              <p className="text-body text-brutalist-text-secondary">
-                Cold-tone professional palette optimized for WCAG AA contrast.
-              </p>
+          {/* Quick Navigation */}
+          <div className="flex flex-wrap justify-center gap-3">
+            {['Colors', 'Typography', 'Spacing', 'Components', 'Blog', 'Patterns', 'Navigation', 'ChatBot', 'Forms', 'Timeline', 'Hero', 'Services', 'Effects', 'Accessibility', 'Icons'].map((section) => (
+              <a
+                key={section}
+                href={`#${section.toLowerCase()}`}
+                className="px-4 py-2 bg-white border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all text-sm"
+                style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}
+              >
+                {section}
+              </a>
+            ))}
+          </div>
+        </header>
+
+        {/* 1. COLOR SYSTEM */}
+        <section id="colors" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#0D7EFF] to-[#FF006E] border-3 border-[#000] rounded-lg" />
+            <div>
+              <h2 className="text-h2">Color System</h2>
+              <p className="text-body-small text-[#6B7280]">Electric, bold, high-contrast color palette</p>
             </div>
+          </div>
 
-            {/* Brand Colors */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Brand Colors
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {brandColors.map((color) => (
-                  <div key={color.hex} className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-4">
-                    <div
-                      className={`h-24 rounded-brutal border-4 border-black mb-3 flex items-center justify-center ${color.textClass}`}
-                      style={{ backgroundColor: color.hex }}
-                    >
-                      <span className="font-mono text-xs font-bold">{color.hex}</span>
-                    </div>
-                    <p className="font-heading font-bold text-sm text-brutalist-text-primary mb-1">{color.name}</p>
-                    <code className="text-xs text-brutalist-text-tertiary block mb-2">{color.utility}</code>
-                    <p className="text-xs text-brutalist-text-secondary">{color.use}</p>
+          {/* Primary Colors */}
+          <div className="mb-12">
+            <h3 className="text-h3 mb-6">Primary Colors</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {primaryColors.map((color) => (
+                <div key={color.hex} className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6">
+                  <div
+                    className="w-full h-32 border-3 border-[#000] rounded-lg mb-4"
+                    style={{ backgroundColor: color.hex }}
+                  />
+                  <h4 className="text-body mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                    {color.name}
+                  </h4>
+                  <div className="space-y-1 text-body-small text-[#6B7280] font-mono">
+                    <p>HEX: {color.hex}</p>
+                    <p>RGB: {color.rgb}</p>
                   </div>
-                ))}
-              </div>
+                  <p className="text-body-small text-[#2D2D2D] mt-3">{color.usage}</p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* Functional Colors */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Functional Colors
-              </h3>
+          {/* Neutral Colors */}
+          <div className="mb-12">
+            <h3 className="text-h3 mb-6">Neutral Colors</h3>
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-6">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                {functionalColors.map((color) => (
-                  <div key={color.hex} className="bg-white border-brutal-thin border-black rounded p-3">
+                {neutralColors.map((color) => (
+                  <div key={color.hex}>
                     <div
-                      className="h-16 rounded border-2 border-black mb-2"
+                      className="w-full h-24 border-3 border-[#000] rounded-lg mb-3"
                       style={{ backgroundColor: color.hex }}
                     />
-                    <p className="font-bold text-xs text-brutalist-text-primary mb-1">{color.name}</p>
-                    <code className="text-[10px] text-brutalist-text-tertiary block">{color.utility}</code>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Text Colors */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Text Colors
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {textColors.map((color) => (
-                  <div key={color.hex} className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-4">
-                    <div className="mb-3">
-                      <p className={`text-h3 font-heading font-bold mb-2`} style={{ color: color.hex }}>
-                        Aa
-                      </p>
-                      <code className="text-xs text-brutalist-text-tertiary">{color.hex}</code>
-                    </div>
-                    <p className="font-bold text-sm text-brutalist-text-primary mb-1">{color.name}</p>
-                    <code className="text-xs text-brutalist-text-tertiary block mb-2">text-{color.utility}</code>
-                    <p className="text-xs text-brutalist-text-secondary">{color.use}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Colored Text Utilities */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Colored Text Utilities
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Use brand colors for text highlights and emphasis. Perfect for drawing attention to key words or phrases.
-              </p>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-                <div className="space-y-4">
-                  {brandColors.map((color) => (
-                    <div key={color.utility} className="flex items-center justify-between">
-                      <div>
-                        <code className="text-sm font-mono text-brutalist-text-primary">
-                          text-{color.utility}
-                        </code>
-                        <p className="text-xs text-brutalist-text-tertiary mt-1">
-                          {color.use}
-                        </p>
-                      </div>
-                      <p className="text-h4 font-heading font-bold" style={{ color: color.hex }}>
-                        The quick brown fox
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 p-4 bg-cream rounded-lg">
-                  <p className="text-body-small text-brutalist-text-secondary">
-                    <strong className="text-brutalist-text-primary">Example:</strong>{' '}
-                    Use <code className="text-xs bg-white px-2 py-1 rounded border border-black">text-electric-blue</code> for{' '}
-                    <span className="text-electric-blue font-bold">highlighted terms</span>, or{' '}
-                    <code className="text-xs bg-white px-2 py-1 rounded border border-black">text-neon-pink</code> for{' '}
-                    <span className="text-neon-pink font-bold">call-to-action phrases</span>.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Gradients */}
-            <div>
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Gradients
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {gradients.map((gradient) => (
-                  <div key={gradient.utility} className="bg-white border-brutal border-black rounded-brutal shadow-brutal overflow-hidden">
-                    <div className={`h-24 ${gradient.utility}`} />
-                    <div className="p-4">
-                      <p className="font-heading font-bold text-sm text-brutalist-text-primary mb-1">{gradient.name}</p>
-                      <code className="text-xs text-brutalist-text-tertiary block mb-2">{gradient.utility}</code>
-                      <p className="text-xs text-brutalist-text-secondary">{gradient.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Typography Section */}
-          <section id="typography" className="scroll-mt-24">
-            <div className="mb-8">
-              <div className="flex items-center gap-3 mb-3">
-                <Type className="w-6 h-6 text-neon-pink" />
-                <h2 className="text-h2 font-heading font-black text-brutalist-text-primary">
-                  Typography
-                </h2>
-              </div>
-              <p className="text-body text-brutalist-text-secondary">
-                Type scale and font families for the design system.
-              </p>
-            </div>
-
-            {/* Font Families */}
-            <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6 mb-8">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Font Families
-              </h3>
-              <div className="space-y-4">
-                <div className="pb-4 border-b-2 border-black">
-                  <p className="font-heading text-h2 mb-2">Space Grotesk</p>
-                  <code className="text-xs text-brutalist-text-tertiary">font-heading</code>
-                  <p className="text-sm text-brutalist-text-secondary mt-2">Headings, labels, UI elements</p>
-                </div>
-                <div className="pb-4 border-b-2 border-black">
-                  <p className="font-body text-h2 mb-2">Inter</p>
-                  <code className="text-xs text-brutalist-text-tertiary">font-body</code>
-                  <p className="text-sm text-brutalist-text-secondary mt-2">Body text, paragraphs</p>
-                </div>
-                <div>
-                  <p className="font-mono text-h2 mb-2">JetBrains Mono</p>
-                  <code className="text-xs text-brutalist-text-tertiary">font-mono</code>
-                  <p className="text-sm text-brutalist-text-secondary mt-2">Code blocks, technical content</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Type Scale */}
-            <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Type Scale
-              </h3>
-              <div className="space-y-6">
-                {[
-                  { class: 'text-hero', size: '56px / 3.5rem', sample: 'Hero Title' },
-                  { class: 'text-h1', size: '48px / 3rem', sample: 'Heading 1' },
-                  { class: 'text-h2', size: '36px / 2.25rem', sample: 'Heading 2' },
-                  { class: 'text-h3', size: '24px / 1.5rem', sample: 'Heading 3' },
-                  { class: 'text-h4', size: '20px / 1.25rem', sample: 'Heading 4' },
-                  { class: 'text-body-large', size: '18px / 1.125rem', sample: 'Body Large' },
-                  { class: 'text-body', size: '16px / 1rem', sample: 'Body Text' },
-                  { class: 'text-body-small', size: '14px / 0.875rem', sample: 'Body Small' },
-                  { class: 'text-body-xs', size: '12px / 0.75rem', sample: 'Body XS' },
-                ].map((type) => (
-                  <div key={type.class} className="flex items-baseline gap-4 pb-4 border-b border-gray-200 last:border-0">
-                    <code className="text-xs text-brutalist-text-tertiary w-40 shrink-0">{type.class}</code>
-                    <p className={`${type.class} font-heading font-bold flex-1`}>{type.sample}</p>
-                    <span className="text-xs text-brutalist-text-tertiary w-32 text-right">{type.size}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Components Section */}
-          <section id="components" className="scroll-mt-24">
-            <div className="mb-8">
-              <div className="flex items-center gap-3 mb-3">
-                <Layers className="w-6 h-6 text-deep-purple" />
-                <h2 className="text-h2 font-heading font-black text-brutalist-text-primary">
-                  Components
-                </h2>
-              </div>
-              <p className="text-body text-brutalist-text-secondary">
-                Reusable UI components built with the design system.
-              </p>
-            </div>
-
-            {/* Buttons */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Buttons
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                All buttons use <code className="text-xs bg-cream px-2 py-1 rounded border border-black">font-heading</code> (Space Grotesk) with uppercase and wider tracking, matching NeoBadge style.
-                Text colors: Primary/Secondary use white text, Accent uses black text (for yellow background readability).
-              </p>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-                <div className="space-y-6">
-                  <div>
-                    <p className="text-sm font-bold text-brutalist-text-secondary mb-3">Variants</p>
-                    <div className="flex flex-wrap gap-3">
-                      <Button variant="primary">Primary</Button>
-                      <Button variant="secondary">Secondary</Button>
-                      <Button variant="accent">Accent</Button>
-                      <Button variant="outline">Outline</Button>
-                      <Button variant="ghost">Ghost</Button>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-brutalist-text-secondary mb-3">Sizes</p>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <Button size="sm">Small</Button>
-                      <Button size="md">Medium</Button>
-                      <Button size="lg">Large</Button>
-                      <Button size="xl">Extra Large</Button>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-brutalist-text-secondary mb-3">With Icons</p>
-                    <div className="flex flex-wrap gap-3">
-                      <Button variant="primary">
-                        <ArrowRight className="w-5 h-5" />
-                        Next Step
-                      </Button>
-                      <Button variant="accent">
-                        <Star className="w-5 h-5" />
-                        Featured
-                      </Button>
-                      <Button variant="outline">
-                        <Check className="w-5 h-5" />
-                        Confirm
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Badges */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Badges
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                All badges use <code className="text-xs bg-cream px-2 py-1 rounded border border-black">font-heading</code> (Space Grotesk) with uppercase and tracking-wider, following the NeoBadge design pattern.
-              </p>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-                <div className="space-y-6">
-                  <div>
-                    <p className="text-sm font-bold text-brutalist-text-secondary mb-3">Badge Component</p>
-                    <div className="flex flex-wrap gap-3">
-                      <Badge variant="design">Design</Badge>
-                      <Badge variant="dev">Development</Badge>
-                      <Badge variant="pm">Product</Badge>
-                      <Badge variant="tool">Analytics</Badge>
-                      <Badge variant="featured">Featured</Badge>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-brutalist-text-secondary mb-3">NeoBadge Component</p>
-                    <div className="flex flex-wrap gap-3">
-                      <NeoBadge color="blue">Design/UX</NeoBadge>
-                      <NeoBadge color="pink">Analytics</NeoBadge>
-                      <NeoBadge color="yellow">Featured</NeoBadge>
-                      <NeoBadge color="purple">Strategy</NeoBadge>
-                      <NeoBadge color="neutral">General</NeoBadge>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Form Elements */}
-            <div>
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Form Elements
-              </h3>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6 space-y-6">
-                <div>
-                  <p className="text-sm font-bold text-brutalist-text-secondary mb-3">Input</p>
-                  <Input
-                    label="Your Name"
-                    placeholder="Enter your name"
-                    helperText="We'll never share your name."
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-brutalist-text-secondary mb-3">Textarea</p>
-                  <Textarea
-                    label="Your Message"
-                    placeholder="Write your message here..."
-                    rows={4}
-                    helperText="Maximum 500 characters"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Experience Card */}
-            <div className="mt-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Experience Card
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Comprehensive card for displaying work experience, education, or career milestones with badges, achievements, skills, and certifications.
-              </p>
-              <ExperienceCard
-                date="2021 - 2023"
-                role="Senior Product Manager"
-                roleColor="blue"
-                company="QubicaAMF"
-                description="Led product strategy for bowling center management systems, driving innovation in entertainment technology and customer experience."
-                achievements={[
-                  "Increased user engagement by 40% through data-driven UX improvements",
-                  "Launched 3 major features that reduced operational costs by 25%",
-                  "Built and led cross-functional team of 12 people across 4 countries"
-                ]}
-                skills={["Product Strategy", "UX Design", "Data Analysis", "Agile/Scrum", "Stakeholder Management"]}
-                certifications={[
-                  { name: "Certified Scrum Product Owner", icon: Award },
-                  { name: "Google Analytics Certified", icon: Award }
-                ]}
-                isCurrent={false}
-              />
-            </div>
-
-            {/* Activity Card */}
-            <div className="mt-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Activity Card
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Showcase current activities, learning updates, or real-time status with colored icons, decorative blobs, and optional metrics.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <ActivityCard
-                  title="Current Work"
-                  icon={Briefcase}
-                  color="blue"
-                  metric={{ label: "+2 quick wins", icon: TrendingUp }}
-                >
-                  <p className="text-body-small text-brutalist-text-secondary">
-                    Product Manager @ <strong className="text-electric-blue">QubicaAMF</strong>
-                  </p>
-                  <p className="text-body-small text-brutalist-text-secondary">
-                    <strong className="text-electric-blue">Focus:</strong> Payment integrations and product vision
-                  </p>
-                  <div className="bg-white/50 border-l-4 border-electric-blue p-3 rounded">
-                    <p className="text-xs text-brutalist-text-secondary mb-2 font-heading font-semibold">
-                      Last week:
+                    <p className="text-body-small font-bold mb-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                      {color.name}
                     </p>
-                    <ul className="text-body-small text-brutalist-text-secondary space-y-1">
-                      <li>• 6 hours of user interviews</li>
-                      <li>• 3 critical insights</li>
-                      <li>• 2 quick wins shipped</li>
-                    </ul>
+                    <p className="text-xs font-mono text-[#6B7280]">{color.hex}</p>
+                    <p className="text-xs text-[#2D2D2D] mt-2">{color.usage}</p>
                   </div>
-                </ActivityCard>
+                ))}
+              </div>
+            </div>
+          </div>
 
-                <ActivityCard
-                  title="Learning in Public"
-                  icon={BookOpen}
-                  color="pink"
-                >
-                  <p className="text-body-small text-brutalist-text-secondary">
-                    This week: <strong className="text-neon-pink">AI workflow optimization</strong>
-                  </p>
-                  <p className="text-body-small text-brutalist-text-secondary">
-                    <strong className="text-neon-pink">The trick?</strong> Knowing what to delegate and what to keep.
-                  </p>
-                  <div className="bg-white/50 border-l-4 border-neon-pink p-3 rounded">
-                    <ul className="text-body-small text-brutalist-text-secondary space-y-2">
-                      <li className="flex gap-2">
-                        <span className="text-neon-pink">→</span>
-                        <span><strong>Claude</strong> writes PRD drafts</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-neon-pink">→</span>
-                        <span><strong>I</strong> add human context</span>
-                      </li>
-                    </ul>
+          {/* Semantic Colors */}
+          <div>
+            <h3 className="text-h3 mb-6">Semantic Colors</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { type: 'Success', color: '#10B981', icon: CheckCircle },
+                { type: 'Warning', color: '#FFD60A', icon: AlertTriangle },
+                { type: 'Error', color: '#FF006E', icon: AlertCircle },
+                { type: 'Info', color: '#0D7EFF', icon: Info },
+              ].map(({ type, color, icon: Icon }) => (
+                <div key={type} className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-5">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-10 h-10 border-3 border-[#000] rounded-lg flex items-center justify-center"
+                      style={{ backgroundColor: color }}
+                    >
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-body" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                      {type}
+                    </span>
                   </div>
-                </ActivityCard>
-              </div>
+                  <p className="text-xs font-mono text-[#6B7280]">{color}</p>
+                </div>
+              ))}
             </div>
+          </div>
+        </section>
 
-            {/* Collaboration Card */}
-            <div className="mt-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Collaboration Card
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Display service offerings or collaboration modes with numbered cards, icons, and feature lists.
+        {/* 2. TYPOGRAPHY SYSTEM */}
+        <section id="typography" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-[#0A0A0A] border-3 border-[#000] rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Aa</span>
+            </div>
+            <div>
+              <h2 className="text-h2">Typography System</h2>
+              <p className="text-body-small text-[#6B7280]">Space Grotesk • Inter • Space Mono</p>
+            </div>
+          </div>
+
+          {/* Type Scale */}
+          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg overflow-hidden mb-8">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b-3 border-[#000] bg-[#FFFCF2]">
+                    <th className="text-left p-4 text-body-small font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Name</th>
+                    <th className="text-left p-4 text-body-small font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Example</th>
+                    <th className="text-left p-4 text-body-small font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Size / Line Height</th>
+                    <th className="text-left p-4 text-body-small font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Weight</th>
+                    <th className="text-left p-4 text-body-small font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Font</th>
+                    <th className="text-left p-4 text-body-small font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Usage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {typographyScale.map((type, index) => (
+                    <tr key={type.name} className={index !== typographyScale.length - 1 ? 'border-b-2 border-[#E5E5E5]' : ''}>
+                      <td className="p-4">
+                        <code className="text-xs bg-[#FFFCF2] px-2 py-1 rounded border border-[#E5E5E5] font-mono">
+                          {type.class}
+                        </code>
+                      </td>
+                      <td className="p-4">
+                        <span className={type.class}>Aa</span>
+                      </td>
+                      <td className="p-4 text-body-small font-mono text-[#6B7280]">{type.size}</td>
+                      <td className="p-4 text-body-small font-mono text-[#6B7280]">{type.weight}</td>
+                      <td className="p-4 text-body-small text-[#6B7280]">{type.font}</td>
+                      <td className="p-4 text-body-small text-[#2D2D2D]">{type.usage}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Typography Example */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-4">Article Layout</h4>
+              <h1 className="text-h1 mb-3">Main Headline</h1>
+              <h2 className="text-h2 mb-3">Section Title</h2>
+              <p className="text-body-large mb-4">
+                Lead paragraph with larger text to introduce the content and hook the reader.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <CollaborationCard
-                  number="01"
-                  title="Consulting"
-                  description="Strategic guidance for your product challenges"
-                  features={[
-                    "Product strategy sessions",
-                    "User research analysis",
-                    "Roadmap planning"
-                  ]}
-                  icon={Lightbulb}
-                  color="blue"
-                />
-                <CollaborationCard
-                  number="02"
-                  title="Brainstorming"
-                  description="Collaborative ideation and problem-solving"
-                  features={[
-                    "Feature ideation workshops",
-                    "User journey mapping",
-                    "Solution validation"
-                  ]}
-                  icon={Users}
-                  color="pink"
-                />
-                <CollaborationCard
-                  number="03"
-                  title="Mentorship"
-                  description="1-on-1 coaching for product managers"
-                  features={[
-                    "Career development guidance",
-                    "Portfolio reviews",
-                    "Interview preparation"
-                  ]}
-                  icon={GraduationCap}
-                  color="purple"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* Utilities Section */}
-          <section id="utilities" className="scroll-mt-24">
-            <div className="mb-8">
-              <div className="flex items-center gap-3 mb-3">
-                <Box className="w-6 h-6 text-cyber-yellow" />
-                <h2 className="text-h2 font-heading font-black text-brutalist-text-primary">
-                  Utilities
-                </h2>
-              </div>
-              <p className="text-body text-brutalist-text-secondary">
-                Utility classes for borders, shadows, spacing, and more.
+              <p className="text-body mb-3">
+                Standard body text for main content. Optimized for readability with proper line height and spacing.
+              </p>
+              <p className="text-body-small text-[#6B7280]">
+                Small text for metadata, captions, and supplementary information.
               </p>
             </div>
 
-            {/* Borders */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Borders
-              </h3>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-6">Font Families</h4>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-body-small text-[#6B7280] mb-2">Space Grotesk (Headings)</p>
+                  <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 700 }}>
+                    The quick brown fox jumps over the lazy dog
+                  </p>
+                </div>
+                <div>
+                  <p className="text-body-small text-[#6B7280] mb-2">Inter (Body)</p>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '18px' }}>
+                    The quick brown fox jumps over the lazy dog
+                  </p>
+                </div>
+                <div>
+                  <p className="text-body-small text-[#6B7280] mb-2">Space Mono (Code)</p>
+                  <p style={{ fontFamily: 'Space Mono, monospace', fontSize: '16px' }}>
+                    The quick brown fox jumps over the lazy dog
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. SPACING SYSTEM */}
+        <section id="spacing" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-[#7209B7] border-3 border-[#000] rounded-lg flex items-center justify-center">
+              <div className="w-6 h-6 border-2 border-white" />
+            </div>
+            <div>
+              <h2 className="text-h2">Spacing System</h2>
+              <p className="text-body-small text-[#6B7280]">Consistent spacing scale for layouts</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Spacing Scale */}
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-6">Spacing Scale</h4>
+              <div className="space-y-4">
+                {spacingScale.map((space) => (
+                  <div key={space.token} className="flex items-center gap-4">
+                    <div className="w-24">
+                      <code className="text-xs bg-[#FFFCF2] px-2 py-1 rounded border border-[#E5E5E5] font-mono">
+                        {space.value}
+                      </code>
+                    </div>
+                    <div
+                      className="bg-[#0D7EFF] border-2 border-[#000]"
+                      style={{ width: space.value, height: '24px' }}
+                    />
+                    <span className="text-body-small text-[#6B7280]">{space.usage}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Spacing Examples */}
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-6">Usage Examples</h4>
+
+              {/* Card Example */}
+              <div className="bg-[#FFFCF2] border-3 border-[#000] rounded-lg p-6 mb-6 relative">
+                <span className="absolute -top-3 -left-3 bg-[#FFD60A] border-2 border-[#000] rounded px-2 py-1 text-xs font-mono font-bold">
+                  p-6 (24px)
+                </span>
                 <div className="space-y-4">
-                  {[
-                    { class: 'border-brutal-thin', width: '3px' },
-                    { class: 'border-brutal', width: '4px' },
-                    { class: 'border-brutal-thick', width: '6px' },
-                    { class: 'border-brutal-extra-thick', width: '8px' },
-                  ].map((border) => (
-                    <div key={border.class} className="flex items-center gap-4">
-                      <code className="text-xs text-brutalist-text-tertiary w-48">{border.class}</code>
-                      <div className={`flex-1 h-12 bg-cream ${border.class} border-black rounded`} />
-                      <span className="text-xs text-brutalist-text-tertiary w-16">{border.width}</span>
-                    </div>
-                  ))}
+                  <div className="bg-white border-2 border-[#000] rounded p-4">
+                    <span className="text-body-small">gap-4 (16px)</span>
+                  </div>
+                  <div className="bg-white border-2 border-[#000] rounded p-4">
+                    <span className="text-body-small">gap-4 (16px)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Button Group */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-body-small text-[#6B7280] font-mono">gap-3 (12px)</span>
+                <div className="flex gap-3">
+                  <div className="px-4 py-2 bg-[#0D7EFF] border-3 border-[#000] rounded text-white text-sm font-bold">
+                    Button
+                  </div>
+                  <div className="px-4 py-2 bg-white border-3 border-[#000] rounded text-sm font-bold">
+                    Button
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Shadows */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Shadows
-              </h3>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {[
-                    { class: 'shadow-brutal-sm', offset: '4px' },
-                    { class: 'shadow-brutal', offset: '8px' },
-                    { class: 'shadow-brutal-hover', offset: '12px' },
-                    { class: 'shadow-brutal-lg', offset: '16px' },
-                  ].map((shadow) => (
-                    <div key={shadow.class} className="space-y-2">
-                      <code className="text-xs text-brutalist-text-tertiary block">{shadow.class}</code>
-                      <div className={`h-24 bg-cream border-brutal border-black rounded ${shadow.class} flex items-center justify-center`}>
-                        <span className="text-sm font-bold text-brutalist-text-secondary">{shadow.offset} offset</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+        {/* 4. COMPONENTS LIBRARY */}
+        <section id="components" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-[#FF006E] border-3 border-[#000] rounded-lg flex items-center justify-center">
+              <div className="w-5 h-5 bg-white border-2 border-[#000] rounded" />
+            </div>
+            <div>
+              <h2 className="text-h2">Components Library</h2>
+              <p className="text-body-small text-[#6B7280]">Reusable UI components</p>
+            </div>
+          </div>
+
+          {/* BUTTON COMPONENT */}
+          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 mb-8">
+            <h3 className="text-h3 mb-6">Button</h3>
+
+            {/* Variants */}
+            <div className="mb-8">
+              <h4 className="text-body mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                Variants
+              </h4>
+              <div className="flex flex-wrap gap-4">
+                <button className="px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
+                  Primary
+                </button>
+                <button className="px-6 py-3 bg-[#FF006E] text-white border-3 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
+                  Secondary
+                </button>
+                <button className="px-6 py-3 bg-[#FFD60A] text-[#0A0A0A] border-3 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
+                  Accent
+                </button>
+                <button className="px-6 py-3 bg-white text-[#0A0A0A] border-3 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
+                  Ghost
+                </button>
               </div>
             </div>
 
-            {/* Spacing */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Spacing (8pt Grid)
-              </h3>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-                <div className="space-y-3">
-                  {[
-                    { class: 'brutal-xs', px: '8px' },
-                    { class: 'brutal-sm', px: '16px' },
-                    { class: 'brutal-md', px: '24px' },
-                    { class: 'brutal-lg', px: '32px' },
-                    { class: 'brutal-xl', px: '48px' },
-                    { class: 'brutal-2xl', px: '64px' },
-                  ].map((spacing) => (
-                    <div key={spacing.class} className="flex items-center gap-4">
-                      <code className="text-xs text-brutalist-text-tertiary w-32">p-{spacing.class}</code>
-                      <div className="flex-1 bg-electric-blue/10 border-2 border-electric-blue rounded">
-                        <div className={`p-${spacing.class} bg-electric-blue`}>
-                          <div className="bg-white text-brutalist-text-primary text-xs px-2 py-1 rounded font-mono">
-                            {spacing.px}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+            {/* Sizes */}
+            <div className="mb-8">
+              <h4 className="text-body mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                Sizes
+              </h4>
+              <div className="flex flex-wrap items-center gap-4">
+                <button className="px-3 py-1.5 bg-[#0D7EFF] text-white border-2 border-[#000] rounded shadow-brutal-sm text-xs font-bold">
+                  Small
+                </button>
+                <button className="px-4 py-2 bg-[#0D7EFF] text-white border-3 border-[#000] rounded-lg shadow-brutal text-sm font-bold">
+                  Medium
+                </button>
+                <button className="px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded-lg shadow-brutal font-bold">
+                  Large
+                </button>
+              </div>
+            </div>
+
+            {/* Code Example */}
+            <div className="bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 relative">
+              <button
+                onClick={() => copyToClipboard('<button className="px-6 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">\n  Click me\n</button>', 'button-code')}
+                className="absolute top-3 right-3 p-2 bg-white border-2 border-[#000] rounded hover:bg-[#FFFCF2] transition-colors"
+              >
+                {copiedCode === 'button-code' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
+              </button>
+              <pre className="text-sm font-mono text-[#0D7EFF] overflow-x-auto">
+{`<button className="px-6 py-3 bg-[#0D7EFF]
+  text-white border-3 border-[#000]
+  rounded-lg shadow-brutal
+  hover:-translate-y-1
+  hover:shadow-brutal-lg
+  transition-all font-bold">
+  Click me
+</button>`}
+              </pre>
+            </div>
+          </div>
+
+          {/* BADGE COMPONENT */}
+          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 mb-8">
+            <h3 className="text-h3 mb-6">Badge</h3>
+
+            <div className="mb-8">
+              <h4 className="text-body mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                Color Variants
+              </h4>
+              <div className="flex flex-wrap gap-3">
+                <NeoBadge color="blue">Blue Badge</NeoBadge>
+                <NeoBadge color="pink">Pink Badge</NeoBadge>
+                <NeoBadge color="yellow">Yellow Badge</NeoBadge>
+                <NeoBadge color="purple">Purple Badge</NeoBadge>
+                <NeoBadge color="neutral">Neutral Badge</NeoBadge>
+              </div>
+            </div>
+
+            <div className="bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-4 relative">
+              <button
+                onClick={() => copyToClipboard('<NeoBadge color="blue">Badge Text</NeoBadge>', 'badge-code')}
+                className="absolute top-3 right-3 p-2 bg-white border-2 border-[#000] rounded hover:bg-[#FFFCF2] transition-colors"
+              >
+                {copiedCode === 'badge-code' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
+              </button>
+              <pre className="text-sm font-mono text-[#0D7EFF]">
+{`<NeoBadge color="blue">Badge Text</NeoBadge>`}
+              </pre>
+            </div>
+          </div>
+
+          {/* INPUT COMPONENT */}
+          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 mb-8">
+            <h3 className="text-h3 mb-6">Input Fields</h3>
+
+            <div className="space-y-6 max-w-md">
+              <div>
+                <label className="block text-body-small font-bold mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Default Input
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter text..."
+                  className="w-full px-4 py-3 border-3 border-[#000] rounded-lg shadow-brutal-sm focus:shadow-brutal focus:-translate-y-0.5 transition-all outline-none"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                />
+              </div>
+
+              <div>
+                <label className="block text-body-small font-bold mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  With Icon
+                </label>
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6B7280] pointer-events-none" />
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="w-full pl-12 pr-4 py-3 border-3 border-[#000] rounded-lg shadow-brutal-sm focus:shadow-brutal focus:-translate-y-0.5 transition-all outline-none"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-body-small font-bold mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Textarea
+                </label>
+                <textarea
+                  placeholder="Enter your message..."
+                  rows={4}
+                  className="w-full px-4 py-3 border-3 border-[#000] rounded-lg shadow-brutal-sm focus:shadow-brutal focus:-translate-y-0.5 transition-all outline-none resize-none"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* CARD COMPONENT */}
+          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8">
+            <h3 className="text-h3 mb-6">Cards</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Simple Card */}
+              <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all p-6">
+                <div className="w-10 h-10 bg-[#0D7EFF] border-2 border-[#000] rounded-lg mb-4 flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-white" />
+                </div>
+                <h4 className="text-body mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                  Simple Card
+                </h4>
+                <p className="text-body-small text-[#6B7280]">
+                  Basic card with icon, title, and description.
+                </p>
+              </div>
+
+              {/* Card with Badge */}
+              <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all p-6">
+                <NeoBadge color="pink" className="mb-3">Featured</NeoBadge>
+                <h4 className="text-body mb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                  Card with Badge
+                </h4>
+                <p className="text-body-small text-[#6B7280] mb-4">
+                  Card with category badge and metadata.
+                </p>
+                <div className="flex items-center gap-2 text-xs text-[#6B7280]">
+                  <Clock className="w-3.5 h-3.5" />
+                  5 min read
+                </div>
+              </div>
+
+              {/* Interactive Card */}
+              <div className="bg-gradient-to-br from-[#0D7EFF] to-[#7209B7] border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all p-6 cursor-pointer group">
+                <h4 className="text-body mb-2 text-white" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+                  Gradient Card
+                </h4>
+                <p className="text-body-small text-white/90 mb-4">
+                  Interactive card with gradient background.
+                </p>
+                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. EFFECTS & SHADOWS */}
+        <section id="effects" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-white border-3 border-[#000] rounded-lg shadow-brutal-lg" />
+            <div>
+              <h2 className="text-h2">Effects & Shadows</h2>
+              <p className="text-body-small text-[#6B7280]">Brutal shadows and visual effects</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            {/* Shadow Scale */}
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-6">Shadow Scale</h4>
+              <div className="space-y-8">
+                {shadowScale.map((shadow) => (
+                  <div key={shadow.name}>
+                    <div className="flex items-center justify-between mb-3">
+                      <code className="text-xs bg-[#FFFCF2] px-2 py-1 rounded border border-[#E5E5E5] font-mono font-bold">
+                        {shadow.name}
+                      </code>
+                      <span className="text-body-small text-[#6B7280]">{shadow.usage}</span>
+                    </div>
+                    <div
+                      className="h-20 bg-[#FFD60A] border-3 border-[#000] rounded-lg flex items-center justify-center"
+                      style={{ boxShadow: shadow.value }}
+                    >
+                      <span className="font-bold text-[#0A0A0A]">Hover to see effect</span>
+                    </div>
+                    <p className="text-xs font-mono text-[#6B7280] mt-2">{shadow.value}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Border Radius */}
-            <div>
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Border Radius
-              </h3>
-              <div className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {[
-                    { class: 'rounded-brutal-sm', radius: '4px' },
-                    { class: 'rounded-brutal', radius: '6px' },
-                    { class: 'rounded-brutal-lg', radius: '8px' },
-                  ].map((radius) => (
-                    <div key={radius.class} className="space-y-2">
-                      <code className="text-xs text-brutalist-text-tertiary block">{radius.class}</code>
-                      <div className={`h-24 bg-electric-blue border-brutal border-black ${radius.class} flex items-center justify-center`}>
-                        <span className="text-sm font-bold text-white">{radius.radius}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Patterns Section */}
-          <section id="patterns" className="scroll-mt-24">
-            <div className="mb-8">
-              <div className="flex items-center gap-3 mb-3">
-                <Sparkles className="w-6 h-6 text-neon-pink" />
-                <h2 className="text-h2 font-heading font-black text-brutalist-text-primary">
-                  Patterns
-                </h2>
-              </div>
-              <p className="text-body text-brutalist-text-secondary">
-                Common design patterns and component combinations.
-              </p>
-            </div>
-
-            {/* Neobrutalist Card Pattern */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Neobrutalist Card Pattern
-              </h3>
-              <div className="bg-cream border-brutal border-black rounded-brutal shadow-brutal p-6 transition-all hover:-translate-y-1 hover:shadow-brutal-lg">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-electric-blue border-brutal-thin border-black rounded-brutal flex items-center justify-center shrink-0">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-2">
-                      Standard Pattern
-                    </h4>
-                    <p className="text-body-small text-brutalist-text-secondary mb-4">
-                      4-6px borders, 8px hard shadows, 6-8px border radius, hover effects with -4px translate.
-                    </p>
-                    <div className="flex gap-2">
-                      <Badge variant="design">Brutalist</Badge>
-                      <Badge variant="featured">Recommended</Badge>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Pattern */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Call-to-Action Pattern
-              </h3>
-              <div className="bg-gradient-brand border-brutal border-black rounded-brutal shadow-brutal p-8 text-center">
-                <h4 className="text-h2 font-heading font-black text-white mb-3">
-                  Ready to get started?
-                </h4>
-                <p className="text-body text-white/90 mb-6 max-w-lg mx-auto">
-                  Brand gradient background with white text and accent button for maximum impact.
-                </p>
-                <Button variant="accent" size="lg" className="uppercase">
-                  Get Started <ArrowRight className="w-5 h-5" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Icon + Content Pattern */}
-            <div>
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Icon Grid Pattern
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {[
-                  { icon: Heart, color: 'bg-neon-pink', title: 'User-Centered', text: 'Always start with user needs' },
-                  { icon: Zap, color: 'bg-cyber-yellow', title: 'Fast & Efficient', text: 'Performance is a feature' },
-                  { icon: Check, color: 'bg-electric-blue', title: 'Quality First', text: 'No shortcuts, ever' },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="bg-white border-brutal border-black rounded-brutal shadow-brutal p-6 hover:-translate-y-1 hover:shadow-brutal-lg transition-all">
-                      <div className={`w-12 h-12 ${item.color} border-brutal-thin border-black rounded-brutal flex items-center justify-center mb-4`}>
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                      <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-body-small text-brutalist-text-secondary">
-                        {item.text}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Experience Timeline Pattern */}
-            <div className="mt-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Experience Timeline Pattern
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Combine ExperienceCard components to create professional timelines for portfolios, resumes, or about pages. Perfect for showcasing career progression or educational journey.
-              </p>
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-6">Border Radius</h4>
               <div className="space-y-6">
-                <ExperienceCard
-                  date="2023 - Present"
-                  role="Product Manager"
-                  roleColor="purple"
-                  company="Tech Startup Inc."
-                  description="Leading product development for a SaaS platform serving 10k+ users."
-                  achievements={[
-                    "Grew MRR by 150% in 6 months through feature prioritization",
-                    "Reduced churn rate from 8% to 3% with improved onboarding"
-                  ]}
-                  skills={["Product-Led Growth", "SaaS Metrics", "A/B Testing"]}
-                  isCurrent
-                />
-                <ExperienceCard
-                  date="2021 - 2023"
-                  role="Senior Designer"
-                  roleColor="blue"
-                  company="Design Agency Co."
-                  description="Crafted digital experiences for Fortune 500 clients and startups."
-                  achievements={[
-                    "Led design for 15+ successful product launches",
-                    "Mentored junior designers and established design system"
-                  ]}
-                  skills={["UI/UX Design", "Figma", "Design Systems", "User Research"]}
-                  certifications={[
-                    { name: "UX Certification", icon: Award }
-                  ]}
-                />
-                <ExperienceCard
-                  date="2019 - 2021"
-                  role="Junior Developer"
-                  roleColor="teal"
-                  company="Software Solutions Ltd."
-                  description="Built web applications using modern JavaScript frameworks."
-                  achievements={[
-                    "Contributed to 20+ client projects",
-                    "Improved code coverage from 40% to 85%"
-                  ]}
-                  skills={["React", "Node.js", "TypeScript", "PostgreSQL"]}
-                />
+                {[
+                  { name: 'rounded (4px)', class: 'rounded' },
+                  { name: 'rounded-lg (8px)', class: 'rounded-lg' },
+                  { name: 'rounded-xl (12px)', class: 'rounded-xl' },
+                  { name: 'rounded-full (9999px)', class: 'rounded-full' },
+                ].map((radius) => (
+                  <div key={radius.name}>
+                    <p className="text-body-small font-bold mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                      {radius.name}
+                    </p>
+                    <div className={`h-16 bg-[#0D7EFF] border-3 border-[#000] ${radius.class}`} />
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
 
-            {/* Activity Dashboard Pattern */}
-            <div className="mt-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Activity Dashboard Pattern
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Combine ActivityCard components to create &quot;What I&apos;m Up To&quot; sections or real-time activity dashboards.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <ActivityCard
-                  title="Current Work"
-                  icon={Briefcase}
-                  color="blue"
-                  metric={{ label: "+12% faster", icon: TrendingUp }}
-                >
-                  <p className="text-body-small text-brutalist-text-secondary mb-2">
-                    Optimizing payment flows @ <strong className="text-electric-blue">Company</strong>
-                  </p>
-                  <p className="text-body-small text-brutalist-text-secondary italic">
-                    Making payments 12% faster through user research.
-                  </p>
-                </ActivityCard>
-
-                <ActivityCard
-                  title="Learning"
-                  icon={BookOpen}
-                  color="pink"
-                >
-                  <p className="text-body-small text-brutalist-text-secondary mb-2">
-                    This week: <strong className="text-neon-pink">AI workflows</strong>
-                  </p>
-                  <p className="text-body-small text-brutalist-text-secondary">
-                    Experimenting with Claude for PRD drafts and Figma for rapid prototyping.
-                  </p>
-                </ActivityCard>
-
-                <ActivityCard
-                  title="Side Project"
-                  icon={Zap}
-                  color="yellow"
-                >
-                  <p className="text-body-small text-brutalist-text-secondary">
-                    Building a <strong className="text-cyber-yellow">design system</strong> for personal portfolio
-                  </p>
-                </ActivityCard>
-              </div>
-            </div>
-
-            {/* Collaboration Grid Pattern */}
-            <div className="mt-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Collaboration Grid Pattern
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Use CollaborationCard components to showcase service offerings, pricing tiers, or ways to work together.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <CollaborationCard
-                  number="01"
-                  title="Quick Call"
-                  description="30-minute focused session"
-                  features={[
-                    "Quick problem-solving",
-                    "Expert second opinion",
-                    "Actionable next steps"
-                  ]}
-                  icon={Lightbulb}
-                  color="blue"
-                />
-                <CollaborationCard
-                  number="02"
-                  title="Deep Dive"
-                  description="2-hour comprehensive workshop"
-                  features={[
-                    "In-depth analysis",
-                    "Strategy development",
-                    "Implementation roadmap"
-                  ]}
-                  icon={Users}
-                  color="pink"
-                />
-                <CollaborationCard
-                  number="03"
-                  title="Ongoing Partnership"
-                  description="Monthly retainer for continuous support"
-                  features={[
-                    "Regular check-ins",
-                    "Priority support",
-                    "Long-term planning"
-                  ]}
-                  icon={GraduationCap}
-                  color="purple"
-                />
-              </div>
-            </div>
-
-            {/* Blog Cards Pattern */}
-            <div className="mt-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Blog Cards Pattern
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Neobrutalist blog cards following the Designprototipo pattern. Two layout variants: with description (preview text) or without (compact). White background with vertical lift hover animation.
-              </p>
-
-              {/* With Description */}
-              <div className="mb-8">
-                <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-4">
-                  With Description
-                </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <BlogCard
-                    variant="design"
-                    title="The art of saying no"
-                    description="Sometimes the best product decisions are the features you don't build. Here's why strategic rejection beats feature bloat."
-                    readingTime={5}
-                    date="15 Nov 2024"
-                    href="#"
-                  />
-                  <BlogCard
-                    variant="pm"
-                    title="From chaos to clarity"
-                    description="How I went from drowning in Jira tickets to shipping features users actually want. The trick? It's not about doing more."
-                    readingTime={7}
-                    date="12 Nov 2024"
-                    href="#"
-                  />
-                  <BlogCard
-                    variant="featured"
-                    title="Quick wins that matter"
-                    description="Three micro-optimizations that cut payment time by 12%. Sometimes the answer isn't complex: it's just counting clicks."
-                    readingTime={4}
-                    date="10 Nov 2024"
-                    href="#"
-                  />
-                </div>
-              </div>
-
-              {/* Without Description */}
+          {/* Transitions */}
+          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+            <h4 className="text-h4 mb-6">Transitions & Animations</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-4">
-                  Without Description (Compact)
-                </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <BlogCard
-                    variant="dev"
-                    title="Code review checklist"
-                    readingTime={3}
-                    date="8 Nov 2024"
-                    href="#"
-                  />
-                  <BlogCard
-                    variant="tool"
-                    title="Analytics that don't lie"
-                    readingTime={6}
-                    date="5 Nov 2024"
-                    href="#"
-                  />
-                  <BlogCard
-                    variant="design"
-                    title="User research in a week"
-                    readingTime={5}
-                    date="1 Nov 2024"
-                    href="#"
-                  />
+                <p className="text-body-small font-bold mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Translate on Hover
+                </p>
+                <div className="h-24 bg-[#FF006E] border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-2 hover:shadow-brutal-lg transition-all flex items-center justify-center cursor-pointer">
+                  <span className="text-white font-bold">Hover me</span>
                 </div>
               </div>
-
-              {/* Usage Notes */}
-              <div className="mt-6 bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-                <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-3">
-                  Usage Guidelines
-                </h4>
-                <p className="text-body-small text-brutalist-text-secondary mb-4 italic">
-                  Based on Designprototipo reference: <a href="https://github.com/Selfrules/Designprototipo" target="_blank" rel="noopener noreferrer" className="text-electric-blue underline">BlogSection.tsx Regular Posts</a>
+              <div>
+                <p className="text-body-small font-bold mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Rotate on Hover
                 </p>
-                <ul className="space-y-3 text-body-small text-brutalist-text-secondary">
-                  <li className="flex gap-3">
-                    <span className="text-electric-blue font-bold">→</span>
-                    <span>
-                      <strong className="text-brutalist-text-primary">Background:</strong> White background (bg-white) as per prototype, not cream
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-neon-pink font-bold">→</span>
-                    <span>
-                      <strong className="text-brutalist-text-primary">Hover Animation:</strong> Vertical lift only (hover:-translate-y-2), 8px upward movement
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-deep-purple font-bold">→</span>
-                    <span>
-                      <strong className="text-brutalist-text-primary">Title Hover:</strong> Title changes color to Electric Blue (#0D7EFF) on card hover
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-cyber-yellow font-bold">→</span>
-                    <span>
-                      <strong className="text-brutalist-text-primary">Layout:</strong> Badge inline, metadata footer with top border separator (pt-4 border-t)
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-teal font-bold">→</span>
-                    <span>
-                      <strong className="text-brutalist-text-primary">Description:</strong> line-clamp-3 ensures descriptions don&apos;t overflow (only when provided)
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-neon-pink font-bold">→</span>
-                    <span>
-                      <strong className="text-brutalist-text-primary">Category Variants:</strong> design (Electric Blue), dev (Teal), pm (Deep Purple), tool (Neon Pink), featured (Cyber Yellow)
-                    </span>
-                  </li>
-                </ul>
+                <div className="h-24 bg-[#FFD60A] border-4 border-[#000] rounded-lg shadow-brutal hover:rotate-3 transition-all flex items-center justify-center cursor-pointer">
+                  <span className="text-[#0A0A0A] font-bold">Hover me</span>
+                </div>
+              </div>
+              <div>
+                <p className="text-body-small font-bold mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  Scale on Hover
+                </p>
+                <div className="h-24 bg-[#7209B7] border-4 border-[#000] rounded-lg shadow-brutal hover:scale-105 transition-all flex items-center justify-center cursor-pointer">
+                  <span className="text-white font-bold">Hover me</span>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Blog Components Section */}
-          <section id="blog-components" className="scroll-mt-24">
-            <div className="mb-8">
-              <div className="flex items-center gap-3 mb-3">
-                <BookOpen className="w-6 h-6 text-teal" />
-                <h2 className="text-h2 font-heading font-black text-brutalist-text-primary">
-                  Blog Components
-                </h2>
-              </div>
-              <p className="text-body text-brutalist-text-secondary">
-                Componenti UI riusabili per articoli di blog, creati seguendo il design system neobrutalist.
-              </p>
+        {/* 6. ACCESSIBILITY */}
+        <section id="accessibility" className="mb-32 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-[#10B981] border-3 border-[#000] rounded-lg flex items-center justify-center">
+              <CheckCircle className="w-6 h-6 text-white" />
             </div>
-
-            {/* Learning Objectives */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Learning Objectives
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Box &quot;Cosa imparerai&quot; con lista di obiettivi e link CTA. Perfetto per l&apos;inizio degli articoli.
-              </p>
-              <LearningObjectives
-                objectives={[
-                  'Come bilanciare richieste stakeholder e bisogni utenti',
-                  'Framework pratico di prioritizzazione con scoring trasparente',
-                  'Risultati misurabili: +42% engagement, -60% feature ignorate'
-                ]}
-                ctaText="Vai alla soluzione"
-                ctaHref="#solution"
-                color="electric-blue"
-              />
-            </div>
-
-            {/* Insight Box */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Insight Box
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Callout per evidenziare insight chiave. Disponibile in diverse varianti colore.
-              </p>
-              <div className="space-y-4">
-                <InsightBox variant="default">
-                  Il 70% delle feature richieste dagli stakeholder non risolvevano problemi reali degli utenti.
-                </InsightBox>
-                <InsightBox variant="blue" title="Key Insight">
-                  La trasparenza nel processo decisionale elimina il 90% delle dispute sulla roadmap.
-                </InsightBox>
-              </div>
-            </div>
-
-            {/* Team Composition */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Team Composition
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Display numerico della composizione del team. Utile per mostrare contesto aziendale.
-              </p>
-              <TeamComposition
-                members={[
-                  { count: 8, role: 'Sviluppatori', color: 'teal' },
-                  { count: 2, role: 'Designer', color: 'blue' },
-                  { count: 1, role: 'PM (io)', color: 'purple' }
-                ]}
-              />
-            </div>
-
-            {/* Problem List */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Problem List
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Lista numerata di problemi/challenges. Perfetto per descrivere il contesto di un progetto.
-              </p>
-              <ProblemList
-                title="Le sfide principali"
-                problems={[
-                  'Roadmap sovraffollata di feature request non validate',
-                  'Mancanza di dati quantitativi sulle priorità',
-                  'Comunicazione frammentata tra team e stakeholder',
-                  'Deadline irrealistiche imposte dal management'
-                ]}
-                variant="red"
-              />
-            </div>
-
-            {/* Framework Display */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Framework Display
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Mostra framework o metodologie a colonne. Ideale per presentare concetti strutturati.
-              </p>
-              <FrameworkDisplay
-                title="Framework di Prioritizzazione"
-                columns={[
-                  {
-                    title: 'Impatto Utente',
-                    description: 'Quanti utenti beneficiano della feature?',
-                    icon: Users,
-                    color: 'blue'
-                  },
-                  {
-                    title: 'Sforzo Tecnico',
-                    description: 'Complessità di sviluppo e tempo richiesto',
-                    icon: Code2,
-                    color: 'teal'
-                  },
-                  {
-                    title: 'Allineamento',
-                    description: 'Coerenza con vision e strategia aziendale',
-                    icon: Star,
-                    color: 'purple'
-                  }
-                ]}
-              />
-            </div>
-
-            {/* CTA Box */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                CTA Box
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Call-to-action con gradiente e bottone. Per conversioni o lead generation.
-              </p>
-              <CTABox
-                title="Ti piace questo approccio?"
-                description="Scopri come posso aiutarti a implementarlo nel tuo team"
-                buttonText="Prenota una consulenza"
-                buttonHref="#contact"
-                variant="brand"
-              />
-            </div>
-
-            {/* Metrics Grid */}
-            <div className="mb-12">
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Metrics Grid
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Griglia di metriche/risultati. Mostra l&apos;impatto di un progetto in modo visuale.
-              </p>
-              <MetricsGrid
-                title="Risultati del Progetto"
-                columns={4}
-                metrics={[
-                  { value: '+42%', description: 'User engagement sulle nuove feature', trend: 'up', color: 'green' },
-                  { value: '-60%', description: 'Feature ignorate dagli utenti', trend: 'down', color: 'green' },
-                  { value: '+35%', description: 'Velocità di delivery del team', trend: 'up', color: 'blue' },
-                  { value: '4.8/5', description: 'Soddisfazione stakeholder', trend: 'neutral', color: 'purple' }
-                ]}
-              />
-            </div>
-
-            {/* Lessons List */}
             <div>
-              <h3 className="text-h3 font-heading font-bold text-brutalist-text-primary mb-4">
-                Lessons List
-              </h3>
-              <p className="text-body-small text-brutalist-text-secondary mb-6">
-                Lista di lessons learned. Perfetto per concludere case study con takeaway chiave.
-              </p>
-              <LessonsList
-                title="Lezioni chiave"
-                color="purple"
-                lessons={[
-                  {
-                    title: 'La trasparenza vince sempre',
-                    description: 'Rendere visibile il processo decisionale elimina il 90% delle dispute sulla roadmap. Tutti sanno come e perché vengono prese le decisioni.'
-                  },
-                  {
-                    title: 'I dati battono le opinioni',
-                    description: 'Un framework quantitativo toglie l\'emotività dalle decisioni difficili. Le discussioni diventano oggettive e costruttive.'
-                  },
-                  {
-                    title: 'Il team deve essere coinvolto',
-                    description: 'Le decisioni prese insieme hanno un tasso di successo 3x superiore. L&apos;ownership condiviso fa la differenza.'
-                  }
-                ]}
-              />
+              <h2 className="text-h2">Accessibility</h2>
+              <p className="text-body-small text-[#6B7280]">WCAG 2.1 AA compliant</p>
             </div>
+          </div>
 
-            {/* Usage Guidelines */}
-            <div className="mt-12 bg-white border-brutal border-black rounded-brutal shadow-brutal p-6">
-              <h4 className="text-h4 font-heading font-bold text-brutalist-text-primary mb-3">
-                Linee Guida per l&apos;Uso
-              </h4>
-              <ul className="space-y-3 text-body-small text-brutalist-text-secondary">
-                <li className="flex gap-3">
-                  <span className="text-electric-blue font-bold">→</span>
-                  <span>
-                    <strong className="text-brutalist-text-primary">Importazione:</strong> Importa componenti da <code className="text-xs bg-cream px-2 py-1 rounded border border-black">@/components/ui/blog</code>
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-neon-pink font-bold">→</span>
-                  <span>
-                    <strong className="text-brutalist-text-primary">Design Tokens:</strong> Tutti i componenti usano i design tokens del sistema (colori, spacing, shadows)
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-deep-purple font-bold">→</span>
-                  <span>
-                    <strong className="text-brutalist-text-primary">Responsive:</strong> Tutti i componenti sono mobile-first e responsive
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-teal font-bold">→</span>
-                  <span>
-                    <strong className="text-brutalist-text-primary">Accessibilità:</strong> Seguono le linee guida WCAG AA con contrasto appropriato
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <footer className="border-t-brutal border-black pt-8 mt-16">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-brutalist-text-secondary">
-                  Design System v2.0 · Built with Next.js & Tailwind CSS
-                </p>
-                <p className="text-xs text-brutalist-text-tertiary mt-1">
-                  100% design token coverage · WCAG AA compliant
-                </p>
-              </div>
-              <div className="flex gap-2">
-                <NeoBadge color="blue">Neobrutalist</NeoBadge>
-                <NeoBadge color="neutral">Cold-Tone</NeoBadge>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Color Contrast */}
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-6">Color Contrast Ratios</h4>
+              <div className="space-y-4">
+                {[
+                  { bg: '#0D7EFF', text: '#FFFFFF', ratio: '4.5:1', level: 'AA' },
+                  { bg: '#FF006E', text: '#FFFFFF', ratio: '5.2:1', level: 'AA' },
+                  { bg: '#0A0A0A', text: '#FFFFFF', ratio: '19.5:1', level: 'AAA' },
+                  { bg: '#FFFCF2', text: '#0A0A0A', ratio: '18.8:1', level: 'AAA' },
+                ].map((contrast, index) => (
+                  <div key={index} className="flex items-center justify-between p-4 border-2 border-[#E5E5E5] rounded-lg">
+                    <div className="flex items-center gap-4">
+                      <div
+                        className="w-16 h-12 border-3 border-[#000] rounded flex items-center justify-center"
+                        style={{ backgroundColor: contrast.bg, color: contrast.text }}
+                      >
+                        <span className="font-bold text-xs">Aa</span>
+                      </div>
+                      <div>
+                        <p className="text-body-small font-mono">{contrast.bg} / {contrast.text}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-body-small font-bold">{contrast.ratio}</span>
+                      <span className="px-2 py-1 bg-[#10B981] text-white border-2 border-[#000] rounded text-xs font-bold">
+                        {contrast.level}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </footer>
-        </main>
+
+            {/* Focus States */}
+            <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal p-8">
+              <h4 className="text-h4 mb-6">Focus States</h4>
+              <div className="space-y-4">
+                <p className="text-body-small text-[#6B7280] mb-4">
+                  All interactive elements have visible focus states for keyboard navigation.
+                </p>
+                <button className="w-full px-4 py-3 bg-[#0D7EFF] text-white border-3 border-[#000] rounded-lg shadow-brutal focus:outline-none focus:ring-4 focus:ring-[#FFD60A] font-bold">
+                  Tab to Focus
+                </button>
+                <input
+                  type="text"
+                  placeholder="Tab to focus this input"
+                  className="w-full px-4 py-3 border-3 border-[#000] rounded-lg shadow-brutal-sm focus:outline-none focus:ring-4 focus:ring-[#0D7EFF] transition-all"
+                />
+                <div className="flex gap-3">
+                  <button className="px-4 py-2 bg-white border-3 border-[#000] rounded-lg shadow-brutal-sm focus:outline-none focus:ring-4 focus:ring-[#FF006E] font-bold">
+                    Button 1
+                  </button>
+                  <button className="px-4 py-2 bg-white border-3 border-[#000] rounded-lg shadow-brutal-sm focus:outline-none focus:ring-4 focus:ring-[#FF006E] font-bold">
+                    Button 2
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <BlogComponentsSection />
+
+        <PatternsTexturesSection />
+
+        <NavigationComponentsSection />
+
+        <ChatBotSection />
+
+        <FormsSection />
+
+        <TimelineSection />
+
+        <HeroComponentSection />
+
+        <WorkTogetherComponentSection />
+
+        {/* 7. ICONS */}
+        <section id="icons" className="mb-20 scroll-mt-24">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-12 h-12 bg-[#FFD60A] border-3 border-[#000] rounded-lg flex items-center justify-center">
+              <Star className="w-6 h-6 text-[#0A0A0A]" />
+            </div>
+            <div>
+              <h2 className="text-h2">Icon System</h2>
+              <p className="text-body-small text-[#6B7280]">Lucide React Icons</p>
+            </div>
+          </div>
+
+          <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8">
+            <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
+              {[
+                { icon: Heart, name: 'Heart' },
+                { icon: Star, name: 'Star' },
+                { icon: Zap, name: 'Zap' },
+                { icon: Calendar, name: 'Calendar' },
+                { icon: Clock, name: 'Clock' },
+                { icon: Search, name: 'Search' },
+                { icon: User, name: 'User' },
+                { icon: Settings, name: 'Settings' },
+                { icon: Mail, name: 'Mail' },
+                { icon: Phone, name: 'Phone' },
+                { icon: TrendingUp, name: 'TrendingUp' },
+                { icon: Users, name: 'Users' },
+                { icon: Target, name: 'Target' },
+                { icon: Bookmark, name: 'Bookmark' },
+                { icon: Menu, name: 'Menu' },
+                { icon: X, name: 'X' },
+                { icon: Share2, name: 'Share2' },
+                { icon: Twitter, name: 'Twitter' },
+                { icon: Linkedin, name: 'Linkedin' },
+                { icon: Facebook, name: 'Facebook' },
+                { icon: Link2, name: 'Link2' },
+                { icon: ArrowRight, name: 'ArrowRight' },
+                { icon: ChevronDown, name: 'ChevronDown' },
+                { icon: Home, name: 'Home' },
+                { icon: FileText, name: 'FileText' },
+                { icon: Eye, name: 'Eye' },
+                { icon: MessageCircle, name: 'MessageCircle' },
+                { icon: BarChart3, name: 'BarChart3' },
+                { icon: Grid3x3, name: 'Grid3x3' },
+              ].map(({ icon: Icon, name }) => (
+                <div key={name} className="flex flex-col items-center gap-2 p-3 hover:bg-[#FFFCF2] rounded-lg transition-colors">
+                  <Icon className="w-6 h-6" />
+                  <span className="text-xs text-center text-[#6B7280]">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Footer CTA */}
+        <div className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-4 border-[#000] rounded-lg shadow-brutal-lg p-12 text-center">
+          <h3 className="text-h2 text-white mb-4">Ready to build something bold?</h3>
+          <p className="text-body-large text-white/95 mb-8 max-w-[600px] mx-auto">
+            This design system is built for speed, accessibility, and unapologetic design.
+          </p>
+          <button
+            onClick={handleBack}
+            className="px-8 py-4 bg-[#FFD60A] text-[#0A0A0A] border-4 border-[#000] rounded-lg shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold text-lg"
+          >
+            Back to Site →
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -148,7 +148,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply outline-none;
   }
 
   body {
@@ -207,6 +207,21 @@
 
 .text-white\/95 {
   opacity: 0.95;
+}
+
+/* Text color utilities for grays */
+.text-secondary,
+.text-\[\#2D2D2D\] {
+  color: #2D2D2D !important;
+}
+
+.text-tertiary,
+.text-\[\#6B7280\] {
+  color: #6B7280 !important;
+}
+
+.text-\[\#0A0A0A\] {
+  color: #0A0A0A !important;
 }
 
 .text-hero {

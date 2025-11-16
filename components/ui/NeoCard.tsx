@@ -23,7 +23,7 @@ export function NeoCard({
 }: NeoCardProps) {
   const baseClasses = cn(
     'bg-cream',
-    'border-brutal border-brutal-black rounded-brutal',
+    'border-4 border-[#000] rounded-lg',
     !noPadding && 'p-brutal-md md:p-brutal-lg',
     'transition-all duration-200'
   );
@@ -31,18 +31,18 @@ export function NeoCard({
   const variantClasses = {
     default: 'shadow-brutal',
     elevated: cn(
-      'shadow-brutal-lg',
-      'hover:-translate-y-1 hover:shadow-brutal-xl'
+      'shadow-brutal',
+      'hover:-translate-y-2 hover:shadow-brutal-lg'
     ),
-    inset: 'shadow-none border-brutal-thick',
+    inset: 'shadow-none border-[6px]',
     colored: cn(
-      color === 'blue' && 'shadow-brutal-colored-blue',
-      color === 'pink' && 'shadow-brutal-colored-pink',
-      color === 'yellow' && 'shadow-brutal-colored-yellow',
-      color === 'purple' && 'shadow-brutal-colored-purple',
-      color === 'teal' && 'shadow-brutal-colored-teal',
-      color === 'lime' && 'shadow-brutal-colored-lime',
-      'hover:-translate-y-1'
+      color === 'blue' && 'shadow-brutal-blue',
+      color === 'pink' && 'shadow-brutal-pink',
+      color === 'yellow' && 'shadow-brutal-yellow',
+      color === 'purple' && 'shadow-brutal-purple',
+      color === 'teal' && 'shadow-brutal-teal',
+      color === 'lime' && 'shadow-brutal-lime',
+      'hover:-translate-y-2'
     ),
   };
 

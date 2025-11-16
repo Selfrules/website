@@ -24,7 +24,7 @@ export function NeoButton({
   const baseClasses = cn(
     'inline-flex items-center justify-center gap-2',
     'font-heading font-bold uppercase tracking-wider',
-    'border-brutal border-brutal-black rounded-brutal',
+    'border-3 border-[#000] rounded-lg',
     'transition-all duration-200',
     'focus:outline-none focus:ring-4 focus:ring-electric-blue/50',
     fullWidth && 'w-full'
@@ -40,32 +40,32 @@ export function NeoButton({
     primary: cn(
       'bg-electric-blue text-white',
       'shadow-brutal',
-      'hover:-translate-y-1 hover:shadow-brutal-hover',
+      'hover:-translate-y-1 hover:shadow-brutal-lg',
       'active:translate-y-0 active:shadow-brutal-sm'
     ),
     secondary: cn(
       'bg-teal text-white',
       'shadow-brutal',
-      'hover:-translate-y-1 hover:shadow-brutal-hover',
+      'hover:-translate-y-1 hover:shadow-brutal-lg',
       'active:translate-y-0 active:shadow-brutal-sm'
     ),
     accent: cn(
       'bg-cyber-yellow text-text-primary',
       'shadow-brutal',
-      'hover:-translate-y-1 hover:shadow-brutal-hover',
+      'hover:-translate-y-1 hover:shadow-brutal-lg',
       'active:translate-y-0 active:shadow-brutal-sm'
     ),
     outline: cn(
       'bg-cream text-text-primary',
-      'border-brutal-black',
+      'border-[#000]',
       'shadow-brutal',
-      'hover:bg-cyber-yellow hover:-translate-y-1 hover:shadow-brutal-hover',
+      'hover:bg-cyber-yellow hover:-translate-y-1 hover:shadow-brutal-lg',
       'active:translate-y-0 active:shadow-brutal-sm'
     ),
     ghost: cn(
       'bg-transparent text-text-primary',
       'border-transparent shadow-none',
-      'hover:bg-surface-light hover:border-brutal-black hover:shadow-brutal',
+      'hover:bg-surface-light hover:border-[#000] hover:shadow-brutal',
       'active:translate-y-0 active:shadow-brutal-sm'
     ),
   };

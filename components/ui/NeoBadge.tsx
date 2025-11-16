@@ -55,8 +55,8 @@ export function NeoBadge({
       onClick={onClick}
       className={cn(
         'inline-block font-heading font-bold tracking-wider uppercase',
-        'border-brutal-thin border-brutal-black rounded-brutal',
-        'shadow-brutal-sm',
+        'border-3 border-[#000] rounded-lg',
+        'shadow-brutal',
         'transition-transform duration-200',
         'hover:-translate-y-0.5',
         onClick && 'cursor-pointer',
