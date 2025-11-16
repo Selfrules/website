@@ -34,7 +34,7 @@ export default function Hero() {
           >
             <Sparkles className="w-5 h-5 text-neon-pink" />
             <NeoBadge color="pink">
-              PM • Designer • Dev
+              {t('badge')}
             </NeoBadge>
           </motion.div>
 
