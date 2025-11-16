@@ -94,14 +94,14 @@ export function Header({ locale }: HeaderProps) {
                   if (locale !== 'it') toggleLocale();
                 }}
                 className={cn(
-                  'px-3 py-1.5 transition-all font-bold text-base',
+                  'px-3 py-1.5 transition-all font-bold text-sm',
                   locale === 'it'
                     ? 'bg-neon-pink text-white'
-                    : 'bg-transparent hover:bg-cream'
+                    : 'bg-transparent hover:bg-cream text-brutalist-text-secondary'
                 )}
                 aria-label="Italiano"
               >
-                🇮🇹
+                IT
               </button>
               <div className="w-px h-6 bg-black" />
               <button
@@ -109,14 +109,14 @@ export function Header({ locale }: HeaderProps) {
                   if (locale !== 'en') toggleLocale();
                 }}
                 className={cn(
-                  'px-3 py-1.5 transition-all font-bold text-base',
+                  'px-3 py-1.5 transition-all font-bold text-sm',
                   locale === 'en'
                     ? 'bg-neon-pink text-white'
-                    : 'bg-transparent hover:bg-cream'
+                    : 'bg-transparent hover:bg-cream text-brutalist-text-secondary'
                 )}
                 aria-label="English"
               >
-                🇬🇧
+                EN
               </button>
             </div>
 
