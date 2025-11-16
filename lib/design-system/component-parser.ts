@@ -186,12 +186,22 @@ export function parseComponent(sourceFile: SourceFile, filePath: string): Compon
 
   const hasDefaultExport = allExportedSymbols.includes('default');
 
+  // Filter out: default, Props interfaces, Data interfaces (usually types, not components)
   const exportedComponents = allExportedSymbols
-    .filter(name => name !== 'default' && !name.endsWith('Props'));
+    .filter(name =>
+      name !== 'default' &&
+      !name.endsWith('Props') &&
+      !name.endsWith('Data') &&
+      !name.startsWith('use') // Exclude hooks
+    );
 
-  const mainComponentName = exportedComponents.includes(fileName)
+  // Prefer the fileName as main component if it exists, or use first exported
+  // If default export exists and no named components, use fileName
+  const mainComponentName = hasDefaultExport && exportedComponents.length === 0
     ? fileName
-    : exportedComponents[0] || fileName;
+    : exportedComponents.includes(fileName)
+      ? fileName
+      : exportedComponents[0] || fileName;
 
   // Extract metadata
   const variants = extractVariants(mainPropsInterface);
