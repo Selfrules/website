@@ -41,6 +41,7 @@ export interface ComponentMetadata {
   variants: VariantDefinition[];
   examples: ExampleCode[];
   subComponents?: ComponentMetadata[]; // For compound components like Card
+  isDefaultExport?: boolean; // Whether the component uses default export
 }
 
 /**
