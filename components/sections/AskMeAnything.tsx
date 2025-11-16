@@ -19,32 +19,34 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
   const translations = {
     it: {
       badge: 'Chiedimi qualsiasi cosa',
-      title: 'Hai una domanda? Chiedi. Anche quella scomoda.',
-      description: 'Chat con il mio AI clone oppure domanda anonima. Rispondo in 48 ore. Tutte. ',
-      descriptionHighlight: 'Sì, anche "Quanto guadagni?" o "Hai mai pensato di mollare tutto?"',
+      title: 'Hai una domanda? Falla. Soprattutto quella che ti frena.',
+      description: 'Chat con un AI che ha letto anni di miei errori. Oppure chiedi anonimo. Rispondo sempre. In 48 ore, pubblicamente se utile ad altri. ',
+      descriptionHighlight: 'Sì, anche "Quanto guadagni?" (te lo dico). O "Mai pensato di mollare?" (tre volte).',
       chatMode: {
         title: 'Parla con il mio AI clone',
-        description: 'Alimentato da Claude AI, conosce tutto il mio background e può rispondere alle tue domande su: Design, sviluppo, product management • Come sono passato da un ruolo all\'altro • Errori che ho fatto (sono tanti) e cosa ho imparato • Consigli per il tuo percorso. È come parlare con me, ma disponibile 24/7 e con pazienza infinita per le domande ripetitive.',
+        intro: 'Ho dato a Claude AI anni di progetti, fallimenti, e cambi di rotta. Chiedimi di:',
         buttonText: 'Inizia chat',
+        ironicCloser: 'Come parlare con me, ma senza che controlli l\'orologio. E con meno parolacce.',
       },
       formMode: {
         title: 'Chiedi anonimo',
-        description: 'Preferisci scrivere? Lascia la tua domanda qui. Rispondo pubblicamente sul blog (così aiuta anche altri). Niente nome richiesto. Niente giudizio. Solo domande reali e risposte oneste.',
+        description: 'Preferisci scrivere? Lascia la domanda qui.\n\nRispondo sul blog se può aiutare altri (75% finiscono lì). Altrimenti via email se la lasci.\n\nZero nome richiesto. Zero tracking. Solo la domanda che non faresti su LinkedIn.',
       },
     },
     en: {
       badge: 'Ask me anything',
-      title: 'Got a question? Ask. Even the uncomfortable one.',
-      description: 'Chat with my AI clone or ask anonymously. I reply in 48 hours. All of them. ',
-      descriptionHighlight: 'Yes, even "How much do you make?" or "Ever thought of quitting?"',
+      title: 'Got a question? Ask it. Especially the one holding you back.',
+      description: 'Chat with an AI trained on years of my mistakes. Or ask anonymously. I always reply. In 48 hours, publicly if it helps others. ',
+      descriptionHighlight: 'Yes, even "How much do you make?" (I\'ll tell you). Or "Ever thought of quitting?" (three times).',
       chatMode: {
         title: 'Talk to my AI clone',
-        description: 'Powered by Claude AI, knows all my background and can answer your questions about design, development, product management, or anything else.',
+        intro: 'I gave Claude AI years of projects, failures, and career pivots. Ask me to:',
         buttonText: 'Start chat',
+        ironicCloser: 'Like talking to me, but without me checking the clock. And with fewer curse words.',
       },
       formMode: {
         title: 'Ask anonymously',
-        description: 'Prefer to write? Leave your question here. I respond publicly on the blog or privately via email if you provide it.',
+        description: 'Prefer to write? Leave your question here.\n\nI reply on the blog if it helps others (75% end up there). Otherwise via email if you leave one.\n\nZero name required. Zero tracking. Just the question you wouldn\'t ask on LinkedIn.',
       },
     },
   };
@@ -94,30 +96,54 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
               </h3>
 
               <p className="text-body-small md:text-body text-white/90 mb-3">
-                Alimentato da Claude AI, conosce tutto il mio background e può rispondere alle tue domande su:
+                {t.chatMode.intro}
               </p>
 
               <ul className="text-body-small md:text-body text-white/90 space-y-2 mb-4 ml-4">
                 <li className="flex gap-2">
                   <span className="text-electric-blue">•</span>
-                  <span>Design, sviluppo, product management</span>
+                  <span>
+                    {locale === 'it' ? (
+                      <><strong>Spiegare</strong> come sono passato da designer a dev a PM (e perché non in quest&apos;ordine)</>
+                    ) : (
+                      <><strong>Explain</strong> how I went from designer to dev to PM (and why not in that order)</>
+                    )}
+                  </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-electric-blue">•</span>
-                  <span>Come sono passato da un ruolo all&apos;altro</span>
+                  <span>
+                    {locale === 'it' ? (
+                      <><strong>Raccontare</strong> l&apos;errore del 2015 che mi è costato 6 mesi di lavoro</>
+                    ) : (
+                      <><strong>Tell you</strong> about the 2015 mistake that cost me 6 months of work</>
+                    )}
+                  </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-electric-blue">•</span>
-                  <span>Errori che ho fatto (sono tanti) e cosa ho imparato</span>
+                  <span>
+                    {locale === 'it' ? (
+                      <><strong>Confrontare</strong> il mio percorso con il tuo (cosa funzionerebbe, cosa no)</>
+                    ) : (
+                      <><strong>Compare</strong> my path to yours (what would work, what wouldn&apos;t)</>
+                    )}
+                  </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-electric-blue">•</span>
-                  <span>Consigli per il tuo percorso</span>
+                  <span>
+                    {locale === 'it' ? (
+                      <><strong>Rispondere</strong> alla domanda che non fai a voce alta</>
+                    ) : (
+                      <><strong>Answer</strong> the question you don&apos;t ask out loud</>
+                    )}
+                  </span>
                 </li>
               </ul>
 
               <p className="text-body-small md:text-body text-white/80 italic mb-6">
-                È come parlare con me, ma disponibile 24/7 e con pazienza infinita per le domande ripetitive.
+                {t.chatMode.ironicCloser}
               </p>
 
               <Button variant="primary" size="lg" onClick={handleChatClick} className="w-full">
@@ -140,7 +166,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
                 {t.formMode.title}
               </h3>
 
-              <p className="text-body-small md:text-body text-white/90 mb-6">
+              <p className="text-body-small md:text-body text-white/90 mb-6 whitespace-pre-line">
                 {t.formMode.description}
               </p>
 

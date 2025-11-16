@@ -123,13 +123,13 @@ I write to understand, not to look smart. Here you'll find reflections on design
 What I'm working on
 
 ### Current Work
-**Product Manager @ QubicaAMF** — Making payments in the bowling world 12% faster. No, it's not sexy. Yes, it makes a difference for thousands of people every day. And it's exactly the kind of work I like: invisible when it works, indispensable when needed.
+**Product Manager @ QubicaAMF** - Making payments in the bowling world 12% faster. No, it's not sexy. Yes, it makes a difference for thousands of people every day. And it's exactly the kind of work I like: invisible when it works, indispensable when needed.
 
 ### Current Learning
 **This week I'm exploring**: How AI is changing my daily workflow. Not for hype, but because it saves me 5 hours a week of repetitive work. And I use those 5 hours to think, not to execute.
 
 ### Current Reading
-**On the nightstand**: [Current book title] — [1-2 sentences on what I'm learning and why it matters]
+**On the nightstand**: [Current book title] - [1-2 sentences on what I'm learning and why it matters]
 
 ### Current Soundtrack
 [Spotify Now Playing widget]
@@ -143,21 +143,27 @@ What I'm working on
 Ask me anything
 
 ### Section Intro
-I learned that the best questions come from those who do, not those who study. Got a question about design, development, product, or how to move from one to another? Ask.
+Got a question about design, development, or product management?
+
+Two ways to get an answer: an AI chatbot that answers immediately, or a direct question to me (I answer within 48 hours).
+
+Choose what works for you.
 
 ### Option 1: AI Chatbot
-**Headline**: Chat with my digital twin
+**Headline**: Instant answer (via AI)
 
-**Description**: I trained an AI with everything I know about design, development, and product management. It's not perfect, but it answers you immediately. And it talks exactly like me (ironic, direct, pragmatic).
+**Description**: An AI chatbot trained on everything I've written, done, and learned. It's not perfect, but it answers you in 10 seconds instead of 48 hours.
 
-**When to use it**: Quick questions, immediate advice, when you want an answer now.
+**When to use it**: Simple questions. Quick advice. When 80% of the right answer is enough.
 
 ### Option 2: Direct question
-**Headline**: Ask anonymously, I answer publicly
+**Headline**: Direct question (I answer)
 
-**Description**: Prefer a human? Send your question here. You can stay anonymous. I answer within 48 hours. The best questions become blog articles (obviously without revealing who asked).
+**Description**: Prefer a human? Send your question here. You can stay anonymous. I answer within 48 hours via email.
 
-**When to use it**: Complex questions, specific situations, when you want my unfiltered opinion.
+If the question is useful to others, I publish it on the blog (without revealing who you are).
+
+**When to use it**: Complex questions. Specific situations the AI doesn't understand. When you want an opinion, not generic advice.
 
 **Form fields**:
 - Your question
@@ -172,13 +178,13 @@ I learned that the best questions come from those who do, not those who study. G
 Built with code, design, and too much coffee. Based in Italy, working anywhere with decent WiFi.
 
 ### Social Links
-- LinkedIn — For professional networking
-- GitHub — To see what I build
-- Twitter/X — For short thoughts (and complaints about useless meetings)
+- LinkedIn - For professional networking
+- GitHub - To see what I build
+- Twitter/X - For short thoughts (and complaints about useless meetings)
 
 ### Legal
-- Privacy Policy — How I use (and don't use) your data
-- Cookie Policy — Only essential cookies, promise
+- Privacy Policy - How I use (and don't use) your data
+- Cookie Policy - Only essential cookies, promise
 
 ### Easter Egg
 Made with Next.js, Tailwind, Framer Motion, too much ambition, and an unrealistic deadline. Like every good product.
@@ -208,7 +214,7 @@ Tell me what you were looking for →
 ## Meta Descriptions & SEO
 
 ### Homepage
-Mattia De Luca — Product Manager with background in design and development. I help teams and companies build products that actually work, combining strategy, design, and tech.
+Mattia De Luca - Product Manager with background in design and development. I help teams and companies build products that actually work, combining strategy, design, and tech.
 
 ### About/Journey Page
 From design to code to product management. The (unconventional) path of someone who learned by making every possible mistake before understanding how to build products.

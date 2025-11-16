@@ -958,7 +958,7 @@ export default function DesignSystemPage() {
                   <BlogCard
                     variant="featured"
                     title="Quick wins that matter"
-                    description="Three micro-optimizations that cut payment time by 12%. Sometimes the answer isn't complex—it's just counting clicks."
+                    description="Three micro-optimizations that cut payment time by 12%. Sometimes the answer isn't complex: it's just counting clicks."
                     readingTime={4}
                     date="10 Nov 2024"
                     href="#"

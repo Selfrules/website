@@ -123,13 +123,13 @@ Scrivo per capire, non per sembrare intelligente. Qui trovi riflessioni su desig
 A cosa sto lavorando
 
 ### Current Work
-**Product Manager @ QubicaAMF** — Sto rendendo i pagamenti nel mondo del bowling 12% più veloci. No, non è sexy. Sì, fa la differenza per migliaia di persone ogni giorno. Ed è esattamente il tipo di lavoro che mi piace: invisibile quando funziona, indispensabile quando serve.
+**Product Manager @ QubicaAMF** - Sto rendendo i pagamenti nel mondo del bowling 12% più veloci. No, non è sexy. Sì, fa la differenza per migliaia di persone ogni giorno. Ed è esattamente il tipo di lavoro che mi piace: invisibile quando funziona, indispensabile quando serve.
 
 ### Current Learning
 **Questa settimana sto esplorando**: Come l'AI sta cambiando il mio workflow quotidiano. Non per hype, ma perché mi fa risparmiare 5 ore a settimana di lavoro ripetitivo. E quelle 5 ore le uso per pensare, non per eseguire.
 
 ### Current Reading
-**Sul comodino**: [Titolo libro attuale] — [1-2 frasi su cosa sto imparando e perché conta]
+**Sul comodino**: [Titolo libro attuale] - [1-2 frasi su cosa sto imparando e perché conta]
 
 ### Current Soundtrack
 [Widget Spotify con Now Playing]
@@ -143,21 +143,27 @@ A cosa sto lavorando
 Chiedimi qualsiasi cosa
 
 ### Section Intro
-Ho imparato che le domande migliori arrivano da chi fa, non da chi studia. Hai una domanda su design, sviluppo, product, o su come passare da uno all'altro? Chiedi.
+Hai una domanda su design, sviluppo, o product management?
+
+Due modi per ottenere una risposta: un chatbot AI che risponde subito, o una domanda diretta a me (rispondo in 48 ore).
+
+Scegli quello che funziona per te.
 
 ### Option 1: Chatbot AI
-**Headline**: Chatta con il mio gemello digitale
+**Headline**: Risposta immediata (via AI)
 
-**Descrizione**: Ho addestrato un'AI con tutto quello che so su design, sviluppo e product management. Non è perfetta, ma ti risponde subito. E parla esattamente come me (ironico, diretto, pragmatico).
+**Descrizione**: Un chatbot addestrato su tutto quello che ho scritto, fatto, e imparato. Non è perfetto, ma ti risponde in 10 secondi invece che in 48 ore.
 
-**Quando usarlo**: Domande veloci, consigli immediati, quando vuoi una risposta ora.
+**Quando usarlo**: Domande semplici. Consigli rapidi. Quando 80% della risposta giusta basta.
 
 ### Option 2: Domanda diretta
-**Headline**: Chiedi in anonimo, rispondo in pubblico
+**Headline**: Domanda diretta (rispondo io)
 
-**Descrizione**: Preferisci un umano? Manda la tua domanda qui. Puoi rimanere anonimo. Rispondo entro 48 ore. Le risposte migliori diventano articoli del blog (ovviamente senza rivelare chi ha chiesto).
+**Descrizione**: Preferisci un umano? Manda la domanda qui. Puoi rimanere anonimo. Rispondo entro 48 ore via email.
 
-**Quando usarlo**: Domande complesse, situazioni specifiche, quando vuoi la mia opinione senza filtri.
+Se la domanda è utile ad altri, la pubblico sul blog (senza rivelare chi sei).
+
+**Quando usarlo**: Domande complesse. Situazioni specifiche che l'AI non capisce. Quando vuoi un'opinione, non un consiglio generico.
 
 **Form fields**:
 - La tua domanda
@@ -172,13 +178,13 @@ Ho imparato che le domande migliori arrivano da chi fa, non da chi studia. Hai u
 Costruito con codice, design e troppo caffè. Basato in Italia, lavoro ovunque ci sia WiFi decente.
 
 ### Social Links
-- LinkedIn — Per il networking professionale
-- GitHub — Per vedere cosa costruisco
-- Twitter/X — Per i pensieri brevi (e le lamentele sui meeting inutili)
+- LinkedIn - Per il networking professionale
+- GitHub - Per vedere cosa costruisco
+- Twitter/X - Per i pensieri brevi (e le lamentele sui meeting inutili)
 
 ### Legal
-- Privacy Policy — Come uso (e non uso) i tuoi dati
-- Cookie Policy — Solo i cookie essenziali, promesso
+- Privacy Policy - Come uso (e non uso) i tuoi dati
+- Cookie Policy - Solo i cookie essenziali, promesso
 
 ### Easter Egg
 Fatto con Next.js, Tailwind, Framer Motion, troppa ambizione e una deadline irrealistica. Come ogni buon prodotto.
@@ -208,7 +214,7 @@ Dimmi cosa cercavi →
 ## Meta Descriptions & SEO
 
 ### Homepage
-Mattia De Luca — Product Manager con background in design e sviluppo. Aiuto team e aziende a costruire prodotti che funzionano davvero, unendo strategia, design e tech.
+Mattia De Luca - Product Manager con background in design e sviluppo. Aiuto team e aziende a costruire prodotti che funzionano davvero, unendo strategia, design e tech.
 
 ### About/Journey Page
 Dal design al codice al product management. Il percorso (non convenzionale) di chi ha imparato facendo tutti gli errori possibili prima di capire come si costruiscono prodotti.

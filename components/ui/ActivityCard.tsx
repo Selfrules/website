@@ -13,7 +13,7 @@ export interface ActivityCardProps {
   children: React.ReactNode;
   /** Optional metric or badge to show at bottom */
   metric?: {
-    label: string;
+    label: string | React.ReactNode;
     icon?: LucideIcon;
   };
   /** Additional CSS classes */
@@ -139,9 +139,13 @@ export const ActivityCard = React.forwardRef<HTMLDivElement, ActivityCardProps>(
               {metric.icon && (
                 <metric.icon className={cn('w-4 h-4', colors.text)} />
               )}
-              <span className={cn('text-xs font-bold font-mono', colors.text)}>
-                {metric.label}
-              </span>
+              {typeof metric.label === 'string' ? (
+                <span className={cn('text-xs font-bold font-mono', colors.text)}>
+                  {metric.label}
+                </span>
+              ) : (
+                metric.label
+              )}
             </div>
           )}
         </div>

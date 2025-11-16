@@ -45,7 +45,7 @@ export default function PullQuote({
         <cite className="not-italic flex flex-col gap-1">
           {author && (
             <span className="text-body font-bold text-brutalist-text-primary font-heading">
-              — {author}
+              - {author}
             </span>
           )}
           {role && (
