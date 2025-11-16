@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
-import { Badge } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { Button } from '@/components/ui/Button';
 
 interface BlogProps {
@@ -42,7 +42,7 @@ export default async function Blog({ locale }: BlogProps) {
         {/* Section Header */}
         <div className="text-center mb-brutal-lg md:mb-brutal-xl">
           <div className="flex justify-center mb-brutal-sm">
-            <Badge variant="secondary">{t.badge}</Badge>
+            <NeoBadge color="pink">{t.badge}</NeoBadge>
           </div>
           <h2 className="text-h1 mb-brutal-sm md:mb-brutal-md text-black">{t.title}</h2>
           <p className="text-body text-brutalist-text-light max-w-[600px] mx-auto">

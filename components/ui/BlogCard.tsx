@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Badge, type BadgeVariant } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -86,7 +86,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
     href,
     ...props
   }, ref) => {
-    // Mapping variant names to badge categories and variants
+    // Mapping variant names to badge categories and colors
     const badgeLabels = {
       design: 'Design/UX',
       dev: 'Development',
@@ -95,12 +95,12 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
       featured: 'Featured',
     };
 
-    const badgeVariants: Record<typeof variant, BadgeVariant> = {
-      design: 'design',
-      dev: 'dev',
-      pm: 'pm',
-      tool: 'tool',
-      featured: 'featured',
+    const badgeColors = {
+      design: 'blue' as const,
+      dev: 'teal' as const,
+      pm: 'purple' as const,
+      tool: 'pink' as const,
+      featured: 'yellow' as const,
     };
 
     return (
@@ -123,9 +123,9 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         <div className="p-6 flex flex-col h-full">
           {/* Badge inline */}
           <div className="mb-4">
-            <Badge variant={badgeVariants[variant]}>
+            <NeoBadge color={badgeColors[variant]}>
               {badgeLabels[variant]}
-            </Badge>
+            </NeoBadge>
           </div>
 
           {/* Title - hover changes color as per prototype */}

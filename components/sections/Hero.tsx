@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { NeoButton } from '@/components/ui/NeoButton';
 import { useTranslations } from 'next-intl';
 import { GoogleCalendarPopup, useGoogleCalendar } from '@/components/ui/GoogleCalendarPopup';
@@ -33,9 +33,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Sparkles className="w-5 h-5 text-neon-pink" />
-            <Badge variant="secondary">
+            <NeoBadge color="pink">
               {t('badge')}
-            </Badge>
+            </NeoBadge>
           </motion.div>
 
           {/* Main Headline - More Dynamic */}

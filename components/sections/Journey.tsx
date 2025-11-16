@@ -3,15 +3,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Badge } from '@/components/ui/Badge';
-import type { BadgeVariant } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ArrowRight, Award, Code, Palette, Rocket } from 'lucide-react';
+
+type NeoBadgeColor = 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal' | 'lime';
 
 interface Milestone {
   id: string;
   dateKey: string;
   roleKey: string;
-  roleColor: BadgeVariant;
+  roleColor: NeoBadgeColor;
   companyKey: string;
   descriptionKey: string;
   achievementsKeys: string[];
@@ -29,7 +30,7 @@ export default function Journey() {
       id: '1',
       dateKey: 'experiences.designer.date',
       roleKey: 'experiences.designer.role',
-      roleColor: 'pm',
+      roleColor: 'purple',
       companyKey: 'experiences.designer.company',
       descriptionKey: 'experiences.designer.description',
       achievementsKeys: ['experiences.designer.achievements.1', 'experiences.designer.achievements.2', 'experiences.designer.achievements.3'],
@@ -40,7 +41,7 @@ export default function Journey() {
       id: '2',
       dateKey: 'experiences.developer.date',
       roleKey: 'experiences.developer.role',
-      roleColor: 'featured',
+      roleColor: 'yellow',
       companyKey: 'experiences.developer.company',
       descriptionKey: 'experiences.developer.description',
       achievementsKeys: ['experiences.developer.achievements.1', 'experiences.developer.achievements.2', 'experiences.developer.achievements.3'],
@@ -52,7 +53,7 @@ export default function Journey() {
       id: '3',
       dateKey: 'experiences.po.date',
       roleKey: 'experiences.po.role',
-      roleColor: 'secondary',
+      roleColor: 'pink',
       companyKey: 'experiences.po.company',
       descriptionKey: 'experiences.po.description',
       achievementsKeys: ['experiences.po.achievements.1', 'experiences.po.achievements.2', 'experiences.po.achievements.3'],
@@ -64,7 +65,7 @@ export default function Journey() {
       id: '4',
       dateKey: 'experiences.pm.date',
       roleKey: 'experiences.pm.role',
-      roleColor: 'primary',
+      roleColor: 'blue',
       companyKey: 'experiences.pm.company',
       descriptionKey: 'experiences.pm.description',
       achievementsKeys: ['experiences.pm.achievements.1', 'experiences.pm.achievements.2', 'experiences.pm.achievements.3', 'experiences.pm.achievements.4'],
@@ -90,7 +91,7 @@ export default function Journey() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex justify-center mb-4">
-            <Badge variant="pm">{t('badge')}</Badge>
+            <NeoBadge color="purple">{t('badge')}</NeoBadge>
           </div>
           <h2 className="text-h1 mb-4 md:mb-6 text-brutalist-text-primary">
             {t('title')}{' '}
@@ -152,13 +153,13 @@ export default function Journey() {
                         <span className="inline-block px-3 py-1 bg-white border-brutal-thin border-black rounded-brutal shadow-brutal text-brutalist-text-primary font-mono text-xs font-bold">
                           {t(milestone.dateKey)}
                         </span>
-                        <Badge variant={milestone.roleColor} size="sm">
+                        <NeoBadge color={milestone.roleColor} size="sm">
                           {t(milestone.roleKey)}
-                        </Badge>
+                        </NeoBadge>
                         {milestone.isCurrent && (
-                          <Badge variant="outline" size="sm">
+                          <NeoBadge color="neutral" size="sm">
                             {t('current')}
-                          </Badge>
+                          </NeoBadge>
                         )}
                       </div>
 
@@ -176,17 +177,14 @@ export default function Journey() {
                       {milestone.achievementsKeys.length > 0 && (
                         <ul className="mb-4 space-y-1.5">
                           {milestone.achievementsKeys.map((achievementKey, i) => {
-                            const arrowColorClasses: Record<BadgeVariant, string> = {
-                              default: 'text-brutalist-text-primary',
-                              design: 'text-electric-blue',
-                              dev: 'text-teal',
-                              pm: 'text-deep-purple',
-                              tool: 'text-neon-pink',
-                              featured: 'text-cyber-yellow',
-                              primary: 'text-electric-blue',
-                              secondary: 'text-neon-pink',
-                              accent: 'text-cyber-yellow',
-                              outline: 'text-brutalist-text-primary',
+                            const arrowColorClasses: Record<NeoBadgeColor, string> = {
+                              blue: 'text-electric-blue',
+                              pink: 'text-neon-pink',
+                              yellow: 'text-cyber-yellow',
+                              purple: 'text-deep-purple',
+                              teal: 'text-teal',
+                              lime: 'text-lime-green',
+                              neutral: 'text-brutalist-text-primary',
                             };
 
                             return (
@@ -223,17 +221,14 @@ export default function Journey() {
                           </p>
                           <div className="flex flex-wrap gap-1.5">
                             {milestone.certificationsKeys.map((certKey, i) => {
-                              const certificationColorClasses: Record<BadgeVariant, string> = {
-                                default: 'bg-white text-brutalist-text-primary',
-                                design: 'bg-electric-blue text-white',
-                                dev: 'bg-teal text-white',
-                                pm: 'bg-deep-purple text-white',
-                                tool: 'bg-neon-pink text-white',
-                                featured: 'bg-cyber-yellow text-dark',
-                                primary: 'bg-electric-blue text-white',
-                                secondary: 'bg-neon-pink text-white',
-                                accent: 'bg-cyber-yellow text-dark',
-                                outline: 'bg-white text-brutalist-text-primary',
+                              const certificationColorClasses: Record<NeoBadgeColor, string> = {
+                                blue: 'bg-electric-blue text-white',
+                                pink: 'bg-neon-pink text-white',
+                                yellow: 'bg-cyber-yellow text-dark',
+                                purple: 'bg-deep-purple text-white',
+                                teal: 'bg-teal text-white',
+                                lime: 'bg-lime-green text-dark',
+                                neutral: 'bg-white text-brutalist-text-primary',
                               };
 
                               return (

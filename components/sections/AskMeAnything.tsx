@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { MessageCircle, Mail, Send, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { NeoButton } from '@/components/ui/NeoButton';
-import { Badge } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { AnonymousQuestionForm } from '@/components/forms/AnonymousQuestionForm';
 import { useChatStore } from '@/lib/stores/chatStore';
 
@@ -68,7 +68,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
         <div className="text-center mb-12 md:mb-16">
           <div className="flex justify-center items-center gap-2 mb-4">
             <Sparkles className="w-5 h-5 text-cyber-yellow" />
-            <Badge variant="featured">{t.badge}</Badge>
+            <NeoBadge color="yellow">{t.badge}</NeoBadge>
           </div>
           <h2 className="text-h1 text-white mb-4 md:mb-6">
             {t.title}

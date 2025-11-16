@@ -1,7 +1,7 @@
 'use client';
 
 import { Briefcase, BookOpen, Music, TrendingUp } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ActivityCard } from '@/components/ui/ActivityCard';
 import { SpotifyWidget, RecentPodcasts } from '@/components/integrations';
 import { useTranslations } from 'next-intl';
@@ -22,7 +22,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <div className="flex justify-center mb-4">
-            <Badge variant="primary">{t('badge')}</Badge>
+            <NeoBadge color="blue">{t('badge')}</NeoBadge>
           </div>
           <h2 className="text-h1 mb-4 md:mb-6 text-brutalist-text-primary">{t('title')}</h2>
           <p className="text-body text-brutalist-text-secondary max-w-[600px] mx-auto">
