@@ -18,7 +18,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
 
   const translations = {
     it: {
-      badge: 'Chiedimi qualsiasi cosa',
+      badge: 'Le domande scomode',
       title: 'Hai una domanda? Falla. Soprattutto quella che ti frena.',
       description: 'Chat con un AI che ha letto anni di miei errori. Oppure chiedi anonimo. Rispondo sempre. In 48 ore, pubblicamente se utile ad altri. ',
       descriptionHighlight: 'Sì, anche "Quanto guadagni?" (te lo dico). O "Mai pensato di mollare?" (tre volte).',
@@ -30,11 +30,11 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
       },
       formMode: {
         title: 'Chiedi anonimo',
-        description: 'Preferisci scrivere? Lascia la domanda qui.\n\nRispondo sul blog se può aiutare altri (75% finiscono lì). Altrimenti via email se la lasci.\n\nZero nome richiesto. Zero tracking. Solo la domanda che non faresti su LinkedIn.',
+        description: 'Quella domanda che su LinkedIn suonerebbe "poco professionale"?\nQuella che pensi sia "stupida"? (Spoiler: non lo è).\n\nZero nome. Zero email. Zero giudizio.',
       },
     },
     en: {
-      badge: 'Ask me anything',
+      badge: 'The uncomfortable questions',
       title: 'Got a question? Ask it. Especially the one holding you back.',
       description: 'Chat with an AI trained on years of my mistakes. Or ask anonymously. I always reply. In 48 hours, publicly if it helps others. ',
       descriptionHighlight: 'Yes, even "How much do you make?" (I\'ll tell you). Or "Ever thought of quitting?" (three times).',
@@ -46,7 +46,7 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
       },
       formMode: {
         title: 'Ask anonymously',
-        description: 'Prefer to write? Leave your question here.\n\nI reply on the blog if it helps others (75% end up there). Otherwise via email if you leave one.\n\nZero name required. Zero tracking. Just the question you wouldn\'t ask on LinkedIn.',
+        description: 'That question that would sound "unprofessional" on LinkedIn?\nThe one you think is "stupid"? (Spoiler: it\'s not).\n\nZero name. Zero email. Zero judgment.',
       },
     },
   };

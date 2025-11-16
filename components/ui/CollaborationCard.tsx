@@ -7,8 +7,16 @@ export interface CollaborationCardProps {
   number: string;
   /** Title of the collaboration mode */
   title: string;
-  /** Description text */
-  description: string;
+  /** Problem statement - the pain point this addresses */
+  problem: string;
+  /** "What we do" section label */
+  whatWeDo: string;
+  /** "What we do" detailed description */
+  whatWeDoDetail: string;
+  /** "What you get" section label */
+  whatYouGet: string;
+  /** "What you get" detailed description */
+  whatYouGetDetail: string;
   /** List of features or benefits */
   features: string[];
   /** Icon to display */
@@ -51,7 +59,7 @@ export interface CollaborationCardProps {
  * ```
  */
 export const CollaborationCard = React.forwardRef<HTMLDivElement, CollaborationCardProps>(
-  ({ number, title, description, features, icon: Icon, color, className, ...props }, ref) => {
+  ({ number, title, problem, whatWeDo, whatWeDoDetail, whatYouGet, whatYouGetDetail, features, icon: Icon, color, className, ...props }, ref) => {
     // Map color to dynamic utility classes
     const colorClasses = {
       blue: {
@@ -115,28 +123,30 @@ export const CollaborationCard = React.forwardRef<HTMLDivElement, CollaborationC
         {/* Title */}
         <h3 className="text-h3 mb-3 text-brutalist-text-primary">{title}</h3>
 
-        {/* Description */}
-        <p className="text-body-small text-brutalist-text-secondary mb-5">
-          {description}
+        {/* Problem Statement */}
+        <p className="text-body-small text-brutalist-text-secondary mb-5 italic">
+          {problem}
         </p>
 
-        {/* Features List */}
-        <ul className="space-y-2.5">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-2">
-              <Check
-                className={cn(
-                  'w-5 h-5 flex-shrink-0 mt-0.5',
-                  colors.text
-                )}
-                strokeWidth={3}
-              />
-              <span className="text-body-small text-brutalist-text-secondary leading-snug">
-                {feature}
-              </span>
-            </li>
-          ))}
-        </ul>
+        {/* What We Do */}
+        <div className="mb-4">
+          <h4 className="text-xs font-bold mb-1 text-brutalist-text-primary font-heading uppercase tracking-wide">
+            {whatWeDo}
+          </h4>
+          <p className="text-body-small text-brutalist-text-secondary">
+            {whatWeDoDetail}
+          </p>
+        </div>
+
+        {/* What You Get */}
+        <div className="mb-5 bg-white/50 border-l-4 p-3 rounded" style={{ borderColor: `var(--${color})` }}>
+          <h4 className="text-xs font-bold mb-1 text-brutalist-text-primary font-heading uppercase tracking-wide">
+            {whatYouGet}
+          </h4>
+          <p className="text-body-small text-brutalist-text-secondary">
+            {whatYouGetDetail}
+          </p>
+        </div>
       </article>
     );
   }

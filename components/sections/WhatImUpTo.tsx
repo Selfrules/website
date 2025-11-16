@@ -127,6 +127,12 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
               <p className="text-body-small text-brutalist-text-secondary italic">
                 {t('learning.conclusion')}
               </p>
+
+              <div className="mt-4 pt-4 border-t border-brutalist-text-secondary/20">
+                <p className="text-body-small text-brutalist-text-primary font-semibold">
+                  {t('learning.why')}
+                </p>
+              </div>
             </div>
           </ActivityCard>
 

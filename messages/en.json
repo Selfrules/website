@@ -35,17 +35,18 @@
     "current": "Today",
     "skillsLabel": "What I bring",
     "certificationsLabel": "What I studied",
-    "endMessage": "12 years. 8 sectors, 50+ implementations. E-commerce, SaaS, Fintech. Zero fake projects.",
+    "endMessage": "12 years becoming a generalist. Specialization makes you good. Cross-pollination makes you useful. 🎯",
     "experiences": {
       "pm": {
         "date": "2023-present",
         "company": "QubicaAMF",
         "role": "Product Manager",
-        "description": "Now I unify everything I've learned. Design + Development + Business = Product Management. No more silos. No more translators. Just results.",
+        "description": "Bologna. QubicaAMF is different: digital products impacting physical experience. Bowling, entertainment. Here I unify everything I've learned. Design + Development + Business = Product Management. My philosophy? See, understand, act. Few things that move the needle. Fewer meetings made of words.",
         "achievements": {
-          "1": "-12% payment times in 6 months. How? Not magic. Just fewer useless clicks. From 7 steps to 3.",
-          "2": "+9% platform integration adoption. How? Less 47-page PDFs. More 3-minute videos.",
-          "3": "-25% post-release incidents. How? One room. Every Friday. Product, Support, Engineering. 40 minutes talking about what went wrong."
+          "1": "Payments Project: endless list of problems. When you talk about money, everyone listens. Prioritization by customer frustration, not technical complexity. Market calmed in one month with only 3 interventions. -12% payment times in 6 months. From 7 clicks to 3. Uptime ≥99%, payment success rate ≥99%.",
+          "2": "Cashless Project: +30 top-ups in one Sunday. From the website. No phone calls. Cashless integration as a new sales channel. The lesson? Listen to who pays, solve what blocks, measure what changes.",
+          "3": "+9% integration adoption. How? Less 47-page PDFs. More 3-minute videos. Documentation isn't how many pages you write, it's how fast the user does what they need to do.",
+          "4": "-25% post-release incidents. How? One room. Every Friday. Product, Support, Engineering. 40 minutes talking about what went wrong. No slides. Just facts and fixes."
         },
         "technologies": {
           "1": "Product Strategy",
@@ -78,11 +79,11 @@
         "date": "2020-2023",
         "company": "ActiveProspect",
         "role": "Product Owner",
-        "description": "I bridged business and tech. Translated needs into features. Roadmap. Backlog. Sprint planning. But most importantly: I learned to say \"no\".",
+        "description": "Austin, Texas. Product team: 10 people. Acquired startup, marketing product. Internal stakeholders: Marketing, Customer Support, Leadership, CEO. External stakeholders: partnerships with Google, Facebook, TikTok, LinkedIn. Here I became the bridge between business and tech. Roadmap. Backlog. Sprint planning. But most importantly: I implemented an agile philosophy that permeated the entire team. And I learned to say \"no\".",
         "achievements": {
-          "1": "The real work of Product isn't saying \"yes\" to everything. It's saying \"no\" to the right things.",
-          "2": "A beautiful roadmap is useless if it's not aligned with business. User feedback matters more than any internal stakeholder's opinion.",
-          "3": "The hardest lesson? Not every problem should be solved with code. Sometimes the solution is a 3-minute video. Or simply talking to the customer before developing."
+          "1": "My role? Bring the customer's voice to the development table. Not translate, represent. I said \"no\" to a feature requested by 60% of users. Why? It would cost 4 months and solved a problem we'd already solved differently. Saying \"no\" with data beats saying \"yes\" for sympathy.",
+          "2": "The hardest lesson? Not every problem should be solved with code. Sometimes the solution is a 3-minute video. Or simply talking to the customer before developing. I saved 2 sprints with a 30-minute call.",
+          "3": "Austin gave me the international context. Small team (10 people) but big impact. Stakeholders everywhere: from Google and Facebook partnership managers to the CEO. I learned that agile philosophy isn't daily standups and retrospectives. It's getting the mindset into every decision, every priority, every \"no\" you say."
         },
         "technologies": {
           "1": "B2B SaaS",
@@ -105,11 +106,11 @@
         "date": "2016-2020",
         "company": "FLOWING",
         "role": "Designer & Developer",
-        "description": "No more just wireframes to pass to someone else. No more just code someone else had designed. At Flowing I started doing what seemed obvious: design the experience and then build it. Everything.",
+        "description": "Ancona. Joined as UX Designer at an agency. But I brought something others didn't have: sales and client management experience from Selfrules. No more just wireframes to pass to someone else. Here I learned to write code. Design + Dev in the same brain. The project that shaped me? CliensPiù - law firm software used 8 hours a day.",
         "achievements": {
-          "1": "The project that shaped me the most? CliensPiù - an advanced management software for law firms. A real application that lawyers had to work with 8 hours a day.",
-          "2": "When you design something people will use daily for years, every friction counts. How do you organize 500 legal cases without driving anyone crazy? How do you make finding a document take 3 seconds instead of 3 minutes?",
-          "3": "CliensPiù is still in use today. After years, it works. This doesn't happen by accident - it happens when you design and build thinking about who will have to live inside it, not just how it looks in the screenshot."
+          "1": "Client upgrade: from local SMEs to startups and mid-sized companies. Skills upgrade: from designer delivering mockups to designer writing first code. My facilitation experience from Selfrules? At Flowing it was gold.",
+          "2": "Concrete example: \"Save\" button that shifts 2 pixels when loading data. Insignificant? Try clicking it 40 times a day for 3 years. Small irritations become abandonment. I learned to measure them.",
+          "3": "CliensPiù is still in use today. After years, it works. This doesn't happen by accident. It happens when you design AND build thinking about who will have to live inside it 8 hours a day, not just how it looks in the presentation screenshot."
         },
         "technologies": {
           "1": "React",
@@ -127,11 +128,11 @@
         "date": "2012-2018",
         "company": "Selfrules",
         "role": "Web Designer & Founder",
-        "description": "I opened an agency at 25. I thought I knew everything. I designed beautiful websites. Managed clients. Invoiced. And I discovered three uncomfortable truths the hard way:",
+        "description": "I opened an agency in Modena at 25. Target: local SMEs. Sales, design, delivery, support. All me. First project: \"stunning\" e-commerce interface. First client feedback: \"Beautiful, but where do I click to pay?\" Zero sales for 3 weeks.",
         "achievements": {
-          "1": "Beautiful design that nobody understands how to use is just art, not product",
-          "2": "Perfect mockup that can't be developed is wasted time",
-          "3": "My most expensive failure: 3 weeks on a design technically impossible within the client's budget"
+          "1": "If it's beautiful but confusing, it's decoration. Not design. That project cost me €8K in refunds and 2 months of burned reputation.",
+          "2": "Hardest lesson: a perfect mockup that can't be developed within the client's budget is wasted time. Theirs and yours. I spent 3 weeks on a technically impossible design. The client canceled the contract.",
+          "3": "In 6 years I did graphics, logos, websites, print. But the real skill? Managing clients end-to-end. Sales included. When you have to sell what you design, you learn fast what's really needed."
         },
         "technologies": {
           "1": "Adobe Creative Suite",
@@ -202,7 +203,7 @@
   "workTogether": {
     "badge": "Let's work together",
     "title": "3 ways to",
-    "titleHighlight": "work together",
+    "titleHighlight": "stop going in circles",
     "subtitle": {
       "part1": "I don't sell hours. I don't sell consulting. I sell this:",
       "part2": "a solution your designer understands, your developer can build, and your CFO approves. No translators in between."
@@ -210,8 +211,12 @@
     "modes": {
       "consulting": {
         "badge": "Strategic consulting",
-        "title": "Unlock your product in 90 minutes",
-        "description": "Got a product that won't take off? A team going in circles? A roadmap that looks strategic but delivers no results? Let's take 90 minutes.",
+        "title": "Strategic consulting (90 minutes)",
+        "problem": "Roadmap full but no priorities? Designer and developer not talking?",
+        "whatWeDo": "What we do",
+        "whatWeDoDetail": "Identify the real blocker (hint: it's usually not the obvious one).",
+        "whatYouGet": "What you get",
+        "whatYouGetDetail": "Clear decision on what to do Monday morning. Not slides. Actions.",
         "features": {
           "1": "End-to-end techno-strategic analysis",
           "2": "Prioritized roadmap with business impact",
@@ -220,8 +225,12 @@
       },
       "brainstorming": {
         "badge": "Brainstorming sessions",
-        "title": "Transform chaos into roadmap",
-        "description": "Got a vague idea? A project that hasn't taken shape yet? A team that needs alignment? Let's transform chaos into a plan.",
+        "title": "Brainstorming sessions (2-3 hours)",
+        "problem": "Feature requests from 7 different stakeholders. All urgent. All \"strategic\".",
+        "whatWeDo": "What we do",
+        "whatWeDoDetail": "Filter noise from signal. Translate wishes into requirements.",
+        "whatYouGet": "What you get",
+        "whatYouGetDetail": "Roadmap your team understands and your bosses approve.",
         "features": {
           "1": "Interactive workshop 2-3 hours",
           "2": "Reusable framework for the team",
@@ -230,8 +239,12 @@
       },
       "mentorship": {
         "badge": "Mentorship",
-        "title": "Mentorship for PM",
-        "description": "Already in product but want to grow? Want to transition from design/dev to product? I'll guide you through the journey. No theory, just practice.",
+        "title": "Mentorship for PM (monthly)",
+        "problem": "You know stakeholder management. You write user stories. But every project is the same chaos?",
+        "whatWeDo": "What we do",
+        "whatWeDoDetail": "Review real cases. Mistakes, decisions, repeated patterns.",
+        "whatYouGet": "What you get",
+        "whatYouGetDetail": "See your blind spots before they become 3-month problems.",
         "features": {
           "1": "Bi-weekly 1-on-1 sessions",
           "2": "Code/design review on real projects",
@@ -268,8 +281,9 @@
       }
     },
     "cta": {
-      "title": "Got a stuck product?",
-      "description": "15-minute call. Zero pitch. Zero PowerPoint. Just you, me, and the problem to solve.",
+      "title": "Got 4 features in development and none finished?",
+      "subtitle": "Designer and developer not talking?",
+      "description": "15-minute call. Zero pitch. Zero slides. Just your problem and how to unblock it. Monday, not \"by Q2\".",
       "button": "Book 15 minutes"
     }
   },
@@ -309,8 +323,8 @@
     }
   },
   "whatImUpTo": {
-    "badge": "What I'm doing now",
-    "title": "What I'm up to",
+    "badge": "Right now",
+    "title": "Current projects",
     "description": "What I'm doing now. Really. No \"Thrilled to announce\" or \"Grateful for this opportunity\". ",
     "descriptionHighlight": "Just facts.",
     "currentWork": {
@@ -322,7 +336,7 @@
         "label": "top-ups sold in one Sunday",
         "context": "cashless integration"
       },
-      "intro": "I unlocked a new sales channel. Result? +30 top-ups in one Sunday, purchased from the website.",
+      "intro": "Why should a customer call you to buy when they can do it in 3 clicks? Result: +30 top-ups in one Sunday. From the website. No phone calls.",
       "secret": "The secret isn't technology: it's understanding what problem you're solving before writing code. When it's about money, everyone pays attention. But you need to know what to say.",
       "exampleLabel": "How it works:",
       "examples": [
@@ -350,7 +364,8 @@
         "PRDs in 2 hours instead of 2 days",
         "Mockups in 30 minutes instead of 3 hours"
       ],
-      "conclusion": "AI is my perfect junior designer/developer: fast, tireless, but it always needs direction."
+      "conclusion": "AI is my perfect junior designer/developer: fast, tireless, but it always needs direction.",
+      "why": "Why share this? Because the PM of the future isn't the one who knows everything. It's the one who knows which tools to use and when to stop using them."
     },
     "spotify": {
       "title": "Now playing"

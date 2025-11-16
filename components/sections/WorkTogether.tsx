@@ -78,7 +78,11 @@ export default function WorkTogether() {
               key={collab.id}
               number={collab.number}
               title={t(collab.titleKey)}
-              description={t(collab.descriptionKey)}
+              problem={t(`${collab.titleKey.replace('.title', '.problem')}`)}
+              whatWeDo={t(`${collab.titleKey.replace('.title', '.whatWeDo')}`)}
+              whatWeDoDetail={t(`${collab.titleKey.replace('.title', '.whatWeDoDetail')}`)}
+              whatYouGet={t(`${collab.titleKey.replace('.title', '.whatYouGet')}`)}
+              whatYouGetDetail={t(`${collab.titleKey.replace('.title', '.whatYouGetDetail')}`)}
               features={collab.featuresKeys.map(key => t(key))}
               icon={collab.icon}
               color={
@@ -92,10 +96,13 @@ export default function WorkTogether() {
         {/* Call to Action Banner */}
         <div className="text-center">
           <div className="inline-block bg-gradient-brand border-brutal border-black rounded-brutal shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
-            <p className="text-h3 md:text-h2 text-white mb-3 font-heading font-bold">
+            <p className="text-h3 md:text-h2 text-white mb-2 font-heading font-bold">
               {t('cta.title')}
             </p>
-            <p className="text-body-small md:text-body text-white/90 mb-5 font-heading">
+            <p className="text-body text-white/90 mb-4 font-heading">
+              {t('cta.subtitle')}
+            </p>
+            <p className="text-body-small md:text-body text-white/90 mb-5">
               {t('cta.description')}
             </p>
             <Button variant="accent" size="lg" onClick={openCalendar}>

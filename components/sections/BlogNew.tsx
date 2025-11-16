@@ -17,18 +17,18 @@ export default async function BlogNew({ locale }: BlogProps) {
 
   const translations = {
     it: {
-      badge: 'Ultimi pensieri',
-      title: 'Cosa ho imparato fallendo',
-      description: 'Design, sviluppo, product management. E tutti i modi in cui ho sbagliato ',
-      descriptionHighlight: 'prima di capire come funziona davvero.',
+      badge: 'Dal campo',
+      title: 'Errori che costano mesi (e come evitarli)',
+      description: '"User testing inutile", "Roadmap che nessuno segue", "Feature che nessuno usa". ',
+      descriptionHighlight: 'Come ho imparato a riconoscere i segnali prima del disastro.',
       viewAll: 'Vedi tutti gli articoli',
       readNow: 'Leggi',
     },
     en: {
-      badge: 'Latest thinking',
-      title: 'What I learned failing',
-      description: 'Design, development, product management. And all the ways I got it wrong ',
-      descriptionHighlight: 'before understanding how it actually works.',
+      badge: 'From the field',
+      title: 'Mistakes that cost months (and how to avoid them)',
+      description: '"Useless user testing", "Roadmap nobody follows", "Features nobody uses". ',
+      descriptionHighlight: 'How I learned to spot the signs before disaster.',
       viewAll: 'See all articles',
       readNow: 'Read',
     },
