@@ -5,7 +5,6 @@ import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { BlogPost } from '@/lib/blog/mdx';
 import { Badge } from '@/components/ui/Badge';
-import { NeoBadge } from '@/components/ui/NeoBadge';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 
 interface BlogCardProps {
@@ -40,9 +39,9 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
 
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-brutal-sm">
-                <NeoBadge color="yellow">
+                <Badge variant={categoryVariant} size="sm">
                   {post.category}
-                </NeoBadge>
+                </Badge>
                 <Badge variant="featured" size="sm">
                   DA NON PERDERE
                 </Badge>
