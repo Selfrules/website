@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import BlogListingClient from './BlogListingClient';
 import { getAllPosts } from '@/lib/blog/mdx';
 
@@ -41,6 +41,9 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
+  // Enable static rendering for i18n
+  setRequestLocale(params.locale);
+
   // Fetch all published posts
   const allPosts = await getAllPosts();
 

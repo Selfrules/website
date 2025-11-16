@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -26,15 +27,17 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <AnalyticsProvider>
-        {/* Skip link for accessibility (WCAG 2.4.1) */}
-        <a href="#main-content" className="skip-to-main">
-          Skip to main content
-        </a>
-        <Header locale={locale} />
-        <main id="main-content">{children}</main>
-        <Footer locale={locale} />
-      </AnalyticsProvider>
+      <Suspense fallback={null}>
+        <AnalyticsProvider>
+          {/* Skip link for accessibility (WCAG 2.4.1) */}
+          <a href="#main-content" className="skip-to-main">
+            Skip to main content
+          </a>
+          <Header locale={locale} />
+          <main id="main-content">{children}</main>
+          <Footer locale={locale} />
+        </AnalyticsProvider>
+      </Suspense>
     </NextIntlClientProvider>
   );
 }
