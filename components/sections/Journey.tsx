@@ -66,7 +66,7 @@ export default function Journey() {
       roleColor: 'blue',
       companyKey: 'experiences.pm.company',
       descriptionKey: 'experiences.pm.description',
-      achievementsKeys: ['experiences.pm.achievements.1', 'experiences.pm.achievements.2', 'experiences.pm.achievements.3'],
+      achievementsKeys: ['experiences.pm.achievements.1', 'experiences.pm.achievements.2', 'experiences.pm.achievements.3', 'experiences.pm.achievements.4'],
       skillsKeys: ['experiences.pm.technologies.1', 'experiences.pm.technologies.2', 'experiences.pm.technologies.3', 'experiences.pm.technologies.4', 'experiences.pm.technologies.5', 'experiences.pm.technologies.6', 'experiences.pm.technologies.7'],
       certificationsKeys: ['experiences.pm.certifications.1', 'experiences.pm.certifications.2', 'experiences.pm.certifications.3', 'experiences.pm.certifications.4'],
       isCurrent: true,

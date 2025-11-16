@@ -41,11 +41,12 @@
         "date": "2023-oggi",
         "company": "QubicaAMF",
         "role": "Product Manager",
-        "description": "Ora unifico tutto quello che ho imparato. Design + Sviluppo + Business = Product Management. Non più silos. Non più traduttori. Solo risultati.",
+        "description": "Bologna. QubicaAMF è diverso: prodotti digitali che impattano esperienza fisica. Bowling, intrattenimento. Qui unifico tutto quello che ho imparato. Design + Sviluppo + Business = Product Management. La mia filosofia? Vedo, capisco, agisco. Poche cose che spostano l'ago. Meno meeting fatti di parole.",
         "achievements": {
-          "1": "-12% tempi di pagamento in 6 mesi. Come? Non magia. Solo meno click inutili. Da 7 passaggi a 3.",
-          "2": "+9% adoption integrazioni piattaforma. Come? Meno PDF di 47 pagine. Più video di 3 minuti.",
-          "3": "-25% incidenti post-release. Come? Una stanza. Ogni venerdì. Product, Support, Engineering. 40 minuti a parlare di cosa è andato storto."
+          "1": "Progetto Pagamenti: lista infinita di problemi. Quando si parla di soldi, tutti ascoltano. Prioritizzazione per frustrazione cliente, non complessità tecnica. Mercato calmato in un mese con solo 3 interventi. -12% tempi di pagamento in 6 mesi. Da 7 click a 3. Uptime ≥99%, payment success rate ≥99%.",
+          "2": "Progetto Cashless: +30 ricariche in una domenica. Dal sito. Senza telefono. Integrazione cashless come nuovo canale vendita. La lezione? Ascolta chi paga, risolvi cosa blocca, misura cosa cambia.",
+          "3": "+9% adoption integrazioni. Come? Meno PDF di 47 pagine. Più video di 3 minuti. La documentazione non è quante pagine scrivi, è quanto velocemente l'utente fa quello che deve fare.",
+          "4": "-25% incidenti post-release. Come? Una stanza. Ogni venerdì. Product, Support, Engineering. 40 minuti a parlare di cosa è andato storto. Non slide. Solo fatti e fix."
         },
         "technologies": {
           "1": "Product Strategy",
@@ -78,11 +79,11 @@
         "date": "2020-2023",
         "company": "ActiveProspect",
         "role": "Product Owner",
-        "description": "Facevo da ponte tra business e tech. Roadmap. Backlog. Sprint planning. Ma soprattutto: imparai a dire \"no\".",
+        "description": "Austin, Texas. Team di prodotto: 10 persone. Startup acquisita, prodotto di marketing. Stakeholder interni: Marketing, Customer Support, Leadership, CEO. Stakeholder esterni: partnership Google, Facebook, TikTok, LinkedIn. Qui sono diventato il ponte tra business e tech. Roadmap. Backlog. Sprint planning. Ma soprattutto: ho implementato una filosofia agile che ha permeato tutto il team. E ho imparato a dire \"no\".",
         "achievements": {
-          "1": "Ho detto \"no\" a una feature richiesta dal 60% degli utenti. Perché? Costava 4 mesi e risolveva un problema che avevamo già risolto in altro modo.",
-          "2": "Dire \"no\" con i dati batte dire \"sì\" per simpatia.",
-          "3": "La lezione più difficile? Non tutti i problemi vanno risolti con codice. A volte la soluzione è un video di 3 minuti. O semplicemente parlare con il cliente prima di sviluppare."
+          "1": "Il mio ruolo? Portare la voce del cliente al tavolo di sviluppo. Non tradurre, rappresentare. Ho detto \"no\" a una feature richiesta dal 60% degli utenti. Perché? Costava 4 mesi e risolveva un problema che avevamo già risolto in altro modo. Dire \"no\" con i dati batte dire \"sì\" per simpatia.",
+          "2": "La lezione più difficile? Non tutti i problemi vanno risolti con codice. A volte la soluzione è un video di 3 minuti. O semplicemente parlare con il cliente prima di sviluppare. Ho risparmiato 2 sprint con una call di 30 minuti.",
+          "3": "Austin mi ha dato il contesto internazionale. Team piccolo (10 persone) ma impatto grande. Stakeholder ovunque: dai partnership manager di Google e Facebook fino al CEO. Ho imparato che la filosofia agile non è daily standup e retrospettive. È far entrare il mindset in ogni decisione, ogni priorità, ogni \"no\" che dici."
         },
         "technologies": {
           "1": "B2B SaaS",
@@ -105,11 +106,11 @@
         "date": "2016-2020",
         "company": "FLOWING",
         "role": "Designer & Developer",
-        "description": "Non più solo wireframe da passare a qualcun altro. In Flowing ho unito design e sviluppo. Il progetto che mi ha formato di più? CliensPiù - software per studi legali usato 8 ore al giorno.",
+        "description": "Ancona. Entrato come UX Designer in agenzia. Ma ho portato qualcosa che gli altri non avevano: esperienza di vendita e gestione cliente da Selfrules. Non più solo wireframe da passare a qualcun altro. Qui ho imparato a scrivere codice. Design + Dev nello stesso cervello. Il progetto che mi ha formato? CliensPiù - software per studi legali usato 8 ore al giorno.",
         "achievements": {
-          "1": "Esempio: Un bottone \"Salva\" che si sposta di 2 pixel quando carichi i dati. Insignificante? Prova a cliccarci 40 volte al giorno per 3 anni.",
-          "2": "Le piccole irritazioni diventano abbandono. Ho imparato a misurarle.",
-          "3": "CliensPiù è ancora in uso oggi. Dopo anni, funziona. Questo non succede per caso - succede quando progetti e costruisci pensando a chi dovrà viverci dentro, non solo a come appare nello screenshot."
+          "1": "Upgrade di clienti: da PMI locali a startup e aziende medio-grandi. Upgrade di competenze: da designer che consegna mockup a designer che scrive il primo codice. La mia esperienza di facilitazione da Selfrules? In Flowing valeva oro.",
+          "2": "Esempio concreto: bottone \"Salva\" che si sposta di 2 pixel quando carichi i dati. Insignificante? Prova a cliccarci 40 volte al giorno per 3 anni. Le piccole irritazioni diventano abbandono. Ho imparato a misurarle.",
+          "3": "CliensPiù è ancora in uso oggi. Dopo anni, funziona. Questo non succede per caso. Succede quando progetti E costruisci pensando a chi dovrà viverci dentro 8 ore al giorno, non solo a come appare nello screenshot di presentazione."
         },
         "technologies": {
           "1": "React",
@@ -127,11 +128,11 @@
         "date": "2012-2018",
         "company": "Selfrules",
         "role": "Web Designer & Founder",
-        "description": "A 25 anni ho aperto un'agenzia. Primo progetto: interfaccia \"stunning\". Primo feedback cliente: \"Bellissima, ma dove clicco per pagare?\"",
+        "description": "A 25 anni ho aperto un'agenzia a Modena. Target: PMI locali. Vendita, design, delivery, supporto. Tutto io. Primo progetto: interfaccia \"stunning\" per e-commerce. Primo feedback cliente: \"Bellissima, ma dove clicco per pagare?\" Vendite a zero per 3 settimane.",
         "achievements": {
-          "1": "Se è bello ma confuso, è decorazione. Non design.",
-          "2": "Mockup perfetto che non si può sviluppare è tempo sprecato",
-          "3": "Il mio fallimento più costoso: 3 settimane su un design tecnicamente impossibile nel budget del cliente"
+          "1": "Se è bello ma confuso, è decorazione. Non design. Quel progetto mi è costato €8K di refund e 2 mesi di reputazione bruciata.",
+          "2": "Lezione più dura: mockup perfetto che non si può sviluppare nel budget del cliente è tempo sprecato. Suo e tuo. Ho passato 3 settimane su un design tecnicamente impossibile. Il cliente ha cancellato il contratto.",
+          "3": "In 6 anni ho fatto grafiche, loghi, siti, stampati. Ma la vera competenza? Gestire clienti dall'inizio alla fine. Vendita inclusa. Quando devi vendere quello che disegni, impari in fretta cosa serve davvero."
         },
         "technologies": {
           "1": "Adobe Creative Suite",
