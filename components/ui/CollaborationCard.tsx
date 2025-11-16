@@ -65,22 +65,27 @@ export const CollaborationCard = React.forwardRef<HTMLDivElement, CollaborationC
       blue: {
         icon: 'bg-electric-blue',
         text: 'text-electric-blue',
+        border: 'border-electric-blue',
       },
       pink: {
         icon: 'bg-neon-pink',
         text: 'text-neon-pink',
+        border: 'border-neon-pink',
       },
       purple: {
         icon: 'bg-deep-purple',
         text: 'text-deep-purple',
+        border: 'border-deep-purple',
       },
       teal: {
         icon: 'bg-teal',
         text: 'text-teal',
+        border: 'border-teal',
       },
       yellow: {
         icon: 'bg-cyber-yellow',
         text: 'text-cyber-yellow',
+        border: 'border-cyber-yellow',
       },
     };
 
@@ -139,7 +144,7 @@ export const CollaborationCard = React.forwardRef<HTMLDivElement, CollaborationC
         </div>
 
         {/* What You Get */}
-        <div className="mb-5 bg-white/50 border-l-4 p-3 rounded" style={{ borderColor: `var(--${color})` }}>
+        <div className={cn("mb-5 bg-white/50 border-l-4 p-3 rounded", colors.border)}>
           <h4 className="text-xs font-bold mb-1 text-brutalist-text-primary font-heading uppercase tracking-wide">
             {whatYouGet}
           </h4>
