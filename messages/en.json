@@ -6,7 +6,7 @@
     "about": "let's talk"
   },
   "hero": {
-    "badge": "UX • DEV • PM",
+    "badge": "UX • CODE • PM",
     "headline1": "I failed",
     "headline2": "as a designer.",
     "headline3": "Then as a developer.",
@@ -29,8 +29,8 @@
   },
   "journey": {
     "badge": "The journey",
-    "title": "Why I speak 3 languages",
-    "titleHighlight": "(and they're not English, Italian, Spanish)",
+    "title": "Why I translate in meetings",
+    "titleHighlight": "(without speaking foreign languages)",
     "subtitle": "Most PMs only speak 'business'. Then they join a meeting and the designer says 'user journey' while the developer says 'technical debt'. Chaos. I translate. Without losing anything.",
     "current": "Today",
     "skillsLabel": "What I bring",

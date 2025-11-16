@@ -6,7 +6,7 @@
     "about": "parliamo"
   },
   "hero": {
-    "badge": "UX • DEV • PM",
+    "badge": "UX • CODE • PM",
     "headline1": "Ho fallito",
     "headline2": "come designer.",
     "headline3": "Poi come developer.",
@@ -29,8 +29,8 @@
   },
   "journey": {
     "badge": "Il percorso",
-    "title": "Perché parlo 3 lingue",
-    "titleHighlight": "(e non sono italiano, inglese, spagnolo)",
+    "title": "Perché faccio l'interprete nei meeting",
+    "titleHighlight": "(senza parlare lingue straniere)",
     "subtitle": "La maggior parte dei PM parla solo 'business'. Poi arriva in meeting e il designer dice 'user journey' mentre lo sviluppatore dice 'technical debt'. Caos. Io traduco. Senza perdere pezzi.",
     "current": "Oggi",
     "skillsLabel": "Cosa porto al tavolo",
