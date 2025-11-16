@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Badge } from '@/components/ui/Badge';
 import { NeoButton } from '@/components/ui/NeoButton';
 import BlogCard from '@/components/blog/BlogCard';
 import { getAllPosts } from '@/lib/blog/mdx';
@@ -41,7 +41,7 @@ export default async function BlogNew({ locale }: BlogProps) {
       <section id="blog" className="bg-cream py-16 md:py-24 border-b-brutal border-black">
         <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
           <div className="text-center">
-            <NeoBadge color="pink">{t.badge}</NeoBadge>
+            <Badge variant="secondary">{t.badge}</Badge>
             <h2 className="text-h1 mt-4 mb-4 font-heading">{t.title}</h2>
             <p className="text-body text-brutalist-text-secondary">Nuovi articoli in arrivo...</p>
           </div>
@@ -59,7 +59,7 @@ export default async function BlogNew({ locale }: BlogProps) {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <div className="flex justify-center mb-4">
-            <NeoBadge color="pink">{t.badge}</NeoBadge>
+            <Badge variant="secondary">{t.badge}</Badge>
           </div>
           <h2 className="text-h1 mb-4 font-heading">{t.title}</h2>
           <p className="text-body text-brutalist-text-secondary max-w-[600px] mx-auto font-body">

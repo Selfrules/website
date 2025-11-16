@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Badge } from '@/components/ui/Badge';
 import { NeoButton } from '@/components/ui/NeoButton';
 import { CollaborationCard as CollaborationCardUI } from '@/components/ui/CollaborationCard';
 import { useAnalytics } from '@/lib/hooks/useAnalytics';
@@ -62,7 +62,7 @@ export default function WorkTogether() {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <div className="flex justify-center mb-4">
-            <NeoBadge color="yellow">{t('badge')}</NeoBadge>
+            <Badge variant="featured">{t('badge')}</Badge>
           </div>
           <h2 className="text-h1 mb-4 md:mb-6 text-brutalist-text-primary">{t('title')} <span className="text-neon-pink">{t('titleHighlight')}</span></h2>
           <p className="text-body text-brutalist-text-secondary max-w-[700px] mx-auto">
