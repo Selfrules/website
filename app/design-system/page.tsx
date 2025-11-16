@@ -22,7 +22,9 @@ import {
   TimelineSection,
   HeroSection as HeroComponentSection,
   WorkTogetherSection as WorkTogetherComponentSection,
-  LinksColoredTextSection
+  LinksColoredTextSection,
+  AdminComponentsSection,
+  DataVisualizationSection
 } from '@/components/design-system/DesignSystemAdditional';
 
 export default function DesignSystemPage() {
@@ -128,10 +130,10 @@ export default function DesignSystemPage() {
 
           {/* Quick Navigation */}
           <div className="flex flex-wrap justify-center gap-3">
-            {['Colors', 'Typography', 'Spacing', 'Components', 'Links', 'Blog', 'Patterns', 'Navigation', 'ChatBot', 'Forms', 'Timeline', 'Hero', 'Services', 'Effects', 'Accessibility', 'Icons'].map((section) => (
+            {['Colors', 'Typography', 'Spacing', 'Components', 'Links', 'Blog', 'Patterns', 'Navigation', 'ChatBot', 'Forms', 'Timeline', 'Hero', 'Services', 'Admin', 'Data Viz', 'Effects', 'Accessibility', 'Icons'].map((section) => (
               <a
                 key={section}
-                href={`#${section.toLowerCase()}`}
+                href={`#${section.toLowerCase().replace(' ', '-')}`}
                 className="px-4 py-2 bg-white border-3 border-[#000] rounded-lg shadow-brutal-sm hover:-translate-y-1 hover:shadow-brutal transition-all text-sm"
                 style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 600 }}
               >
@@ -763,6 +765,10 @@ export default function DesignSystemPage() {
         <HeroComponentSection />
 
         <WorkTogetherComponentSection />
+
+        <AdminComponentsSection />
+
+        <DataVisualizationSection />
 
         {/* 7. ICONS */}
         <section id="icons" className="mb-20 scroll-mt-24">

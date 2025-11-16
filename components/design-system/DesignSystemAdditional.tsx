@@ -5,7 +5,7 @@ import {
   MessageCircle, Send, User, Bot, Code2, Zap, Sparkles,
   ArrowRight, CheckCircle, XCircle, AlertCircle, Clock,
   Calendar, MapPin, Target, Trophy, Rocket, Search, ExternalLink,
-  X, Mail, TrendingUp
+  X, Mail, TrendingUp, Users, FileText, BarChart, Lightbulb
 } from 'lucide-react';
 import { NeoButton } from '@/components/ui/NeoButton';
 import { NeoBadge } from '@/components/ui/NeoBadge';
@@ -590,63 +590,62 @@ export function HeroSection() {
   return (
     <section className="bg-cream py-brutal-3xl">
       <div className="container max-w-7xl mx-auto px-6 md:px-8">
-        <NeoHeading as="h2" size="h2" className="mb-brutal-xl">
-          Hero Sections
-        </NeoHeading>
-
-        <div className="space-y-brutal-lg">
-          {/* Hero Example 1 */}
-          <NeoCard variant="elevated" noPadding>
-            <div className="relative bg-gradient-to-br from-electric-blue to-deep-purple p-12 md:p-20 text-white">
-              <div className="absolute top-8 right-8 text-cyber-yellow animate-float">
-                <Sparkles className="h-12 w-12" />
-              </div>
-              <div className="max-w-2xl">
-                <NeoBadge variant="yellow" size="lg">NEW RELEASE</NeoBadge>
-                <h1 className="font-heading font-black text-4xl md:text-6xl mt-4 mb-6">
-                  Build Amazing Products
-                </h1>
-                <p className="text-xl text-white/90 mb-8">
-                  The complete design system for building neobrutalist interfaces with style and confidence.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <NeoButton variant="accent" size="lg">
-                    Get Started
-                  </NeoButton>
-                  <NeoButton variant="outline" size="lg">
-                    Learn More
-                  </NeoButton>
-                </div>
-              </div>
-            </div>
-          </NeoCard>
-
-          {/* Hero Example 2 */}
-          <NeoCard variant="elevated" noPadding>
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="p-12 md:p-16 bg-white">
-                <NeoBadge variant="design" size="sm">DESIGN SYSTEM</NeoBadge>
-                <NeoHeading as="h1" size="hero" className="mt-4 mb-6">
-                  Brutalist Beauty
-                </NeoHeading>
-                <NeoText size="lg" color="secondary" className="mb-8">
-                  Bold borders. Vibrant colors. Hard shadows. Build interfaces that make a statement.
-                </NeoText>
-                <NeoButton variant="primary" size="lg">
-                  Explore Components →
-                </NeoButton>
-              </div>
-              <div className="relative bg-gradient-to-br from-neon-pink to-cyber-yellow p-12 md:p-16">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="h-32 bg-white/20 backdrop-blur rounded-brutal border-brutal-thin border-white/50" />
-                  <div className="h-32 bg-white/20 backdrop-blur rounded-brutal border-brutal-thin border-white/50" />
-                  <div className="h-32 bg-white/20 backdrop-blur rounded-brutal border-brutal-thin border-white/50" />
-                  <div className="h-32 bg-white/20 backdrop-blur rounded-brutal border-brutal-thin border-white/50" />
-                </div>
-              </div>
-            </div>
-          </NeoCard>
+        <div className="flex items-center gap-4 mb-brutal-xl">
+          <div className="w-12 h-12 bg-gradient-to-br from-neon-pink to-cyber-yellow rounded-brutal border-brutal border-brutal-black shadow-brutal flex items-center justify-center">
+            <Zap className="h-6 w-6 text-white" />
+          </div>
+          <div>
+            <NeoHeading as="h2" size="h2">Hero Section</NeoHeading>
+            <NeoText size="sm" color="tertiary">Homepage hero with floating shapes</NeoText>
+          </div>
         </div>
+
+        <NeoCard variant="elevated">
+          <NeoHeading as="h3" size="h3" className="mb-brutal-md">Hero Layout</NeoHeading>
+
+          {/* Hero with Floating Shapes */}
+          <div className="relative bg-cream border-brutal border-brutal-black rounded-brutal shadow-brutal p-12 md:p-16 overflow-hidden">
+            {/* Floating Shapes */}
+            <div className="absolute top-20 left-10 w-16 h-16 bg-neon-pink border-brutal-thin border-brutal-black rounded-lg rotate-45 opacity-90" />
+            <div className="absolute top-32 left-1/4 w-20 h-20 bg-deep-purple border-brutal-thin border-brutal-black rounded-full opacity-90" />
+            <div className="absolute top-10 right-16 w-24 h-24 bg-electric-blue border-brutal-thin border-brutal-black rounded-full opacity-90" />
+            <div className="absolute bottom-20 right-20 w-16 h-16 bg-cyber-yellow border-brutal-thin border-brutal-black rounded-lg rotate-45 opacity-90" />
+
+            {/* Content */}
+            <div className="relative z-10 max-w-3xl mx-auto text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-neon-pink text-white border-brutal-thin border-brutal-black rounded-brutal shadow-brutal mb-6">
+                <Sparkles className="h-4 w-4" />
+                <span className="font-bold text-sm uppercase">Product Manager</span>
+              </div>
+
+              {/* Heading */}
+              <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl mb-6">
+                Trasformo fallimenti in{' '}
+                <span className="relative inline-block">
+                  <span className="relative z-10 text-neon-pink">feature</span>
+                  <span className="absolute bottom-2 left-0 right-0 h-3 bg-electric-blue -rotate-1 -z-10" />
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+                Da designer a developer a <span className="text-neon-pink font-bold">Product Manager</span>.
+                Ho raccolto i pezzi di ogni fallimento per costruire prodotti che le persone amano.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap justify-center gap-4">
+                <NeoButton variant="primary" size="lg">
+                  Scopri di più
+                </NeoButton>
+                <button className="px-6 py-3 bg-white text-brutal-black border-brutal border-brutal-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
+                  Contattami
+                </button>
+              </div>
+            </div>
+          </div>
+        </NeoCard>
       </div>
     </section>
   );
@@ -656,58 +655,91 @@ export function WorkTogetherSection() {
   return (
     <section className="bg-white py-brutal-3xl">
       <div className="container max-w-7xl mx-auto px-6 md:px-8">
-        <NeoHeading as="h2" size="h2" className="mb-brutal-xl">
-          Services & CTA
-        </NeoHeading>
+        <div className="flex items-center gap-4 mb-brutal-xl">
+          <div className="w-12 h-12 bg-deep-purple text-white rounded-brutal border-brutal border-brutal-black shadow-brutal flex items-center justify-center">
+            <Target className="h-6 w-6" />
+          </div>
+          <div>
+            <NeoHeading as="h2" size="h2">Work Together Section</NeoHeading>
+            <NeoText size="sm" color="tertiary">Collaboration cards with pricing</NeoText>
+          </div>
+        </div>
 
-        <NeoCard variant="elevated" noPadding>
-          <div className="bg-gradient-to-r from-deep-purple via-electric-blue to-neon-pink p-1">
-            <div className="bg-white p-12 md:p-16">
-              <div className="max-w-3xl mx-auto text-center">
-                <NeoHeading as="h2" size="h1" className="mb-6">
-                  Let's Work Together
-                </NeoHeading>
-                <NeoText size="lg" color="secondary" className="mb-12">
-                  Transform your ideas into reality with our expert team. We bring creativity,
-                  technical excellence, and strategic thinking to every project.
-                </NeoText>
+        <NeoCard variant="elevated">
+          <NeoHeading as="h3" size="h3" className="mb-brutal-md">Service Cards</NeoHeading>
 
-                <div className="grid md:grid-cols-3 gap-6 mb-12">
-                  <div className="p-6 border-brutal-thin border-brutal-black rounded-brutal">
-                    <div className="w-12 h-12 bg-electric-blue text-white rounded-brutal flex items-center justify-center mx-auto mb-4">
-                      <Code2 className="h-6 w-6" />
-                    </div>
-                    <NeoHeading as="h3" size="h4">Development</NeoHeading>
-                    <NeoText size="sm" color="secondary" className="mt-2">
-                      Clean code, modern frameworks
-                    </NeoText>
-                  </div>
-
-                  <div className="p-6 border-brutal-thin border-brutal-black rounded-brutal">
-                    <div className="w-12 h-12 bg-neon-pink text-white rounded-brutal flex items-center justify-center mx-auto mb-4">
-                      <Sparkles className="h-6 w-6" />
-                    </div>
-                    <NeoHeading as="h3" size="h4">Design</NeoHeading>
-                    <NeoText size="sm" color="secondary" className="mt-2">
-                      Beautiful, functional interfaces
-                    </NeoText>
-                  </div>
-
-                  <div className="p-6 border-brutal-thin border-brutal-black rounded-brutal">
-                    <div className="w-12 h-12 bg-cyber-yellow text-text-primary rounded-brutal flex items-center justify-center mx-auto mb-4">
-                      <Target className="h-6 w-6" />
-                    </div>
-                    <NeoHeading as="h3" size="h4">Strategy</NeoHeading>
-                    <NeoText size="sm" color="secondary" className="mt-2">
-                      Data-driven growth solutions
-                    </NeoText>
-                  </div>
-                </div>
-
-                <NeoButton variant="primary" size="lg">
-                  Start Your Project →
-                </NeoButton>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Brainstorming Session */}
+            <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6 flex flex-col">
+              <div className="w-12 h-12 bg-electric-blue text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center mb-4">
+                <MessageCircle className="h-6 w-6" />
               </div>
+
+              <NeoHeading as="h3" size="h4" className="mb-3">
+                Brainstorming Session
+              </NeoHeading>
+
+              <p className="text-electric-blue font-heading font-bold text-3xl mb-4">
+                €150<span className="text-lg text-text-tertiary font-normal">/ora</span>
+              </p>
+
+              <NeoText size="sm" color="secondary" className="mb-6 flex-grow">
+                Una call di 60 minuti per discutere il tuo progetto, sfide o opportunità.
+              </NeoText>
+
+              <NeoButton variant="primary" className="w-full">
+                Prenota ora
+              </NeoButton>
+            </div>
+
+            {/* Consulenza Strategica - POPULAR */}
+            <div className="relative bg-gradient-to-br from-[#FF006E] via-[#FF8C42] to-[#FFD60A] border-brutal border-brutal-black rounded-brutal shadow-brutal-lg p-6 flex flex-col">
+              <span className="absolute -top-3 right-4 px-3 py-1 bg-cyber-yellow text-brutal-black border-2 border-brutal-black rounded font-bold text-xs uppercase">
+                POPULAR
+              </span>
+
+              <div className="w-12 h-12 bg-cyber-yellow text-brutal-black rounded-brutal border-2 border-brutal-black flex items-center justify-center mb-4">
+                <Target className="h-6 w-6" />
+              </div>
+
+              <NeoHeading as="h3" size="h4" className="mb-3 text-white">
+                Consulenza Strategica
+              </NeoHeading>
+
+              <p className="text-white font-heading font-bold text-3xl mb-4">
+                €500<span className="text-lg font-normal">/progetto</span>
+              </p>
+
+              <NeoText size="sm" className="mb-6 flex-grow text-white">
+                Analisi completa, roadmap strategica e piano d'azione per il tuo prodotto.
+              </NeoText>
+
+              <button className="w-full px-6 py-3 bg-white text-brutal-black border-brutal-thin border-brutal-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
+                Scopri di più
+              </button>
+            </div>
+
+            {/* PM Mentorship */}
+            <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6 flex flex-col">
+              <div className="w-12 h-12 bg-deep-purple text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center mb-4">
+                <TrendingUp className="h-6 w-6" />
+              </div>
+
+              <NeoHeading as="h3" size="h4" className="mb-3">
+                PM Mentorship
+              </NeoHeading>
+
+              <p className="text-deep-purple font-heading font-bold text-3xl mb-4">
+                €300<span className="text-lg text-text-tertiary font-normal">/mese</span>
+              </p>
+
+              <NeoText size="sm" color="secondary" className="mb-6 flex-grow">
+                Supporto continuo per crescere come Product Manager con feedback personalizzato.
+              </NeoText>
+
+              <button className="w-full px-6 py-3 bg-white text-brutal-black border-brutal-thin border-brutal-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
+                Candidati
+              </button>
             </div>
           </div>
         </NeoCard>
@@ -879,6 +911,393 @@ export function LinksColoredTextSection() {
             </div>
           </NeoCard>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function AdminComponentsSection() {
+  return (
+    <section className="bg-white py-brutal-3xl">
+      <div className="container max-w-7xl mx-auto px-6 md:px-8">
+        <div className="flex items-center gap-4 mb-brutal-xl">
+          <div className="w-12 h-12 bg-deep-purple text-white rounded-brutal border-brutal border-brutal-black shadow-brutal flex items-center justify-center">
+            <BarChart className="h-6 w-6" />
+          </div>
+          <div>
+            <NeoHeading as="h2" size="h2">Admin Components</NeoHeading>
+            <NeoText size="sm" color="tertiary">Dashboard, analytics, and management interfaces</NeoText>
+          </div>
+        </div>
+
+        <div className="space-y-brutal-xl">
+          {/* Stats Cards */}
+          <NeoCard variant="elevated">
+            <NeoHeading as="h3" size="h3" className="mb-brutal-md">Stats Cards</NeoHeading>
+            <NeoText size="sm" color="tertiary" className="mb-brutal-md">
+              Dashboard cards showing key metrics with icon, value, and trend indicator
+            </NeoText>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Visite totali */}
+              <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-electric-blue text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center">
+                    <Users className="h-6 w-6" />
+                  </div>
+                  <span className="px-2 py-1 bg-[#10B981] text-white border-2 border-brutal-black rounded text-xs font-bold">
+                    +23%
+                  </span>
+                </div>
+                <p className="text-text-tertiary text-sm mb-1">Visite totali</p>
+                <p className="font-heading font-bold text-3xl">12,456</p>
+              </div>
+
+              {/* Articoli pubblicati */}
+              <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-deep-purple text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center">
+                    <FileText className="h-6 w-6" />
+                  </div>
+                  <span className="px-2 py-1 bg-[#FFD60A] text-brutal-black border-2 border-brutal-black rounded text-xs font-bold">
+                    +3
+                  </span>
+                </div>
+                <p className="text-text-tertiary text-sm mb-1">Articoli pubblicati</p>
+                <p className="font-heading font-bold text-3xl">24</p>
+              </div>
+
+              {/* Bounce rate */}
+              <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-cyber-yellow text-brutal-black rounded-brutal border-2 border-brutal-black flex items-center justify-center">
+                    <Clock className="h-6 w-6" />
+                  </div>
+                  <span className="px-2 py-1 bg-[#EF4444] text-white border-2 border-brutal-black rounded text-xs font-bold">
+                    -8%
+                  </span>
+                </div>
+                <p className="text-text-tertiary text-sm mb-1">Bounce rate</p>
+                <p className="font-heading font-bold text-3xl">42%</p>
+              </div>
+
+              {/* Conversioni */}
+              <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-neon-pink text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center">
+                    <TrendingUp className="h-6 w-6" />
+                  </div>
+                  <span className="px-2 py-1 bg-[#10B981] text-white border-2 border-brutal-black rounded text-xs font-bold">
+                    +34%
+                  </span>
+                </div>
+                <p className="text-text-tertiary text-sm mb-1">Conversioni</p>
+                <p className="font-heading font-bold text-3xl">234</p>
+              </div>
+            </div>
+          </NeoCard>
+
+          {/* AI Insights Cards */}
+          <NeoCard variant="elevated">
+            <NeoHeading as="h3" size="h3" className="mb-brutal-md">AI Insights Cards</NeoHeading>
+            <NeoText size="sm" color="tertiary" className="mb-brutal-md">
+              Intelligent recommendations with priority levels
+            </NeoText>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* AI Insights Panel */}
+              <div className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#7209B7] p-6 rounded-brutal border-brutal border-brutal-black shadow-brutal-lg">
+                <div className="flex items-center gap-2 mb-6">
+                  <Sparkles className="h-5 w-5 text-white" />
+                  <h4 className="font-heading font-bold text-white text-lg">AI Insights</h4>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="bg-white/10 backdrop-blur border-2 border-white/20 rounded-brutal p-4">
+                    <div className="flex items-start gap-3 mb-2">
+                      <AlertCircle className="h-5 w-5 text-cyber-yellow flex-shrink-0 mt-0.5" />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <p className="font-bold text-white text-sm">Picco di traffico nel pomeriggio</p>
+                          <span className="px-2 py-0.5 bg-[#EF4444] text-white rounded text-xs font-bold">HIGH</span>
+                        </div>
+                        <p className="text-white/90 text-sm">
+                          Gli utenti sono più attivi tra le 14:00 e le 16:00. Programma i post in questa fascia.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/10 backdrop-blur border-2 border-white/20 rounded-brutal p-4">
+                    <div className="flex items-start gap-3 mb-2">
+                      <Lightbulb className="h-5 w-5 text-cyber-yellow flex-shrink-0 mt-0.5" />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <p className="font-bold text-white text-sm">Articoli su OKR performano meglio</p>
+                          <span className="px-2 py-0.5 bg-[#FFD60A] text-brutal-black rounded text-xs font-bold">MEDIUM</span>
+                        </div>
+                        <p className="text-white/90 text-sm">
+                          +45% engagement rispetto ad altri topic. Crea più contenuti su questo tema.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Recommendations Panel */}
+              <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6">
+                <h4 className="font-heading font-bold text-lg mb-4">Recommendations</h4>
+
+                <div className="space-y-4">
+                  <div className="border-l-4 border-[#FF006E] pl-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-2 py-0.5 bg-[#FF006E] text-white rounded text-xs font-bold">URGENT</span>
+                      <p className="font-bold text-sm">12 lead qualificati da contattare</p>
+                    </div>
+                    <p className="text-text-tertiary text-sm">
+                      Follow-up consigliato entro 48h per massimizzare conversioni
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-[#FFD60A] pl-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-2 py-0.5 bg-[#FFD60A] text-brutal-black rounded text-xs font-bold">MEDIUM</span>
+                      <p className="font-bold text-sm">Ottimizza meta description</p>
+                    </div>
+                    <p className="text-text-tertiary text-sm">
+                      5 articoli hanno description troppo corta (&lt;120 caratteri)
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-[#0D7EFF] pl-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-2 py-0.5 bg-[#0D7EFF] text-white rounded text-xs font-bold">INFO</span>
+                      <p className="font-bold text-sm">Backup completato con successo</p>
+                    </div>
+                    <p className="text-text-tertiary text-sm">
+                      Ultimo backup: 2 ore fa • 2.4 MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </NeoCard>
+
+          {/* Activity Timeline */}
+          <NeoCard variant="elevated">
+            <NeoHeading as="h3" size="h3" className="mb-brutal-md">Activity Timeline</NeoHeading>
+            <NeoText size="sm" color="tertiary" className="mb-brutal-md">
+              Chronological list of recent activities with timestamps
+            </NeoText>
+
+            <div className="space-y-4">
+              <div className="flex items-center gap-4 p-4 bg-cream border-brutal border-brutal-black rounded-brutal">
+                <div className="w-12 h-12 bg-deep-purple text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center flex-shrink-0">
+                  <FileText className="h-6 w-6" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold">Nuovo articolo pubblicato: <strong>"Product-Market Fit"</strong></p>
+                  <div className="flex items-center gap-1 text-text-tertiary text-sm mt-1">
+                    <Clock className="h-3 w-3" />
+                    <span>2 ore fa</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-cream border-brutal border-brutal-black rounded-brutal">
+                <div className="w-12 h-12 bg-neon-pink text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="h-6 w-6" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold">Nuova conversazione da <strong>Marco R.</strong></p>
+                  <div className="flex items-center gap-1 text-text-tertiary text-sm mt-1">
+                    <Clock className="h-3 w-3" />
+                    <span>3 ore fa</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-cream border-brutal border-brutal-black rounded-brutal">
+                <div className="w-12 h-12 bg-electric-blue text-white rounded-brutal border-2 border-brutal-black flex items-center justify-center flex-shrink-0">
+                  <Calendar className="h-6 w-6" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold">Articolo <strong>"OKR vs KPI"</strong> programmato per domani</p>
+                  <div className="flex items-center gap-1 text-text-tertiary text-sm mt-1">
+                    <Clock className="h-3 w-3" />
+                    <span>5 ore fa</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </NeoCard>
+
+          {/* Priority Badges */}
+          <NeoCard variant="elevated">
+            <NeoHeading as="h3" size="h3" className="mb-brutal-md">Priority Badges</NeoHeading>
+            <NeoText size="sm" color="tertiary" className="mb-brutal-md">
+              Status and priority indicators for tasks and items
+            </NeoText>
+
+            <div className="space-y-6">
+              <div>
+                <p className="font-bold mb-3">Priority Levels</p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="px-3 py-1.5 bg-[#FF006E] text-white font-bold text-sm uppercase rounded border-2 border-brutal-black">URGENT</span>
+                  <span className="px-3 py-1.5 bg-[#FFD60A] text-brutal-black font-bold text-sm uppercase rounded border-2 border-brutal-black">HIGH</span>
+                  <span className="px-3 py-1.5 bg-[#0D7EFF] text-white font-bold text-sm uppercase rounded border-2 border-brutal-black">MEDIUM</span>
+                  <span className="px-3 py-1.5 bg-[#6B7280] text-white font-bold text-sm uppercase rounded border-2 border-brutal-black">LOW</span>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-bold mb-3">Status Indicators</p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="px-3 py-1.5 bg-[#10B981] text-white font-bold text-sm uppercase rounded border-2 border-brutal-black flex items-center gap-1">
+                    <CheckCircle className="h-4 w-4" />
+                    PUBLISHED
+                  </span>
+                  <span className="px-3 py-1.5 bg-[#FFD60A] text-brutal-black font-bold text-sm uppercase rounded border-2 border-brutal-black flex items-center gap-1">
+                    <AlertCircle className="h-4 w-4" />
+                    DRAFT
+                  </span>
+                  <span className="px-3 py-1.5 bg-[#7209B7] text-white font-bold text-sm uppercase rounded border-2 border-brutal-black flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    SCHEDULED
+                  </span>
+                  <span className="px-3 py-1.5 bg-[#EF4444] text-white font-bold text-sm uppercase rounded border-2 border-brutal-black flex items-center gap-1">
+                    <XCircle className="h-4 w-4" />
+                    ARCHIVED
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-bold mb-3">Trend Indicators</p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="px-3 py-1.5 bg-[#10B981] text-white font-bold text-sm rounded border-2 border-brutal-black flex items-center gap-1">
+                    <ArrowRight className="h-4 w-4 rotate-[-45deg]" />
+                    +23%
+                  </span>
+                  <span className="px-3 py-1.5 bg-[#EF4444] text-white font-bold text-sm rounded border-2 border-brutal-black flex items-center gap-1">
+                    <ArrowRight className="h-4 w-4 rotate-[45deg]" />
+                    -8%
+                  </span>
+                  <span className="px-3 py-1.5 bg-[#6B7280] text-white font-bold text-sm rounded border-2 border-brutal-black flex items-center gap-1">
+                    ±
+                    0%
+                  </span>
+                </div>
+              </div>
+            </div>
+          </NeoCard>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function DataVisualizationSection() {
+  return (
+    <section className="bg-cream py-brutal-3xl">
+      <div className="container max-w-7xl mx-auto px-6 md:px-8">
+        <div className="flex items-center gap-4 mb-brutal-xl">
+          <div className="w-12 h-12 bg-cyber-yellow text-brutal-black rounded-brutal border-brutal border-brutal-black shadow-brutal flex items-center justify-center">
+            <BarChart className="h-6 w-6" />
+          </div>
+          <div>
+            <NeoHeading as="h2" size="h2">Data Visualization</NeoHeading>
+            <NeoText size="sm" color="tertiary">Charts and graphs with Recharts integration</NeoText>
+          </div>
+        </div>
+
+        <NeoCard variant="elevated">
+          <NeoHeading as="h3" size="h3" className="mb-brutal-md">Chart Styling</NeoHeading>
+          <NeoText size="sm" color="tertiary" className="mb-brutal-lg">
+            All charts use the neobrutalist color palette and thick borders
+          </NeoText>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            {/* Color Palette */}
+            <div className="bg-white border-brutal border-brutal-black rounded-brutal shadow-brutal p-6">
+              <h4 className="font-heading font-bold text-lg mb-4">Chart Color Palette</h4>
+
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-[#0D7EFF] border-2 border-brutal-black rounded" />
+                  <div>
+                    <p className="font-bold text-sm">#0D7EFF</p>
+                    <p className="text-xs text-text-tertiary">Primary data series</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-[#7209B7] border-2 border-brutal-black rounded" />
+                  <div>
+                    <p className="font-bold text-sm">#7209B7</p>
+                    <p className="text-xs text-text-tertiary">Secondary data series</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-[#FF006E] border-2 border-brutal-black rounded" />
+                  <div>
+                    <p className="font-bold text-sm">#FF006E</p>
+                    <p className="text-xs text-text-tertiary">Accent data series</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-[#FFD60A] border-2 border-brutal-black rounded" />
+                  <div>
+                    <p className="font-bold text-sm">#FFD60A</p>
+                    <p className="text-xs text-text-tertiary">Highlight data series</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Recharts Configuration */}
+            <div className="bg-brutal-black border-brutal border-brutal-black rounded-brutal shadow-brutal p-6 overflow-x-auto">
+              <h4 className="font-heading font-bold text-lg mb-4 text-white">Recharts Configuration</h4>
+
+              <pre className="text-xs text-white font-mono overflow-x-auto">
+<code>{`<LineChart data={data}>
+  <CartesianGrid
+    stroke="#E5E5E5"
+    strokeWidth={2}
+  />
+  <Line
+    type="monotone"
+    dataKey="value"
+    stroke="#0D7EFF"
+    strokeWidth={3}
+    dot={{
+      fill: "#0D7EFF",
+      stroke: "#000",
+      strokeWidth: 2,
+      r: 4
+    }}
+  />
+</LineChart>`}</code>
+              </pre>
+            </div>
+          </div>
+
+          {/* Chart Guidelines */}
+          <div className="bg-[#FFD60A] border-brutal border-brutal-black rounded-brutal shadow-brutal p-6">
+            <div className="flex items-start gap-3">
+              <div className="text-2xl">📊</div>
+              <div className="flex-1">
+                <p className="font-bold mb-2">Chart Guidelines:</p>
+                <p className="text-sm">
+                  Use thick strokes (3px+), bold colors, and black borders on data points. Grid lines should be light gray (#E5E5E5) with 2px width. All charts should be wrapped in cards with border-4 and shadow-brutal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </NeoCard>
       </div>
     </section>
   );
