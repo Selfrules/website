@@ -6,15 +6,27 @@
  */
 
 import { parseComponent, scanComponents } from '../component-parser';
+import { Project } from 'ts-morph';
 import path from 'path';
 
 describe('Component Parser', () => {
   const componentsDir = path.join(process.cwd(), 'components', 'ui');
 
+  // Create shared ts-morph project for all tests
+  let project: Project;
+
+  beforeAll(() => {
+    project = new Project({
+      tsConfigFilePath: path.join(process.cwd(), 'tsconfig.json'),
+      skipAddingFilesFromTsConfig: true,
+    });
+  });
+
   describe('parseComponent', () => {
     it('should extract component metadata from Button.tsx', async () => {
       const buttonPath = path.join(componentsDir, 'Button.tsx');
-      const metadata = await parseComponent(buttonPath);
+      const sourceFile = project.addSourceFileAtPath(buttonPath);
+      const metadata = parseComponent(sourceFile, buttonPath);
 
       expect(metadata).toBeDefined();
       expect(metadata.name).toBe('Button');
@@ -24,7 +36,8 @@ describe('Component Parser', () => {
 
     it('should extract variant prop values from Button', async () => {
       const buttonPath = path.join(componentsDir, 'Button.tsx');
-      const metadata = await parseComponent(buttonPath);
+      const sourceFile = project.addSourceFileAtPath(buttonPath);
+      const metadata = parseComponent(sourceFile, buttonPath);
 
       const variantProp = metadata.variants.find(v => v.propName === 'variant');
       expect(variantProp).toBeDefined();
@@ -37,7 +50,8 @@ describe('Component Parser', () => {
 
     it('should extract size prop values from Button', async () => {
       const buttonPath = path.join(componentsDir, 'Button.tsx');
-      const metadata = await parseComponent(buttonPath);
+      const sourceFile = project.addSourceFileAtPath(buttonPath);
+      const metadata = parseComponent(sourceFile, buttonPath);
 
       const sizeProp = metadata.variants.find(v => v.propName === 'size');
       expect(sizeProp).toBeDefined();
@@ -49,7 +63,8 @@ describe('Component Parser', () => {
 
     it('should extract props with their types', async () => {
       const buttonPath = path.join(componentsDir, 'Button.tsx');
-      const metadata = await parseComponent(buttonPath);
+      const sourceFile = project.addSourceFileAtPath(buttonPath);
+      const metadata = parseComponent(sourceFile, buttonPath);
 
       const variantProp = metadata.props.find(p => p.name === 'variant');
       expect(variantProp).toBeDefined();
@@ -61,7 +76,8 @@ describe('Component Parser', () => {
 
     it('should handle compound components like Card', async () => {
       const cardPath = path.join(componentsDir, 'Card.tsx');
-      const metadata = await parseComponent(cardPath);
+      const sourceFile = project.addSourceFileAtPath(cardPath);
+      const metadata = parseComponent(sourceFile, cardPath);
 
       expect(metadata.name).toBe('Card');
       expect(metadata.subComponents).toBeDefined();
@@ -75,21 +91,24 @@ describe('Component Parser', () => {
 
     it('should categorize Button as Buttons', async () => {
       const buttonPath = path.join(componentsDir, 'Button.tsx');
-      const metadata = await parseComponent(buttonPath);
+      const sourceFile = project.addSourceFileAtPath(buttonPath);
+      const metadata = parseComponent(sourceFile, buttonPath);
 
       expect(metadata.category).toBe('Buttons');
     });
 
     it('should categorize Card as Cards', async () => {
       const cardPath = path.join(componentsDir, 'Card.tsx');
-      const metadata = await parseComponent(cardPath);
+      const sourceFile = project.addSourceFileAtPath(cardPath);
+      const metadata = parseComponent(sourceFile, cardPath);
 
       expect(metadata.category).toBe('Cards');
     });
 
     it('should handle components without variant props', async () => {
       const cardTitlePath = path.join(componentsDir, 'Card.tsx');
-      const metadata = await parseComponent(cardTitlePath);
+      const sourceFile = project.addSourceFileAtPath(cardTitlePath);
+      const metadata = parseComponent(sourceFile, cardTitlePath);
 
       // CardTitle doesn't have variants, but Card does
       expect(metadata).toBeDefined();
@@ -133,7 +152,8 @@ describe('Component Parser', () => {
     it('should handle components without JSDoc gracefully', async () => {
       // Most current components don't have JSDoc
       const buttonPath = path.join(componentsDir, 'Button.tsx');
-      const metadata = await parseComponent(buttonPath);
+      const sourceFile = project.addSourceFileAtPath(buttonPath);
+      const metadata = parseComponent(sourceFile, buttonPath);
 
       expect(metadata.description).toBeDefined();
       // Should have auto-generated description if no JSDoc
@@ -141,7 +161,8 @@ describe('Component Parser', () => {
 
     it('should handle complex prop types', async () => {
       const buttonPath = path.join(componentsDir, 'Button.tsx');
-      const metadata = await parseComponent(buttonPath);
+      const sourceFile = project.addSourceFileAtPath(buttonPath);
+      const metadata = parseComponent(sourceFile, buttonPath);
 
       // Button extends React.ButtonHTMLAttributes
       const classNameProp = metadata.props.find(p => p.name === 'className');

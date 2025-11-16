@@ -29,28 +29,28 @@ const calloutConfig: Record<
   info: {
     icon: Info,
     borderColor: 'border-electric-blue',
-    bgColor: 'bg-blue-50',
+    bgColor: 'bg-electric-blue/5',
     iconColor: 'text-electric-blue',
     titleColor: 'text-electric-blue',
   },
   warning: {
     icon: AlertTriangle,
     borderColor: 'border-cyber-yellow',
-    bgColor: 'bg-yellow-50',
+    bgColor: 'bg-cyber-yellow/10',
     iconColor: 'text-cyber-yellow',
-    titleColor: 'text-[#0A0A0A]', // Black text for yellow background (WCAG AA)
+    titleColor: 'text-black', // Black text for yellow background (WCAG AA)
   },
   tip: {
     icon: Lightbulb,
     borderColor: 'border-teal',
-    bgColor: 'bg-teal-50',
+    bgColor: 'bg-teal/5',
     iconColor: 'text-teal',
     titleColor: 'text-teal',
   },
   danger: {
     icon: AlertCircle,
     borderColor: 'border-neon-pink',
-    bgColor: 'bg-pink-50',
+    bgColor: 'bg-neon-pink/5',
     iconColor: 'text-neon-pink',
     titleColor: 'text-neon-pink',
   },
