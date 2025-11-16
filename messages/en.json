@@ -78,10 +78,10 @@
         "date": "2020-2023",
         "company": "ActiveProspect",
         "role": "Product Owner",
-        "description": "I bridged business and tech. Translated needs into features. Roadmap. Backlog. Sprint planning. But most importantly: I learned to say \"no\".",
+        "description": "I bridged business and tech. Roadmap. Backlog. Sprint planning. But most importantly: I learned to say \"no\".",
         "achievements": {
-          "1": "The real work of Product isn't saying \"yes\" to everything. It's saying \"no\" to the right things.",
-          "2": "A beautiful roadmap is useless if it's not aligned with business. User feedback matters more than any internal stakeholder's opinion.",
+          "1": "I said \"no\" to a feature requested by 60% of users. Why? It would cost 4 months and solved a problem we'd already solved differently.",
+          "2": "Saying \"no\" with data beats saying \"yes\" for sympathy.",
           "3": "The hardest lesson? Not every problem should be solved with code. Sometimes the solution is a 3-minute video. Or simply talking to the customer before developing."
         },
         "technologies": {
@@ -105,10 +105,10 @@
         "date": "2016-2020",
         "company": "FLOWING",
         "role": "Designer & Developer",
-        "description": "No more just wireframes to pass to someone else. No more just code someone else had designed. At Flowing I started doing what seemed obvious: design the experience and then build it. Everything.",
+        "description": "No more just wireframes to pass to someone else. At Flowing I merged design and development. The project that shaped me most? CliensPiù - law firm software used 8 hours a day.",
         "achievements": {
-          "1": "The project that shaped me the most? CliensPiù - an advanced management software for law firms. A real application that lawyers had to work with 8 hours a day.",
-          "2": "When you design something people will use daily for years, every friction counts. How do you organize 500 legal cases without driving anyone crazy? How do you make finding a document take 3 seconds instead of 3 minutes?",
+          "1": "Example: A \"Save\" button that shifts 2 pixels when loading data. Insignificant? Try clicking it 40 times a day for 3 years.",
+          "2": "Small irritations become abandonment. I learned to measure them.",
           "3": "CliensPiù is still in use today. After years, it works. This doesn't happen by accident - it happens when you design and build thinking about who will have to live inside it, not just how it looks in the screenshot."
         },
         "technologies": {
@@ -127,9 +127,9 @@
         "date": "2012-2018",
         "company": "Selfrules",
         "role": "Web Designer & Founder",
-        "description": "I opened an agency at 25. I thought I knew everything. I designed beautiful websites. Managed clients. Invoiced. And I discovered three uncomfortable truths the hard way:",
+        "description": "I opened an agency at 25. First project: \"stunning\" interface. First client feedback: \"Beautiful, but where do I click to pay?\"",
         "achievements": {
-          "1": "Beautiful design that nobody understands how to use is just art, not product",
+          "1": "If it's beautiful but confusing, it's decoration. Not design.",
           "2": "Perfect mockup that can't be developed is wasted time",
           "3": "My most expensive failure: 3 weeks on a design technically impossible within the client's budget"
         },
@@ -210,8 +210,12 @@
     "modes": {
       "consulting": {
         "badge": "Strategic consulting",
-        "title": "Unlock your product in 90 minutes",
-        "description": "Got a product that won't take off? A team going in circles? A roadmap that looks strategic but delivers no results? Let's take 90 minutes.",
+        "title": "Strategic consulting (90 minutes)",
+        "problem": "Roadmap full but no priorities? Designer and developer not talking?",
+        "whatWeDo": "What we do",
+        "whatWeDoDetail": "Identify the real blocker (hint: it's usually not the obvious one).",
+        "whatYouGet": "What you get",
+        "whatYouGetDetail": "Clear decision on what to do Monday morning. Not slides. Actions.",
         "features": {
           "1": "End-to-end techno-strategic analysis",
           "2": "Prioritized roadmap with business impact",
@@ -220,8 +224,12 @@
       },
       "brainstorming": {
         "badge": "Brainstorming sessions",
-        "title": "Transform chaos into roadmap",
-        "description": "Got a vague idea? A project that hasn't taken shape yet? A team that needs alignment? Let's transform chaos into a plan.",
+        "title": "Brainstorming sessions (2-3 hours)",
+        "problem": "Feature requests from 7 different stakeholders. All urgent. All \"strategic\".",
+        "whatWeDo": "What we do",
+        "whatWeDoDetail": "Filter noise from signal. Translate wishes into requirements.",
+        "whatYouGet": "What you get",
+        "whatYouGetDetail": "Roadmap your team understands and your bosses approve.",
         "features": {
           "1": "Interactive workshop 2-3 hours",
           "2": "Reusable framework for the team",
@@ -230,8 +238,12 @@
       },
       "mentorship": {
         "badge": "Mentorship",
-        "title": "Mentorship for PM",
-        "description": "Already in product but want to grow? Want to transition from design/dev to product? I'll guide you through the journey. No theory, just practice.",
+        "title": "Mentorship for PM (monthly)",
+        "problem": "You know stakeholder management. You write user stories. But every project is the same chaos?",
+        "whatWeDo": "What we do",
+        "whatWeDoDetail": "Review real cases. Mistakes, decisions, repeated patterns.",
+        "whatYouGet": "What you get",
+        "whatYouGetDetail": "See your blind spots before they become 3-month problems.",
         "features": {
           "1": "Bi-weekly 1-on-1 sessions",
           "2": "Code/design review on real projects",
@@ -268,8 +280,9 @@
       }
     },
     "cta": {
-      "title": "Got a stuck product?",
-      "description": "15-minute call. Zero pitch. Zero PowerPoint. Just you, me, and the problem to solve.",
+      "title": "Got 4 features in development and none finished?",
+      "subtitle": "Designer and developer not talking?",
+      "description": "15-minute call. Zero pitch. Zero slides. Just your problem and how to unblock it. Monday, not \"by Q2\".",
       "button": "Book 15 minutes"
     }
   },

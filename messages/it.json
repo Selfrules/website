@@ -78,10 +78,10 @@
         "date": "2020-2023",
         "company": "ActiveProspect",
         "role": "Product Owner",
-        "description": "Facevo da ponte tra business e tech. Traducevo esigenze in funzionalità. Roadmap. Backlog. Sprint planning. Ma soprattutto: imparai a dire \"no\".",
+        "description": "Facevo da ponte tra business e tech. Roadmap. Backlog. Sprint planning. Ma soprattutto: imparai a dire \"no\".",
         "achievements": {
-          "1": "Il vero lavoro del Product non è dire \"sì\" a tutto. È dire \"no\" alle cose giuste.",
-          "2": "Una roadmap bella non serve a niente se non è allineata al business. Il feedback degli utenti conta più di qualsiasi opinion di un stakeholder interno.",
+          "1": "Ho detto \"no\" a una feature richiesta dal 60% degli utenti. Perché? Costava 4 mesi e risolveva un problema che avevamo già risolto in altro modo.",
+          "2": "Dire \"no\" con i dati batte dire \"sì\" per simpatia.",
           "3": "La lezione più difficile? Non tutti i problemi vanno risolti con codice. A volte la soluzione è un video di 3 minuti. O semplicemente parlare con il cliente prima di sviluppare."
         },
         "technologies": {
@@ -105,10 +105,10 @@
         "date": "2016-2020",
         "company": "FLOWING",
         "role": "Designer & Developer",
-        "description": "Non più solo wireframe da passare a qualcun altro. Non più solo codice che qualcuno aveva già progettato. In Flowing ho iniziato a fare quello che mi sembrava ovvio: progettare l'esperienza e poi costruirla. Tutto.",
+        "description": "Non più solo wireframe da passare a qualcun altro. In Flowing ho unito design e sviluppo. Il progetto che mi ha formato di più? CliensPiù - software per studi legali usato 8 ore al giorno.",
         "achievements": {
-          "1": "Il progetto che mi ha formato di più? CliensPiù - un software gestionale avanzato per studi legali. Un'applicazione vera, con cui avvocati dovevano lavorare 8 ore al giorno.",
-          "2": "Quando progetti qualcosa che le persone useranno quotidianamente per anni, ogni frizione conta. Come organizzi 500 pratiche legali senza far impazzire nessuno? Come fai in modo che trovare un documento richieda 3 secondi invece di 3 minuti?",
+          "1": "Esempio: Un bottone \"Salva\" che si sposta di 2 pixel quando carichi i dati. Insignificante? Prova a cliccarci 40 volte al giorno per 3 anni.",
+          "2": "Le piccole irritazioni diventano abbandono. Ho imparato a misurarle.",
           "3": "CliensPiù è ancora in uso oggi. Dopo anni, funziona. Questo non succede per caso - succede quando progetti e costruisci pensando a chi dovrà viverci dentro, non solo a come appare nello screenshot."
         },
         "technologies": {
@@ -127,9 +127,9 @@
         "date": "2012-2018",
         "company": "Selfrules",
         "role": "Web Designer & Founder",
-        "description": "Ho aperto un'agenzia a 25 anni. Pensavo di sapere tutto. Disegnavo siti bellissimi. Gestivo clienti. Fatturavo. E ho scoperto sulla mia pelle tre verità scomode:",
+        "description": "A 25 anni ho aperto un'agenzia. Primo progetto: interfaccia \"stunning\". Primo feedback cliente: \"Bellissima, ma dove clicco per pagare?\"",
         "achievements": {
-          "1": "Design bellissimo che nessuno capisce come usare è solo arte, non prodotto",
+          "1": "Se è bello ma confuso, è decorazione. Non design.",
           "2": "Mockup perfetto che non si può sviluppare è tempo sprecato",
           "3": "Il mio fallimento più costoso: 3 settimane su un design tecnicamente impossibile nel budget del cliente"
         },
@@ -210,8 +210,12 @@
     "modes": {
       "consulting": {
         "badge": "Consulenze strategiche",
-        "title": "Sblocca il tuo prodotto in 90 minuti",
-        "description": "Hai un prodotto che non decolla? Un team che gira in tondo? Una roadmap che sembra strategica ma non porta risultati? Prendiamoci 90 minuti.",
+        "title": "Consulenze strategiche (90 minuti)",
+        "problem": "Hai roadmap piena ma nessuna priorità? Designer e developer che non si parlano?",
+        "whatWeDo": "Cosa facciamo",
+        "whatWeDoDetail": "Identifichiamo il vero blocco (hint: di solito non è quello ovvio).",
+        "whatYouGet": "Cosa ottieni",
+        "whatYouGetDetail": "Decisione chiara su cosa fare lunedì mattina. Non slide. Azioni.",
         "features": {
           "1": "Analisi tecno-strategica end-to-end",
           "2": "Roadmap prioritizzata con business impact",
@@ -220,8 +224,12 @@
       },
       "brainstorming": {
         "badge": "Brainstorming sessions",
-        "title": "Trasforma il caos in roadmap",
-        "description": "Hai un'idea vaga? Un progetto che ancora non ha forma? Un team che ha bisogno di allineamento? Trasformiamo il caos in un piano.",
+        "title": "Brainstorming sessions (2-3 ore)",
+        "problem": "Feature request da 7 stakeholder diversi. Tutti urgenti. Tutti \"strategici\".",
+        "whatWeDo": "Cosa facciamo",
+        "whatWeDoDetail": "Filtriamo rumore da segnale. Traduciamo desideri in requisiti.",
+        "whatYouGet": "Cosa ottieni",
+        "whatYouGetDetail": "Roadmap che il tuo team capisce e i tuoi capi approvano.",
         "features": {
           "1": "Workshop interattivo 2-3 ore",
           "2": "Framework reusable per il team",
@@ -230,8 +238,12 @@
       },
       "mentorship": {
         "badge": "Mentorship",
-        "title": "Mentorship per PM",
-        "description": "Hai già un ruolo in product ma vuoi crescere? Vuoi transizionare da design/dev a product? Ti guido nel percorso. No teoria, solo pratica.",
+        "title": "Mentorship per PM (mensile)",
+        "problem": "Sai fare stakeholder management. Sai scrivere user stories. Ma ogni progetto è caos uguale?",
+        "whatWeDo": "Cosa facciamo",
+        "whatWeDoDetail": "Rivediamo casi reali. Errori, decisioni, pattern ripetuti.",
+        "whatYouGet": "Cosa ottieni",
+        "whatYouGetDetail": "Vedere i tuoi blind spot prima che diventino problemi da 3 mesi.",
         "features": {
           "1": "1-on-1 sessions bi-settimanali",
           "2": "Code/design review su progetti reali",
@@ -268,8 +280,9 @@
       }
     },
     "cta": {
-      "title": "Hai un prodotto bloccato?",
-      "description": "15 minuti di call. Zero pitch. Zero PowerPoint. Solo tu, io, e il problema da risolvere.",
+      "title": "Hai 4 feature in sviluppo e nessuna finita?",
+      "subtitle": "Designer e developer che non si capiscono?",
+      "description": "15 minuti di call. Zero pitch. Zero slide. Solo il tuo problema e come sbloccarlo. Lunedì, non \"entro Q2\".",
       "button": "Prenotiamo 15 minuti"
     }
   },
