@@ -222,11 +222,18 @@ export function generateImportStatements(components: ComponentMetadata[]): strin
   const imports = components.map(comp => {
     const relativePath = comp.filePath.replace(/\\/g, '/').replace(/^.*\/components\//, '@/components/').replace('.tsx', '');
 
+    // For components with sub-components, always use named imports
     if (comp.subComponents && comp.subComponents.length > 0) {
       const allComponents = [comp.name, ...comp.subComponents.map(sub => sub.name)];
       return `import { ${allComponents.join(', ')} } from '${relativePath}';`;
     }
 
+    // For components with default export, use default import
+    if (comp.isDefaultExport) {
+      return `import ${comp.name} from '${relativePath}';`;
+    }
+
+    // Otherwise, use named import
     return `import { ${comp.name} } from '${relativePath}';`;
   });
 

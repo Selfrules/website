@@ -180,9 +180,13 @@ export function parseComponent(sourceFile: SourceFile, filePath: string): Compon
   const mainPropsInterface = propsInterfaces.find(i => i.getName() === `${fileName}Props`) || propsInterfaces[0];
 
   // Extract all exported components from the file
-  const exportedComponents = sourceFile
+  const allExportedSymbols = sourceFile
     .getExportSymbols()
-    .map(s => s.getName())
+    .map(s => s.getName());
+
+  const hasDefaultExport = allExportedSymbols.includes('default');
+
+  const exportedComponents = allExportedSymbols
     .filter(name => name !== 'default' && !name.endsWith('Props'));
 
   const mainComponentName = exportedComponents.includes(fileName)
@@ -236,6 +240,7 @@ export function parseComponent(sourceFile: SourceFile, filePath: string): Compon
     variants,
     examples,
     subComponents: subComponents.length > 0 ? subComponents : undefined,
+    isDefaultExport: hasDefaultExport && exportedComponents.length === 0,
   };
 }
 
