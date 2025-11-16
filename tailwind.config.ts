@@ -35,6 +35,8 @@ const config: Config = {
         'deep-purple': '#7209B7',
         'lime-green': '#06FFA5',
         'teal': '#2A687A',
+        'black': '#000000',
+        'dark': '#0A0A0A',
 
         // Surface Colors
         'cream': '#FFFCF2',
@@ -319,6 +321,8 @@ const config: Config = {
         'grid-pattern': 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
         'dots-pattern': 'radial-gradient(circle, #000 1px, transparent 1px)',
         'diagonal-pattern': 'repeating-linear-gradient(45deg, transparent, transparent 10px, #000 10px, #000 11px)',
+        'gradient-journey': 'linear-gradient(to bottom, #7209B7, #FFD60A, #FF006E, #0D7EFF)',
+        'gradient-cta': 'linear-gradient(135deg, #7209B7, #0D7EFF, #2A687A, #FF006E, #FFD60A)',
       },
 
       backgroundSize: {

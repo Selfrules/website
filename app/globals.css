@@ -657,3 +657,24 @@ html {
   margin-bottom: 16px;
   line-height: 1.7;
 }
+
+/* Skip Link - WCAG AA Accessibility */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #0D7EFF;
+  color: white;
+  text-decoration: none;
+  border: 4px solid #000;
+  border-radius: 6px;
+  box-shadow: 6px 6px 0px 0px #000;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.skip-to-main:focus {
+  left: 1rem;
+  top: 1rem;
+}

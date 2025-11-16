@@ -193,13 +193,23 @@ export function parseComponent(sourceFile: SourceFile, filePath: string): Compon
     }
 
     // Check if any declaration is a function or variable (i.e., a component)
+    // AND that it's defined in THIS file (not imported from another file)
     const isComponent = declarations.some(decl => {
       // Accept functions and variables, reject interfaces and types
-      return (
+      const isCorrectKind = (
         decl.getKind() === SyntaxKind.FunctionDeclaration ||
         decl.getKind() === SyntaxKind.VariableDeclaration ||
         decl.getKind() === SyntaxKind.VariableStatement
       );
+
+      if (!isCorrectKind) return false;
+
+      // CRITICAL FIX: Verify the component is ACTUALLY defined in THIS file
+      // by checking if we can find its definition in the current source file
+      const componentInFile = sourceFile.getFunction(name) ||
+                              sourceFile.getVariableDeclaration(name);
+
+      return componentInFile !== undefined;
     });
 
     if (isComponent) {

@@ -98,7 +98,7 @@ export const ActivityCard = React.forwardRef<HTMLDivElement, ActivityCardProps>(
       <div
         ref={ref}
         className={cn(
-          'bg-cream border-brutal border-black rounded-lg shadow-brutal p-5 md:p-6',
+          'bg-cream border-brutal border-black rounded-brutal-lg shadow-brutal p-5 md:p-6',
           'transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg',
           'relative overflow-hidden group',
           className
@@ -118,7 +118,7 @@ export const ActivityCard = React.forwardRef<HTMLDivElement, ActivityCardProps>(
           {/* Icon */}
           <div
             className={cn(
-              'w-12 h-12 border-brutal-thin border-black rounded-lg',
+              'w-12 h-12 border-brutal-thin border-black rounded-brutal-lg',
               'flex items-center justify-center mb-4',
               'group-hover:rotate-6 transition-transform',
               colors.bg

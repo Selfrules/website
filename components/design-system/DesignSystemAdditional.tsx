@@ -711,7 +711,7 @@ export function WorkTogetherSection() {
               </p>
 
               <NeoText size="sm" className="mb-6 flex-grow text-white">
-                Analisi completa, roadmap strategica e piano d'azione per il tuo prodotto.
+                Analisi completa, roadmap strategica e piano d&apos;azione per il tuo prodotto.
               </NeoText>
 
               <button className="w-full px-6 py-3 bg-white text-brutal-black border-brutal-thin border-brutal-black rounded-brutal shadow-brutal hover:-translate-y-1 hover:shadow-brutal-lg transition-all font-bold">
@@ -840,7 +840,7 @@ export function LinksColoredTextSection() {
                 <p className="text-body leading-relaxed">
                   When building a{' '}
                   <span className="text-electric-blue font-bold">design system</span>,
-                  it's crucial to establish{' '}
+                  it&apos;s crucial to establish{' '}
                   <span className="text-deep-purple font-bold">consistent patterns</span>
                   {' '}for components like{' '}
                   <code className="px-2 py-1 bg-cyber-yellow text-brutal-black border-2 border-brutal-black rounded font-mono text-sm font-bold">
@@ -1097,7 +1097,7 @@ export function AdminComponentsSection() {
                   <FileText className="h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold">Nuovo articolo pubblicato: <strong>"Product-Market Fit"</strong></p>
+                  <p className="font-bold">Nuovo articolo pubblicato: <strong>&quot;Product-Market Fit&quot;</strong></p>
                   <div className="flex items-center gap-1 text-text-tertiary text-sm mt-1">
                     <Clock className="h-3 w-3" />
                     <span>2 ore fa</span>
@@ -1123,7 +1123,7 @@ export function AdminComponentsSection() {
                   <Calendar className="h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold">Articolo <strong>"OKR vs KPI"</strong> programmato per domani</p>
+                  <p className="font-bold">Articolo <strong>&quot;OKR vs KPI&quot;</strong> programmato per domani</p>
                   <div className="flex items-center gap-1 text-text-tertiary text-sm mt-1">
                     <Clock className="h-3 w-3" />
                     <span>5 ore fa</span>

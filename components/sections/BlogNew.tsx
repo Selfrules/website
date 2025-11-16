@@ -38,7 +38,7 @@ export default async function BlogNew({ locale }: BlogProps) {
 
   if (latestPosts.length === 0) {
     return (
-      <section id="blog" className="bg-cream py-16 md:py-24 border-b-4 border-black">
+      <section id="blog" className="bg-cream py-16 md:py-24 border-b-brutal border-black">
         <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
           <div className="text-center">
             <NeoBadge color="pink">{t.badge}</NeoBadge>
@@ -51,7 +51,7 @@ export default async function BlogNew({ locale }: BlogProps) {
   }
 
   return (
-    <section id="blog" className="bg-cream py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
+    <section id="blog" className="bg-cream py-16 md:py-24 border-b-brutal border-black relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-glow-purple rounded-full blur-3xl" />
 
