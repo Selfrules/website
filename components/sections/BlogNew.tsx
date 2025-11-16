@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { Button } from '@/components/ui/Button';
+import { NeoButton } from '@/components/ui/NeoButton';
 import BlogCard from '@/components/blog/BlogCard';
 import { getAllPosts } from '@/lib/blog/mdx';
 
@@ -38,7 +38,7 @@ export default async function BlogNew({ locale }: BlogProps) {
 
   if (latestPosts.length === 0) {
     return (
-      <section id="blog" className="bg-cream py-16 md:py-24 border-b-brutal border-black">
+      <section id="blog" className="bg-cream py-16 md:py-24 border-b-4 border-black">
         <div className="container max-w-[1200px] mx-auto px-5 md:px-8">
           <div className="text-center">
             <NeoBadge color="pink">{t.badge}</NeoBadge>
@@ -51,7 +51,7 @@ export default async function BlogNew({ locale }: BlogProps) {
   }
 
   return (
-    <section id="blog" className="bg-cream py-16 md:py-24 border-b-brutal border-black relative overflow-hidden">
+    <section id="blog" className="bg-cream py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-glow-purple rounded-full blur-3xl" />
 
@@ -83,9 +83,9 @@ export default async function BlogNew({ locale }: BlogProps) {
         {/* View All Button */}
         <div className="text-center mt-8">
           <Link href={`/${locale}/blog`}>
-            <Button variant="primary" size="lg" className="bg-neon-pink">
+            <NeoButton variant="primary" size="lg" className="bg-neon-pink">
               {t.viewAll}
-            </Button>
+            </NeoButton>
           </Link>
         </div>
       </div>

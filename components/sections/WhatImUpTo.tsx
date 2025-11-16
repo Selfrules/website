@@ -14,7 +14,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
   const t = useTranslations('whatImUpTo');
 
   return (
-    <section id="now" className="bg-white py-16 md:py-24 border-b-brutal-thick border-black relative overflow-hidden">
+    <section id="now" className="bg-white py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
       {/* Decorative Blob */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-glow-mixed rounded-full blur-3xl" />
 

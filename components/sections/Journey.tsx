@@ -75,10 +75,10 @@ export default function Journey() {
   ];
 
   return (
-    <section id="journey" className="bg-white py-16 md:py-24 border-b-brutal-thick border-black relative overflow-hidden">
+    <section id="journey" className="bg-white py-16 md:py-24 border-b-4 border-black relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-10 right-5 w-20 h-20 bg-cyber-yellow border-brutal border-black rotate-12 opacity-20" />
-      <div className="absolute bottom-20 left-5 w-16 h-16 bg-neon-pink border-brutal border-black rounded-full opacity-20" />
+      <div className="absolute top-10 right-5 w-20 h-20 bg-cyber-yellow border-3 border-black rotate-12 opacity-20" />
+      <div className="absolute bottom-20 left-5 w-16 h-16 bg-neon-pink border-3 border-black rounded-full opacity-20" />
 
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
@@ -127,7 +127,7 @@ export default function Journey() {
                   <div
                     className={`
                       absolute left-0 md:left-1/2 top-8 md:-translate-x-1/2
-                      rounded-full border-brutal-thick border-black z-10 flex items-center justify-center
+                      rounded-full border-4 border-black z-10 flex items-center justify-center
                       ${milestone.isCurrent
                         ? 'w-12 h-12 bg-electric-blue ring-8 ring-electric-blue/20'
                         : 'w-10 h-10 bg-white'
@@ -141,14 +141,14 @@ export default function Journey() {
                   <div className={`ml-12 md:ml-0 md:w-[calc(50%-40px)] ${isEven ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
                     <div
                       className={`
-                        bg-cream border-brutal border-black rounded-brutal shadow-brutal p-5 md:p-6
+                        bg-cream border-4 border-black rounded-lg shadow-brutal p-5 md:p-6
                         transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg
                         ${milestone.isCurrent ? 'bg-gradient-to-br from-electric-blue/5 to-transparent' : ''}
                       `}
                     >
                       {/* Date & Role */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="inline-block px-3 py-1 bg-white border-brutal-thin border-black rounded shadow-brutal-sm text-brutalist-text-primary font-mono text-xs font-bold">
+                        <span className="inline-block px-3 py-1 bg-white border-3 border-black rounded shadow-brutal text-brutalist-text-primary font-mono text-xs font-bold">
                           {t(milestone.dateKey)}
                         </span>
                         <NeoBadge color={milestone.roleColor} className="px-3 py-1 text-xs">
@@ -196,7 +196,7 @@ export default function Journey() {
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {milestone.skillsKeys.map((skillKey, i) => (
-                            <span key={i} className="px-2 py-1 bg-white border-brutal-thin border-black rounded-sm text-xs text-brutalist-text-primary font-mono">
+                            <span key={i} className="px-2 py-1 bg-white border-3 border-black rounded-sm text-xs text-brutalist-text-primary font-mono">
                               {t(skillKey)}
                             </span>
                           ))}
@@ -213,7 +213,7 @@ export default function Journey() {
                             {milestone.certificationsKeys.map((certKey, i) => (
                               <span
                                 key={i}
-                                className={`px-2 py-1 border-brutal-thin border-black rounded-sm text-xs flex items-center gap-1 font-mono ${
+                                className={`px-2 py-1 border-3 border-black rounded-sm text-xs flex items-center gap-1 font-mono ${
                                   milestone.roleColor === 'blue' ? 'bg-electric-blue text-white' :
                                   milestone.roleColor === 'pink' ? 'bg-neon-pink text-white' :
                                   milestone.roleColor === 'yellow' ? 'bg-cyber-yellow text-brutalist-text-primary' : 'bg-deep-purple text-white'
@@ -242,7 +242,7 @@ export default function Journey() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-electric-blue border-brutal-thick border-black rounded-brutal-lg shadow-brutal px-6 py-4 rotate-1">
+          <div className="inline-block bg-electric-blue border-4 border-black rounded-lg shadow-brutal px-6 py-4 rotate-1">
             <p className="text-body text-white font-heading font-bold">
               {t('endMessage')} 💪
             </p>
