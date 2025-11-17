@@ -62,8 +62,7 @@
           "3": "API Design",
           "4": "User Research",
           "5": "Business Case",
-          "6": "A/B Testing",
-          "7": "Analytics"
+          "6": "Analytics"
         },
         "philosophy": {
           "intro": "My superpower today? I speak three languages fluently:",
@@ -99,7 +98,8 @@
           "3": "Agile/Scrum",
           "4": "User Research",
           "5": "SQL",
-          "6": "Analytics"
+          "6": "Analytics",
+          "7": "A/B Testing"
         },
         "certifications": {
           "1": "Certified Scrum Product Owner (Scrum Alliance 2020)",
