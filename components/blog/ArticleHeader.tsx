@@ -1,15 +1,14 @@
 'use client';
 
-import { ArrowLeft, Clock, Calendar, ChevronRight } from 'lucide-react';
+import { Clock, Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 import type { BlogPost } from '@/lib/blog/mdx';
+import { SimpleBreadcrumbs } from './Breadcrumbs';
 
 interface ArticleHeaderProps {
   post: BlogPost;
   locale: string;
-  onBackClick: () => void;
 }
 
 /**
@@ -17,22 +16,15 @@ interface ArticleHeaderProps {
  * @component
  * @category Blog Components
  */
-export default function ArticleHeader({ post, locale, onBackClick }: ArticleHeaderProps) {
+export default function ArticleHeader({ post, locale }: ArticleHeaderProps) {
   return (
     <header className="mb-10">
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 mb-6 text-sm text-brutalist-text-tertiary">
-        <Button
-          onClick={onBackClick}
-          variant="ghost"
-          size="sm"
-          className="p-0 h-auto hover:text-electric-blue"
-        >
-          Blog
-        </Button>
-        <ChevronRight className="w-3 h-3" />
-        <span className="font-body">{post.category}</span>
-      </div>
+      {/* Breadcrumb Navigation */}
+      <SimpleBreadcrumbs
+        category={post.category}
+        title={post.title}
+        locale={locale}
+      />
 
       {/* Meta Info */}
       <div className="flex flex-wrap items-center gap-3 mb-6">

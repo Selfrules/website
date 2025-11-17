@@ -1,129 +1,89 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { List } from 'lucide-react';
-import { fadeInUp } from '@/lib/animations';
+import { Card, CardContent } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { useTranslations } from 'next-intl';
 
-interface Heading {
+export interface TableOfContentItem {
   id: string;
-  text: string;
+  title: string;
   level: number;
 }
 
 interface TableOfContentsProps {
-  className?: string;
+  items: TableOfContentItem[];
+  activeSection: string;
+  onSectionClick: (id: string) => void;
+  variant?: 'sidebar' | 'mobile';
 }
 
-export default function TableOfContents({ className = '' }: TableOfContentsProps) {
-  const [headings, setHeadings] = useState<Heading[]>([]);
-  const [activeId, setActiveId] = useState<string>('');
+/**
+ * TableOfContents - Navigable table of contents with scroll-spy
+ * @component
+ * @category Blog Components
+ *
+ * @example
+ * ```tsx
+ * <TableOfContents
+ *   items={tocItems}
+ *   activeSection="introduction"
+ *   onSectionClick={(id) => scrollToSection(id)}
+ *   variant="sidebar"
+ * />
+ * ```
+ */
+export default function TableOfContents({
+  items,
+  activeSection,
+  onSectionClick,
+  variant = 'sidebar',
+}: TableOfContentsProps) {
+  const t = useTranslations('blog.article');
 
-  useEffect(() => {
-    // Extract headings from the article
-    const article = document.querySelector('article');
-    if (!article) return;
+  if (items.length === 0) {
+    return null;
+  }
 
-    const headingElements = Array.from(
-      article.querySelectorAll('h2, h3')
-    ) as HTMLHeadingElement[];
-
-    const headingData = headingElements.map((heading, index) => {
-      // Ensure the heading has an ID
-      if (!heading.id) {
-        heading.id = `heading-${index}`;
-      }
-
-      return {
-        id: heading.id,
-        text: heading.textContent || '',
-        level: parseInt(heading.tagName.substring(1)),
-      };
-    });
-
-    setHeadings(headingData);
-
-    // Intersection Observer for active heading
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: '-80px 0px -80% 0px',
-        threshold: 1.0,
-      }
-    );
-
-    headingElements.forEach((heading) => {
-      observer.observe(heading);
-    });
-
-    return () => {
-      headingElements.forEach((heading) => {
-        observer.unobserve(heading);
-      });
-    };
-  }, []);
-
-  if (headings.length === 0) return null;
-
-  const scrollToHeading = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80; // Account for fixed header
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  return (
-    <motion.nav
-      variants={fadeInUp}
-      initial="hidden"
-      animate="visible"
-      className={`sticky top-24 bg-white border-4 border-black rounded-brutal shadow-brutal p-6 ${className}`}
-      aria-label="Table of contents"
-    >
-      <div className="flex items-center gap-2 mb-4 pb-3 border-b-4 border-black">
-        <List className="w-5 h-5 text-primary" />
-        <h2 className="font-heading font-bold text-lg text-brutalist-text-light">
-          Table of contents
-        </h2>
-      </div>
-
-      <ul className="space-y-2">
-        {headings.map((heading) => {
-          const isActive = activeId === heading.id;
-          const isH3 = heading.level === 3;
+  const content = (
+    <>
+      <h3 className="text-body-small font-heading font-bold mb-4 pb-3 border-b-brutal border-black text-brutalist-text-primary">
+        📑 {t('toc.title')}
+      </h3>
+      <nav className="space-y-1" aria-label="Table of contents">
+        {items.map((item) => {
+          const isActive = activeSection === item.id;
+          const isH3 = item.level === 3;
 
           return (
-            <li
-              key={heading.id}
-              className={`${isH3 ? 'ml-4' : ''}`}
+            <Button
+              key={item.id}
+              onClick={() => onSectionClick(item.id)}
+              variant={isActive ? 'primary' : 'ghost'}
+              size="sm"
+              className={`w-full justify-start text-left ${
+                isH3 ? 'pl-6 text-sm' : 'text-sm'
+              } ${isActive ? 'font-semibold' : 'font-normal'}`}
+              aria-current={isActive ? 'location' : undefined}
             >
-              <button
-                onClick={() => scrollToHeading(heading.id)}
-                className={`text-left w-full px-3 py-2 rounded-brutal-sm border-2 border-black text-sm transition-all ${
-                  isActive
-                    ? 'bg-primary text-black font-bold shadow-brutal-xs'
-                    : 'bg-transparent text-brutalist-text-light hover:bg-gray-100'
-                }`}
-              >
-                {heading.text}
-              </button>
-            </li>
+              {item.title}
+            </Button>
           );
         })}
-      </ul>
-    </motion.nav>
+      </nav>
+    </>
+  );
+
+  if (variant === 'mobile') {
+    return (
+      <div className="lg:hidden mb-8 border-brutal border-black rounded-brutal shadow-brutal bg-white p-brutal-md">
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <Card>
+      <CardContent className="p-brutal-md">{content}</CardContent>
+    </Card>
   );
 }
