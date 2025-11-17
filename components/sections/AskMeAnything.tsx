@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { MessageCircle, Mail, Send, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
+import { NeoButton } from '@/components/ui/NeoButton';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { AnonymousQuestionForm } from '@/components/forms/AnonymousQuestionForm';
 import { useChatStore } from '@/lib/stores/chatStore';
@@ -60,8 +60,8 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
   return (
     <section id="ask-me" className="bg-dark py-16 md:py-24 relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-10 left-5 w-16 h-16 bg-electric-blue border-brutal border-cyber-yellow rounded-full opacity-30 animate-float" />
-      <div className="absolute bottom-20 right-10 w-20 h-20 bg-neon-pink border-brutal border-cyber-yellow rotate-45 opacity-30 animate-wiggle" />
+      <div className="absolute top-10 left-5 w-16 h-16 bg-electric-blue border-brutal-thin border-cyber-yellow rounded-full opacity-30 animate-float" />
+      <div className="absolute bottom-20 right-10 w-20 h-20 bg-neon-pink border-brutal-thin border-cyber-yellow rotate-45 opacity-30 animate-wiggle" />
 
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
@@ -82,12 +82,12 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
         {/* Two Column Layout - Mobile First: Stack */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {/* AI Chatbot Card */}
-          <div className="bg-surface-dark border-brutal border-electric-blue rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
+          <div className="bg-surface-dark border-brutal border-electric-blue rounded-brutal-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-glow-blue pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-electric-blue rounded-lg flex items-center justify-center mb-5 border-brutal-thin border-black">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-electric-blue rounded-brutal-lg flex items-center justify-center mb-5 border-brutal-thin border-black">
                 <MessageCircle className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={2.5} />
               </div>
 
@@ -146,19 +146,19 @@ export default function AskMeAnything({ locale }: AskMeAnythingProps) {
                 {t.chatMode.ironicCloser}
               </p>
 
-              <Button variant="primary" size="lg" onClick={handleChatClick} className="w-full">
+              <NeoButton variant="primary" size="lg" onClick={handleChatClick} className="w-full">
                 {t.chatMode.buttonText}
-              </Button>
+              </NeoButton>
             </div>
           </div>
 
           {/* Anonymous Form Card */}
-          <div className="bg-surface-dark border-brutal border-neon-pink rounded-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
+          <div className="bg-surface-dark border-brutal border-neon-pink rounded-brutal-lg shadow-brutal p-6 md:p-8 relative overflow-hidden">
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-glow-pink pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-neon-pink rounded-lg flex items-center justify-center mb-5 border-brutal-thin border-black">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-neon-pink rounded-brutal-lg flex items-center justify-center mb-5 border-brutal-thin border-black">
                 <Mail className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={2.5} />
               </div>
 

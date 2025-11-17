@@ -1,10 +1,62 @@
 'use client';
 
+import React from 'react';
 import { Briefcase, BookOpen, Music, TrendingUp } from 'lucide-react';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ActivityCard } from '@/components/ui/ActivityCard';
 import { SpotifyWidget, RecentPodcasts } from '@/components/integrations';
 import { useTranslations } from 'next-intl';
+
+/**
+ * Renders markdown-formatted text with bold, italic, and line breaks
+ * @param text - Text with markdown formatting (**bold**, *italic*, \n for breaks)
+ * @returns React elements with proper formatting
+ */
+function renderMarkdown(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  let currentIndex = 0;
+  let key = 0;
+
+  // Regex to match **bold**, *italic*, or \n
+  const regex = /(\*\*.*?\*\*|\*.*?\*|\n)/g;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > currentIndex) {
+      parts.push(text.slice(currentIndex, match.index));
+    }
+
+    const matched = match[0];
+    if (matched.startsWith('**') && matched.endsWith('**')) {
+      // Bold text
+      parts.push(
+        <strong key={`bold-${key++}`} className="font-bold">
+          {matched.slice(2, -2)}
+        </strong>
+      );
+    } else if (matched.startsWith('*') && matched.endsWith('*')) {
+      // Italic text
+      parts.push(
+        <em key={`italic-${key++}`} className="italic">
+          {matched.slice(1, -1)}
+        </em>
+      );
+    } else if (matched === '\n') {
+      // Line break
+      parts.push(<br key={`br-${key++}`} />);
+    }
+
+    currentIndex = match.index + matched.length;
+  }
+
+  // Add remaining text
+  if (currentIndex < text.length) {
+    parts.push(text.slice(currentIndex));
+  }
+
+  return <>{parts}</>;
+}
 
 interface WhatImUpToProps {
   locale: string;
@@ -14,7 +66,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
   const t = useTranslations('whatImUpTo');
 
   return (
-    <section id="now" className="bg-white py-16 md:py-24 border-b-brutal-thick border-black relative overflow-hidden">
+    <section id="now" className="bg-white py-16 md:py-24 border-b-brutal border-black relative overflow-hidden">
       {/* Decorative Blob */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-glow-mixed rounded-full blur-3xl" />
 
@@ -58,11 +110,11 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
               </p>
 
               <p className="text-body-small text-brutalist-text-secondary leading-relaxed">
-                {t('currentWork.intro')}
+                {renderMarkdown(t('currentWork.intro'))}
               </p>
 
               <p className="text-body-small text-brutalist-text-secondary leading-relaxed">
-                {t('currentWork.secret')}
+                {renderMarkdown(t('currentWork.secret'))}
               </p>
 
               <div className="bg-white/50 border-l-4 border-electric-blue p-3 rounded">
@@ -71,13 +123,13 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
                 </p>
                 <ul className="text-body-small text-brutalist-text-secondary space-y-1">
                   {t.raw('currentWork.examples').map((example: string, index: number) => (
-                    <li key={index}>• {example}</li>
+                    <li key={index}>• {renderMarkdown(example)}</li>
                   ))}
                 </ul>
               </div>
 
               <p className="text-body-small text-brutalist-text-secondary italic">
-                {t('currentWork.conclusion')}
+                {renderMarkdown(t('currentWork.conclusion'))}
               </p>
             </div>
           </ActivityCard>
@@ -95,7 +147,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
 
               {t.raw('learning.paragraphs').map((paragraph: string, index: number) => (
                 <p key={index} className="text-body-small text-brutalist-text-secondary leading-relaxed">
-                  {paragraph}
+                  {renderMarkdown(paragraph)}
                 </p>
               ))}
 
@@ -107,7 +159,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
                   {t.raw('learning.examples').map((example: string, index: number) => (
                     <li key={index} className="flex gap-2">
                       <span className="text-neon-pink shrink-0">→</span>
-                      <span>{example}</span>
+                      <span>{renderMarkdown(example)}</span>
                     </li>
                   ))}
                 </ul>
@@ -119,18 +171,18 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
                 </p>
                 <ul className="text-body-small text-brutalist-text-secondary space-y-1">
                   {t.raw('learning.results').map((result: string, index: number) => (
-                    <li key={index}>• {result}</li>
+                    <li key={index}>• {renderMarkdown(result)}</li>
                   ))}
                 </ul>
               </div>
 
               <p className="text-body-small text-brutalist-text-secondary italic">
-                {t('learning.conclusion')}
+                {renderMarkdown(t('learning.conclusion'))}
               </p>
 
               <div className="mt-4 pt-4 border-t border-brutalist-text-secondary/20">
                 <p className="text-body-small text-brutalist-text-primary font-semibold">
-                  {t('learning.why')}
+                  {renderMarkdown(t('learning.why'))}
                 </p>
               </div>
             </div>

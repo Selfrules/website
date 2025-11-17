@@ -1,26 +1,69 @@
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 interface NeoBadgeProps {
   children: React.ReactNode;
-  color?: 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal';
+  variant?: 'design' | 'dev' | 'pm' | 'tool' | 'featured' | 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal' | 'lime';
+  color?: 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal' | 'lime'; // Legacy support
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
   onClick?: () => void;
 }
 
-export function NeoBadge({ children, color = 'blue', className = '', onClick }: NeoBadgeProps) {
-  const colorClasses = {
-    blue: 'bg-electric-blue text-white border-black',
-    pink: 'bg-neon-pink text-white border-black',
-    yellow: 'bg-cyber-yellow text-brutalist-text-primary border-black',
-    purple: 'bg-deep-purple text-white border-black',
-    neutral: 'bg-white text-brutalist-text-primary border-black',
-    teal: 'bg-teal text-white border-black',
+/**
+ * NeoBadge component - Neobrutalist badge with multiple color variants
+ * @component
+ * @category UI
+ */
+export function NeoBadge({
+  children,
+  variant,
+  color, // Legacy support
+  size = 'md',
+  className = '',
+  onClick
+}: NeoBadgeProps) {
+  // Use color prop if variant is not provided (legacy support)
+  const finalVariant = variant || color || 'blue';
+
+  const sizeClasses = {
+    sm: 'px-2 py-1 text-xs',
+    md: 'px-3 py-1.5 text-[13px]',
+    lg: 'px-4 py-2 text-sm'
+  };
+
+  const variantClasses = {
+    // Project type variants
+    design: 'bg-electric-blue text-white',
+    dev: 'bg-teal text-white',
+    pm: 'bg-deep-purple text-white',
+    tool: 'bg-neon-pink text-white',
+    featured: 'bg-cyber-yellow text-text-primary',
+
+    // Color variants
+    blue: 'bg-electric-blue text-white',
+    pink: 'bg-neon-pink text-white',
+    yellow: 'bg-cyber-yellow text-text-primary',
+    purple: 'bg-deep-purple text-white',
+    neutral: 'bg-cream text-text-primary',
+    teal: 'bg-teal text-white',
+    lime: 'bg-lime-green text-text-primary',
   };
 
   return (
     <span
       onClick={onClick}
-      className={`inline-block px-4 py-2 border-brutal-thin ${colorClasses[color]} rounded shadow-brutal-sm transition-transform duration-200 hover:-translate-y-1 font-heading text-[13px] font-bold tracking-wider uppercase ${onClick ? 'cursor-pointer' : ''} ${className}`}
+      className={cn(
+        'inline-block font-heading font-bold tracking-wider uppercase',
+        'border-3 border-[#000] rounded-lg',
+        'shadow-brutal',
+        'transition-transform duration-200',
+        'hover:-translate-y-0.5',
+        onClick && 'cursor-pointer',
+        sizeClasses[size],
+        variantClasses[finalVariant],
+        className
+      )}
     >
       {children}
     </span>

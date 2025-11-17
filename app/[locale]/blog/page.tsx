@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import BlogListingClient from './BlogListingClient';
 import { getAllPosts } from '@/lib/blog/mdx';
 
@@ -41,6 +41,9 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
+  // Enable static rendering for i18n
+  setRequestLocale(params.locale);
+
   // Fetch all published posts
   const allPosts = await getAllPosts();
 
@@ -68,7 +71,7 @@ function BlogLoadingSkeleton() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Skeleton */}
-      <div className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-b-4 border-black py-16 md:py-24">
+      <div className="bg-gradient-cta border-b-4 border-black py-16 md:py-24">
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8">
           <div className="h-12 w-48 bg-white/20 rounded-lg mb-6 animate-pulse" />
           <div className="h-16 w-96 bg-white/30 rounded-lg mb-6 animate-pulse" />

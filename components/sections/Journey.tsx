@@ -6,11 +6,64 @@ import { useTranslations } from 'next-intl';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ArrowRight, Award, Code, Palette, Rocket } from 'lucide-react';
 
+type NeoBadgeColor = 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal' | 'lime';
+
+/**
+ * Renders markdown-formatted text with bold, italic, and line breaks
+ * @param text - Text with markdown formatting (**bold**, *italic*, \n for breaks)
+ * @returns React elements with proper formatting
+ */
+function renderMarkdown(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  let currentIndex = 0;
+  let key = 0;
+
+  // Regex to match **bold**, *italic*, or \n
+  const regex = /(\*\*.*?\*\*|\*.*?\*|\n)/g;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > currentIndex) {
+      parts.push(text.slice(currentIndex, match.index));
+    }
+
+    const matched = match[0];
+    if (matched.startsWith('**') && matched.endsWith('**')) {
+      // Bold text
+      parts.push(
+        <strong key={`bold-${key++}`} className="font-bold">
+          {matched.slice(2, -2)}
+        </strong>
+      );
+    } else if (matched.startsWith('*') && matched.endsWith('*')) {
+      // Italic text
+      parts.push(
+        <em key={`italic-${key++}`} className="italic">
+          {matched.slice(1, -1)}
+        </em>
+      );
+    } else if (matched === '\n') {
+      // Line break
+      parts.push(<br key={`br-${key++}`} />);
+    }
+
+    currentIndex = match.index + matched.length;
+  }
+
+  // Add remaining text
+  if (currentIndex < text.length) {
+    parts.push(text.slice(currentIndex));
+  }
+
+  return <>{parts}</>;
+}
+
 interface Milestone {
   id: string;
   dateKey: string;
   roleKey: string;
-  roleColor: 'blue' | 'pink' | 'yellow' | 'purple';
+  roleColor: NeoBadgeColor;
   companyKey: string;
   descriptionKey: string;
   achievementsKeys: string[];
@@ -75,10 +128,10 @@ export default function Journey() {
   ];
 
   return (
-    <section id="journey" className="bg-white py-16 md:py-24 border-b-brutal-thick border-black relative overflow-hidden">
+    <section id="journey" className="bg-white py-16 md:py-24 border-b-brutal border-black relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-10 right-5 w-20 h-20 bg-cyber-yellow border-brutal border-black rotate-12 opacity-20" />
-      <div className="absolute bottom-20 left-5 w-16 h-16 bg-neon-pink border-brutal border-black rounded-full opacity-20" />
+      <div className="absolute top-10 right-5 w-20 h-20 bg-cyber-yellow border-brutal-thin border-black rotate-12 opacity-20" />
+      <div className="absolute bottom-20 left-5 w-16 h-16 bg-neon-pink border-brutal-thin border-black rounded-full opacity-20" />
 
       <div className="container max-w-[1200px] mx-auto px-5 md:px-8 relative z-10">
         {/* Section Header */}
@@ -99,14 +152,20 @@ export default function Journey() {
             </span>
           </h2>
           <p className="text-body text-brutalist-text-secondary max-w-[700px] mx-auto">
-            {t('subtitle')}
+            {t('subtitle.part1')}
+            <span className="font-bold text-deep-purple">{t('subtitle.business')}</span>
+            {t('subtitle.part2')}
+            <span className="font-bold text-electric-blue">{t('subtitle.userJourney')}</span>
+            {t('subtitle.part3')}
+            <span className="font-bold text-teal">{t('subtitle.technicalDebt')}</span>
+            {t('subtitle.part4')}
           </p>
         </motion.div>
 
         {/* Timeline - Mobile First, Vertical */}
         <div className="relative">
           {/* Connecting Line - Mobile: Left aligned, Desktop: Center */}
-          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-timeline md:-translate-x-1/2" />
+          <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-journey md:-translate-x-1/2" />
 
           {/* Milestones */}
           <div className="space-y-12 md:space-y-20">
@@ -127,7 +186,7 @@ export default function Journey() {
                   <div
                     className={`
                       absolute left-0 md:left-1/2 top-8 md:-translate-x-1/2
-                      rounded-full border-brutal-thick border-black z-10 flex items-center justify-center
+                      rounded-full border-brutal border-black z-10 flex items-center justify-center
                       ${milestone.isCurrent
                         ? 'w-12 h-12 bg-electric-blue ring-8 ring-electric-blue/20'
                         : 'w-10 h-10 bg-white'
@@ -141,21 +200,21 @@ export default function Journey() {
                   <div className={`ml-12 md:ml-0 md:w-[calc(50%-40px)] ${isEven ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
                     <div
                       className={`
-                        bg-cream border-brutal border-black rounded-brutal shadow-brutal p-5 md:p-6
+                        bg-cream border-brutal border-black rounded-brutal-lg shadow-brutal p-5 md:p-6
                         transition-all duration-300 hover:-translate-y-1 hover:shadow-brutal-lg
                         ${milestone.isCurrent ? 'bg-gradient-to-br from-electric-blue/5 to-transparent' : ''}
                       `}
                     >
                       {/* Date & Role */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="inline-block px-3 py-1 bg-white border-brutal-thin border-black rounded shadow-brutal-sm text-brutalist-text-primary font-mono text-xs font-bold">
+                        <span className="inline-block px-3 py-1 bg-white border-brutal-thin border-black rounded-brutal shadow-brutal text-brutalist-text-primary font-mono text-xs font-bold">
                           {t(milestone.dateKey)}
                         </span>
-                        <NeoBadge color={milestone.roleColor} className="px-3 py-1 text-xs">
+                        <NeoBadge color={milestone.roleColor} size="sm">
                           {t(milestone.roleKey)}
                         </NeoBadge>
                         {milestone.isCurrent && (
-                          <NeoBadge color="neutral" className="px-3 py-1 text-xs">
+                          <NeoBadge color="neutral" size="sm">
                             {t('current')}
                           </NeoBadge>
                         )}
@@ -168,24 +227,32 @@ export default function Journey() {
 
                       {/* Description */}
                       <p className="text-body-small md:text-body text-brutalist-text-secondary mb-4">
-                        {t(milestone.descriptionKey)}
+                        {renderMarkdown(t(milestone.descriptionKey))}
                       </p>
 
                       {/* Achievements */}
                       {milestone.achievementsKeys.length > 0 && (
                         <ul className="mb-4 space-y-1.5">
-                          {milestone.achievementsKeys.map((achievementKey, i) => (
-                            <li key={i} className="flex items-start gap-2 text-body-small text-brutalist-text-secondary">
-                              <ArrowRight
-                                className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
-                                  milestone.roleColor === 'blue' ? 'text-electric-blue' :
-                                  milestone.roleColor === 'pink' ? 'text-neon-pink' :
-                                  milestone.roleColor === 'yellow' ? 'text-cyber-yellow' : 'text-deep-purple'
-                                }`}
-                              />
-                              <span>{t(achievementKey)}</span>
-                            </li>
-                          ))}
+                          {milestone.achievementsKeys.map((achievementKey, i) => {
+                            const arrowColorClasses: Record<NeoBadgeColor, string> = {
+                              blue: 'text-electric-blue',
+                              pink: 'text-neon-pink',
+                              yellow: 'text-cyber-yellow',
+                              purple: 'text-deep-purple',
+                              teal: 'text-teal',
+                              lime: 'text-lime-green',
+                              neutral: 'text-brutalist-text-primary',
+                            };
+
+                            return (
+                              <li key={i} className="flex items-start gap-2 text-body-small text-brutalist-text-secondary">
+                                <ArrowRight
+                                  className={`w-4 h-4 flex-shrink-0 mt-0.5 ${arrowColorClasses[milestone.roleColor]}`}
+                                />
+                                <span>{renderMarkdown(t(achievementKey))}</span>
+                              </li>
+                            );
+                          })}
                         </ul>
                       )}
 
@@ -196,7 +263,7 @@ export default function Journey() {
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {milestone.skillsKeys.map((skillKey, i) => (
-                            <span key={i} className="px-2 py-1 bg-white border-brutal-thin border-black rounded-sm text-xs text-brutalist-text-primary font-mono">
+                            <span key={i} className="px-2 py-1 bg-white border-brutal-thin border-black rounded-brutal-sm text-xs text-brutalist-text-primary font-mono">
                               {t(skillKey)}
                             </span>
                           ))}
@@ -210,19 +277,27 @@ export default function Journey() {
                             {t('certificationsLabel')}:
                           </p>
                           <div className="flex flex-wrap gap-1.5">
-                            {milestone.certificationsKeys.map((certKey, i) => (
-                              <span
-                                key={i}
-                                className={`px-2 py-1 border-brutal-thin border-black rounded-sm text-xs flex items-center gap-1 font-mono ${
-                                  milestone.roleColor === 'blue' ? 'bg-electric-blue text-white' :
-                                  milestone.roleColor === 'pink' ? 'bg-neon-pink text-white' :
-                                  milestone.roleColor === 'yellow' ? 'bg-cyber-yellow text-brutalist-text-primary' : 'bg-deep-purple text-white'
-                                }`}
-                              >
-                                <Award className="w-3 h-3" />
-                                {t(certKey)}
-                              </span>
-                            ))}
+                            {milestone.certificationsKeys.map((certKey, i) => {
+                              const certificationColorClasses: Record<NeoBadgeColor, string> = {
+                                blue: 'bg-electric-blue text-white',
+                                pink: 'bg-neon-pink text-white',
+                                yellow: 'bg-cyber-yellow text-dark',
+                                purple: 'bg-deep-purple text-white',
+                                teal: 'bg-teal text-white',
+                                lime: 'bg-lime-green text-dark',
+                                neutral: 'bg-white text-brutalist-text-primary',
+                              };
+
+                              return (
+                                <span
+                                  key={i}
+                                  className={`px-2 py-1 border-brutal-thin border-black rounded-brutal-sm text-xs flex items-center gap-1 font-mono ${certificationColorClasses[milestone.roleColor]}`}
+                                >
+                                  <Award className="w-3 h-3" />
+                                  {t(certKey)}
+                                </span>
+                              );
+                            })}
                           </div>
                         </div>
                       )}
@@ -242,7 +317,7 @@ export default function Journey() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-electric-blue border-brutal-thick border-black rounded-brutal-lg shadow-brutal px-6 py-4 rotate-1">
+          <div className="inline-block bg-electric-blue border-brutal border-black rounded-brutal-lg shadow-brutal px-6 py-4 rotate-1">
             <p className="text-body text-white font-heading font-bold">
               {t('endMessage')} 💪
             </p>

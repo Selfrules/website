@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllPostSlugs, getPostBySlug, getRelatedPosts, markdownToHtml } from '@/lib/blog/mdx';
 import BlogArticleClient from '@/components/blog/BlogArticleClient';
+import { setRequestLocale } from 'next-intl/server';
 
 interface BlogPostPageProps {
   params: {
@@ -76,6 +77,9 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  // Enable static rendering for i18n
+  setRequestLocale(params.locale);
+
   const post = getPostBySlug(params.slug);
 
   if (!post || !post.published) {

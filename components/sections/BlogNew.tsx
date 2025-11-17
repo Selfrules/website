@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { Button } from '@/components/ui/Button';
+import { NeoButton } from '@/components/ui/NeoButton';
 import BlogCard from '@/components/blog/BlogCard';
 import { getAllPosts } from '@/lib/blog/mdx';
 
@@ -83,9 +83,9 @@ export default async function BlogNew({ locale }: BlogProps) {
         {/* View All Button */}
         <div className="text-center mt-8">
           <Link href={`/${locale}/blog`}>
-            <Button variant="primary" size="lg" className="bg-neon-pink">
+            <NeoButton variant="primary" size="lg" className="bg-neon-pink">
               {t.viewAll}
-            </Button>
+            </NeoButton>
           </Link>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { NeoBadge } from './NeoBadge';
+import { Badge } from './Badge';
+import type { BadgeVariant } from './Badge';
 import { ArrowRight, Award, LucideIcon } from 'lucide-react';
 
 export interface ExperienceCardProps {
@@ -8,8 +9,8 @@ export interface ExperienceCardProps {
   date: string;
   /** Role or position title */
   role: string;
-  /** Color theme for the card (matches NeoBadge colors) */
-  roleColor: 'blue' | 'pink' | 'yellow' | 'purple' | 'teal' | 'neutral';
+  /** Color theme for the card (matches Badge variants) */
+  roleColor: BadgeVariant;
   /** Company or organization name */
   company: string;
   /** Brief description of the role/experience */
@@ -50,7 +51,7 @@ export interface ExperienceCardProps {
  * <ExperienceCard
  *   date="2021 - 2023"
  *   role="Senior Product Manager"
- *   roleColor="blue"
+ *   roleColor="design"
  *   company="QubicaAMF"
  *   description="Led product strategy for bowling center management systems"
  *   achievements={[
@@ -83,23 +84,31 @@ export const ExperienceCard = React.forwardRef<HTMLDivElement, ExperienceCardPro
     ref
   ) => {
     // Dynamic color classes for arrow icons based on roleColor
-    const arrowColorClasses = {
-      blue: 'text-dynamic-blue',
-      pink: 'text-dynamic-pink',
-      yellow: 'text-dynamic-yellow',
-      purple: 'text-dynamic-purple',
-      teal: 'text-dynamic-teal',
-      neutral: 'text-brutalist-text-primary',
+    const arrowColorClasses: Record<BadgeVariant, string> = {
+      default: 'text-brutalist-text-primary',
+      design: 'text-electric-blue',
+      dev: 'text-teal',
+      pm: 'text-deep-purple',
+      tool: 'text-neon-pink',
+      featured: 'text-cyber-yellow',
+      primary: 'text-electric-blue',
+      secondary: 'text-neon-pink',
+      accent: 'text-cyber-yellow',
+      outline: 'text-brutalist-text-primary',
     };
 
     // Dynamic color classes for certification badges
-    const certificationColorClasses = {
-      blue: 'bg-dynamic-blue text-white',
-      pink: 'bg-dynamic-pink text-white',
-      yellow: 'bg-dynamic-yellow text-brutalist-text-primary',
-      purple: 'bg-dynamic-purple text-white',
-      teal: 'bg-dynamic-teal text-white',
-      neutral: 'bg-white text-brutalist-text-primary',
+    const certificationColorClasses: Record<BadgeVariant, string> = {
+      default: 'bg-white text-brutalist-text-primary',
+      design: 'bg-electric-blue text-white',
+      dev: 'bg-teal text-white',
+      pm: 'bg-deep-purple text-white',
+      tool: 'bg-neon-pink text-white',
+      featured: 'bg-cyber-yellow text-dark',
+      primary: 'bg-electric-blue text-white',
+      secondary: 'bg-neon-pink text-white',
+      accent: 'bg-cyber-yellow text-dark',
+      outline: 'bg-white text-brutalist-text-primary',
     };
 
     return (
@@ -118,13 +127,13 @@ export const ExperienceCard = React.forwardRef<HTMLDivElement, ExperienceCardPro
           <span className="inline-block px-3 py-1 bg-white border-2 border-black rounded shadow-brutal-sm text-brutalist-text-primary font-mono text-xs font-bold">
             {date}
           </span>
-          <NeoBadge color={roleColor} className="px-3 py-1 text-xs">
+          <Badge variant={roleColor} size="sm">
             {role}
-          </NeoBadge>
+          </Badge>
           {isCurrent && (
-            <NeoBadge color="neutral" className="px-3 py-1 text-xs">
+            <Badge variant="outline" size="sm">
               Current
-            </NeoBadge>
+            </Badge>
           )}
         </div>
 

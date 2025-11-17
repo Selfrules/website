@@ -7,7 +7,6 @@ import type { BlogPost } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
-import { NeoBadge } from '@/components/ui/NeoBadge';
 import { Input } from '@/components/ui/Input';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 
@@ -18,18 +17,6 @@ interface BlogListingClientProps {
   locale: string;
 }
 
-// Helper function to map category to NeoBadge color
-const getCategoryColor = (category: string): 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal' => {
-  const categoryLower = category.toLowerCase();
-
-  if (categoryLower.includes('design') || categoryLower.includes('ux')) return 'blue';
-  if (categoryLower.includes('dev') || categoryLower.includes('sviluppo')) return 'teal';
-  if (categoryLower.includes('pm') || categoryLower.includes('product') || categoryLower.includes('strategy')) return 'purple';
-  if (categoryLower.includes('tool') || categoryLower.includes('analytic') || categoryLower.includes('strumenti')) return 'pink';
-  if (categoryLower.includes('featured') || categoryLower.includes('special')) return 'yellow';
-
-  return 'neutral';
-};
 
 export default function BlogListingClient({
   initialPosts,
@@ -111,7 +98,7 @@ export default function BlogListingClient({
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#0D7EFF] via-[#7209B7] to-[#FF006E] border-b-brutal-thick border-black relative overflow-hidden">
+      <section className="bg-gradient-cta border-b-brutal-thick border-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full" />
           <div className="absolute bottom-20 right-20 w-48 h-48 bg-white rotate-45" />
@@ -179,36 +166,32 @@ export default function BlogListingClient({
             {allCategories.map((category) => {
               const isActive = selectedCategory === category;
 
-              // For "All" category, use neutral color
-              if (category === 'All') {
-                return (
-                  <NeoBadge
-                    key={category}
-                    color={isActive ? 'neutral' : 'neutral'}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`cursor-pointer transition-all ${
-                      isActive ? 'ring-4 ring-black/20' : 'opacity-60 hover:opacity-100'
+              // For "All" category, use a neutral variant
+              const badgeVariant = category === 'All' ? 'outline' as const : getCategoryVariant(category);
+
+              return (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`transition-all ${
+                    isActive ? '' : 'opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <Badge
+                    variant={badgeVariant}
+                    size="md"
+                    className={`cursor-pointer ${
+                      isActive ? 'ring-4 ring-black/20' : ''
                     }`}
                   >
                     {category}
-                  </NeoBadge>
-                );
-              }
-
-              return (
-                <NeoBadge
-                  key={category}
-                  color={getCategoryColor(category)}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`cursor-pointer transition-all ${
-                    isActive ? 'ring-4 ring-black/20' : 'opacity-60 hover:opacity-100'
-                  }`}
-                >
-                  {category}
-                  <span className="ml-2 opacity-70">
-                    ({initialPosts.filter(p => p.category === category).length})
-                  </span>
-                </NeoBadge>
+                    {category !== 'All' && (
+                      <span className="ml-2 opacity-70">
+                        ({initialPosts.filter(p => p.category === category).length})
+                      </span>
+                    )}
+                  </Badge>
+                </button>
               );
             })}
           </div>

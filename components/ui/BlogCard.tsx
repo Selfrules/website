@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Eye } from 'lucide-react';
 
 export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -13,7 +13,7 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   title: string;
   /**
-   * Optional description (truncated with line-clamp-3)
+   * Optional description (truncated with line-clamp-2)
    */
   description?: string;
   /**
@@ -41,36 +41,38 @@ export interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * @category Blog
  *
  * @description
- * Neobrutalist blog card following the Designprototipo pattern with two layout variants:
- * - With description: Shows truncated preview text (line-clamp-3)
- * - Without description: Compact layout, focus on title and metadata
+ * Neobrutalist blog card following the design system pattern with:
+ * - Gradient header with badge
+ * - White body with black/gray text
+ * - Metadata footer with icons
+ * - Vertical hover animation
  *
- * Pattern specifications (from prototype):
+ * Pattern specifications (from design system):
  * - White background (bg-white) with 4px black border
+ * - Gradient header section with NeoBadge
  * - Vertical hover animation (lifts up 8px)
- * - Title changes color to Electric Blue on hover
- * - Metadata footer separated by top border
- * - Badge inline with content (not in separate container)
+ * - Black text for title, gray for description
+ * - Metadata with Calendar, Clock, and Eye icons
  *
  * @example
  * ```tsx
  * // With description
  * <BlogCard
- *   variant="design"
- *   title="The art of saying no"
- *   description="Sometimes the best product decisions are the features you don't build. Here's why..."
- *   readingTime={5}
- *   date="15 Nov 2024"
- *   href="/blog/art-of-saying-no"
+ *   variant="pm"
+ *   title="How I Turned Failure into Feature"
+ *   description="A deep dive into product management lessons learned from shipping products that users actually love..."
+ *   readingTime={8}
+ *   date="15 Nov 2025"
+ *   href="/blog/failure-into-feature"
  * />
  *
  * // Without description (compact)
  * <BlogCard
- *   variant="dev"
- *   title="Quick wins: 3 micro-optimizations"
- *   readingTime={3}
- *   date="12 Nov 2024"
- *   href="/blog/quick-wins"
+ *   variant="design"
+ *   title="Design System 101"
+ *   readingTime={5}
+ *   date="12 Nov 2025"
+ *   href="/blog/design-system-101"
  * />
  * ```
  */
@@ -86,32 +88,42 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
     href,
     ...props
   }, ref) => {
-    // Mapping variant names to badge categories and colors
+    // Mapping variant names to badge labels
     const badgeLabels = {
-      design: 'Design/UX',
-      dev: 'Development',
-      pm: 'Product',
-      tool: 'Tools',
-      featured: 'Featured',
+      design: 'DESIGN',
+      dev: 'DEVELOPMENT',
+      pm: 'PRODUCT MANAGEMENT',
+      tool: 'TOOLS',
+      featured: 'FEATURED',
     };
 
-    const badgeColors = {
-      design: 'blue' as const,
-      dev: 'teal' as const,
-      pm: 'purple' as const,
-      tool: 'pink' as const,
-      featured: 'yellow' as const,
+    // Mapping variant to NeoBadge variant
+    const badgeVariants = {
+      design: 'design' as const,
+      dev: 'dev' as const,
+      pm: 'yellow' as const, // PM uses yellow badge
+      tool: 'tool' as const,
+      featured: 'featured' as const,
+    };
+
+    // Gradient backgrounds for header section
+    const gradientHeaders = {
+      design: 'bg-gradient-to-br from-neon-pink to-cyber-yellow',
+      dev: 'bg-gradient-to-br from-teal to-electric-blue',
+      pm: 'bg-gradient-to-br from-electric-blue via-deep-purple to-deep-purple',
+      tool: 'bg-gradient-to-br from-neon-pink to-deep-purple',
+      featured: 'bg-gradient-to-br from-cyber-yellow via-neon-pink to-electric-blue',
     };
 
     return (
       <div
         ref={ref}
         className={cn(
-          // Base brutalist styles - WHITE BACKGROUND as per prototype
-          'group bg-white border-brutal border-black rounded-brutal-lg shadow-brutal',
-          'transition-all duration-200 ease-brutal',
-          // Hover effects - VERTICAL ONLY as per prototype
-          'hover:shadow-brutal-lg hover:-translate-y-2',
+          // Base brutalist styles - WHITE BACKGROUND
+          'border-4 border-[#000] rounded-lg shadow-brutal-lg overflow-hidden bg-white',
+          'transition-all duration-200',
+          // Hover effects - VERTICAL ONLY
+          'hover:-translate-y-2 hover:shadow-brutal-lg',
           // Clickable cursor
           (onClick || href) && 'cursor-pointer',
           className
@@ -119,44 +131,42 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         onClick={onClick}
         {...props}
       >
-        {/* Content Area - p-6 as per prototype */}
-        <div className="p-6 flex flex-col h-full">
-          {/* Badge inline */}
-          <div className="mb-4">
-            <NeoBadge color={badgeColors[variant]}>
-              {badgeLabels[variant]}
-            </NeoBadge>
-          </div>
+        {/* Gradient Header with Badge */}
+        <div className={cn(
+          'p-6 min-h-[140px] relative',
+          gradientHeaders[variant]
+        )}>
+          <NeoBadge variant={badgeVariants[variant]} size="sm">
+            {badgeLabels[variant]}
+          </NeoBadge>
+        </div>
 
-          {/* Title - hover changes color as per prototype */}
-          <h3 className="text-h4 mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
+        {/* White Body */}
+        <div className="p-6">
+          {/* Title - Black text */}
+          <h3 className="font-heading font-bold text-xl mb-2">
             {title}
           </h3>
 
-          {/* Description (if provided) */}
+          {/* Description - Gray text (if provided) */}
           {description && (
-            <p className="text-body-small text-brutalist-text-secondary mb-4 line-clamp-3">
+            <p className="text-text-secondary text-sm mb-4 line-clamp-2">
               {description}
             </p>
           )}
 
-          {/* Spacer to push metadata to bottom */}
-          <div className="flex-1" />
-
           {/* Metadata Footer */}
-          <div className="pt-brutal-sm">
-            <div className="flex items-center gap-2 text-body-small text-brutalist-text-tertiary mb-3">
-              <Clock className="w-4 h-4" />
-              <span>{readingTime} min read</span>
-              <span>-</span>
-              <Calendar className="w-4 h-4" />
+          <div className="flex items-center gap-4 text-xs text-text-tertiary">
+            <div className="flex items-center gap-1">
+              <Calendar className="h-3.5 w-3.5" />
               <span>{date}</span>
             </div>
-
-            {/* CTA */}
-            <div className="flex items-center gap-2 text-body-small text-electric-blue font-heading font-bold group-hover:gap-3 transition-all">
-              <span>Leggi articolo</span>
-              <ArrowRight className="w-4 h-4" />
+            <div className="flex items-center gap-1">
+              <Clock className="h-3.5 w-3.5" />
+              <span>{readingTime} min</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Eye className="h-3.5 w-3.5" />
             </div>
           </div>
         </div>

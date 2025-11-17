@@ -34,9 +34,9 @@ export default function ReadingProgressBar() {
   return (
     <>
       {/* Desktop version - top fixed bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200/30 z-50">
         <motion.div
-          className="h-full bg-gradient-to-r from-electric-blue via-deep-purple to-neon-pink"
+          className="h-full bg-gradient-cta"
           style={{ width: `${progress}%` }}
           initial={{ width: 0 }}
           transition={{ duration: 0.1 }}

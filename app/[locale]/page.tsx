@@ -6,6 +6,7 @@ import AskMeAnything from '@/components/sections/AskMeAnything';
 import WorkTogether from '@/components/sections/WorkTogether';
 import ChatTrigger from '@/components/chat/ChatTrigger';
 import { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: 'Mattia De Luca - PM che parla designer e scrive codice',
@@ -25,6 +26,9 @@ interface PageProps {
 
 export default function HomePage({ params }: PageProps) {
   const { locale } = params;
+
+  // Enable static rendering for i18n
+  setRequestLocale(locale);
 
   return (
     <>

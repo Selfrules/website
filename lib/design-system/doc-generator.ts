@@ -219,7 +219,47 @@ export function generateComponentsJSON(components: ComponentMetadata[]): string 
  * Generates TypeScript import statements for all components
  */
 export function generateImportStatements(components: ComponentMetadata[]): string {
-  const imports = components.map(comp => {
+  // CRITICAL FIX: Deduplicate components based on correct file path
+  // Some components might be incorrectly detected in multiple files by ts-morph
+  const dedupedComponents: ComponentMetadata[] = [];
+  const seenComponents = new Map<string, ComponentMetadata>();
+
+  for (const comp of components) {
+    const existing = seenComponents.get(comp.name);
+
+    if (!existing) {
+      // First time seeing this component, add it
+      seenComponents.set(comp.name, comp);
+      dedupedComponents.push(comp);
+    } else {
+      // We've seen this component before - choose the correct file path
+      // The correct file is the one where filename matches component name
+      const existingFileName = existing.filePath.split(/[/\\]/).pop()?.replace('.tsx', '') || '';
+      const currentFileName = comp.filePath.split(/[/\\]/).pop()?.replace('.tsx', '') || '';
+
+      if (currentFileName === comp.name && existingFileName !== existing.name) {
+        // Current file is the correct one (filename matches component name)
+        // CRITICAL: Merge metadata from both entries, preferring subComponents and correct exports
+        const merged: ComponentMetadata = {
+          ...comp, // Use current (correct file) as base
+          filePath: comp.filePath, // Always use correct file path
+          subComponents: comp.subComponents && comp.subComponents.length > 0
+            ? comp.subComponents
+            : existing.subComponents, // Prefer subComponents if either has them
+          isDefaultExport: false, // Components matching filename (Card.tsx, CollaborationCard.tsx) use named exports
+        };
+
+        const index = dedupedComponents.indexOf(existing);
+        if (index !== -1) {
+          dedupedComponents[index] = merged;
+        }
+        seenComponents.set(comp.name, merged);
+      }
+      // else keep existing (it's either correct or both are wrong, so keep first)
+    }
+  }
+
+  const imports = dedupedComponents.map(comp => {
     const relativePath = comp.filePath.replace(/\\/g, '/').replace(/^.*\/components\//, '@/components/').replace('.tsx', '');
 
     // For components with sub-components, always use named imports

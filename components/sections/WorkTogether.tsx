@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { NeoBadge } from '@/components/ui/NeoBadge';
-import { Button } from '@/components/ui/Button';
+import { NeoButton } from '@/components/ui/NeoButton';
 import { CollaborationCard as CollaborationCardUI } from '@/components/ui/CollaborationCard';
 import { useAnalytics } from '@/lib/hooks/useAnalytics';
 import { Lightbulb, Users, GraduationCap } from 'lucide-react';
@@ -54,7 +54,7 @@ export default function WorkTogether() {
   ];
 
   return (
-    <section id="work" className="bg-cream py-16 md:py-24 border-b-brutal-thick border-black relative overflow-hidden">
+    <section id="work" className="bg-cream py-16 md:py-24 border-b-brutal border-black relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 bg-dot-pattern" style={{ backgroundSize: '30px 30px' }} />
 
@@ -95,7 +95,7 @@ export default function WorkTogether() {
 
         {/* Call to Action Banner */}
         <div className="text-center">
-          <div className="inline-block bg-gradient-brand border-brutal border-black rounded-brutal shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
+          <div className="inline-block bg-gradient-cta border-brutal border-black rounded-brutal-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1">
             <p className="text-h3 md:text-h2 text-white mb-2 font-heading font-bold">
               {t('cta.title')}
             </p>
@@ -105,9 +105,9 @@ export default function WorkTogether() {
             <p className="text-body-small md:text-body text-white/90 mb-5">
               {t('cta.description')}
             </p>
-            <Button variant="accent" size="lg" onClick={openCalendar}>
+            <NeoButton variant="accent" size="lg" onClick={openCalendar}>
               {t('cta.button')}
-            </Button>
+            </NeoButton>
           </div>
         </div>
 

@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   /* Neobrutalist Color Palette - More Vibrant */
   --electric-blue: #0D7EFF;
@@ -66,6 +68,43 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -108,6 +147,10 @@
 }
 
 @layer base {
+  * {
+    @apply outline-none;
+  }
+
   body {
     @apply bg-[#FFFCF2] text-[#0A0A0A];
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -135,17 +178,17 @@
 }
 
 /* Typography - Mobile First */
-/* REGOLA GLOBALE: Tutte le classi di tipografia devono avere color: #0A0A0A (nero) */
-/* ECCEZIONE: Sfondi scuri (blu, teal, purple, pink, black) usano testo bianco per contrasto WCAG AA */
+/* REGOLA GLOBALE: All typography classes must use color: #0A0A0A */
+/* ECCEZIONE: Dark backgrounds use white text for WCAG AA contrast */
 
-/* Tailwind utility overrides per assicurare testo nero */
+/* Tailwind utility overrides ensure black text */
 .font-heading,
 .font-bold,
 .text-sentence-case {
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
-/* ECCEZIONE: text-white deve sempre fare override per sfondi scuri */
+/* ECCEZIONE: text-white must override for dark backgrounds */
 .text-white,
 .text-white\/80,
 .text-white\/90,
@@ -153,7 +196,7 @@
   color: white !important;
 }
 
-/* Opacità per varianti text-white */
+/* Opacity for text-white variants */
 .text-white\/80 {
   opacity: 0.8;
 }
@@ -164,6 +207,59 @@
 
 .text-white\/95 {
   opacity: 0.95;
+}
+
+/* Text color utilities for grays */
+.text-secondary,
+.text-\[\#2D2D2D\] {
+  color: #2D2D2D;
+}
+
+.text-tertiary,
+.text-\[\#6B7280\] {
+  color: #6B7280;
+}
+
+.text-\[\#0A0A0A\] {
+  color: #0A0A0A;
+}
+
+/* Link color utilities - override font-bold default */
+.text-electric-blue {
+  color: #0D7EFF;
+}
+
+.text-neon-pink {
+  color: #FF006E;
+}
+
+.text-deep-purple {
+  color: #7209B7;
+}
+
+.text-cyber-yellow {
+  color: #FFD60A;
+}
+
+.text-lime-green {
+  color: #06FFA5;
+}
+
+.text-teal {
+  color: #2A687A;
+}
+
+/* Hover states for colored text */
+.hover\:text-electric-blue:hover {
+  color: #0D7EFF;
+}
+
+.hover\:text-neon-pink:hover {
+  color: #FF006E;
+}
+
+.hover\:text-deep-purple:hover {
+  color: #7209B7;
 }
 
 .text-hero {
@@ -283,19 +379,19 @@
 
 /* Colored brutal shadows */
 .shadow-brutal-blue {
-  box-shadow: 6px 6px 0 #0D7EFF;
+  box-shadow: 6px 6px 0 var(--electric-blue);
 }
 
 .shadow-brutal-pink {
-  box-shadow: 6px 6px 0 #FF006E;
+  box-shadow: 6px 6px 0 var(--neon-pink);
 }
 
 .shadow-brutal-yellow {
-  box-shadow: 6px 6px 0 #FFD60A;
+  box-shadow: 6px 6px 0 var(--cyber-yellow);
 }
 
 .shadow-brutal-purple {
-  box-shadow: 6px 6px 0 #7209B7;
+  box-shadow: 6px 6px 0 var(--deep-purple);
 }
 
 /* Border utilities */
@@ -337,14 +433,13 @@
 }
 
 /* Button variants - typography and colors with proper contrast */
-/* These classes override the global font-heading/font-bold black text rule */
 .button-primary {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: #0D7EFF;
-  color: white !important;
+  color: white;
 }
 
 .button-secondary {
@@ -353,7 +448,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: #2A687A;
-  color: white !important;
+  color: white;
 }
 
 .button-accent {
@@ -362,7 +457,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: #FFD60A;
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 .button-outline {
@@ -371,7 +466,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: transparent;
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 .button-ghost {
@@ -380,7 +475,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: transparent;
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 /* Animations */
@@ -411,6 +506,15 @@
   }
 }
 
+@keyframes pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 0 8px rgba(13, 126, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(13, 126, 255, 0.1);
+  }
+}
+
 .animate-pulse-spotify {
   animation: pulse-spotify 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -421,6 +525,27 @@
 
 .animate-wiggle {
   animation: wiggle 3s ease-in-out infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Timeline Gradients */
+.timeline-gradient {
+  background: linear-gradient(to bottom, #7209B7 0%, #FFD60A 33%, #FF006E 66%, #0D7EFF 100%);
+}
+
+.timeline-gradient-purple-blue {
+  background: linear-gradient(to bottom, #7209B7 0%, #0D7EFF 100%);
+}
+
+.timeline-gradient-yellow-pink {
+  background: linear-gradient(to bottom, #FFD60A 0%, #FF006E 100%);
+}
+
+.timeline-gradient-full {
+  background: linear-gradient(to bottom, #7209B7 0%, #FFD60A 25%, #FF006E 50%, #0D7EFF 75%, #7209B7 100%);
 }
 
 /* Reduced motion */
@@ -535,4 +660,25 @@ html {
 .prose-content p {
   margin-bottom: 16px;
   line-height: 1.7;
+}
+
+/* Skip Link - WCAG AA Accessibility */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #0D7EFF;
+  color: white;
+  text-decoration: none;
+  border: 4px solid #000;
+  border-radius: 6px;
+  box-shadow: 6px 6px 0px 0px #000;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.skip-to-main:focus {
+  left: 1rem;
+  top: 1rem;
 }

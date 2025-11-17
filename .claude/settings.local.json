@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(cp:*)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm run type-check:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Add Journey Timeline, Forms, Links sections and fix CSS specificity issues\n\nComplete design system expansion with new sections matching GitHub prototype:\n\n- Add Journey Timeline components (gradient line, milestone cards, dots, badges)\n- Add dark-themed Forms section (desktop/mobile variants)\n- Add Links & Colored Text section with link styles and highlights\n- Redesign ChatBot to floating button widget with collapsible chat\n\nFix CSS specificity issues preventing colored text:\n- Remove !important from typography utilities to allow color overrides\n- Add text color utilities (electric-blue, neon-pink, deep-purple, etc.)\n- Remove !important from button variants for better composability\n\nAdd timeline animations and gradients:\n- pulse-dot animation for current milestone\n- Multi-color gradient classes (purple → yellow → pink → blue)\n\nFix social share buttons color consistency (all Electric Blue #0D7EFF)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(cat:*)",
+      "Bash(\"C:\\Users\\Utente\\Desktop\\selfrules\\mattia_web\\components\\design-system\\DesignSystemAdditional.tsx\")",
+      "Bash(git commit:*)",
+      "Bash(npm run build:*)",
+      "Bash(next build)",
+      "Bash(npm run generate:design-system:*)",
+      "Bash(python -m json.tool:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

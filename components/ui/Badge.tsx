@@ -1,8 +1,10 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
+export type BadgeVariant = 'default' | 'primary' | 'secondary' | 'accent' | 'outline' | 'design' | 'dev' | 'pm' | 'tool' | 'featured';
+
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'primary' | 'secondary' | 'accent' | 'outline' | 'design' | 'dev' | 'pm' | 'tool' | 'featured';
+  variant?: BadgeVariant;
   size?: 'sm' | 'md' | 'lg';
 }
 

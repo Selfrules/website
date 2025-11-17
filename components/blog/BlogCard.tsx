@@ -1,10 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { Clock, Calendar, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { BlogPost } from '@/lib/blog/mdx';
-import { Badge } from '@/components/ui/Badge';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 
@@ -26,6 +25,35 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
 
   const categoryVariant = getCategoryVariant(post.category);
 
+  // Map category variant to NeoBadge variant
+  const neoBadgeVariantMap: Record<string, 'design' | 'dev' | 'pm' | 'tool' | 'yellow' | 'blue' | 'pink' | 'purple' | 'teal'> = {
+    primary: 'blue',
+    secondary: 'pink',
+    accent: 'yellow',
+    pm: 'yellow',
+    design: 'design',
+    dev: 'dev',
+    tool: 'tool',
+    featured: 'yellow',
+  };
+
+  const neoBadgeVariant = neoBadgeVariantMap[categoryVariant] || 'blue';
+
+  // Map category to gradient header
+  const gradientHeaderMap: Record<string, string> = {
+    primary: 'bg-gradient-to-br from-neon-pink to-cyber-yellow',
+    secondary: 'bg-gradient-to-br from-teal to-electric-blue',
+    accent: 'bg-gradient-to-br from-electric-blue via-deep-purple to-deep-purple',
+    pm: 'bg-gradient-to-br from-electric-blue via-deep-purple to-deep-purple',
+    design: 'bg-gradient-to-br from-neon-pink to-cyber-yellow',
+    dev: 'bg-gradient-to-br from-teal to-electric-blue',
+    tool: 'bg-gradient-to-br from-neon-pink to-deep-purple',
+    featured: 'bg-gradient-to-br from-cyber-yellow via-neon-pink to-electric-blue',
+  };
+
+  const gradientHeader = gradientHeaderMap[categoryVariant] || 'bg-gradient-to-br from-electric-blue via-deep-purple to-deep-purple';
+
+  // Featured post - Large card with purple gradient
   if (featured) {
     return (
       <article className="lg:col-span-3">
@@ -33,43 +61,42 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
           <motion.div
             whileHover={{ y: -8 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="group bg-gradient-blog-hero border-brutal border-black shadow-brutal hover:shadow-brutal-lg rounded-brutal-lg p-brutal-lg md:p-brutal-xl min-h-[300px] md:min-h-[350px] flex flex-col justify-between cursor-pointer relative overflow-hidden"
+            className="group border-4 border-[#000] rounded-lg shadow-brutal-lg overflow-hidden bg-white hover:shadow-brutal-lg transition-all cursor-pointer"
           >
-            {/* Decorative Circle */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full" />
-
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-brutal-sm">
-                <NeoBadge color="yellow">
+            {/* Gradient Header - Featured (larger) */}
+            <div className={`p-brutal-lg md:p-brutal-xl min-h-[200px] md:min-h-[250px] relative ${gradientHeader}`}>
+              <div className="flex items-center gap-3">
+                <NeoBadge variant={neoBadgeVariant} size="sm">
                   {post.category}
                 </NeoBadge>
-                <Badge variant="featured" size="sm">
+                <NeoBadge variant="yellow" size="sm">
                   DA NON PERDERE
-                </Badge>
+                </NeoBadge>
               </div>
-
-              <h3 className="text-h2 md:text-h1 text-white mb-brutal-sm font-heading font-black">
-                {post.title}
-              </h3>
-              <p className="text-body-small md:text-body text-white/90 mb-brutal-md max-w-[800px]">
-                {post.excerpt}
-              </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
-              <div className="flex items-center gap-4 text-white/80 text-sm">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" />
-                  {post.readingTime}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4" />
-                  {formatDate(post.date)}
-                </span>
-              </div>
-              <div className="flex items-center gap-2 text-body-small text-white font-heading font-bold group-hover:gap-3 transition-all">
-                <span className="uppercase">{locale === 'it' ? 'Leggi ora' : 'Read now'}</span>
-                <ArrowRight className="w-5 h-5" />
+            {/* White Body */}
+            <div className="p-brutal-lg md:p-brutal-xl">
+              <h3 className="font-heading font-bold text-2xl md:text-3xl mb-4">
+                {post.title}
+              </h3>
+              <p className="text-text-secondary text-sm md:text-base mb-6 line-clamp-2">
+                {post.excerpt}
+              </p>
+
+              {/* Metadata */}
+              <div className="flex items-center gap-4 text-xs text-text-tertiary">
+                <div className="flex items-center gap-1">
+                  <Calendar className="h-3.5 w-3.5" />
+                  <span>{formatDate(post.date)}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="h-3.5 w-3.5" />
+                  <span>{post.readingTime}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Eye className="h-3.5 w-3.5" />
+                </div>
               </div>
             </div>
           </motion.div>
@@ -78,48 +105,42 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
     );
   }
 
+  // Regular post - Standard card
   return (
     <Link href={`/${locale}/blog/${post.slug}`}>
       <motion.article
         whileHover={{ y: -8 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="group bg-white border-brutal border-black shadow-brutal hover:shadow-brutal-lg rounded-brutal-lg cursor-pointer"
+        className="border-4 border-[#000] rounded-lg shadow-brutal-lg overflow-hidden bg-white hover:shadow-brutal-lg transition-all cursor-pointer"
       >
-        <div className="p-6 flex flex-col h-full min-h-[280px]">
-          {/* Badge inline */}
-          <div className="mb-brutal-sm">
-            <Badge variant={categoryVariant} size="sm">
-              {post.category}
-            </Badge>
-          </div>
+        {/* Gradient Header */}
+        <div className={`p-6 min-h-[140px] relative ${gradientHeader}`}>
+          <NeoBadge variant={neoBadgeVariant} size="sm">
+            {post.category}
+          </NeoBadge>
+        </div>
 
-          {/* Title - hover changes color as per design system */}
-          <h3 className="text-h4 mb-brutal-sm text-brutalist-text-primary group-hover:text-electric-blue transition-colors leading-snug font-heading font-bold">
+        {/* White Body */}
+        <div className="p-6">
+          <h3 className="font-heading font-bold text-xl mb-2">
             {post.title}
           </h3>
-
-          {/* Description */}
-          <p className="text-body-small text-brutalist-text-secondary line-clamp-3 mb-brutal-sm">
+          <p className="text-text-secondary text-sm mb-4 line-clamp-2">
             {post.excerpt}
           </p>
 
-          {/* Spacer to push metadata to bottom */}
-          <div className="flex-1" />
-
-          {/* Metadata Footer */}
-          <div className="pt-brutal-sm">
-            <div className="flex items-center gap-2 text-body-small text-brutalist-text-tertiary mb-3">
-              <Clock className="w-4 h-4" />
-              <span>{post.readingTime}</span>
-              <span>-</span>
-              <Calendar className="w-4 h-4" />
+          {/* Metadata */}
+          <div className="flex items-center gap-4 text-xs text-text-tertiary">
+            <div className="flex items-center gap-1">
+              <Calendar className="h-3.5 w-3.5" />
               <span>{formatDate(post.date)}</span>
             </div>
-
-            {/* CTA */}
-            <div className="flex items-center gap-2 text-body-small text-electric-blue font-heading font-bold group-hover:gap-3 transition-all">
-              <span className="uppercase">{locale === 'it' ? 'Leggi articolo' : 'Read article'}</span>
-              <ArrowRight className="w-4 h-4" />
+            <div className="flex items-center gap-1">
+              <Clock className="h-3.5 w-3.5" />
+              <span>{post.readingTime}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Eye className="h-3.5 w-3.5" />
             </div>
           </div>
         </div>
