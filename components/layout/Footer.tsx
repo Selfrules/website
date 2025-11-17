@@ -155,7 +155,7 @@ export function Footer({ locale }: FooterProps) {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
           <p>
-            © {currentYear} - MFDL - {t('madeWith')}
+            © {currentYear} • {t('madeWith')}
           </p>
           <div className="flex gap-6">
             <Link href={`/${locale}/privacy`} className="hover:text-cyber-yellow transition-colors">
