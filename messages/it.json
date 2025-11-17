@@ -114,11 +114,11 @@
         "date": "2016-2020",
         "company": "FLOWING",
         "role": "Designer & Developer",
-        "description": "Ancona. Entrato come UX Designer in agenzia. Ma ho portato qualcosa che gli altri non avevano: esperienza di vendita e gestione cliente da Selfrules. Non più solo wireframe da passare a qualcun altro. Qui ho imparato a scrivere codice. Design + Dev nello stesso cervello. Il progetto che mi ha formato? CliensPiù - software per studi legali usato 8 ore al giorno.",
+        "description": "Ancona. Entrato come **UX Designer** in agenzia. Ma ho portato qualcosa che gli altri non avevano: **esperienza di vendita e gestione cliente** da Selfrules.\n\nNon più solo wireframe da passare a qualcun altro. Qui ho imparato a **scrivere codice**. Design + Dev nello stesso cervello.\n\nIl progetto che mi ha formato? **CliensPiù** - software per studi legali usato **8 ore al giorno**.",
         "achievements": {
-          "1": "Upgrade di clienti: da PMI locali a startup e aziende medio-grandi. Upgrade di competenze: da designer che consegna mockup a designer che scrive il primo codice. La mia esperienza di facilitazione da Selfrules? In Flowing valeva oro.",
-          "2": "Esempio concreto: bottone \"Salva\" che si sposta di 2 pixel quando carichi i dati. Insignificante? Prova a cliccarci 40 volte al giorno per 3 anni. Le piccole irritazioni diventano abbandono. Ho imparato a misurarle.",
-          "3": "CliensPiù è ancora in uso oggi. Dopo anni, funziona. Questo non succede per caso. Succede quando progetti E costruisci pensando a chi dovrà viverci dentro 8 ore al giorno, non solo a come appare nello screenshot di presentazione."
+          "1": "Upgrade di clienti: da PMI locali a **startup e aziende medio-grandi**. Upgrade di competenze: da designer che consegna mockup a **designer che scrive il primo codice**. La mia esperienza di facilitazione da Selfrules? *In Flowing valeva oro.*",
+          "2": "Esempio concreto: bottone \"Salva\" che si sposta di **2 pixel** quando carichi i dati. *Insignificante?* Prova a cliccarci **40 volte al giorno per 3 anni**. Le piccole irritazioni diventano abbandono. Ho imparato a misurarle.",
+          "3": "CliensPiù è ancora in uso oggi. Dopo anni, funziona. *Questo non succede per caso.* Succede quando progetti **E** costruisci pensando a chi dovrà viverci dentro **8 ore al giorno**, non solo a *come appare nello screenshot di presentazione*."
         },
         "technologies": {
           "1": "React",

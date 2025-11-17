@@ -114,11 +114,11 @@
         "date": "2016-2020",
         "company": "FLOWING",
         "role": "Designer & Developer",
-        "description": "Ancona. Joined as UX Designer at an agency. But I brought something others didn't have: sales and client management experience from Selfrules. No more just wireframes to pass to someone else. Here I learned to write code. Design + Dev in the same brain. The project that shaped me? CliensPiù - law firm software used 8 hours a day.",
+        "description": "Ancona. Joined as **UX Designer** at an agency. But I brought something others didn't have: **sales and client management experience** from Selfrules.\n\nNo more just wireframes to pass to someone else. Here I learned to **write code**. Design + Dev in the same brain.\n\nThe project that shaped me? **CliensPiù** - law firm software used **8 hours a day**.",
         "achievements": {
-          "1": "Client upgrade: from local SMEs to startups and mid-sized companies. Skills upgrade: from designer delivering mockups to designer writing first code. My facilitation experience from Selfrules? At Flowing it was gold.",
-          "2": "Concrete example: \"Save\" button that shifts 2 pixels when loading data. Insignificant? Try clicking it 40 times a day for 3 years. Small irritations become abandonment. I learned to measure them.",
-          "3": "CliensPiù is still in use today. After years, it works. This doesn't happen by accident. It happens when you design AND build thinking about who will have to live inside it 8 hours a day, not just how it looks in the presentation screenshot."
+          "1": "Client upgrade: from local SMEs to **startups and mid-sized companies**. Skills upgrade: from designer delivering mockups to **designer writing first code**. My facilitation experience from Selfrules? *At Flowing it was gold.*",
+          "2": "Concrete example: \"Save\" button that shifts **2 pixels** when loading data. *Insignificant?* Try clicking it **40 times a day for 3 years**. Small irritations become abandonment. I learned to measure them.",
+          "3": "CliensPiù is still in use today. After years, it works. *This doesn't happen by accident.* It happens when you design **AND** build thinking about who will have to live inside it **8 hours a day**, not just *how it looks in the presentation screenshot*."
         },
         "technologies": {
           "1": "React",
