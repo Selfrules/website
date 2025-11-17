@@ -369,7 +369,7 @@ export default function BlogListingClient({
 
         {/* CTA Section at bottom */}
         {filteredPosts.length > 0 && (
-          <div className="inline-block bg-gradient-cta border-brutal border-black rounded-brutal-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1 hover:rotate-0 transition-transform">
+          <div className="mt-20 inline-block bg-gradient-cta border-brutal border-black rounded-brutal-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1 hover:rotate-0 transition-transform">
             <h3 className="text-h3 md:text-h2 text-white mb-2 font-heading font-bold">
               {t('cta.title')}
             </h3>
