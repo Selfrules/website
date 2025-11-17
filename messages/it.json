@@ -12,7 +12,7 @@
     "headline3": "Poi come developer.",
     "headline4": "Ora sono il PM",
     "headline5": "che chiami quando tutti dicono 'sì' ma nessuno sa cosa fare.",
-    "subtitle": "Perché? Perché dopo 12 anni di errori costosi ho capito una cosa:",
+    "subtitle": "Perché? Perché dopo 13 anni di errori costosi ho capito una cosa:",
     "subtitleHighlight": "il problema non è mai quello che ti dicono al primo meeting",
     "subtitleEnd": ".",
     "cta": "Parliamone",
@@ -43,7 +43,7 @@
     "current": "Oggi",
     "skillsLabel": "Cosa porto al tavolo",
     "certificationsLabel": "Cosa ho studiato",
-    "endMessage": "12 anni a diventare generalista. La specializzazione ti rende bravo. La contaminazione ti rende utile. 🎯",
+    "endMessage": "13 anni a diventare generalista. La specializzazione ti rende bravo. La contaminazione ti rende utile. 🎯",
     "experiences": {
       "pm": {
         "date": "2023-oggi",
@@ -62,8 +62,7 @@
           "3": "API Design",
           "4": "User Research",
           "5": "Business Case",
-          "6": "A/B Testing",
-          "7": "Analytics"
+          "6": "Analytics"
         },
         "philosophy": {
           "intro": "Il mio superpotere oggi? Parlo tre lingue fluentemente:",
@@ -99,7 +98,8 @@
           "3": "Agile/Scrum",
           "4": "User Research",
           "5": "SQL",
-          "6": "Analytics"
+          "6": "Analytics",
+          "7": "A/B Testing"
         },
         "certifications": {
           "1": "Certified Scrum Product Owner (Scrum Alliance 2020)",
@@ -327,7 +327,7 @@
   "blog": {
     "meta": {
       "title": "Lezioni dal campo - Mattia Filippo De Luca",
-      "description": "12 anni. 8 settori, 50+ implementazioni. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti."
+      "description": "13 anni. 8 settori, 50+ implementazioni. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti."
     }
   },
   "whatImUpTo": {
