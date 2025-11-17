@@ -8,6 +8,57 @@ import { ArrowRight, Award, Code, Palette, Rocket } from 'lucide-react';
 
 type NeoBadgeColor = 'blue' | 'pink' | 'yellow' | 'purple' | 'neutral' | 'teal' | 'lime';
 
+/**
+ * Renders markdown-formatted text with bold, italic, and line breaks
+ * @param text - Text with markdown formatting (**bold**, *italic*, \n for breaks)
+ * @returns React elements with proper formatting
+ */
+function renderMarkdown(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  let currentIndex = 0;
+  let key = 0;
+
+  // Regex to match **bold**, *italic*, or \n
+  const regex = /(\*\*.*?\*\*|\*.*?\*|\n)/g;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > currentIndex) {
+      parts.push(text.slice(currentIndex, match.index));
+    }
+
+    const matched = match[0];
+    if (matched.startsWith('**') && matched.endsWith('**')) {
+      // Bold text
+      parts.push(
+        <strong key={`bold-${key++}`} className="font-bold">
+          {matched.slice(2, -2)}
+        </strong>
+      );
+    } else if (matched.startsWith('*') && matched.endsWith('*')) {
+      // Italic text
+      parts.push(
+        <em key={`italic-${key++}`} className="italic">
+          {matched.slice(1, -1)}
+        </em>
+      );
+    } else if (matched === '\n') {
+      // Line break
+      parts.push(<br key={`br-${key++}`} />);
+    }
+
+    currentIndex = match.index + matched.length;
+  }
+
+  // Add remaining text
+  if (currentIndex < text.length) {
+    parts.push(text.slice(currentIndex));
+  }
+
+  return <>{parts}</>;
+}
+
 interface Milestone {
   id: string;
   dateKey: string;
@@ -176,7 +227,7 @@ export default function Journey() {
 
                       {/* Description */}
                       <p className="text-body-small md:text-body text-brutalist-text-secondary mb-4">
-                        {t(milestone.descriptionKey)}
+                        {renderMarkdown(t(milestone.descriptionKey))}
                       </p>
 
                       {/* Achievements */}
@@ -198,7 +249,7 @@ export default function Journey() {
                                 <ArrowRight
                                   className={`w-4 h-4 flex-shrink-0 mt-0.5 ${arrowColorClasses[milestone.roleColor]}`}
                                 />
-                                <span>{t(achievementKey)}</span>
+                                <span>{renderMarkdown(t(achievementKey))}</span>
                               </li>
                             );
                           })}
