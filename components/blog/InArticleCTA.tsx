@@ -47,7 +47,8 @@ export default function InArticleCTA({
   const variantConfig = {
     consultation: {
       icon: Calendar,
-      gradient: 'bg-gradient-to-br from-electric-blue via-deep-purple to-deep-purple',
+      bg: 'bg-electric-blue',
+      text: 'text-white',
       defaultTitle: t('consultation.title'),
       defaultDescription: t('consultation.description'),
       defaultButton: t('consultation.button'),
@@ -55,7 +56,8 @@ export default function InArticleCTA({
     },
     newsletter: {
       icon: Mail,
-      gradient: 'bg-gradient-to-br from-teal to-electric-blue',
+      bg: 'bg-teal',
+      text: 'text-white',
       defaultTitle: t('newsletter.title'),
       defaultDescription: t('newsletter.description'),
       defaultButton: t('newsletter.button'),
@@ -63,7 +65,8 @@ export default function InArticleCTA({
     },
     related: {
       icon: FileText,
-      gradient: 'bg-gradient-to-br from-neon-pink to-cyber-yellow',
+      bg: 'bg-neon-pink',
+      text: 'text-white',
       defaultTitle: t('related.title'),
       defaultDescription: t('related.description'),
       defaultButton: t('related.button'),
@@ -71,7 +74,8 @@ export default function InArticleCTA({
     },
     download: {
       icon: Download,
-      gradient: 'bg-gradient-to-br from-cyber-yellow via-neon-pink to-electric-blue',
+      bg: 'bg-cyber-yellow',
+      text: 'text-brutalist-text-primary',
       defaultTitle: t('download.title'),
       defaultDescription: t('download.description'),
       defaultButton: t('download.button'),
@@ -96,7 +100,7 @@ export default function InArticleCTA({
 
   return (
     <aside
-      className={`my-12 md:my-16 inline-block w-full max-w-[700px] ${config.gradient} border-brutal border-black rounded-brutal-lg shadow-brutal p-6 md:p-8 -rotate-1 hover:rotate-0 transition-transform ${className}`}
+      className={`my-12 md:my-16 inline-block w-full max-w-[700px] ${config.bg} ${config.text} border-brutal border-black rounded-brutal-lg shadow-brutal p-6 md:p-8 -rotate-1 hover:rotate-0 transition-transform ${className}`}
       role="complementary"
       aria-label={`Call to action: ${ctaTitle}`}
     >
@@ -106,10 +110,10 @@ export default function InArticleCTA({
         </div>
 
         <div className="flex-1">
-          <h3 className="text-h3 md:text-h2 text-white mb-2 font-heading font-bold leading-tight">
+          <h3 className="text-h3 md:text-h2 mb-2 font-heading font-bold leading-tight">
             {ctaTitle}
           </h3>
-          <p className="text-body text-white/90 mb-6 font-heading leading-relaxed">
+          <p className="text-body opacity-90 mb-6 font-heading leading-relaxed">
             {ctaDescription}
           </p>
           <a href={ctaHref} onClick={handleClick} className="inline-block">
