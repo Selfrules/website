@@ -7,7 +7,8 @@ import { Search, X, Filter, ArrowLeft } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
+import { NeoButton } from '@/components/ui/NeoButton';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { Input } from '@/components/ui/Input';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 
@@ -109,15 +110,13 @@ export default function BlogListingClient({
 
         <div className="container max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-24 relative z-10">
           <div className="max-w-[800px]">
-            <Button
+            <button
               onClick={handleBackToHome}
-              variant="outline"
-              size="md"
-              className="mb-6 bg-brutalist-surface-light hover:-translate-y-1"
+              className="flex items-center gap-2 px-4 py-2 bg-white border-3 border-black rounded-lg shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all mb-6 font-heading font-bold text-sm"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
               Home
-            </Button>
+            </button>
 
             <h1 className="text-h1 md:text-[64px] text-white mb-6 font-heading">
               {t('hero.title')}
@@ -169,7 +168,7 @@ export default function BlogListingClient({
               const isActive = selectedCategory === category;
 
               // For "All" category, use a neutral variant
-              const badgeVariant = category === 'All' ? 'outline' as const : getCategoryVariant(category);
+              const badgeVariant = category === 'All' ? 'neutral' as const : getCategoryVariant(category);
 
               return (
                 <button
@@ -179,7 +178,7 @@ export default function BlogListingClient({
                     isActive ? '' : 'opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <Badge
+                  <NeoBadge
                     variant={badgeVariant}
                     size="md"
                     className={`cursor-pointer ${
@@ -192,7 +191,7 @@ export default function BlogListingClient({
                         ({initialPosts.filter(p => p.category === category).length})
                       </span>
                     )}
-                  </Badge>
+                  </NeoBadge>
                 </button>
               );
             })}
@@ -213,17 +212,15 @@ export default function BlogListingClient({
                 const isActive = selectedTags.includes(tag);
 
                 return (
-                  <Badge
+                  <NeoBadge
                     key={tag}
-                    variant={isActive ? 'dev' : 'outline'}
+                    variant={isActive ? 'dev' : 'neutral'}
                     size="sm"
-                    className="cursor-pointer hover:-translate-y-0.5 transition-all"
+                    className="cursor-pointer"
                     onClick={() => toggleTag(tag)}
-                    aria-pressed={isActive}
-                    aria-label={`Filtra per tag ${tag}`}
                   >
                     #{tag}
-                  </Badge>
+                  </NeoBadge>
                 );
               })}
             </div>
@@ -248,12 +245,12 @@ export default function BlogListingClient({
             </div>
             <div className="flex flex-wrap gap-2">
               {selectedCategory !== 'All' && (
-                <Badge variant={getCategoryVariant(selectedCategory)} size="sm">
+                <NeoBadge variant={getCategoryVariant(selectedCategory)} size="sm">
                   Categoria: {selectedCategory}
-                </Badge>
+                </NeoBadge>
               )}
               {selectedTags.map((tag) => (
-                <Badge
+                <NeoBadge
                   key={tag}
                   variant="dev"
                   size="sm"
@@ -267,7 +264,7 @@ export default function BlogListingClient({
                   >
                     <X className="w-3 h-3" aria-hidden="true" />
                   </button>
-                </Badge>
+                </NeoBadge>
               ))}
             </div>
           </div>
@@ -372,21 +369,16 @@ export default function BlogListingClient({
 
         {/* CTA Section at bottom */}
         {filteredPosts.length > 0 && (
-          <div className="mt-20 bg-cyber-yellow border-brutal-thick border-black rounded-brutal-lg shadow-brutal-lg p-brutal-xl text-center -rotate-1 hover:rotate-0 transition-transform">
-            <h3 className="text-h3 text-dark mb-4">
+          <div className="inline-block bg-gradient-cta border-brutal border-black rounded-brutal-lg shadow-brutal p-6 md:p-8 max-w-[700px] -rotate-1 hover:rotate-0 transition-transform">
+            <h3 className="text-h3 md:text-h2 text-white mb-2 font-heading font-bold">
               {t('cta.title')}
             </h3>
-            <p className="text-body text-dark/80 mb-6 max-w-[600px] mx-auto">
+            <p className="text-body text-white/90 mb-6 font-heading">
               {t('cta.body')}
             </p>
-            <Button
-              onClick={handleContactClick}
-              variant="primary"
-              size="lg"
-              className="bg-brutalist-text-primary text-white hover:bg-brutalist-text-primary/90"
-            >
+            <NeoButton variant="accent" size="lg" onClick={handleContactClick}>
               {t('cta.button')}
-            </Button>
+            </NeoButton>
           </div>
         )}
       </section>
