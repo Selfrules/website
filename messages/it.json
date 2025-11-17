@@ -31,7 +31,15 @@
     "badge": "Il percorso",
     "title": "Perché faccio l'interprete nei meeting",
     "titleHighlight": "(senza parlare lingue straniere)",
-    "subtitle": "La maggior parte dei PM parla solo 'business'. Poi arriva in meeting e il designer dice 'user journey' mentre lo sviluppatore dice 'technical debt'. Caos. Io traduco. Senza perdere pezzi.",
+    "subtitle": {
+      "part1": "La maggior parte dei PM parla solo ",
+      "business": "business",
+      "part2": ". Poi arriva in meeting e il designer dice ",
+      "userJourney": "user journey",
+      "part3": " mentre lo sviluppatore dice ",
+      "technicalDebt": "technical debt",
+      "part4": ". Caos. Io traduco. Senza perdere pezzi."
+    },
     "current": "Oggi",
     "skillsLabel": "Cosa porto al tavolo",
     "certificationsLabel": "Cosa ho studiato",

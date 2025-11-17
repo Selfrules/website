@@ -31,7 +31,15 @@
     "badge": "The journey",
     "title": "Why I translate in meetings",
     "titleHighlight": "(without speaking foreign languages)",
-    "subtitle": "Most PMs only speak 'business'. Then they join a meeting and the designer says 'user journey' while the developer says 'technical debt'. Chaos. I translate. Without losing anything.",
+    "subtitle": {
+      "part1": "Most PMs only speak ",
+      "business": "business",
+      "part2": ". Then they join a meeting and the designer says ",
+      "userJourney": "user journey",
+      "part3": " while the developer says ",
+      "technicalDebt": "technical debt",
+      "part4": ". Chaos. I translate. Without losing anything."
+    },
     "current": "Today",
     "skillsLabel": "What I bring",
     "certificationsLabel": "What I studied",

@@ -101,7 +101,13 @@ export default function Journey() {
             </span>
           </h2>
           <p className="text-body text-brutalist-text-secondary max-w-[700px] mx-auto">
-            {t('subtitle')}
+            {t('subtitle.part1')}
+            <span className="font-bold text-deep-purple">{t('subtitle.business')}</span>
+            {t('subtitle.part2')}
+            <span className="font-bold text-electric-blue">{t('subtitle.userJourney')}</span>
+            {t('subtitle.part3')}
+            <span className="font-bold text-teal">{t('subtitle.technicalDebt')}</span>
+            {t('subtitle.part4')}
           </p>
         </motion.div>
 
