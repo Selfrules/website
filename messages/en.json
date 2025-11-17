@@ -328,6 +328,36 @@
     "meta": {
       "title": "Lessons from the Trenches - Mattia Filippo De Luca",
       "description": "13 years. 8 sectors, 50+ implementations. What I learned building products, leading teams, and surviving endless meetings."
+    },
+    "hero": {
+      "title": "The lessons nobody tells you in the first meeting",
+      "subtitle": "I spent $8K on a design that couldn't be developed. I canceled features requested by 60% of users. I learned when saying \"no\" costs less than saying \"yes\"."
+    },
+    "search": {
+      "placeholder": "Search for the mess you're living right now..."
+    },
+    "filters": {
+      "categoryLabel": "What kind of mess do you need?",
+      "tagLabel": "Filter by tag",
+      "activeLabel": "Active filters:",
+      "resetAll": "Reset all"
+    },
+    "pagination": {
+      "previous": "← More mistakes",
+      "next": "More lessons →"
+    },
+    "empty": {
+      "title": "I haven't screwed up that way yet",
+      "body": "Reset filters or ask me directly. If it's a real problem, it'll probably become the next article.",
+      "button": "Reset filters"
+    },
+    "cta": {
+      "title": "This mess isn't on the list?",
+      "body": "Ask the question you've been postponing for weeks. If the answer saves other PMs from mistakes, it becomes an article. Otherwise, I'll answer anyway.",
+      "button": "Ask that question →"
+    },
+    "card": {
+      "featured": "DON'T MISS"
     }
   },
   "whatImUpTo": {

@@ -328,6 +328,36 @@
     "meta": {
       "title": "Lezioni dal campo - Mattia Filippo De Luca",
       "description": "13 anni. 8 settori, 50+ implementazioni. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti."
+    },
+    "hero": {
+      "title": "Le lezioni che nessuno ti dice al primo meeting",
+      "subtitle": "Ho speso €8K su un design che non si poteva sviluppare. Ho cancellato feature richieste dal 60% degli utenti. Ho imparato quando dire \"no\" costa meno che dire \"sì\"."
+    },
+    "search": {
+      "placeholder": "Cerca il casino che stai vivendo ora..."
+    },
+    "filters": {
+      "categoryLabel": "Quale tipo di casino ti serve?",
+      "tagLabel": "Filtra per tag",
+      "activeLabel": "Filtri attivi:",
+      "resetAll": "Resetta tutto"
+    },
+    "pagination": {
+      "previous": "← Altri errori",
+      "next": "Più lezioni →"
+    },
+    "empty": {
+      "title": "Non ho ancora sbagliato in quel modo",
+      "body": "Resetta i filtri oppure chiedimi direttamente. Se è un problema vero, probabilmente diventa il prossimo articolo.",
+      "button": "Resetta filtri"
+    },
+    "cta": {
+      "title": "Questo casino non è in lista?",
+      "body": "Fai la domanda che rimandi da settimane. Se la risposta risparmia errori ad altri PM, diventa un articolo. Altrimenti, ti rispondo comunque.",
+      "button": "Fai quella domanda →"
+    },
+    "card": {
+      "featured": "DA NON PERDERE"
     }
   },
   "whatImUpTo": {

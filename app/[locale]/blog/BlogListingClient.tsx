@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Search, X, Filter, ArrowLeft } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
 import BlogCard from '@/components/blog/BlogCard';
@@ -25,6 +26,7 @@ export default function BlogListingClient({
   locale,
 }: BlogListingClientProps) {
   const router = useRouter();
+  const t = useTranslations('blog');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -111,17 +113,17 @@ export default function BlogListingClient({
               onClick={handleBackToHome}
               variant="outline"
               size="md"
-              className="mb-6 bg-white text-brutalist-text-primary border-brutal border-black hover:-translate-y-1"
+              className="mb-6 bg-brutalist-surface-light hover:-translate-y-1"
             >
               <ArrowLeft className="w-5 h-5" />
               Home
             </Button>
 
             <h1 className="text-h1 md:text-[64px] text-white mb-6 font-heading">
-              Cose che ho imparato (sbagliando)
+              {t('hero.title')}
             </h1>
             <p className="text-body-large text-white/95 mb-8 max-w-[600px]">
-              8 settori, 50+ implementazioni. 12 anni di carriera. Ogni articolo qui è una lezione che è costata tempo, soldi o orgoglio. O tutti e tre.
+              {t('hero.subtitle')}
             </p>
 
             {/* Search Bar */}
@@ -130,7 +132,7 @@ export default function BlogListingClient({
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brutalist-text-tertiary z-10" aria-hidden="true" />
                 <Input
                   type="text"
-                  placeholder="Cerca un problema specifico..."
+                  placeholder={t('search.placeholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-12"
@@ -158,7 +160,7 @@ export default function BlogListingClient({
           <div className="flex items-center gap-3 mb-4">
             <Filter className="w-5 h-5 text-brutalist-text-secondary" />
             <h3 className="text-h3 text-dark">
-              Filtra per categoria
+              {t('filters.categoryLabel')}
             </h3>
           </div>
 
@@ -202,7 +204,7 @@ export default function BlogListingClient({
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
               <h3 className="text-h3 text-dark">
-                Filtra per tag
+                {t('filters.tagLabel')}
               </h3>
             </div>
 
@@ -211,17 +213,17 @@ export default function BlogListingClient({
                 const isActive = selectedTags.includes(tag);
 
                 return (
-                  <button
+                  <Badge
                     key={tag}
+                    variant={isActive ? 'dev' : 'outline'}
+                    size="sm"
+                    className="cursor-pointer hover:-translate-y-0.5 transition-all"
                     onClick={() => toggleTag(tag)}
-                    className={`inline-flex items-center justify-center gap-1 px-3 py-1 border-brutal border-black rounded-brutal-sm shadow-brutal-sm hover:-translate-y-0.5 hover:shadow-brutal transition-all text-body-sm font-heading font-bold uppercase tracking-wider whitespace-nowrap ${
-                      isActive ? 'bg-teal text-white' : 'bg-white text-black'
-                    }`}
                     aria-pressed={isActive}
                     aria-label={`Filtra per tag ${tag}`}
                   >
                     #{tag}
-                  </button>
+                  </Badge>
                 );
               })}
             </div>
@@ -233,7 +235,7 @@ export default function BlogListingClient({
           <div className="mb-6 p-brutal-md bg-white border-brutal border-black rounded-brutal shadow-brutal-sm">
             <div className="flex items-center justify-between mb-3">
               <span className="text-body-small font-bold text-dark">
-                Filtri attivi:
+                {t('filters.activeLabel')}
               </span>
               <Button
                 onClick={handleResetFilters}
@@ -241,7 +243,7 @@ export default function BlogListingClient({
                 size="sm"
                 className="text-electric-blue hover:underline"
               >
-                Resetta tutto
+                {t('filters.resetAll')}
               </Button>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -302,7 +304,7 @@ export default function BlogListingClient({
                 variant="outline"
                 size="sm"
               >
-                ← Indietro
+                {t('pagination.previous')}
               </Button>
 
               <div className="flex gap-2">
@@ -341,7 +343,7 @@ export default function BlogListingClient({
                 variant="outline"
                 size="sm"
               >
-                Avanti →
+                {t('pagination.next')}
               </Button>
             </div>
           )}
@@ -352,17 +354,17 @@ export default function BlogListingClient({
             <div className="inline-block p-brutal-xl bg-white border-brutal-thick border-black rounded-brutal shadow-brutal mb-6">
               <Search className="w-16 h-16 text-brutalist-text-tertiary mx-auto mb-4" />
               <h3 className="text-h3 text-dark mb-3">
-                Niente qui
+                {t('empty.title')}
               </h3>
               <p className="text-body text-dark mb-6 max-w-[400px]">
-                Prova altri filtri oppure fammi una domanda diretta. Magari diventa un articolo.
+                {t('empty.body')}
               </p>
               <Button
                 onClick={handleResetFilters}
                 variant="primary"
                 size="md"
               >
-                Resetta filtri
+                {t('empty.button')}
               </Button>
             </div>
           </div>
@@ -372,10 +374,10 @@ export default function BlogListingClient({
         {filteredPosts.length > 0 && (
           <div className="mt-20 bg-cyber-yellow border-brutal-thick border-black rounded-brutal-lg shadow-brutal-lg p-brutal-xl text-center -rotate-1 hover:rotate-0 transition-transform">
             <h3 className="text-h3 text-dark mb-4">
-              Il tuo problema non è qui?
+              {t('cta.title')}
             </h3>
             <p className="text-body text-dark/80 mb-6 max-w-[600px] mx-auto">
-              Fammi una domanda diretta. Se è interessante, diventa il prossimo articolo. Se no, rispondo comunque.
+              {t('cta.body')}
             </p>
             <Button
               onClick={handleContactClick}
@@ -383,7 +385,7 @@ export default function BlogListingClient({
               size="lg"
               className="bg-brutalist-text-primary text-white hover:bg-brutalist-text-primary/90"
             >
-              Fammi una domanda
+              {t('cta.button')}
             </Button>
           </div>
         )}

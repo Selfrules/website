@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Clock, Calendar, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { BlogPost } from '@/lib/blog/mdx';
-import { NeoBadge } from '@/components/ui/NeoBadge';
+import { Badge } from '@/components/ui/Badge';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 
 interface BlogCardProps {
@@ -14,6 +15,8 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, locale, featured = false }: BlogCardProps) {
+  const t = useTranslations('blog');
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString(locale === 'it' ? 'it-IT' : 'en-US', {
@@ -24,20 +27,6 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
   };
 
   const categoryVariant = getCategoryVariant(post.category);
-
-  // Map category variant to NeoBadge variant
-  const neoBadgeVariantMap: Record<string, 'design' | 'dev' | 'pm' | 'tool' | 'yellow' | 'blue' | 'pink' | 'purple' | 'teal'> = {
-    primary: 'blue',
-    secondary: 'pink',
-    accent: 'yellow',
-    pm: 'yellow',
-    design: 'design',
-    dev: 'dev',
-    tool: 'tool',
-    featured: 'yellow',
-  };
-
-  const neoBadgeVariant = neoBadgeVariantMap[categoryVariant] || 'blue';
 
   // Map category to gradient header
   const gradientHeaderMap: Record<string, string> = {
@@ -61,17 +50,17 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
           <motion.div
             whileHover={{ y: -8 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="group border-4 border-[#000] rounded-lg shadow-brutal-lg overflow-hidden bg-white hover:shadow-brutal-lg transition-all cursor-pointer"
+            className="group border-brutal-thick border-black rounded-brutal-lg shadow-brutal-lg overflow-hidden bg-white hover:shadow-brutal-lg transition-all cursor-pointer"
           >
             {/* Gradient Header - Featured (larger) */}
             <div className={`p-brutal-lg md:p-brutal-xl min-h-[200px] md:min-h-[250px] relative ${gradientHeader}`}>
               <div className="flex items-center gap-3">
-                <NeoBadge variant={neoBadgeVariant} size="sm">
+                <Badge variant={categoryVariant} size="sm">
                   {post.category}
-                </NeoBadge>
-                <NeoBadge variant="yellow" size="sm">
-                  DA NON PERDERE
-                </NeoBadge>
+                </Badge>
+                <Badge variant="featured" size="sm">
+                  {t('card.featured')}
+                </Badge>
               </div>
             </div>
 
@@ -111,13 +100,13 @@ export default function BlogCard({ post, locale, featured = false }: BlogCardPro
       <motion.article
         whileHover={{ y: -8 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="border-4 border-[#000] rounded-lg shadow-brutal-lg overflow-hidden bg-white hover:shadow-brutal-lg transition-all cursor-pointer"
+        className="border-brutal-thick border-black rounded-brutal-lg shadow-brutal-lg overflow-hidden bg-white hover:shadow-brutal-lg transition-all cursor-pointer"
       >
         {/* Gradient Header */}
         <div className={`p-6 min-h-[140px] relative ${gradientHeader}`}>
-          <NeoBadge variant={neoBadgeVariant} size="sm">
+          <Badge variant={categoryVariant} size="sm">
             {post.category}
-          </NeoBadge>
+          </Badge>
         </div>
 
         {/* White Body */}

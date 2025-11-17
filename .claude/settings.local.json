@@ -17,7 +17,8 @@
       "Bash(next build)",
       "Bash(npm run generate:design-system:*)",
       "Bash(python -m json.tool:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(nul)"
     ],
     "deny": [],
     "ask": []
