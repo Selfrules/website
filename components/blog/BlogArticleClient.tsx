@@ -207,7 +207,6 @@ export default function BlogArticleClient({
             <ArticleHeader
               post={post}
               locale={locale}
-              onBackClick={handleBackToBlog}
             />
 
             {/* Article Content with Enhanced Prose */}

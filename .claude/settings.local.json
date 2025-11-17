@@ -18,7 +18,8 @@
       "Bash(npm run generate:design-system:*)",
       "Bash(python -m json.tool:*)",
       "Bash(python:*)",
-      "Bash(nul)"
+      "Bash(nul)",
+      "Bash(gh pr create:*)"
     ],
     "deny": [],
     "ask": []

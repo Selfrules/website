@@ -62,7 +62,8 @@
           "3": "API Design",
           "4": "User Research",
           "5": "Business Case",
-          "6": "Analytics"
+          "6": "Analytics",
+          "7": "A/B Testing"
         },
         "philosophy": {
           "intro": "Il mio superpotere oggi? Parlo tre lingue fluentemente:",
@@ -358,6 +359,38 @@
     },
     "card": {
       "featured": "DA NON PERDERE"
+    },
+    "article": {
+      "toc": {
+        "title": "Indice"
+      },
+      "share": {
+        "title": "Condividi",
+        "copy": "Copia link",
+        "copied": "Copiato!"
+      },
+      "cta": {
+        "consultation": {
+          "title": "Vuoi implementare strategie simili?",
+          "description": "Prenota una sessione personalizzata per discutere il tuo progetto",
+          "button": "Prenota ora →"
+        },
+        "newsletter": {
+          "title": "Ricevi più insight come questo",
+          "description": "Iscriviti alla newsletter per PM pragmatici",
+          "button": "Iscriviti →"
+        },
+        "related": {
+          "title": "Esplora articoli simili",
+          "description": "Altre lezioni dal campo che potrebbero interessarti",
+          "button": "Vedi tutti →"
+        },
+        "download": {
+          "title": "Scarica le risorse",
+          "description": "Template e checklist utilizzabili subito",
+          "button": "Scarica →"
+        }
+      }
     }
   },
   "whatImUpTo": {

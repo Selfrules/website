@@ -6,6 +6,11 @@ import Callout from '@/components/mdx/Callout'
 import PullQuote from '@/components/mdx/PullQuote'
 import ImageGallery from '@/components/mdx/ImageGallery'
 import CodeBlock from '@/components/mdx/CodeBlock'
+import { StatsCard, StatsGrid } from '@/components/mdx/StatsCard'
+import ActivityTimeline from '@/components/mdx/ActivityTimeline'
+import AIInsight from '@/components/mdx/AIInsight'
+import RecommendationCard from '@/components/mdx/RecommendationCard'
+import InArticleCTA from '@/components/blog/InArticleCTA'
 
 // Custom components for MDX
 const components: MDXComponents = {
@@ -114,6 +119,16 @@ const components: MDXComponents = {
   Callout: Callout as any,
   PullQuote: PullQuote as any,
   ImageGallery: ImageGallery as any,
+
+  // Admin components for rich content
+  StatsCard: StatsCard as any,
+  StatsGrid: StatsGrid as any,
+  ActivityTimeline: ActivityTimeline as any,
+  AIInsight: AIInsight as any,
+  RecommendationCard: RecommendationCard as any,
+
+  // Engagement components
+  InArticleCTA: InArticleCTA as any,
 
   // Legacy Quote component (kept for backwards compatibility)
   Quote: ({ children, author }: { children: React.ReactNode; author?: string }) => (

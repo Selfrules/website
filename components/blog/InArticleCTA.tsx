@@ -112,17 +112,16 @@ export default function InArticleCTA({
           <p className="text-body text-white/90 mb-6 font-heading leading-relaxed">
             {ctaDescription}
           </p>
-          <NeoButton
-            variant="accent"
-            size="lg"
-            asChild
-            className="shadow-brutal-lg hover:shadow-brutal"
-          >
-            <a href={ctaHref} onClick={handleClick}>
+          <a href={ctaHref} onClick={handleClick} className="inline-block">
+            <NeoButton
+              variant="accent"
+              size="lg"
+              className="shadow-brutal-lg hover:shadow-brutal"
+            >
               {ctaButton}
               <ArrowRight className="w-5 h-5 ml-2" strokeWidth={2.5} />
-            </a>
-          </NeoButton>
+            </NeoButton>
+          </a>
         </div>
       </div>
     </aside>

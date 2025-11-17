@@ -358,6 +358,38 @@
     },
     "card": {
       "featured": "DON'T MISS"
+    },
+    "article": {
+      "toc": {
+        "title": "Table of contents"
+      },
+      "share": {
+        "title": "Share",
+        "copy": "Copy link",
+        "copied": "Copied!"
+      },
+      "cta": {
+        "consultation": {
+          "title": "Want to implement similar strategies?",
+          "description": "Book a personalized session to discuss your project",
+          "button": "Book now →"
+        },
+        "newsletter": {
+          "title": "Get more insights like this",
+          "description": "Subscribe to the pragmatic PM newsletter",
+          "button": "Subscribe →"
+        },
+        "related": {
+          "title": "Explore similar articles",
+          "description": "Other field lessons that might interest you",
+          "button": "See all →"
+        },
+        "download": {
+          "title": "Download resources",
+          "description": "Templates and checklists ready to use",
+          "button": "Download →"
+        }
+      }
     }
   },
   "whatImUpTo": {
