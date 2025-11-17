@@ -245,6 +245,10 @@
   color: #06FFA5;
 }
 
+.text-teal {
+  color: #2A687A;
+}
+
 /* Hover states for colored text */
 .hover\:text-electric-blue:hover {
   color: #0D7EFF;
