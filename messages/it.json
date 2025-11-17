@@ -344,14 +344,14 @@
         "label": "ricariche vendute in una domenica",
         "context": "integrazione cashless"
       },
-      "intro": "Perché un cliente dovrebbe chiamarti per comprare quando può farlo in 3 click? Risultato: +30 ricariche in una domenica. Dal sito. Senza telefono.",
-      "secret": "Il segreto non è la tecnologia: è capire quale problema stai risolvendo prima di scrivere codice. Quando si parla di soldi, tutti ascoltano. Ma devi sapere cosa dire.",
+      "intro": "*Perché un cliente dovrebbe chiamarti per comprare quando può farlo in **3 click**?* Risultato: **+30 ricariche** in una domenica. Dal sito. Senza telefono.",
+      "secret": "Il segreto non è la tecnologia: è capire **quale problema stai risolvendo** prima di scrivere codice. Quando si parla di **soldi**, tutti ascoltano. Ma devi sapere **cosa dire**.",
       "exampleLabel": "Come funziona:",
       "examples": [
-        "Lista problemi clienti (quelli veri, non quelli da meeting)",
-        "Prioritizzare per frustrazione, non per complessità tecnica",
-        "Sviluppo immediato: mercato calmato in 1 mese",
-        "Risultato: poche cose che spostano l'ago, meno meeting fatti di parole"
+        "Lista problemi clienti (**quelli veri**, non quelli da meeting)",
+        "Prioritizzare per **frustrazione**, non per complessità tecnica",
+        "Sviluppo immediato: mercato calmato in **1 mese**",
+        "Risultato: **poche cose che spostano l'ago**, meno meeting fatti di parole"
       ],
       "conclusion": "Questo è product management pragmatico: ascolta chi paga, risolvi cosa blocca, misura cosa cambia."
     },
@@ -359,21 +359,21 @@
       "title": "Cosa sto imparando",
       "topic": "Come l'AI sta cambiando il mio workflow",
       "paragraphs": [
-        "Non sostituisce il mio lavoro: lo amplifica.",
-        "Il trucco? Sapere cosa delegare e cosa tenere."
+        "Non sostituisce il mio lavoro: **lo amplifica**.",
+        "*Il trucco?* Sapere **cosa delegare** e **cosa tenere**."
       ],
       "exampleLabel": "Esempi pratici:",
       "examples": [
-        "Claude scrive la prima bozza dei PRD. Io li affino con il contesto che fa la differenza.",
-        "Figma Make genera 20 varianti di mockup. Io scelgo quella che funziona per gli utenti."
+        "**Claude** scrive la prima bozza dei PRD. Io li affino con **il contesto che fa la differenza**.",
+        "**Figma Make** genera **20 varianti** di mockup. Io scelgo **quella che funziona per gli utenti**."
       ],
       "resultLabel": "Risultato?",
       "results": [
-        "PRD in 2 ore invece di 2 giorni",
-        "Mockup in 30 minuti invece di 3 ore"
+        "PRD in **2 ore** invece di **2 giorni**",
+        "Mockup in **30 minuti** invece di **3 ore**"
       ],
-      "conclusion": "L'AI è il mio perfetto junior designer/developer: veloce, instancabile, ma ha sempre bisogno di direzione.",
-      "why": "Perché condivido questo? Perché il PM del futuro non è quello che sa tutto. È quello che sa quali strumenti usare e quando smettere di usarli."
+      "conclusion": "L'AI è il mio perfetto junior designer/developer: veloce, instancabile, ma ha sempre bisogno di **direzione**.",
+      "why": "*Perché condivido questo?* Perché il PM del futuro non è quello che **sa tutto**. È quello che sa **quali strumenti usare** e **quando smettere di usarli**."
     },
     "spotify": {
       "title": "Now playing"

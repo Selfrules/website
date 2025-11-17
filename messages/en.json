@@ -344,14 +344,14 @@
         "label": "top-ups sold in one Sunday",
         "context": "cashless integration"
       },
-      "intro": "Why should a customer call you to buy when they can do it in 3 clicks? Result: +30 top-ups in one Sunday. From the website. No phone calls.",
-      "secret": "The secret isn't technology: it's understanding what problem you're solving before writing code. When it's about money, everyone pays attention. But you need to know what to say.",
+      "intro": "*Why should a customer call you to buy when they can do it in **3 clicks**?* Result: **+30 top-ups** in one Sunday. From the website. No phone calls.",
+      "secret": "The secret isn't technology: it's understanding **what problem you're solving** before writing code. When it's about **money**, everyone pays attention. But you need to know **what to say**.",
       "exampleLabel": "How it works:",
       "examples": [
-        "Customer problem list (real ones, not meeting ones)",
-        "Prioritize by frustration, not technical complexity",
-        "Immediate development: market calmed in 1 month",
-        "Result: few things that move the needle, fewer meetings made of words"
+        "Customer problem list (**real ones**, not meeting ones)",
+        "Prioritize by **frustration**, not technical complexity",
+        "Immediate development: market calmed in **1 month**",
+        "Result: **few things that move the needle**, fewer meetings made of words"
       ],
       "conclusion": "This is pragmatic product management: listen to who pays, solve what blocks, measure what changes."
     },
@@ -359,21 +359,21 @@
       "title": "What I'm learning",
       "topic": "How AI is changing my workflow",
       "paragraphs": [
-        "It doesn't replace my work: it amplifies it.",
-        "The trick? Knowing what to delegate and what to keep."
+        "It doesn't replace my work: **it amplifies it**.",
+        "*The trick?* Knowing **what to delegate** and **what to keep**."
       ],
       "exampleLabel": "Practical examples:",
       "examples": [
-        "Claude writes the first draft of PRDs. I refine them with the context that makes the difference.",
-        "Figma Make generates 20 mockup variations. I choose the one that works for users."
+        "**Claude** writes the first draft of PRDs. I refine them with **the context that makes the difference**.",
+        "**Figma Make** generates **20 mockup variations**. I choose **the one that works for users**."
       ],
       "resultLabel": "Result?",
       "results": [
-        "PRDs in 2 hours instead of 2 days",
-        "Mockups in 30 minutes instead of 3 hours"
+        "PRDs in **2 hours** instead of **2 days**",
+        "Mockups in **30 minutes** instead of **3 hours**"
       ],
-      "conclusion": "AI is my perfect junior designer/developer: fast, tireless, but it always needs direction.",
-      "why": "Why share this? Because the PM of the future isn't the one who knows everything. It's the one who knows which tools to use and when to stop using them."
+      "conclusion": "AI is my perfect junior designer/developer: fast, tireless, but it always needs **direction**.",
+      "why": "*Why share this?* Because the PM of the future isn't the one who **knows everything**. It's the one who knows **which tools to use** and **when to stop using them**."
     },
     "spotify": {
       "title": "Now playing"
