@@ -8,27 +8,18 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { ScrollManager } from '@/lib/utils/scroll-manager';
 
 export default function ReadingProgressBar() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const updateProgress = () => {
-      // Calculate scroll progress
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollProgress = (scrollTop / docHeight) * 100;
+    // Subscribe to unified scroll manager (eliminates concurrent listeners)
+    const unsubscribe = ScrollManager.subscribe((scrollData) => {
+      setProgress(scrollData.scrollPercentage);
+    });
 
-      setProgress(Math.min(100, Math.max(0, scrollProgress)));
-    };
-
-    // Update on scroll
-    window.addEventListener('scroll', updateProgress, { passive: true });
-
-    // Initial calculation
-    updateProgress();
-
-    return () => window.removeEventListener('scroll', updateProgress);
+    return unsubscribe;
   }, []);
 
   return (

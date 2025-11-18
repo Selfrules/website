@@ -1,7 +1,6 @@
 'use client';
 
-import { Card, CardContent } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { BookOpen, ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export interface TableOfContentItem {
@@ -18,7 +17,7 @@ interface TableOfContentsProps {
 }
 
 /**
- * TableOfContents - Navigable table of contents with scroll-spy
+ * TableOfContents - Navigable table of contents with scroll-spy (aligned with design system)
  * @component
  * @category Blog Components
  *
@@ -46,27 +45,40 @@ export default function TableOfContents({
 
   const content = (
     <>
-      <h3 className="text-body-small font-heading font-bold mb-4 pb-3 border-b-brutal border-black text-brutalist-text-primary">
-        📑 {t('toc.title')}
-      </h3>
-      <nav className="space-y-1" aria-label="Table of contents">
+      <div className="flex items-center gap-2 mb-3">
+        <BookOpen className="h-5 w-5 text-text-tertiary" />
+        <span className="font-heading font-bold text-sm">{t('toc.title')}</span>
+      </div>
+      <nav className="space-y-2" aria-label="Table of contents">
         {items.map((item) => {
           const isActive = activeSection === item.id;
           const isH3 = item.level === 3;
+          const isH2 = item.level === 2;
 
           return (
-            <Button
+            <div
               key={item.id}
               onClick={() => onSectionClick(item.id)}
-              variant={isActive ? 'primary' : 'ghost'}
-              size="sm"
-              className={`w-full justify-start text-left ${
-                isH3 ? 'pl-6 text-sm' : 'text-sm'
-              } ${isActive ? 'font-semibold' : 'font-normal'}`}
+              className={`flex items-center gap-2 cursor-pointer transition-colors ${
+                isActive
+                  ? 'text-electric-blue'
+                  : 'text-text-secondary hover:text-electric-blue'
+              } ${isH3 ? 'pl-6' : ''}`}
               aria-current={isActive ? 'location' : undefined}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onSectionClick(item.id);
+                }
+              }}
             >
-              {item.title}
-            </Button>
+              <ChevronRight className={isH2 ? 'h-4 w-4' : 'h-3 w-3'} />
+              <span className={`text-sm ${isH2 ? 'font-medium' : ''}`}>
+                {item.title}
+              </span>
+            </div>
           );
         })}
       </nav>
@@ -75,15 +87,15 @@ export default function TableOfContents({
 
   if (variant === 'mobile') {
     return (
-      <div className="lg:hidden mb-8 border-brutal border-black rounded-brutal shadow-brutal bg-white p-brutal-md">
+      <div className="lg:hidden mb-8 border-4 border-[#000] rounded-lg bg-white p-4">
         {content}
       </div>
     );
   }
 
   return (
-    <Card>
-      <CardContent className="p-brutal-md">{content}</CardContent>
-    </Card>
+    <div className="border-4 border-[#000] rounded-lg p-4 bg-white">
+      {content}
+    </div>
   );
 }

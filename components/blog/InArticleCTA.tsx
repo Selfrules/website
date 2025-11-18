@@ -43,11 +43,11 @@ export default function InArticleCTA({
 }: InArticleCTAProps) {
   const t = useTranslations('blog.article.cta');
 
-  // Variant configurations
+  // Variant configurations (aligned with design system)
   const variantConfig = {
     consultation: {
       icon: Calendar,
-      bg: 'bg-electric-blue',
+      bg: 'bg-gradient-to-r from-electric-blue to-deep-purple',
       text: 'text-white',
       defaultTitle: t('consultation.title'),
       defaultDescription: t('consultation.description'),
@@ -56,7 +56,7 @@ export default function InArticleCTA({
     },
     newsletter: {
       icon: Mail,
-      bg: 'bg-teal',
+      bg: 'bg-gradient-to-r from-teal to-electric-blue',
       text: 'text-white',
       defaultTitle: t('newsletter.title'),
       defaultDescription: t('newsletter.description'),
@@ -100,12 +100,12 @@ export default function InArticleCTA({
 
   return (
     <aside
-      className={`my-12 md:my-16 inline-block w-full max-w-[700px] ${config.bg} ${config.text} border-brutal border-black rounded-brutal-lg shadow-brutal p-6 md:p-8 -rotate-1 hover:rotate-0 transition-transform ${className}`}
+      className={`my-12 md:my-16 inline-block w-full max-w-[700px] ${config.bg} ${config.text} border-4 border-black rounded-lg shadow-brutal p-6 md:p-8 -rotate-1 hover:rotate-0 transition-transform ${className}`}
       role="complementary"
       aria-label={`Call to action: ${ctaTitle}`}
     >
       <div className="flex items-start gap-4">
-        <div className="flex-shrink-0 w-12 h-12 bg-white border-brutal border-black rounded-brutal shadow-brutal flex items-center justify-center">
+        <div className="flex-shrink-0 w-12 h-12 bg-white border-4 border-black rounded-lg shadow-brutal flex items-center justify-center">
           <Icon className="w-6 h-6 text-brutalist-text-primary" strokeWidth={2.5} />
         </div>
 

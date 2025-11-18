@@ -1,29 +1,61 @@
 import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useMemo } from 'react'
+import dynamic from 'next/dynamic'
+import { generateHeadingId } from '@/lib/utils/heading-utils'
+
+// Lightweight components (keep as regular imports)
 import Callout from '@/components/mdx/Callout'
 import PullQuote from '@/components/mdx/PullQuote'
-import ImageGallery from '@/components/mdx/ImageGallery'
-import CodeBlock from '@/components/mdx/CodeBlock'
-import { StatsCard, StatsGrid } from '@/components/mdx/StatsCard'
-import ActivityTimeline from '@/components/mdx/ActivityTimeline'
 import AIInsight from '@/components/mdx/AIInsight'
 import RecommendationCard from '@/components/mdx/RecommendationCard'
 import InArticleCTA from '@/components/blog/InArticleCTA'
 
+// OPTIMIZATION 2.1: Lazy load CodeBlock (~150-200 kB savings)
+// Only loads when article has code blocks
+const CodeBlock = dynamic(() => import('@/components/mdx/CodeBlock'), {
+  loading: () => (
+    <pre className="mb-6 p-4 bg-gray-900 rounded-brutal border-brutal border-black overflow-x-auto shadow-brutal">
+      <code className="text-sm text-white">Loading syntax highlighter...</code>
+    </pre>
+  ),
+  ssr: false, // Code highlighting is progressive enhancement
+})
+
+// OPTIMIZATION 2.2: Lazy load heavy/rarely-used components (~40-60 kB savings)
+// Only loads when article uses them
+const StatsCard = dynamic(() => import('@/components/mdx/StatsCard').then(mod => ({ default: mod.StatsCard })), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-32 rounded-brutal" />,
+})
+
+const StatsGrid = dynamic(() => import('@/components/mdx/StatsCard').then(mod => ({ default: mod.StatsGrid })), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-brutal" />,
+})
+
+const ActivityTimeline = dynamic(() => import('@/components/mdx/ActivityTimeline'), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded-brutal" />,
+})
+
+const ImageGallery = dynamic(() => import('@/components/mdx/ImageGallery'), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-96 rounded-brutal" />,
+})
+
 // Custom components for MDX
-const components: MDXComponents = {
+export const components: MDXComponents = {
   // Override default HTML elements
-  h1: (props: React.ComponentProps<'h1'>) => (
-    <h1 className="text-4xl md:text-5xl font-display font-bold mb-6 text-primary" {...props} />
-  ),
-  h2: (props: React.ComponentProps<'h2'>) => (
-    <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 mt-8 text-brutalist-text-light" {...props} />
-  ),
-  h3: (props: React.ComponentProps<'h3'>) => (
-    <h3 className="text-xl md:text-2xl font-display font-semibold mb-3 mt-6" {...props} />
-  ),
+  h1: (props: React.ComponentProps<'h1'>) => {
+    const id = useMemo(() => generateHeadingId(props.children), [props.children]);
+    return <h1 id={id} className="text-4xl md:text-5xl font-display font-bold mb-6 text-primary" {...props} />;
+  },
+  h2: (props: React.ComponentProps<'h2'>) => {
+    const id = useMemo(() => generateHeadingId(props.children), [props.children]);
+    return <h2 id={id} className="text-2xl md:text-3xl font-display font-bold mb-4 mt-8 text-brutalist-text-light" {...props} />;
+  },
+  h3: (props: React.ComponentProps<'h3'>) => {
+    const id = useMemo(() => generateHeadingId(props.children), [props.children]);
+    return <h3 id={id} className="text-xl md:text-2xl font-display font-semibold mb-3 mt-6" {...props} />;
+  },
   p: (props: React.ComponentProps<'p'>) => (
     <p className="mb-4 text-brutalist-text-light/80 leading-relaxed" {...props} />
   ),
@@ -77,7 +109,8 @@ const components: MDXComponents = {
       />
     );
   },
-  // Use Next.js Image component
+  // OPTIMIZATION 2.3: Optimize Image loading
+  // Use Next.js Image component with explicit lazy loading
   img: (props: React.ComponentProps<'img'>) => {
     // Next Image requires src, so we provide a fallback
     const src = props.src || '/placeholder.png';
@@ -88,6 +121,8 @@ const components: MDXComponents = {
         width={props.width ? Number(props.width) : 800}
         height={props.height ? Number(props.height) : 400}
         alt={props.alt || ''}
+        loading="lazy" // Explicit lazy loading
+        quality={85} // Optimize quality/size tradeoff
       />
     );
   },
@@ -163,6 +198,9 @@ const components: MDXComponents = {
   ),
 }
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
-  return components
+export function useMDXComponents(otherComponents: MDXComponents): MDXComponents {
+  return {
+    ...components,
+    ...otherComponents,
+  }
 }

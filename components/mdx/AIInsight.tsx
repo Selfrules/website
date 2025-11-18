@@ -14,17 +14,17 @@ interface AIInsightProps {
 
 const priorityConfig = {
   high: {
-    bg: 'bg-neon-pink/10',
+    bg: 'bg-white',
     border: 'border-neon-pink',
     icon: 'bg-neon-pink',
   },
   medium: {
-    bg: 'bg-cyber-yellow/10',
+    bg: 'bg-white',
     border: 'border-cyber-yellow',
     icon: 'bg-cyber-yellow text-brutalist-text-primary',
   },
   info: {
-    bg: 'bg-electric-blue/10',
+    bg: 'bg-white',
     border: 'border-electric-blue',
     icon: 'bg-electric-blue',
   },
@@ -52,11 +52,11 @@ export default function AIInsight({
 
   return (
     <div
-      className={`my-8 ${config.bg} border-brutal ${config.border} rounded-brutal shadow-brutal p-6`}
+      className={`my-8 ${config.bg} border-4 ${config.border} rounded-lg shadow-brutal p-6`}
     >
       <div className="flex gap-4">
         <div
-          className={`w-10 h-10 ${config.icon} text-white rounded-brutal border-2 border-black flex items-center justify-center flex-shrink-0`}
+          className={`w-10 h-10 ${config.icon} text-white rounded-lg border-4 border-black flex items-center justify-center flex-shrink-0`}
         >
           <Icon className="w-5 h-5" strokeWidth={2.5} />
         </div>

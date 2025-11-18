@@ -1,9 +1,27 @@
+/**
+ * MDX Blog System
+ *
+ * This module provides utilities for managing blog posts written in MDX format.
+ * Posts are stored in the `/content/blog` directory and rendered using next-mdx-remote.
+ *
+ * Key features:
+ * - Server-side MDX compilation with compileMDX (eliminates client-side overhead)
+ * - Frontmatter parsing with gray-matter
+ * - Reading time calculation
+ * - Related posts based on tags and category
+ * - Post filtering by category, tags, and publication status
+ *
+ * Architecture:
+ * - getPostBySlug(): Returns raw MDX string (used for metadata)
+ * - getCompiledPost(): Returns pre-compiled React components (used for rendering)
+ */
+
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
-import gfm from 'remark-gfm'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import { components } from '@/mdx-components'
+import type { ReactElement } from 'react'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
@@ -19,6 +37,10 @@ export interface BlogPost {
   coverImage?: string
   published: boolean
   content?: string
+}
+
+export interface CompiledBlogPost extends BlogPost {
+  compiledContent: ReactElement
 }
 
 export function getAllPostSlugs() {
@@ -107,42 +129,48 @@ export async function getRelatedPosts(slug: string, limit: number = 3): Promise<
   return relatedPosts
 }
 
-// Convert markdown to HTML (for non-MDX content)
-export async function markdownToHtml(markdown: string) {
-  const result = await remark()
-    .use(html)
-    .use(gfm)
-    .process(markdown)
-  return result.toString()
-}
+/**
+ * Get blog post with pre-compiled MDX content (server-side)
+ *
+ * This eliminates client-side MDX compilation overhead and creates
+ * architecture consistency with homepage (pure server components).
+ *
+ * Benefits:
+ * - Zero client-side compilation time
+ * - Reduced hydration boundaries (from 4+ to 1)
+ * - No flickering during render
+ * - Faster initial page load
+ *
+ * @param slug - Post slug
+ * @returns Post data with compiled MDX content as React components
+ */
+export async function getCompiledPost(slug: string): Promise<CompiledBlogPost | null> {
+  const post = getPostBySlug(slug)
 
-// Extract H2 headings from markdown content for Table of Contents
-export interface TocSection {
-  id: string;
-  title: string;
-  level: number;
-}
+  if (!post) return null
 
-export function extractTableOfContents(markdown: string): TocSection[] {
-  const headingRegex = /^##\s+(.+)$/gm;
-  const sections: TocSection[] = [];
-  let match;
+  try {
+    // Compile MDX on server (no client-side compilation needed)
+    const { content } = await compileMDX({
+      source: post.content || '',
+      components: components as any,
+      options: {
+        parseFrontmatter: false, // Already parsed by gray-matter
+        mdxOptions: {
+          remarkPlugins: [],
+          rehypePlugins: [],
+          format: 'mdx',
+        },
+      },
+    })
 
-  while ((match = headingRegex.exec(markdown)) !== null) {
-    const title = match[1];
-    const id = title
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
-
-    sections.push({
-      id,
-      title,
-      level: 2,
-    });
+    // Return post with compiled content
+    return {
+      ...post,
+      compiledContent: content,
+    }
+  } catch (error) {
+    console.error(`Error compiling MDX for post ${slug}:`, error)
+    return null
   }
-
-  return sections;
 }

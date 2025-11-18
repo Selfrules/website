@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getAllPostSlugs, getPostBySlug, getRelatedPosts, markdownToHtml } from '@/lib/blog/mdx';
+import { getAllPostSlugs, getPostBySlug, getCompiledPost, getRelatedPosts } from '@/lib/blog/mdx';
 import BlogArticleClient from '@/components/blog/BlogArticleClient';
 import { setRequestLocale } from 'next-intl/server';
 
@@ -80,17 +80,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Enable static rendering for i18n
   setRequestLocale(params.locale);
 
-  const post = getPostBySlug(params.slug);
+  // Get post with pre-compiled MDX content
+  const postData = await getCompiledPost(params.slug);
 
-  if (!post || !post.published) {
+  if (!postData || !postData.published) {
     notFound();
   }
 
+  const { compiledContent, ...post } = postData;
   const relatedPosts = await getRelatedPosts(params.slug, 3);
   const fullUrl = `https://mattiacintura.com/${params.locale}/blog/${params.slug}`;
-
-  // Convert markdown to HTML
-  const contentHtml = await markdownToHtml(post.content || '');
 
   return (
     <Suspense fallback={<BlogArticleLoadingSkeleton />}>
@@ -98,9 +97,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         post={post}
         relatedPosts={relatedPosts}
         locale={params.locale}
-        contentHtml={contentHtml}
         fullUrl={fullUrl}
-      />
+      >
+        {compiledContent}
+      </BlogArticleClient>
     </Suspense>
   );
 }

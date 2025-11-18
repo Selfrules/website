@@ -1,7 +1,7 @@
 'use client';
 
 import { Clock, Calendar } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
+import { NeoBadge } from '@/components/ui/NeoBadge';
 import { getCategoryVariant } from '@/lib/blog/category-utils';
 import type { BlogPost } from '@/lib/blog/mdx';
 import { SimpleBreadcrumbs } from './Breadcrumbs';
@@ -28,9 +28,9 @@ export default function ArticleHeader({ post, locale }: ArticleHeaderProps) {
 
       {/* Meta Info */}
       <div className="flex flex-wrap items-center gap-3 mb-6">
-        <Badge variant={getCategoryVariant(post.category)} size="sm">
+        <NeoBadge variant={getCategoryVariant(post.category)} size="sm">
           {post.category}
-        </Badge>
+        </NeoBadge>
         <div className="flex items-center gap-4 text-brutalist-text-tertiary font-body text-sm">
           <span className="flex items-center gap-1.5">
             <Calendar className="w-4 h-4" />

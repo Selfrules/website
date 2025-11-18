@@ -1,24 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Share2, Twitter, Linkedin, Link2, Clock, ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog/mdx';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { Card, CardContent } from '@/components/ui/Card';
-import { getCategoryVariant } from '@/lib/blog/category-utils';
 import ReadingProgressBar from './ReadingProgressBar';
 import ArticleHeader from './ArticleHeader';
 import ArticleSidebar from './ArticleSidebar';
 import ProseStyles from './ProseStyles';
+import BlogCard from './BlogCard';
 
 interface BlogArticleClientProps {
   post: BlogPost;
   relatedPosts: BlogPost[];
   locale: string;
-  contentHtml: string;
   fullUrl: string;
+  children: ReactNode; // Pre-compiled MDX content
 }
 
 interface TableOfContentItem {
@@ -27,24 +25,19 @@ interface TableOfContentItem {
   level: number;
 }
 
-// Extract headings from HTML content to build ToC
-function extractHeadings(html: string): TableOfContentItem[] {
-  const tempDiv = typeof window !== 'undefined' ? document.createElement('div') : null;
-  if (!tempDiv) return [];
-
-  tempDiv.innerHTML = html;
-  const headings = tempDiv.querySelectorAll('h2, h3');
-
+// Extract headings from rendered DOM (after hydration)
+function extractHeadingsFromDOM(): TableOfContentItem[] {
+  const headings = document.querySelectorAll('article h2, article h3');
   const toc: TableOfContentItem[] = [];
-  headings.forEach((heading, index) => {
-    const level = heading.tagName === 'H2' ? 1 : 2;
-    const title = heading.textContent || '';
-    const id = heading.id || `heading-${index}`;
 
-    // Ensure heading has ID for scroll-to functionality
-    heading.id = id;
-
-    toc.push({ id, title, level });
+  headings.forEach((heading) => {
+    if (heading.id) {
+      toc.push({
+        id: heading.id,
+        title: heading.textContent || '',
+        level: heading.tagName === 'H2' ? 1 : 2,
+      });
+    }
   });
 
   return toc;
@@ -54,61 +47,71 @@ export default function BlogArticleClient({
   post,
   relatedPosts,
   locale,
-  contentHtml,
   fullUrl,
+  children, // Receive pre-compiled content
 }: BlogArticleClientProps) {
   const router = useRouter();
   const [activeSection, setActiveSection] = useState<string>('');
-  const [showShareMenu, setShowShareMenu] = useState(false);
   const [tableOfContents, setTableOfContents] = useState<TableOfContentItem[]>([]);
 
-  // Extract ToC from content on mount
+  // Extract ToC from rendered DOM (after hydration)
   useEffect(() => {
-    const toc = extractHeadings(contentHtml);
-    setTableOfContents(toc);
-  }, [contentHtml]);
+    // Wait for content to be in DOM
+    const timer = setTimeout(() => {
+      const toc = extractHeadingsFromDOM();
+      setTableOfContents(toc);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [children]); // Re-extract if content changes
 
   const shareUrl = fullUrl;
   const shareTitle = post.title;
-
-  const handleShare = (platform: string) => {
-    const urls = {
-      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
-    };
-
-    if (platform === 'copy') {
-      navigator.clipboard.writeText(shareUrl);
-      setShowShareMenu(false);
-    } else if (urls[platform as keyof typeof urls]) {
-      window.open(urls[platform as keyof typeof urls], '_blank', 'width=600,height=400');
-      setShowShareMenu(false);
-    }
-  };
 
   const handleBackToBlog = () => {
     router.push(`/${locale}/blog`);
   };
 
-  // Scroll spy for ToC
+  // Replace scroll spy with IntersectionObserver (eliminates layout thrashing)
   useEffect(() => {
-    const handleScroll = () => {
-      if (tableOfContents.length === 0) return;
+    if (tableOfContents.length === 0) return;
 
-      const sections = tableOfContents.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 150;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(tableOfContents[i].id);
-          break;
-        }
-      }
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '-150px 0px -50% 0px', // Trigger when heading is in top half
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      // Find the topmost intersecting heading
+      let topEntry: IntersectionObserverEntry | null = null;
+      let topPosition = Infinity;
+
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const rect = entry.boundingClientRect;
+          if (rect.top < topPosition) {
+            topPosition = rect.top;
+            topEntry = entry;
+          }
+        }
+      }
+
+      if (topEntry && topEntry.target instanceof HTMLElement) {
+        setActiveSection(topEntry.target.id);
+      }
+    }, observerOptions);
+
+    // Observe all heading elements
+    tableOfContents.forEach(item => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
   }, [tableOfContents]);
 
   const scrollToSection = (id: string) => {
@@ -140,52 +143,6 @@ export default function BlogArticleClient({
               </span>
               <span className="sm:hidden">Blog</span>
             </Button>
-
-            {/* Quick Actions */}
-            <div className="flex items-center gap-2">
-              <Button
-                onClick={() => setShowShareMenu(!showShareMenu)}
-                variant="outline"
-                size="sm"
-                className="relative p-2"
-              >
-                <Share2 className="w-4 h-4" />
-              </Button>
-
-              {showShareMenu && (
-                <Card className="absolute top-16 right-6 p-3 min-w-[180px] z-10">
-                  <CardContent className="p-0 flex flex-col gap-2">
-                    <Button
-                      onClick={() => handleShare('twitter')}
-                      variant="ghost"
-                      size="sm"
-                      className="justify-start"
-                    >
-                      <Twitter className="w-4 h-4 text-electric-blue" />
-                      Twitter
-                    </Button>
-                    <Button
-                      onClick={() => handleShare('linkedin')}
-                      variant="ghost"
-                      size="sm"
-                      className="justify-start"
-                    >
-                      <Linkedin className="w-4 h-4 text-electric-blue" />
-                      LinkedIn
-                    </Button>
-                    <Button
-                      onClick={() => handleShare('copy')}
-                      variant="ghost"
-                      size="sm"
-                      className="justify-start"
-                    >
-                      <Link2 className="w-4 h-4" />
-                      {locale === 'it' ? 'Copia link' : 'Copy link'}
-                    </Button>
-                  </CardContent>
-                </Card>
-              )}
-            </div>
           </div>
         </div>
       </div>
@@ -211,7 +168,9 @@ export default function BlogArticleClient({
 
             {/* Article Content with Enhanced Prose */}
             <ProseStyles>
-              <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+              <article>
+                {children} {/* Render pre-compiled MDX content */}
+              </article>
             </ProseStyles>
 
             {/* Main CTA Section */}
@@ -267,29 +226,11 @@ export default function BlogArticleClient({
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {relatedPosts.map((related) => (
-                    <Card
+                    <BlogCard
                       key={related.slug}
-                      onClick={() => router.push(`/${locale}/blog/${related.slug}`)}
-                      hoverable
-                      clickable
-                      className="group"
-                    >
-                      <CardContent className="p-brutal-md">
-                        <Badge variant={getCategoryVariant(related.category)} size="sm" className="mb-4">
-                          {related.category}
-                        </Badge>
-                        <h4 className="text-body mb-4 text-brutalist-text-primary group-hover:text-electric-blue transition-colors font-heading font-bold">
-                          {related.title}
-                        </h4>
-                        <div className="flex items-center justify-between">
-                          <span className="text-body-small text-brutalist-text-tertiary flex items-center gap-1.5">
-                            <Clock className="w-4 h-4" />
-                            {related.readingTime}
-                          </span>
-                          <ChevronRight className="w-5 h-5 text-electric-blue group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
-                        </div>
-                      </CardContent>
-                    </Card>
+                      post={related}
+                      locale={locale}
+                    />
                   ))}
                 </div>
               </div>
