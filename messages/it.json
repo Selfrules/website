@@ -1,7 +1,6 @@
 {
   "nav": {
     "home": "home",
-    "blog": "pensieri",
     "work": "lavoriamo insieme",
     "about": "parliamo"
   },
@@ -62,7 +61,8 @@
           "3": "API Design",
           "4": "User Research",
           "5": "Business Case",
-          "6": "Analytics"
+          "6": "Analytics",
+          "7": "A/B Testing"
         },
         "philosophy": {
           "intro": "Il mio superpotere oggi? Parlo tre lingue fluentemente:",
@@ -328,6 +328,68 @@
     "meta": {
       "title": "Lezioni dal campo - Mattia Filippo De Luca",
       "description": "13 anni. 8 settori, 50+ implementazioni. Cosa ho imparato costruendo prodotti, guidando team, e sopravvivendo a meeting infiniti."
+    },
+    "hero": {
+      "title": "Le lezioni che nessuno ti dice al primo meeting",
+      "subtitle": "Ho speso €8K su un design che non si poteva sviluppare. Ho cancellato feature richieste dal 60% degli utenti. Ho imparato quando dire \"no\" costa meno che dire \"sì\"."
+    },
+    "search": {
+      "placeholder": "Cerca il casino che stai vivendo ora..."
+    },
+    "filters": {
+      "categoryLabel": "Quale tipo di casino ti serve?",
+      "tagLabel": "Filtra per tag",
+      "activeLabel": "Filtri attivi:",
+      "resetAll": "Resetta tutto"
+    },
+    "pagination": {
+      "previous": "← Altri errori",
+      "next": "Più lezioni →"
+    },
+    "empty": {
+      "title": "Non ho ancora sbagliato in quel modo",
+      "body": "Resetta i filtri oppure chiedimi direttamente. Se è un problema vero, probabilmente diventa il prossimo articolo.",
+      "button": "Resetta filtri"
+    },
+    "cta": {
+      "title": "Questo casino non è in lista?",
+      "body": "Fai la domanda che rimandi da settimane. Se la risposta risparmia errori ad altri PM, diventa un articolo. Altrimenti, ti rispondo comunque.",
+      "button": "Fai quella domanda →"
+    },
+    "card": {
+      "featured": "DA NON PERDERE"
+    },
+    "article": {
+      "toc": {
+        "title": "Indice"
+      },
+      "share": {
+        "title": "Condividi",
+        "copy": "Copia link",
+        "copied": "Copiato!"
+      },
+      "cta": {
+        "consultation": {
+          "title": "Vuoi implementare strategie simili?",
+          "description": "Prenota una sessione personalizzata per discutere il tuo progetto",
+          "button": "Prenota ora →"
+        },
+        "newsletter": {
+          "title": "Ricevi più insight come questo",
+          "description": "Iscriviti alla newsletter per PM pragmatici",
+          "button": "Iscriviti →"
+        },
+        "related": {
+          "title": "Esplora articoli simili",
+          "description": "Altre lezioni dal campo che potrebbero interessarti",
+          "button": "Vedi tutti →"
+        },
+        "download": {
+          "title": "Scarica le risorse",
+          "description": "Template e checklist utilizzabili subito",
+          "button": "Scarica →"
+        }
+      }
     }
   },
   "whatImUpTo": {

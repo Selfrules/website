@@ -6,8 +6,6 @@ import { Copy, Check, Code, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export interface PropDefinition {
   name: string;
@@ -150,20 +148,9 @@ export function ComponentShowcase({
                 </Button>
               </div>
               <div className="border-4 border-brutalist-border rounded-brutal overflow-hidden">
-                <SyntaxHighlighter
-                  language="tsx"
-                  style={oneDark}
-                  customStyle={{
-                    margin: 0,
-                    padding: '1.5rem',
-                    fontSize: '0.875rem',
-                    lineHeight: '1.5',
-                    fontFamily: 'JetBrains Mono, monospace',
-                  }}
-                  showLineNumbers
-                >
-                  {code}
-                </SyntaxHighlighter>
+                <pre className="m-0 p-6 text-sm leading-relaxed font-mono bg-[#282c34] text-[#abb2bf] overflow-x-auto">
+                  <code>{code}</code>
+                </pre>
               </div>
             </div>
           </div>

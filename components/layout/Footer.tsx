@@ -51,7 +51,6 @@ export function Footer({ locale }: FooterProps) {
 
   const quickLinks = [
     { name: nav('home'), href: `/${locale}` },
-    { name: nav('blog'), href: `/${locale}/blog` },
     { name: nav('work'), href: `/${locale}#work-together` },
     { name: nav('about'), href: `/${locale}#journey` },
   ];
