@@ -1,7 +1,6 @@
 import Hero from '@/components/sections/Hero';
 import Journey from '@/components/sections/Journey';
 import WhatImUpTo from '@/components/sections/WhatImUpTo';
-import BlogNew from '@/components/sections/BlogNew';
 import AskMeAnything from '@/components/sections/AskMeAnything';
 import WorkTogether from '@/components/sections/WorkTogether';
 import ChatTrigger from '@/components/chat/ChatTrigger';
@@ -41,9 +40,6 @@ export default function HomePage({ params }: PageProps) {
 
         {/* What I'm Up To Section */}
         <WhatImUpTo locale={locale} />
-
-        {/* Blog Section with Prototipo Design */}
-        <BlogNew locale={locale} />
 
         {/* Work Together Section */}
         <WorkTogether />

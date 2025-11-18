@@ -1,30 +1,10 @@
 import createNextIntlPlugin from 'next-intl/plugin';
-import createMDX from '@next/mdx';
-import rehypePrettyCode from 'rehype-pretty-code';
-import remarkGfm from 'remark-gfm';
 
 const withNextIntl = createNextIntlPlugin();
 
-/** @type {import('rehype-pretty-code').Options} */
-const rehypeOptions = {
-  theme: {
-    dark: 'github-dark',
-    light: 'github-light',
-  },
-  keepBackground: false,
-};
-
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
-  },
-});
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   reactStrictMode: true,
 
 
@@ -82,4 +62,4 @@ const nextConfig = {
   },
 };
 
-export default withNextIntl(withMDX(nextConfig));
+export default withNextIntl(nextConfig);

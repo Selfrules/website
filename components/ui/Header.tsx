@@ -19,7 +19,6 @@ export function Header({ locale }: HeaderProps) {
       home: 'Home',
       journey: 'Percorso',
       now: 'Now',
-      blog: 'Blog',
       work: 'Lavoriamo insieme',
       contact: 'Parliamo',
     },
@@ -27,7 +26,6 @@ export function Header({ locale }: HeaderProps) {
       home: 'Home',
       journey: 'Journey',
       now: 'Now',
-      blog: 'Blog',
       work: 'Work with me',
       contact: 'Let\'s talk',
     },
@@ -44,7 +42,6 @@ export function Header({ locale }: HeaderProps) {
     { href: `/${locale}#home`, label: t.home },
     { href: `/${locale}#journey`, label: t.journey },
     { href: `/${locale}#now`, label: t.now },
-    { href: `/${locale}#blog`, label: t.blog },
     { href: `/${locale}#work`, label: t.work },
     { href: `/${locale}#ask-me`, label: t.contact },
   ];
