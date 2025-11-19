@@ -199,76 +199,184 @@ Correggere inconsistenze visive e di contenuto nelle sezioni Homepage (Hero, Jou
 
 ---
 
+## EPIC-011: Analytics Implementation & Event Tracking
+
+**Priorità**: 🔴 Alta | **Stima**: S (3-5 giorni) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Implementare 100% event tracking coverage su tutti i critical user paths (CTA clicks, chat interactions, calendar bookings, form submissions) per abilitare data-driven decisions.
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| AN-001 | Add CTA Click Tracking (Hero, WorkTogether) | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| AN-002 | Add Chat Interaction Tracking | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| AN-003 | Add Calendar Booking Tracking | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| AN-004 | Add Form Submission Tracking | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| AN-005 | Create EventTypes Constant & Schema Docs | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| AN-006 | Add Outbound Link Tracking | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| AN-007 | Verify Events in Umami Dashboard | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| AN-008 | Add Blog Post View & Engagement Tracking | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
+| AN-009 | Improve Session Persistence | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
+
+**Totale**: 9 stories (7 Small, 2 Medium)
+
+**Links**: [Epic](./epics/11-analytics-implementation/epic.md) | [Stories](./epics/11-analytics-implementation/stories/)
+
+---
+
+## EPIC-013: Build Performance & Dependency Optimization
+
+**Priorità**: 🟠 Alta | **Stima**: S (2-3 giorni) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Ottimizzare build pipeline per 20-30% faster builds, eliminare vulnerabilità di sicurezza, consolidare testing frameworks.
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| BO-001 | Move 12 packages to devDependencies | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| BO-002 | Fix npm security vulnerabilities | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| BO-003 | Remove Jest, consolidate on Vitest | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| BO-004 | Add hash-based caching to design system | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| BO-005 | Add AVIF, webpack cache, Vercel buildCache | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| BO-006 | Remove downlevelIteration, optimize tsconfig | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| BO-007 | Increase Jest workers, parallel builds | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+
+**Totale**: 7 stories (5 Small, 2 Medium)
+
+**Links**: [Epic](./epics/13-build-optimization/epic.md) | [Stories](./epics/13-build-optimization/stories/)
+
+---
+
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 14 stories (+1)
-- 🟠 Alta: 18 stories (+3)
-- 🟡 Media: 14 stories (+3)
-- 🟢 Bassa: 5 stories (+2)
+- 🔴 Critica: 22 stories (+8)
+- 🟠 Alta: 24 stories (+6)
+- 🟡 Media: 18 stories (+4)
+- 🟢 Bassa: 5 stories
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 24 stories (+8)
-- 🟡 Medium (1-2 giorni): 21 stories (+1)
+- 🟢 Small (2-4h): 40 stories (+16)
+- 🟡 Medium (1-2 giorni): 25 stories (+4)
 - 🔴 Large (3-5 giorni): 6 stories
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 33 stories (+9)
+- 🌐 Claude Code Web: 56 stories (+23)
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 10 epiche, 51 user stories
+**Totale**: 13 epiche, 74 user stories (+23)
 
 ---
 
 ## Ordine Consigliato di Esecuzione
 
-### Phase 0: 🚨 PRODUCTION BLOCKERS (Settimane 1-3) - DA COMPLETARE PRIMA DEL DEPLOYMENT
+### Phase 0: 🚨 PRODUCTION BLOCKERS (Settimana 1) - DA COMPLETARE PRIMA DEL DEPLOYMENT
 1. **EPIC-007** Security Vulnerabilities (🔴 CRITICO - blocca produzione)
    - Week 1 (P0 - Critical): SV-001, SV-002, SV-003, SV-004, SV-005
-   - Week 2 (P1 - High): SV-006, SV-007, SV-008, SV-009
-   - Week 3 (P2 - Medium): SV-010
-   - **Target**: 0 vulnerabilità critiche/alte prima del go-live
+   - **Target**: 0 vulnerabilità critiche prima del go-live
+   - **⚠️ CRITICAL**: Firestore rules scadono il 6 dicembre 2025!
 
-### Phase 1: Foundations & Performance (Settimane 4-6)
-2. **EPIC-008** Performance Optimization (🔴 CRITICO per produzione)
-   - Week 4: PF-001, PF-004, PF-008 (Quick wins: +15-20 pts)
-   - Week 5: PF-002, PF-003 (Bundle & Images: +10-15 pts)
-   - Week 6: PF-006, PF-007, PF-005 (Core Web Vitals: +10-15 pts)
+2. **EPIC-013** Build Optimization - P0 Stories (parallelo a EPIC-007)
+   - Week 1: BO-001 (15min), BO-002 (10min) - Fix security vulnerabilities in npm
+   - **Target**: 0 vulnerabilità npm, build più veloce
+
+### Phase 1: Foundations & Quick Wins (Settimana 2)
+3. **EPIC-008** Performance Optimization - Quick Wins (🔴 ALTA priorità)
+   - Week 2: PF-001 (font loading), PF-004 (deduplication), PF-008 (Next.js config)
+   - **Target**: +15-20 punti Lighthouse in 1 giorno
+
+4. **EPIC-011** Analytics Implementation - P0 Stories (🔴 ALTA priorità)
+   - Week 2: AN-001, AN-002, AN-003, AN-004 (1-2 giorni totali)
+   - **Target**: 80% conversion funnel tracked
+
+5. **EPIC-013** Build Optimization - P1 Stories
+   - Week 2: BO-003 (Jest removal), BO-004 (design system cache)
+   - **Target**: -20-40% CI build time
+
+### Phase 2: Performance & Analytics Completion (Settimana 3)
+6. **EPIC-008** Performance Optimization - Medium Priority
+   - Week 3: PF-002 (bundle splitting), PF-003 (image optimization)
+   - **Target**: +10-15 punti Lighthouse
+
+7. **EPIC-011** Analytics Implementation - P1 Stories
+   - Week 3: AN-005 (event schema), AN-006 (outbound tracking), AN-007 (dashboard validation)
+   - **Target**: 95% coverage + data quality verified
+
+8. **EPIC-001** Design System (prerequisito per UI consistency)
+   - Week 3: DS-001, DS-003 (Web)
+
+### Phase 3: Core Web Vitals & UI Fixes (Settimana 4)
+9. **EPIC-008** Performance Optimization - Core Web Vitals
+   - Week 4: PF-006, PF-007, PF-005
    - **Target finale**: Lighthouse 90-95+
 
-3. **EPIC-001** Design System (prerequisito per UI consistency)
-   - Iniziare con DS-001, DS-003 (Web)
-   - Poi DS-002 (Locale per auto-catalogazione)
-   - Poi DS-004, DS-005
+10. **EPIC-010** Homepage & Footer Fixes
+    - Week 4: HF-002, HF-003, HF-004, HF-006 (content accuracy + card borders)
+    - **Target**: Homepage visivamente consistente
 
-### Phase 2: Quick Wins & SEO Foundations (Settimane 3-4)
-2. **EPIC-002** Google Calendar (critico per conversione)
-3. **EPIC-010** Homepage & Footer Fixes (🔴 ALTA priorità - design consistency)
-   - Week 3-4: HF-006 (Card borders - impatta design system), HF-002, HF-003, HF-004 (content accuracy)
-   - Week 4: HF-001, HF-005, HF-007, HF-008, HF-009 (visual polish)
-   - **Target**: Homepage e Footer visivamente consistenti e con informazioni accurate
-4. **EPIC-009** SEO Optimization - TIER 1 Critical (SEO-001, SEO-002, SEO-003)
-   - Sitemap/robots.txt (SEO-001)
-   - JSON-LD schemas (SEO-002)
-   - hreflang fix (SEO-003)
+11. **EPIC-002** Google Calendar
+    - Week 4: GC-002, GC-003 (testing & UX improvements)
 
-### Phase 3: Content & Copy (Settimane 5-6)
-5. **EPIC-009** SEO Optimization - TIER 2 High Impact (SEO-004, SEO-005, SEO-006)
-   - Blog metadata enhancement (SEO-004)
-   - Author credibility (SEO-005)
-   - RSS/JSON feeds (SEO-006)
-6. **EPIC-003** Copy/Contenuto (con agenti)
-7. **EPIC-006** Blog redesign (BL-001, BL-002, BL-003)
+### Phase 4: SEO Foundations (Settimana 5)
+12. **EPIC-009** SEO Optimization - TIER 1 Critical
+    - Week 5: SEO-001 (sitemap/robots), SEO-002 (JSON-LD), SEO-003 (hreflang)
+    - **Target**: SEO crawlability al 100%
 
-### Phase 4: Advanced Features & Optimization (Settimane 7-10)
-8. **EPIC-009** SEO Optimization - TIER 3 Optimization (SEO-007, SEO-008, SEO-009)
-   - Blog API enhancement (SEO-007)
-   - Image SEO (SEO-008)
-   - Lighthouse CI (SEO-009)
-9. **EPIC-004** Chatbot (complesso, richiede tempo)
-10. **EPIC-005** Spotify Player
-11. **BL-004, BL-005** Content generation con AI
+### Phase 5: Content & Copy (Settimane 6-7)
+13. **EPIC-009** SEO Optimization - TIER 2 High Impact
+    - SEO-004 (blog metadata), SEO-005 (author credibility), SEO-006 (RSS/JSON feeds)
+
+14. **EPIC-003** Copy/Contenuto (con agenti copywriter-hybrid)
+    - CC-001, CC-002, CC-006, CC-007
+
+15. **EPIC-006** Blog redesign
+    - BL-001, BL-002, BL-003
+
+### Phase 6: Advanced Features (Settimane 8-10)
+16. **EPIC-004** Chatbot (complesso, richiede tempo)
+17. **EPIC-005** Spotify Player
+18. **EPIC-001** Design System - Advanced (DS-002 auto-catalogazione, DS-004, DS-005)
+19. **EPIC-009** SEO Optimization - TIER 3 (SEO-007, SEO-008, SEO-009)
+20. **BL-004, BL-005** Content generation con AI
+
+---
+
+### 🚨 ROADMAP PRIORITIZZATA (Prima Settimana)
+
+**Giorno 1 (Lunedì)**: CRITICAL Security + Build
+- [ ] SV-001 (Fix authentication) - 4h
+- [ ] BO-001 (Move dependencies) - 15min
+- [ ] BO-002 (Fix npm vulnerabilities) - 10min
+- **Impact**: Security compliance, build più veloce
+
+**Giorno 2 (Martedì)**: CRITICAL Security
+- [ ] SV-002 (Secrets management) - 3h
+- [ ] SV-003 (Fix CORS) - 1h
+- [ ] SV-004 (XSS protection) - 3h
+- **Impact**: Protezione dati utente
+
+**Giorno 3 (Mercoledì)**: Security + Performance Quick Wins
+- [ ] SV-005 (CSP) - 3h
+- [ ] PF-001 (Font loading) - 2h
+- [ ] PF-004 (Component dedup) - 1h
+- **Impact**: Security completa, +10 punti Lighthouse
+
+**Giorno 4 (Giovedì)**: Analytics P0
+- [ ] AN-001 (CTA tracking) - 2h
+- [ ] AN-002 (Chat tracking) - 1h
+- [ ] AN-003 (Calendar tracking) - 1h
+- [ ] AN-004 (Form tracking) - 1h
+- **Impact**: 80% conversion funnel tracked
+
+**Giorno 5 (Venerdì)**: Performance + Analytics Completion
+- [ ] PF-008 (Next.js config) - 1h
+- [ ] AN-005 (Event schema) - 2h
+- [ ] AN-007 (Dashboard validation) - 1h
+- [ ] BO-003 (Jest removal) - 2h
+- **Impact**: Lighthouse +15-20 pts, analytics 95% coverage
 
 ---
 
