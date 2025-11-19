@@ -30,7 +30,7 @@ export default function Hero() {
             className="flex items-center gap-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0 }}
           >
             <Sparkles className="w-5 h-5 text-neon-pink" />
             <NeoBadge color="pink">
@@ -43,7 +43,7 @@ export default function Hero() {
             className="text-hero max-w-[900px] text-brutalist-text-primary relative px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0 }}
           >
             <span className="inline-block relative">
               {t('headline1')}
@@ -65,7 +65,7 @@ export default function Hero() {
             className="max-w-[600px] space-y-4 px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.3, delay: 0 }}
           >
             <p className="text-body-large text-brutalist-text-secondary leading-relaxed">
               {t('subtitle')}{' '}
@@ -81,7 +81,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto sm:justify-center mt-4 px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.3, delay: 0 }}
           >
             <NeoButton variant="primary" size="md" onClick={openCalendar}>
               {t('cta')} <ArrowRight className="w-5 h-5" />
