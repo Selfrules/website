@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { X, Loader2, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAnalytics } from '@/lib/hooks/useAnalytics';
 
 interface GoogleCalendarPopupProps {
   isOpen: boolean;
@@ -14,10 +15,21 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
   const [hasError, setHasError] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const analytics = useAnalytics();
+
+  // Handle close with analytics tracking
+  const handleClose = useCallback(() => {
+    // Track calendar closed
+    analytics.trackCalendarAction('closed');
+    onClose();
+  }, [analytics, onClose]);
 
   // Prevent body scroll when popup is open
   useEffect(() => {
     if (isOpen) {
+      // Track calendar opened
+      analytics.trackCalendarAction('opened');
+
       document.body.style.overflow = 'hidden';
       // Focus close button when modal opens (accessibility)
       setTimeout(() => closeButtonRef.current?.focus(), 100);
@@ -29,18 +41,18 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, [isOpen, analytics]);
 
   // Close on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
-        onClose();
+        handleClose();
       }
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
-  }, [isOpen, onClose]);
+  }, [isOpen, handleClose]);
 
   // Focus trap for accessibility
   useEffect(() => {
@@ -110,7 +122,7 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             data-testid="calendar-popup-overlay"
             aria-label="Chiudi popup"
           />
@@ -128,7 +140,7 @@ export function GoogleCalendarPopup({ isOpen, onClose }: GoogleCalendarPopupProp
             {/* Floating Close Button - Top Right */}
             <button
               ref={closeButtonRef}
-              onClick={onClose}
+              onClick={handleClose}
               className="group absolute top-brutal-md right-brutal-md z-20 p-brutal-sm bg-white border-brutal shadow-brutal rounded-brutal
                          hover:shadow-brutal-hover hover:-translate-x-1 hover:-translate-y-1
                          transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-electric-blue"

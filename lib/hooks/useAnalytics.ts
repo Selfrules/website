@@ -148,7 +148,7 @@ export function useAnalytics() {
    * Track calendar booking action
    */
   const trackCalendarAction = useCallback(async (
-    action: 'opened' | 'slot_selected' | 'booking_completed' | 'booking_cancelled',
+    action: 'opened' | 'closed' | 'slot_selected' | 'booking_completed' | 'booking_cancelled',
     metadata?: Record<string, any>
   ) => {
     track('calendar_action', {
