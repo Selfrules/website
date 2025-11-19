@@ -81,3 +81,6 @@ ui-debug.log
 .eslintcache
 to_copy/
 *.backup
+
+# Local Netlify folder
+.netlify
