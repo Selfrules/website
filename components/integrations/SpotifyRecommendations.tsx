@@ -64,9 +64,11 @@ function PodcastCard({ podcast }: { podcast: FeaturedPodcast }) {
         'bg-dark border-brutal-thin border-black rounded-brutal',
         'shadow-brutal-sm',
         'hover:shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px]',
-        'transition-all group'
+        'transition-all group',
+        'will-change-transform' // Isolate hover from parent
       )}
       whileHover={{ scale: 1.01 }}
+      style={{ isolation: 'isolate' }} // Prevent hover inheritance
     >
       {/* Podcast Cover */}
       <div className="w-14 h-14 flex-shrink-0 rounded border-brutal-thin border-spotify overflow-hidden relative">
@@ -93,7 +95,7 @@ function PodcastCard({ podcast }: { podcast: FeaturedPodcast }) {
       </div>
 
       {/* Podcast Info */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 overflow-hidden">
         <p className="text-white text-sm font-heading font-bold truncate group-hover:text-spotify transition-colors">
           {podcast.name}
         </p>

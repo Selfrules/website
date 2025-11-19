@@ -102,8 +102,9 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
       href={track.spotifyUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm hover:shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] transition-all group"
+      className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm hover:shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] transition-all group will-change-transform"
       whileHover={{ scale: 1.01 }}
+      style={{ isolation: 'isolate' }}
     >
       {/* Album Art - Increased size for better visibility */}
       <div className="w-20 h-20 md:w-24 md:h-24 rounded border-brutal-thin border-spotify flex-shrink-0 overflow-hidden relative">
@@ -122,7 +123,7 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
       </div>
 
       {/* Track Info */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 overflow-hidden">
         {/* Track Name - White, bold, larger */}
         <p className="text-white truncate mb-1 text-base md:text-lg font-heading font-bold group-hover:text-spotify transition-colors">
           {track.name}
