@@ -3,7 +3,6 @@ import Journey from '@/components/sections/Journey';
 import WhatImUpTo from '@/components/sections/WhatImUpTo';
 import AskMeAnything from '@/components/sections/AskMeAnything';
 import WorkTogether from '@/components/sections/WorkTogether';
-import ChatTrigger from '@/components/chat/ChatTrigger';
 import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
@@ -47,9 +46,6 @@ export default function HomePage({ params }: PageProps) {
         {/* Ask Me Anything Section */}
         <AskMeAnything locale={locale} />
       </main>
-
-      {/* AI Chatbot - Floating button bottom-right */}
-      <ChatTrigger />
     </>
   );
 }
