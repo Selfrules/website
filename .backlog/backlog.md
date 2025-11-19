@@ -191,7 +191,7 @@ Lighthouse measurements identificano problemi critici: Google Fonts blocking (79
 |----|--------|----------|------------|----------|-------|
 | PF-001 | Fix Font Loading & Render Blocking | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
 | PF-002 | Bundle Size Reduction & Dynamic Imports | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
-| PF-004 | Remove Component Duplication | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| PF-004 | Remove Component Duplication | 🔴 | 🟢 S | 🌐 Web | ✅ Done (2025-11-19) |
 | PF-003 | Image Optimization & AVIF Support | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
 | PF-006 | Core Web Vitals Improvements | 🟠 | 🔴 L | 🌐 Web | 📋 Todo |
 | PF-007 | ISR & Caching Strategy | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
@@ -234,32 +234,6 @@ Ottimizzare SEO on-page, structured data, crawlability e preparare il sito per i
 **Totale**: 9 stories (4 Small, 4 Medium, 1 Large)
 
 **Links**: [Epic](./epics/09-seo-optimization/epic.md) | [Stories](./epics/09-seo-optimization/stories/)
-
----
-
-## EPIC-010: Homepage & Footer Fixes
-
-**Priorità**: 🔴 Alta | **Stima**: S (3-5 giorni) | **Ambiente**: 🌐 Web
-
-### Obiettivo
-Correggere inconsistenze visive e di contenuto nelle sezioni Homepage (Hero, Journey, Blog) e Footer, garantendo aderenza al design system neobrutalist e accuratezza informazioni professionali.
-
-### User Stories
-| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
-|----|--------|----------|------------|----------|-------|
-| HF-001 | Fix hero button background color | 🟢 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |
-| HF-002 | Update languages in Journey section | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
-| HF-003 | Fix project count consistency | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
-| HF-004 | Update Flowing employment dates | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
-| HF-005 | Add gradient to featured blog card | 🟡 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |
-| HF-006 | Fix Card borders globally | 🔴 | 🟡 M | 🌐 Web | ✅ Done (2025-11-15) |
-| HF-007 | Footer navigation titles yellow color | 🟡 | 🟢 S | 🌐 Web | ✅ Done (2025-11-15) |
-| HF-008 | Footer Italian flag emoji | 🟢 | 🟢 S | 🌐 Web | 📋 Todo |
-| HF-009 | Footer MFDL branding | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
-
-**Totale**: 9 stories (8 Small, 1 Medium)
-
-**Links**: [Epic](./epics/10-homepage-footer-fixes/epic.md) | [Stories](./epics/10-homepage-footer-fixes/stories/)
 
 ---
 
@@ -316,24 +290,25 @@ Ottimizzare build pipeline per 20-30% faster builds, eliminare vulnerabilità di
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 23 stories (+9 from initial)
-- 🟠 Alta: 25 stories (+7 from initial)
-- 🟡 Media: 18 stories (+4 from initial)
-- 🟢 Bassa: 5 stories
+- 🔴 Critica: 22 stories (+8 from initial)
+- 🟠 Alta: 22 stories (+4 from initial)
+- 🟡 Media: 15 stories (+1 from initial)
+- 🟢 Bassa: 3 stories
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 41 stories (+17 from initial)
-- 🟡 Medium (1-2 giorni): 25 stories (+4 from initial)
+- 🟢 Small (2-4h): 33 stories (+9 from initial)
+- 🟡 Medium (1-2 giorni): 24 stories (+3 from initial)
 - 🔴 Large (3-5 giorni): 6 stories
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 57 stories (+24 from initial)
+- 🌐 Claude Code Web: 48 stories (+15 from initial)
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 13 epiche, 75 user stories (+24 from initial)
+**Totale**: 12 epiche, 66 user stories (+15 from initial)
 
 ### Aggiornamenti Recenti (2025-11-19)
+- ❌ EPIC-010 rimossa (9 storie - Homepage & Footer Fixes completate/deprecate)
 - ✅ EPIC-008 aggiunta con 9 storie performance
 - 🆕 PF-009: Remove Legacy JavaScript Polyfills (Lighthouse confirmed)
 - ✏️ PF-001: Aggiornata con dati Lighthouse (790ms fonts, 1,420ms LCP delay)
@@ -383,11 +358,7 @@ Ottimizzare build pipeline per 20-30% faster builds, eliminare vulnerabilità di
    - Week 4: PF-006, PF-007, PF-005
    - **Target finale**: Lighthouse 90-95+
 
-10. **EPIC-010** Homepage & Footer Fixes
-    - Week 4: HF-002, HF-003, HF-004, HF-006 (content accuracy + card borders)
-    - **Target**: Homepage visivamente consistente
-
-11. **EPIC-002** Google Calendar
+10. **EPIC-002** Google Calendar
     - Week 4: GC-002, GC-003 (testing & UX improvements)
 
 ### Phase 4: SEO Foundations (Settimana 5)
