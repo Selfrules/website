@@ -20,7 +20,7 @@
     "test:vitest:ui": "vitest --ui",
     "lighthouse": "lhci autorun",
     "playwright:install": "playwright install --with-deps",
-    "generate:design-system": "npx tsx scripts/generate-design-system.ts"
+    "generate:design-system": "tsx scripts/generate-design-system.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.30.1",
