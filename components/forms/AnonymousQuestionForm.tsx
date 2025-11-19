@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Send, Check, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useAnalytics } from '@/lib/hooks/useAnalytics';
 
 interface AnonymousQuestionFormProps {
   locale: string;
@@ -16,6 +17,7 @@ export function AnonymousQuestionForm({ locale }: AnonymousQuestionFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const analytics = useAnalytics();
 
   const translations = {
     it: {
@@ -46,6 +48,13 @@ export function AnonymousQuestionForm({ locale }: AnonymousQuestionFormProps) {
     if (!formData.question.trim() || formData.question.length < 10) {
       setSubmitStatus('error');
       setErrorMessage(t.required + ' - ' + t.minLength);
+
+      // Track form validation error
+      analytics.trackFormSubmit('anonymous_question', false, {
+        error: 'validation_failed',
+        questionLength: formData.question.length,
+      });
+
       return;
     }
 
@@ -67,6 +76,12 @@ export function AnonymousQuestionForm({ locale }: AnonymousQuestionFormProps) {
         throw new Error('Failed to submit question');
       }
 
+      // Track successful form submission
+      analytics.trackFormSubmit('anonymous_question', true, {
+        questionLength: formData.question.trim().length,
+        locale,
+      });
+
       setSubmitStatus('success');
       setFormData({ question: '' });
 
@@ -76,6 +91,14 @@ export function AnonymousQuestionForm({ locale }: AnonymousQuestionFormProps) {
       }, 5000);
     } catch (error) {
       console.error('Error submitting question:', error);
+
+      // Track form submission error
+      analytics.trackFormSubmit('anonymous_question', false, {
+        error: error instanceof Error ? error.message : 'unknown_error',
+        questionLength: formData.question.trim().length,
+        locale,
+      });
+
       setSubmitStatus('error');
       setErrorMessage(t.errorMessage);
     } finally {
