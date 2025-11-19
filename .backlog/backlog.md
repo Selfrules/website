@@ -191,7 +191,7 @@ Lighthouse measurements identificano problemi critici: Google Fonts blocking (79
 |----|--------|----------|------------|----------|-------|
 | PF-001 | Fix Font Loading & Render Blocking | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
 | PF-002 | Bundle Size Reduction & Dynamic Imports | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
-| PF-004 | Remove Component Duplication | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| PF-004 | Remove Component Duplication | 🔴 | 🟢 S | 🌐 Web | ✅ Done (2025-11-19) |
 | PF-003 | Image Optimization & AVIF Support | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
 | PF-006 | Core Web Vitals Improvements | 🟠 | 🔴 L | 🌐 Web | 📋 Todo |
 | PF-007 | ISR & Caching Strategy | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
