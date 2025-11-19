@@ -266,17 +266,39 @@ while ($true) {
 **Date**: 2025-11-19T20:04:00Z
 **Branch**: `fix/spotify-player-not-working`
 
+### 🚨 Security Incident - Credentials Exposed (Fixed)
+
+**Incident Date**: 2025-11-19T20:30:00Z
+**Status**: ✅ Remediated
+
+⚠️ **Initial commit accidentally exposed Spotify credentials in this documentation file.**
+
+**Exposed Data (Now Removed):**
+- Spotify Client Secret
+- Spotify Refresh Token
+
+**Remediation Actions Taken:**
+1. ✅ Removed all credentials from documentation (replaced with placeholders)
+2. ⚠️ **REQUIRED**: Revoke exposed refresh token from [Spotify Account Settings](https://www.spotify.com/account/apps/)
+3. ⚠️ **REQUIRED**: Regenerate Client Secret in [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+4. ⚠️ **REQUIRED**: Generate new refresh token following `docs/SPOTIFY_TOKEN_REFRESH.md`
+5. ✅ Updated PR with sanitized documentation
+
+**Lesson Learned**: Never include actual credentials in documentation files, even for internal purposes. Always use placeholders like `<your-credential-here>`.
+
+---
+
 ### Actions Taken
 
 1. ✅ **Configured Spotify Developer Dashboard**
    - Added redirect URI: `https://selfrules.org/api/spotify/callback`
-   - Verified Client ID: `6d1cf04ef912495a835150303833b004`
+   - Verified Client ID and Client Secret from Spotify Dashboard
 
 2. ✅ **Generated New Refresh Token**
    - Completed OAuth2 authorization flow
    - Obtained authorization code from callback
    - Exchanged code for refresh token via API
-   - New token: `AQAjA_eeh0lu_bMT2qmETDLL0T9B_UEGtvwQQulzAtA04EtweoKT1N5QGfiMo25p0k3NCUy9ru7cy390a7yCPZPdBrMfQmpeEkJ28iugYU6hUBITBWigtJEsYv4u_WwzjVI`
+   - New token: `<REFRESH_TOKEN_SUCCESSFULLY_GENERATED>`
 
 3. ✅ **Updated Environment Variables**
    - Updated `.env.local` with new refresh token
@@ -294,9 +316,9 @@ while ($true) {
 
 1. Update environment variables in production deployment (Vercel/Netlify/Railway):
    ```env
-   SPOTIFY_CLIENT_ID=6d1cf04ef912495a835150303833b004
-   SPOTIFY_CLIENT_SECRET=2feba3e75bc24ab7809abb398153010a
-   SPOTIFY_REFRESH_TOKEN=AQAjA_eeh0lu_bMT2qmETDLL0T9B_UEGtvwQQulzAtA04EtweoKT1N5QGfiMo25p0k3NCUy9ru7cy390a7yCPZPdBrMfQmpeEkJ28iugYU6hUBITBWigtJEsYv4u_WwzjVI
+   SPOTIFY_CLIENT_ID=<your-spotify-client-id>
+   SPOTIFY_CLIENT_SECRET=<your-spotify-client-secret>
+   SPOTIFY_REFRESH_TOKEN=<your-spotify-refresh-token>
    ```
 
 2. Redeploy application to apply new environment variables
