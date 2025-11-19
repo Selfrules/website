@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { X, Sparkles, Send } from 'lucide-react';
+import { useAnalytics } from '@/lib/hooks/useAnalytics';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -34,6 +35,7 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
   const [inputValue, setInputValue] = useState('');
   const [sessionId, setSessionId] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const analytics = useAnalytics();
 
   // Initialize session ID
   useEffect(() => {
@@ -77,6 +79,9 @@ export default function ChatInterface({ onClose }: ChatInterfaceProps) {
 
   const handleSendMessage = async () => {
     if (!inputValue.trim() || !sessionId) return;
+
+    // Track message sent event
+    analytics.trackChatInteraction('message_sent', { sessionId });
 
     // Add user message
     const userMessage: Message = {

@@ -105,7 +105,14 @@ export default function WorkTogether() {
             <p className="text-body-small md:text-body text-white/90 mb-5">
               {t('cta.description')}
             </p>
-            <NeoButton variant="accent" size="lg" onClick={openCalendar}>
+            <NeoButton
+              variant="accent"
+              size="lg"
+              onClick={() => {
+                analytics.trackCTAClick('work_together', 'work_together', { variant: 'accent' });
+                openCalendar();
+              }}
+            >
               {t('cta.button')}
             </NeoButton>
           </div>
