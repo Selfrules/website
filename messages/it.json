@@ -441,7 +441,7 @@
       "title": "Now playing"
     },
     "recommendations": {
-      "title": "Podcast consigliati",
+      "title": "Quello che ascolto per davvero",
       "empty": {
         "title": "Nessun podcast disponibile",
         "subtitle": "I podcast consigliati appariranno qui a breve"

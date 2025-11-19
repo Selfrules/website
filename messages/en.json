@@ -440,7 +440,7 @@
       "title": "Now playing"
     },
     "recommendations": {
-      "title": "Featured podcasts",
+      "title": "What I actually listen to",
       "empty": {
         "title": "No podcasts available",
         "subtitle": "Featured podcasts will appear here soon"
