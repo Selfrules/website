@@ -15,7 +15,9 @@ export function useNowPlaying() {
         throw new Error('Failed to fetch now playing');
       }
 
-      return response.json();
+      const json = await response.json();
+      // Extract data from API response format: {data: SpotifyTrack, message?: string}
+      return json.data;
     },
     refetchInterval: 30000, // Poll every 30 seconds
     refetchIntervalInBackground: false, // Don't poll when tab is inactive
