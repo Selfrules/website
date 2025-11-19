@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Github, Linkedin, Twitter, Mail, Heart, ExternalLink, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useAnalytics } from '@/lib/hooks/useAnalytics';
 
 interface FooterProps {
   locale: string;
@@ -12,6 +13,12 @@ interface FooterProps {
 export function Footer({ locale }: FooterProps) {
   const t = useTranslations('footer');
   const nav = useTranslations('nav');
+  const analytics = useAnalytics();
+
+  const handleSocialClick = (url: string, platform: string) => {
+    // Track outbound link click
+    analytics.trackOutboundClick(url, 'social', { platform });
+  };
 
   const socialLinks = [
     {
@@ -97,6 +104,7 @@ export function Footer({ locale }: FooterProps) {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => handleSocialClick(social.href, social.name.toLowerCase())}
                     className={`w-10 h-10 md:w-12 md:h-12 bg-surface-dark border-brutal-thin ${social.borderColor} rounded-brutal flex items-center justify-center ${social.hoverBg} hover:-translate-y-1 transition-all group`}
                     aria-label={social.name}
                   >

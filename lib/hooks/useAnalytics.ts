@@ -170,6 +170,21 @@ export function useAnalytics() {
     });
   }, [track]);
 
+  /**
+   * Track outbound link click
+   */
+  const trackOutboundClick = useCallback(async (
+    url: string,
+    location: string,
+    additionalData?: Record<string, any>
+  ) => {
+    track('outbound_click', {
+      url,
+      location,
+      ...additionalData,
+    });
+  }, [track]);
+
   return {
     track,
     trackPageView,
@@ -179,6 +194,7 @@ export function useAnalytics() {
     trackChatInteraction,
     trackCalendarAction,
     trackScrollDepth,
+    trackOutboundClick,
   };
 }
 
