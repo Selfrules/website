@@ -7,6 +7,17 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   reactStrictMode: true,
 
+  // Build caching configuration
+  experimental: {
+    // Enable Turbopack for faster local development (optional)
+    // turbo: {},
+  },
+
+  // Optimize build output
+  generateBuildId: async () => {
+    // Use git commit hash or timestamp for cache busting
+    return process.env.GIT_COMMIT_SHA || `build-${Date.now()}`;
+  },
 
   // Image optimization
   images: {
