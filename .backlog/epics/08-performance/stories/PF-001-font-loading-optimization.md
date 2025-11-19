@@ -10,14 +10,23 @@
 ## User Story
 **Come** utente **Voglio** che i font si carichino istantaneamente senza bloccare il rendering **Così che** la pagina sia utilizzabile immediatamente
 
-## Problema Attuale
+## Problema Attuale (Lighthouse Confirmed)
 I font vengono caricati in modo inefficiente causando:
-- **Font duplicate loading**: Dichiarati 2 volte (`app/fonts.ts` + `app/layout.tsx`)
+- **Font duplicate loading**: Dichiarati 3 volte (`app/fonts.ts` + `app/layout.tsx` + `globals.css`)
 - **Render-blocking CSS**: `@import` in `globals.css` blocca il rendering
 - **Missing preconnect**: Nessun hint DNS/preconnect per Google Fonts CDN
 - **Over-fetching**: Tutti i weights (400, 500, 600, 700) caricati anche se non usati
 
-**Impatto misurato**: ~300-500ms delay in FCP/LCP
+### 🔴 Lighthouse Measurements (Production)
+- **Google Fonts blocking time**: **790ms** (CRITICAL)
+- **Element render delay (LCP)**: **1,420ms** (CRITICAL) - causato da animation delays + font loading
+- **Network dependency chain**: HTML → CSS → Google Fonts CSS → 4 font files (422ms critical path)
+- **Total render blocking**: **600ms savings** possibili
+- **Fonts loaded**: 4 files (89 KiB total from fonts.gstatic.com)
+
+**LCP Element**: `h1.text-hero` (Hero headline)
+**TTFB**: 40ms (ottimo)
+**Render delay**: 1,420ms (PROBLEMA - animazioni + fonts)
 
 ## Criteri di Accettazione
 - [ ] **AC1**: Font caricati una sola volta tramite `next/font`
@@ -119,7 +128,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-### Step 6: Verificare CSS Variables
+### Step 6: Fix Animation Delays (Reduce LCP Render Delay)
+**File**: `components/sections/Hero.tsx`
+
+Lighthouse mostra **1,420ms element render delay** per `h1.text-hero`. Questo è causato da animation delays su Framer Motion.
+
+**CRITICAL FIX**: Rimuovere delays da elementi above-the-fold:
+
+```tsx
+// ❌ BEFORE (BAD - delays rendering)
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }} // REMOVE delay!
+>
+
+// ✅ AFTER (GOOD - immediate render)
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.3, delay: 0 }} // No delay, faster duration
+>
+```
+
+**Elementi da fixare** (Hero.tsx):
+- Badge: `delay: 0.2` → `delay: 0`
+- Headline (h1 LCP element): `delay: 0.4` → `delay: 0`
+- Subtitle: `delay: 0.6` → `delay: 0`
+- CTA button: `delay: 0.8` → `delay: 0`
+
+**Impact**: -800ms to -1,000ms render delay
+
+**Nota**: Mantieni animazioni (good UX), rimuovi solo i **delays** che bloccano il rendering.
+
+### Step 7: Verificare CSS Variables
 **File**: `tailwind.config.ts`
 
 Assicurarsi che le variabili CSS siano mappate:
@@ -170,16 +212,23 @@ npm run dev
 - [ ] Visual regression test passa (font rendering identico)
 
 ## Metriche di Successo
-**Prima**:
-- FCP: ~2.1s
-- Lighthouse Warning: "Eliminate render-blocking resources" (890ms)
-- Font loaded: 6-8 requests
+**Prima** (Lighthouse Misurato):
+- **Google Fonts blocking**: 790ms
+- **Element render delay**: 1,420ms
+- **Total savings possibili**: 600ms
+- Lighthouse Warning: "Eliminate render-blocking resources"
+- Font loaded: 4 requests (89 KiB da Google CDN)
 
 **Dopo** (target):
-- FCP: <1.8s (-300ms)
+- **Google Fonts blocking**: <100ms (-690ms)
+- **Element render delay**: <500ms (-920ms) - combinato con rimozione animation delays
 - Lighthouse: ✅ Nessun warning font
-- Font loaded: 3 requests (uno per famiglia)
-- Lighthouse Performance: +5-8 punti
+- Font loaded: 3 requests self-hosted (next/font optimization)
+- **Lighthouse Performance**: +5-10 punti
+
+**Combined with animation fix** (rimuovere delays su Hero):
+- **Total LCP improvement**: -1.0s a -1.2s
+- **Target LCP**: <2.0s (da 3.4s attuale)
 
 ## Files da Modificare
 - ✏️ `app/fonts.ts` (consolidare)
