@@ -440,10 +440,10 @@
       "title": "Now playing"
     },
     "recommendations": {
-      "title": "Suggestions for you",
+      "title": "Featured podcasts",
       "empty": {
-        "title": "No suggestions available",
-        "subtitle": "Listen to music on Spotify to receive personalized recommendations"
+        "title": "No podcasts available",
+        "subtitle": "Featured podcasts will appear here soon"
       }
     }
   }

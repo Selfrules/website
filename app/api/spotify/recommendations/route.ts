@@ -1,22 +1,22 @@
 /**
- * Spotify Recommendations API Route
- * Returns personalized track recommendations based on listening history
+ * Spotify Featured Podcasts API Route
+ * Returns curated podcast recommendations
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getRecommendations } from '@/lib/api/spotify';
+import { getFeaturedPodcasts } from '@/lib/api/spotify';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
 import { apiRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 
-// Cache the response for 24 hours (daily refresh for fresh recommendations)
-const CACHE_DURATION = 24 * 60 * 60; // 24 hours in seconds
+// Cache the response for 7 days (weekly refresh for curated content)
+const CACHE_DURATION = 7 * 24 * 60 * 60; // 7 days in seconds
 let cachedResponse: any = null;
 let cacheTimestamp: number = 0;
 
 /**
  * GET /api/spotify/recommendations
- * Get personalized music recommendations (top 3)
+ * Get featured podcast shows (curated list)
  */
 export async function GET(req: NextRequest) {
   try {
@@ -31,11 +31,11 @@ export async function GET(req: NextRequest) {
       return addCorsHeaders(response, req);
     }
 
-    // Fetch fresh recommendations from Spotify
-    const recommendations = await getRecommendations(3);
+    // Fetch featured podcasts from Spotify
+    const podcasts = await getFeaturedPodcasts();
 
     // Update cache
-    cachedResponse = formatSuccessResponse(recommendations);
+    cachedResponse = formatSuccessResponse(podcasts);
     cacheTimestamp = now;
 
     const response = NextResponse.json(cachedResponse, { status: 200 });

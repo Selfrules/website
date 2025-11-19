@@ -2,41 +2,41 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Music, ExternalLink } from 'lucide-react';
+import { Headphones, ExternalLink } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
-import type { SpotifyRecommendation } from '@/lib/api/spotify';
+import type { FeaturedPodcast } from '@/lib/api/spotify';
 
-function useRecommendations() {
-  return useQuery<SpotifyRecommendation[]>({
-    queryKey: ['spotify-recommendations'],
+function useFeaturedPodcasts() {
+  return useQuery<FeaturedPodcast[]>({
+    queryKey: ['featured-podcasts'],
     queryFn: async () => {
       const response = await fetch('/api/spotify/recommendations');
 
       if (!response.ok) {
-        throw new Error('Failed to fetch recommendations');
+        throw new Error('Failed to fetch featured podcasts');
       }
 
       const data = await response.json();
       return data.data || [];
     },
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours
-    refetchInterval: false, // No auto-refresh (daily update is fine)
+    staleTime: 7 * 24 * 60 * 60 * 1000, // 7 days
+    refetchInterval: false, // No auto-refresh (weekly update is fine)
     retry: 1,
   });
 }
 
 export function SpotifyRecommendations() {
   const t = useTranslations('whatImUpTo.recommendations');
-  const { data: recommendations, isLoading, isError } = useRecommendations();
+  const { data: podcasts, isLoading, isError } = useFeaturedPodcasts();
 
   if (isLoading) {
-    return <RecommendationsSkeleton />;
+    return <PodcastsSkeleton />;
   }
 
-  if (isError || !recommendations || recommendations.length === 0) {
-    return <RecommendationsEmpty />;
+  if (isError || !podcasts || podcasts.length === 0) {
+    return <PodcastsEmpty />;
   }
 
   return (
@@ -45,18 +45,18 @@ export function SpotifyRecommendations() {
         {t('title')}
       </h4>
       <div className="grid gap-3">
-        {recommendations.map((track, index) => (
-          <RecommendationCard key={`${track.spotifyUrl}-${index}`} track={track} />
+        {podcasts.map((podcast, index) => (
+          <PodcastCard key={`${podcast.spotifyUrl}-${index}`} podcast={podcast} />
         ))}
       </div>
     </div>
   );
 }
 
-function RecommendationCard({ track }: { track: SpotifyRecommendation }) {
+function PodcastCard({ podcast }: { podcast: FeaturedPodcast }) {
   return (
     <motion.a
-      href={track.spotifyUrl}
+      href={podcast.spotifyUrl}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
@@ -68,13 +68,13 @@ function RecommendationCard({ track }: { track: SpotifyRecommendation }) {
       )}
       whileHover={{ scale: 1.01 }}
     >
-      {/* Album Cover */}
+      {/* Podcast Cover */}
       <div className="w-14 h-14 flex-shrink-0 rounded border-brutal-thin border-spotify overflow-hidden relative">
-        {track.albumArt ? (
+        {podcast.image ? (
           <>
             <Image
-              src={track.albumArt}
-              alt={`${track.album} cover`}
+              src={podcast.image}
+              alt={`${podcast.name} cover`}
               width={56}
               height={56}
               className="w-full h-full object-cover"
@@ -87,25 +87,25 @@ function RecommendationCard({ track }: { track: SpotifyRecommendation }) {
           </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-electric-blue to-deep-purple flex items-center justify-center">
-            <Music className="w-6 h-6 text-white" />
+            <Headphones className="w-6 h-6 text-white" />
           </div>
         )}
       </div>
 
-      {/* Track Info */}
+      {/* Podcast Info */}
       <div className="flex-1 min-w-0">
         <p className="text-white text-sm font-heading font-bold truncate group-hover:text-spotify transition-colors">
-          {track.name}
+          {podcast.name}
         </p>
         <p className="text-white/70 text-xs truncate">
-          {track.artist}
+          {podcast.publisher}
         </p>
       </div>
     </motion.a>
   );
 }
 
-function RecommendationsSkeleton() {
+function PodcastsSkeleton() {
   const t = useTranslations('whatImUpTo.recommendations');
 
   return (
@@ -131,7 +131,7 @@ function RecommendationsSkeleton() {
   );
 }
 
-function RecommendationsEmpty() {
+function PodcastsEmpty() {
   const t = useTranslations('whatImUpTo.recommendations');
 
   return (
@@ -141,7 +141,7 @@ function RecommendationsEmpty() {
       </h4>
       <div className="flex items-center gap-3 p-4 bg-dark border-brutal-thin border-black rounded-brutal shadow-brutal-sm">
         <div className="w-12 h-12 rounded border-brutal-thin border-white/30 bg-white/10 flex items-center justify-center flex-shrink-0">
-          <Music className="w-6 h-6 text-white/50" />
+          <Headphones className="w-6 h-6 text-white/50" />
         </div>
         <div className="flex-1">
           <p className="text-white text-sm font-heading font-bold">

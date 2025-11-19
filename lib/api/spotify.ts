@@ -44,6 +44,15 @@ export interface SpotifyRecommendation {
   previewUrl: string | null;
 }
 
+export interface FeaturedPodcast {
+  name: string;
+  publisher: string;
+  description: string;
+  image: string;
+  spotifyUrl: string;
+  totalEpisodes: number;
+}
+
 let cachedAccessToken: string | null = null;
 let tokenExpiresAt: number = 0;
 
@@ -285,6 +294,56 @@ export async function getRecommendations(limit: number = 3): Promise<SpotifyReco
     return recommendations;
   } catch (error) {
     console.error('Spotify recommendations error:', error);
+    return []; // Graceful fallback
+  }
+}
+
+/**
+ * Get featured podcast shows (curated list)
+ */
+export async function getFeaturedPodcasts(): Promise<FeaturedPodcast[]> {
+  // Curated podcast show IDs
+  const FEATURED_SHOW_IDS = [
+    '7iQXmUT7XGuZSzAMjoNWlX', // First podcast
+    '0wjYlCNxLDgFUUjZMaP6Dx', // Second podcast
+    '5lY4b5PGOvMuOYOjOVEcb9', // Third podcast
+  ];
+
+  try {
+    const token = await getAccessToken();
+
+    // Fetch all shows in parallel
+    const showPromises = FEATURED_SHOW_IDS.map(async (showId) => {
+      try {
+        const response = await axios.get(
+          `https://api.spotify.com/v1/shows/${showId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        return {
+          name: response.data.name,
+          publisher: response.data.publisher,
+          description: response.data.description,
+          image: response.data.images?.[0]?.url || '',
+          spotifyUrl: response.data.external_urls.spotify,
+          totalEpisodes: response.data.total_episodes,
+        };
+      } catch (error) {
+        console.error(`Failed to fetch show ${showId}:`, error);
+        return null;
+      }
+    });
+
+    const shows = await Promise.all(showPromises);
+
+    // Filter out any failed fetches
+    return shows.filter((show): show is FeaturedPodcast => show !== null);
+  } catch (error) {
+    console.error('Spotify featured podcasts error:', error);
     return []; // Graceful fallback
   }
 }

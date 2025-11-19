@@ -441,10 +441,10 @@
       "title": "Now playing"
     },
     "recommendations": {
-      "title": "Suggerimenti per te",
+      "title": "Podcast consigliati",
       "empty": {
-        "title": "Nessun suggerimento disponibile",
-        "subtitle": "Ascolta musica su Spotify per ricevere suggerimenti personalizzati"
+        "title": "Nessun podcast disponibile",
+        "subtitle": "I podcast consigliati appariranno qui a breve"
       }
     }
   }
