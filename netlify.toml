@@ -1,0 +1,86 @@
+# Netlify Configuration for Next.js 14 Website
+# Project: Mattia's Portfolio & Blog
+# Domain: https://selfrules.org/
+
+[build]
+  # Base directory (root of the project)
+  base = ""
+
+  # Build command - includes design system generation + Next.js build
+  command = "npm run build"
+
+  # Publish directory - Next.js output
+  publish = ".next"
+
+  # Node version - compatible with Next.js 14
+  environment = { NODE_VERSION = "20" }
+
+# Next.js Runtime Plugin
+# Automatically handles API routes, SSR, ISR, and middleware
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Environment Variables Configuration
+# These will be set in Netlify UI: Site Settings > Environment Variables
+# See NETLIFY_SETUP.md for complete list and instructions
+
+# Build Settings
+[build.environment]
+  # NPM/Node configuration
+  NPM_FLAGS = "--legacy-peer-deps"
+  NODE_OPTIONS = "--max-old-space-size=4096"
+
+# Headers for Security and Performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-DNS-Prefetch-Control = "on"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache optimization for static assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirects Configuration
+# Handle language routing (optional - next-intl should handle this)
+[[redirects]]
+  from = "/"
+  to = "/it"
+  status = 302
+  force = false
+  conditions = { Language = ["it"] }
+
+# Function Configuration for API Routes
+[functions]
+  # Increase timeout for complex operations (default is 10s)
+  # Useful for Claude API calls and Calendar operations
+  included_files = ["firebase-admin-key.json"]
+
+# Deploy Previews Configuration
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run build"
+
+# Production-specific settings
+[context.production]
+  command = "npm run build"
+
+[context.production.environment]
+  NODE_ENV = "production"
