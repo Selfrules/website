@@ -28,16 +28,13 @@ function SpotifySkeleton() {
   return (
     <div className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
       {/* Album Art Placeholder */}
-      <div className="w-16 h-16 bg-gradient-to-br from-electric-blue to-deep-purple rounded border-brutal-thin border-spotify flex-shrink-0 animate-pulse-spotify" />
+      <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-electric-blue to-deep-purple rounded border-brutal-thin border-spotify flex-shrink-0 animate-pulse-spotify" />
 
       {/* Track Info */}
-      <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
-          Loading...
-        </p>
-        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
-          Connecting to Spotify
-        </p>
+      <div className="flex-1 min-w-0 space-y-2">
+        <div className="h-5 md:h-6 bg-white/20 rounded w-3/4 animate-pulse" />
+        <div className="h-4 md:h-5 bg-white/10 rounded w-1/2 animate-pulse" />
+        <div className="h-3 md:h-4 bg-white/5 rounded w-2/3 animate-pulse" />
       </div>
     </div>
   );
@@ -46,15 +43,18 @@ function SpotifySkeleton() {
 function SpotifyError() {
   return (
     <div className="w-full bg-dark border-brutal-thin border-neon-pink rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
-      <div className="w-16 h-16 rounded border-brutal-thin border-neon-pink bg-brutalist-text-secondary flex items-center justify-center flex-shrink-0">
-        <Music className="w-8 h-8 text-neon-pink" />
+      <div className="w-20 h-20 md:w-24 md:h-24 rounded border-brutal-thin border-neon-pink bg-brutalist-text-secondary flex items-center justify-center flex-shrink-0">
+        <Music className="w-8 h-8 md:w-10 md:h-10 text-neon-pink" />
       </div>
-      <div className="flex-1">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
+      <div className="flex-1 min-w-0">
+        <p className="text-white truncate mb-1 text-base md:text-lg font-heading font-bold">
           Failed to load
         </p>
-        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
+        <p className="text-white/80 truncate text-sm md:text-base font-body">
           Couldn&apos;t connect to Spotify
+        </p>
+        <p className="text-white/50 truncate text-xs md:text-sm font-body italic">
+          Try refreshing the page
         </p>
       </div>
     </div>
@@ -65,15 +65,20 @@ function SpotifyOffline() {
   return (
     <div className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm">
       {/* Album Art Placeholder */}
-      <div className="w-16 h-16 bg-gradient-to-br from-electric-blue to-deep-purple rounded border-brutal-thin border-spotify flex-shrink-0 animate-pulse-spotify" />
+      <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-electric-blue to-deep-purple rounded border-brutal-thin border-spotify flex-shrink-0 animate-pulse-spotify flex items-center justify-center">
+        <Music className="w-8 h-8 md:w-10 md:h-10 text-white/30" />
+      </div>
 
       {/* Track Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold">
+        <p className="text-white truncate mb-1 text-base md:text-lg font-heading font-bold">
           Not Playing
         </p>
-        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
+        <p className="text-white/80 truncate text-sm md:text-base font-body">
           Offline
+        </p>
+        <p className="text-white/50 truncate text-xs md:text-sm font-body italic">
+          Start listening on Spotify
         </p>
       </div>
     </div>
@@ -100,13 +105,13 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
       className="w-full bg-dark border-brutal-thin border-black rounded-brutal p-4 flex items-center gap-4 shadow-brutal-sm hover:shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] transition-all group"
       whileHover={{ scale: 1.01 }}
     >
-      {/* Album Art */}
-      <div className="w-16 h-16 rounded border-brutal-thin border-spotify flex-shrink-0 overflow-hidden relative">
+      {/* Album Art - Increased size for better visibility */}
+      <div className="w-20 h-20 md:w-24 md:h-24 rounded border-brutal-thin border-spotify flex-shrink-0 overflow-hidden relative">
         <Image
           src={track.albumArt}
           alt={`${track.album} album cover`}
-          width={64}
-          height={64}
+          width={96}
+          height={96}
           className="w-full h-full object-cover"
           loading="lazy"
         />
@@ -118,11 +123,17 @@ function SpotifyNowPlaying({ track }: SpotifyNowPlayingProps) {
 
       {/* Track Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-white truncate mb-1 text-sm md:text-base font-heading font-bold group-hover:text-spotify transition-colors">
+        {/* Track Name - White, bold, larger */}
+        <p className="text-white truncate mb-1 text-base md:text-lg font-heading font-bold group-hover:text-spotify transition-colors">
           {track.name}
         </p>
-        <p className="text-brutalist-text-tertiary truncate text-xs md:text-sm font-body">
+        {/* Artist - Improved contrast with lighter gray */}
+        <p className="text-white/80 truncate text-sm md:text-base font-body mb-0.5">
           {track.artist}
+        </p>
+        {/* Album - Subtle but visible */}
+        <p className="text-white/50 truncate text-xs md:text-sm font-body italic">
+          {track.album}
         </p>
       </div>
 
