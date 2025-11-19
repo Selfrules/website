@@ -7,10 +7,12 @@ import { NeoBadge } from '@/components/ui/NeoBadge';
 import { NeoButton } from '@/components/ui/NeoButton';
 import { useTranslations } from 'next-intl';
 import { GoogleCalendarPopup, useGoogleCalendar } from '@/components/ui/GoogleCalendarPopup';
+import { useAnalytics } from '@/lib/hooks/useAnalytics';
 
 export default function Hero() {
   const t = useTranslations('hero');
   const { isOpen, openCalendar, closeCalendar } = useGoogleCalendar();
+  const analytics = useAnalytics();
 
   return (
     <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center bg-cream border-b-brutal border-black overflow-hidden">
@@ -83,7 +85,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0 }}
           >
-            <NeoButton variant="primary" size="md" onClick={openCalendar}>
+            <NeoButton
+              variant="primary"
+              size="md"
+              onClick={() => {
+                analytics.trackCTAClick('book_call', 'hero', { variant: 'primary' });
+                openCalendar();
+              }}
+            >
               {t('cta')} <ArrowRight className="w-5 h-5" />
             </NeoButton>
             <a href="#journey" className="w-full sm:w-auto">

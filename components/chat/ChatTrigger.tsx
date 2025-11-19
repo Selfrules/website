@@ -3,21 +3,38 @@
 import { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 import ChatInterface from './ChatInterface';
+import { useAnalytics } from '@/lib/hooks/useAnalytics';
 
 /**
  * ChatTrigger - Floating button matching Figma prototype exactly
  */
 export default function ChatTrigger() {
   const [isOpen, setIsOpen] = useState(false);
+  const analytics = useAnalytics();
+
+  const handleToggle = () => {
+    const newState = !isOpen;
+    if (newState) {
+      analytics.trackChatInteraction('opened');
+    } else {
+      analytics.trackChatInteraction('closed');
+    }
+    setIsOpen(newState);
+  };
+
+  const handleClose = () => {
+    analytics.trackChatInteraction('closed');
+    setIsOpen(false);
+  };
 
   return (
     <>
       {/* Chat Window */}
-      {isOpen && <ChatInterface onClose={() => setIsOpen(false)} />}
+      {isOpen && <ChatInterface onClose={handleClose} />}
 
       {/* Floating Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         className="fixed bottom-6 right-4 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#FF006E] to-[#7209B7] border-4 border-[#000] rounded-full shadow-brutal-lg hover:-translate-y-1 hover:shadow-brutal transition-all z-40 flex items-center justify-center group"
         aria-label="Open chat"
       >
