@@ -65,6 +65,7 @@ Portare il sito a **Lighthouse score 90-95+** con tutti i Core Web Vitals in zon
 - [ ] [PF-003](./stories/PF-003-image-optimization.md) Image Optimization & AVIF Support (🟠 M)
 - [ ] [PF-006](./stories/PF-006-core-web-vitals.md) Core Web Vitals Improvements (🟠 L)
 - [ ] [PF-007](./stories/PF-007-isr-caching.md) ISR & Caching Strategy (🟠 M)
+- [ ] [PF-009](./stories/PF-009-remove-legacy-polyfills.md) Remove Legacy JavaScript Polyfills (🟠 S)
 
 ### Medium Priority (Week 2)
 - [ ] [PF-005](./stories/PF-005-api-optimization.md) API & Data Fetching Optimization (🟡 M)

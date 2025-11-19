@@ -154,7 +154,69 @@ Redesign completo blog basato su prototipo Figma e implementazione sistema AI-as
 Eliminare tutte le vulnerabilità di sicurezza identificate nell'audit prima del deployment in produzione. Implementare best practices OWASP Top 10 e garantire compliance GDPR.
 
 ### Context
-Security audit ha identificato **31 vulnerabilità**: 4 Critical, 8 High, 16 Medium, 3 Low. Blocca il deployment in produzione fino al completamento delle Priority 0 stories.
+Security audit ha identificato **23 vulnerabilità**: 4 Critical, 7 High, 7 Medium, 5 Low. Blocca il deployment in produzione fino al completamento delle Priority 0 stories.
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| SV-001 | Fix authentication & authorization on all endpoints | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
+| SV-002 | Fix secrets management (bcrypt hashing) | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-003 | Remove CORS wildcards | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| SV-004 | Add XSS protection (HTML sanitization) | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-005 | Implement Content Security Policy | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-006 | Update dependencies & security headers | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| SV-007 | Improve rate limiting coverage | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-008 | Improve session management | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-009 | Add CSRF protection | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SV-010 | GDPR compliance implementation | 🟡 | 🔴 L | 🌐 Web | 📋 Todo |
+
+**Totale**: 10 stories (2 Small, 6 Medium, 2 Large)
+
+**Links**: [Epic](./epics/07-security-vulnerabilities/epic.md) | [Stories](./epics/07-security-vulnerabilities/stories/)
+
+---
+
+## EPIC-008: Production Performance Optimization
+
+**Priorità**: 🔴 Alta | **Stima**: M (1-2 settimane) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Portare il sito a Lighthouse score 90-95+ con tutti i Core Web Vitals in zona verde, ottimizzando font loading, bundle size, immagini e rendering.
+
+### Context
+Lighthouse measurements identificano problemi critici: Google Fonts blocking (790ms), Element render delay (1,420ms), Legacy JavaScript polyfills (11 KiB).
+
+### User Stories
+| ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
+|----|--------|----------|------------|----------|-------|
+| PF-001 | Fix Font Loading & Render Blocking | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| PF-002 | Bundle Size Reduction & Dynamic Imports | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
+| PF-004 | Remove Component Duplication | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
+| PF-003 | Image Optimization & AVIF Support | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| PF-006 | Core Web Vitals Improvements | 🟠 | 🔴 L | 🌐 Web | 📋 Todo |
+| PF-007 | ISR & Caching Strategy | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| PF-009 | Remove Legacy JavaScript Polyfills | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
+| PF-005 | API & Data Fetching Optimization | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
+| PF-008 | Next.js Build Configuration | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+
+**Totale**: 9 stories (4 Small, 4 Medium, 2 Large)
+
+**Lighthouse Measurements**:
+- Google Fonts blocking: 790ms → Target: <100ms
+- Element render delay (LCP): 1,420ms → Target: <500ms
+- Legacy JavaScript: 11 KiB → Target: 0 KiB
+- Total savings: 600ms + 11 KiB
+
+**Links**: [Epic](./epics/08-performance/epic.md) | [Stories](./epics/08-performance/stories/)
+
+---
+
+## EPIC-009: SEO Optimization
+
+**Priorità**: 🟠 Alta | **Stima**: M (1-2 settimane) | **Ambiente**: 🌐 Web
+
+### Obiettivo
+Ottimizzare SEO on-page, structured data, crawlability e preparare il sito per indicizzazione ottimale.
 
 ### User Stories
 | ID | Titolo | Priorità | Dimensione | Ambiente | Stato |
@@ -162,12 +224,14 @@ Security audit ha identificato **31 vulnerabilità**: 4 Critical, 8 High, 16 Med
 | SEO-001 | Implementare robots.txt e sitemap.xml dinamico | 🔴 | 🟡 M | 🌐 Web | 📋 Todo |
 | SEO-002 | Implementare JSON-LD Schema (Person, Article, WebSite) | 🔴 | 🔴 L | 🌐 Web | 📋 Todo |
 | SEO-003 | Fix hreflang e canonical URLs per i18n | 🔴 | 🟢 S | 🌐 Web | 📋 Todo |
-| SEO-004 | Enhanceare blog metadata (tags, modifiedTime, featured images) | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
+| SEO-004 | Enhance blog metadata (tags, modifiedTime, featured images) | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
 | SEO-005 | Implementare Author credibility schema e /about page | 🟠 | 🟡 M | 🌐 Web | 📋 Todo |
 | SEO-006 | Implementare RSS/JSON feed per LLM ingestion | 🟠 | 🟢 S | 🌐 Web | 📋 Todo |
-| SEO-007 | Enhanceare Blog API con endpoint per slug singoli | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
+| SEO-007 | Enhance Blog API con endpoint per slug singoli | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
 | SEO-008 | Ottimizzare Image SEO (alt validation, lazy loading) | 🟡 | 🟢 S | 🌐 Web | 📋 Todo |
 | SEO-009 | Setup Lighthouse CI e Web Vitals monitoring | 🟡 | 🟡 M | 🌐 Web | 📋 Todo |
+
+**Totale**: 9 stories (4 Small, 4 Medium, 1 Large)
 
 **Links**: [Epic](./epics/09-seo-optimization/epic.md) | [Stories](./epics/09-seo-optimization/stories/)
 
@@ -252,22 +316,28 @@ Ottimizzare build pipeline per 20-30% faster builds, eliminare vulnerabilità di
 ## Statistiche Backlog
 
 ### Per Priorità
-- 🔴 Critica: 22 stories (+8)
-- 🟠 Alta: 24 stories (+6)
-- 🟡 Media: 18 stories (+4)
+- 🔴 Critica: 23 stories (+9 from initial)
+- 🟠 Alta: 25 stories (+7 from initial)
+- 🟡 Media: 18 stories (+4 from initial)
 - 🟢 Bassa: 5 stories
 
 ### Per Dimensione
-- 🟢 Small (2-4h): 40 stories (+16)
-- 🟡 Medium (1-2 giorni): 25 stories (+4)
+- 🟢 Small (2-4h): 41 stories (+17 from initial)
+- 🟡 Medium (1-2 giorni): 25 stories (+4 from initial)
 - 🔴 Large (3-5 giorni): 6 stories
 
 ### Per Ambiente
-- 🌐 Claude Code Web: 56 stories (+23)
+- 🌐 Claude Code Web: 57 stories (+24 from initial)
 - 💻 Claude Code Locale: 17 stories
 - 🔄 Entrambi: 1 story
 
-**Totale**: 13 epiche, 74 user stories (+23)
+**Totale**: 13 epiche, 75 user stories (+24 from initial)
+
+### Aggiornamenti Recenti (2025-11-19)
+- ✅ EPIC-008 aggiunta con 9 storie performance
+- 🆕 PF-009: Remove Legacy JavaScript Polyfills (Lighthouse confirmed)
+- ✏️ PF-001: Aggiornata con dati Lighthouse (790ms fonts, 1,420ms LCP delay)
+- 🔧 EPIC-007: Corrette storie (SV-001 a SV-010, non SEO)
 
 ---
 
