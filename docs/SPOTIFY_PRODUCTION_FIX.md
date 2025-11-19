@@ -193,12 +193,73 @@ Make sure to update environment variables on **both platforms** if using dual de
 
 ---
 
+## 🐛 BUG FIX - API Response Format Mismatch
+
+**Discovery Date**: 2025-11-19T21:24:00Z
+
+### Root Cause Analysis
+
+After successful deployment with correct environment variables, widget still showed "Nessun podcast recente".
+
+**Investigation**:
+1. ✅ Deployment successful (691e33efb565a394f2ee0abe)
+2. ✅ API endpoint working: `/api/spotify/now-playing` returns valid data
+3. ❌ **Frontend not displaying data**
+
+**API Response Format**:
+```json
+{
+  "data": {
+    "name": "Lonely Moon Lonely Man",
+    "artist": "Braeden Rangno",
+    ...
+  }
+}
+```
+
+**Hook Implementation Bug** (`lib/hooks/useSpotify.ts:18`):
+```typescript
+// BEFORE (Bug)
+return response.json();  // Returns {data: track}
+
+// AFTER (Fixed)
+const json = await response.json();
+return json.data;  // Returns track object
+```
+
+**Why It Happened**:
+- API uses `formatSuccessResponse()` wrapper (lib/utils/errors.ts:158-169)
+- Returns: `{data: T, message?: string, meta?: {...}}`
+- Hook didn't unwrap the `data` field
+- Component received `{data: track}` instead of `track` → No display
+
+### Fix Applied
+
+**Commit**: `1cc244a` - "fix(spotify): extract data field from API response in useNowPlaying hook"
+
+**Changes**:
+- Updated `lib/hooks/useSpotify.ts` to extract `.data` field
+- Added comment explaining API response format
+
+**New Deployment**:
+- Deploy ID: `691e358d94d6f0aba75df72c`
+- Build ID: `691e358d94d6f0aba75df72a`
+- Triggered: 2025-11-19T21:24:29.394Z
+- Status: 🚀 **Building...**
+
+---
+
 ## ✅ DEPLOYMENT STATUS
 
 **Date**: 2025-11-19T21:17:35.719Z
-**Deploy ID**: `691e33efb565a394f2ee0abe`
+**Deploy ID**: `691e33efb565a394f2ee0abe` (Initial - Env vars only)
 **Build ID**: `691e33efb565a394f2ee0abc`
-**Status**: 🚀 **Deployment Triggered**
+**Status**: ✅ **Completed** (but widget not working due to bug above)
+
+**Date**: 2025-11-19T21:24:29.394Z
+**Deploy ID**: `691e358d94d6f0aba75df72c` (Fix - API response parsing)
+**Build ID**: `691e358d94d6f0aba75df72a`
+**Status**: 🚀 **Building with fix...**
 
 ### Environment Variables Status
 
