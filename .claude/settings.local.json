@@ -39,7 +39,15 @@
       "Bash(cmd /c \"rd /s /q app\\[locale]\\blog\")",
       "Bash(del:*)",
       "Bash(cmd /c \"rmdir /s /q \"\"C:\\Users\\Utente\\Desktop\\selfrules\\mattia_web\\app\\[locale]\\blog\\[slug]\"\"\")",
-      "Bash(cmd /c \"rmdir /s /q \"\"C:\\Users\\Utente\\Desktop\\selfrules\\mattia_web\\app\\[locale]\\blog\"\"\")"
+      "Bash(cmd /c \"rmdir /s /q \"\"C:\\Users\\Utente\\Desktop\\selfrules\\mattia_web\\app\\[locale]\\blog\"\"\")",
+      "mcp__netlify__netlify-project-services-reader",
+      "Bash(netlify login:*)",
+      "mcp__netlify__netlify-project-services-updater",
+      "mcp__netlify__netlify-deploy-services-reader",
+      "Bash(netlify deploy:*)",
+      "Bash(netlify link:*)",
+      "Bash(netlify api:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []
