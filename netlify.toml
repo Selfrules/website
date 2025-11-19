@@ -12,8 +12,14 @@
   # Publish directory - Next.js output
   publish = ".next"
 
+# Build Environment Configuration
+[build.environment]
   # Node version - compatible with Next.js 14
-  environment = { NODE_VERSION = "20" }
+  NODE_VERSION = "20"
+
+  # NPM/Node configuration
+  NPM_FLAGS = "--legacy-peer-deps"
+  NODE_OPTIONS = "--max-old-space-size=4096"
 
 # Next.js Runtime Plugin
 # Automatically handles API routes, SSR, ISR, and middleware
@@ -23,12 +29,6 @@
 # Environment Variables Configuration
 # These will be set in Netlify UI: Site Settings > Environment Variables
 # See NETLIFY_SETUP.md for complete list and instructions
-
-# Build Settings
-[build.environment]
-  # NPM/Node configuration
-  NPM_FLAGS = "--legacy-peer-deps"
-  NODE_OPTIONS = "--max-old-space-size=4096"
 
 # Headers for Security and Performance
 [[headers]]
