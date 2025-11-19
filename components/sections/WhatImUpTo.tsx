@@ -4,7 +4,7 @@ import React from 'react';
 import { Briefcase, BookOpen, Music, TrendingUp } from 'lucide-react';
 import { NeoBadge } from '@/components/ui/NeoBadge';
 import { ActivityCard } from '@/components/ui/ActivityCard';
-import { SpotifyWidget, RecentPodcasts } from '@/components/integrations';
+import { SpotifyWidget, SpotifyRecommendations } from '@/components/integrations';
 import { useTranslations } from 'next-intl';
 
 /**
@@ -197,7 +197,7 @@ export default function WhatImUpTo({ locale }: WhatImUpToProps) {
           >
             <div className="space-y-6">
               <SpotifyWidget />
-              <RecentPodcasts />
+              <SpotifyRecommendations />
             </div>
           </ActivityCard>
         </div>

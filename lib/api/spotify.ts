@@ -35,6 +35,15 @@ interface SpotifyPodcast {
   playedAt: string;
 }
 
+export interface SpotifyRecommendation {
+  name: string;
+  artist: string;
+  album: string;
+  albumArt: string;
+  spotifyUrl: string;
+  previewUrl: string | null;
+}
+
 let cachedAccessToken: string | null = null;
 let tokenExpiresAt: number = 0;
 
@@ -205,6 +214,77 @@ export async function getRecentPodcasts(limit: number = 2): Promise<SpotifyPodca
     return podcasts;
   } catch (error) {
     console.error('Spotify recent podcasts error:', error);
+    return []; // Graceful fallback
+  }
+}
+
+/**
+ * Get personalized track recommendations based on recently played music
+ */
+export async function getRecommendations(limit: number = 3): Promise<SpotifyRecommendation[]> {
+  try {
+    const token = await getAccessToken();
+
+    // Get recently played tracks to use as seeds
+    const recentResponse = await axios.get(
+      `https://api.spotify.com/v1/me/player/recently-played?limit=10`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!recentResponse.data?.items?.length) {
+      return [];
+    }
+
+    // Extract seed tracks and artists (Spotify API allows max 5 seeds)
+    const recentTracks = recentResponse.data.items
+      .filter((item: any) => item.track.type === 'track') // Only music tracks
+      .slice(0, 5);
+
+    if (recentTracks.length === 0) {
+      return [];
+    }
+
+    // Use first 2-3 tracks as seeds
+    const seedTracks = recentTracks.slice(0, 2).map((item: any) => item.track.id);
+    // Use first 2-3 artists as seeds
+    const seedArtists = recentTracks.slice(0, 2).map((item: any) => item.track.artists[0]?.id);
+
+    // Get recommendations from Spotify
+    const recommendationsResponse = await axios.get(
+      `https://api.spotify.com/v1/recommendations`,
+      {
+        params: {
+          seed_tracks: seedTracks.join(','),
+          seed_artists: seedArtists.join(','),
+          limit,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!recommendationsResponse.data?.tracks?.length) {
+      return [];
+    }
+
+    // Map recommendations to our format
+    const recommendations = recommendationsResponse.data.tracks.map((track: any) => ({
+      name: track.name,
+      artist: track.artists.map((artist: any) => artist.name).join(', '),
+      album: track.album.name,
+      albumArt: track.album.images[0]?.url || '',
+      spotifyUrl: track.external_urls.spotify,
+      previewUrl: track.preview_url,
+    }));
+
+    return recommendations;
+  } catch (error) {
+    console.error('Spotify recommendations error:', error);
     return []; // Graceful fallback
   }
 }

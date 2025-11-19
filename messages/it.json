@@ -439,6 +439,13 @@
     },
     "spotify": {
       "title": "Now playing"
+    },
+    "recommendations": {
+      "title": "Suggerimenti per te",
+      "empty": {
+        "title": "Nessun suggerimento disponibile",
+        "subtitle": "Ascolta musica su Spotify per ricevere suggerimenti personalizzati"
+      }
     }
   }
 }

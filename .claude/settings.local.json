@@ -47,7 +47,8 @@
       "Bash(netlify deploy:*)",
       "Bash(netlify link:*)",
       "Bash(netlify api:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(netlify api createSiteBuild:*)"
     ],
     "deny": [],
     "ask": []
