@@ -4,7 +4,7 @@
  * Migrated from Prisma to Firestore
  */
 
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import {
   COLLECTIONS,
   ChatConversation,
@@ -16,6 +16,7 @@ import { createChatMessageSchema } from '@/lib/validations/schemas';
 import { chatRateLimiter } from '@/lib/middleware/rate-limit';
 import { RateLimitError } from '@/lib/utils/errors';
 import { Timestamp } from 'firebase-admin/firestore';
+import { addCorsHeaders } from '@/lib/middleware/cors';
 
 // Lazy-load Anthropic SDK to reduce bundle size
 async function getAnthropicClient() {
@@ -178,14 +179,16 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return new Response(stream, {
+    const response = new Response(stream, {
       headers: {
         'Content-Type': 'text/event-stream',
         'Cache-Control': 'no-cache',
         'Connection': 'keep-alive',
-        'Access-Control-Allow-Origin': '*',
       },
     });
+
+    // Use CORS utility with whitelist (no more wildcards)
+    return addCorsHeaders(response, req);
   } catch (error: any) {
     return new Response(
       JSON.stringify({ error: error.message || 'Internal server error' }),
@@ -215,12 +218,15 @@ function categorizeChatConversation(messages: any[]): string {
 }
 
 export async function OPTIONS(req: NextRequest) {
-  return new Response(null, {
+  const response = new Response(null, {
     status: 204,
     headers: {
-      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Max-Age': '86400',
     },
   });
+
+  // Use CORS utility (no more wildcards)
+  return addCorsHeaders(response, req);
 }

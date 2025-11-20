@@ -86,5 +86,9 @@
     "lighthouse": "^13.0.1",
     "react-docgen-typescript": "^2.4.0",
     "vitest": "^3.2.4"
+  },
+  "overrides": {
+    "glob": "^11.0.0",
+    "tmp": "^0.2.3"
   }
 }
