@@ -1,0 +1,45 @@
+{
+  "name": "Mattia Filippo De Luca - Product Manager & Developer",
+  "short_name": "Mattia De Luca",
+  "description": "Product Manager che ha fallito come designer e developer, ora costruisce prodotti che risolvono problemi reali.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFCF2",
+  "theme_color": "#0D7EFF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple touch icon"
+    }
+  ],
+  "categories": ["business", "productivity", "portfolio"],
+  "lang": "it-IT",
+  "dir": "ltr",
+  "screenshots": []
+}

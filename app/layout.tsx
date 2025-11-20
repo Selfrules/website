@@ -14,6 +14,23 @@ export const metadata: Metadata = {
   keywords: ['Product Manager', 'Product Design', 'Full-stack Developer', 'UX Design', 'Product Strategy'],
   authors: [{ name: 'Mattia Filippo De Luca' }],
   creator: 'Mattia Filippo De Luca',
+  manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-icon', sizes: '180x180', type: 'image/png' }],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/icon.svg',
+        color: '#0D7EFF',
+      },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'it_IT',
@@ -26,6 +43,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  themeColor: '#0D7EFF',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Mattia De Luca',
   },
 };
 
