@@ -54,6 +54,11 @@ export function SpotifyRecommendations() {
 }
 
 function PodcastCard({ podcast }: { podcast: FeaturedPodcast }) {
+  // Truncate "The Diary Of A CEO with Steven Bartlett" to "The Diary Of A CEO"
+  const displayName = podcast.name === 'The Diary Of A CEO with Steven Bartlett'
+    ? 'The Diary Of A CEO'
+    : podcast.name;
+
   return (
     <motion.a
       href={podcast.spotifyUrl}
@@ -76,7 +81,7 @@ function PodcastCard({ podcast }: { podcast: FeaturedPodcast }) {
           <>
             <Image
               src={podcast.image}
-              alt={`${podcast.name} cover`}
+              alt={`${displayName} cover`}
               width={56}
               height={56}
               className="w-full h-full object-cover"
@@ -97,7 +102,7 @@ function PodcastCard({ podcast }: { podcast: FeaturedPodcast }) {
       {/* Podcast Info */}
       <div className="flex-1 min-w-0 overflow-hidden">
         <p className="text-white text-sm font-heading font-bold truncate group-hover:text-spotify transition-colors">
-          {podcast.name}
+          {displayName}
         </p>
         <p className="text-white/70 text-xs truncate">
           {podcast.publisher}
