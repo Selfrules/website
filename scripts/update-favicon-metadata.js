@@ -58,9 +58,10 @@ try {
   content = content.replace(creatorRegex, `$1${FAVICON_METADATA}\n`);
 
   // Insert PWA metadata before closing brace of metadata object
-  const robotsRegex = /(robots: \{[\s\S]*?\},\n)(\};)/;
+  const robotsRegex = /(robots: \{[\s\S]*?\},\r?\n)(\};)/;
   if (!robotsRegex.test(content)) {
     console.error('❌ Could not find "robots" field in metadata object');
+    console.error('Content around end:', content.substring(content.indexOf('robots'), content.indexOf('robots') + 150));
     process.exit(1);
   }
 
