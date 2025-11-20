@@ -28,8 +28,9 @@ export const config = {
   // - api routes
   // - static files
   // - image optimization files
-  // - favicon.ico
+  // - favicon files (icon.svg, icon, apple-icon, manifest.json)
+  // - SEO files (favicon.ico, robots.txt, sitemap.xml)
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)',
+    '/((?!api|_next/static|_next/image|icon|apple-icon|manifest.json|favicon.ico|robots.txt|sitemap.xml).*)',
   ],
 };
