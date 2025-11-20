@@ -302,6 +302,11 @@ export async function getRecommendations(limit: number = 3): Promise<SpotifyReco
  * Get featured podcast shows (curated list)
  */
 export async function getFeaturedPodcasts(): Promise<FeaturedPodcast[]> {
+  // Name overrides for specific podcasts (for cleaner display)
+  const PODCAST_NAME_OVERRIDES: Record<string, string> = {
+    '7iQXmUT7XGuZSzAMjoNWlX': 'The Diary of a CEO',
+  };
+
   // Curated podcast show IDs
   const FEATURED_SHOW_IDS = [
     '7iQXmUT7XGuZSzAMjoNWlX', // First podcast
@@ -325,7 +330,7 @@ export async function getFeaturedPodcasts(): Promise<FeaturedPodcast[]> {
         );
 
         return {
-          name: response.data.name,
+          name: PODCAST_NAME_OVERRIDES[showId] || response.data.name,
           publisher: response.data.publisher,
           description: response.data.description,
           image: response.data.images?.[0]?.url || '',
