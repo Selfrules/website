@@ -208,6 +208,12 @@
 }
 
 /* Text color utilities for grays */
+.text-brutalist-text-primary,
+.text-\[\#0A0A0A\] {
+  color: #0A0A0A;
+}
+
+.text-brutalist-text-secondary,
 .text-secondary,
 .text-\[\#2D2D2D\] {
   color: #2D2D2D;
@@ -216,10 +222,6 @@
 .text-tertiary,
 .text-\[\#6B7280\] {
   color: #6B7280;
-}
-
-.text-\[\#0A0A0A\] {
-  color: #0A0A0A;
 }
 
 /* Link color utilities - override font-bold default */
