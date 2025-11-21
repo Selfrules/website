@@ -210,13 +210,13 @@
 /* Text color utilities for grays */
 .text-brutalist-text-primary,
 .text-\[\#0A0A0A\] {
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 .text-brutalist-text-secondary,
 .text-secondary,
 .text-\[\#2D2D2D\] {
-  color: #2D2D2D !important;
+  color: #2D2D2D;
 }
 
 .text-tertiary,
@@ -291,7 +291,7 @@
   line-height: 1.3;
   font-weight: 600;
   font-family: 'Space Grotesk', sans-serif;
-  color: #0A0A0A !important;
+  color: #0A0A0A;
 }
 
 .text-body-large {
