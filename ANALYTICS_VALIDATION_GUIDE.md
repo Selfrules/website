@@ -166,7 +166,7 @@ This guide documents how to verify that all analytics events are flowing correct
 3. Verify event:
    ```json
    {
-     "url": "https://www.linkedin.com/in/mattiafilippodeluca",
+     "url": "https://www.linkedin.com/in/selfrules/",
      "location": "social",
      "platform": "linkedin"
    }
