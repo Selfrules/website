@@ -23,7 +23,7 @@ export function Footer({ locale }: FooterProps) {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/mattiafilippodeluca',
+      href: 'https://www.linkedin.com/in/selfrules/',
       icon: Linkedin,
       borderColor: 'border-electric-blue',
       iconColor: 'text-electric-blue',
@@ -31,7 +31,7 @@ export function Footer({ locale }: FooterProps) {
     },
     {
       name: 'Twitter',
-      href: 'https://twitter.com/mattiafdl',
+      href: 'https://x.com/Matt_Selfrules',
       icon: Twitter,
       borderColor: 'border-neon-pink',
       iconColor: 'text-neon-pink',
@@ -39,7 +39,7 @@ export function Footer({ locale }: FooterProps) {
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/mattiafilippodeluca',
+      href: 'https://github.com/Selfrules',
       icon: Github,
       borderColor: 'border-deep-purple',
       iconColor: 'text-deep-purple',
@@ -47,7 +47,7 @@ export function Footer({ locale }: FooterProps) {
     },
     {
       name: 'Email',
-      href: 'mailto:hello@mattiafdl.com',
+      href: 'mailto:info@selfrules.org',
       icon: Mail,
       borderColor: 'border-cyber-yellow',
       iconColor: 'text-cyber-yellow',

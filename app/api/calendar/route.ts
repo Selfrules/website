@@ -14,9 +14,8 @@ import {
   countDocumentsAdmin,
   getDocumentAdmin,
 } from '@/lib/firebase';
-import { createBookingSchema, getBookingsSchema, updateBookingSchema } from '@/lib/validations/schemas';
+import { createBookingSchema, getBookingsSchema, updateBookingSchema, bookingRateLimiter, apiRateLimiter } from '@/lib/security';
 import { handleApiError, formatSuccessResponse, NotFoundError, ConflictError } from '@/lib/utils/errors';
-import { bookingRateLimiter, apiRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { Timestamp } from 'firebase-admin/firestore';
 import { nanoid } from 'nanoid';

@@ -20,9 +20,8 @@ import {
   updateDocumentAdmin,
   countDocumentsAdmin
 } from '@/lib/firebase';
-import { createChatMessageSchema, getChatConversationsSchema } from '@/lib/validations/schemas';
+import { createChatMessageSchema, getChatConversationsSchema, chatRateLimiter } from '@/lib/security';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
-import { chatRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { Timestamp } from 'firebase-admin/firestore';
 

@@ -12,7 +12,7 @@ import {
   countDocumentsAdmin,
 } from '@/lib/firebase';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
-import { apiRateLimiter } from '@/lib/middleware/rate-limit';
+import { apiRateLimiter } from '@/lib/security';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { Timestamp } from 'firebase-admin/firestore';
 

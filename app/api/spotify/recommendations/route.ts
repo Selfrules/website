@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getFeaturedPodcasts } from '@/lib/api/spotify';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
-import { apiRateLimiter } from '@/lib/middleware/rate-limit';
+import { apiRateLimiter } from '@/lib/security';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 
 // Cache the response for 7 days (weekly refresh for curated content)

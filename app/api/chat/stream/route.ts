@@ -12,8 +12,7 @@ import {
   createDocumentAdmin,
   updateDocumentAdmin,
 } from '@/lib/firebase';
-import { createChatMessageSchema } from '@/lib/validations/schemas';
-import { chatRateLimiter } from '@/lib/middleware/rate-limit';
+import { createChatMessageSchema, chatRateLimiter } from '@/lib/security';
 import { RateLimitError } from '@/lib/utils/errors';
 import { Timestamp } from 'firebase-admin/firestore';
 
