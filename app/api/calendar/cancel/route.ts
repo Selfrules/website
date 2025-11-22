@@ -13,7 +13,7 @@ import {
   updateDocumentAdmin,
 } from '@/lib/firebase';
 import { handleApiError, formatSuccessResponse, NotFoundError, ValidationError } from '@/lib/utils/errors';
-import { apiRateLimiter } from '@/lib/middleware/rate-limit';
+import { apiRateLimiter } from '@/lib/security';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { generateCancellationToken, verifyCancellationToken } from '@/lib/utils/token';
 import { Timestamp } from 'firebase-admin/firestore';

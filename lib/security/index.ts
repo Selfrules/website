@@ -7,12 +7,16 @@
 export * from './types';
 
 // Middleware
-// TODO: Create middleware/rateLimit module
-// export {
-//   rateLimitMiddleware,
-//   checkRateLimit,
-//   RATE_LIMITS,
-// } from './middleware/rateLimit';
+export {
+  rateLimiters,
+  checkRateLimit,
+  withRateLimit,
+  chatRateLimiter,
+  analyticsRateLimiter,
+  calendarRateLimiter,
+  bookingRateLimiter,
+  apiRateLimiter,
+} from './middleware/rateLimit';
 
 // Configuration
 export {
@@ -42,29 +46,36 @@ export {
 } from './config/env';
 
 // Validation
-// TODO: Create validation/schemas module
-// export {
-//   // Schemas
-//   blogPostCreateSchema,
-//   blogPostUpdateSchema,
-//   blogPostQuerySchema,
-//   chatMessageSchema,
-//   chatFeedbackSchema,
-//   calendarBookingSchema,
-//   calendarCancelSchema,
-//   calendarRescheduleSchema,
-//   analyticsEventSchema,
-//   analyticsPageViewSchema,
-//   adminLoginSchema,
-//   adminContentGenerationSchema,
-//   contactFormSchema,
-//   newsletterSubscribeSchema,
-//   newsletterUnsubscribeSchema,
-//   // Helpers
-//   validate,
-//   validateSafe,
-//   formatValidationErrors,
-// } from './validation/schemas';
+export {
+  // Schemas
+  createBlogPostSchema,
+  updateBlogPostSchema,
+  getBlogPostsSchema,
+  createChatMessageSchema,
+  getChatConversationsSchema,
+  createBookingSchema,
+  updateBookingSchema,
+  getBookingsSchema,
+  createAnalyticsEventSchema,
+  getAnalyticsEventsSchema,
+  createUserSchema,
+  updateUserSchema,
+  subscribeNewsletterSchema,
+  // Types
+  type CreateBlogPost,
+  type UpdateBlogPost,
+  type GetBlogPosts,
+  type CreateChatMessage,
+  type GetChatConversations,
+  type CreateBooking,
+  type UpdateBooking,
+  type GetBookings,
+  type CreateAnalyticsEvent,
+  type GetAnalyticsEvents,
+  type CreateUser,
+  type UpdateUser,
+  type SubscribeNewsletter,
+} from './validation/schemas';
 
 // Sanitization
 // Temporarily disabled - requires isomorphic-dompurify package

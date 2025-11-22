@@ -12,9 +12,8 @@ import {
   queryDocumentsAdmin,
   createDocumentAdmin,
 } from '@/lib/firebase';
-import { createBookingSchema } from '@/lib/validations/schemas';
+import { createBookingSchema, bookingRateLimiter } from '@/lib/security';
 import { handleApiError, formatSuccessResponse, ConflictError } from '@/lib/utils/errors';
-import { bookingRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { addMinutes, parseISO } from 'date-fns';
 import { Timestamp } from 'firebase-admin/firestore';
