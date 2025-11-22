@@ -7,11 +7,11 @@ import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
 export const metadata: Metadata = {
-  title: 'Mattia De Luca - PM che parla designer e scrive codice',
-  description: 'Ho fallito come designer. Poi come developer. Ora sono il PM che vuoi quando nessuno capisce cosa il team tecnico sta dicendo.',
+  title: 'Mattia De Luca - Il PM che chiami quando tutti dicono "sì" ma nessuno sa cosa fare',
+  description: 'Perché dopo 13 anni ho capito: il problema non è mai quello che ti dicono al primo meeting. Ho fallito come designer e developer. Ora traduco tra business, design e tech quando il tuo team parla tre lingue diverse.',
   openGraph: {
-    title: 'Mattia De Luca - PM che parla designer e scrive codice',
-    description: '3 anni come designer. 5 come developer. 12 come PM. Traduco tra business, design e tech senza perdere pezzi per strada.',
+    title: 'Ho fallito come designer. Poi come developer. Ora sono il PM che traduce tra i due.',
+    description: '4 anni design. 4 anni dev. 5 anni PM. Quando designer vuole user journey, developer dice technical debt, e business vuole fatturato → io traduco. Senza perdere pezzi.',
     type: 'website',
   },
 };
