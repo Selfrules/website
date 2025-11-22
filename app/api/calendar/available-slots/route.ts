@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAvailableSlots } from '@/lib/api/google-calendar';
 import { handleApiError, formatSuccessResponse, ValidationError } from '@/lib/utils/errors';
-import { apiRateLimiter } from '@/lib/middleware/rate-limit';
+import { apiRateLimiter } from '@/lib/security';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { addDays, parseISO, isValid } from 'date-fns';
 import { z } from 'zod';

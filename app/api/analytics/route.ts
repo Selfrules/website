@@ -13,9 +13,8 @@ import {
   createDocumentAdmin,
   countDocumentsAdmin,
 } from '@/lib/firebase';
-import { createAnalyticsEventSchema, getAnalyticsEventsSchema } from '@/lib/validations/schemas';
+import { createAnalyticsEventSchema, getAnalyticsEventsSchema, analyticsRateLimiter, apiRateLimiter } from '@/lib/security';
 import { handleApiError, formatSuccessResponse } from '@/lib/utils/errors';
-import { analyticsRateLimiter, apiRateLimiter } from '@/lib/middleware/rate-limit';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { Timestamp } from 'firebase-admin/firestore';
 

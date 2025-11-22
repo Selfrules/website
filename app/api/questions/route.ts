@@ -12,7 +12,7 @@ import {
   createDocumentAdmin,
 } from '@/lib/firebase';
 import { handleApiError, formatSuccessResponse, ValidationError } from '@/lib/utils/errors';
-import { apiRateLimiter } from '@/lib/middleware/rate-limit';
+import { apiRateLimiter } from '@/lib/security';
 import { addCorsHeaders } from '@/lib/middleware/cors';
 import { Timestamp } from 'firebase-admin/firestore';
 import { z } from 'zod';
