@@ -49,7 +49,11 @@
       "Bash(netlify api:*)",
       "Bash(curl:*)",
       "Bash(netlify api createSiteBuild:*)",
-      "mcp__netlify__netlify-deploy-services-updater"
+      "mcp__netlify__netlify-deploy-services-updater",
+      "Bash($null)",
+      "Bash(git merge:*)",
+      "Bash(git pull:*)",
+      "Bash(git branch:*)"
     ],
     "deny": [],
     "ask": []
