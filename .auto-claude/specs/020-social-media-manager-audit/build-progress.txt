@@ -331,13 +331,57 @@ Applied the 5-phase TRIBE Community Model with specific, actionable tactics for 
 
 ---
 
+#### subtask-3-4: Define REACH metrics and KPIs per platform ✅
+- **Status**: COMPLETED
+- **Date**: 2026-01-26
+- **Deliverable**: REACH_KPI_FRAMEWORK.md
+
+**Summary of Findings**:
+Applied the REACH Metrics Model with all 5 metrics defined for LinkedIn (primary) and Twitter/X (secondary):
+
+**REACH Framework Overview:**
+| Metric | Definition | Business Value |
+|--------|------------|----------------|
+| **R**each | Unique accounts who saw content | Awareness, top-of-funnel |
+| **E**ngagement | Comments, meaningful interactions (NOT likes) | Content resonance |
+| **A**mplification | Shares, reposts, recommendations | Organic distribution |
+| **C**onversion | Profile visits, website clicks, bookings | Action-taking |
+| **H**olding | Dwell time, return visitors, retention | Content quality |
+
+**Platform-Specific Targets (Month 3 Benchmarks):**
+| Metric | LinkedIn Target | Twitter/X Target |
+|--------|-----------------|------------------|
+| Impressions/post | 1,500-3,000 | 500-1,500 |
+| Comments/post | 8-15 | 3-5 |
+| Engagement Rate | 4-6% | 2-4% |
+| Reposts/post | 3-8 | 2-5 |
+| Website clicks/month | 50-100 | 15-30 |
+| DM inquiries/month | 5-10 | N/A |
+| Bookings/month | 1-3 | N/A |
+| Return commenters | 20-40 | N/A |
+
+**Key Features:**
+- Comment Quality Scoring Rubric (1-5 scale for engagement depth)
+- Conversion Funnel Mapping (0.03% impression-to-booking target)
+- Return Commenter Tracking System
+- UTM Parameter Standards for attribution
+- Consolidated KPI Dashboard template
+- Anti-Vanity Metrics commitment (community quality > follower count)
+
+**Measurement Cadence:**
+- Weekly: Post metrics, return commenter updates
+- Monthly: Conversion ratios, engagement trends
+- Quarterly: Deep funnel analysis, demographic quality review
+
+---
+
 ## Phase Summary
 
 | Phase | Status | Subtasks Complete |
 |-------|--------|-------------------|
 | 1. Discovery & Data Collection | ✅ COMPLETE | 3/3 |
 | 2. Platform Scoring & Analysis | ✅ COMPLETE | 3/3 |
-| 3. Strategy Development | 🔄 IN PROGRESS | 3/4 |
+| 3. Strategy Development | ✅ COMPLETE | 4/4 |
 | 4. 30-Day Content Calendar | NOT STARTED | 0/3 |
 | 5. Final Deliverable Assembly | NOT STARTED | 0/3 |
 | 6. Quality Assurance | NOT STARTED | 0/1 |
@@ -354,3 +398,4 @@ Applied the 5-phase TRIBE Community Model with specific, actionable tactics for 
 7. `CONTENT_MIX_STRATEGY.md` - 4-1-1 rule content mix with 12 content pillars for value/engagement/promotional posts
 8. `POSTING_CADENCE_RECOMMENDATIONS.md` - Sustainable posting cadence with time estimates for solo practitioner
 9. `TRIBE_COMMUNITY_STRATEGY.md` - TRIBE Community Model application with 30 actionable tactics across 5 phases
+10. `REACH_KPI_FRAMEWORK.md` - REACH Metrics Model with all 5 KPIs per platform, targets, and measurement methods
