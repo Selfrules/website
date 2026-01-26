@@ -1,0 +1,25 @@
+{
+  "active": true,
+  "spec": "011-front-end-developer-audit",
+  "state": "building",
+  "subtasks": {
+    "completed": 13,
+    "total": 31,
+    "in_progress": 1,
+    "failed": 0
+  },
+  "phase": {
+    "current": "Technical SEO Audit",
+    "id": null,
+    "total": 5
+  },
+  "workers": {
+    "active": 0,
+    "max": 1
+  },
+  "session": {
+    "number": 1953,
+    "started_at": "2026-01-26T11:10:44.482752"
+  },
+  "last_update": "2026-01-26T17:01:41.077691"
+}
