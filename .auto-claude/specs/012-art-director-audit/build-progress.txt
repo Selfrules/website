@@ -1,6 +1,6 @@
 # Art Director Brand Audit - Build Progress
 
-## Current Status: 7/17 subtasks (41%)
+## Current Status: 8/17 subtasks (47%)
 
 ### Completed Subtasks
 
@@ -86,10 +86,29 @@
     7. "Accessible" vs "Trend-Forward" - Neobrutalism appeals to designers, not stated audience (severity 6/10)
   - Central paradox: verbal brand bridges gaps, visual brand creates gaps
   - Strategic options: lean into contradiction, bring visual into alignment, or reframe verbal
+- **Commit:** c7c5098
+
+#### 3.1 - Competitive Benchmarking Research ✅
+- **Date:** 2026-01-26
+- **Deliverable:** output/08-competitive-benchmarking.md
+- **Key Findings:**
+  - **5 Benchmarks Analyzed:** Josh W. Comeau, Tobias van Schneider, Sara Soueidan, Lynn Fisher, Dan Mall
+  - **selfrules.org Visual Identity Score:** 6.2/10 (vs benchmark average 8.7/10)
+  - **Key Success Patterns Identified:**
+    1. Signature Visual Element - All 5 have ONE memorable element
+    2. Human Presence - 4/5 show the person
+    3. Social Proof Integration - Visible testimonials, awards, metrics
+    4. Values Display - Explicit commitment to beliefs
+  - **Critical Gaps for selfrules.org:**
+    - No signature visual element (Tobias has red banner, Josh has waves)
+    - No human face despite vulnerable failure story
+    - No social proof (vs Dan Mall's "66,800+ subscribers")
+    - Visual-verbal mismatch (expertise in words, barriers in design)
+  - **Strategic Opportunity:** Move from "low visual boldness" toward Josh Comeau territory (approachable expertise with memorability)
 - **Commit:** (pending)
 
 ### Pending Subtasks
-- 3.1-3.3: Competitive Benchmarking
+- 3.2-3.3: Competitive Benchmarking (continued)
 - 4.1-4.3: Creative Direction & Concepts
 - 5.1-5.4: Report Compilation & Recommendations
 
@@ -98,7 +117,7 @@
 |-------|--------|----------|
 | Site Analysis & First Impressions | ✅ Complete | 3/3 |
 | Systematic Visual Audit | ✅ Complete | 4/4 |
-| Competitive Benchmarking | Pending | 0/3 |
+| Competitive Benchmarking | In Progress | 1/3 |
 | Creative Direction & Concepts | Pending | 0/3 |
 | Report Compilation | Pending | 0/4 |
 
@@ -115,3 +134,9 @@
 - Key insight: "Translator" positioning undermined by brutalist aesthetic that creates barriers rather than bridges
 - Most severe disconnect: "Vulnerable vs Faceless" (9/10) - failure narrative has no human visual anchor
 - Phase 2 (Systematic Visual Audit) now complete with all 4 subtasks finished
+- Competitive benchmarking: 5 personal brand websites analyzed via WebSearch + WebFetch
+- Benchmark selection criteria: adjacent positioning, strong visual identity, bridging audiences, educational/service focus
+- Key benchmarks: Josh Comeau (developer educator), Tobias van Schneider (creative director), Sara Soueidan (accessibility), Lynn Fisher (CSS artist), Dan Mall (design coach)
+- Discovered universal pattern: successful personal brands have signature visual elements that reinforce positioning
+- selfrules.org's biggest gap vs competition: no signature element, no human face, no social proof
+- Phase 3 (Competitive Benchmarking) now 1/3 complete
