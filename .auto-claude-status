@@ -3,7 +3,7 @@
   "spec": "012-art-director-audit",
   "state": "building",
   "subtasks": {
-    "completed": 3,
+    "completed": 5,
     "total": 17,
     "in_progress": 1,
     "failed": 0
@@ -18,8 +18,8 @@
     "max": 1
   },
   "session": {
-    "number": 214,
+    "number": 216,
     "started_at": "2026-01-26T11:10:36.789212"
   },
-  "last_update": "2026-01-26T12:04:10.059708"
+  "last_update": "2026-01-26T12:13:44.826524"
 }

@@ -1,6 +1,6 @@
 # Art Director Brand Audit - Build Progress
 
-## Current Status: 3/17 subtasks (18%)
+## Current Status: 5/17 subtasks (29%)
 
 ### Completed Subtasks
 
@@ -32,8 +32,32 @@
   - Color system is well-defined and consistent (9/10)
   - Typography mobile-first scaling correctly aligns with desktop values (8/10)
 
+#### 2.1 - Visual Hierarchy Analysis ✅
+- **Date:** 2026-01-26
+- **Deliverable:** output/04-visual-hierarchy-analysis.md
+- **Key Findings:**
+  - Overall Visual Hierarchy Score: 7.8/10
+  - Primary focal point (headline) passes 3-second test at ~2.5s
+  - Hybrid Z-F pattern with strong verbal hierarchy
+  - Weak visual anchoring - no iconic brand mark
+  - Floating shapes compete for attention (opacity 0.7-0.8)
+  - Equal-weight card problem in multiple sections
+
+#### 2.2 - Brand Consistency Score ✅
+- **Date:** 2026-01-26
+- **Deliverable:** output/05-brand-consistency-score.md
+- **Key Findings:**
+  - **Total Score: 18.5/25 (74% - Good with Opportunities)**
+  - Logo Usage: 2.5/5 (functional but not iconic, M icon underutilized)
+  - Color Adherence: 4.0/5 (strong semantic system, minor shadow inconsistencies)
+  - Typography: 4.5/5 (excellent hierarchy, well-defined 3-font system)
+  - Imagery Style: 3.0/5 (consistent brutalist treatment, lacks photography)
+  - Voice & Tone: 4.5/5 (authentic, distinctive, problem-first approach)
+- **Commit:** 64ba8ee
+
 ### Pending Subtasks
-- 2.1-2.4: Systematic Visual Audit
+- 2.3: Cross-touchpoint consistency evaluation
+- 2.4: Gap analysis ("says vs shows")
 - 3.1-3.3: Competitive Benchmarking
 - 4.1-4.3: Creative Direction & Concepts
 - 5.1-5.4: Report Compilation & Recommendations
@@ -41,8 +65,8 @@
 ### Phase Progress
 | Phase | Status | Subtasks |
 |-------|--------|----------|
-| Site Analysis & First Impressions | In Progress | 1/3 |
-| Systematic Visual Audit | Pending | 0/4 |
+| Site Analysis & First Impressions | ✅ Complete | 3/3 |
+| Systematic Visual Audit | In Progress | 2/4 |
 | Competitive Benchmarking | Pending | 0/3 |
 | Creative Direction & Concepts | Pending | 0/3 |
 | Report Compilation | Pending | 0/4 |
@@ -51,3 +75,5 @@
 - WebFetch used to access selfrules.org (IT and EN versions)
 - First impressions captured using Art Director 5-Second Test methodology
 - Discovery recorded: Strong verbal brand, weak visual signature
+- Brand Consistency Score methodology: 5-element matrix (Logo, Color, Typography, Imagery, Voice)
+- Key insight: Typography and Voice are exceptional strengths (4.5/5 each), Logo and Imagery need attention
