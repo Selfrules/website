@@ -25,15 +25,54 @@
 
 ---
 
-### Pending Subtasks
+#### subtask-1-2: Research current social media presence across all platforms ✅
+- **Status**: COMPLETED
+- **Date**: 2026-01-26
+- **Deliverable**: SOCIAL_PRESENCE_INVENTORY.md
 
-#### subtask-1-2: Research current social media presence across all platforms
-- **Status**: PENDING
-- **Dependencies**: None
+**Summary of Findings**:
+1. **LinkedIn**: VERIFIED ACTIVE - Primary professional platform (linkedin.com/in/selfrules)
+2. **Twitter/X**: UNCERTAIN STATUS - Handle inconsistency found (@Matt_Selfrules in footer vs @mattiadluca in metadata)
+3. **GitHub**: ACTIVE - 1 follower, 10 repos (github.com/Selfrules)
+4. **Instagram**: NO PRESENCE FOUND
+5. **YouTube**: NO PRESENCE FOUND
+6. **TikTok**: NO PRESENCE FOUND
+7. **Facebook**: NO PRESENCE FOUND
+8. **Emerging Platforms**: No presence on Bluesky or Threads
 
-#### subtask-1-3: Analyze target audience profile from website positioning
-- **Status**: PENDING
-- **Dependencies**: None
+**Key Finding**: LinkedIn is the only active B2B professional platform. This is a greenfield opportunity with LinkedIn as foundation.
+
+**Critical Issue**: Twitter handle inconsistency needs resolution before any Twitter strategy.
+
+---
+
+#### subtask-1-3: Analyze target audience profile from website positioning ✅
+- **Status**: COMPLETED
+- **Date**: 2026-01-26
+- **Deliverable**: TARGET_AUDIENCE_PROFILE.md
+
+**Summary of Findings**:
+1. **Four Target Segments Identified**:
+   - Decision-Makers at B2B Companies (CTOs, CPOs, Founders) - Consulting service
+   - Product Teams/Leaders (PMs, Team Leads) - Brainstorming service
+   - Aspiring & Junior PMs (career changers, junior roles) - Mentorship service
+   - Recruiters & Hiring Managers (opportunistic segment)
+
+2. **Job Roles**: CTOs, CPOs, VPs of Product, Product Managers, Team Leads, Junior PMs, Recruiters
+3. **Industry Sectors**: B2B SaaS, Enterprise Software, Platform/Integration, POS/Payments, Manufacturing Tech
+4. **Geographic Scope**: Italy (primary), EU (secondary), Global remote (tertiary)
+5. **Language Preferences**: Italian 70% / English 30% (weighted by segment)
+
+**Key Pain Points Identified**:
+- Cross-functional miscommunication ("designer, developer, business speak different languages")
+- Prioritization paralysis ("7 stakeholders, all urgent")
+- Alignment theater ("everyone says yes, nobody knows what to do")
+- Execution bottlenecks ("features in development, none finished")
+
+**Ideal Customer Profiles Defined**:
+- Consulting: CTOs/CPOs at 50-500 employee B2B SaaS companies (€2K-5K/session)
+- Brainstorming: PMs/Team Leads at 10-200 employee tech startups (€500-2K/session)
+- Mentorship: Junior PMs/career changers (€200-500/month)
 
 ---
 
@@ -41,7 +80,7 @@
 
 | Phase | Status | Subtasks Complete |
 |-------|--------|-------------------|
-| 1. Discovery & Data Collection | IN PROGRESS | 1/3 |
+| 1. Discovery & Data Collection | ✅ COMPLETE | 3/3 |
 | 2. Platform Scoring & Analysis | NOT STARTED | 0/3 |
 | 3. Strategy Development | NOT STARTED | 0/4 |
 | 4. 30-Day Content Calendar | NOT STARTED | 0/3 |
@@ -52,3 +91,5 @@
 
 ## Output Files Created
 1. `WEBSITE_ANALYSIS_NOTES.md` - Comprehensive website structure analysis
+2. `SOCIAL_PRESENCE_INVENTORY.md` - Platform-by-platform social media presence audit
+3. `TARGET_AUDIENCE_PROFILE.md` - Target audience segmentation and ICP analysis
