@@ -1,6 +1,6 @@
 # Art Director Brand Audit - Build Progress
 
-## Current Status: 5/17 subtasks (29%)
+## Current Status: 7/17 subtasks (41%)
 
 ### Completed Subtasks
 
@@ -55,9 +55,40 @@
   - Voice & Tone: 4.5/5 (authentic, distinctive, problem-first approach)
 - **Commit:** 64ba8ee
 
+#### 2.3 - Cross-Touchpoint Consistency ✅
+- **Date:** 2026-01-26
+- **Deliverable:** output/06-cross-touchpoint-consistency.md
+- **Key Findings:**
+  - **Overall Cross-Touchpoint Consistency Score: 7.8/10 (Good)**
+  - Typography: 10/10 - Perfect consistency across all sections
+  - Section Headers: 9/10 - Identical NeoBadge/Title/Subtitle pattern throughout
+  - CTA Buttons: 9/10 - Consistent NeoButton usage with semantic variants
+  - Border Treatment: 10/10 - All sections use border-b-brutal border-black
+  - Decorative Elements: 5/10 - Opacity varies 0.05 to 0.80 (16x variance)
+  - Card Components: 7/10 - CollaborationCard uses vanilla `rounded-lg`
+  - Missing Blog touchpoint on homepage
+  - Hero floating shapes at 0.70-0.80 opacity too prominent
+- **Commit:** b8e0b7a
+
+#### 2.4 - Gap Analysis ("What Site Says" vs "What Site Shows") ✅
+- **Date:** 2026-01-26
+- **Deliverable:** output/07-gap-analysis.md
+- **Key Findings:**
+  - **Overall Gap Severity: 7/10 (Moderate-to-High)**
+  - Verbal brand scores 8.7/10, Visual brand scores 4.8/10 (gap of -3.9)
+  - 7 major authenticity disconnects identified:
+    1. "Translator" vs "Gatekeeper" - Brutalist aesthetic creates visual barriers (severity 8/10)
+    2. "Pragmatic" vs "Aesthetic-First" - Design trend over functional minimalism (severity 6/10)
+    3. "Vulnerable" vs "Faceless" - No human presence despite failure narrative (severity 9/10)
+    4. "Clarity" vs "Noise" - Floating shapes compete with content (severity 7/10)
+    5. "Harmony" vs "Fragmentation" - Duplicate components in own design system (severity 5/10)
+    6. "Expert" vs "Unproven" - No portfolio visuals or social proof (severity 8/10)
+    7. "Accessible" vs "Trend-Forward" - Neobrutalism appeals to designers, not stated audience (severity 6/10)
+  - Central paradox: verbal brand bridges gaps, visual brand creates gaps
+  - Strategic options: lean into contradiction, bring visual into alignment, or reframe verbal
+- **Commit:** (pending)
+
 ### Pending Subtasks
-- 2.3: Cross-touchpoint consistency evaluation
-- 2.4: Gap analysis ("says vs shows")
 - 3.1-3.3: Competitive Benchmarking
 - 4.1-4.3: Creative Direction & Concepts
 - 5.1-5.4: Report Compilation & Recommendations
@@ -66,7 +97,7 @@
 | Phase | Status | Subtasks |
 |-------|--------|----------|
 | Site Analysis & First Impressions | ✅ Complete | 3/3 |
-| Systematic Visual Audit | In Progress | 2/4 |
+| Systematic Visual Audit | ✅ Complete | 4/4 |
 | Competitive Benchmarking | Pending | 0/3 |
 | Creative Direction & Concepts | Pending | 0/3 |
 | Report Compilation | Pending | 0/4 |
@@ -77,3 +108,10 @@
 - Discovery recorded: Strong verbal brand, weak visual signature
 - Brand Consistency Score methodology: 5-element matrix (Logo, Color, Typography, Imagery, Voice)
 - Key insight: Typography and Voice are exceptional strengths (4.5/5 each), Logo and Imagery need attention
+- Cross-touchpoint analysis: 7 touchpoints evaluated (Header, Hero, Journey, WhatImUpTo, WorkTogether, AskMeAnything, Footer)
+- Key insight: Typography is 100% consistent; decorative elements are inconsistent with 16x opacity variance
+- Blog section missing from homepage - noted as gap for future implementation
+- Gap analysis completed: identified -3.9 average gap between verbal (8.7/10) and visual (4.8/10) brand alignment
+- Key insight: "Translator" positioning undermined by brutalist aesthetic that creates barriers rather than bridges
+- Most severe disconnect: "Vulnerable vs Faceless" (9/10) - failure narrative has no human visual anchor
+- Phase 2 (Systematic Visual Audit) now complete with all 4 subtasks finished
