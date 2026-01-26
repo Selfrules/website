@@ -1,0 +1,152 @@
+=== AUTO-BUILD PROGRESS ===
+
+Project: Front-End Developer Audit of selfrules.org
+Spec Directory: .auto-claude/specs/011-front-end-developer-audit
+Started: 2026-01-26T11:10:00.000Z
+
+Workflow Type: investigation
+Rationale: Comprehensive audit/analysis task producing reports, not code changes.
+            Uses investigation workflow: Reproduce → Investigate → Document → Validate
+
+Session 1 (Planner):
+- Created implementation_plan.json with 7 phases, 27 subtasks
+- Updated context.json with investigation targets and patterns
+- Created init.sh setup script
+- Created build-progress.txt (this file)
+
+=== PHASE SUMMARY ===
+
+Phase 1: Audit Environment Setup (setup)
+  - 3 subtasks
+  - Dependencies: none
+  - Purpose: Create audit directory, build production, verify site access
+
+Phase 2: Performance Audit (investigation)
+  - 6 subtasks
+  - Dependencies: Phase 1
+  - Purpose: Lighthouse audits, Core Web Vitals, bundle analysis
+
+Phase 3: Accessibility Audit (investigation)
+  - 4 subtasks
+  - Dependencies: Phase 1
+  - Purpose: WCAG 2.1 compliance, axe-core scans, keyboard navigation
+
+Phase 4: Technical SEO Audit (investigation)
+  - 5 subtasks
+  - Dependencies: Phase 1
+  - Purpose: Meta tags, structured data, sitemap, robots.txt, canonicals
+
+Phase 5: Code Quality Audit (investigation)
+  - 5 subtasks
+  - Dependencies: Phase 1
+  - Purpose: Component architecture, DRY violations, TypeScript, React best practices
+
+Phase 6: Deliverables Documentation (implementation)
+  - 4 subtasks
+  - Dependencies: Phases 2, 3, 4, 5
+  - Purpose: Create the 4 required deliverable documents
+
+Phase 7: Deliverables Validation (cleanup)
+  - 4 subtasks
+  - Dependencies: Phase 6
+  - Purpose: Verify all deliverables meet QA criteria
+
+=== SERVICES INVOLVED ===
+
+- main: Next.js frontend application (selfrules.org)
+  - Tech Stack: Next.js 14, TypeScript, Tailwind CSS, Zustand
+  - Port: 3000
+  - Production URL: https://selfrules.org
+
+=== PARALLELISM ANALYSIS ===
+
+- Max parallel phases: 3
+- Parallel groups:
+  - [Phase 3, Phase 4, Phase 5] - Can run together after Phase 1
+- Recommended workers: 1 (sequential for investigation consistency)
+- Speedup estimate: N/A (sequential recommended)
+
+=== DELIVERABLES ===
+
+1. audit/performance-report.md
+   - Lighthouse scores (Performance, Accessibility, Best Practices, SEO)
+   - Core Web Vitals (LCP, INP, CLS) with pass/fail
+   - Bundle analysis table
+   - Bottlenecks with expected improvement %
+
+2. audit/issues-by-seo-impact.md
+   - Critical (High SEO Impact)
+   - High Priority
+   - Medium Priority
+   - Low Priority
+   - Each with: Description, Impact, Effort, Recommended Fix
+
+3. audit/refactoring-roadmap.md
+   - Quick Wins (Week 1)
+   - Short-term (Weeks 2-4)
+   - Medium-term (Month 2)
+   - Cumulative improvement path to 2x speed
+
+4. audit/analytics-enhancement-spec.md
+   - Current Umami analytics state
+   - Recommended enhancements
+   - Implementation details
+
+=== STARTUP COMMAND ===
+
+To continue building this spec, the coder agent should:
+
+1. Run init.sh to set up environment:
+   bash .auto-claude/specs/011-front-end-developer-audit/init.sh
+
+2. Start production server:
+   npm run start
+
+3. Execute audit phases sequentially according to implementation_plan.json
+
+=== INVESTIGATION TARGETS ===
+
+URLs to audit:
+- https://selfrules.org (main)
+- https://selfrules.org/it (Italian)
+- https://selfrules.org/en (English)
+
+Viewports:
+- Desktop (1350x940)
+- Mobile (Pixel 5, iPhone 12)
+
+=== END SESSION 1 (PLANNER) ===
+
+=== SESSION 2 (CODER) ===
+Started: 2026-01-26T11:33:00.000Z
+
+Phase 1: Audit Environment Setup
+--------------------------------
+
+[✓] subtask-1-2: Build production version and verify it runs
+    - Ran: npm install (1638 packages installed)
+    - Ran: npm run build
+    - Result: Build completed successfully
+    - Design system generation: 28 components documented
+    - Static pages generated: 24 pages
+    - Build warnings (expected in local env):
+      * Missing firebase-admin-key.json
+      * Missing Upstash Redis env variables
+      * Deprecated themeColor in metadata (should use viewport export)
+      * Deprecated locale parameter in getRequestConfig
+    - Build output: .next/ directory created with all artifacts
+
+[✓] subtask-1-3: Verify production site is accessible for audit
+    - Verified: https://selfrules.org returns 307 → /it (expected i18n redirect)
+    - Verified: https://selfrules.org/it returns 200 OK
+    - Verified: https://selfrules.org/en returns 200 OK
+    - Hosting: Netlify with proper caching and security headers
+    - DISCOVERED CRITICAL SEO ISSUES:
+      * robots.txt: 404 Not Found (MISSING!)
+      * sitemap.xml: 404 Not Found (MISSING!)
+    - These will be documented in Phase 4 (Technical SEO Audit)
+
+Phase 1 COMPLETE - All 3 subtasks finished
+==========================================
+
+Next: Phase 2 - Performance Audit (Lighthouse, Core Web Vitals, Bundle Analysis)
