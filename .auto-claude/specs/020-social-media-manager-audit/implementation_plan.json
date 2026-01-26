@@ -1,0 +1,608 @@
+{
+  "feature": "Social Media Strategy Audit for selfrules.org",
+  "workflow_type": "feature",
+  "workflow_rationale": "This is a strategic deliverable task that follows the pattern: research → analysis → deliverable creation → validation. While not code implementation, it produces structured artifacts (audit report, content calendar, engagement playbook) that require systematic development and verification.",
+  "phases": [
+    {
+      "id": "phase-1-discovery",
+      "name": "Discovery & Data Collection",
+      "type": "investigation",
+      "description": "Gather comprehensive data about selfrules.org website structure, current social media presence, and integration points between site and social channels",
+      "depends_on": [],
+      "parallel_safe": true,
+      "subtasks": [
+        {
+          "id": "subtask-1-1",
+          "description": "Analyze website structure and social integration points",
+          "service": "main",
+          "files_to_reference": [
+            "app/[locale]/page.tsx",
+            "components/sections/Hero.tsx",
+            "components/sections/WorkTogether.tsx",
+            "CLAUDE.md"
+          ],
+          "deliverable": {
+            "name": "Website Analysis Notes",
+            "content": "Document site sections, CTAs, social links, booking flows, and content themes"
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Confirm analysis covers: Hero section value prop, Journey timeline, Work Together CTAs, social footer links, blog integration points"
+          },
+          "status": "completed",
+          "notes": "Created comprehensive WEBSITE_ANALYSIS_NOTES.md covering: Hero value prop, Journey timeline, WorkTogether CTAs, Footer social links, Blog integration points, Open Graph metadata, Analytics integration, and bilingual strategy. Identified key gaps including no social sharing buttons, Twitter handle inconsistency, and no OG images.",
+          "updated_at": "2026-01-26T10:33:15.061412+00:00"
+        },
+        {
+          "id": "subtask-1-2",
+          "description": "Research current social media presence across all platforms",
+          "service": "research",
+          "deliverable": {
+            "name": "Social Presence Inventory",
+            "content": "List all identified social accounts with URLs, activity status, follower counts, posting frequency"
+          },
+          "known_accounts": {
+            "LinkedIn": "https://it.linkedin.com/in/selfrules",
+            "Twitter/X": "@mattiadluca (unverified)",
+            "Instagram": "unknown",
+            "YouTube": "unknown",
+            "TikTok": "unknown"
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Confirm all major platforms checked: LinkedIn, Twitter/X, Instagram, YouTube, TikTok, Facebook"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-1-3",
+          "description": "Analyze target audience profile from website positioning",
+          "service": "research",
+          "files_to_reference": [
+            "Profilo_Mattia.md",
+            "CLAUDE.md"
+          ],
+          "deliverable": {
+            "name": "Target Audience Profile",
+            "content": "Document: B2B professional services audience, PM professionals, decision-makers, Italian/English demographics"
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Confirm profile includes: job roles, industry sectors, geographic scope, language preferences, pain points"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-2-analysis",
+      "name": "Platform Scoring & Analysis",
+      "type": "implementation",
+      "description": "Apply Platform Selection Scorecard and REACH metrics framework to evaluate each platform's fit for the target audience and business goals",
+      "depends_on": [
+        "phase-1-discovery"
+      ],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-2-1",
+          "description": "Apply Platform Selection Scorecard to all candidate platforms",
+          "service": "analysis",
+          "frameworks": [
+            "Platform Selection Scorecard"
+          ],
+          "patterns_from": [
+            ".claude/skills/social-media-manager/SKILL.md"
+          ],
+          "deliverable": {
+            "name": "Platform Scorecard Results",
+            "content": "Scored evaluation for each platform using formula: (Audience×2 + Content + Gap + Resources + Alignment) / 7"
+          },
+          "platforms_to_score": [
+            "LinkedIn",
+            "Twitter/X",
+            "Instagram",
+            "YouTube",
+            "TikTok"
+          ],
+          "scoring_criteria": {
+            "Audience Presence": "Weight 2x - Are ideal B2B customers actively using this platform?",
+            "Content Fit": "Weight 1x - Does thought leadership style work here?",
+            "Competitive Gap": "Weight 1x - Is there room to stand out vs. other PMs?",
+            "Resource Match": "Weight 1x - Can solo practitioner consistently create required content?",
+            "Business Alignment": "Weight 1x - Does platform support consultation/booking conversions?"
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify all 5 platforms scored with values 1-10 for each criterion, with weighted calculation applied"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-2-2",
+          "description": "Identify primary platform recommendation with data-driven rationale",
+          "service": "analysis",
+          "depends_on_subtask": "subtask-2-1",
+          "deliverable": {
+            "name": "Platform Recommendation",
+            "content": "Clear #1 platform identified (expected: LinkedIn) with score breakdown and strategic rationale"
+          },
+          "expected_outcome": "LinkedIn as primary (B2B fit), Twitter/X as secondary (tech/PM community), others deprioritized",
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify recommendation includes: score comparison table, rationale for #1 choice, secondary platform consideration"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-2-3",
+          "description": "Assess website-social bidirectional integration",
+          "service": "analysis",
+          "deliverable": {
+            "name": "Integration Assessment",
+            "content": "Evaluate Site→Social (how website drives social engagement) and Social→Site (how social drives website traffic/conversions)"
+          },
+          "assessment_areas": {
+            "site_to_social": [
+              "Social sharing buttons on blog posts",
+              "Footer social links",
+              "Content sharability",
+              "Open Graph metadata"
+            ],
+            "social_to_site": [
+              "LinkedIn profile links to website",
+              "Bio link strategy",
+              "Content repurposing from site to social",
+              "CTA alignment"
+            ]
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Confirm bidirectional flow documented with gaps identified and improvement recommendations"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-3-strategy",
+      "name": "Strategy Development",
+      "type": "implementation",
+      "description": "Develop content strategy, posting cadence, and community engagement framework using TRIBE model",
+      "depends_on": [
+        "phase-2-analysis"
+      ],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-3-1",
+          "description": "Define content mix using 4-1-1 rule adaptation",
+          "service": "strategy",
+          "frameworks": [
+            "Content Calibration Matrix (4-1-1 Rule)"
+          ],
+          "patterns_from": [
+            ".claude/skills/social-media-manager/SKILL.md"
+          ],
+          "deliverable": {
+            "name": "Content Mix Strategy",
+            "content": "Platform-specific content distribution: 60% value posts, 25% engagement posts, 15% promotional posts"
+          },
+          "content_pillars": {
+            "value_posts_60pct": [
+              "PM methodology insights",
+              "Product management lessons learned",
+              "Business-tech translation tips",
+              "Agile/Scrum practical advice"
+            ],
+            "engagement_posts_25pct": [
+              "Questions to PM community",
+              "Polls on industry trends",
+              "Discussion starters",
+              "Experience sharing prompts"
+            ],
+            "promotional_posts_15pct": [
+              "Consultation availability",
+              "Service offerings",
+              "Booking CTAs",
+              "Blog post promotion"
+            ]
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify content pillars defined for each category with percentage allocation matching 4-1-1 rule"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-3-2",
+          "description": "Create sustainable posting cadence for solo practitioner",
+          "service": "strategy",
+          "deliverable": {
+            "name": "Posting Cadence Recommendations",
+            "content": "Platform-specific frequency that balances impact with sustainable effort for a solo practitioner"
+          },
+          "recommended_cadence": {
+            "LinkedIn": "3-4 posts/week (primary platform)",
+            "Twitter/X": "1-2 posts/week repurposed content (secondary)",
+            "other_platforms": "Not recommended unless resources expand"
+          },
+          "bilingual_strategy": {
+            "primary_language": "Italian (local market)",
+            "secondary_language": "English (international reach)",
+            "mix_recommendation": "70% Italian, 30% English or alternate days"
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify cadence is realistic for solo practitioner with time estimate per week"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-3-3",
+          "description": "Apply TRIBE model for community building strategy",
+          "service": "strategy",
+          "frameworks": [
+            "TRIBE Community Model"
+          ],
+          "patterns_from": [
+            ".claude/skills/social-media-manager/SKILL.md"
+          ],
+          "deliverable": {
+            "name": "Community Engagement Playbook",
+            "content": "5-phase TRIBE framework with specific tactics for each phase"
+          },
+          "tribe_phases": {
+            "Target": "Define ideal community member (PM professionals, aspiring PMs, tech leaders)",
+            "Recruit": "Valuable content + strategic engagement in PM communities/groups",
+            "Invest": "Exclusive insights, recognition of commenters, accessible expertise",
+            "Bond": "Create connections between followers, facilitate discussions",
+            "Empower": "Feature community content, encourage testimonials and referrals"
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify all 5 TRIBE phases have specific, actionable tactics listed"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-3-4",
+          "description": "Define REACH metrics and KPIs per platform",
+          "service": "strategy",
+          "frameworks": [
+            "REACH Metrics Model"
+          ],
+          "patterns_from": [
+            ".claude/skills/social-media-manager/SKILL.md"
+          ],
+          "deliverable": {
+            "name": "KPI Framework",
+            "content": "Platform-specific metrics focusing on community quality over vanity metrics"
+          },
+          "reach_metrics": {
+            "Reach": "Impressions, unique viewers - awareness baseline",
+            "Engagement": "Comments, meaningful interactions (NOT just likes)",
+            "Amplification": "Shares, reposts - content virality",
+            "Conversion": "Profile visits, website clicks, booking inquiries",
+            "Holding": "Dwell time, return visitors, follower retention"
+          },
+          "anti_vanity_metrics": [
+            "Follower count alone is NOT a success metric",
+            "Comment quality > comment quantity",
+            "Profile-to-conversion ratio > total impressions"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify all 5 REACH metrics defined with specific targets and measurement methods"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-4-calendar",
+      "name": "30-Day Content Calendar Creation",
+      "type": "implementation",
+      "description": "Create detailed 30-day content calendar with specific topics, formats, and timing for cross-platform execution",
+      "depends_on": [
+        "phase-3-strategy"
+      ],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-4-1",
+          "description": "Create Week 1-2 content calendar (Foundation)",
+          "service": "calendar",
+          "deliverable": {
+            "name": "Calendar Days 1-14",
+            "content": "Daily content plan with: date, platform, content type, topic, format, language, time to post"
+          },
+          "week_theme": "Foundation - Establishing voice and content rhythm",
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify 14 days covered with at least 3-4 LinkedIn posts per week, proper content mix distribution"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-4-2",
+          "description": "Create Week 3-4 content calendar (Expansion)",
+          "service": "calendar",
+          "deliverable": {
+            "name": "Calendar Days 15-30",
+            "content": "Daily content plan with: date, platform, content type, topic, format, language, time to post"
+          },
+          "week_theme": "Expansion - Building engagement and community response",
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify days 15-30 covered, includes engagement posts and community interaction opportunities"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-4-3",
+          "description": "Add content hooks and format templates to calendar",
+          "service": "calendar",
+          "patterns_from": [
+            ".claude/skills/social-media-manager/SKILL.md"
+          ],
+          "deliverable": {
+            "name": "Content Templates",
+            "content": "Platform-specific hook formulas and post format templates"
+          },
+          "linkedin_hooks": [
+            "Unpopular opinion: [contrarian PM take]",
+            "[Number] lessons from [experience]:",
+            "Stop doing [common thing]. Here's why:",
+            "I made a [mistake] so you don't have to"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify calendar entries include hook formulas and formatting guidance"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-5-deliverables",
+      "name": "Final Deliverable Assembly",
+      "type": "implementation",
+      "description": "Compile all analysis and strategy into final deliverable documents following the output format from social-media-manager skill",
+      "depends_on": [
+        "phase-4-calendar"
+      ],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-5-1",
+          "description": "Compile Social Media Audit Report",
+          "service": "documentation",
+          "patterns_from": [
+            ".claude/skills/social-media-manager/SKILL.md"
+          ],
+          "output_file": "SOCIAL_MEDIA_AUDIT_REPORT.md",
+          "deliverable": {
+            "name": "Social Media Audit Report",
+            "sections": [
+              "Executive Summary",
+              "Platform Assessment (scored)",
+              "Engagement Analysis",
+              "Community Health Assessment",
+              "Content Mix Review",
+              "10x Opportunities",
+              "Priority Actions (impact/effort matrix)"
+            ]
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify report follows skill output format with all required sections, quantified scores, and actionable recommendations"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-5-2",
+          "description": "Format 30-Day Content Calendar as deliverable",
+          "service": "documentation",
+          "output_file": "CONTENT_CALENDAR_30_DAY.md",
+          "deliverable": {
+            "name": "30-Day Content Calendar",
+            "format": "Markdown table with: Week, Day, Date, Platform, Type (Value/Engagement/Promo), Topic, Format, Language, Best Time"
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify calendar covers all 30 days, content mix aligns with 60/25/15 split, includes bilingual strategy"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-5-3",
+          "description": "Create Community Engagement Playbook",
+          "service": "documentation",
+          "output_file": "COMMUNITY_ENGAGEMENT_PLAYBOOK.md",
+          "deliverable": {
+            "name": "Community Engagement Playbook",
+            "sections": [
+              "Target Community Profile",
+              "TRIBE Framework Application",
+              "Engagement Loop Tactics",
+              "Comment Response Strategy",
+              "Community Health Metrics",
+              "90-Day Roadmap"
+            ]
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify playbook includes all TRIBE phases with specific, actionable tactics"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-6-validation",
+      "name": "Quality Assurance & Sign-off",
+      "type": "integration",
+      "description": "Verify all deliverables meet QA acceptance criteria from spec.md",
+      "depends_on": [
+        "phase-5-deliverables"
+      ],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-6-1",
+          "description": "Validate deliverable completeness against spec requirements",
+          "service": "qa",
+          "deliverable": {
+            "name": "QA Checklist Completion",
+            "checks": [
+              "All four deliverables present and complete",
+              "Platform Selection Scorecard correctly calculated",
+              "REACH metrics defined for priority platforms",
+              "TRIBE model fully applied with specific tactics",
+              "30-day calendar covers all days with realistic cadence",
+              "Content mix aligns with 4-1-1 rule",
+              "Recommendations prioritized by impact/effort",
+              "Strategy focuses on community building, not follower acquisition",
+              "B2B professional context properly addressed",
+              "Bilingual content strategy considered"
+            ]
+          },
+          "verification": {
+            "type": "manual",
+            "instructions": "Review all deliverables against QA Acceptance Criteria from spec.md, check all boxes"
+          },
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_phases": 6,
+    "total_subtasks": 14,
+    "services_involved": [
+      "main",
+      "research",
+      "analysis",
+      "strategy",
+      "calendar",
+      "documentation",
+      "qa"
+    ],
+    "output_files": [
+      "SOCIAL_MEDIA_AUDIT_REPORT.md",
+      "CONTENT_CALENDAR_30_DAY.md",
+      "COMMUNITY_ENGAGEMENT_PLAYBOOK.md"
+    ],
+    "parallelism": {
+      "max_parallel_phases": 1,
+      "parallel_groups": [],
+      "recommended_workers": 1,
+      "speedup_estimate": "Sequential execution - phases have dependencies"
+    },
+    "startup_command": "This is a strategic analysis task. No services to start. Begin with Phase 1 subtasks."
+  },
+  "verification_strategy": {
+    "risk_level": "trivial",
+    "skip_validation": true,
+    "test_creation_phase": "not_applicable",
+    "test_types_required": [],
+    "security_scanning_required": false,
+    "staging_deployment_required": false,
+    "acceptance_criteria": [
+      "All four deliverables complete and professionally formatted",
+      "Platform scores calculated using correct weighted formula",
+      "All frameworks (REACH, TRIBE, 4-1-1) properly applied",
+      "Recommendations specific to selfrules.org, not generic",
+      "Content calendar realistic for solo practitioner",
+      "Community focus maintained over vanity metrics"
+    ],
+    "verification_steps": [
+      {
+        "name": "Deliverable Completeness Check",
+        "type": "manual",
+        "instructions": "Verify all 3 output files created with all required sections",
+        "required": true,
+        "blocking": true
+      },
+      {
+        "name": "Framework Application Verification",
+        "type": "manual",
+        "instructions": "Confirm Platform Scorecard, REACH, TRIBE, and 4-1-1 frameworks correctly applied",
+        "required": true,
+        "blocking": true
+      },
+      {
+        "name": "Quality Standards Review",
+        "type": "manual",
+        "instructions": "Review against QA Acceptance Criteria in spec.md",
+        "required": true,
+        "blocking": true
+      }
+    ],
+    "reasoning": "Pure strategic analysis deliverable with no code changes. Validation focuses on deliverable completeness and quality, not automated tests."
+  },
+  "qa_acceptance": {
+    "unit_tests": {
+      "required": false,
+      "commands": [],
+      "minimum_coverage": null
+    },
+    "integration_tests": {
+      "required": false,
+      "commands": [],
+      "services_to_test": []
+    },
+    "e2e_tests": {
+      "required": false,
+      "commands": [],
+      "flows": []
+    },
+    "browser_verification": {
+      "required": false,
+      "pages": []
+    },
+    "database_verification": {
+      "required": false,
+      "checks": []
+    },
+    "deliverable_verification": {
+      "required": true,
+      "checks": [
+        {
+          "deliverable": "SOCIAL_MEDIA_AUDIT_REPORT.md",
+          "criteria": [
+            "Executive summary present",
+            "All platforms scored with formula",
+            "Engagement analysis included",
+            "Priority actions with impact/effort"
+          ]
+        },
+        {
+          "deliverable": "CONTENT_CALENDAR_30_DAY.md",
+          "criteria": [
+            "All 30 days covered",
+            "Content mix matches 60/25/15",
+            "Bilingual strategy addressed",
+            "Realistic cadence for solo practitioner"
+          ]
+        },
+        {
+          "deliverable": "COMMUNITY_ENGAGEMENT_PLAYBOOK.md",
+          "criteria": [
+            "TRIBE model fully applied",
+            "Specific tactics for each phase",
+            "Community focus, not follower focus",
+            "Measurable engagement goals"
+          ]
+        }
+      ]
+    }
+  },
+  "qa_signoff": null,
+  "created_at": "2026-01-26T11:15:00Z",
+  "updated_at": "2026-01-26T10:30:40.489Z",
+  "status": "in_progress",
+  "planStatus": "in_progress",
+  "last_updated": "2026-01-26T10:33:15.061412+00:00"
+}
