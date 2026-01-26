@@ -1,6 +1,6 @@
 # Art Director Brand Audit - Build Progress
 
-## Current Status: 14/17 subtasks (82%)
+## Current Status: 15/17 subtasks (88%)
 
 ### Completed Subtasks
 
@@ -236,8 +236,42 @@
     - Week 5+: Before/after section, testimonials, full proof system (+1.0 points)
 - **Commit:** pending
 
+#### 5.2 - Visual Hierarchy Table ✅
+- **Date:** 2026-01-26
+- **Deliverable:** output/15-visual-hierarchy-table.md
+- **Key Findings:**
+  - **Comprehensive Element-by-Element Assessment:**
+    - 50+ visual elements rated across all sections
+    - Elements categorized by hierarchy level (Dominant, Sub-dominant, Supporting, Accent, Decorative, Subordinate, Navigation)
+    - Effectiveness scores from 5/10 to 10/10
+  - **Highest Performing Elements (8-10/10):**
+    - Hero Headline: 9/10 - Clear dominant focal point
+    - Section Titles: 9/10 - Consistent pattern
+    - CTA Buttons (Primary): 9/10 - Electric Blue stands out
+    - Section Borders: 10/10 - Perfect brutalist treatment
+    - Typography System: 10/10 - 100% consistent
+  - **Needs Improvement (5-7/10):**
+    - Hero Floating Shapes: 5/10 - Opacity 0.70-0.80 competes with headline
+    - Journey Current Card: 6/10 - Same weight as past cards
+    - WhatImUpTo Card Text: 5/10 - Text-heavy, causes scan fatigue
+    - AskMeAnything Card Equality: 6/10 - No clear preferred action
+  - **Critical Gaps (Below 6/10):**
+    - MFDL Logo as brand anchor: 6/10 - No visual recall element
+    - Brand Visual Mark: 5/10 - Text-only logo, no icon
+    - Decorative Element Consistency: 5/10 - Opacity ranges 0.05-0.80 (16x variance)
+  - **3-Second Test Results:**
+    - Primary Focal Point: ✅ PASS (~2.5s)
+    - Secondary Focal Point: ⚠️ PARTIAL (shapes compete)
+    - Brand Recall Element: ❌ FAIL (no memorable mark)
+  - **Action Priority Matrix:**
+    - P1: Reduce Hero floating shapes opacity 0.70-0.80 → 0.30 (15 min, High impact)
+    - P1: Fix CollaborationCard rounded-lg → rounded-brutal-lg (10 min, Medium)
+    - P2: Make Journey current card 10-15% larger (1 hour, Medium)
+    - P2: Add "Recommended" badge to AI Chat card (30 min, Medium)
+    - P3: Create brand visual mark (1-2 weeks, High impact)
+- **Commit:** pending
+
 ### Pending Subtasks
-- 5.2: Visual Hierarchy Table
 - 5.3: Priority Action Plan
 - 5.4: Final Report
 
@@ -248,7 +282,7 @@
 | Systematic Visual Audit | ✅ Complete | 4/4 |
 | Competitive Benchmarking | ✅ Complete | 3/3 |
 | Creative Direction & Concepts | ✅ Complete | 3/3 |
-| Report Compilation | 🔄 In Progress | 1/4 |
+| Report Compilation | 🔄 In Progress | 2/4 |
 
 ### Session Notes
 - WebFetch used to access selfrules.org (IT and EN versions)
@@ -309,3 +343,8 @@
 - Target metrics: Close -3.9 gap to ~0, increase visual identity from 6.2/10 to 8.5/10
 - Phased implementation roadmap: Quick Trust (W1-2) → Bridge Foundation (W3-4) → Full Proof System (W5+)
 - Phase 5 (Report Compilation) now 1/4 complete
+- Subtask 5.2: Visual Hierarchy Table completed with comprehensive element-by-element assessment
+- 50+ visual elements rated by hierarchy level and effectiveness score
+- Key finding: Typography system perfect (10/10), Hero floating shapes problematic (5/10)
+- Action priority matrix created: P1 items (opacity, border-radius) = 25 min total, High-Medium impact
+- Phase 5 (Report Compilation) now 2/4 complete
