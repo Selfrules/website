@@ -303,13 +303,234 @@ Proof points are abundant and specific:
 
 ---
 
+---
+
+## Target Audience Precision Evaluation (Subtask 2-2)
+
+**Task:** Classify target audience precision as Broad, Narrowed, or Specific
+
+### Precision Classification Framework
+
+| Level | Definition | Example |
+|-------|------------|---------|
+| **Broad** | General category with no filters | "Business professionals" |
+| **Narrowed** | Category + 1-2 filters (role, industry, or size) | "Product managers at tech companies" |
+| **Specific** | Category + multiple filters (role + industry + size + stage + problem) | "Mid-level PMs at Series A-C B2B SaaS companies struggling with cross-functional alignment" |
+
+### Current State Analysis
+
+| Filter Dimension | Present? | Evidence |
+|-----------------|----------|----------|
+| **Role** | ✅ Partial | Multiple roles implied: founders, PMs, tech leads, designers |
+| **Industry** | ❌ Missing | Not specified (could be any sector) |
+| **Company Size** | ❌ Missing | Not indicated (10-person startup vs 500-person enterprise) |
+| **Company Stage** | ❌ Missing | No mention of startup, growth, enterprise context |
+| **Problem/Use Case** | ✅ Clear | "Cross-functional chaos", "designer/developer not talking" |
+| **Geographic Scope** | ⚠️ Ambiguous | "Italy | Work anywhere" - unclear primary market |
+| **Seniority Level** | ⚠️ Implied | References suggest mid-to-senior but not explicit |
+
+### Target Audience Precision Assessment
+
+| Metric | Rating |
+|--------|--------|
+| **Precision Level** | 🟠 **BROAD** |
+| **Current Score** | 2/5 (Only role and problem defined, both incompletely) |
+| **Optimal Score** | 5/5 (Specific with all filters) |
+
+**Classification Rationale:**
+
+The target audience sits between **Broad** and **Narrowed** but closer to **Broad**:
+
+1. **Role ambiguity** - Four different roles are served (founders, PMs, tech leads, designers). Which is the primary ICP?
+2. **No industry focus** - A PM at a fintech faces different challenges than a PM at a healthcare company
+3. **No size/stage filter** - Services that work for a 10-person startup may not scale to a 500-person enterprise
+4. **Problem-based targeting works** - The "chaos" narrative does filter for a psychographic (people drowning in dysfunction), but doesn't narrow demographically
+
+**Evidence Supporting "Broad" Classification:**
+
+> **Testimonials span all levels:**
+> - Sarah Chen → Founder & CEO (C-level)
+> - Marco Bianchi → Product Manager (Mid-level IC)
+> - Alex Kumar → Tech Lead (Senior IC)
+> - Elena Rossi → Senior Designer (IC)
+
+This breadth suggests "anyone with cross-functional problems" rather than a specific buyer persona.
+
+---
+
+## Category Frame Evaluation (Subtask 2-2)
+
+**Task:** Classify category frame as Existing, Subcategory, New, or Against
+
+### Category Frame Framework
+
+| Frame Type | Definition | Advantage | Risk |
+|------------|------------|-----------|------|
+| **Existing** | Compete in established category (e.g., "PM Consultant") | Easy to understand, existing demand | Commoditized, price competition |
+| **Subcategory** | Create narrower category within existing (e.g., "Cross-functional PM Consultant") | Reduced competition, specialized positioning | May limit market size |
+| **New** | Create entirely new category (e.g., "Discipline Translator") | No direct competition, category ownership | Requires education, longer sales cycle |
+| **Against** | Define against the norm (e.g., "The Anti-Consultant") | Memorable, attracts rebels | Alienates some buyers, needs strong alternative |
+
+### Current State Analysis
+
+| Frame Type | Evidence | Usage |
+|------------|----------|-------|
+| **Existing** | "Product Manager", "Consultant" | ⚠️ Used but not claimed |
+| **Subcategory** | — | ❌ Not attempted |
+| **New** | "Translator" metaphor | ⚠️ Attempted but inconsistent |
+| **Against** | "I don't sell hours. I don't sell consulting." | ✅ Used explicitly |
+
+### Category Frame Assessment
+
+| Metric | Rating |
+|--------|--------|
+| **Frame Type** | 🟠 **MIXED (New + Against) - UNCOMMITTED** |
+| **Clarity** | 2/5 (Multiple competing frames) |
+| **Commitment** | 2/5 (No single frame owned) |
+
+**Classification Rationale:**
+
+The brand is **attempting two frames simultaneously without committing to either**:
+
+1. **New Category (Translator)** - The "translator" metaphor is powerful but not claimed as the category:
+   - ✅ "I translate" appears 3+ times
+   - ✅ "You don't need a translator when you are the translator"
+   - ❌ No claim: "I am the first/only Discipline Translator"
+   - ❌ Category not named: "I invented the term..." absent
+
+2. **Against Category (Anti-Consultant)** - Rejection of typical consulting is clear but incomplete:
+   - ✅ "I don't sell hours. I don't sell consulting."
+   - ✅ "Not slides. Actions."
+   - ❌ Alternative not named: "Instead, I am a _____"
+   - ❌ No explicit "Unlike traditional consultants who..."
+
+**The Problem: Category Confusion**
+
+A visitor could reasonably categorize Mattia as:
+- Freelance Product Manager
+- PM Coach/Mentor
+- Agile Consultant
+- Design Strategy Consultant
+- Fractional CPO
+
+**No explicit category claim exists** to resolve this ambiguity.
+
+---
+
+## Gap Analysis: Target & Category
+
+### Gap 1: Target Audience Breadth
+
+| Aspect | Current | Recommended |
+|--------|---------|-------------|
+| **Primary ICP** | Implied (multiple roles) | Explicit: "I work with mid-to-senior PMs and product leaders..." |
+| **Company Profile** | Absent | "...at growth-stage tech companies (50-500 employees)..." |
+| **Use Case Trigger** | Clear but general | "...who are drowning in cross-functional chaos: designers and developers not talking, roadmaps full but nothing shipping." |
+
+**Impact of Gap:** Without a specific ICP, the brand attracts tire-kickers and mismatched leads. Narrowing would improve conversion rate and reduce unqualified inquiries.
+
+### Gap 2: Category Frame Commitment
+
+| Aspect | Current | Recommended |
+|--------|---------|-------------|
+| **Category Name** | "Product Manager" (generic) | Own "Discipline Translator" OR "The Anti-Consultant PM" |
+| **Category Claim** | Absent | Add explicit: "I created this category because..." |
+| **Competitive Frame** | Vague | Add explicit: "Unlike consultants who sell slides, I sell alignment." |
+
+**Impact of Gap:** Without a claimed category, the brand competes on price with generic PM consultants. A owned category creates defensible differentiation.
+
+---
+
+## Recommendations for Improvement
+
+### Recommendation 1: Narrow Target to Specific (Priority: 🔴 HIGH)
+
+**Current:** "For product managers, tech leads, and founders who struggle with cross-functional chaos"
+
+**Recommended:**
+> **For mid-to-senior product managers and product leaders at growth-stage tech companies (Series A-C, 50-500 employees)** who are drowning in cross-functional chaos—designers and developers speak different languages, roadmaps are full but nothing ships, stakeholders all say "urgent" but nothing gets prioritized.
+
+**Why:**
+- Filters out junior PMs who may not afford services
+- Excludes early-stage founders who need different help (product-market fit, not team alignment)
+- Focuses on the sweet spot where cross-functional problems are most acute (companies scaling from startup to mid-stage)
+
+**Implementation:**
+1. Add "Who I Work With" section to hero or services
+2. Update testimonials to feature primary ICP (product managers at growth companies)
+3. Use company size/stage in case studies
+
+### Recommendation 2: Commit to Category Frame (Priority: 🔴 HIGH)
+
+**Option A: Own "New Category" - Discipline Translator**
+
+> **I'm a Discipline Translator**—the person you call when your designer says "user journey" while your developer says "technical debt" and your CFO says "just ship something." I speak all three languages. That's not consulting. That's translation.
+
+**Implementation:**
+- Add "Discipline Translator" to header/bio
+- Create origin story for the category
+- Develop "Translator Certification" or signature framework
+
+**Option B: Own "Against Category" - The Anti-Consultant**
+
+> **I'm the anti-consultant.** Traditional consultants sell hours, slides, and "let's circle back." I sell decisions. Monday morning, you'll know exactly what to build—a solution your designer understands, your developer can build, and your CFO approves. No translator needed.
+
+**Implementation:**
+- Lead with "Unlike consultants..." messaging
+- Create explicit contrast table (Consultants vs. Me)
+- Price differently (outcomes, not hours)
+
+**Recommendation:** Option A (Discipline Translator) is stronger because:
+- It's unique and ownable
+- It directly connects to the proven "translator" messaging already on the site
+- It creates a new market vs. fighting against an existing one
+
+### Recommendation 3: Create "Who I'm Not For" Statement (Priority: 🟡 MEDIUM)
+
+Adding explicit exclusions strengthens positioning and filters mismatched leads:
+
+> **Who I'm NOT for:**
+> - Early-stage founders still finding product-market fit (you need a different kind of help)
+> - Enterprise teams with 6-month procurement cycles (my value is speed)
+> - People looking for someone to just execute a spec (I question, not just build)
+
+### Recommendation 4: Add Industry/Sector Signal (Priority: 🟡 MEDIUM)
+
+Consider whether industry focus would strengthen positioning:
+
+| Option | Tradeoff |
+|--------|----------|
+| Stay horizontal (all industries) | Broader market, but competes with all PM consultants |
+| Add vertical focus (e.g., "B2B SaaS") | Smaller market, but stronger expertise signal |
+| Use "compatible industries" language | "I've worked across fintech, SaaS, and digital products—the translation skills transfer" |
+
+**Recommendation:** Use "compatible industries" language to maintain breadth while showing experience depth.
+
+---
+
+## Summary: Positioning Dimension Scores
+
+| Dimension | Current Score | Target Score | Gap | Priority |
+|-----------|--------------|--------------|-----|----------|
+| **Target Precision** | 🟠 BROAD (2/5) | SPECIFIC (5/5) | -3 | 🔴 HIGH |
+| **Category Frame** | 🟠 MIXED (2/5) | OWNED (5/5) | -3 | 🔴 HIGH |
+| **Need Articulation** | ✅ CLEAR (5/5) | — | 0 | ✅ Done |
+| **Benefit Clarity** | ✅ CLEAR (4/5) | — | -1 | 🟢 LOW |
+| **Proof Strength** | ✅ STRONG (4/5) | — | -1 | 🟢 LOW |
+
+**Key Insight:** The brand's weakness is not what it says, but who it's saying it to and what category it's claiming. The problem articulation and proof points are excellent—now they need to be packaged into a defensible positioning territory.
+
+---
+
 ## Next Steps
 
-- [ ] Sharpen target audience (subtask 2-2)
-- [ ] Define category frame (subtask 2-2)
+- [x] Sharpen target audience (subtask 2-2) ✅
+- [x] Define category frame (subtask 2-2) ✅
 - [ ] Validate with competitive analysis (phase 3)
 - [ ] Create unified benefit statement for brand guidelines (phase 6)
 
 ---
 
+*Document updated: January 26, 2026*
+*Subtask 2-2 completed: Target precision evaluated as BROAD, Category frame evaluated as MIXED (New + Against)*
 *Document created as part of Brand Positioning Assessment (Phase 2)*
