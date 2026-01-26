@@ -84,3 +84,6 @@ to_copy/
 
 # Local Netlify folder
 .netlify
+
+# Auto Claude data directory
+.auto-claude/
