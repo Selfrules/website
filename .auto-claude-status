@@ -3,7 +3,7 @@
   "spec": "017-seo-consultant-audit",
   "state": "building",
   "subtasks": {
-    "completed": 0,
+    "completed": 2,
     "total": 28,
     "in_progress": 1,
     "failed": 0
@@ -18,8 +18,8 @@
     "max": 1
   },
   "session": {
-    "number": 89,
+    "number": 207,
     "started_at": "2026-01-26T11:11:42.719253"
   },
-  "last_update": "2026-01-26T11:30:42.084502"
+  "last_update": "2026-01-26T12:00:01.797157"
 }
