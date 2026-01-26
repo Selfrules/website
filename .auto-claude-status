@@ -3,23 +3,23 @@
   "spec": "012-art-director-audit",
   "state": "building",
   "subtasks": {
-    "completed": 6,
+    "completed": 11,
     "total": 17,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Systematic Visual Audit",
-    "id": 2,
-    "total": 4
+    "current": "Creative Direction & Concepts",
+    "id": 4,
+    "total": 3
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 217,
+    "number": 1743,
     "started_at": "2026-01-26T11:10:36.789212"
   },
-  "last_update": "2026-01-26T12:18:49.137748"
+  "last_update": "2026-01-26T17:09:12.309321"
 }
