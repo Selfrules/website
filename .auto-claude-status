@@ -1,0 +1,25 @@
+{
+  "active": true,
+  "spec": "017-seo-consultant-audit",
+  "state": "building",
+  "subtasks": {
+    "completed": 0,
+    "total": 28,
+    "in_progress": 1,
+    "failed": 0
+  },
+  "phase": {
+    "current": "Technical SEO Audit",
+    "id": null,
+    "total": 4
+  },
+  "workers": {
+    "active": 0,
+    "max": 1
+  },
+  "session": {
+    "number": 89,
+    "started_at": "2026-01-26T11:11:42.719253"
+  },
+  "last_update": "2026-01-26T11:30:42.084502"
+}

@@ -1,0 +1,39 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  },
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read(./**)",
+      "Write(./**)",
+      "Edit(./**)",
+      "Glob(./**)",
+      "Grep(./**)",
+      "Read(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit/**)",
+      "Write(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit/**)",
+      "Edit(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit/**)",
+      "Glob(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit/**)",
+      "Grep(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit/**)",
+      "Read(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit\\.auto-claude\\specs\\017-seo-consultant-audit/**)",
+      "Write(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit\\.auto-claude\\specs\\017-seo-consultant-audit/**)",
+      "Edit(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\017-seo-consultant-audit\\.auto-claude\\specs\\017-seo-consultant-audit/**)",
+      "Read(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Write(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Edit(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Glob(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Grep(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Bash(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "mcp__context7__resolve-library-id(*)",
+      "mcp__context7__get-library-docs(*)",
+      "mcp__graphiti-memory__search_nodes(*)",
+      "mcp__graphiti-memory__search_facts(*)",
+      "mcp__graphiti-memory__add_episode(*)",
+      "mcp__graphiti-memory__get_episodes(*)",
+      "mcp__graphiti-memory__get_entity_edge(*)"
+    ]
+  }
+}
