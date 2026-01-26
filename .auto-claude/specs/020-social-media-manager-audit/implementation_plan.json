@@ -120,7 +120,9 @@
             "type": "manual",
             "instructions": "Verify all 5 platforms scored with values 1-10 for each criterion, with weighted calculation applied"
           },
-          "status": "pending"
+          "status": "completed",
+          "notes": "Created comprehensive PLATFORM_SCORECARD_RESULTS.md with all 5 platforms (LinkedIn, Twitter/X, Instagram, YouTube, TikTok) scored using weighted formula: (Audience×2 + Content + Gap + Resources + Alignment) / 7. Results: LinkedIn 9.0 (Primary), Twitter/X 6.4 (Secondary), YouTube 4.7, Instagram 4.1, TikTok 2.7. All platforms below 7.0 threshold marked for deprioritization. Includes detailed rationale, visual score chart, and strategic recommendations.",
+          "updated_at": "2026-01-26T11:10:49.322094+00:00"
         },
         {
           "id": "subtask-2-2",
@@ -136,7 +138,9 @@
             "type": "manual",
             "instructions": "Verify recommendation includes: score comparison table, rationale for #1 choice, secondary platform consideration"
           },
-          "status": "pending"
+          "status": "completed",
+          "notes": "Created comprehensive PLATFORM_RECOMMENDATION.md with: (1) Score comparison table showing LinkedIn 9.0 vs Twitter/X 6.4 vs YouTube 4.7 vs Instagram 4.1 vs TikTok 2.7, (2) Detailed 5-factor rationale for LinkedIn as #1 choice (Audience Fit 10/10, Content Format 9/10, Conversion Path 9/10, Resource Sustainability 9/10, Competitive Gap 8/10), (3) Secondary platform consideration for Twitter/X with conditional factors (must resolve handle inconsistency first), (4) Deprioritization guidance for other platforms, (5) Implementation roadmap phases 1-3.",
+          "updated_at": "2026-01-26T11:14:29.287522+00:00"
         },
         {
           "id": "subtask-2-3",
@@ -164,7 +168,9 @@
             "type": "manual",
             "instructions": "Confirm bidirectional flow documented with gaps identified and improvement recommendations"
           },
-          "status": "pending"
+          "status": "completed",
+          "notes": "Created comprehensive INTEGRATION_ASSESSMENT.md documenting bidirectional website-social integration. Key findings: Site→Social scored 3/10 (critical gaps: no OG images, Twitter handle mismatch, no sharing buttons), Social→Site scored 5/10 (moderate gaps: LinkedIn Featured not used, no content repurposing workflow). Overall integration health: 4/10. Identified 12 improvement actions across 3 priority tiers. Quick wins: Fix Twitter handle (5 min), add OG images (1 hr), update LinkedIn Featured section (15 min). Estimated improvement from 4/10 to 7/10 with 4-5 hours of focused implementation.",
+          "updated_at": "2026-01-26T11:18:26.283024+00:00"
         }
       ]
     },
@@ -605,8 +611,8 @@
   },
   "qa_signoff": null,
   "created_at": "2026-01-26T11:15:00Z",
-  "updated_at": "2026-01-26T11:03:45.395Z",
+  "updated_at": "2026-01-26T11:15:34.021Z",
   "status": "in_progress",
   "planStatus": "in_progress",
-  "last_updated": "2026-01-26T11:06:40.542830+00:00"
+  "last_updated": "2026-01-26T11:18:26.283024+00:00"
 }
