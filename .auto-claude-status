@@ -1,0 +1,25 @@
+{
+  "active": true,
+  "spec": "012-art-director-audit",
+  "state": "building",
+  "subtasks": {
+    "completed": 2,
+    "total": 17,
+    "in_progress": 1,
+    "failed": 0
+  },
+  "phase": {
+    "current": "Site Analysis & First Impressions",
+    "id": 1,
+    "total": 3
+  },
+  "workers": {
+    "active": 0,
+    "max": 1
+  },
+  "session": {
+    "number": 213,
+    "started_at": "2026-01-26T11:10:36.789212"
+  },
+  "last_update": "2026-01-26T12:00:01.812175"
+}
