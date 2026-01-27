@@ -1,0 +1,376 @@
+{
+  "feature": "selfrules.org Conversion Copywriting Audit",
+  "workflow_type": "feature",
+  "workflow_rationale": "This task has distinct sequential phases: analysis (fetch + score), optimization (conversion suggestions), rewriting (critical pages), and documentation (compile final deliverables). The feature workflow respects these dependencies. Note: 15 intermediate deliverables already exist in deliverables/ from prior work sessions - the remaining work focuses on compiling these into the 4 final deliverable documents and filling any gaps.",
+  "critical_findings": {
+    "missing_skill_file": ".claude/skills/copywriter/SKILL.md does NOT exist in the codebase. The analysis methodology (4 C's rubric, AIDA/PAS/BAB/FAB frameworks) is defined inline in spec.md patterns section and must be applied directly by the coder agent.",
+    "existing_intermediate_deliverables": [
+      "deliverables/homepage-content-raw.md",
+      "deliverables/services-content-raw.md",
+      "deliverables/contact-content-raw.md",
+      "deliverables/language-variants-comparison.md",
+      "deliverables/4cs-section-scoring.md",
+      "deliverables/4cs-scoring-analysis.md",
+      "deliverables/aida-pas-fab-framework-analysis.md",
+      "deliverables/critical-pages-identification.md",
+      "deliverables/value-equation-analysis.md",
+      "deliverables/cta-variants-library.md",
+      "deliverables/objection-handling-responses.md",
+      "deliverables/lead-magnet-suggestions.md",
+      "deliverables/critical-page-1-newsletter-rewrite.md",
+      "deliverables/critical-page-2-contact-section-rewrite.md",
+      "deliverables/critical-page-3-english-version-rewrite.md"
+    ],
+    "final_deliverables_missing": [
+      "deliverables/selfrules-copy-audit.md",
+      "deliverables/selfrules-critical-page-rewrites.md",
+      "deliverables/selfrules-tov-framework.md",
+      "deliverables/selfrules-cta-library.md"
+    ],
+    "agents_available": {
+      "copywriter-hybrid": ".claude/agents/copywriter-hybrid.md - Voice calibration, quality checks, content type ratios",
+      "hormozi-conversion-optimizer": ".claude/agents/hormozi-conversion-optimizer.md - Value equation, CTA variants, objection handling"
+    }
+  },
+  "phases": [
+    {
+      "id": "phase-1-audit-review",
+      "name": "Review & Gap Analysis of Existing Deliverables",
+      "type": "investigation",
+      "description": "Read all 15 existing intermediate deliverables to understand what analysis has already been completed and identify any gaps that need filling before compiling final documents.",
+      "depends_on": [],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-1-1",
+          "description": "Read all raw content files (homepage, services, contact) and language variants comparison to verify complete page coverage",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [],
+          "files_to_read": [
+            "deliverables/homepage-content-raw.md",
+            "deliverables/services-content-raw.md",
+            "deliverables/contact-content-raw.md",
+            "deliverables/language-variants-comparison.md"
+          ],
+          "patterns_from": [],
+          "verification": {
+            "type": "manual",
+            "instructions": "Confirm all selfrules.org pages documented: homepage, /lavoriamo-insieme, /parliamo, /it, /en variants. Note any missing pages."
+          },
+          "status": "completed",
+          "notes": "All 5 required page variants verified: homepage, /lavoriamo-insieme, /parliamo, /it, /en. No gaps found. 4 raw content files totaling 831 lines of documented content. Language comparison identifies 4 priority tone inconsistencies. Site uses single-page architecture (services and contact are homepage sections).",
+          "updated_at": "2026-01-27T12:36:52.621937+00:00"
+        },
+        {
+          "id": "subtask-1-2",
+          "description": "Read all scoring and analysis files (4Cs scoring, AIDA/PAS/FAB analysis, critical pages identification) to verify completeness",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [],
+          "files_to_read": [
+            "deliverables/4cs-section-scoring.md",
+            "deliverables/4cs-scoring-analysis.md",
+            "deliverables/aida-pas-fab-framework-analysis.md",
+            "deliverables/critical-pages-identification.md"
+          ],
+          "patterns_from": [],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify: every page section has 4 C's scores (Clear, Concise, Compelling, Credible out of 10), AIDA framework applied to each page, 3 most critical pages identified with rationale"
+          },
+          "status": "completed",
+          "notes": "All 4 scoring/analysis files verified complete. 4 C's scores present for all 6 site sections (Hero 36/40, Journey 35/40, Services 32/40, Testimonials 34/40, CTA 38/40, Footer 30/40) plus 24 granular element scores. AIDA applied to 5 page variants (Homepage IT/EN, Services, Contact, Newsletter). PAS applied to 8 sections. FAB applied to 7 sections. 3 critical pages identified: Newsletter CTA (F grade), Contact Section (Attention crash), English Version (systematic -2.5pts). No gaps found.",
+          "updated_at": "2026-01-27T13:00:00.000Z"
+        },
+        {
+          "id": "subtask-1-3",
+          "description": "Read conversion optimization files (value equation, CTA variants, objection handling, lead magnets) to verify Hormozi methodology applied",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [],
+          "files_to_read": [
+            "deliverables/value-equation-analysis.md",
+            "deliverables/cta-variants-library.md",
+            "deliverables/objection-handling-responses.md",
+            "deliverables/lead-magnet-suggestions.md"
+          ],
+          "patterns_from": [
+            ".claude/agents/hormozi-conversion-optimizer.md"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify: Value Equation applied, CTA variants at soft/medium/high intensity, 3+ variants per CTA location, objections mapped with responses"
+          },
+          "status": "pending"
+        },
+        {
+          "id": "subtask-1-4",
+          "description": "Read all 3 critical page rewrites to verify voice calibration and quality checks applied per copywriter-hybrid methodology",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [],
+          "files_to_read": [
+            "deliverables/critical-page-1-newsletter-rewrite.md",
+            "deliverables/critical-page-2-contact-section-rewrite.md",
+            "deliverables/critical-page-3-english-version-rewrite.md"
+          ],
+          "patterns_from": [
+            ".claude/agents/copywriter-hybrid.md"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify: before/after comparisons present, voice calibration documented (Romei/Toon/Sinek ratios), Romei/Toon/Sinek quality checks applied"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-2-compile-audit",
+      "name": "Compile Copy Audit Report",
+      "type": "implementation",
+      "description": "Compile the comprehensive scored copy audit report from existing intermediate deliverables (4Cs scores, AIDA/PAS/FAB analysis, critical pages identification) into the final selfrules-copy-audit.md following the output format from spec.md.",
+      "depends_on": [
+        "phase-1-audit-review"
+      ],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-2-1",
+          "description": "Create deliverables/selfrules-copy-audit.md compiling all audit data: Executive Summary, Framework Analysis (AIDA/PAS scores in table format), 4 C's Scorecard (section x 4 C's matrix with totals), Critical Issues (current quote + recommended rewrite), 10x Opportunities, Priority Rewrites, Action Items checklist",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [
+            "deliverables/selfrules-copy-audit.md"
+          ],
+          "patterns_from": [
+            "deliverables/4cs-scoring-analysis.md",
+            "deliverables/4cs-section-scoring.md",
+            "deliverables/aida-pas-fab-framework-analysis.md",
+            "deliverables/critical-pages-identification.md",
+            "deliverables/homepage-content-raw.md",
+            "deliverables/services-content-raw.md",
+            "deliverables/contact-content-raw.md"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify document contains: Executive Summary (2-3 sentences), Framework Analysis tables, 4 C's Scorecard matrix, Critical Issues with quotes+rewrites, 10x Opportunities with specific fixes, Priority Rewrites before/after, Action Items checkboxes"
+          },
+          "status": "pending",
+          "notes": "This is the master audit document. Must include composite scores out of 40 per section, identify weakest C per section, cover ALL pages analyzed."
+        }
+      ]
+    },
+    {
+      "id": "phase-3-compile-rewrites",
+      "name": "Compile Critical Page Rewrites",
+      "type": "implementation",
+      "description": "Compile the 3 critical page rewrites into a single formatted document with before/after comparisons, voice calibration documentation, and quality check results.",
+      "depends_on": [
+        "phase-1-audit-review"
+      ],
+      "parallel_safe": true,
+      "subtasks": [
+        {
+          "id": "subtask-3-1",
+          "description": "Create deliverables/selfrules-critical-page-rewrites.md combining all 3 rewrites with: intro explaining why these 3 pages were selected, before/after for each page with voice calibration ratios documented, quality check results (Romei/Toon/Sinek checks), readability metrics per rewrite",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [
+            "deliverables/selfrules-critical-page-rewrites.md"
+          ],
+          "patterns_from": [
+            "deliverables/critical-pages-identification.md",
+            "deliverables/critical-page-1-newsletter-rewrite.md",
+            "deliverables/critical-page-2-contact-section-rewrite.md",
+            "deliverables/critical-page-3-english-version-rewrite.md",
+            ".claude/agents/copywriter-hybrid.md"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify: all 3 rewrites included, before/after comparisons present for each, voice calibration ratios documented, Romei/Toon/Sinek quality checks applied and documented per rewrite"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-4-create-tov",
+      "name": "Create Tone of Voice Framework",
+      "type": "implementation",
+      "description": "Create the Tone of Voice Framework document synthesizing voice principles from copywriter-hybrid agent, CLAUDE.md guidelines, and patterns observed in the audit analysis.",
+      "depends_on": [
+        "phase-1-audit-review"
+      ],
+      "parallel_safe": true,
+      "subtasks": [
+        {
+          "id": "subtask-4-1",
+          "description": "Create deliverables/selfrules-tov-framework.md with: voice philosophy (Romei/Toon/Sinek blend), content type calibration table with ratios, quality checklists per voice element, do/don't examples, signature phrases, readability targets (Flesch 60-70, Grade 6-8), actionable templates for each content type, Italian/English consistency guidelines",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [
+            "deliverables/selfrules-tov-framework.md"
+          ],
+          "patterns_from": [
+            ".claude/agents/copywriter-hybrid.md",
+            "CLAUDE.md",
+            "deliverables/language-variants-comparison.md"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify: all content types covered with Romei/Toon/Sinek ratios, quality checklists present, do/don't examples are specific (not generic), readability targets specified, framework is immediately actionable"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-5-compile-cta",
+      "name": "Compile CTA Library",
+      "type": "implementation",
+      "description": "Compile the optimized CTA Library from existing CTA variants, objection handling, and lead magnet files into a single organized reference document.",
+      "depends_on": [
+        "phase-1-audit-review"
+      ],
+      "parallel_safe": true,
+      "subtasks": [
+        {
+          "id": "subtask-5-1",
+          "description": "Create deliverables/selfrules-cta-library.md with: CTA variants organized by page location and intensity level (soft/medium/high), minimum 3 variants per location (9+ total), objection handling responses for each CTA, lead magnet suggestions with placement recommendations, Value Equation application notes, A/B testing suggestions",
+          "service": "main",
+          "files_to_modify": [],
+          "files_to_create": [
+            "deliverables/selfrules-cta-library.md"
+          ],
+          "patterns_from": [
+            "deliverables/cta-variants-library.md",
+            "deliverables/objection-handling-responses.md",
+            "deliverables/lead-magnet-suggestions.md",
+            "deliverables/value-equation-analysis.md",
+            ".claude/agents/hormozi-conversion-optimizer.md"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify: 9+ CTA variants total (3 per intensity level minimum), objection handling for common blockers (price, skepticism, time), lead magnets included, Value Equation principles applied"
+          },
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "phase-6-final-qa",
+      "name": "Final Quality Review",
+      "type": "integration",
+      "description": "Review all 4 final deliverables against QA acceptance criteria from spec.md, verify scoring methodology consistency, and ensure all success criteria are met.",
+      "depends_on": [
+        "phase-2-compile-audit",
+        "phase-3-compile-rewrites",
+        "phase-4-create-tov",
+        "phase-5-compile-cta"
+      ],
+      "parallel_safe": false,
+      "subtasks": [
+        {
+          "id": "subtask-6-1",
+          "description": "Cross-review all 4 final deliverables against spec.md QA criteria: scoring consistency across pages, voice calibration documented in rewrites, CTA variants cover all intensity levels, TOV framework is actionable, before/after examples are specific, objection handling covers price/skepticism/time, Italian language preserved, no corporate jargon in rewrites",
+          "service": "main",
+          "files_to_modify": [
+            "deliverables/selfrules-copy-audit.md",
+            "deliverables/selfrules-critical-page-rewrites.md",
+            "deliverables/selfrules-tov-framework.md",
+            "deliverables/selfrules-cta-library.md"
+          ],
+          "files_to_create": [],
+          "patterns_from": [],
+          "verification": {
+            "type": "manual",
+            "instructions": "All QA sign-off items from spec.md verified: all 4 deliverables complete, scoring methodology consistent, voice calibration documented, CTA variants cover soft/medium/high, TOV framework actionable, before/after specific, objection handling covers common blockers, Italian preserved, no corporate jargon"
+          },
+          "status": "pending",
+          "notes": "May need to update/fix any of the 4 deliverables if QA issues are found"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_phases": 6,
+    "total_subtasks": 8,
+    "services_involved": [
+      "main"
+    ],
+    "parallelism": {
+      "max_parallel_phases": 3,
+      "parallel_groups": [
+        {
+          "phases": [
+            "phase-3-compile-rewrites",
+            "phase-4-create-tov",
+            "phase-5-compile-cta"
+          ],
+          "reason": "All three depend only on phase-1-audit-review, produce separate files with no overlap"
+        }
+      ],
+      "recommended_workers": 1,
+      "speedup_estimate": "Phases 3-5 could theoretically run in parallel but since all are document compilation by a single agent, sequential is more practical"
+    },
+    "startup_command": "No services needed - this is a documentation-only task. The coder agent reads existing deliverables and compiles final documents."
+  },
+  "verification_strategy": {
+    "risk_level": "trivial",
+    "skip_validation": true,
+    "minimal_mode": true,
+    "test_types_required": [],
+    "security_scanning_required": false,
+    "staging_deployment_required": false,
+    "acceptance_criteria": [
+      "All 4 final deliverables created in deliverables/",
+      "Copy audit has 4 C's scores for every section analyzed",
+      "Critical page rewrites include before/after with voice calibration",
+      "TOV framework covers all content types with Romei/Toon/Sinek ratios",
+      "CTA library has 9+ variants across intensity levels with objection handling"
+    ],
+    "verification_steps": [],
+    "reasoning": "Documentation-only output with no functional code modifications. All deliverables are markdown files. Validation is human review of content quality."
+  },
+  "qa_acceptance": {
+    "unit_tests": {
+      "required": false,
+      "commands": [],
+      "minimum_coverage": null
+    },
+    "integration_tests": {
+      "required": false,
+      "commands": [],
+      "services_to_test": []
+    },
+    "e2e_tests": {
+      "required": false,
+      "commands": [],
+      "flows": []
+    },
+    "browser_verification": {
+      "required": false,
+      "pages": []
+    },
+    "database_verification": {
+      "required": false,
+      "checks": []
+    },
+    "deliverable_validation": {
+      "required": true,
+      "checks": [
+        "deliverables/selfrules-copy-audit.md exists and has Executive Summary, Framework Analysis, 4 C's Scorecard, Critical Issues, 10x Opportunities, Action Items",
+        "deliverables/selfrules-critical-page-rewrites.md exists with 3 rewrites, before/after, voice calibration documented",
+        "deliverables/selfrules-tov-framework.md exists with all content types, calibration ratios, quality checklists",
+        "deliverables/selfrules-cta-library.md exists with 9+ variants, objection handling, lead magnets"
+      ]
+    }
+  },
+  "qa_signoff": null,
+  "status": "in_progress",
+  "planStatus": "in_progress",
+  "updated_at": "2026-01-27T12:37:46.647Z",
+  "last_updated": "2026-01-27T12:36:52.621937+00:00"
+}
