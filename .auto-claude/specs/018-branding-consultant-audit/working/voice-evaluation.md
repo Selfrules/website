@@ -433,6 +433,173 @@ Before publishing any content, verify:
 
 ---
 
+---
+
+## EN/IT Voice Consistency Analysis
+
+**Sources Compared:** `messages/en.json` (450 lines), `messages/it.json` (452 lines)
+**Analysis Date:** January 27, 2025
+
+### Overall EN/IT Consistency Rating: **HIGH** (8/10)
+
+The Italian localization successfully preserves the core voice attributes across nearly all sections. The failure-forward tone, casual directness, and evidence-density translate well into Italian while respecting natural language conventions (e.g., using "tu" informal address consistently).
+
+---
+
+### Section-by-Section Consistency Assessment
+
+| Section | EN/IT Consistency | Notes |
+|---------|-------------------|-------|
+| **Hero** | ⚠️ **MEDIUM** (6/10) | Core messaging excellent, but 4 untranslated strings (stats, card content) break immersion |
+| **Journey** | ✅ **HIGH** (9/10) | Storytelling voice preserved beautifully; "Ho fallito" mirrors "I failed" impact |
+| **Services (WorkTogether)** | ✅ **HIGH** (9/10) | Problem-first approach, punchy fragments, air-quotes irony all maintained |
+| **Blog** | ✅ **HIGH** (8/10) | "Casino" (mess) maintains casual tone; self-deprecating humor preserved |
+| **Footer** | ✅ **HIGH** (9/10) | Pushy CTA ("Ancora qui?") perfectly mirrors EN; casual directness intact |
+| **What I'm Up To** | ⚠️ **MEDIUM** (6/10) | 2 untranslated badges ("Right now", "Now playing"); core content excellent |
+| **Common Strings** | ✅ **HIGH** (8/10) | "caricamento..." feels slightly more neutral than brand voice potential |
+
+---
+
+### Specific Inconsistencies Identified
+
+#### 1. UNTRANSLATED STRINGS (Critical - Breaks Language Immersion)
+
+| Location | EN String | IT String (Current) | Issue |
+|----------|-----------|---------------------|-------|
+| `hero.stats.loadTimes` | "Faster load times" | "Faster load times" | ❌ Not translated |
+| `hero.stats.usersImpacted` | "Users impacted" | "Users impacted" | ❌ Not translated |
+| `hero.stats.productsShipped` | "Products shipped" | "Products shipped" | ❌ Not translated |
+| `hero.card.shipFast` | "Ship Fast" | "Ship Fast" | ❌ Not translated |
+| `hero.card.shipDesc` | "From idea to production in weeks, not months" | "From idea to production in weeks, not months" | ❌ Not translated |
+| `whatImUpTo.badge` | "Right now" | "Right now" | ❌ Not translated |
+| `whatImUpTo.spotify.title` | "Now playing" | "Now playing" | ❌ Not translated |
+
+**Impact:** Italian visitors see jarring English phrases in otherwise Italian UI. This creates a fragmented experience and dilutes the carefully crafted voice consistency.
+
+**Recommendation:** Translate these strings:
+- "Faster load times" → "Caricamenti più veloci"
+- "Users impacted" → "Utenti impattati"
+- "Products shipped" → "Prodotti rilasciati"
+- "Ship Fast" → "Rilascia Veloce" or keep as brand term with quotation marks
+- "Right now" → "Ora"
+- "Now playing" → "In ascolto ora"
+
+---
+
+#### 2. INTENTIONAL ENGLISH RETENTION (Minor - Industry Standard)
+
+| Category | Examples | Justification | Verdict |
+|----------|----------|---------------|---------|
+| **Technology Terms** | "Product Strategy", "API Design", "A/B Testing" | Industry-standard terminology | ✅ Acceptable |
+| **Certification Names** | "Certified ScrumMaster", "Product Owner" | Official certification names | ✅ Correct |
+| **Hybrid Terms** | "Code/design review", "Career path" | Common in Italian tech context | ✅ Acceptable |
+| **Service Badges** | "Brainstorming sessions" | English recognized in IT market | ⚠️ Could localize |
+
+**Conclusion:** Technical terminology in English is acceptable and expected in Italian tech/product contexts. No action required.
+
+---
+
+#### 3. TONE MICRO-SHIFTS IN TRANSLATION
+
+| EN Original | IT Translation | Dimension Affected | Assessment |
+|-------------|----------------|-------------------|------------|
+| "I failed as a designer" | "Ho fallito come designer" | Failure-Forward | ✅ Perfect - equal impact |
+| "Still here? Go up and book that call you've been postponing since this morning" | "Ancora qui? Vai su e prenota quella call che rimandi da stamattina" | Casual/Pushy | ✅ Perfect - same energy |
+| "What kind of mess do you need?" | "Quale tipo di casino ti serve?" | Casual/Playful | ✅ Excellent - "casino" is appropriately colloquial |
+| "I haven't screwed up that way yet" | "Non ho ancora sbagliato in quel modo" | Humor | ⚠️ Slightly softer - "sbagliato" less colorful than "screwed up" |
+| "Zero pitch. Zero slides. Just your problem" | "Zero pitch. Zero slide. Solo il tuo problema" | Punchy | ✅ Perfect - fragment structure preserved |
+| "Because even chaos needs a method" | "Perché anche il caos ha bisogno di un metodo" | Ironic | ✅ Perfect - same rhythm |
+| "The future is augmented, not replaced" | "Perché il futuro è augmented, not replaced" | Authority | ⚠️ Adds "Perché" (Because) - slightly more explanatory |
+
+**Conclusion:** Translation quality is high. Minor shifts are within acceptable range for natural Italian expression.
+
+---
+
+#### 4. VOICE DIMENSION COMPARISON: EN vs IT
+
+| Dimension | EN Score | IT Score | Variance | Notes |
+|-----------|----------|----------|----------|-------|
+| **Formality** | 3/10 | 3/10 | None | "Tu" form used consistently; casual markers preserved |
+| **Energy** | 6/10 | 6/10 | None | Punchy fragments, rhythm maintained |
+| **Humor** | 6/10 | 5.5/10 | -0.5 | Some colorful expressions slightly softened in IT |
+| **Authority** | 7/10 | 7/10 | None | Evidence, numbers, company names all retained |
+
+**Overall Dimension Consistency: 97%**
+
+---
+
+### Voice Attribute Preservation Check
+
+| Attribute | EN | IT | Preserved? |
+|-----------|----|----|------------|
+| **Pragmatic** | Problem-first, direct | Problem-first, direct | ✅ YES |
+| **Failure-Forward** | "I failed...", lessons from mistakes | "Ho fallito...", lessons from mistakes | ✅ YES |
+| **Punchy** | Short sentences, fragments | Short sentences, fragments | ✅ YES |
+| **Evidence-Dense** | Specific metrics, company names | Same metrics, same companies | ✅ YES |
+| **Anti-Corporate** | LinkedIn jabs, air quotes | Same jabs, same irony | ✅ YES |
+
+**All 5 Core Attributes: Successfully Translated**
+
+---
+
+### Recommendations for EN/IT Improvement
+
+#### Priority 1: Fix Untranslated Strings
+**Severity:** High
+**Effort:** Low (7 strings)
+Translate all English strings remaining in `messages/it.json` to create seamless Italian experience.
+
+#### Priority 2: Review "Soft" Translations
+**Severity:** Low
+**Effort:** Low
+Consider stronger Italian equivalents for:
+- "sbagliato" → "incasinato" or "fottuto" (context-dependent) for "screwed up"
+- Add more colorful Italian idioms where EN uses colloquialisms
+
+#### Priority 3: Document Language Strategy
+**Severity:** Low
+**Effort:** Medium
+Create explicit guidelines for:
+- Which English terms to retain (tech terminology, certification names)
+- Which to always translate (UI elements, section headings)
+- Tone calibration examples for future content
+
+---
+
+### Cross-Section Voice Consistency Matrix
+
+| Voice Attribute | Hero | Journey | Services | Blog | Footer | What I'm Up To |
+|-----------------|------|---------|----------|------|--------|----------------|
+| **Pragmatic** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Failure-Forward** | ✅ | ✅ | ⚪ | ✅ | ⚪ | ⚪ |
+| **Punchy** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Evidence-Dense** | ✅ | ✅ | ✅ | ⚪ | ⚪ | ✅ |
+| **Anti-Corporate** | ⚪ | ⚪ | ✅ | ✅ | ✅ | ✅ |
+
+**Legend:** ✅ = Strongly present | ⚪ = Present but subtle/optional for section
+
+**Cross-Section Consistency Score: HIGH** (9/10)
+
+*Appropriate variation exists between sections based on their purpose (e.g., Testimonials are naturally more formal, Blog is more playful).*
+
+---
+
+### Key Findings Summary
+
+#### Strengths
+1. **Core voice translates excellently** - All 5 voice attributes preserved in Italian
+2. **Casual tone maintained** - "Tu" form and colloquial expressions used consistently
+3. **Failure-forward narrative intact** - "Ho fallito" carries same weight as "I failed"
+4. **Punchy structure preserved** - Fragment sentences and short rhythms maintained
+
+#### Issues to Address
+1. **7 untranslated strings** create jarring language mixing in Italian UI
+2. **Minor humor softening** - Some colorful EN expressions could be stronger in IT
+3. **No documented localization strategy** - Future content may drift without guidelines
+
+---
+
 *Document created as part of Phase 4: Voice Evaluation (Task 018)*
 *Completed subtask-4-1: Voice dimensions rated*
 *Completed subtask-4-2: Core voice attributes identified with Sounds Like/Doesn't Sound Like examples*
+*Completed subtask-4-3: EN/IT voice consistency evaluated with section-by-section analysis*
