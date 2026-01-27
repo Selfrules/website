@@ -407,16 +407,339 @@ Per subtask requirements, verify this inventory includes:
 
 ---
 
-## NEXT STEPS FOR SUBTASK 5-2
+## 9. COMPREHENSIVE BRAND EQUITY GAP ANALYSIS
 
-This inventory identifies the following equity gaps to prioritize:
+### Methodology
 
-1. **Testimonial Expansion** - Need 6-10 more, including video and recognized names
-2. **Social Proof Visibility** - Add client logos, LinkedIn links, media mentions
-3. **Thought Leadership Creation** - Publish blog posts, guest on podcasts, speak at events
-4. **Portfolio Evidence** - Add design/code samples, case study pages
-5. **External Validation** - Seek industry awards, publication features
+This gap analysis consolidates all identified equity deficiencies, categorizes them by type, prioritizes them by **Impact × Effort**, and provides specific actionable recommendations. Each gap is scored:
+
+- **Impact**: How much will closing this gap improve brand positioning? (H/M/L)
+- **Effort**: How difficult/time-consuming to close? (H/M/L)
+- **Priority**: P1 (Do Now), P2 (Plan for Q1), P3 (Backlog)
 
 ---
 
-*Document complete. Ready for subtask 5-2: Brand Equity Gap Analysis.*
+### Gap Category 1: THIRD-PARTY VALIDATION (Critical Gap - Current Score: 4/10)
+
+**What Exists:**
+- 4 text testimonials (covering 3 service types)
+- Partnership mentions (Google, Facebook, TikTok, LinkedIn)
+- 4 named companies in experience section
+
+**What's Missing:**
+
+| Gap | Current State | Target State | Impact | Effort | Priority |
+|-----|---------------|--------------|--------|--------|----------|
+| **Testimonial Volume** | 4 testimonials | 10-15 testimonials | H | M | **P1** |
+| **Video Testimonials** | None | 3-5 video clips | H | M | **P1** |
+| **Verifiable Attribution** | Names only | LinkedIn profiles linked | H | L | **P1** |
+| **Recognized Names** | Unknown companies | 1-2 known brands/people | H | H | P2 |
+| **Client Logo Display** | None visible | Logo carousel on homepage | M | L | **P1** |
+| **Testimonials with Metrics** | Qualitative only | 50% include $ or % | M | M | P2 |
+| **LinkedIn Recommendations** | Not integrated | Pull 5+ recommendations | M | L | P2 |
+
+**Specific Recommendations:**
+
+1. **Immediate (Week 1-2):**
+   - Contact Sarah Chen, Marco Bianchi, Alex Kumar, Elena Rossi for LinkedIn profile links or permission to link
+   - Create logo bar with: QubicaAMF, ActiveProspect, FLOWING, Selfrules (even own brands count)
+   - Ask existing testimonial givers: "Can you quantify the impact? (time saved, $ impact)"
+
+2. **Short-term (Month 1):**
+   - Request 3-minute Loom testimonials from top 3 clients
+   - Offer testimonial exchange with network (give to get)
+   - Target 6 new testimonials: 2 founders, 2 PMs, 2 technical leads
+
+3. **Medium-term (Quarter 1):**
+   - Develop case study template: Problem → Approach → Results
+   - Secure testimonial from recognizable company (reach via warm intro)
+   - Add "As Featured In" section (requires media mentions - see Gap Category 2)
+
+**Closing Impact:** Moving from 4 to 12 testimonials with video + verification would increase brand trust score from 4/10 to 7/10.
+
+---
+
+### Gap Category 2: THOUGHT LEADERSHIP (Critical Gap - Current Score: 2/10)
+
+**What Exists:**
+- Website-only content (no external presence)
+- Blog section exists but content not published
+- Strong POV and voice in existing copy
+
+**What's Missing:**
+
+| Gap | Current State | Target State | Impact | Effort | Priority |
+|-----|---------------|--------------|--------|--------|----------|
+| **Published Blog Content** | Empty blog section | 6-12 posts/year | H | M | **P1** |
+| **Podcast Appearances** | None | 3-5 guest appearances | H | M | **P1** |
+| **Speaking Engagements** | None | 2 local/online events | M | M | P2 |
+| **LinkedIn Content** | Unknown/minimal | Weekly posts | M | L | **P1** |
+| **Newsletter** | None | Monthly newsletter | M | M | P2 |
+| **Media Mentions** | None | 2-3 publications | M | H | P3 |
+| **Quotes in Industry Content** | None | HARO or similar | L | L | P3 |
+| **Open Source Contributions** | Not visible | GitHub profile linked | L | L | P3 |
+
+**Specific Recommendations:**
+
+1. **Immediate (Week 1-2):**
+   - Launch LinkedIn content calendar: 3 posts/week recycling website content
+   - Transform "failure stories" from Journey section into 4 blog posts
+   - Create speaker one-pager with 3 talk topics + bio
+
+2. **Short-term (Month 1-2):**
+   - Write 3 foundational blog posts:
+     - "Why I Stopped Being a Designer (And What I Learned)"
+     - "The €8K Lesson That Changed How I Build Products"
+     - "Why 'Speaking Three Languages' Is The Most Underrated PM Skill"
+   - Pitch 5 PM/product podcasts for guest spots (target: Lenny's Podcast tier 2-3)
+
+3. **Medium-term (Quarter 1-2):**
+   - Submit talk proposals to ProductTank, local tech meetups
+   - Launch "Discipline Translation" newsletter (repurpose blog content)
+   - Apply to contribute to Product Coalition, Mind the Product, etc.
+
+**Closing Impact:** 6 blog posts + 2 podcast appearances would increase thought leadership score from 2/10 to 5/10. Sustained effort could reach 7/10 in 6 months.
+
+---
+
+### Gap Category 3: PORTFOLIO & EVIDENCE (Moderate Gap - Current Score: 5/10)
+
+**What Exists:**
+- Strong quantified results (14+ metrics)
+- Embedded case narratives in Journey
+- Certifications with taglines
+
+**What's Missing:**
+
+| Gap | Current State | Target State | Impact | Effort | Priority |
+|-----|---------------|--------------|--------|--------|----------|
+| **Design Portfolio** | None | 5-10 projects shown | M | M | P2 |
+| **Code Samples** | None visible | GitHub profile or snippets | L | L | P3 |
+| **Dedicated Case Studies** | Embedded in narrative | 3-4 standalone pages | H | M | P2 |
+| **Process Documentation** | Implied | "How I Work" page | M | M | P2 |
+| **Video Content** | None | Intro video on homepage | M | M | P2 |
+| **Before/After Examples** | Text only | Visual comparisons | M | M | P3 |
+| **Client List/Logos** | Mentioned in text | Visual display | H | L | **P1** |
+
+**Specific Recommendations:**
+
+1. **Immediate (Week 1-2):**
+   - Create "Companies I've Worked With" section with logos
+   - Add GitHub profile to footer (if public repos exist)
+
+2. **Short-term (Month 1-2):**
+   - Design 3 case study templates (quick-read version)
+   - Create "How I Work" page explaining 90-min consulting process
+
+3. **Medium-term (Quarter 1):**
+   - Gather permission for 3 visual case studies (sanitized if needed)
+   - Record 60-second introduction video for homepage
+   - Document design/PM artifacts (sanitized) for portfolio
+
+**Closing Impact:** 3 case study pages + client logos would increase portfolio score from 5/10 to 7/10.
+
+---
+
+### Gap Category 4: CREDENTIAL DEPTH (Minor Gap - Current Score: 7/10)
+
+**What Exists:**
+- 6 formal certifications from reputable issuers
+- Diverse coverage (Agile, PM, Leadership, AI, Marketing)
+- Recent credentials (2024-2025)
+
+**What's Missing:**
+
+| Gap | Current State | Target State | Impact | Effort | Priority |
+|-----|---------------|--------------|--------|--------|----------|
+| **Industry Certifications** | None | FinTech, SaaS specific | L | M | P3 |
+| **Design Credentials** | None (despite UX claims) | UX certification | M | M | P3 |
+| **Technical Certifications** | None (despite dev claims) | AWS/Cloud or similar | L | H | P3 |
+| **Redundancy Cleanup** | Duplicates in lists | Consolidated view | L | L | P3 |
+
+**Specific Recommendations:**
+
+1. **Low priority - backlog:**
+   - Consider UX certification only if portfolio doesn't sufficiently prove design ability
+   - Technical certifications unnecessary if code samples are shown
+   - Consolidate certification display to avoid redundancy
+
+**Closing Impact:** Certifications are already strong. Focus energy elsewhere.
+
+---
+
+### Gap Category 5: NARRATIVE GAPS (Minor Gap - Current Score: 8/10)
+
+**What Exists:**
+- Strong failure-forward storytelling
+- Specific numbers tied to stories
+- Clear career progression narrative
+
+**What's Missing:**
+
+| Gap | Current State | Target State | Impact | Effort | Priority |
+|-----|---------------|--------------|--------|--------|----------|
+| **Client Perspective Stories** | Self-narrated | 2-3 client-told stories | M | M | P2 |
+| **Before/After Transformations** | Implied | Explicit timelines | M | L | P2 |
+| **Video Storytelling** | Text only | 1-2 video stories | M | M | P3 |
+| **User Scale Context** | "50+ products" vague | Specific user/revenue scale | M | M | P2 |
+
+**Specific Recommendations:**
+
+1. **Short-term (Month 1):**
+   - Request "Before I met Mattia / After" format testimonials
+   - Add context to "50+ products" claim: "serving X users" or "generating Y revenue"
+
+2. **Medium-term (Quarter 1):**
+   - Create video version of €8K failure story
+   - Develop 3 "transformation stories" with client permission
+
+**Closing Impact:** Adding client-perspective stories would increase authenticity score from 8/10 to 9/10.
+
+---
+
+### 10. PRIORITY RANKING MATRIX
+
+#### Priority 1 (P1) - Do Now (Next 2 Weeks)
+
+| Gap | Category | Effort | Expected ROI |
+|-----|----------|--------|--------------|
+| Add LinkedIn links to testimonials | Validation | Low | High - instant credibility boost |
+| Create client logo display | Validation | Low | High - visual social proof |
+| Launch LinkedIn content calendar | Thought Leadership | Low | High - ongoing visibility |
+| Write first 2 blog posts | Thought Leadership | Medium | High - SEO + content for repurposing |
+| Request testimonial metrics | Validation | Low | Medium - strengthens existing proof |
+
+**Estimated time:** 20-30 hours total
+**Estimated impact:** Brand equity score +1.0 (from 6/10 to 7/10)
+
+#### Priority 2 (P2) - Plan for Q1 (Next 3 Months)
+
+| Gap | Category | Effort | Expected ROI |
+|-----|----------|--------|--------------|
+| Create 3 case study pages | Portfolio | Medium | High - conversion driver |
+| Secure 6 new testimonials | Validation | Medium | High - volume credibility |
+| Record 3 video testimonials | Validation | Medium | High - trust multiplier |
+| Guest on 2-3 podcasts | Thought Leadership | Medium | High - reach expansion |
+| Launch newsletter | Thought Leadership | Medium | Medium - list building |
+| Create "How I Work" page | Portfolio | Medium | Medium - process clarity |
+
+**Estimated time:** 40-60 hours over 3 months
+**Estimated impact:** Brand equity score +1.5 (from 7/10 to 8.5/10)
+
+#### Priority 3 (P3) - Backlog (6+ Months)
+
+| Gap | Category | Effort | Expected ROI |
+|-----|----------|--------|--------------|
+| Secure media mentions | Thought Leadership | High | Medium |
+| Add design portfolio | Portfolio | Medium | Low-Medium |
+| Add GitHub/code samples | Portfolio | Low | Low |
+| Industry certifications | Credentials | Medium | Low |
+| Speaking engagements | Thought Leadership | Medium | Medium |
+| Video storytelling | Narrative | Medium | Low-Medium |
+
+**Estimated impact:** Brand equity score +0.5 (from 8.5/10 to 9/10)
+
+---
+
+### 11. EQUITY BUILDING ROADMAP
+
+```
+Current State: 6/10 Brand Equity Score
+
+Week 1-2 (P1 Quick Wins):
+├── Add LinkedIn links to testimonials ✓
+├── Create company logo bar ✓
+├── Start LinkedIn content (3/week) ✓
+├── Publish Blog Post #1 ✓
+└── Request testimonial metrics ✓
+→ Expected: 7/10
+
+Month 1-2 (P1 Completion + P2 Start):
+├── Publish Blog Posts #2-4 ✓
+├── Request 3 video testimonials ✓
+├── Collect 4 new text testimonials ✓
+├── Create Case Study #1 ✓
+└── Pitch 5 podcasts ✓
+→ Expected: 7.5/10
+
+Month 3 (P2 Continuation):
+├── Publish Blog Posts #5-6 ✓
+├── Guest on first podcast ✓
+├── Create "How I Work" page ✓
+├── Create Case Studies #2-3 ✓
+└── Launch newsletter ✓
+→ Expected: 8/10
+
+Month 4-6 (P2 Completion):
+├── Guest on 2 more podcasts ✓
+├── Collect remaining testimonials (12 total) ✓
+├── Record intro video ✓
+└── Submit speaking proposals ✓
+→ Expected: 8.5/10
+
+Year 1 End (Sustained P3):
+├── Media mentions secured ✓
+├── First speaking engagement ✓
+├── 12+ blog posts published ✓
+└── Strong newsletter list ✓
+→ Target: 9/10
+```
+
+---
+
+### 12. GAP ANALYSIS SUMMARY TABLE
+
+| Equity Category | Current Score | Target Score (6mo) | Primary Gaps | Priority Focus |
+|-----------------|---------------|--------------------|--------------|--------------------|
+| **Certifications** | 7/10 | 7/10 | Minor redundancy | Low (maintain) |
+| **Testimonials** | 5/10 | 8/10 | Volume, video, verification | **P1 - CRITICAL** |
+| **Quantified Results** | 8/10 | 8/10 | Scale context | Low (maintain) |
+| **Experience Proof** | 7/10 | 8/10 | Logo visibility, case studies | P2 |
+| **Skills Evidence** | 6/10 | 7/10 | Portfolio, process docs | P2 |
+| **Narrative/Story** | 8/10 | 9/10 | Client perspectives | P2 |
+| **Social Proof Visibility** | 3/10 | 7/10 | Logos, media, verification | **P1 - CRITICAL** |
+| **Thought Leadership** | 2/10 | 6/10 | Content, podcasts, speaking | **P1 - CRITICAL** |
+
+**Overall Current Score: 6/10**
+**Target Score (6 months): 8/10**
+**Stretch Goal (12 months): 9/10**
+
+---
+
+### 13. KEY INSIGHT: THE EQUITY MULTIPLIER EFFECT
+
+The most efficient equity-building strategy leverages interconnections:
+
+```
+Blog Post → LinkedIn Content → Newsletter Content → Podcast Talking Points
+    ↓             ↓                  ↓                     ↓
+   SEO        Visibility          List Growth          New Testimonials
+    ↓             ↓                  ↓                     ↓
+   ─────────────────→ ALL FEED INTO ←─────────────────────
+                           ↓
+              Increased Brand Equity Score
+```
+
+**Single Investment, Multiple Returns:**
+1. Write 1 blog post about €8K failure lesson
+2. Turn into 3 LinkedIn posts
+3. Use as newsletter content
+4. Reference in podcast pitches ("I wrote about...")
+5. Quote generates testimonial request opportunity
+
+**Recommended First Move:** Write "The €8K Lesson That Changed How I Build Products" blog post. This single piece can be atomized into 10+ content pieces and opens doors to podcast invitations.
+
+---
+
+## VERIFICATION CHECKLIST (Subtask 5-2)
+
+Per subtask requirements, verify this gap analysis includes:
+
+- [x] **Equity gaps identified** - 5 gap categories with 30+ specific gaps documented
+- [x] **Priority ranking for building new equity** - P1/P2/P3 prioritization with effort/impact matrix
+- [x] **Specific recommendations** - Actionable recommendations for each gap with timelines
+
+---
+
+*Document updated: January 27, 2025*
+*Subtask 5-2 Complete: Brand Equity Gap Analysis*
