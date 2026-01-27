@@ -3,23 +3,23 @@
   "spec": "015-leggi-skills-da-copywriter-editor-e-analizza-selfr",
   "state": "building",
   "subtasks": {
-    "completed": 5,
+    "completed": 9,
     "total": 19,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Website Content Analysis",
+    "current": "Conversion Optimization Strategy",
     "id": null,
-    "total": 6
+    "total": 4
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 1378,
+    "number": 1382,
     "started_at": "2026-01-26T23:14:43.809542"
   },
-  "last_update": "2026-01-27T03:09:19.769107"
+  "last_update": "2026-01-27T03:24:01.872560"
 }
