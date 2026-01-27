@@ -1,25 +1,25 @@
 {
   "active": true,
   "spec": "018-branding-consultant-audit",
-  "state": "building",
+  "state": "planning",
   "subtasks": {
-    "completed": 16,
-    "total": 20,
+    "completed": 0,
+    "total": 0,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Create Final Deliverables",
+    "current": "QA Review",
     "id": null,
-    "total": 4
+    "total": 2
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 1378,
-    "started_at": "2026-01-26T23:14:27.007641"
+    "number": 2,
+    "started_at": "2026-01-27T13:28:13.757957"
   },
-  "last_update": "2026-01-27T03:35:51.016486"
+  "last_update": "2026-01-27T13:32:08.673723"
 }
