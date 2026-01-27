@@ -1,13 +1,13 @@
 {
   "feature": "Marketing Manager Audit - selfrules.org Growth Strategy",
   "workflow_type": "investigation",
-  "workflow_rationale": "This is a pure research and analysis task with strategic documentation as output. No code changes required. The investigation workflow fits because we need to analyze the current state, identify gaps, and produce strategic recommendations.",
+  "workflow_rationale": "This is a pure research and analysis task producing strategic documentation. The investigation workflow fits: discover current state, analyze gaps, synthesize findings, produce actionable recommendations. No code changes involved.",
   "phases": [
     {
       "id": "phase-1-current-state",
       "name": "Current State Analysis",
       "type": "investigation",
-      "description": "Analyze selfrules.org current positioning, messaging hierarchy, and value proposition clarity",
+      "description": "Analyze selfrules.org positioning, customer journey, growth loops, and AARRR funnel to establish baseline",
       "depends_on": [],
       "parallel_safe": false,
       "subtasks": [
@@ -16,83 +16,68 @@
           "description": "Analyze website positioning and messaging hierarchy",
           "service": "analysis",
           "files_to_modify": [],
-          "files_to_create": [],
+          "files_to_create": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "patterns_from": [
             "messages/it.json",
             "messages/en.json",
-            "components/sections/Hero.tsx"
-          ],
-          "analysis_focus": [
-            "Is the primary headline clear and differentiated?",
-            "Does the value proposition hierarchy make sense?",
-            "Are the CTAs effective and low-friction?",
-            "Is the tone consistent across sections?"
-          ],
-          "verification": {
-            "type": "manual",
-            "instructions": "Document findings in positioning_analysis section of audit report"
-          },
-          "status": "completed",
-          "notes": "Completed comprehensive positioning analysis. Key findings: 8.4/10 overall positioning score. Strengths: unique \"failure-to-translator\" narrative, consistent pragmatic voice, strong proof stacking, low-friction CTAs. Opportunities: missing email capture, generic hero stats, limited conversion paths. Documented in MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-26T22:21:06.621920+00:00"
-        },
-        {
-          "id": "subtask-1-2",
-          "description": "Map current customer journey touchpoints",
-          "service": "analysis",
-          "files_to_modify": [],
-          "files_to_create": [],
-          "patterns_from": [
-            "lib/analytics/umami.ts",
-            "app/[locale]/page.tsx"
-          ],
-          "analysis_focus": [
-            "Awareness: How do strangers discover the site?",
-            "Consideration: What content builds trust?",
-            "Decision: What triggers booking?",
-            "Retention: What keeps them engaged?",
-            "Advocacy: What drives referrals?"
-          ],
-          "verification": {
-            "type": "manual",
-            "instructions": "Complete customer journey map with gaps identified at each stage"
-          },
-          "status": "completed",
-          "notes": "Completed comprehensive customer journey mapping across all 5 stages (Awareness→Advocacy). Key findings: Strong consideration stage (8/10) with weak awareness (4/10), retention (2/10), and advocacy (2/10). Critical gaps: no blog/content for SEO, no email capture, no retention mechanism, no referral program. Documented complete touchpoint inventory, gap severity assessment, and stage-specific recommendations in MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-26T22:25:10.398496+00:00"
-        },
-        {
-          "id": "subtask-1-3",
-          "description": "Audit current growth loops and AARRR funnel",
-          "service": "analysis",
-          "files_to_modify": [],
-          "files_to_create": [],
-          "patterns_from": [
+            "components/sections/Hero.tsx",
             "components/sections/WorkTogether.tsx",
             "components/sections/Journey.tsx"
           ],
-          "analysis_focus": [
-            "Viral/UGC Loop: Does content get shared? Is there user-generated content?",
-            "Content/SEO Loop: Is blog driving organic traffic?",
-            "Paid Acquisition Loop: Any paid channels active?",
-            "Sales/Referral Loop: Is there a referral mechanism?",
-            "AARRR metrics at each stage"
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify MARKETING_AUDIT_REPORT.md contains Positioning Analysis section with: headline analysis, value proposition hierarchy, CTA effectiveness scores, tone consistency assessment"
+          },
+          "status": "completed",
+          "notes": "Completed in Session 2. Positioning score: 8.4/10. Key finding: 'Translator' positioning is unique and defensible."
+        },
+        {
+          "id": "subtask-1-2",
+          "description": "Map current customer journey touchpoints across all 5 stages (Awareness to Advocacy)",
+          "service": "analysis",
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
+          "files_to_create": [],
+          "patterns_from": [
+            "app/[locale]/page.tsx",
+            "lib/analytics/umami.ts",
+            "components/sections/AskMeAnything.tsx"
           ],
           "verification": {
             "type": "manual",
-            "instructions": "Complete Growth Loop Assessment table with status and potential for each loop type"
+            "instructions": "Verify report contains Customer Journey Mapping section with all 5 stages scored, touchpoint inventory, and gap severity assessment"
           },
           "status": "completed",
-          "notes": "Growth Loop Assessment and AARRR Funnel analysis already completed in MARKETING_AUDIT_REPORT.md (lines 596-1214). Key findings: Primary loop recommendation is Content/SEO + Sales/Referral (Dual Engine). AARRR shows strong Activation (8/10) but critical gaps in Acquisition (4/10), Retention (2/10), and Referral (2/10). Funnel leakage estimated at ~99.5% of potential value lost. Priority actions documented by stage.",
-          "updated_at": "2026-01-27T02:00:56.121403+00:00"
+          "notes": "Completed in Session 2. Critical gaps: Awareness 4/10, Retention 2/10, Advocacy 2/10."
+        },
+        {
+          "id": "subtask-1-3",
+          "description": "Audit current growth loops (Viral/UGC, Content/SEO, Paid, Sales/Referral) and AARRR funnel metrics",
+          "service": "analysis",
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
+          "files_to_create": [],
+          "patterns_from": [
+            "lib/analytics/umami.ts"
+          ],
+          "verification": {
+            "type": "manual",
+            "instructions": "Verify report contains Growth Loop Assessment table with all 4 loop types and AARRR funnel analysis with scores per stage"
+          },
+          "status": "completed",
+          "notes": "Completed in Session 3. Primary recommendation: Content/SEO + Sales/Referral dual engine. Funnel leakage ~99.5%."
         }
       ]
     },
     {
-      "id": "phase-2-competitive-analysis",
+      "id": "phase-2-competitive",
       "name": "Competitive Benchmarking",
       "type": "investigation",
-      "description": "Benchmark against direct and indirect competitors to identify differentiation opportunities",
+      "description": "Analyze direct competitors (PM consultants, platforms) and indirect competitors (training, full-time hires)",
       "depends_on": [
         "phase-1-current-state"
       ],
@@ -100,45 +85,35 @@
       "subtasks": [
         {
           "id": "subtask-2-1",
-          "description": "Analyze direct competitors (PM consultants, freelancer platforms)",
+          "description": "Analyze direct competitors: Toptal, Product People Europe, freelancer platforms, individual PM coaches",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "analysis_focus": [
-            "Direct: Toptal, Product People Europe, freelancer platforms",
-            "Positioning differences and unique angles",
-            "Pricing models and value propositions",
-            "Content and thought leadership strategies"
-          ],
           "verification": {
             "type": "manual",
-            "instructions": "Document competitive positioning matrix"
+            "instructions": "Verify report contains competitive landscape map, positioning matrix with 10+ competitors, pricing comparison, content strategy comparison"
           },
           "status": "completed",
-          "notes": "Completed comprehensive direct competitor analysis. Analyzed 5 competitor categories: 1) Talent Marketplaces (Toptal, Upwork, Fiverr) with pricing $25-150/hr, 2) Specialized PM Agencies (Product People Europe, SVPG) with premium pricing, 3) Individual PM Coaches (Ken Norton, Tim Herbig) with personal brand focus, 4) Fractional PM Services ($7-14K/month), 5) Italian Market (Product Heroes). Created competitive positioning matrix, pricing landscape visualization, content strategy comparison, and identified 5 key differentiation opportunities for selfrules.org: \"Translator\" category ownership, Italian market first-mover, anti-platform positioning, SVPG accessibility alternative, and micro-consulting innovation.",
-          "updated_at": "2026-01-27T02:06:39.987186+00:00"
+          "notes": "Completed in Session 3. Key finding: 'Translator' category unclaimed. Italian market has no Ken Norton equivalent."
         },
         {
           "id": "subtask-2-2",
-          "description": "Analyze indirect competitors (training, internal hires)",
+          "description": "Analyze indirect competitors: full-time PM hires, training programs, internal promotion, DIY learning",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "analysis_focus": [
-            "Indirect: PM training programs, full-time hire alternative",
-            "What job-to-be-done are clients really hiring for?",
-            "Price anchoring opportunities",
-            "Differentiation through personal brand authenticity"
-          ],
           "verification": {
             "type": "manual",
-            "instructions": "Complete indirect competitor analysis with positioning opportunities"
+            "instructions": "Verify report contains indirect competitor analysis, JTBD mapping, price anchoring framework, battle card positioning"
           },
           "status": "completed",
-          "notes": "Completed comprehensive indirect competitor analysis. Analyzed 4 indirect competitor categories: 1) Full-time PM hire (€100-150K total cost, 3-6mo hiring, 98%+ cost savings with Selfrules), 2) PM training programs (Product School, Reforge, Italian market options - all generic/delayed), 3) Internal promotion path (€60-100K investment, 18mo timeline, 30% failure risk), 4) DIY self-learning (cheap but no feedback/personalization). Created JTBD analysis with 3 primary jobs, price anchoring framework with 5 anchor statements, competitive battle cards for 5 scenarios, and 5 differentiation amplification recommendations. Added ~600 lines to MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-27T02:10:58.885097+00:00"
+          "notes": "Completed in Session 3. Key finding: Sessions = 98% savings vs. full-time hire. 3 primary JTBD identified."
         }
       ]
     },
@@ -146,35 +121,28 @@
       "id": "phase-3-swot",
       "name": "SWOT Analysis",
       "type": "implementation",
-      "description": "Synthesize all findings into comprehensive SWOT analysis",
+      "description": "Synthesize Phase 1-2 findings into comprehensive SWOT analysis with cross-analysis and strategic priorities",
       "depends_on": [
         "phase-1-current-state",
-        "phase-2-competitive-analysis"
+        "phase-2-competitive"
       ],
       "parallel_safe": false,
       "subtasks": [
         {
           "id": "subtask-3-1",
-          "description": "Create SWOT analysis with 3-5 items per quadrant",
+          "description": "Create SWOT analysis with 3-5 items per quadrant, cross-analysis (S-O, W-O, S-T, W-T), and top 5 strategic priorities",
           "service": "analysis",
-          "files_to_modify": [],
-          "files_to_create": [
+          "files_to_modify": [
             ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
           ],
+          "files_to_create": [],
           "patterns_from": [],
-          "deliverable_elements": {
-            "strengths": "Internal positive factors (positioning, credentials, testimonials)",
-            "weaknesses": "Internal negative factors (missing growth loops, no email capture)",
-            "opportunities": "External positive factors (market gaps, content marketing potential)",
-            "threats": "External negative factors (competition, market saturation)"
-          },
           "verification": {
             "type": "manual",
-            "instructions": "SWOT has 3-5 specific, actionable items per quadrant grounded in website analysis"
+            "instructions": "Verify SWOT has 5 items per quadrant, all grounded in website analysis. Cross-analysis covers all 4 strategy types. Top 5 priorities listed with SWOT references."
           },
           "status": "completed",
-          "notes": "Completed comprehensive SWOT analysis with 5 items per quadrant: Strengths (S1-S5), Weaknesses (W1-W5), Opportunities (O1-O5), Threats (T1-T5). Added SWOT cross-analysis with strategic implications and prioritized 5 strategic priorities. ~400 lines added to MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-27T02:17:10.146925+00:00"
+          "notes": "Completed in Session 3. Positioning 9/10, Growth Infrastructure 2/10. Strategic imperative: preserve positioning, urgently build growth systems."
         }
       ]
     },
@@ -182,7 +150,7 @@
       "id": "phase-4-strategy",
       "name": "Strategy Development",
       "type": "implementation",
-      "description": "Create optimized positioning statement and 90-day growth strategy",
+      "description": "Develop optimized positioning statement, 90-day growth strategy, and channel prioritization",
       "depends_on": [
         "phase-3-swot"
       ],
@@ -190,63 +158,51 @@
       "subtasks": [
         {
           "id": "subtask-4-1",
-          "description": "Create optimized positioning statement",
+          "description": "Create optimized positioning statement in standard format (Target, Need, Category, Differentiator, Proof) with Italian version and short-form variants",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "deliverable_format": "For [target audience] who [need/problem], [name] is the [category] that [key differentiator] because [proof points]",
           "verification": {
             "type": "manual",
-            "instructions": "Positioning statement follows standard format completely with all 5 elements"
+            "instructions": "Verify positioning statement follows 'For [target] who [need], [name] is the [category] that [differentiator] because [proof]' format with all 5 elements present"
           },
           "status": "completed",
-          "notes": "Created comprehensive optimized positioning statement following standard format with all 5 required elements: (1) Target: Product Managers and cross-functional team leaders, (2) Need: design-dev-business alignment struggles, (3) Category: Product Management Translator (new category), (4) Differentiator: bridges gap because failed in all three, (5) Proof: 13 years experience + quantified client outcomes + low-friction offer. Added Italian version, short-form variants for different contexts, application guide, category creation strategy, and competitive positioning map. ~250 lines added to MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-27T02:20:09.338004+00:00"
+          "notes": "Completed in Session 4. New category created: 'Product Management Translator'. Short-form variants for LinkedIn, Twitter, elevator pitches."
         },
         {
           "id": "subtask-4-2",
-          "description": "Develop 90-day growth strategy with weekly priorities",
+          "description": "Develop 90-day growth strategy with 3 phases: Quick Wins (Wk 1-4), Strategic (Wk 5-8), Transformational (Wk 9-12)",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "deliverable_structure": {
-            "week_1_4": "Quick Wins - High impact, low effort actions",
-            "week_5_8": "Strategic - Medium effort, building foundation",
-            "week_9_12": "Transformational - Higher effort, compounding returns"
-          },
           "verification": {
             "type": "manual",
-            "instructions": "Strategy includes specific actions, success metrics, and realistic timeline"
+            "instructions": "Verify strategy includes weekly action plans, success metrics per phase, investment requirements, risk mitigation plan"
           },
           "status": "completed",
-          "notes": "Developed comprehensive 90-day growth strategy with detailed weekly priorities across 3 phases: Phase 1 (Weeks 1-4) Quick Wins - email capture, LinkedIn optimization, first 3 blog posts, testimonial activation; Phase 2 (Weeks 5-8) Strategic - referral system, email nurture, SEO optimization, content pillar; Phase 3 (Weeks 9-12) Transformational - podcast guest tour, partnerships, community building, automation. Includes specific daily actions, success metrics per week, investment requirements, risk mitigation, and 90-day success criteria. ~800 lines added to MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-27T02:25:10.169985+00:00"
+          "notes": "Completed in Session 4. Targets: 400 subscribers, 5K monthly visitors, 15 calls/month by Day 90. Investment: 40-55 hrs/month, EUR 150-600 total."
         },
         {
           "id": "subtask-4-3",
-          "description": "Score and prioritize marketing channels",
+          "description": "Score and prioritize marketing channels using Reach x (10 - Cost) x Control / 100 formula",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "scoring_formula": "Score = Reach × (10 - Cost) × Control / 100",
-          "channels_to_evaluate": [
-            "LinkedIn (personal brand)",
-            "Blog/SEO content",
-            "Email newsletter",
-            "Podcast guesting",
-            "Speaking engagements",
-            "Referral program"
-          ],
           "verification": {
             "type": "manual",
-            "instructions": "Channel prioritization table with scores and recommendations"
+            "instructions": "Verify all channels scored with formula, ranked table created, resource allocation recommendations included"
           },
           "status": "completed",
-          "notes": "Completed comprehensive channel prioritization analysis using the Growth Channel Score Formula (Reach × (10-Cost) × Control / 100). Evaluated 9 channels: Email Newsletter (4.20 - Primary), LinkedIn (3.78 - Primary), Blog/SEO (3.60 - Primary), Referral Program (3.20 - Secondary), Twitter/X (1.75 - Opportunistic), Podcast Guesting (1.68 - Opportunistic), YouTube (1.12 - Defer), Speaking (0.72 - Defer), Paid Ads (0.54 - Not Recommended). Added visual prioritization matrix, resource allocation recommendation (~23.5 hrs/week), and 5 key strategic insights. ~500 lines added to MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-27T02:29:38.143270+00:00"
+          "notes": "Completed in Session 4. Top 3: Email (4.20), LinkedIn (3.78), Blog/SEO (3.60). Paid ads not recommended (0.54)."
         }
       ]
     },
@@ -254,7 +210,7 @@
       "id": "phase-5-campaigns",
       "name": "Campaign Design",
       "type": "implementation",
-      "description": "Design 5 high-impact campaigns targeting 10x traffic and lead growth",
+      "description": "Design 5 high-impact campaigns targeting 10x traffic and lead growth, each with Objective, Audience, Channels, Tactics, KPIs, Timeline",
       "depends_on": [
         "phase-4-strategy"
       ],
@@ -262,158 +218,92 @@
       "subtasks": [
         {
           "id": "subtask-5-1",
-          "description": "Design Campaign 1: Content/SEO Growth Loop",
+          "description": "Design Campaign 1: 'The Translation Fails' Content/SEO Growth Loop - sustainable organic traffic engine",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "campaign_elements": {
-            "objective": "Build sustainable organic traffic through thought leadership content",
-            "target_audience": "PMs struggling with cross-functional communication",
-            "channels": [
-              "Blog",
-              "LinkedIn",
-              "SEO"
-            ],
-            "tactics": "Weekly 'Translation Fails' article series",
-            "kpis": [
-              "Organic traffic",
-              "Time on site",
-              "Email signups"
-            ],
-            "timeline": "Weeks 1-12 (ongoing)"
-          },
           "verification": {
             "type": "manual",
-            "instructions": "Campaign brief includes all 6 required elements with specific metrics"
+            "instructions": "Verify campaign brief has all 6 required elements: Objective, Target Audience, Channels, Tactics, KPIs, Timeline. Content calendar with 15 articles included."
           },
           "status": "completed",
-          "notes": "Created comprehensive Campaign 1: Content/SEO Growth Loop brief with all 6 required elements. Includes: (1) Objective - 100x organic traffic growth targeting Italian PM market, (2) Target Audience - detailed persona \"The Overwhelmed PM\" with secondary personas, (3) Channels - Blog 40%, LinkedIn 30%, SEO 20%, Email 10%, (4) Tactics - \"Translation Fails\" weekly series with 15-article content calendar and 4 content pillars, (5) KPIs - detailed dashboard with traffic, content, conversion, and engagement metrics, (6) Timeline - 90-day implementation roadmap in 3 phases (Foundation, Growth, Scale). Added ~1000 lines to MARKETING_AUDIT_REPORT.md.",
-          "updated_at": "2026-01-27T02:34:54.187918+00:00"
+          "notes": "Completed in Session 4. Target: 5,000 monthly visitors by Day 90 (100x increase). 4 content pillars defined."
         },
         {
           "id": "subtask-5-2",
-          "description": "Design Campaign 2: Lead Magnet Email Capture",
+          "description": "Design Campaign 2: 'PM Translation Toolkit' Lead Magnet Email Capture - build owned email list from zero",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "campaign_elements": {
-            "objective": "Build email list for nurturing and retargeting",
-            "target_audience": "Cold visitors to warm leads",
-            "channels": [
-              "Website",
-              "LinkedIn"
-            ],
-            "tactics": "PM Translation Toolkit - free resource",
-            "kpis": [
-              "Email signup rate",
-              "Lead magnet downloads",
-              "Email engagement"
-            ],
-            "timeline": "Weeks 2-4 (implementation), ongoing (optimization)"
-          },
           "verification": {
             "type": "manual",
-            "instructions": "Campaign brief includes all 6 required elements with specific metrics"
+            "instructions": "Verify campaign brief has all 6 elements. Lead magnet contents described. 6-email nurture sequence documented. Technical setup requirements listed."
           },
-          "status": "pending"
+          "status": "completed",
+          "notes": "Completed in Session 4. Toolkit: 5 templates + case study. Target: 400 subscribers by Day 90. 6-email nurture sequence over 14 days."
         },
         {
           "id": "subtask-5-3",
-          "description": "Design Campaign 3: Referral/Advocacy Program",
+          "description": "Design Campaign 3: Referral/Advocacy Program - systematize word-of-mouth and client referrals with NPS collection, referral incentives, testimonial request automation",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "campaign_elements": {
-            "objective": "Turn satisfied clients into active referral sources",
-            "target_audience": "Past clients and satisfied users",
-            "channels": [
-              "Email",
-              "Direct outreach"
-            ],
-            "tactics": "Structured referral ask with incentive",
-            "kpis": [
-              "Referral rate",
-              "New leads from referrals",
-              "Client lifetime value"
-            ],
-            "timeline": "Weeks 5-8 (setup), ongoing (maintenance)"
-          },
           "verification": {
             "type": "manual",
-            "instructions": "Campaign brief includes all 6 required elements with specific metrics"
+            "instructions": "Verify campaign brief has all 6 elements (Objective, Target Audience, Channels, Tactics, KPIs, Timeline). Referral incentive structure defined. Post-session NPS flow documented. Advocacy program mechanics detailed."
           },
-          "status": "pending"
+          "status": "completed",
+          "notes": "Completed. Campaign 3 'The Translation Network' Referral & Advocacy Program designed with all 6 elements: (1) Objective - systematize referrals with 3+ calls/month target, 80% NPS response rate, 20%+ revenue from referrals; (2) Target Audience - 3 personas (Satisfied Client, Recurring Client, Referred Lead); (3) Channels - Email automation, WhatsApp, referral links, LinkedIn, case studies; (4) Tactics - 6 tactics: NPS automation flow, referral request + incentive structure (30-min free call), testimonial request pipeline, 3-tier advocacy program (Translator/Ambassador/Inner Circle), re-engagement sequence, social proof library; (5) KPIs - NPS metrics, referral metrics, testimonial metrics, advocacy tier tracking with leading/lagging indicators; (6) Timeline - Week 5-12 rollout (Foundation → Activation → Scale). Lowest-cost campaign (€0-20/mo), highest ROI due to 4-5x conversion rate on referred leads.",
+          "updated_at": "2026-01-27T12:39:35.386544+00:00"
         },
         {
           "id": "subtask-5-4",
-          "description": "Design Campaign 4: LinkedIn Thought Leadership",
+          "description": "Design Campaign 4: LinkedIn Thought Leadership - establish 'Product Management Translator' category ownership through profile optimization, content strategy, engagement tactics",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "campaign_elements": {
-            "objective": "Build personal brand authority on primary B2B platform",
-            "target_audience": "Product managers and tech leaders in Italy/globally",
-            "channels": [
-              "LinkedIn posts",
-              "LinkedIn articles",
-              "Comments"
-            ],
-            "tactics": "Daily micro-content from real PM experiences",
-            "kpis": [
-              "Follower growth",
-              "Engagement rate",
-              "Profile visits",
-              "Connection requests"
-            ],
-            "timeline": "Weeks 1-12 (ongoing)"
-          },
           "verification": {
             "type": "manual",
-            "instructions": "Campaign brief includes all 6 required elements with specific metrics"
+            "instructions": "Verify campaign brief has all 6 elements. LinkedIn posting strategy with content types and frequency. Profile optimization checklist. Engagement strategy documented. Connection growth tactics."
           },
-          "status": "pending"
+          "status": "pending",
+          "notes": "LinkedIn scored 3.78 (2nd highest channel). Should include profile optimization, content calendar, posting templates, engagement strategy, connection growth, LinkedIn newsletter consideration."
         },
         {
           "id": "subtask-5-5",
-          "description": "Design Campaign 5: Podcast/Speaking Guest Strategy",
+          "description": "Design Campaign 5: Podcast/Speaking Guest Strategy - expand reach through earned media with target podcast list, pitch templates, guest one-sheet, post-appearance conversion funnel",
           "service": "analysis",
-          "files_to_modify": [],
+          "files_to_modify": [
+            ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
+          ],
           "files_to_create": [],
           "patterns_from": [],
-          "campaign_elements": {
-            "objective": "Leverage borrowed audiences for credibility and reach",
-            "target_audience": "PM community podcast listeners and event attendees",
-            "channels": [
-              "Industry podcasts",
-              "Webinars",
-              "Virtual conferences"
-            ],
-            "tactics": "Pitch template + unique angle: 'The PM Translation Problem'",
-            "kpis": [
-              "Guest appearances",
-              "Referral traffic",
-              "Backlinks",
-              "Leads from appearances"
-            ],
-            "timeline": "Weeks 4-12 (outreach and appearances)"
-          },
           "verification": {
             "type": "manual",
-            "instructions": "Campaign brief includes all 6 required elements with specific metrics"
+            "instructions": "Verify campaign brief has all 6 elements. Target podcast list (Italian + English). Guest one-sheet template. Pitch email templates. Post-appearance conversion funnel documented."
           },
-          "status": "pending"
+          "status": "pending",
+          "notes": "Podcast Guesting scored 1.68 (opportunistic channel). Should include target podcast list, pitch templates, one-sheet, speaking topic menu, post-appearance conversion funnel, measurement strategy."
         }
       ]
     },
     {
-      "id": "phase-6-documentation",
-      "name": "Final Documentation",
-      "type": "implementation",
-      "description": "Compile all deliverables into final marketing audit report",
+      "id": "phase-6-final-report",
+      "name": "Final Report Compilation",
+      "type": "cleanup",
+      "description": "Compile Executive Summary, verify all sections complete, ensure format compliance and deliverable quality",
       "depends_on": [
         "phase-5-campaigns"
       ],
@@ -421,68 +311,87 @@
       "subtasks": [
         {
           "id": "subtask-6-1",
-          "description": "Compile final Marketing Audit Report",
+          "description": "Compile final Marketing Audit Report: write Executive Summary, verify all sections complete, ensure marketing-manager skill format compliance, add implementation checklist, cross-reference all deliverables",
           "service": "analysis",
           "files_to_modify": [
             ".auto-claude/specs/014-marketing-manager-audit/MARKETING_AUDIT_REPORT.md"
           ],
           "files_to_create": [],
           "patterns_from": [],
-          "report_structure": [
-            "Executive Summary",
-            "Current State Analysis",
-            "Competitive Landscape",
-            "SWOT Analysis",
-            "Optimized Positioning Statement",
-            "Growth Loop Assessment",
-            "Customer Journey Map",
-            "Channel Prioritization",
-            "90-Day Growth Strategy",
-            "5 Campaign Briefs",
-            "Implementation Checklist",
-            "Success Metrics Dashboard"
-          ],
           "verification": {
             "type": "manual",
-            "instructions": "All deliverables complete, following marketing-manager skill output format"
+            "instructions": "QA checklist: (1) Executive Summary written with 2-3 sentence overview, (2) All 4 deliverables complete (SWOT, Positioning, Strategy, 5 Campaigns), (3) All frameworks applied (AARRR, Growth Loops, Journey, Channel Scoring), (4) 10x growth target addressed with realistic pathways, (5) All 5 campaigns have 6 required elements each, (6) Recommendations specific to selfrules.org context, (7) Italian market primary consideration, (8) Output follows marketing-manager skill format, (9) No generic/templated content, (10) Implementation checklist present"
           },
-          "status": "pending"
+          "status": "pending",
+          "notes": "Final compilation. Executive Summary still marked 'To be completed'. All preceding sections must be verified for completeness and consistency."
         }
       ]
     }
   ],
   "summary": {
     "total_phases": 6,
-    "total_subtasks": 13,
+    "total_subtasks": 14,
     "services_involved": [
       "analysis"
     ],
+    "completed_subtasks": 10,
+    "pending_subtasks": 4,
+    "current_phase": "phase-5-campaigns",
+    "next_subtask": "subtask-5-3",
     "parallelism": {
       "max_parallel_phases": 1,
       "parallel_groups": [],
       "recommended_workers": 1,
-      "speedup_estimate": "N/A - Sequential analysis workflow"
+      "speedup_estimate": "N/A - sequential analysis workflow requiring cumulative context"
     },
-    "estimated_completion": "Single session, 2-3 hours of analysis work",
-    "startup_command": "N/A - This is a documentation task, no services to start"
+    "startup_command": "No services needed. Analysis task producing MARKETING_AUDIT_REPORT.md"
   },
   "verification_strategy": {
     "risk_level": "trivial",
     "skip_validation": true,
-    "test_creation_phase": "N/A",
+    "test_creation_phase": "not_applicable",
     "test_types_required": [],
     "security_scanning_required": false,
     "staging_deployment_required": false,
     "acceptance_criteria": [
-      "SWOT analysis has 3-5 items per quadrant",
-      "Positioning statement follows standard format",
-      "90-day strategy has weekly priorities with specific actions",
-      "All 5 campaigns have complete briefs with required elements",
+      "SWOT analysis has 3-5 items per quadrant grounded in website analysis",
+      "Positioning statement follows standard 5-element format",
+      "90-day strategy has 3 phases with weekly priorities and metrics",
+      "All 5 campaigns have 6 required elements (Objective, Audience, Channels, Tactics, KPIs, Timeline)",
       "Customer journey mapped across all 5 stages",
       "Growth loops assessed with primary loop recommendation",
-      "Channel prioritization completed with scores"
+      "Channel prioritization uses scoring formula",
+      "All deliverables follow marketing-manager skill output format",
+      "Recommendations are specific to selfrules.org context",
+      "10x growth target addressed with realistic pathways"
     ],
-    "reasoning": "No code changes - output is pure strategic documentation. Validation focuses on deliverable completeness and quality."
+    "verification_steps": [
+      {
+        "name": "Deliverable Completeness Check",
+        "command": "manual review",
+        "expected_outcome": "All 4 core deliverables (SWOT, Positioning, Strategy, 5 Campaigns) present and complete",
+        "type": "manual",
+        "required": true,
+        "blocking": true
+      },
+      {
+        "name": "Framework Application Check",
+        "command": "manual review",
+        "expected_outcome": "AARRR, Growth Loops, Customer Journey, and Channel Scoring frameworks properly applied",
+        "type": "manual",
+        "required": true,
+        "blocking": true
+      },
+      {
+        "name": "Content Quality Check",
+        "command": "manual review",
+        "expected_outcome": "All recommendations reference actual website content, are actionable, measurable, feasible for solo consultant, and brand-aligned",
+        "type": "manual",
+        "required": true,
+        "blocking": false
+      }
+    ],
+    "reasoning": "No code changes - documentation only. Validation focuses on deliverable completeness and quality rather than automated testing."
   },
   "qa_acceptance": {
     "unit_tests": {
@@ -511,20 +420,22 @@
     "deliverable_verification": {
       "required": true,
       "checks": [
-        "SWOT: 4 quadrants with 3-5 specific items each",
-        "Positioning: Target, Need, Category, Differentiator, Proof present",
-        "Strategy: 3 phases with weekly priorities and metrics",
-        "Campaigns: All 5 have Objective, Audience, Channels, Tactics, KPIs, Timeline",
-        "Frameworks: AARRR, Growth Loops, Customer Journey all applied",
-        "Channel scores: Formula applied correctly",
-        "Recommendations: Specific to selfrules.org context, not generic"
+        "SWOT: 4 quadrants populated, 5 items each, cross-analysis included",
+        "Positioning: Standard format with Target, Need, Category, Differentiator, Proof",
+        "Strategy: 3 phases with weekly priorities, metrics per phase, investment requirements",
+        "Campaign 1 (Content/SEO): All 6 elements present, 15-article content calendar",
+        "Campaign 2 (Lead Magnet): All 6 elements present, 6-email nurture sequence",
+        "Campaign 3 (Referral): All 6 elements present, NPS + referral mechanics",
+        "Campaign 4 (LinkedIn): All 6 elements present, posting strategy + profile optimization",
+        "Campaign 5 (Podcast): All 6 elements present, target list + pitch templates",
+        "Executive Summary: 2-3 sentence overview synthesizing all findings",
+        "Italian market addressed as primary, English as secondary"
       ]
     }
   },
   "qa_signoff": null,
-  "created_at": "2026-01-26T23:15:00.000Z",
-  "updated_at": "2026-01-27T02:31:01.934Z",
   "status": "in_progress",
   "planStatus": "in_progress",
-  "last_updated": "2026-01-27T02:34:54.187918+00:00"
+  "updated_at": "2026-01-27T12:40:09.507Z",
+  "last_updated": "2026-01-27T12:39:35.386544+00:00"
 }
