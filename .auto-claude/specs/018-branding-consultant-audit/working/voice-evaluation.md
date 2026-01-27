@@ -1,0 +1,291 @@
+# Voice Evaluation: selfrules.org
+
+**Evaluated:** January 27, 2025
+**Source Material:** messages/en.json, CLAUDE.md
+**Framework:** Voice Dimensions Rating (1-10 scale)
+
+---
+
+## Voice Dimensions Rating
+
+### Dimension Reference Scale
+
+| Dimension | 1 (Low End) | 10 (High End) |
+|-----------|-------------|---------------|
+| **Formality** | Casual ("Hey there!") | Formal ("Good morning") |
+| **Energy** | Calm ("We completed it") | Enthusiastic ("We crushed it!") |
+| **Humor** | Serious ("An error occurred") | Playful ("Well, that didn't go as planned") |
+| **Authority** | Humble ("We think this might work") | Authoritative ("This is the proven method") |
+
+---
+
+## 1. FORMALITY: 3/10 (Casual-Leaning)
+
+### Rating Justification
+The voice is decidedly casual without being unprofessional. It uses conversational language, contractions, and direct address while maintaining credibility through substance rather than formality.
+
+### Evidence Quotes
+
+| Quote | Source | Analysis |
+|-------|--------|----------|
+| "Still here? Go up and book that call you've been postponing since this morning" | Footer | Direct, conversational, almost playfully pushy |
+| "Most PMs only speak business. Then they join a meeting..." | Journey intro | Conversational storytelling, no formal hedging |
+| "What kind of mess do you need?" | Blog filters | Informal label that would never appear in formal copy |
+| "Search for the mess you're living right now..." | Blog search | Casual, relatable, problem-centered |
+| "Zero pitch. Zero slides. Just your problem" | Services CTA | Short fragments, anti-formal structure |
+
+### Formal Language Absent
+- No "Dear valued visitor" or formal greetings
+- No "We are pleased to inform you" structures
+- No passive voice for politeness
+- No hedging phrases ("Perhaps you might consider...")
+
+### Casual Markers Present
+- Contractions throughout: "I'm", "don't", "it's", "you're", "won't"
+- Direct address: "you call when everyone says 'yes'"
+- Short sentences and fragments
+- Questions that engage directly: "Got 4 features in development and none finished?"
+
+### Consistency Check
+| Section | Formality Level | Consistent? |
+|---------|-----------------|-------------|
+| Hero | 3/10 | ✅ Yes |
+| Journey | 4/10 | ✅ Slightly more narrative-formal |
+| Services | 3/10 | ✅ Yes |
+| Blog | 2/10 | ✅ Even more casual (intentional) |
+| Footer | 3/10 | ✅ Yes |
+
+**Section-Wide Consistency: HIGH** (9/10)
+
+---
+
+## 2. ENERGY: 6/10 (Moderate-to-Energetic)
+
+### Rating Justification
+The voice is confident and punchy but not hyperactive or overly exclamatory. It uses emphasis strategically through bold statements and stark contrasts rather than exclamation marks or hype language.
+
+### Evidence Quotes
+
+| Quote | Source | Analysis |
+|-------|--------|----------|
+| "I failed as a designer. Then as a developer. Now I'm the PM you call..." | Hero | Builds momentum through sequence, not volume |
+| "Ship Fast. From idea to production in weeks, not months" | Hero card | Emphatic but measured - no "!!!" |
+| "See, understand, act. Few things that move the needle." | Journey PM | Confident cadence, deliberate pace |
+| "Chaos. I translate. Without losing anything." | Journey intro | Punchy single-word sentences add energy without shouting |
+| "Not slides. Actions." | Services | Sharp contrast creates energy through structure |
+
+### Energy Markers Present
+- Strategic emoji use: 🎯 (one instance, not overused)
+- Short, punchy sentences: "Just facts."
+- Contrasts that create tension: "weeks, not months", "47-page PDFs vs 3-minute videos"
+- Confident declaratives: "This is pragmatic product management"
+
+### Energy Markers Absent
+- Few exclamation marks (only in examples like "We crushed it!")
+- No ALL CAPS emphasis
+- No "amazing", "incredible", "game-changing" superlatives
+- No "You won't believe..." clickbait energy
+
+### Consistency Check
+| Section | Energy Level | Consistent? |
+|---------|--------------|-------------|
+| Hero | 7/10 | ✅ Highest energy (appropriate for first impression) |
+| Journey | 6/10 | ✅ Sustained storytelling energy |
+| Services | 5/10 | ✅ Problem-focused, slightly calmer |
+| Blog | 6/10 | ✅ Engaging but not hype-y |
+| Testimonials | 5/10 | ✅ Calmer third-party tone (appropriate) |
+
+**Section-Wide Consistency: HIGH** (8/10)
+*Note: Energy appropriately varies by section purpose*
+
+---
+
+## 3. HUMOR: 6/10 (Moderate - Ironic/Self-Deprecating)
+
+### Rating Justification
+The humor is present but strategic—primarily through self-deprecation, constructive irony, and anti-corporate jokes rather than puns or explicit jokes. It builds relatability and defuses potential arrogance from strong claims.
+
+### Evidence Quotes
+
+| Quote | Source | Analysis |
+|-------|--------|----------|
+| "'Beautiful, but where do I click to pay?' Zero sales for 3 weeks." | Journey Designer | Self-deprecating storytelling about failure |
+| "I haven't screwed up that way yet" | Blog empty state | Playful acknowledgment of limitations |
+| "No 'Thrilled to announce' or 'Grateful for this opportunity'. Just facts." | What I'm Up To | Ironic jab at LinkedIn clichés |
+| "All urgent. All 'strategic'." | Services | Sarcastic air quotes mocking stakeholder speak |
+| "The best product nobody knows about is a failure" | Certifications | Dry wit in certification tagline |
+| "Because even chaos needs a method" | Certifications | Playful acknowledgment of reality |
+
+### Humor Types Used
+1. **Self-deprecation** (Primary): Leading with failure, admitting mistakes
+2. **Constructive irony**: Pointing out absurdities in industry norms
+3. **Air quotes mockery**: "strategic", "stunning"
+4. **Unexpected juxtapositions**: "€8K in refunds and 2 months of burned reputation"
+
+### Humor Types Avoided
+- No puns or wordplay
+- No memes or pop culture references
+- No jokes at others' expense
+- No forced humor that undermines credibility
+
+### Consistency Check
+| Section | Humor Level | Consistent? |
+|---------|-------------|-------------|
+| Hero | 5/10 | ✅ Failure-forward, subtle |
+| Journey | 7/10 | ✅ Most self-deprecating stories |
+| Services | 5/10 | ✅ Irony about stakeholder chaos |
+| Blog | 7/10 | ✅ "mess", "screwed up" language |
+| Testimonials | 3/10 | ✅ Serious third-party tone (appropriate) |
+
+**Section-Wide Consistency: HIGH** (8/10)
+*Note: Humor varies by section appropriately—testimonials are serious, blog is playful*
+
+---
+
+## 4. AUTHORITY: 7/10 (Confident-Authoritative, Evidence-Based)
+
+### Rating Justification
+The voice makes strong, definitive claims but grounds them in specific evidence and personal experience rather than credentials or appeals to status. Authority is earned through proof, not proclaimed.
+
+### Evidence Quotes
+
+| Quote | Source | Analysis |
+|-------|--------|----------|
+| "You don't need a translator when you are the translator." | Journey PM | Definitive claim, backed by career proof |
+| "If it's beautiful but confusing, it's decoration. Not design." | Journey Designer | Authoritative definition with no hedging |
+| "Saying 'no' with data beats saying 'yes' for sympathy." | Journey PO | Prescriptive statement, earned through example |
+| "This is pragmatic product management: listen to who pays, solve what blocks, measure what changes." | What I'm Up To | Defining the approach authoritatively |
+| "Documentation isn't how many pages you write, it's how fast the user does what they need to do." | Journey PM | Redefining industry norm with confidence |
+
+### Authority Builders Present
+- **Specific metrics**: "-12% payment times", "+30 top-ups", "99% uptime"
+- **Named companies**: Google, Facebook, TikTok, LinkedIn partnerships
+- **Time stamps**: "13 years", "6 years", specific date ranges
+- **Financial stakes**: "€8K in refunds", "€15K/month in support tickets"
+- **Process frameworks**: "See, understand, act"
+
+### Authority Softeners Present (Balance)
+- Failure-first opening prevents arrogance
+- "I learned" language shows humility
+- Questions over commands: "Why should a customer call you to buy...?"
+- Self-deprecating counterbalance
+
+### Consistency Check
+| Section | Authority Level | Consistent? |
+|---------|-----------------|-------------|
+| Hero | 8/10 | ✅ Strong claims, highest authority |
+| Journey | 7/10 | ✅ Authority through storytelling proof |
+| Services | 6/10 | ✅ Problem-focused, less prescriptive |
+| Blog | 6/10 | ✅ "lessons" framing, teaching mode |
+| Testimonials | 8/10 | ✅ Third-party validation increases authority |
+
+**Section-Wide Consistency: HIGH** (8/10)
+
+---
+
+## Summary Matrix
+
+| Dimension | Score | Position | Key Characteristic |
+|-----------|-------|----------|-------------------|
+| **Formality** | 3/10 | Casual | Conversational, no corporate speak |
+| **Energy** | 6/10 | Moderate-High | Confident without hype |
+| **Humor** | 6/10 | Moderate | Self-deprecating irony |
+| **Authority** | 7/10 | Confident | Evidence-based, earned |
+
+### Voice Profile Visualization
+
+```
+         1    2    3    4    5    6    7    8    9    10
+         |    |    |    |    |    |    |    |    |    |
+Formality: ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  3/10 (Casual)
+Energy:    ████████████████████████░░░░░░░░░░░░░░░░░░░░  6/10 (Moderate-High)
+Humor:     ████████████████████████░░░░░░░░░░░░░░░░░░░░  6/10 (Moderate)
+Authority: ████████████████████████████░░░░░░░░░░░░░░░░  7/10 (Confident)
+```
+
+---
+
+## Section-by-Section Consistency Assessment
+
+### Overall Voice Consistency: HIGH (8.5/10)
+
+The voice maintains remarkable consistency across all sections with appropriate variations based on section purpose:
+
+| Section | Voice Consistency Notes |
+|---------|------------------------|
+| **Hero** | Sets the tone perfectly—failure-forward, confident, casual, punchy |
+| **Journey** | Deepest storytelling, maintains all four dimensions well |
+| **Services** | Slightly more problem-focused, appropriately solution-oriented |
+| **Blog** | Most playful ("mess", "screwed up"), appropriate for content discovery |
+| **Testimonials** | Third-party voices are naturally more formal—this is appropriate |
+| **Footer** | Maintains casual directness through to final CTA |
+| **What I'm Up To** | Strong anti-corporate stance, very on-brand |
+
+### Voice Consistency Strengths
+1. **Failure-credibility theme** maintained everywhere
+2. **Translation metaphor** woven throughout
+3. **Anti-fluff stance** consistent across all sections
+4. **Short, punchy sentences** used consistently
+5. **Evidence over claims** applied throughout
+
+### Minor Consistency Gaps Identified
+
+| Gap | Location | Impact |
+|-----|----------|--------|
+| Stats card text slightly more neutral | Hero stats | Low - could be more personality-infused |
+| Certification taglines vary in tone | Journey certs | Low - some more formal than others |
+| "Loading..." message is generic | Common strings | Low - missed brand voice opportunity |
+
+---
+
+## Voice Alignment with CLAUDE.md Guidelines
+
+| CLAUDE.md Rule | Current Implementation | Alignment |
+|----------------|----------------------|-----------|
+| "Start with the problem, not the solution" | Hero leads with failure, services lead with pain points | ✅ Strong |
+| "Use everyday metaphors for complex concepts" | "translator", "three languages", "bridge" | ✅ Strong |
+| "Employ constructive irony to highlight issues" | LinkedIn cliché jabs, "strategic" air quotes | ✅ Strong |
+| "Create mental scenes instead of abstractions" | "2 pixels shift", "40 times a day for 3 years" | ✅ Strong |
+| "Use sentence case (only initial capital)" | Mostly followed, some variations | ⚠️ Moderate |
+| "Keep paragraphs to 3-4 lines max" | Generally followed in content | ✅ Strong |
+| "Use 'we' instead of 'you should'" | Mixed - more "I" than "we" due to personal brand | ⚠️ Needs review |
+
+### Guideline Alignment Score: 8/10
+
+---
+
+## Key Findings
+
+### Voice Strengths
+1. **Highly distinctive** - The failure-forward, translator-positioning creates memorable voice
+2. **Consistent execution** - Voice dimensions maintain across 450+ lines of content
+3. **Appropriate modulation** - Voice adapts to section purpose without losing identity
+4. **Self-aware humor** - Prevents authority from becoming arrogance
+5. **Evidence density** - Specific numbers and examples reinforce authority naturally
+
+### Voice Opportunities
+1. **Strengthen "we" language** - Current voice is heavily "I"-centric (personal brand reality)
+2. **Infuse personality into utility strings** - "Loading...", error messages could be more on-brand
+3. **Standardize formality in certification taglines** - Some more formal than others
+4. **Consider signature phrase** - No single "tagline" that encapsulates the voice
+
+---
+
+## Recommended Voice Position (Aspirational vs. Current)
+
+| Dimension | Current | Recommended | Change Needed |
+|-----------|---------|-------------|---------------|
+| Formality | 3/10 | 3/10 | None - on target |
+| Energy | 6/10 | 6/10 | None - on target |
+| Humor | 6/10 | 6/10 | None - on target |
+| Authority | 7/10 | 7/10 | None - on target |
+
+**Conclusion**: The current voice position is well-calibrated for the "Pragmatic PM who translates" positioning. No major dimension shifts recommended. Focus efforts on:
+1. Consistency in edge cases (utility strings, error states)
+2. Codifying the voice attributes for future content creation
+3. Defining tone variations by context (blog vs. services vs. email)
+
+---
+
+*Document created as part of Phase 4: Voice Evaluation (Task 018)*
+*Ready for subtask-4-2: Core Voice Attributes identification*
