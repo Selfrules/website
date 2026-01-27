@@ -124,7 +124,9 @@
             "type": "manual",
             "instructions": "Verify: before/after comparisons present, voice calibration documented (Romei/Toon/Sinek ratios), Romei/Toon/Sinek quality checks applied"
           },
-          "status": "pending"
+          "status": "completed",
+          "notes": "All 3 critical page rewrites verified complete with full copywriter-hybrid methodology compliance. Page #1 (Newsletter CTA): Voice calibration 70/20/10 Romei/Toon/Sinek per CTA spec, before/after with visual wireframes, all 3 quality checks passed (14/14 items), grade F→B+ (+21 AIDA pts). Page #2 (Contact Section): Voice calibration 50/30/20 per contact page spec, before/after with visual wireframes, all 3 quality checks passed (14/14 items), grade B→A- (+6 AIDA pts), key fix: eliminated \"straordinario\" tone violation, added post-call transformation statement. Page #3 (English Version): Section-by-section voice calibration matching Italian ratios (Hero 40/30/30, Journey 60/25/15, CTAs 70/20/10, Testimonials 35/20/45, Footer 30/50/20), all 3 quality checks passed (14/14 items), grade B→A (+8 AIDA pts), critical fix: restored missing \"Without translators in between\" differentiator. No gaps found.",
+          "updated_at": "2026-01-27T12:42:38.304506+00:00"
         }
       ]
     },
@@ -373,6 +375,6 @@
   "qa_signoff": null,
   "status": "in_progress",
   "planStatus": "in_progress",
-  "updated_at": "2026-01-27T12:40:08.540Z",
-  "last_updated": "2026-01-27T12:41:10.354707+00:00"
+  "updated_at": "2026-01-27T12:41:55.135Z",
+  "last_updated": "2026-01-27T12:42:38.304506+00:00"
 }
