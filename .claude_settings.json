@@ -1,0 +1,39 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  },
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read(./**)",
+      "Write(./**)",
+      "Edit(./**)",
+      "Glob(./**)",
+      "Grep(./**)",
+      "Read(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit/**)",
+      "Write(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit/**)",
+      "Edit(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit/**)",
+      "Glob(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit/**)",
+      "Grep(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit/**)",
+      "Read(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit\\.auto-claude\\specs\\014-marketing-manager-audit/**)",
+      "Write(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit\\.auto-claude\\specs\\014-marketing-manager-audit/**)",
+      "Edit(C:\\Dev\\projects\\website\\.auto-claude\\worktrees\\tasks\\014-marketing-manager-audit\\.auto-claude\\specs\\014-marketing-manager-audit/**)",
+      "Read(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Write(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Edit(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Glob(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Grep(C:\\Dev\\projects\\website\\.auto-claude/**)",
+      "Bash(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "mcp__context7__resolve-library-id(*)",
+      "mcp__context7__get-library-docs(*)",
+      "mcp__graphiti-memory__search_nodes(*)",
+      "mcp__graphiti-memory__search_facts(*)",
+      "mcp__graphiti-memory__add_episode(*)",
+      "mcp__graphiti-memory__get_episodes(*)",
+      "mcp__graphiti-memory__get_entity_edge(*)"
+    ]
+  }
+}
