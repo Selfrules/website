@@ -1,0 +1,1500 @@
+{
+  "project_root": "C:\\Dev\\projects\\website",
+  "project_type": "single",
+  "services": {
+    "main": {
+      "name": "main",
+      "path": "C:\\Dev\\projects\\website",
+      "language": "TypeScript",
+      "framework": "Next.js",
+      "type": "frontend",
+      "package_manager": "npm",
+      "default_port": 3000,
+      "styling": "Tailwind CSS",
+      "state_management": "Zustand",
+      "dev_command": "npm run dev",
+      "key_directories": {
+        "lib": {
+          "path": "lib",
+          "purpose": "Library code"
+        },
+        "app": {
+          "path": "app",
+          "purpose": "Application code"
+        },
+        "components": {
+          "path": "components",
+          "purpose": "UI components"
+        },
+        "tasks": {
+          "path": "tasks",
+          "purpose": "Background tasks"
+        }
+      },
+      "dependencies": [
+        "@anthropic-ai/sdk",
+        "@hookform/resolvers",
+        "@radix-ui/react-tabs",
+        "@tanstack/react-query",
+        "@upstash/ratelimit",
+        "@upstash/redis",
+        "autoprefixer",
+        "axios",
+        "clsx",
+        "date-fns",
+        "eslint",
+        "eslint-config-next",
+        "firebase",
+        "firebase-admin",
+        "framer-motion",
+        "fs-extra",
+        "googleapis",
+        "ioredis",
+        "lucide-react",
+        "nanoid"
+      ],
+      "dev_dependencies": [
+        "@axe-core/playwright",
+        "@lhci/cli",
+        "@netlify/plugin-nextjs",
+        "@playwright/test",
+        "@tailwindcss/typography",
+        "@testing-library/jest-dom",
+        "@testing-library/react",
+        "@testing-library/user-event",
+        "@types/fs-extra",
+        "@types/jest"
+      ],
+      "testing": "Jest",
+      "e2e_testing": "Playwright",
+      "dockerfile": "Dockerfile",
+      "environment": {
+        "variables": {
+          "NODE_ENV": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_APP_URL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_API_URL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_FIREBASE_API_KEY": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "NEXT_PUBLIC_FIREBASE_PROJECT_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_FIREBASE_APP_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "FIREBASE_ADMIN_PROJECT_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "FIREBASE_ADMIN_CLIENT_EMAIL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "FIREBASE_ADMIN_PRIVATE_KEY": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "ANTHROPIC_API_KEY": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "CLAUDE_MODEL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "CLAUDE_MAX_TOKENS": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "CLAUDE_TEMPERATURE": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "GOOGLE_CLIENT_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "GOOGLE_CLIENT_SECRET": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "GOOGLE_CALENDAR_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "GOOGLE_REDIRECT_URI": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "GOOGLE_REFRESH_TOKEN": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "SPOTIFY_CLIENT_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "SPOTIFY_CLIENT_SECRET": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "SPOTIFY_REFRESH_TOKEN": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "NEXT_PUBLIC_SPOTIFY_ENABLED": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "UPSTASH_REDIS_REST_URL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "UPSTASH_REDIS_REST_TOKEN": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "RATE_LIMIT_CHAT": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "RATE_LIMIT_ANALYTICS": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "RATE_LIMIT_CALENDAR": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "RATE_LIMIT_API_DEFAULT": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_UMAMI_WEBSITE_ID": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_UMAMI_HOST_URL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "NEXT_PUBLIC_UMAMI_ENABLED": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "ANALYTICS_RETENTION_DAYS": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "EMAIL_API_KEY": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "EMAIL_FROM": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "SENTRY_DSN": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "FEATURE_AI_CHATBOT": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "FEATURE_CALENDAR_BOOKING": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "FEATURE_SPOTIFY_WIDGET": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "FEATURE_ANALYTICS": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "RATE_LIMIT_ENABLED": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "LOG_LEVEL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          },
+          "SESSION_SECRET": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "ENCRYPTION_KEY": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "JWT_SECRET": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": true,
+            "required": true
+          },
+          "REDIS_URL": {
+            "value": null,
+            "source": ".env.example",
+            "type": "string",
+            "sensitive": false,
+            "required": true
+          }
+        },
+        "required_count": 48,
+        "optional_count": 0,
+        "detected_count": 48
+      },
+      "database": {
+        "models": {
+          "User": {
+            "table": "user",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "email": {
+                "type": "String",
+                "primary_key": false,
+                "unique": true,
+                "nullable": false
+              },
+              "name": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "preferences": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "createdAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "updatedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Relations": {
+                "type": "chatConversations",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "calendarBookings": {
+                "type": "CalendarBooking",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "analyticsEvents": {
+                "type": "AnalyticsEvent",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "BlogPost": {
+            "table": "blogpost",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "title": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "slug": {
+                "type": "String",
+                "primary_key": false,
+                "unique": true,
+                "nullable": false
+              },
+              "content": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Full": {
+                "type": "markdown",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "excerpt": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Short": {
+                "type": "summary",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "category": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "AMA": {
+                "type": "locale",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "coverImage": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "URL": {
+                "type": "to",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "readingTime": {
+                "type": "Int",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Estimated": {
+                "type": "reading",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "published": {
+                "type": "Boolean",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "publishedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "metadata": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "createdAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "updatedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "ChatConversation": {
+            "table": "chatconversation",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "userId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Optional": {
+                "type": "for",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "sessionId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Browser": {
+                "type": "session",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "messages": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "CalendarBooking": {
+            "table": "calendarbooking",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "userId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Optional": {
+                "type": "user",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "name": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "email": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "phone": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "dateTime": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Scheduled": {
+                "type": "date",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "duration": {
+                "type": "Int",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Duration": {
+                "type": "in",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "status": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "completed": {
+                "type": "type",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "mentorship": {
+                "type": "notes",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "User": {
+                "type": "notes",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "context": {
+                "type": "adminNotes",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "only": {
+                "type": "notes",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "googleEventId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Google": {
+                "type": "Calendar",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "reminderSent": {
+                "type": "Boolean",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "metadata": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "createdAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "updatedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Relations": {
+                "type": "user",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "AnalyticsEvent": {
+            "table": "analyticsevent",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "userId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Optional": {
+                "type": "user",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "sessionId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Browser": {
+                "type": "session",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "eventType": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "eventName": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Descriptive": {
+                "type": "name",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "page": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Page": {
+                "type": "where",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "metadata": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "userAgent": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "ipAddress": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "referrer": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "timestamp": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Relations": {
+                "type": "user",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "NewsletterSubscription": {
+            "table": "newslettersubscription",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "email": {
+                "type": "String",
+                "primary_key": false,
+                "unique": true,
+                "nullable": false
+              },
+              "name": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "status": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "unsubscribed": {
+                "type": "source",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Where": {
+                "type": "they",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "preferences": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "subscribedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "unsubscribedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "Question": {
+            "table": "question",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "name": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Optional": {
+                "type": "email",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "email": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "question": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "The": {
+                "type": "actual",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "category": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "status": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "archived": {
+                "type": "answeredAt",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "blogPostId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Link": {
+                "type": "to",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "sessionId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Browser": {
+                "type": "session",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "metadata": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "createdAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "updatedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "Certification": {
+            "table": "certification",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "title": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Certified": {
+                "type": "Scrum",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "issuer": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Scrum": {
+                "type": "Alliance",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "issueDate": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "expiryDate": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "credentialId": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Verification": {
+                "type": "link",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "credentialUrl": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "description": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Description": {
+                "type": "or",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "skills": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "logo": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "URL": {
+                "type": "to",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "displayOrder": {
+                "type": "Int",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Order": {
+                "type": "to",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "visible": {
+                "type": "Boolean",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "blockchain": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Blockchain": {
+                "type": "verification",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "metadata": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "createdAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "updatedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          },
+          "Testimonial": {
+            "table": "testimonial",
+            "fields": {
+              "id": {
+                "type": "String",
+                "primary_key": true,
+                "unique": false,
+                "nullable": false
+              },
+              "name": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "s": {
+                "type": "name",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "role": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "CEO": {
+                "type": "at",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "company": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "avatar": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "URL": {
+                "type": "to",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "content": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Testimonial": {
+                "type": "text",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "rating": {
+                "type": "Int",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Optional": {
+                "type": "1",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "relationship": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "worked": {
+                "type": "together",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "projectContext": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "What": {
+                "type": "project",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "context": {
+                "type": "this",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "verified": {
+                "type": "Boolean",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Verification": {
+                "type": "status",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "linkedinUrl": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "LinkedIn": {
+                "type": "profile",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "displayOrder": {
+                "type": "Int",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "visible": {
+                "type": "Boolean",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "featured": {
+                "type": "Boolean",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "Show": {
+                "type": "on",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "locale": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "givenAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "When": {
+                "type": "the",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "metadata": {
+                "type": "String",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "JSON": {
+                "type": "string",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "createdAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              },
+              "updatedAt": {
+                "type": "DateTime",
+                "primary_key": false,
+                "unique": false,
+                "nullable": false
+              }
+            },
+            "file": "prisma/schema.prisma",
+            "orm": "Prisma"
+          }
+        },
+        "total_models": 9,
+        "model_names": [
+          "User",
+          "BlogPost",
+          "ChatConversation",
+          "CalendarBooking",
+          "AnalyticsEvent",
+          "NewsletterSubscription",
+          "Question",
+          "Certification",
+          "Testimonial"
+        ]
+      },
+      "services": {
+        "databases": [
+          {
+            "type": "redis",
+            "client": "ioredis"
+          }
+        ]
+      },
+      "migrations": {
+        "tool": "prisma",
+        "directory": "prisma/migrations",
+        "config_file": "prisma/schema.prisma",
+        "commands": {
+          "migrate": "prisma migrate deploy",
+          "dev": "prisma migrate dev",
+          "create": "prisma migrate dev --name migration_name"
+        }
+      }
+    }
+  },
+  "infrastructure": {
+    "docker_compose": "docker-compose.yml",
+    "docker_services": [
+      "postgres",
+      "redis",
+      "backend",
+      "frontend",
+      "adminer"
+    ],
+    "dockerfile": "Dockerfile",
+    "ci": "GitHub Actions",
+    "ci_workflows": [
+      "backup.yml",
+      "ci.yml",
+      "claude-code-review.yml",
+      "claude.yml",
+      "deploy.yml",
+      "preview.yml",
+      "update-story-status.yml"
+    ],
+    "deployment": "Vercel"
+  },
+  "conventions": {
+    "js_linting": "ESLint",
+    "formatting": "Prettier",
+    "typescript": true
+  }
+}
