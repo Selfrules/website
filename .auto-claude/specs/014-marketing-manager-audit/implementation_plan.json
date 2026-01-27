@@ -278,8 +278,9 @@
             "type": "manual",
             "instructions": "Verify campaign brief has all 6 elements. LinkedIn posting strategy with content types and frequency. Profile optimization checklist. Engagement strategy documented. Connection growth tactics."
           },
-          "status": "pending",
-          "notes": "LinkedIn scored 3.78 (2nd highest channel). Should include profile optimization, content calendar, posting templates, engagement strategy, connection growth, LinkedIn newsletter consideration."
+          "status": "completed",
+          "notes": "Campaign 4: LinkedIn Thought Leadership brief completed with all 6 elements. Includes profile optimization checklist (headline, banner, about, featured, experience, skills, recommendations, creator mode), weekly 7-post schedule with themed days, engagement strategy (30 min/day routine, commenting strategy, 5 connection growth tactics, warm DM approach), KPI dashboard with audience/content/traffic/business metrics, SSI score targets, and 3-phase 90-day timeline.",
+          "updated_at": "2026-01-27T12:45:40.400094+00:00"
         },
         {
           "id": "subtask-5-5",
@@ -436,6 +437,6 @@
   "qa_signoff": null,
   "status": "in_progress",
   "planStatus": "in_progress",
-  "updated_at": "2026-01-27T12:40:09.507Z",
-  "last_updated": "2026-01-27T12:39:35.386544+00:00"
+  "updated_at": "2026-01-27T12:46:20.749Z",
+  "last_updated": "2026-01-27T12:45:40.400094+00:00"
 }

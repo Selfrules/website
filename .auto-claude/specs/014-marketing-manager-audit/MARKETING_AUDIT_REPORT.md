@@ -6987,6 +6987,1138 @@ Target: Top 5% of industry SSI by Week 12
 
 ---
 
+### Campaign 5: Podcast/Speaking Guest Strategy
+
+**Campaign Name:** "The PM Translation Problem" Earned Media Tour
+
+**Campaign Type:** Earned Media + Authority Building via Guest Appearances
+
+**Priority:** 🔴 P1 - High (Borrowed Audience Acceleration)
+
+**Channel Score:** 1.68 (Opportunistic, but disproportionate authority ROI)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    CAMPAIGN 5: PODCAST/SPEAKING GUEST STRATEGY                   │
+│                    "The PM Translation Problem" Earned Media Tour                │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  BORROWED AUDIENCE MECHANICS:                                                    │
+│                                                                                  │
+│    ┌──────────────┐     ┌──────────────┐     ┌──────────────┐                   │
+│    │   Podcast    │────▶│   Episode    │────▶│   Audience   │                   │
+│    │   Pitched    │     │   Recorded   │     │   Exposed    │                   │
+│    └──────────────┘     └──────────────┘     └──────────────┘                   │
+│           ▲                                         │                            │
+│           │                                         ▼                            │
+│    ┌──────────────┐     ┌──────────────┐     ┌──────────────┐                   │
+│    │   Authority  │◀────│   Funnel     │◀────│   CTA        │                   │
+│    │   Compounds  │     │   Converts   │     │   Drives     │                   │
+│    └──────────────┘     └──────────────┘     └──────────────┘                   │
+│                                                                                  │
+│  LOOP VELOCITY: Pitch → Record (2-6 wks) → Publish (2-8 wks) → Traffic burst  │
+│  COMPOUNDING: Each appearance → credibility for next pitch → bigger shows       │
+│                                                                                  │
+│  KEY INSIGHT: Podcasts = evergreen backlinks + SEO + trust transfer             │
+│  One 45-min recording can generate traffic for years.                           │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+#### 1. OBJECTIVE
+
+**Primary Objective:** Expand Mattia De Luca's reach beyond owned channels by securing 6-10 podcast guest appearances and 2-3 speaking engagements within 90 days, establishing the "PM Translation Problem" as a recognized topic in both the Italian and international product management communities.
+
+**Strategic Goals:**
+| Goal | Description | Success Measure |
+|------|-------------|-----------------|
+| **Audience Expansion** | Reach 10,000+ new listeners who match target persona via borrowed audiences | 6+ podcast episodes published |
+| **Authority Transfer** | Borrow credibility from established shows to accelerate positioning | 3+ shows with audience >5,000 |
+| **Evergreen Content** | Create long-form searchable content that drives traffic for years | 6+ indexed episodes on major platforms |
+| **Backlink Acquisition** | Earn high-quality backlinks from podcast show-notes pages | 6+ dofollow backlinks from podcast sites |
+| **Speaking Pipeline** | Build a track record that opens conference speaking opportunities | 2+ speaking engagements completed |
+| **Cross-Campaign Fuel** | Generate content for LinkedIn (Campaign 4), blog (Campaign 1), and email (Campaign 2) | Each appearance repurposed into 5+ content pieces |
+
+**Problem Being Solved:**
+- ❌ Current: Zero podcast appearances — no borrowed audience strategy
+- ❌ Current: selfrules.org has no external backlinks from authority sites
+- ❌ Current: Content reach limited to owned channels (website + future LinkedIn)
+- ❌ Current: No speaking reel or guest credentials for conference pitches
+- ❌ Current: "PM Translator" positioning exists only on selfrules.org
+- ✅ Target: 6-10 podcast appearances bringing positioning to new audiences
+- ✅ Target: "PM Translation Problem" becomes a recognized topic in Italian PM circles
+- ✅ Target: Speaking invitations begin flowing inbound from podcast visibility
+
+**Why This Campaign Now:**
+1. **Campaigns 1-4 Provide Foundation** - Blog content, lead magnet, email nurture, and LinkedIn presence give podcast hosts proof of credibility
+2. **Unique Story = Easy Booking** - "Failed as designer, failed as developer, now I translate" is podcast gold — hosts love transformation stories
+3. **Evergreen ROI** - One 45-minute recording generates traffic for 2-5 years (unlike social posts that die in 48 hours)
+4. **Authority Multiplier** - Being introduced as a guest expert transfers host credibility to Mattia instantly
+5. **Italian PM Podcast Market Is Small** - Fewer shows = less competition for guest spots = easier to get on
+6. **International Angle** - Bilingual ability opens English-language shows (10x larger audience)
+
+---
+
+#### 2. TARGET AUDIENCE
+
+**Primary Persona: "The Podcast-Listening PM"**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         PODCAST LISTENER TARGET PERSONA                          │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  NAME: Davide, 36 | "The Podcast-Listening PM"                                  │
+│                                                                                  │
+│  ROLE: Product Manager at Italian mid-size tech company (50-500 employees)      │
+│  EXPERIENCE: 5-10 years, managing cross-functional squads                       │
+│  PODCAST BEHAVIOR: Listens 3-5 episodes/week during commute + gym              │
+│  LANGUAGE: Italian podcasts preferred, English for top-tier shows               │
+│                                                                                  │
+│  PODCAST CONSUMPTION HABITS:                                                    │
+│  ┌────────────────────────────────────────────────────────────────────────┐    │
+│  │ Morning commute (7:30-9:00): 1 episode, usually new discovery        │    │
+│  │ Gym/run (18:00-19:30): Deep-dive episodes, longer format preferred   │    │
+│  │ Weekend errands: Catch-up on saved episodes, casual listening        │    │
+│  │ Travel days: Binge 3-4 episodes, most open to new shows             │    │
+│  └────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  WHAT MAKES HIM STAY PAST THE INTRO:                                            │
+│  ✓ Guest with an unusual origin story (not "I studied business, became PM")    │
+│  ✓ Specific, named examples with real numbers                                  │
+│  ✓ Frameworks he can apply immediately                                          │
+│  ✓ Honest failure stories with clear lessons                                    │
+│  ✓ Humor and directness (not corporate-speak)                                  │
+│                                                                                  │
+│  WHAT MAKES HIM SKIP OR UNSUBSCRIBE:                                            │
+│  ✗ Guests who only talk about their product/service                            │
+│  ✗ Vague advice without specifics ("just be customer-centric")                 │
+│  ✗ Boring, rehearsed interview answers                                          │
+│  ✗ 90+ minute episodes with no structure                                       │
+│  ✗ Zero practical takeaways                                                     │
+│                                                                                  │
+│  POST-EPISODE BEHAVIOR:                                                         │
+│  • If great: Checks guest's LinkedIn/website within 24 hours                   │
+│  • If amazing: Shares episode in PM Slack/Teams channels at work               │
+│  • If actionable: Screenshots framework, adds to personal Notion               │
+│  • Conversion path: Listen → Check website → Read blog →                       │
+│    Download toolkit → Book call (4-12 week cycle)                              │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Secondary Audiences Through Podcast Appearances:**
+
+| Persona | How They Encounter | Why They Engage | Conversion Path |
+|---------|-------------------|-----------------|-----------------|
+| **Podcast Host "Chiara"** | Receives pitch email | Looking for unique guests with stories | Books Mattia → Becomes referral to other hosts |
+| **Conference Organizer "Paolo"** | Hears episode or sees guest reel | Looking for fresh speakers with proven topics | Invites to speak → Event exposure → Authority |
+| **Aspiring PM "Elena"** | Discovers via podcast search | Career transition inspiration (designer/dev → PM) | Listen → Blog → Mentorship inquiry |
+| **CTO "Francesco"** | Recommended by team member who heard episode | Needs someone to fix cross-functional chaos | Listen → Website → Consulting inquiry |
+| **HR/L&D "Claudia"** | Finds episode while sourcing training | Looking for PM training/workshop providers | Listen → Website → Workshop lead |
+
+**Audience Sizing (Podcast Reach):**
+- Italian PM/tech podcast listener base: ~50,000-80,000 active listeners
+- Average Italian tech podcast audience per episode: 500-3,000 downloads
+- Average international PM podcast audience per episode: 5,000-50,000 downloads
+- 6 Italian appearances × ~1,500 avg = ~9,000 listener exposures
+- 3 English appearances × ~10,000 avg = ~30,000 listener exposures
+- **Total potential reach: ~39,000 unique listener exposures in 90 days**
+
+---
+
+#### 3. CHANNELS
+
+**Primary Channel: Podcast Guest Appearances (70% of Campaign 5 effort)**
+**Secondary Channel: Speaking Engagements (20% of effort)**
+**Support Channel: Post-Appearance Repurposing (10% of effort)**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    PODCAST & SPEAKING CHANNEL STRATEGY                            │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  🎙️ PODCAST GUESTING                                          ████████ 70%     │
+│     • Italian PM/tech podcasts (Tier 1-3)                                       │
+│     • International PM/product podcasts (stretch)                               │
+│     • Startup/tech founder podcasts (cross-market)                              │
+│     • Career transition podcasts (design/dev → PM story)                        │
+│                                                                                  │
+│  🎤 SPEAKING ENGAGEMENTS                                       ████ 20%        │
+│     • Italian PM meetups (Product Heroes, ProductTank Milano)                   │
+│     • Tech conferences (virtual first, then in-person)                          │
+│     • Webinars hosted by PM communities/tools                                   │
+│     • Corporate lunch-and-learn sessions                                        │
+│                                                                                  │
+│  🔄 POST-APPEARANCE REPURPOSING                                ██ 10%          │
+│     • Audiograms for LinkedIn (Campaign 4)                                      │
+│     • Blog recap posts (Campaign 1)                                             │
+│     • Email newsletter highlights (Campaign 2)                                  │
+│     • YouTube clips (if video recorded)                                         │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Target Podcast List (Italian + English):**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    TARGET PODCAST LIST — TIERED APPROACH                          │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TIER 1: PRIORITY TARGETS (Italian PM/Tech) — Pitch Weeks 1-2                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  # │ Podcast Name             │ Audience │ Why Target      │ Pitch Angle       │
+│  ──┼──────────────────────────┼──────────┼─────────────────┼───────────────── │
+│  1 │ Product Heroes Podcast   │ 3-5K/ep  │ #1 Italian PM   │ Translation       │
+│    │                          │          │ podcast          │ Problem story     │
+│  2 │ StartupItalia Podcast    │ 5-10K/ep │ Startup audience │ Failure → PM      │
+│    │                          │          │ (founders=buyers)│ evolution story   │
+│  3 │ Spremute Digitali        │ 2-4K/ep  │ Digital work/    │ Cross-functional  │
+│    │                          │          │ innovation focus │ team dynamics     │
+│  4 │ Gitbar (dev podcast)     │ 3-5K/ep  │ Developer        │ "Dev who became   │
+│    │                          │          │ audience (cross) │ PM" bridge story  │
+│  5 │ Italian Indie Podcast    │ 2-3K/ep  │ Indie/freelance  │ Consulting PM     │
+│    │                          │          │ community        │ business model    │
+│  6 │ Scientificast/Techno     │ 5-8K/ep  │ Italian tech     │ Product thinking  │
+│    │ Pillole                  │          │ curious audience │ for everyone      │
+│  7 │ Creazione Digitale       │ 1-3K/ep  │ Design audience  │ Designer-to-PM    │
+│    │                          │          │ (design→PM path) │ career shift      │
+│  8 │ Lavoradio                │ 2-4K/ep  │ Career/work      │ Career reinvention│
+│    │                          │          │ focused audience │ through failure   │
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TIER 2: STRETCH TARGETS (International PM/Product) — Pitch Weeks 3-5          │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  # │ Podcast Name             │ Audience │ Why Target      │ Pitch Angle       │
+│  ──┼──────────────────────────┼──────────┼─────────────────┼───────────────── │
+│  9 │ Product School Podcast   │ 10-20K/ep│ Largest PM       │ Translation       │
+│    │                          │          │ education brand  │ framework         │
+│  10│ The Product Podcast      │ 5-15K/ep │ Practical PM     │ Cross-functional  │
+│    │ (Product School)         │          │ advice format    │ communication     │
+│  11│ This Is Product Mgmt     │ 8-15K/ep │ Industry leaders │ Translator        │
+│    │ (Alpha)                  │          │ interview format │ archetype         │
+│  12│ Product Thinking         │ 5-10K/ep │ Strategic PM     │ Design → Dev →    │
+│    │ (Melissa Perri)          │          │ community        │ PM evolution      │
+│  13│ The Brave PM Podcast     │ 3-8K/ep  │ Courage in PM    │ Failure-first     │
+│    │                          │          │ resonates        │ vulnerability     │
+│  14│ Inside Intercom          │ 10-25K/ep│ Product/growth   │ Translation as    │
+│    │                          │          │ focused          │ product skill     │
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TIER 3: ASPIRATIONAL (Major Shows) — Pitch Weeks 7-9                           │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  # │ Podcast Name             │ Audience │ Why Target      │ Pitch Angle       │
+│  ──┼──────────────────────────┼──────────┼─────────────────┼───────────────── │
+│  15│ Lenny's Podcast          │ 50-100K  │ #1 PM podcast    │ "Translator"      │
+│    │                          │ /ep      │ globally         │ as a new PM type  │
+│  16│ Masters of Scale         │ 50-100K  │ Scaling stories  │ Translation at    │
+│    │ (Reid Hoffman)           │ /ep      │ resonate         │ scale             │
+│  17│ The Knowledge Project    │ 20-50K   │ Mental models    │ Translation as    │
+│    │ (Shane Parrish)          │ /ep      │ audience         │ a mental model    │
+│  18│ How I Built This         │ 200K+    │ Origin story     │ Failure → pivot   │
+│    │ (Guy Raz)                │ /ep      │ format           │ → purpose         │
+│                                                                                  │
+│  NOTE: Tier 3 shows are aspirational. Build credibility via Tier 1-2 first,    │
+│  then pitch Tier 3 with guest reel + metrics from earlier appearances.          │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Target Speaking Engagements:**
+
+| Event | Type | Audience | Pitch Topic | Timeline |
+|-------|------|----------|-------------|----------|
+| **ProductTank Milano** | Meetup (monthly) | 50-100 PMs | "The PM Translation Problem" | Week 3-4 pitch |
+| **Product Heroes Conference** | Annual conference | 500+ PMs | "13 Years of Expensive Mistakes" | Week 4-5 pitch |
+| **Italian Agile Days** | Conference | 300-500 | "When Agile Ceremonies Become Translation Failures" | Week 5-6 pitch |
+| **UX Book Club Milano** | Meetup | 30-60 | "From Designer to PM: The Accidental Translator" | Week 3-4 pitch |
+| **Codemotion** | Tech conference | 1,000+ | "Technical Debt Is a Communication Problem" | Week 6-7 pitch |
+| **Webinar (self-hosted)** | Virtual | 50-200 | "The PM Translator's Toolkit: Live Demo" | Week 8-9 host |
+
+---
+
+#### 4. TACTICS
+
+**Core Tactic: "The PM Translation Problem" Guest Tour**
+
+**Guest One-Sheet (Media Kit):**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                  │
+│              ╔═══════════════════════════════════════════════════════╗           │
+│              ║           MATTIA DE LUCA — GUEST ONE-SHEET           ║           │
+│              ║         "The Product Management Translator"           ║           │
+│              ╚═══════════════════════════════════════════════════════╝           │
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  BIO (Short — 50 words)                                                │    │
+│  ├─────────────────────────────────────────────────────────────────────────┤    │
+│  │  Mattia De Luca is a Product Management consultant who spent 4 years  │    │
+│  │  failing as a designer and 4 years failing as a developer before      │    │
+│  │  discovering that the real product skill is translation—between        │    │
+│  │  business, design, and engineering. He's now the PM you call when     │    │
+│  │  everyone says "yes" but nobody knows what to do. selfrules.org       │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  BIO (Long — 120 words)                                                │    │
+│  ├─────────────────────────────────────────────────────────────────────────┤    │
+│  │  Mattia De Luca spent 13 years making expensive mistakes across       │    │
+│  │  design, development, and product management. He started as a UX      │    │
+│  │  designer at QubicaAMF (beautiful interfaces nobody understood),      │    │
+│  │  became a developer at ActiveProspect (code that solved the wrong     │    │
+│  │  problem), and finally found his calling as a PM who translates       │    │
+│  │  between all three worlds. At FLOWING, he reduced payment times by    │    │
+│  │  12% and increased mobile top-ups by 30—not through complex           │    │
+│  │  solutions but by reducing clicks from 7 to 3. Now he helps teams    │    │
+│  │  stop agreeing and start aligning through strategic consulting,       │    │
+│  │  brainstorming sessions, and monthly mentorship. He's the PM you     │    │
+│  │  call when everyone says "yes" but nobody knows what to do.           │    │
+│  │  → selfrules.org                                                       │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  TALK TOPICS (pick 1-2 for your show)                                  │    │
+│  ├─────────────────────────────────────────────────────────────────────────┤    │
+│  │                                                                         │    │
+│  │  🎯 TOPIC 1: "The PM Translation Problem"                              │    │
+│  │  Why cross-functional teams fail isn't about process—it's about       │    │
+│  │  language. Designers say "user journey," developers say "technical    │    │
+│  │  debt," business says "ROI." Same meeting, three different movies.    │    │
+│  │  Mattia shares the translation framework he built from 13 years of   │    │
+│  │  being the person in the middle.                                       │    │
+│  │  Best for: PM podcasts, leadership shows, team dynamics discussions   │    │
+│  │                                                                         │    │
+│  │  🎯 TOPIC 2: "13 Years of Expensive Mistakes"                          │    │
+│  │  A counter-intuitive career story: how failing as a designer and     │    │
+│  │  failing as a developer gave Mattia the unfair advantage of speaking │    │
+│  │  all three languages. Real stories with real numbers about what      │    │
+│  │  goes wrong when translation fails.                                    │    │
+│  │  Best for: Career podcasts, storytelling shows, founder/startup shows│    │
+│  │                                                                         │    │
+│  │  🎯 TOPIC 3: "When Everyone Says 'Yes' But Nobody Knows What to Do"  │    │
+│  │  The alignment-vs-agreement problem that kills products. Why the     │    │
+│  │  meeting where everyone nods is more dangerous than the meeting      │    │
+│  │  where people argue. Practical framework for detecting false         │    │
+│  │  alignment before it costs €50K.                                      │    │
+│  │  Best for: Management podcasts, agile shows, product strategy shows  │    │
+│  │                                                                         │    │
+│  │  🎯 TOPIC 4: "Technical Debt Is a Communication Problem"              │    │
+│  │  Most teams think technical debt is an engineering problem. It's     │    │
+│  │  not—it's what happens when PMs can't translate business urgency     │    │
+│  │  into sustainable engineering decisions. A bridge-building            │    │
+│  │  perspective from someone who's been on both sides.                   │    │
+│  │  Best for: Engineering podcasts, CTO audiences, dev community shows  │    │
+│  │                                                                         │    │
+│  │  🎯 TOPIC 5: "From Designer to Developer to PM" (Career Story)        │    │
+│  │  The unconventional career path that gave Mattia superpowers—and     │    │
+│  │  why the "failure" framing is more honest than calling them          │    │
+│  │  "stepping stones." For anyone considering a pivot into product.     │    │
+│  │  Best for: Career transition shows, design podcasts, dev podcasts   │    │
+│  │                                                                         │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  CREDIBILITY SNAPSHOT                                                   │    │
+│  ├─────────────────────────────────────────────────────────────────────────┤    │
+│  │                                                                         │    │
+│  │  ✓ 13 years: design (4yr) → development (4yr) → PM (5yr)              │    │
+│  │  ✓ Results: -12% payment times, +30 top-ups, -25% incidents           │    │
+│  │  ✓ Companies: QubicaAMF, ActiveProspect, FLOWING, Selfrules           │    │
+│  │  ✓ 6 certifications: Google UX, Scrum, Product Analytics, etc.        │    │
+│  │  ✓ Bilingual: Italian + English (native-level)                         │    │
+│  │  ✓ Blog: selfrules.org/blog — "Lessons from the trenches"             │    │
+│  │  ✓ Free resource: "PM Translator's Toolkit" — 50+ templates           │    │
+│  │                                                                         │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  LOGISTICS                                                              │    │
+│  ├─────────────────────────────────────────────────────────────────────────┤    │
+│  │                                                                         │    │
+│  │  📧 Email: [contact via selfrules.org]                                  │    │
+│  │  🌐 Website: selfrules.org                                              │    │
+│  │  💼 LinkedIn: linkedin.com/in/mattia-de-luca                            │    │
+│  │  📸 Headshot: Available in high-res (300dpi) with neobrutalist border  │    │
+│  │  🎧 Setup: Professional USB mic, quiet room, wired internet            │    │
+│  │  📍 Location: Italy (CET/CEST timezone)                                │    │
+│  │  ⏱️  Preferred length: 30-60 minutes                                   │    │
+│  │  🗣️  Languages: Italian (native) + English (fluent)                    │    │
+│  │  ✅ Available: Weekday mornings (9-12 CET) or evenings (18-20 CET)    │    │
+│  │                                                                         │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  SAMPLE QUESTIONS (feel free to use as-is or adapt)                     │    │
+│  ├─────────────────────────────────────────────────────────────────────────┤    │
+│  │                                                                         │    │
+│  │  1. You call yourself a "failed designer and failed developer" —       │    │
+│  │     what does that actually mean?                                       │    │
+│  │  2. What's the "PM Translation Problem" and why does it kill          │    │
+│  │     products?                                                           │    │
+│  │  3. Can you walk us through a real example of a €50K+ translation     │    │
+│  │     failure?                                                            │    │
+│  │  4. What's the difference between agreement and alignment?             │    │
+│  │  5. You reduced payment times by 12% by reducing clicks from 7 to    │    │
+│  │     3—isn't that too simple?                                           │    │
+│  │  6. Should PMs learn to code? (Your take is different...)             │    │
+│  │  7. What framework do you use to translate between design, dev,       │    │
+│  │     and business?                                                      │    │
+│  │  8. What's the one thing listeners can do Monday morning to           │    │
+│  │     improve cross-functional communication?                            │    │
+│  │                                                                         │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  WHAT HOSTS SAY (Testimonial-Ready)                                     │    │
+│  ├─────────────────────────────────────────────────────────────────────────┤    │
+│  │                                                                         │    │
+│  │  "Mattia brings real stories with real numbers. No fluff, no          │    │
+│  │  buzzwords. Our listeners loved the PM translation framework."         │    │
+│  │  — [To be populated after first 2-3 appearances]                       │    │
+│  │                                                                         │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Pitch Email Templates:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    PODCAST PITCH EMAIL TEMPLATES                                  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TEMPLATE 1: COLD PITCH — ITALIAN PODCASTS                                      │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  SUBJECT: Ho fallito come designer. Poi come developer. Ne parliamo?            │
+│                                                                                  │
+│  Ciao [NOME HOST],                                                              │
+│                                                                                  │
+│  Ho ascoltato l'episodio con [OSPITE RECENTE] su [PODCAST] —                   │
+│  quando ha parlato di [PUNTO SPECIFICO], mi sono ritrovato                     │
+│  completamente. È esattamente il problema che vedo ogni settimana.             │
+│                                                                                  │
+│  Mi chiamo Mattia e ho passato 13 anni a fallire in modo produttivo:           │
+│  4 anni come designer (interfacce belle che nessuno capiva), 4 anni           │
+│  come developer (codice che risolveva il problema sbagliato), e ora           │
+│  sono il PM che traduce tra business, design e tech.                           │
+│                                                                                  │
+│  Potrei portare ai tuoi ascoltatori:                                            │
+│  • Il "Problema della Traduzione" — perché i team cross-funzionali            │
+│    falliscono anche quando tutti dicono "sì"                                   │
+│  • Storie reali con numeri reali (-12% tempi di pagamento,                    │
+│    +30 ricariche) ottenute non con soluzioni complesse ma                     │
+│    riducendo i click da 7 a 3                                                  │
+│  • Un framework pratico che i tuoi ascoltatori possono usare                   │
+│    lunedì mattina                                                               │
+│                                                                                  │
+│  Ho allegato un one-sheet con bio e argomenti suggeriti.                        │
+│  Saresti interessat* a esplorare un episodio insieme?                           │
+│                                                                                  │
+│  Un saluto,                                                                     │
+│  Mattia De Luca                                                                 │
+│  selfrules.org                                                                  │
+│                                                                                  │
+│  P.S. Zero pitch commerciale, promesso. Solo storie dal campo                  │
+│  e un framework che funziona.                                                   │
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TEMPLATE 2: COLD PITCH — ENGLISH PODCASTS                                      │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  SUBJECT: I failed as a designer. Then as a developer. Can we talk about it?  │
+│                                                                                  │
+│  Hi [HOST NAME],                                                                │
+│                                                                                  │
+│  Loved your episode with [RECENT GUEST] on [PODCAST] —                         │
+│  especially the part about [SPECIFIC POINT]. It's exactly the                  │
+│  cross-functional challenge I see with teams every week.                        │
+│                                                                                  │
+│  Quick intro: I'm Mattia De Luca, a PM consultant from Italy who              │
+│  spent 13 years productively failing across design, development,               │
+│  and product management. Now I help teams stop agreeing and start              │
+│  aligning.                                                                      │
+│                                                                                  │
+│  I'd love to bring your listeners:                                              │
+│  • "The PM Translation Problem" — why teams fail even when                     │
+│    everyone says "yes" (hint: agreement ≠ alignment)                           │
+│  • Real stories with real numbers: how reducing clicks from                    │
+│    7 to 3 cut payment times by 12%                                             │
+│  • A practical translation framework listeners can use Monday                  │
+│    morning                                                                      │
+│                                                                                  │
+│  I've attached a one-sheet with bio, topics, and sample questions.             │
+│  Would you be open to exploring an episode together?                            │
+│                                                                                  │
+│  Best,                                                                          │
+│  Mattia De Luca                                                                 │
+│  selfrules.org                                                                  │
+│                                                                                  │
+│  P.S. Zero sales pitch, I promise. Just trench stories and a                   │
+│  framework that works.                                                          │
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TEMPLATE 3: WARM PITCH — AFTER ENGAGING WITH HOST'S CONTENT                   │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  SUBJECT: Re: Your post about [TOPIC] — podcast idea                           │
+│                                                                                  │
+│  Hi [HOST NAME],                                                                │
+│                                                                                  │
+│  We've been chatting in [LinkedIn comments / Twitter thread /                  │
+│  community] about [TOPIC], and I think your audience would                     │
+│  really resonate with a deeper dive.                                            │
+│                                                                                  │
+│  Your point about [SPECIFIC INSIGHT] connects directly to                      │
+│  something I call "The PM Translation Problem" — when cross-                   │
+│  functional teams fail not because of process, but because                     │
+│  business, design, and tech literally speak different languages                │
+│  in the same meeting.                                                           │
+│                                                                                  │
+│  I spent 13 years on different sides of the table (designer,                   │
+│  developer, PM) and built a translation framework from those                   │
+│  failures. Your audience would get:                                             │
+│  • Specific failure stories (with €50K price tags)                             │
+│  • The translation checklist I use before any cross-functional meeting        │
+│  • Why "agreement" is more dangerous than "conflict"                           │
+│                                                                                  │
+│  Here's my one-sheet: [LINK]                                                   │
+│  Here's a sample of my thinking: [BLOG POST LINK]                             │
+│                                                                                  │
+│  Would love to continue our conversation on the show.                           │
+│                                                                                  │
+│  [NAME]                                                                         │
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TEMPLATE 4: FOLLOW-UP (7 days after initial pitch, no response)               │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  SUBJECT: Re: [ORIGINAL SUBJECT]                                                │
+│                                                                                  │
+│  Hi [HOST NAME],                                                                │
+│                                                                                  │
+│  Just bumping this — I know your inbox is probably as chaotic as               │
+│  a cross-functional meeting without a translator. 😄                           │
+│                                                                                  │
+│  To save you time: I'm a PM consultant with a unique angle                     │
+│  (failed designer + failed developer = translator PM). I think                 │
+│  your audience would love the "Translation Problem" framework.                 │
+│                                                                                  │
+│  One-sheet attached. Happy to chat for 5 minutes to see if                     │
+│  there's a fit. No worries if it's not the right time.                         │
+│                                                                                  │
+│  Best,                                                                          │
+│  Mattia                                                                         │
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  TEMPLATE 5: SPEAKING EVENT PITCH                                               │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  SUBJECT: Talk proposal: "The PM Translation Problem" — [EVENT NAME]           │
+│                                                                                  │
+│  Hi [ORGANIZER NAME],                                                           │
+│                                                                                  │
+│  I'd love to propose a talk for [EVENT NAME]:                                  │
+│                                                                                  │
+│  Title: "The PM Translation Problem: Why Teams Fail Even When                  │
+│  Everyone Says Yes"                                                             │
+│                                                                                  │
+│  Format: 30 minutes + 15 min Q&A                                               │
+│                                                                                  │
+│  Summary: Most cross-functional teams don't fail because of bad               │
+│  process. They fail because business, design, and engineering                  │
+│  speak different languages. After 13 years on all three sides of              │
+│  the table (and plenty of expensive failures), I built a                       │
+│  translation framework. This talk shares:                                      │
+│  • 3 real translation failures (with cost) and what they taught me            │
+│  • The Translation Checklist (5 questions before any meeting)                  │
+│  • Why alignment is not agreement (and how to test for it)                    │
+│  • A framework attendees can use Monday morning                               │
+│                                                                                  │
+│  About me: 13 years across design, dev, and PM. Companies include             │
+│  QubicaAMF, ActiveProspect, FLOWING. 6 certifications. Author at             │
+│  selfrules.org.                                                                 │
+│                                                                                  │
+│  Attached: Speaker one-sheet with bio, headshot, and talk outline.            │
+│                                                                                  │
+│  Would this be a good fit for your audience?                                    │
+│                                                                                  │
+│  Best,                                                                          │
+│  Mattia De Luca                                                                 │
+│  selfrules.org                                                                  │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Pre-Appearance Preparation Checklist:**
+
+```
+PRE-APPEARANCE CHECKLIST (Complete 48 hours before recording)
+═══════════════════════════════════════════════════════════════
+
+□ Research host's style (listen to 2-3 recent episodes)
+□ Note host's pet topics and recurring themes
+□ Prepare 3 specific stories with numbers:
+  • Story 1: The €50K translation failure (design ↔ dev miscommunication)
+  • Story 2: The 7-to-3 click reduction (-12% payment times)
+  • Story 3: The "sì-ma" meeting decode (+30 top-ups)
+□ Prepare the "PM Translation Framework" as a verbal walkthrough
+□ Prepare a unique CTA for the episode:
+  • Primary: "Download the PM Translator's Toolkit at selfrules.org"
+  • Secondary: "Book a free 15-minute no-pitch call at selfrules.org"
+□ Create episode-specific landing page URL (selfrules.org/[podcast-name])
+□ Test audio setup (mic, headphones, quiet room, wired internet)
+□ Set up Umami tracking for episode-specific UTM parameters
+□ Draft 3 social posts for episode promotion (scheduled for publish day)
+□ Prepare "gift" for host: framework PDF or exclusive content
+```
+
+**Post-Appearance Conversion Funnel:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    POST-APPEARANCE CONVERSION FUNNEL                              │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  STAGE 1: EPISODE PUBLISHED (Day 0)                                     │    │
+│  │  ═══════════════════════════════════                                    │    │
+│  │  Actions:                                                               │    │
+│  │  □ Share episode on LinkedIn with personal commentary (Campaign 4)     │    │
+│  │  □ Share episode in email newsletter (Campaign 2)                      │    │
+│  │  □ Create 3 audiograms (30-60 sec clips) for social                   │    │
+│  │  □ Comment on host's share post within 1 hour                         │    │
+│  │  □ Tag host + podcast in all social shares                            │    │
+│  │  □ Reply to every comment on social shares                            │    │
+│  │  □ Email host: thank you + offer to promote to your audience          │    │
+│  │                                                                         │    │
+│  │  Expected: 200-500 listeners within first 48 hours                    │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│           │                                                                      │
+│           ▼                                                                      │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  STAGE 2: LISTENER ARRIVES AT SELFRULES.ORG (Day 0-7)                  │    │
+│  │  ═══════════════════════════════════════════════════                    │    │
+│  │  Traffic Path:                                                          │    │
+│  │  Listener hears CTA → visits selfrules.org/[podcast-name]             │    │
+│  │  OR → searches "Mattia De Luca PM" → lands on homepage                │    │
+│  │                                                                         │    │
+│  │  Episode-Specific Landing Page Contains:                               │    │
+│  │  □ Welcome message: "Arrivi da [Podcast Name]? Benvenut*!"           │    │
+│  │  □ Quick recap of episode key takeaways (3 bullet points)             │    │
+│  │  □ Download: "PM Translator's Toolkit" (email capture)                │    │
+│  │  □ Read next: Related blog post deepening episode topic               │    │
+│  │  □ Book: "15 minuti, zero pitch" CTA (for high-intent listeners)     │    │
+│  │                                                                         │    │
+│  │  UTM Tracking: ?utm_source=[podcast]&utm_medium=podcast               │    │
+│  │  &utm_campaign=guest-appearance-[date]                                 │    │
+│  │                                                                         │    │
+│  │  Expected: 5-15% of listeners visit website (10-75 visitors/episode)  │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│           │                                                                      │
+│           ├──────── 60% browse + leave (but may return later)                   │
+│           │                                                                      │
+│           ▼                                                                      │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  STAGE 3: EMAIL CAPTURE (Day 0-14)                                      │    │
+│  │  ══════════════════════════════════                                     │    │
+│  │  Capture Mechanism:                                                     │    │
+│  │  □ PM Translator's Toolkit download (email required)                   │    │
+│  │  □ "Episode bonus" — extended framework PDF (exclusive to listeners)   │    │
+│  │  □ Newsletter signup ("More trench lessons weekly")                    │    │
+│  │                                                                         │    │
+│  │  Conversion Rate Target: 25-40% of visitors download toolkit           │    │
+│  │  → Enters Campaign 2 nurture sequence                                  │    │
+│  │                                                                         │    │
+│  │  Expected: 3-30 new email subscribers per episode                     │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│           │                                                                      │
+│           ▼                                                                      │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  STAGE 4: NURTURE SEQUENCE (Day 1-30)                                   │    │
+│  │  ════════════════════════════════════                                   │    │
+│  │  Podcast-Specific Nurture Track:                                        │    │
+│  │                                                                         │    │
+│  │  Email 1 (Day 0): "Welcome, fellow listener! Here's your Toolkit"     │    │
+│  │  → Deliver promised resource + link back to episode                    │    │
+│  │                                                                         │    │
+│  │  Email 2 (Day 3): "The story I didn't get to tell on [Podcast]"       │    │
+│  │  → Extended version of one story from the episode                     │    │
+│  │  → Links to related blog post (Campaign 1 synergy)                    │    │
+│  │                                                                         │    │
+│  │  Email 3 (Day 7): "The framework behind the framework"                │    │
+│  │  → Deeper dive into Translation Framework                             │    │
+│  │  → Social proof: testimonial from a client                            │    │
+│  │                                                                         │    │
+│  │  Email 4 (Day 14): "A question only you can answer"                   │    │
+│  │  → Personalized angle based on podcast audience                       │    │
+│  │  → Soft CTA: "If this sounds familiar, let's talk for 15 min"       │    │
+│  │                                                                         │    │
+│  │  Email 5 (Day 21): Case study or result story                         │    │
+│  │  → Concrete outcome from consulting work                              │    │
+│  │  → CTA: "Ready to translate? Book your 15 minutes"                   │    │
+│  │                                                                         │    │
+│  │  → Merges into Campaign 2 main nurture sequence after Day 30          │    │
+│  │                                                                         │    │
+│  │  Expected: 5-10% book a discovery call (1-3 calls per appearance)    │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│           │                                                                      │
+│           ▼                                                                      │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  STAGE 5: DISCOVERY CALL (Day 7-60)                                     │    │
+│  │  ══════════════════════════════════                                     │    │
+│  │  High-intent listeners may skip directly to booking.                   │    │
+│  │  "I heard you on [Podcast] and I have exactly that problem"           │    │
+│  │  is the ideal inbound message.                                         │    │
+│  │                                                                         │    │
+│  │  Call Script Note:                                                      │    │
+│  │  □ Reference the episode: "How did you find me?"                      │    │
+│  │  □ If via podcast: adjust framing to match episode topic              │    │
+│  │  □ Use shared vocabulary from the episode (trust accelerator)         │    │
+│  │                                                                         │    │
+│  │  Expected: 1-3 discovery calls per major podcast appearance           │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│           │                                                                      │
+│           ▼                                                                      │
+│  ┌─────────────────────────────────────────────────────────────────────────┐    │
+│  │  STAGE 6: AUTHORITY COMPOUNDING (Ongoing)                               │    │
+│  │  ════════════════════════════════════════                               │    │
+│  │  Each appearance generates:                                             │    │
+│  │  □ Backlink from podcast show-notes page (SEO: Campaign 1 synergy)   │    │
+│  │  □ "As featured on" credibility for future pitches                    │    │
+│  │  □ Host becomes referral source to other podcasts                     │    │
+│  │  □ Episode remains discoverable via podcast search (evergreen)        │    │
+│  │  □ Social proof for speaking event pitches                            │    │
+│  │  □ Content repurposed across all other campaigns                      │    │
+│  │                                                                         │    │
+│  │  COMPOUNDING FORMULA:                                                  │    │
+│  │  Appearance #1 → credibility for pitching shows 2-5                   │    │
+│  │  Appearances #2-5 → "as featured on" list for Tier 2 shows           │    │
+│  │  Appearances #5-10 → speaking reel for conference pitches             │    │
+│  │  Appearances #10+ → inbound podcast invitations (no pitching needed) │    │
+│  │                                                                         │    │
+│  │  Timeline to inbound invitations: 6-9 months (beyond this campaign)  │    │
+│  └─────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│  FULL FUNNEL MATH (per episode, assuming Tier 1 Italian podcast):              │
+│  ═══════════════════════════════════════════════════════════════════════════    │
+│                                                                                  │
+│  Episode Downloads:     ~2,000 listeners                                        │
+│  → Website Visits:      ~200 (10% CTR from CTA)                               │
+│  → Email Captures:      ~60 (30% opt-in rate)                                  │
+│  → Nurture to Call:     ~6 (10% call booking from nurture)                     │
+│  → Close Rate:          ~2 clients (33% close rate)                            │
+│                                                                                  │
+│  CUMULATIVE (6 episodes in 90 days):                                            │
+│  → ~12,000 listener exposures                                                   │
+│  → ~1,200 website visits                                                        │
+│  → ~360 new email subscribers                                                   │
+│  → ~36 discovery calls                                                          │
+│  → ~12 new clients                                                              │
+│                                                                                  │
+│  NOTE: These are optimistic estimates. Conservative estimate = 50% of above.   │
+│  Even at 50%, 6 clients from free appearances = exceptional ROI.               │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Content Repurposing Strategy (Per Episode):**
+
+| Content Piece | Platform | Timing | Effort |
+|---------------|----------|--------|--------|
+| Full episode share + commentary | LinkedIn (Campaign 4) | Day 0 | 20 min |
+| Audiogram clip #1 (best soundbite) | LinkedIn, Instagram | Day 1 | 30 min |
+| Audiogram clip #2 (framework explanation) | LinkedIn, Twitter | Day 3 | 30 min |
+| Blog recap: "What I Discussed on [Podcast]" | Blog (Campaign 1) | Day 5 | 1 hr |
+| Newsletter feature: episode highlight | Email (Campaign 2) | Day 7 | 15 min |
+| Key quote as text graphic | LinkedIn, Twitter | Day 10 | 15 min |
+| "Behind the scenes" of recording | LinkedIn (personal brand) | Day 2 | 15 min |
+
+**Total per episode: ~3 hours of repurposing → 7+ pieces of content**
+
+---
+
+#### 5. KPIs (Key Performance Indicators)
+
+**Primary KPIs:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         CAMPAIGN 5 KPI DASHBOARD                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  METRIC                  │ BASELINE │ WEEK 4  │ WEEK 8  │ WEEK 12 │ TARGET     │
+│  ═════════════════════════════════════════════════════════════════════════════ │
+│                                                                                  │
+│  🎙️ OUTREACH METRICS                                                            │
+│  ─────────────────────────────────────────────────────────────────────────────  │
+│  Podcast Pitches Sent     │     0    │    12   │    18   │    24   │ 24 total  │
+│  Pitch Response Rate      │     0%   │   33%   │   35%   │   38%  │ ≥33%      │
+│  Bookings Confirmed       │     0    │     2   │     5   │     8  │ 8 total   │
+│  Episodes Published       │     0    │     0   │     3   │     6  │ 6 total   │
+│  Speaking Pitches Sent    │     0    │     3   │     5   │     6  │ 6 total   │
+│  Speaking Gigs Confirmed  │     0    │     0   │     1   │     2  │ 2 total   │
+│                                                                                  │
+│  👥 REACH METRICS                                                                │
+│  ─────────────────────────────────────────────────────────────────────────────  │
+│  Total Listener Exposure  │     0    │     0   │  5,000  │ 12,000 │ 12,000    │
+│  Speaking Event Attendees │     0    │     0   │    60   │   200  │ 200 total │
+│  New Backlinks Earned     │     0    │     0   │     3   │     6  │ 6 links   │
+│  "As Featured On" Shows   │     0    │     0   │     3   │     6  │ 6 shows   │
+│                                                                                  │
+│  🔗 TRAFFIC METRICS                                                              │
+│  ─────────────────────────────────────────────────────────────────────────────  │
+│  Website Visits (podcast) │     0    │     0   │   400   │  1,200 │ 1,200     │
+│  Landing Page Conversion  │     0%   │     0%  │   30%   │   35%  │ ≥30%      │
+│  Blog Reads (podcast ref) │     0    │     0   │   150   │   450  │ 450       │
+│                                                                                  │
+│  📧 CAPTURE METRICS                                                              │
+│  ─────────────────────────────────────────────────────────────────────────────  │
+│  New Email Subs (podcast) │     0    │     0   │   120   │   360  │ 360       │
+│  Toolkit Downloads        │     0    │     0   │    90   │   250  │ 250       │
+│                                                                                  │
+│  💼 BUSINESS METRICS                                                             │
+│  ─────────────────────────────────────────────────────────────────────────────  │
+│  Discovery Calls (podcast)│     0    │     0   │     8   │    20  │ 20 total  │
+│  "Heard you on podcast"   │     0    │     0   │     3   │    10  │ 10 total  │
+│  Inbound podcast invites  │     0    │     0   │     0   │     2  │ 2 total   │
+│  Host referrals to shows  │     0    │     0   │     1   │     3  │ 3 total   │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**KPI Tracking Methodology:**
+
+| KPI Category | Tool | Frequency | Owner |
+|--------------|------|-----------|-------|
+| Pitch Tracking | Spreadsheet (pitch log) | Per-pitch | Manual tracking |
+| Episode Performance | Podcast analytics (host-provided) | Per-episode | Request from host |
+| Website Traffic | Umami Analytics (UTM: podcast) | Weekly | Automated dashboard |
+| Email Capture | Email platform (ConvertKit/Mailchimp) | Per-episode | Automated segments |
+| Discovery Calls | CRM + "How did you find me?" field | Per-call | Manual tracking |
+| Backlinks | Google Search Console + Ahrefs/free tool | Monthly | Manual check |
+
+**Leading vs Lagging Indicators:**
+
+| Type | Indicator | Why It Matters |
+|------|-----------|----------------|
+| **Leading** | Pitches sent per week | Predicts future bookings (volume game) |
+| **Leading** | Pitch response rate | Predicts pitch quality and targeting |
+| **Leading** | Recordings completed | Predicts episodes published (2-8 week delay) |
+| **Leading** | Landing page conversion rate | Predicts email capture per episode |
+| **Lagging** | Episodes published | Confirms outreach is converting |
+| **Lagging** | Website visits from podcast UTMs | Confirms CTA effectiveness |
+| **Lagging** | Discovery calls from podcast source | Confirms business impact |
+| **Lagging** | Inbound podcast invitations | Confirms authority compounding |
+
+---
+
+#### 6. TIMELINE
+
+**90-Day Campaign Timeline:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    CAMPAIGN 5: 90-DAY IMPLEMENTATION TIMELINE                    │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  PHASE 1: PREPARATION + FIRST PITCHES (Weeks 1-4) — "Build the Arsenal"       │
+│  ═══════════════════════════════════════════════════════════════════════════   │
+│                                                                                  │
+│  Week 1: Guest Kit Creation                                                     │
+│  ├── ☐ Finalize guest one-sheet (short bio, long bio, topics, logistics)       │
+│  ├── ☐ Create professional headshot in neobrutalist style                      │
+│  ├── ☐ Write 5 topic descriptions with sample questions                        │
+│  ├── ☐ Customize Italian pitch email template                                  │
+│  ├── ☐ Customize English pitch email template                                  │
+│  ├── ☐ Research Tier 1 podcasts (listen to 1-2 episodes each)                 │
+│  └── ☐ Set up pitch tracking spreadsheet                                       │
+│                                                                                  │
+│  Week 2: First Pitch Wave (Italian Tier 1)                                     │
+│  ├── ☐ Send 4 pitches to Italian Tier 1 podcasts                              │
+│  │   ├── Product Heroes Podcast                                                │
+│  │   ├── StartupItalia Podcast                                                 │
+│  │   ├── Spremute Digitali                                                     │
+│  │   └── Gitbar                                                                │
+│  ├── ☐ Engage with hosts' content on LinkedIn/social (warm approach)          │
+│  ├── ☐ Research Tier 1 remaining podcasts                                      │
+│  ├── ☐ Create episode-specific landing page template                          │
+│  └── ☐ Set up UTM tracking parameters in Umami                               │
+│                                                                                  │
+│  Week 3: Second Pitch Wave + Speaking Pitches                                  │
+│  ├── ☐ Send 4 more pitches to Italian Tier 1 podcasts                         │
+│  │   ├── Italian Indie Podcast                                                 │
+│  │   ├── Creazione Digitale                                                    │
+│  │   ├── Lavoradio                                                             │
+│  │   └── Scientificast/Techno Pillole                                         │
+│  ├── ☐ Follow up on Week 2 pitches (7-day follow-up email)                   │
+│  ├── ☐ Send 2 speaking pitches                                                │
+│  │   ├── ProductTank Milano                                                    │
+│  │   └── UX Book Club Milano                                                  │
+│  ├── ☐ Begin engaging with international podcast hosts on social              │
+│  └── ☐ Draft podcast-specific nurture email sequence (5 emails)               │
+│                                                                                  │
+│  Week 4: International Pitches + First Recordings                              │
+│  ├── ☐ Send 4 pitches to English Tier 2 podcasts                              │
+│  │   ├── Product School Podcast                                                │
+│  │   ├── The Product Podcast                                                   │
+│  │   ├── This Is Product Mgmt                                                 │
+│  │   └── The Brave PM Podcast                                                 │
+│  ├── ☐ Follow up on Week 3 Italian pitches                                    │
+│  ├── ☐ Record first podcast episode (if booked from Week 2 pitch)             │
+│  ├── ☐ Complete pre-appearance checklist for first recording                  │
+│  ├── ☐ Send 1 more speaking pitch (Product Heroes Conference)                 │
+│  └── ☐ Phase 1 retrospective: review pitch response rates                     │
+│                                                                                  │
+│  📊 Phase 1 Targets:                                                            │
+│  • 12 podcast pitches sent | 4 responses | 2 recordings scheduled             │
+│  • 3 speaking pitches sent | 1 response                                        │
+│  • Guest one-sheet + landing page template completed                           │
+│  • Pitch tracking system operational                                            │
+│                                                                                  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  PHASE 2: RECORDING + PUBLISHING SPRINT (Weeks 5-8) — "Get on Mic"            │
+│  ═══════════════════════════════════════════════════════════════════════════   │
+│                                                                                  │
+│  Week 5: More Pitches + Record                                                 │
+│  ├── ☐ Send 4 more pitches (mix of Italian Tier 1 follow-ups + Tier 2)       │
+│  ├── ☐ Record 1-2 podcast episodes                                            │
+│  ├── ☐ Complete pre-appearance checklists                                      │
+│  ├── ☐ Create episode-specific landing pages for upcoming publishes           │
+│  └── ☐ Begin warm pitching (hosts engaged with on social)                     │
+│                                                                                  │
+│  Week 6: First Episodes Publish                                                │
+│  ├── ☐ Execute post-appearance conversion funnel for published episodes       │
+│  ├── ☐ Share episodes on LinkedIn (Campaign 4 synergy)                        │
+│  ├── ☐ Feature episodes in email newsletter (Campaign 2 synergy)              │
+│  ├── ☐ Create 2-3 audiograms per published episode                            │
+│  ├── ☐ Record 1 more podcast episode                                          │
+│  ├── ☐ Send 2 more international pitches (Tier 2 remaining)                   │
+│  │   ├── Product Thinking (Melissa Perri)                                     │
+│  │   └── Inside Intercom                                                       │
+│  └── ☐ Send 2 more speaking pitches                                           │
+│       ├── Italian Agile Days                                                    │
+│       └── Codemotion                                                            │
+│                                                                                  │
+│  Week 7: Momentum Building                                                      │
+│  ├── ☐ Record 1-2 more podcast episodes                                       │
+│  ├── ☐ Blog recap posts for published episodes (Campaign 1 synergy)           │
+│  ├── ☐ Follow up on all outstanding pitches                                   │
+│  ├── ☐ Request host testimonials from completed recordings                    │
+│  ├── ☐ Update guest one-sheet with "as featured on" section                   │
+│  └── ☐ Deliver first speaking engagement (if confirmed)                       │
+│                                                                                  │
+│  Week 8: Mid-Campaign Optimization                                              │
+│  ├── ☐ Analyze which podcast topics resonated most (host feedback + metrics)  │
+│  ├── ☐ Optimize pitch template based on response rate data                    │
+│  ├── ☐ Record 1 more episode                                                  │
+│  ├── ☐ Review landing page conversion rates — optimize if <25%               │
+│  ├── ☐ Phase 2 retrospective                                                  │
+│  └── ☐ Plan Phase 3 pitches (Tier 2 + Tier 3 targets)                        │
+│                                                                                  │
+│  📊 Phase 2 Targets:                                                            │
+│  • 18 total pitches sent | 6 recordings completed | 3 episodes published      │
+│  • 5 speaking pitches sent | 1 speaking engagement completed                   │
+│  • ~5,000 listener exposures | ~400 website visits from podcast                │
+│  • ~120 new email subscribers from podcast appearances                         │
+│  • Post-appearance funnel tested and optimized                                  │
+│                                                                                  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  PHASE 3: AUTHORITY BUILDING (Weeks 9-12) — "Compound the Credibility"         │
+│  ═══════════════════════════════════════════════════════════════════════════   │
+│                                                                                  │
+│  Week 9: Tier 2/3 Push + Repurposing                                           │
+│  ├── ☐ Send 4 pitches to Tier 2 remaining + Tier 3 aspirational shows        │
+│  ├── ☐ Include "as featured on" credentials in all pitches                    │
+│  ├── ☐ Record 1-2 episodes                                                    │
+│  ├── ☐ Create "Guest Reel" — 3-min highlight video from best clips           │
+│  ├── ☐ Write blog post: "What I Learned from [X] Podcast Appearances"        │
+│  └── ☐ Ask hosts for referrals to other shows                                │
+│                                                                                  │
+│  Week 10: Speaking + Authority Sprint                                           │
+│  ├── ☐ Deliver second speaking engagement (if confirmed)                      │
+│  ├── ☐ Record any remaining podcast episodes                                  │
+│  ├── ☐ Send 2 more pitches (including Tier 3 aspirational if ready)          │
+│  ├── ☐ Follow up on all pending responses                                     │
+│  ├── ☐ Host self-produced webinar: "PM Translator's Toolkit Live Demo"       │
+│  └── ☐ Promote webinar across all channels                                    │
+│                                                                                  │
+│  Week 11: Optimization + Systemization                                          │
+│  ├── ☐ Complete all remaining recordings                                       │
+│  ├── ☐ Execute conversion funnels for newly published episodes                │
+│  ├── ☐ Document best-performing pitch templates and angles                    │
+│  ├── ☐ Create "Podcast Guest Playbook" for ongoing use (months 4+)           │
+│  ├── ☐ Build relationships with hosts for return appearances                  │
+│  └── ☐ A/B test landing page elements (CTA, headline, lead magnet)           │
+│                                                                                  │
+│  Week 12: Campaign Review + Transition to Ongoing                              │
+│  ├── ☐ Complete campaign performance analysis                                  │
+│  ├── ☐ Document: which shows drove most traffic, best topics, best CTAs      │
+│  ├── ☐ Finalize guest reel with best clips from all appearances              │
+│  ├── ☐ Update one-sheet with full "as featured on" list                       │
+│  ├── ☐ Set up ongoing pitch cadence (2 pitches/month)                        │
+│  ├── ☐ Plan re-appearance pitches for top shows (6 months out)               │
+│  └── ☐ Celebrate wins: share "90 days, X appearances" retrospective          │
+│                                                                                  │
+│  📊 Phase 3 Targets:                                                            │
+│  • 24 total pitches sent | 8 recordings completed | 6 episodes published     │
+│  • 6 speaking pitches sent | 2 speaking engagements completed                  │
+│  • ~12,000 total listener exposures | ~1,200 website visits                   │
+│  • ~360 new email subscribers | ~20 discovery calls from podcast source       │
+│  • 2+ inbound podcast invitations | Guest reel created                         │
+│  • Ongoing pitch cadence established for months 4-6                            │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Milestone Summary:**
+
+| Milestone | Target Date | Deliverable | Success Criteria |
+|-----------|-------------|-------------|------------------|
+| Guest Kit Complete | Day 7 | One-sheet, headshot, pitch templates ready | All materials reviewed and polished |
+| First Pitch Wave Sent | Day 14 | 8 Italian podcast pitches sent | All Tier 1 Italian shows contacted |
+| First Recording | Day 28 | First podcast episode recorded | Professional audio, all stories landed |
+| First Episode Published | Day 42 | First episode live, funnel active | Landing page live, UTM tracking active |
+| 3 Episodes Published | Day 56 | Three episodes live across platforms | 5,000+ listener exposures |
+| First Speaking Gig | Day 56 | ProductTank or meetup appearance | 50+ in-person audience |
+| International Pitch Wave | Day 28 | 4+ English podcast pitches sent | Tier 2 shows contacted |
+| Guest Reel Created | Day 70 | 3-minute highlight video from clips | Professional quality, shareable |
+| 6 Episodes Published | Day 84 | Six episodes live, conversion data | 12,000+ listener exposures, 360 subs |
+| Campaign Complete | Day 90 | Full retrospective, ongoing playbook | All targets reviewed, system documented |
+
+---
+
+#### CAMPAIGN SUMMARY
+
+**Campaign 5: Podcast/Speaking Guest Strategy - Quick Reference**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    CAMPAIGN 5 EXECUTIVE SUMMARY                                  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│  OBJECTIVE:        Expand reach through earned media by securing 6-10 podcast │
+│                    guest appearances and 2-3 speaking engagements, establishing│
+│                    "The PM Translation Problem" as a recognized topic in both │
+│                    Italian and international PM communities                    │
+│                                                                                  │
+│  TARGET AUDIENCE:  Product Managers, Tech Leads, and Founders who consume     │
+│                    PM/tech podcasts (50,000-80,000 active Italian listeners   │
+│                    + international PM podcast audiences)                       │
+│                                                                                  │
+│  CHANNELS:         Podcast Guesting (70%), Speaking Engagements (20%),        │
+│                    Post-Appearance Repurposing (10%)                           │
+│                    18 target podcasts across 3 tiers (IT + EN)                │
+│                    6 target speaking events                                    │
+│                                                                                  │
+│  CORE TACTICS:     - Tiered podcast pitch strategy (Italian → Intl → Aspirat)│
+│                    - Professional guest one-sheet with 5 topic options         │
+│                    - Customized pitch templates (Italian, English, warm, f/up)│
+│                    - Episode-specific landing pages with UTM tracking          │
+│                    - 5-email podcast-specific nurture sequence                 │
+│                    - Post-appearance conversion funnel (6 stages)              │
+│                    - Content repurposing (7+ pieces per episode)               │
+│                    - Host relationship building for return appearances         │
+│                                                                                  │
+│  PRIMARY KPIs:     - Podcasts pitched: 24 | Recorded: 8 | Published: 6       │
+│                    - Listener exposures: 12,000+                              │
+│                    - Website visits from podcast: 1,200                        │
+│                    - New email subscribers: 360                                │
+│                    - Discovery calls from podcast: 20                          │
+│                    - Speaking engagements: 2 completed                         │
+│                    - Backlinks earned: 6+                                      │
+│                    - Inbound podcast invites: 2+                               │
+│                                                                                  │
+│  TIMELINE:         90 days total                                                │
+│                    Phase 1 (Wks 1-4): Preparation — kit, pitches, first rec   │
+│                    Phase 2 (Wks 5-8): Recording — episodes published, funnels │
+│                    Phase 3 (Wks 9-12): Authority — compound, guest reel, sys  │
+│                                                                                  │
+│  INVESTMENT:       ~6-8 hours/week (pitching + prep + recording + repurposing)│
+│                    €0/month (earned media — no paid promotion)                 │
+│                    Optional: €50/month podcast booking service                 │
+│                                                                                  │
+│  ESTIMATED IMPACT: 12,000+ new listener exposures (audiences never reached)  │
+│                    360 new email subscribers from podcast audiences            │
+│                    20 discovery calls sourced from appearances                 │
+│                    6+ evergreen backlinks (SEO compound value)                 │
+│                    Foundation for conference speaking circuit                   │
+│                    "As featured on" credibility for all future marketing       │
+│                                                                                  │
+│  RISK FACTORS:     - Long feedback loop (pitch → publish = 4-12 weeks)        │
+│                    - Rejection rate high (expect 60-70% of pitches ignored)   │
+│                    - Recording quality issues (remote audio challenges)        │
+│                    - Host schedules unpredictable (flexible planning needed)   │
+│                    - International shows harder to book without track record  │
+│                                                                                  │
+│  MITIGATION:       - Volume approach: pitch 3x more shows than target        │
+│                    - Professional audio setup (USB mic, quiet room, wired)    │
+│                    - Flexible calendar blocks for recording (3 slots/week)    │
+│                    - Build Italian track record before international push     │
+│                    - Warm pitching via social engagement before cold email    │
+│                    - Follow up systematically (7-day, 14-day cadence)         │
+│                                                                                  │
+│  SYNERGIES:                                                                     │
+│  Campaign 1 (Blog) → Blog posts provide credibility proof in pitches         │
+│                     ← Podcast show-notes provide backlinks for SEO            │
+│  Campaign 2 (Email) → Podcast listeners enter email nurture sequence         │
+│                     ← Newsletter promotes new episodes                        │
+│  Campaign 3 (Referral) → Advocate testimonials strengthen pitch credibility  │
+│                        ← Podcast listeners become future advocates           │
+│  Campaign 4 (LinkedIn) → LinkedIn engagement warms hosts before pitching     │
+│                        ← Episode clips become LinkedIn content               │
+│                                                                                  │
+│  SWOT ADDRESSED: W4 (No External Visibility) + O1 (Untapped PM Audiences)   │
+│  STRATEGIC PRIORITY: #5 in 90-day plan (runs parallel to Campaigns 1-4)      │
+│                                                                                  │
+│  SUCCESS EQUATION:                                                              │
+│  Pitches × Response Rate × Booking Rate × Publish Rate = Episodes Published │
+│    24    ×     38%       ×     87%      ×     75%      = ~6 episodes         │
+│                                                                                  │
+│  Episodes × Avg Listeners × CTA Rate × Capture Rate × Nurture Rate = Calls  │
+│     6     ×    2,000      ×   10%     ×    30%       ×    10%       = ~36    │
+│                                                                                  │
+│  UNIQUE VALUE: Podcast appearances are the ONLY channel that transfers the   │
+│  host's trust directly to the guest. Listeners already trust the host — and  │
+│  when the host endorses Mattia, that trust is borrowed instantly. No other    │
+│  channel provides this "trust transfer" at zero cost.                         │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Why This Campaign Achieves Growth:**
+
+1. **Trust Transfer** - Host credibility immediately transfers to guest (no other channel does this)
+2. **Evergreen Content** - Episodes remain discoverable for 2-5 years via podcast search and show notes
+3. **Zero Cost Reach** - Borrowed audiences of 2,000-50,000 per appearance at no financial cost
+4. **SEO Compound** - Every show-notes page = high-quality backlink to selfrules.org (Campaign 1 synergy)
+5. **Story Format Matches Brand** - "Failed designer → Failed developer → PM Translator" is podcast gold
+6. **Bilingual Advantage** - Italian market is small (easier to dominate) while English opens 10x larger audience
+7. **Authority Compounding** - Each appearance makes the next pitch easier (snowball effect)
+8. **Cross-Campaign Fuel** - Every episode generates 7+ content pieces for Campaigns 1-4
+
+---
+
+*Campaign 5 Brief completed: 2026-01-27*
+*Subtask: 5-5 - Design Campaign 5: Podcast/Speaking Guest Strategy*
+*Status: ✅ Complete*
+
+---
+
 ---
 
 ## Implementation Checklist
