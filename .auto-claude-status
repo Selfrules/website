@@ -3,7 +3,7 @@
   "spec": "015-leggi-skills-da-copywriter-editor-e-analizza-selfr",
   "state": "building",
   "subtasks": {
-    "completed": 4,
+    "completed": 5,
     "total": 19,
     "in_progress": 1,
     "failed": 0
@@ -18,8 +18,8 @@
     "max": 1
   },
   "session": {
-    "number": 1377,
+    "number": 1378,
     "started_at": "2026-01-26T23:14:43.809542"
   },
-  "last_update": "2026-01-27T03:04:38.489471"
+  "last_update": "2026-01-27T03:09:19.769107"
 }
