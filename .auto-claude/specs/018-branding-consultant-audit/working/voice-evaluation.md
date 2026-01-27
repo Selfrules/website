@@ -287,5 +287,152 @@ The voice maintains remarkable consistency across all sections with appropriate 
 
 ---
 
+## Core Voice Attributes
+
+Based on the dimension analysis above, the selfrules.org brand voice can be distilled into **5 core voice attributes** that guide all content creation. These attributes work together as a system—any piece of brand content should embody at least 3 of the 5.
+
+### Attribute 1: PRAGMATIC
+
+**Definition**: Direct, problem-first, action-oriented. No fluff, no filler, no dancing around issues. Gets to the point and stays there.
+
+**Derived From**: Low Formality (3/10) + High Authority (7/10)
+
+| Sounds Like ✅ | Doesn't Sound Like ❌ |
+|----------------|----------------------|
+| "Got 4 features in development and none finished?" | "We'd love to help you on your journey toward feature completion" |
+| "Zero pitch. Zero slides. Just your problem" | "Let's schedule a discovery call to explore synergies" |
+| "Why should a customer call you to buy?" | "Perhaps we might consider examining the customer journey" |
+| "Saying 'no' with data beats saying 'yes' for sympathy" | "We believe in data-driven decision making approaches" |
+| "Not slides. Actions." | "Our methodology emphasizes deliverable-focused outcomes" |
+
+**Application Rule**: Start every piece of content with the problem or the action. Never start with qualifiers, greetings, or buildup.
+
+---
+
+### Attribute 2: FAILURE-FORWARD
+
+**Definition**: Leads with mistakes, lessons, and hard truths rather than credentials or success. Builds trust through vulnerability, not bragging. Treats failure as proof of experience, not shame.
+
+**Derived From**: Moderate Humor (6/10, self-deprecating) + High Authority (7/10, earned)
+
+| Sounds Like ✅ | Doesn't Sound Like ❌ |
+|----------------|----------------------|
+| "I failed as a designer. Then as a developer." | "With 13 years of successful experience..." |
+| "'Beautiful, but where do I click to pay?' Zero sales for 3 weeks." | "My award-winning design approach..." |
+| "€8K in refunds and 2 months of burned reputation" | "I've helped companies achieve significant results" |
+| "I haven't screwed up that way yet" | "We have comprehensive expertise in all areas" |
+| "That's when I learned: if you hide complexity, it stays complexity" | "Our proven track record demonstrates excellence" |
+
+**Application Rule**: Every success story must include the failure that preceded it. Lead with "I got it wrong" before "here's what worked."
+
+---
+
+### Attribute 3: PUNCHY
+
+**Definition**: Short sentences. Fragments allowed. Creates rhythm through brevity. Uses periods like commas. Avoids subordinate clauses and meandering structures.
+
+**Derived From**: Moderate-High Energy (6/10) + Low Formality (3/10)
+
+| Sounds Like ✅ | Doesn't Sound Like ❌ |
+|----------------|----------------------|
+| "Chaos. I translate. Without losing anything." | "I specialize in translating chaotic situations while ensuring nothing is lost" |
+| "Ship Fast. From idea to production in weeks, not months" | "We pride ourselves on expedited delivery timelines that enable..." |
+| "See, understand, act. Few things that move the needle." | "Our approach involves observing, comprehending, and then taking action" |
+| "Just facts." | "We provide transparent, factual information for your consideration" |
+| "You don't need a translator when you are the translator." | "There's no requirement for an intermediary when you possess the capability yourself" |
+
+**Application Rule**: If a sentence is longer than 12 words, break it. If you can cut a word, cut it. Treat every word as expensive.
+
+---
+
+### Attribute 4: EVIDENCE-DENSE
+
+**Definition**: Specific numbers, named companies, time stamps, and real stories replace vague claims. Every assertion is backed by a concrete proof point. Shows rather than tells.
+
+**Derived From**: High Authority (7/10) + Low Formality (3/10, conversational proof)
+
+| Sounds Like ✅ | Doesn't Sound Like ❌ |
+|----------------|----------------------|
+| "-12% payment times. +30 top-ups in the first month" | "Improved key metrics significantly" |
+| "40 times a day for 3 years. That one pixel." | "Years of detailed experience" |
+| "€15K/month in support tickets. That's what a bad documentation costs." | "Poor documentation leads to increased support burden" |
+| "Google, Facebook, TikTok, LinkedIn" | "Major tech companies" |
+| "99% uptime. 4-second load time. Merchant satisfaction: off the charts." | "Excellent technical performance and user satisfaction" |
+
+**Application Rule**: No claim without a number, name, or specific example. If you can't prove it specifically, don't say it.
+
+---
+
+### Attribute 5: ANTI-CORPORATE
+
+**Definition**: Actively rejects corporate speak, LinkedIn clichés, and consultant jargon. Uses irony to mock empty phrases. Prefers plain language over professional-sounding nonsense.
+
+**Derived From**: Moderate Humor (6/10, ironic) + Low Formality (3/10)
+
+| Sounds Like ✅ | Doesn't Sound Like ❌ |
+|----------------|----------------------|
+| "No 'Thrilled to announce' or 'Grateful for this opportunity'. Just facts." | "Thrilled to announce our latest partnership!" |
+| "All urgent. All 'strategic'." (with air quotes) | "We prioritize strategic initiatives aligned with business objectives" |
+| "What kind of mess do you need?" | "What solutions are you seeking today?" |
+| "Search for the mess you're living right now..." | "Explore our comprehensive resource library" |
+| "The best product nobody knows about is a failure" | "Effective go-to-market strategies are essential" |
+
+**Application Rule**: Before writing anything, ask: "Would a corporate comms team say this?" If yes, rewrite it.
+
+---
+
+## Voice Attributes Summary Table
+
+| Attribute | One-Word Essence | Key Markers | Avoid |
+|-----------|------------------|-------------|-------|
+| **Pragmatic** | Direct | Problem-first, action verbs | Qualifiers, buildup |
+| **Failure-Forward** | Vulnerable | Lessons, mistakes, "I learned" | Bragging, credentials-first |
+| **Punchy** | Brief | Fragments, short sentences | Subordinate clauses, filler |
+| **Evidence-Dense** | Specific | Numbers, names, timestamps | Vague claims, "significantly" |
+| **Anti-Corporate** | Irreverent | Plain language, ironic jabs | Jargon, clichés, buzzwords |
+
+---
+
+## Voice Attributes in Hierarchy
+
+```
+                    PRAGMATIC
+                   (Foundation)
+                        │
+        ┌───────────────┼───────────────┐
+        │               │               │
+  FAILURE-FORWARD   EVIDENCE-DENSE   PUNCHY
+   (Trust Builder)  (Credibility)   (Style)
+        │               │               │
+        └───────────────┼───────────────┘
+                        │
+                  ANTI-CORPORATE
+                   (Differentiator)
+```
+
+**Hierarchy Logic**:
+- **Pragmatic** is the foundation—all content starts from "what's the problem/action?"
+- **Failure-Forward**, **Evidence-Dense**, and **Punchy** support pragmatism in different ways
+- **Anti-Corporate** is the differentiator that makes the voice distinctive and memorable
+
+---
+
+## Quick Voice Check (For New Content)
+
+Before publishing any content, verify:
+
+| ✅ Check | Question |
+|----------|----------|
+| Pragmatic | Does it start with the problem or action, not background? |
+| Failure-Forward | Is there a mistake, lesson, or honest admission? |
+| Punchy | Are most sentences under 12 words? |
+| Evidence-Dense | Is every claim backed by a specific proof point? |
+| Anti-Corporate | Would a corporate comms team cringe reading this? |
+
+**Score**: Content should pass at least 4/5 checks to be on-brand.
+
+---
+
 *Document created as part of Phase 4: Voice Evaluation (Task 018)*
-*Ready for subtask-4-2: Core Voice Attributes identification*
+*Completed subtask-4-1: Voice dimensions rated*
+*Completed subtask-4-2: Core voice attributes identified with Sounds Like/Doesn't Sound Like examples*
