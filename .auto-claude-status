@@ -1,16 +1,16 @@
 {
   "active": true,
-  "spec": "009-ux-ui-audit",
+  "spec": "010-web-designer-audit",
   "state": "building",
   "subtasks": {
-    "completed": 14,
-    "total": 19,
+    "completed": 8,
+    "total": 16,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Accessibility Audit",
-    "id": null,
+    "current": "Responsive & Accessibility",
+    "id": 3,
     "total": 3
   },
   "workers": {
@@ -18,8 +18,8 @@
     "max": 1
   },
   "session": {
-    "number": 6,
-    "started_at": "2026-01-27T08:41:09.327714"
+    "number": 218,
+    "started_at": "2026-01-26T11:09:51.145991"
   },
-  "last_update": "2026-01-27T09:09:57.562948"
+  "last_update": "2026-01-26T12:21:28.030271"
 }
