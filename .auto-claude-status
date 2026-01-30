@@ -1,25 +1,25 @@
 {
   "active": true,
-  "spec": "010-web-designer-audit",
+  "spec": "014-marketing-manager-audit",
   "state": "building",
   "subtasks": {
-    "completed": 8,
-    "total": 16,
+    "completed": 13,
+    "total": 15,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Responsive & Accessibility",
-    "id": 3,
-    "total": 3
+    "current": "Campaign Design",
+    "id": null,
+    "total": 5
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 218,
-    "started_at": "2026-01-26T11:09:51.145991"
+    "number": 4,
+    "started_at": "2026-01-27T13:28:11.732293"
   },
-  "last_update": "2026-01-26T12:21:28.030271"
+  "last_update": "2026-01-27T13:46:20.806766"
 }
