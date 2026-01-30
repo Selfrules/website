@@ -47,7 +47,7 @@ L'infrastruttura Umami Analytics è configurata al **100%** ma l'integrazione ef
   - Session tracking: ⚠️ Limited (sessionStorage cleared on tab close)
 
 ### Audit Report
-Full analysis: `/home/user/website/ANALYTICS_AUDIT_REPORT.md`
+Full analysis: `.backlog/epics/11-analytics-implementation/ANALYTICS_AUDIT_REPORT.md`
 
 ## Obiettivo
 

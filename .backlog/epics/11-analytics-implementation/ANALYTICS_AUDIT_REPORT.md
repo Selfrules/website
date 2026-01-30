@@ -321,12 +321,12 @@ Most tracked events lack sufficient metadata:
    - Create `TrackedButton` wrapper component around `NeoButton`
    - Add `analyticsLabel` prop for CTA identification
    - Integrate in Hero, WorkTogether, AskMeAnything sections
-   
+
 2. **Implement Chat Tracking**
    - Add `trackChatInteraction('opened')` to ChatTrigger
    - Add `trackChatInteraction('message_sent')` to ChatInterface.handleSendMessage
    - Add `trackChatInteraction('closed')` to ChatInterface.onClose
-   
+
 3. **Implement Form Tracking**
    - Add `trackFormSubmit('anonymous_question', success)` to AnonymousQuestionForm
    - Include question length in metadata
@@ -574,4 +574,3 @@ interface AnalyticsEvent {
   timestamp: Timestamp;
 }
 ```
-
