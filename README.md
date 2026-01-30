@@ -9,7 +9,7 @@ A modern portfolio website built with Next.js 14 featuring a complete neobrutali
 ### Core Principles
 - **Bold borders**: 4-6px solid black on all interactive elements
 - **Hard shadows**: 8px offset, no blur (#000000)
-- **Vibrant colors**: Primary #FFD93D, Secondary #6C5CE7, Accent #FF6B6B
+- **Cold-tone palette**: Electric Blue #0D7EFF, Teal #2A687A, Deep Purple #7209B7, Cyber Yellow #FFD60A, Neon Pink #FF006E
 - **Typography**: Space Grotesk (headings), Inter (body), JetBrains Mono (code)
 - **Mobile-first**: Breakpoints at 768px and 1440px
 
@@ -53,9 +53,11 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ### Custom Colors
 ```typescript
-primary: #FFD93D    // Yellow
-secondary: #6C5CE7  // Purple
-accent: #FF6B6B     // Red
+electric-blue: #0D7EFF    // Design/UX projects
+teal: #2A687A             // Development projects
+deep-purple: #7209B7      // PM/Strategy projects
+cyber-yellow: #FFD60A     // Featured/Special items (use black text #0A0A0A)
+neon-pink: #FF006E        // Analytics/Tools projects
 brutalist-border: #000000
 brutalist-shadow: #000000
 ```
