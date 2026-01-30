@@ -1,25 +1,25 @@
 {
   "active": true,
-  "spec": "020-social-media-manager-audit",
+  "spec": "012-art-director-audit",
   "state": "building",
   "subtasks": {
-    "completed": 16,
+    "completed": 12,
     "total": 17,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Quality Assurance & Sign-off",
-    "id": null,
-    "total": 1
+    "current": "Creative Direction & Concepts",
+    "id": 4,
+    "total": 3
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 3135,
-    "started_at": "2026-01-26T11:11:11.757341"
+    "number": 1744,
+    "started_at": "2026-01-26T11:10:36.789212"
   },
-  "last_update": "2026-01-26T22:12:22.966047"
+  "last_update": "2026-01-26T17:14:27.903176"
 }
