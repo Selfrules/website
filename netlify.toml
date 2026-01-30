@@ -6,8 +6,8 @@
   # Base directory (root of the project)
   base = ""
 
-  # Build command - includes design system generation + Next.js build
-  command = "npm run build"
+  # Build command - ensure dependencies installed, then design system generation + Next.js build
+  command = "npm ci --legacy-peer-deps && npm run build"
 
   # Publish directory - Next.js output
   publish = ".next"
@@ -73,14 +73,14 @@
 
 # Deploy Previews Configuration
 [context.deploy-preview]
-  command = "npm run build"
+  command = "npm ci --legacy-peer-deps && npm run build"
 
 [context.branch-deploy]
-  command = "npm run build"
+  command = "npm ci --legacy-peer-deps && npm run build"
 
 # Production-specific settings
 [context.production]
-  command = "npm run build"
+  command = "npm ci --legacy-peer-deps && npm run build"
 
 [context.production.environment]
   NODE_ENV = "production"
