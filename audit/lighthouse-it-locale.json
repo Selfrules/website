@@ -1,0 +1,81 @@
+{
+  "locale": "it",
+  "auditDate": "2026-01-26T11:07:56.584Z",
+  "productionUrl": "https://selfrules.org/it",
+  "desktop": {
+    "device": "desktop",
+    "url": "https://selfrules.org/it",
+    "fetchTime": "2026-01-26T11:06:02.118Z",
+    "lighthouseVersion": "13.0.1",
+    "scores": {
+      "performance": 100,
+      "accessibility": 96,
+      "bestPractices": 96,
+      "seo": 92
+    },
+    "coreWebVitals": {
+      "lcp": 697.5374999999999,
+      "lcpDisplayValue": "0.7 s",
+      "fcp": 508.08250000000004,
+      "fcpDisplayValue": "0.5 s",
+      "cls": 0.00006494989081004708,
+      "clsDisplayValue": "0",
+      "tbt": 0,
+      "tbtDisplayValue": "0 ms",
+      "si": 508.08250000000004,
+      "siDisplayValue": "0.5 s"
+    },
+    "diagnostics": {
+      "serverResponseTime": 63,
+      "totalByteWeight": 331568,
+      "mainThreadWorkTime": 904.5399999999981,
+      "bootupTime": 80.0099999999997
+    },
+    "opportunities": []
+  },
+  "mobile": {
+    "device": "mobile",
+    "url": "https://selfrules.org/it",
+    "fetchTime": "2026-01-26T11:07:43.232Z",
+    "lighthouseVersion": "13.0.1",
+    "scores": {
+      "performance": 91,
+      "accessibility": 96,
+      "bestPractices": 96,
+      "seo": 92
+    },
+    "coreWebVitals": {
+      "lcp": 3056.0529999999994,
+      "lcpDisplayValue": "3.1 s",
+      "fcp": 1575.31,
+      "fcpDisplayValue": "1.6 s",
+      "cls": 0,
+      "clsDisplayValue": "0",
+      "tbt": 50,
+      "tbtDisplayValue": "50 ms",
+      "si": 4311.710985999219,
+      "siDisplayValue": "4.3 s"
+    },
+    "diagnostics": {
+      "serverResponseTime": 100,
+      "totalByteWeight": 331519,
+      "mainThreadWorkTime": 1060.7280000000007,
+      "bootupTime": 311.3759999999992
+    },
+    "opportunities": []
+  },
+  "summary": {
+    "desktop": {
+      "performance": 100,
+      "accessibility": 96,
+      "bestPractices": 96,
+      "seo": 92
+    },
+    "mobile": {
+      "performance": 91,
+      "accessibility": 96,
+      "bestPractices": 96,
+      "seo": 92
+    }
+  }
+}
