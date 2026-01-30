@@ -1,25 +1,25 @@
 {
   "active": true,
-  "spec": "017-seo-consultant-audit",
+  "spec": "020-social-media-manager-audit",
   "state": "building",
   "subtasks": {
-    "completed": 22,
-    "total": 28,
+    "completed": 16,
+    "total": 17,
     "in_progress": 1,
     "failed": 0
   },
   "phase": {
-    "current": "Link Profile Assessment",
+    "current": "Quality Assurance & Sign-off",
     "id": null,
-    "total": 2
+    "total": 1
   },
   "workers": {
     "active": 0,
     "max": 1
   },
   "session": {
-    "number": 2,
-    "started_at": "2026-01-27T08:41:02.891894"
+    "number": 3135,
+    "started_at": "2026-01-26T11:11:11.757341"
   },
-  "last_update": "2026-01-27T08:48:24.508564"
+  "last_update": "2026-01-26T22:12:22.966047"
 }
