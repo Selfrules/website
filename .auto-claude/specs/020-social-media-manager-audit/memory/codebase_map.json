@@ -1,0 +1,60 @@
+{
+  "discovered_files": {
+    "components/layout/Footer.tsx": {
+      "description": "Social links configured: LinkedIn (linkedin.com/in/selfrules/), Twitter/X (x.com/Matt_Selfrules), GitHub (github.com/Selfrules), Email (info@selfrules.org). Analytics tracking via trackOutboundClick for social clicks.",
+      "category": "social-integration",
+      "discovered_at": "2026-01-26T10:33:15.179275+00:00"
+    },
+    "app/layout.tsx": {
+      "description": "Twitter metadata has handle @mattiadluca but footer links to @Matt_Selfrules - handle inconsistency needs fixing. OG images not configured.",
+      "category": "social-integration",
+      "discovered_at": "2026-01-26T10:33:15.236643+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/TARGET_AUDIENCE_PROFILE.md": {
+      "description": "Target audience for selfrules.org consists of 4 segments: 1) Decision-Makers at B2B companies (CTOs, CPOs - Consulting service), 2) Product Teams/Leaders (PMs, Team Leads - Brainstorming service), 3) Aspiring/Junior PMs (career changers - Mentorship service), 4) Recruiters. Primary geographic scope is Italy, with language split of 70% Italian / 30% English. Key pain points across all segments: cross-functional miscommunication, prioritization paralysis, alignment theater, and execution bottlenecks.",
+      "category": "business-context",
+      "discovered_at": "2026-01-26T11:07:21.231130+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/PLATFORM_SCORECARD_RESULTS.md": {
+      "description": "Platform Selection Scorecard completed. LinkedIn scores 9.0/10 (Primary), Twitter/X 6.4/10 (Secondary conditional). Instagram 4.1, YouTube 4.7, TikTok 2.7 all below 7.0 threshold. Weighted formula used: (Audience\u00d72 + Content + Gap + Resources + Alignment) / 7. LinkedIn recommended for 80% effort due to perfect B2B fit.",
+      "category": "strategic-analysis",
+      "discovered_at": "2026-01-26T11:11:42.478832+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/PLATFORM_RECOMMENDATION.md": {
+      "description": "Platform recommendation deliverable created: LinkedIn 9.0/10 is PRIMARY platform (80% effort) with 5-factor data-driven rationale. Twitter/X 6.4/10 is SECONDARY platform (20% effort) conditional on resolving handle inconsistency. YouTube/Instagram/TikTok all deprioritized (<5.0 scores). Decision framework for future platform expansion included.",
+      "category": "deliverable",
+      "discovered_at": "2026-01-26T11:14:29.337051+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/CONTENT_MIX_STRATEGY.md": {
+      "description": "Content Mix Strategy deliverable created using 4-1-1 rule adaptation: 12 content pillars defined across 3 categories - Value (60%): PM Methodology, Lessons Learned, Business-Tech Translation, Agile Advice; Engagement (25%): Questions, Polls, Discussions, Experience Sharing; Promotional (15%): Consultation, Services, Booking CTAs, Blog Promotion. Bilingual strategy: LinkedIn 70/30 IT/EN, Twitter 50/50. Weekly cadence: 2-3 value, 1 engagement, 0-1 promotional posts.",
+      "category": "strategy",
+      "discovered_at": "2026-01-26T11:22:37.230164+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/POSTING_CADENCE_RECOMMENDATIONS.md": {
+      "description": "Sustainable solo practitioner posting cadence: LinkedIn 3-4 posts/week (Mon/Wed/Thu + optional Fri) at 7:30-8:30 AM or 12-1 PM CET, Twitter 1-2 repurposed posts/week. Total time: 3.5 hrs/week broken into 2 hrs content creation, 1 hr engagement, 0.5 hr planning. Batching recommended: monthly planning session (2-3 hrs) + weekly writing session (1-1.5 hrs Sunday). Bilingual split: LinkedIn 70/30 IT/EN, Twitter 50/50.",
+      "category": "strategy",
+      "discovered_at": "2026-01-26T11:26:08.209374+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/TRIBE_COMMUNITY_STRATEGY.md": {
+      "description": "TRIBE Community Model strategy document with 30 actionable tactics for community building. Key insight: Focus on community quality (active commenters, return engagers, profile-to-booking ratio) over vanity metrics (follower count). Defines 3 personas (PM Leaders, Execution PMs, Aspiring PMs) mapped to service conversions.",
+      "category": "strategy",
+      "discovered_at": "2026-01-26T11:32:37.976107+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/CALENDAR_WEEK_3_4.md": {
+      "description": "Week 3-4 content calendar (Expansion Phase) covering Days 15-30 with 9 posts. Introduces community rituals (#FridayWins), debate formats (\"Unpopular opinion\", \"Would you rather\"), Service Offerings deep-dive post, and culminates with community roundup featuring top commenters. TRIBE model focus shifts from RECRUIT to INVEST/BOND/EMPOWER in this phase.",
+      "category": "deliverable",
+      "discovered_at": "2026-01-26T16:14:09.034764+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/CONTENT_CALENDAR_30_DAY.md": {
+      "description": "30-Day Content Calendar final deliverable already existed with complete content. Verified coverage: all 30 days, content mix 58.8%/29.4%/11.8% aligns with 4-1-1 rule, bilingual strategy 70.6%/29.4% matches 70/30 target, TRIBE model integration documented, realistic 3.5 hrs/week cadence for solo practitioner.",
+      "category": "deliverable",
+      "discovered_at": "2026-01-26T21:04:52.530967+00:00"
+    },
+    ".auto-claude/specs/020-social-media-manager-audit/QA_VALIDATION_REPORT.md": {
+      "description": "QA validation report created for Social Media Strategy Audit. All 10/10 QA sign-off requirements passed: (1) 4 deliverables present, (2) Platform Scorecard correct, (3) REACH metrics defined, (4) TRIBE model applied with 30+ tactics, (5) 30-day calendar complete, (6) 4-1-1 content mix aligned, (7) Impact/effort prioritization done, (8) Community focus maintained (anti-vanity metrics), (9) B2B context addressed, (10) Bilingual strategy considered. QA STATUS: APPROVED.",
+      "category": "qa",
+      "discovered_at": "2026-01-26T21:16:34.178769+00:00"
+    }
+  },
+  "last_updated": "2026-01-26T21:16:34.178769+00:00"
+}

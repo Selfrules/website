@@ -1,0 +1,147 @@
+{
+  "task_description": "Social Media Strategy Audit for selfrules.org - Comprehensive analysis producing audit report, content calendar, and engagement playbook using social-media-manager skill frameworks.",
+  "task_type": "strategic_analysis",
+  "scoped_services": ["main"],
+  "files_to_modify": [],
+  "files_to_create": [
+    "SOCIAL_MEDIA_AUDIT_REPORT.md",
+    "CONTENT_CALENDAR_30_DAY.md",
+    "COMMUNITY_ENGAGEMENT_PLAYBOOK.md"
+  ],
+  "files_to_reference": [
+    ".claude/skills/social-media-manager/SKILL.md",
+    ".claude/skills/marketing-manager/SKILL.md",
+    ".claude/skills/web-analyst/SKILL.md",
+    "app/[locale]/page.tsx",
+    "CLAUDE.md",
+    "Profilo_Mattia.md"
+  ],
+  "patterns": {
+    "Platform Selection Scorecard": {
+      "source": ".claude/skills/social-media-manager/SKILL.md",
+      "formula": "(Audience × 2 + Content + Gap + Resources + Alignment) / 7",
+      "threshold": "Prioritize platforms scoring 7+",
+      "max_platforms": "Focus on 2-3 maximum"
+    },
+    "REACH Metrics Model": {
+      "source": ".claude/skills/social-media-manager/SKILL.md",
+      "components": ["Reach", "Engagement", "Amplification", "Conversion", "Holding"],
+      "purpose": "Define KPIs focusing on community quality over vanity metrics"
+    },
+    "TRIBE Community Model": {
+      "source": ".claude/skills/social-media-manager/SKILL.md",
+      "phases": ["Target", "Recruit", "Invest", "Bond", "Empower"],
+      "purpose": "Community building framework, not follower acquisition"
+    },
+    "Content Mix (4-1-1 Rule)": {
+      "source": ".claude/skills/social-media-manager/SKILL.md",
+      "distribution": {
+        "value_posts": "60%",
+        "engagement_posts": "25%",
+        "promotional_posts": "15%"
+      }
+    },
+    "Output Format": {
+      "source": ".claude/skills/social-media-manager/SKILL.md",
+      "sections": [
+        "Executive Summary",
+        "Platform Assessment",
+        "Engagement Analysis",
+        "Community Health",
+        "Content Mix Review",
+        "10x Opportunities",
+        "Priority Actions",
+        "90-Day Roadmap"
+      ]
+    }
+  },
+  "existing_implementations": {
+    "description": "Strategic analysis task using Claude skills as methodology frameworks. No existing code to extend.",
+    "relevant_skills": [
+      {
+        "path": ".claude/skills/social-media-manager/SKILL.md",
+        "purpose": "Primary framework - Platform strategy, engagement optimization, community building"
+      },
+      {
+        "path": ".claude/skills/marketing-manager/SKILL.md",
+        "purpose": "Supporting framework - AARRR metrics, growth loops, customer journey"
+      },
+      {
+        "path": ".claude/skills/web-analyst/SKILL.md",
+        "purpose": "Supporting framework - HEART metrics, website integration assessment"
+      }
+    ]
+  },
+  "target_profile": {
+    "name": "Mattia Filippo De Luca",
+    "brand": "selfrules.org",
+    "role": "Product Manager (13 years experience)",
+    "certifications": ["CSPO", "CSM (Scrum Alliance)"],
+    "services": "B2B professional consulting, brainstorming, PM mentorship",
+    "geographic_scope": "Italy-based, globally available (remote)",
+    "languages": ["Italian", "English"],
+    "constraints": "Solo practitioner - sustainable cadence required"
+  },
+  "known_social_presence": {
+    "LinkedIn": {
+      "url": "https://it.linkedin.com/in/selfrules",
+      "status": "Verified Active",
+      "expected_priority": "Primary platform"
+    },
+    "Twitter_X": {
+      "handle": "@mattiadluca",
+      "status": "Unverified - requires research",
+      "expected_priority": "Secondary platform (if active)"
+    },
+    "Instagram": {
+      "status": "No presence found",
+      "expected_priority": "Not recommended for B2B"
+    },
+    "TikTok": {
+      "status": "No presence found",
+      "expected_priority": "Not recommended for B2B"
+    },
+    "YouTube": {
+      "status": "No presence found",
+      "expected_priority": "Potential future expansion"
+    }
+  },
+  "website_sections": {
+    "Hero": "Value proposition and primary CTA",
+    "Journey": "Timeline showing career progression",
+    "WhatImUpTo": "Current activities and focus areas",
+    "WorkTogether": "Service offerings and booking CTAs",
+    "AskMeAnything": "Community engagement feature"
+  },
+  "deliverables_required": [
+    {
+      "name": "Social Presence Audit",
+      "description": "Multi-channel assessment with Platform Selection Scorecard",
+      "format": "SOCIAL_MEDIA_AUDIT_REPORT.md"
+    },
+    {
+      "name": "Platform Recommendation",
+      "description": "Clear #1 platform with data-driven rationale",
+      "format": "Included in audit report"
+    },
+    {
+      "name": "30-Day Content Calendar",
+      "description": "Cross-platform content plan with topics, formats, timing",
+      "format": "CONTENT_CALENDAR_30_DAY.md"
+    },
+    {
+      "name": "Engagement Playbook",
+      "description": "TRIBE model application for community building",
+      "format": "COMMUNITY_ENGAGEMENT_PLAYBOOK.md"
+    }
+  ],
+  "critical_constraints": {
+    "community_focus": "Prioritize community building over follower acquisition",
+    "no_vanity_metrics": "Follower count alone is NOT a success metric",
+    "sustainable_cadence": "Must be realistic for solo practitioner",
+    "bilingual_strategy": "Address Italian and English content needs",
+    "b2b_context": "All recommendations must fit B2B professional services model"
+  },
+  "created_at": "2026-01-26T11:05:25.800212",
+  "updated_at": "2026-01-26T11:20:00Z"
+}
