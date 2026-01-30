@@ -1,0 +1,368 @@
+{
+  "integrations_researched": [
+    {
+      "name": "social-media-manager skill",
+      "type": "internal_framework",
+      "verified_package": {
+        "name": "N/A - Internal skill definition",
+        "install_command": "N/A - Already present in project",
+        "version": "N/A",
+        "verified": true
+      },
+      "api_patterns": {
+        "imports": ["N/A - Skill is a Claude prompt framework"],
+        "initialization": "Load skill from .claude/skills/social-media-manager/SKILL.md",
+        "key_functions": [
+          "Platform-Audience Fit Matrix (scoring 1-10)",
+          "Platform Selection Scorecard formula",
+          "REACH Metrics Model (Reach, Engagement, Amplification, Conversion, Holding)",
+          "TRIBE Model (Target, Recruit, Invest, Bond, Empower)",
+          "Content Calibration Matrix (4-1-1 Rule adaptation)",
+          "Engagement Rate Benchmarks by platform"
+        ],
+        "verified_against": ".claude/skills/social-media-manager/SKILL.md"
+      },
+      "configuration": {
+        "env_vars": [],
+        "config_files": [".claude/skills/social-media-manager/SKILL.md"],
+        "dependencies": []
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "requires_database": false,
+        "requires_external_api": false
+      },
+      "gotchas": [
+        "This is a strategic framework skill, not a code implementation",
+        "Requires manual analysis of social platforms - no automated API access",
+        "Output format is defined in the skill markdown file"
+      ],
+      "research_sources": [
+        "Local file: .claude/skills/social-media-manager/SKILL.md"
+      ]
+    },
+    {
+      "name": "marketing-manager skill",
+      "type": "internal_framework",
+      "verified_package": {
+        "name": "N/A - Internal skill definition",
+        "install_command": "N/A - Already present in project",
+        "version": "N/A",
+        "verified": true
+      },
+      "api_patterns": {
+        "imports": ["N/A - Skill is a Claude prompt framework"],
+        "initialization": "Load skill from .claude/skills/marketing-manager/SKILL.md",
+        "key_functions": [
+          "Growth Loop Framework (Viral/UGC, Paid, Content/SEO, Referral)",
+          "AARRR Pirate Metrics (Acquisition, Activation, Retention, Revenue, Referral)",
+          "TOFU/MOFU/BOFU Funnel Framework",
+          "Customer Journey Mapping (5 stages)",
+          "Channel Prioritization Framework"
+        ],
+        "verified_against": ".claude/skills/marketing-manager/SKILL.md"
+      },
+      "configuration": {
+        "env_vars": [],
+        "config_files": [".claude/skills/marketing-manager/SKILL.md"],
+        "dependencies": []
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "requires_database": false,
+        "requires_external_api": false
+      },
+      "gotchas": [
+        "Complementary to social-media-manager for growth strategy context",
+        "References Brian Balfour, Andrew Chen, and Gabriel Weinberg methodologies"
+      ],
+      "research_sources": [
+        "Local file: .claude/skills/marketing-manager/SKILL.md"
+      ]
+    },
+    {
+      "name": "web-analyst skill",
+      "type": "internal_framework",
+      "verified_package": {
+        "name": "N/A - Internal skill definition",
+        "install_command": "N/A - Already present in project",
+        "version": "N/A",
+        "verified": true
+      },
+      "api_patterns": {
+        "imports": ["N/A - Skill is a Claude prompt framework"],
+        "initialization": "Load skill from .claude/skills/web-analyst/SKILL.md",
+        "key_functions": [
+          "GA4 Metrics Framework (event-based paradigm)",
+          "User-Centric Attribution Models",
+          "HEART Framework (Happiness, Engagement, Adoption, Retention, Task Success)",
+          "North Star Metric Definition",
+          "Leading vs Lagging Indicators"
+        ],
+        "verified_against": ".claude/skills/web-analyst/SKILL.md"
+      },
+      "configuration": {
+        "env_vars": [],
+        "config_files": [".claude/skills/web-analyst/SKILL.md"],
+        "dependencies": []
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "requires_database": false,
+        "requires_external_api": false
+      },
+      "gotchas": [
+        "Useful for website analytics integration assessment",
+        "Requires access to GA4 data for actual metrics analysis"
+      ],
+      "research_sources": [
+        "Local file: .claude/skills/web-analyst/SKILL.md"
+      ]
+    },
+    {
+      "name": "selfrules.org (Target Website)",
+      "type": "analysis_target",
+      "verified_package": {
+        "name": "selfrules.org",
+        "install_command": "N/A - Target website for analysis",
+        "version": "N/A",
+        "verified": true
+      },
+      "api_patterns": {
+        "imports": ["N/A - Website analysis target"],
+        "initialization": "N/A",
+        "key_functions": [],
+        "verified_against": "WebFetch of selfrules.org homepage"
+      },
+      "website_profile": {
+        "owner": "Mattia Filippo De Luca",
+        "type": "Personal brand / Portfolio / Professional services",
+        "role": "Product Manager (13 years experience)",
+        "certifications": ["CSPO", "CSM"],
+        "current_employer": "QubicaAMF (Bologna, Italy)",
+        "languages": ["Italian (primary)", "English"],
+        "services_offered": [
+          "Strategic consulting (90 minutes)",
+          "Brainstorming sessions (2-3 hours)",
+          "PM mentorship (monthly)"
+        ],
+        "main_sections": [
+          "Hero/Home",
+          "Journey (career timeline, skills matrix)",
+          "Work Together (services)",
+          "Blog (case studies)",
+          "What I'm Up To",
+          "Footer with navigation and contact"
+        ],
+        "geographic_focus": "Italy, available globally (remote)"
+      },
+      "social_media_presence": {
+        "linkedin": {
+          "url": "https://it.linkedin.com/in/selfrules",
+          "username": "selfrules",
+          "verified": true,
+          "profile_type": "Personal professional profile"
+        },
+        "twitter_x": {
+          "handle": "@mattiadluca",
+          "url": "https://x.com/mattiadluca",
+          "verified": false,
+          "notes": "Referenced in website metadata but not prominently found in search results - may be inactive or private"
+        },
+        "instagram": {
+          "verified": false,
+          "notes": "No profile found in research"
+        },
+        "tiktok": {
+          "verified": false,
+          "notes": "No profile found in research"
+        },
+        "youtube": {
+          "verified": false,
+          "notes": "No profile found in research"
+        }
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "requires_database": false,
+        "requires_external_api": false
+      },
+      "gotchas": [
+        "Website is bilingual (Italian/English) - content strategy must consider both languages",
+        "Target audience appears to be B2B (professional services for companies)",
+        "Twitter/X presence uncertain - may need direct verification",
+        "LinkedIn profile exists under 'selfrules' username, not personal name"
+      ],
+      "research_sources": [
+        "WebFetch: https://selfrules.org",
+        "WebSearch: LinkedIn profile verification",
+        "https://it.linkedin.com/in/selfrules"
+      ]
+    },
+    {
+      "name": "LinkedIn Platform",
+      "type": "social_platform_analysis",
+      "verified_package": {
+        "name": "N/A - Platform for manual analysis",
+        "install_command": "N/A",
+        "version": "N/A",
+        "verified": true
+      },
+      "platform_characteristics": {
+        "best_for": "B2B, thought leadership, career",
+        "audience": "Professionals, decision-makers",
+        "content_type": "Long-form, insights, case studies",
+        "posting_cadence": "3-5x/week",
+        "algorithm_signals": [
+          "Dwell time (keep them reading)",
+          "Comments within first hour",
+          "Personal connections engaging",
+          "No external links in post (comment instead)"
+        ],
+        "engagement_benchmarks": {
+          "poor": "<2%",
+          "average": "2-4%",
+          "good": "4-6%",
+          "excellent": ">6%"
+        }
+      },
+      "api_patterns": {
+        "imports": ["N/A - No programmatic API access required"],
+        "initialization": "Manual platform analysis",
+        "key_functions": [],
+        "verified_against": "social-media-manager skill documentation"
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "requires_api_key": false,
+        "access_method": "Manual browser-based analysis"
+      },
+      "gotchas": [
+        "LinkedIn API access is restricted - manual analysis required",
+        "Profile under 'selfrules' username shows Product Manager credentials",
+        "Likely PRIMARY platform recommendation for B2B professional services"
+      ],
+      "research_sources": [
+        "Local file: .claude/skills/social-media-manager/SKILL.md",
+        "WebSearch: LinkedIn profile verification"
+      ]
+    },
+    {
+      "name": "Twitter/X Platform",
+      "type": "social_platform_analysis",
+      "verified_package": {
+        "name": "N/A - Platform for manual analysis",
+        "install_command": "N/A",
+        "version": "N/A",
+        "verified": true
+      },
+      "platform_characteristics": {
+        "best_for": "Real-time, tech, commentary",
+        "audience": "Tech-savvy, news followers",
+        "content_type": "Short-form, threads, hot takes",
+        "posting_cadence": "2-5x/day",
+        "algorithm_signals": [
+          "Replies and quote tweets",
+          "Profile visits after engagement",
+          "Likes from accounts you follow",
+          "Thread completion rate"
+        ],
+        "engagement_benchmarks": {
+          "poor": "<0.5%",
+          "average": "0.5-1%",
+          "good": "1-3%",
+          "excellent": ">3%"
+        }
+      },
+      "api_patterns": {
+        "imports": ["N/A - No programmatic API access required"],
+        "initialization": "Manual platform analysis",
+        "key_functions": [],
+        "verified_against": "social-media-manager skill documentation"
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "requires_api_key": false,
+        "access_method": "Manual browser-based analysis"
+      },
+      "gotchas": [
+        "@mattiadluca handle referenced in website metadata but activity level uncertain",
+        "Twitter/X API is now heavily restricted and paid",
+        "May be a SECONDARY platform for tech/PM community engagement"
+      ],
+      "research_sources": [
+        "Local file: .claude/skills/social-media-manager/SKILL.md",
+        "WebSearch: Twitter profile investigation"
+      ]
+    }
+  ],
+  "unverified_claims": [
+    {
+      "claim": "Twitter/X profile @mattiadluca is active and publicly accessible",
+      "reason": "Profile referenced in website metadata but not found prominently in web search results - may be inactive, renamed, or private",
+      "risk_level": "low",
+      "mitigation": "Direct verification by visiting https://x.com/mattiadluca required during analysis phase"
+    },
+    {
+      "claim": "No Instagram, TikTok, or YouTube presence exists",
+      "reason": "No profiles found in web search, but owner may have private accounts or accounts under different names",
+      "risk_level": "low",
+      "mitigation": "Comprehensive platform search during audit phase"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": 1,
+      "recommendation": "This is a STRATEGIC ANALYSIS task, not a technical implementation",
+      "rationale": "No npm packages, APIs, or code integrations required. Task uses internal skill frameworks for methodology.",
+      "priority": "critical"
+    },
+    {
+      "id": 2,
+      "recommendation": "LinkedIn should likely be the PRIMARY platform focus",
+      "rationale": "Target audience is B2B (companies needing PM services), verified profile exists at linkedin.com/in/selfrules, platform-audience fit is highest for professional services",
+      "priority": "high"
+    },
+    {
+      "id": 3,
+      "recommendation": "Use the social-media-manager skill's Platform Selection Scorecard",
+      "rationale": "Provides objective scoring methodology: (Audience × 2 + Content + Gap + Resources + Alignment) / 7",
+      "priority": "high"
+    },
+    {
+      "id": 4,
+      "recommendation": "Content strategy must be bilingual (Italian/English)",
+      "rationale": "Website supports both languages; social strategy should consider primary audience language while maintaining reach",
+      "priority": "medium"
+    },
+    {
+      "id": 5,
+      "recommendation": "Focus on community building vs vanity metrics per requirements",
+      "rationale": "Use TRIBE model and engagement quality hierarchy from skill framework to ensure strategy prioritizes meaningful interactions",
+      "priority": "high"
+    },
+    {
+      "id": 6,
+      "recommendation": "Assess website-social bidirectional integration",
+      "rationale": "Requirements explicitly ask for evaluation of how website and social reinforce each other - check for social proof, CTAs, and content syndication",
+      "priority": "medium"
+    }
+  ],
+  "task_classification": {
+    "type": "strategic_analysis",
+    "requires_code": false,
+    "requires_external_packages": false,
+    "requires_api_integration": false,
+    "requires_infrastructure": false,
+    "primary_deliverables": [
+      "Social presence audit with score per channel",
+      "Primary platform recommendation with rationale",
+      "30-day cross-platform content calendar",
+      "Engagement strategy for community building"
+    ],
+    "methodology_source": "Internal Claude skills (social-media-manager, marketing-manager, web-analyst)"
+  },
+  "context7_libraries_used": [],
+  "research_notes": "This task is fundamentally different from typical development tasks. It requires applying strategic frameworks from internal skills to analyze a real website (selfrules.org) and its social presence. No external libraries, SDKs, or APIs need integration - the 'integration' is the application of methodology to produce strategic deliverables.",
+  "created_at": "2025-01-26T12:00:00Z"
+}

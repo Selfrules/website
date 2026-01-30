@@ -1,0 +1,109 @@
+{
+  "complexity": "standard",
+  "workflow_type": "investigation",
+  "confidence": 0.85,
+  "reasoning": "Strategic analysis and research task producing deliverables (audit reports, content calendar). No code modifications required. Needs external research via web analysis of selfrules.org and social media channels, but follows established consulting frameworks.",
+
+  "analysis": {
+    "scope": {
+      "estimated_files": 1,
+      "estimated_services": 0,
+      "is_cross_cutting": false,
+      "notes": "Output is a strategic deliverable document, not code changes. Single output file with audit report and content plan."
+    },
+    "integrations": {
+      "external_services": [],
+      "new_dependencies": [],
+      "research_needed": true,
+      "notes": "No code integrations needed. Research required to analyze website content, structure, social media presence, and social channel integration patterns."
+    },
+    "infrastructure": {
+      "docker_changes": false,
+      "database_changes": false,
+      "config_changes": false,
+      "notes": "Pure analysis/consulting deliverable - no infrastructure impact."
+    },
+    "knowledge": {
+      "patterns_exist": false,
+      "research_required": true,
+      "unfamiliar_tech": [],
+      "notes": "Requires social media strategy domain expertise. Web analysis of selfrules.org needed. Skill file 'social-media-manager' should provide frameworks and methodology."
+    },
+    "risk": {
+      "level": "low",
+      "concerns": [
+        "Quality of analysis depends on accessible data",
+        "Recommendations need to be actionable and realistic"
+      ],
+      "notes": "No code risk. Main concern is producing actionable, high-quality strategic recommendations."
+    }
+  },
+
+  "recommended_phases": [
+    "discovery",
+    "requirements",
+    "research",
+    "context",
+    "spec_writing",
+    "planning",
+    "validation"
+  ],
+
+  "phase_notes": {
+    "discovery": "Locate and read social-media-manager skill file for methodology",
+    "requirements": "Already completed - clear deliverables defined",
+    "research": "Analyze selfrules.org website structure, content, CTAs, and current social media integration. Identify existing social channels.",
+    "context": "Map website content to social media opportunities. Understand target audience from website positioning.",
+    "spec_writing": "Define audit scoring system, content pillar framework, platform prioritization criteria",
+    "planning": "Structure 30-day content calendar, engagement tactics, community building strategy",
+    "validation": "Ensure deliverables are complete, actionable, and aligned with community-building focus (not vanity metrics)"
+  },
+
+  "flags": {
+    "needs_research": true,
+    "needs_self_critique": false,
+    "needs_infrastructure_setup": false
+  },
+
+  "special_considerations": {
+    "task_type": "strategic_analysis",
+    "output_type": "consulting_deliverable",
+    "skill_required": "social-media-manager",
+    "notes": "This is a consulting/strategy task, not code implementation. Standard complexity due to multi-step research process but contained scope with clear deliverables."
+  },
+
+  "validation_recommendations": {
+    "risk_level": "trivial",
+    "skip_validation": true,
+    "minimal_mode": true,
+    "test_types_required": [],
+    "security_scan_required": false,
+    "staging_deployment_required": false,
+    "reasoning": "Pure analysis/document deliverable with no code changes. No functional code modifications means no testing required. Validation should focus on deliverable completeness and quality, not automated tests."
+  },
+
+  "deliverables_checklist": [
+    {
+      "name": "Social Presence Audit",
+      "description": "Multi-channel assessment with scoring system per platform",
+      "format": "Structured report with scores"
+    },
+    {
+      "name": "Platform Prioritization",
+      "description": "Recommended #1 platform with data-driven rationale",
+      "format": "Analysis with recommendation"
+    },
+    {
+      "name": "30-Day Content Plan",
+      "description": "Cross-platform content calendar",
+      "format": "Calendar/schedule format"
+    },
+    {
+      "name": "Engagement Strategy",
+      "description": "Community building framework (not follower chasing)",
+      "format": "Tactical playbook"
+    }
+  ],
+
+  "created_at": "2025-01-26T17:45:00Z"
+}

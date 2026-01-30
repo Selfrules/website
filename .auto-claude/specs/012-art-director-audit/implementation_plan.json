@@ -1,0 +1,159 @@
+{
+  "feature": "Art Director Audit",
+  "workflow_type": "investigation",
+  "description": "Leggi skill da art director e analizza selfrules.org come Art Director con 15+ anni di esperienza.\n\nAUDIT RICHIESTO:\n- Valuta coerenza visiva e storytelling attraverso il design\n- Analizza se il visual comunica il posizionamento corretto\n- Identifica gap tra \"chi dice di essere\" e \"come appare\"\n- Verifica memorabilità: cosa resta impresso dopo 5 secondi?\n- Confronta con personal brand di successo (trova riferimenti)\n\nOUTPUT:\n1. Assessment brutalmente onesto dell'identità visiva attuale\n2. Cosa comunica il sito oggi vs cosa DOVREBBE comunicare\n3. Creative direction per un rebrand che spacca\n4. 3 concept visivi per elevare il brand al livello successivo",
+  "created_at": "2026-01-26T09:51:25.337Z",
+  "updated_at": "2026-01-26T20:59:59.937Z",
+  "status": "in_progress",
+  "planStatus": "in_progress",
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Site Analysis & First Impressions",
+      "subtasks": [
+        {
+          "id": "1.1",
+          "description": "Access selfrules.org and capture 5-second first impression test (attention grabbers, emotional response, memorability)",
+          "status": "completed",
+          "notes": "Completed 5-second first impression test. Created comprehensive first impressions document at output/01-first-impressions.md covering: attention grabbers (headline dominance, failure narrative), emotional responses (recognition, relief, trust, curiosity), memorability assessment (8/10), quality/value perception (premium-approachable), and visual style (neobrutalist, stripped-down). Key findings: strong verbal positioning but weaker visual brand mark.",
+          "updated_at": "2026-01-26T10:32:26.539135+00:00"
+        },
+        {
+          "id": "1.2",
+          "description": "Document current visual elements: color palette usage, typography hierarchy, layout patterns, imagery style",
+          "status": "completed",
+          "notes": "Completed comprehensive visual elements documentation at output/02-visual-elements.md covering: 1) Color palette (6 primary brand colors + surfaces), 2) Typography hierarchy (3 font families, mobile-first scale), 3) Layout patterns (8pt grid, container widths, breakpoints, brutalist borders/shadows), 4) Imagery style analysis (minimal/absent - typography-driven design with geometric shapes and icons only), 5) Component pattern summary, 6) Visual element gaps identified (no logo, no photography, duplicate components), 7) Design System Health Score: 6.7/10. Key findings: Strong typographic system but weak visual content strategy.",
+          "updated_at": "2026-01-26T10:37:15.214217+00:00"
+        },
+        {
+          "id": "1.3",
+          "description": "Review design system baseline from tailwind.config.ts and compare against live implementation",
+          "status": "completed",
+          "notes": "Design system baseline review completed. Found critical fragmentation issues: duplicate component systems (6 components), shadow value mismatches, mixed token usage. Overall adherence score: 6.3/10. Deliverable: output/03-design-system-baseline.md. Commit: 05a575c",
+          "updated_at": "2026-01-26T11:03:24.506843+00:00"
+        }
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "Systematic Visual Audit",
+      "subtasks": [
+        {
+          "id": "2.1",
+          "description": "Analyze visual hierarchy using Z/F-pattern eye flow mapping, identify focal points (must be clear within 3 sec)",
+          "status": "completed",
+          "notes": "Completed Z-Pattern and F-Pattern eye flow mapping analysis. Created comprehensive visual hierarchy document at output/04-visual-hierarchy-analysis.md. Key findings: (1) Primary focal point passes 3-second test at ~2.5s, (2) Overall hierarchy score 7.8/10, (3) Strong typography/color hierarchy, (4) Weaknesses in visual brand anchoring and competing decorative elements. Commit pending.",
+          "updated_at": "2026-01-26T11:07:29.470851+00:00"
+        },
+        {
+          "id": "2.2",
+          "description": "Calculate Brand Consistency Score (/25): Logo usage, Color adherence, Typography, Imagery style, Voice & tone (each /5)",
+          "status": "completed",
+          "notes": "Brand Consistency Score calculated: 18.5/25 (74%). Breakdown: Logo Usage 2.5/5 (functional but not iconic), Color Adherence 4.0/5 (strong semantic system), Typography 4.5/5 (excellent hierarchy), Imagery Style 3.0/5 (lacks photography), Voice & Tone 4.5/5 (authentic and distinctive). Key issues: logo needs visual memorability, floating shapes need opacity reduction, design system has minor fragmentation. Deliverable: output/05-brand-consistency-score.md. Commit: 64ba8ee",
+          "updated_at": "2026-01-26T11:12:43.515522+00:00"
+        },
+        {
+          "id": "2.3",
+          "description": "Evaluate cross-touchpoint consistency: Homepage, Blog, About/Journey, Contact/CTA sections",
+          "status": "completed",
+          "notes": "Cross-touchpoint consistency evaluated. Score: 7.8/10. Strengths: Typography (10/10), Section headers (9/10), CTA buttons (9/10), Border treatment (10/10). Weaknesses: Decorative element opacity variance (5/10), CollaborationCard uses vanilla rounded-lg. Missing Blog touchpoint on homepage. Deliverable: output/06-cross-touchpoint-consistency.md. Commit: b8e0b7a",
+          "updated_at": "2026-01-26T11:17:45.241713+00:00"
+        },
+        {
+          "id": "2.4",
+          "description": "Conduct gap analysis: 'What site says' vs 'What site shows' - identify authenticity disconnects",
+          "status": "completed",
+          "notes": "Gap analysis complete. Overall gap severity 7/10. Seven major authenticity disconnects identified: (1) Translator vs Gatekeeper (8/10), (2) Pragmatic vs Aesthetic (6/10), (3) Vulnerable vs Faceless (9/10 - most severe), (4) Clarity vs Noise (7/10), (5) Harmony vs Fragmentation (5/10), (6) Expert vs Unproven (8/10), (7) Accessible vs Trend-Forward (6/10). Average alignment gap: -3.9 points (verbal 8.7/10, visual 4.8/10). Deliverable: output/07-gap-analysis.md. Phase 2 (Systematic Visual Audit) now fully complete.",
+          "updated_at": "2026-01-26T11:22:54.231819+00:00"
+        }
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Competitive Benchmarking",
+      "subtasks": [
+        {
+          "id": "3.1",
+          "description": "Research 3-5 successful personal brand websites for benchmarking comparison",
+          "status": "completed",
+          "notes": "Researched and analyzed 5 successful personal brand websites: Josh W. Comeau (developer educator), Tobias van Schneider (creative director), Sara Soueidan (inclusive design engineer), Lynn Fisher (CSS artist), and Dan Mall (design systems coach). Comprehensive comparison matrix created with visual identity scores, success patterns identified (signature elements, human presence, social proof, values display), and competitive positioning map. selfrules.org scores 6.2/10 vs benchmark average 8.7/10. Key gaps: no signature visual element, no human face, no social proof. Deliverable: output/08-competitive-benchmarking.md",
+          "updated_at": "2026-01-26T11:27:47.771266+00:00"
+        },
+        {
+          "id": "3.2",
+          "description": "Analyze competitor positioning, visual execution, and differentiation factors",
+          "status": "completed",
+          "notes": "Completed competitor positioning, visual execution, and differentiation analysis. Comprehensive document at output/09-competitor-positioning-analysis.md covers: 1) Positioning statements for all 5 benchmarks using standard template, 2) Visual execution rubric and scores (selfrules.org: 5.4/10 vs benchmark avg 8.7/10), 3) 5R Differentiation Framework analysis (selfrules.org: 39/50 vs benchmark avg 44/50), 4) Competitive advantage mapping, 5) Three strategic positioning paths identified (Proof-in-Design, Values-First Expert, Confident Authority). Key insight: selfrules.org scores highest in Relevance (10/10) but lowest in Reality (4/10) - positioning is excellent, proof is absent.",
+          "updated_at": "2026-01-26T16:02:42.723278+00:00"
+        },
+        {
+          "id": "3.3",
+          "description": "Rate Voice Dimensions (1-10): Formality, Energy, Humor, Authority - compare against benchmarks",
+          "status": "completed",
+          "notes": "Completed Voice Dimensions analysis at output/10-voice-dimensions.md. Rated selfrules.org and 5 benchmarks on Formality, Energy, Humor, Authority (1-10 scale). selfrules.org scores: Formality 3/10, Energy 6/10, Humor 5/10, Authority 6/10 (avg 5.0 vs benchmark avg 5.8). Key finding: selfrules.org has no extreme voice position - all dimensions mid-range (3-6) creating pleasant but forgettable voice. Critical gap: Authority at 6/10 when expert-positioned competitors (Dan Mall, Sara Soueidan) score 8/10. Recommendation: increase Authority signals while maintaining conversational warmth. Phase 3 (Competitive Benchmarking) now complete.",
+          "updated_at": "2026-01-26T16:02:42.780913+00:00"
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "Creative Direction & Concepts",
+      "subtasks": [
+        {
+          "id": "4.1",
+          "description": "Develop Creative Direction Brief: Objective, audience, core message, tone/mood, mandatories, anti-inspirations",
+          "status": "completed",
+          "notes": "Completed Creative Direction Brief at output/11-creative-direction-brief.md. Contains: (1) Triple objectives (business: 30% lead conversion increase, communication: accessible expertise, emotional: relieved confidence), (2) Detailed audience psychographics with decision-maker focus, (3) Core message: \"I bridge the gap between design, code, and business—and I have the failures to prove it\", (4) Tone shift: \"pragmatic peer\" → \"approachable expert\" with Authority 6→8, (5) Mood direction: Professional warmth with edge (Josh Comeau + Sara Soueidan blend), (6) 4 mandatory additions (human presence, social proof, case visual, signature element), (7) 3 anti-inspiration categories (portfolio showcase, generic consultant, trend slave traps), (8) Creative guardrails (stressed CTO test, translator test, 5-second proof test). Commit: 55fce46",
+          "updated_at": "2026-01-26T16:07:41.625431+00:00"
+        },
+        {
+          "id": "4.2",
+          "description": "Create 3 distinct Visual Concepts with: name, rationale, visual elements, emotional target, implementation notes, risk/benefit",
+          "status": "completed",
+          "notes": "Completed 3 distinct Visual Concepts document at output/12-visual-concepts.md. Contains: (1) \"The Bridge\" concept - Josh Comeau-inspired proof-in-design approach with bridge metaphor, visual demonstrations of translation, chaos→clarity gradient. Gap closure: +3 to +4. (2) \"The Trusted Expert\" concept - Sara Soueidan-inspired credibility-first approach with human presence, social proof, warm professionalism. Gap closure: +2 to +3. (3) \"Refined Brutal\" concept - Tobias-inspired softened brutalism with maintained identity, reduced harshness, design-forward targeting. Gap closure: +1 to +2. Strategic recommendation: Start with Concept 2 elements (quick trust wins), evolve toward Concept 1 (proof-in-design). Commit: 27067f7",
+          "updated_at": "2026-01-26T16:12:54.328282+00:00"
+        },
+        {
+          "id": "4.3",
+          "description": "Reconstruct positioning statement using template: For [TARGET] who [NEED], [BRAND] is the [CATEGORY] that [BENEFIT] because [PROOF]",
+          "status": "completed",
+          "notes": "Completed comprehensive positioning statement reconstruction at output/13-positioning-statement.md. Using the For/Who/Is/That/Because template, constructed: \"For overwhelmed decision-makers (CTOs, VPs of Product) at growth-stage companies who have cross-functional teams that speak different languages, Mattia (selfrules) is the translator PM that brings clarity to chaos and delivers solutions everyone understands, because 13 years of failing across design, dev, and PM made him fluent in all three.\" Key finding: Verbal positioning scores 8.6/10, Visual proof scores 4.2/10 - positioning is excellent, proof is absent. Document includes analysis of each element, positioning score card, competitor comparison, context variations, and priority visual additions needed. Phase 4 (Creative Direction & Concepts) now complete.",
+          "updated_at": "2026-01-26T16:17:07.956211+00:00"
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "Report Compilation & Recommendations",
+      "subtasks": [
+        {
+          "id": "5.1",
+          "description": "Compile Executive Summary: Overall quality assessment, top 3 issues, 10x opportunity identification",
+          "status": "completed",
+          "notes": "Compiled comprehensive Executive Summary at output/14-executive-summary.md. Document covers: (1) Overall quality assessment - 18.5/25 Brand Consistency, 7.8/10 Visual Hierarchy, -3.9 verbal-visual gap, (2) Top 3 issues: Vulnerable vs Faceless (9/10 severity), Translator vs Gatekeeper (8/10), Expert vs Unproven (8/10), (3) 10x opportunity: Proof-in-Design approach making website demonstrate rather than describe value. Key finding: Positioning is excellent (8.7/10), visual proof is absent (4.2/10) - don't change positioning, prove it visually.",
+          "updated_at": "2026-01-26T16:20:13.731029+00:00"
+        },
+        {
+          "id": "5.2",
+          "description": "Create Visual Hierarchy Table with element-by-element effectiveness ratings",
+          "status": "completed",
+          "notes": "Created comprehensive Visual Hierarchy Table at output/15-visual-hierarchy-table.md. Document includes: (1) Master visual hierarchy table with 50+ elements across all sections rated by hierarchy level and effectiveness, (2) Element effectiveness summary by category (highest performing 8-10/10, needs improvement 5-7/10, critical gaps <6/10), (3) 3-second test results table, (4) Eye flow pattern analysis (Z-pattern and F-pattern), (5) Opacity consistency table with current vs recommended values, (6) Section score summary with primary issues and quick fixes, (7) Action priority matrix (P1-P3) with effort and impact ratings. Key findings: Overall visual hierarchy score 7.8/10, typography 10/10, hero headline 9/10, floating shapes 5/10 (too prominent), brand visual mark 5/10 (critical gap). P1 priorities: reduce Hero floating shape opacity from 0.70-0.80 to 0.30, fix CollaborationCard border-radius.",
+          "updated_at": "2026-01-26T16:24:47.806037+00:00"
+        },
+        {
+          "id": "5.3",
+          "description": "Develop Priority Action Plan: Quick wins (<1 day), Strategic (1-2 weeks), Transformational (1+ months)",
+          "status": "completed",
+          "notes": "Created comprehensive Priority Action Plan document at output/16-priority-action-plan.md. Contains: (1) Tier 1 Quick Wins: 8 actions (<1 day, 3-4 hours total, +0.5 points) - opacity reduction, border-radius fix, spacing, border softening, badge addition, shadow standardization, opacity normalization, token fixes. (2) Tier 2 Strategic: 10 actions (1-2 weeks, 20-30 hours, +1.5 points) - headshot, trust bar, testimonial, signature element, journey card, TL;DR summaries, before/after visual, component consolidation, section spacing, blog section. (3) Tier 3 Transformational: 8 actions (1+ months, 40-60 hours, +1.5 points) - proof-in-design system, brand mark, case studies, photography, values section, testimonials, documentation, accessibility audit. Implementation roadmap spans 3 months with 4 phases. Target: Visual brand 4.8/10 → 8.3/10. Commit: 6e6af32",
+          "updated_at": "2026-01-26T21:01:00.821296+00:00"
+        },
+        {
+          "id": "5.4",
+          "description": "Finalize all 7 deliverables into structured audit report",
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "last_updated": "2026-01-26T21:01:00.821296+00:00"
+}
